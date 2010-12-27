@@ -1,0 +1,54 @@
+<% if @current_object.exhibitions_users.first %>
+<% if @current_user.has_system_role('admin') %>
+  <table id="artists">
+  <thead>
+  <tr>
+    <th>Full name</th>
+    <th>Email</th>
+    <th>State</th>
+  </tr>
+  </thead>
+
+  <% form_for 'prices_list', :url => set_prices_admin_exhibitions_users_url, :html => { :method => :post } do %>
+  <tbody>
+  <% @current_object.exhibitions_users.all(:include =>[:user => [:profile]]).each do |ue| %>
+  <tr>
+    <td><%=h ue.user.profile.full_name %></td>
+    <td><%=h ue.user.email %></td>
+    <td><%=h ue.state %></td>
+    <td><%= link_to 'Show', admin_profile_path(ue.user.profile.id) %></td>
+    <% if ue.state == 'created' || ue.state == 'invitation_sent' %>
+      <td><%= link_to "#{ue.invited_at ? 'Resend' : 'Send'} invitation", send_invitation_admin_exhibitions_user_path(ue.id) %></td>
+      <td><%= link_to 'Accept', invoicing_admin_invoices_url(:purchasable_type => ue.class.to_s, :purchasable_id => ue.id) %></td>
+      <td><%= link_to 'Refuse', update_state_admin_exhibitions_user_path(ue.id, :state => 'refused') %></td>
+    <% elsif ue.state == 'accepted' %>
+      <td><%= link_to 'Refuse', update_state_admin_exhibitions_user_path(ue.id, :state => 'refused') %></td>
+      <td><%= link_to 'Validate', update_state_admin_exhibitions_user_path(ue.id, :state => 'validated') %></td>
+    <% elsif ue.state == 'refused' %>
+      <td><%= link_to 'Force Accept', update_state_admin_exhibitions_user_path(ue.id, :state => 'accepted') %></td>
+    <% elsif ue.state == 'validated' || ue.state == 'unpublished' %>
+      <td><%= link_to 'Publish', update_state_admin_exhibitions_user_path(ue.id, :state => 'published') %></td>
+    <% elsif ue.state == 'published' %>
+      <td><%= link_to 'Unpublish', update_state_admin_exhibitions_user_path(ue.id, :state => 'unpublished') %></td>
+    <% end %>
+    <td><%= text_field_tag "prices_list[#{ue.id}]", ue.price, :disabled => (['accepted', 'validated', 'published'].include?(ue.state)), :size => 8 %></td>
+  </tr>
+<% end %>
+  </tbody>
+  <%= submit_tag  %>
+  <% end %>
+  <tfoot>
+    <tr style="display:none;">
+      <td colspan="5">
+	            No rows match the filter...
+      </td>
+    </tr>
+  </tfoot>
+
+</table>
+<% else %>
+  <%= @current_object.users.all(:include => [:profile]).map{ |e| e.profile.full_name }.join(', ') %>
+<% end %>
+<% else %>
+  No users already added.
+<% end %>

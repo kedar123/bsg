@@ -1,0 +1,29 @@
+<div id="container">
+  <% if @profile %>
+    <div id="description">
+      <div id="content">
+        <!--<%#= render :partial => 'artists/artists_name_left' %>-->
+        <h2><%= @profile.full_name %></h2>
+        <div id="exhibs_list">
+          <%= @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") }.join(' | ') %>
+        </div>
+        <p>
+          <%= @exhibition.title %>
+        </p>
+        <p>
+          <%= @exhibition.description %>
+        </p>
+        <p>
+          <%= link_to @profile.website, @profile.website, :style => "color:black;", :target => "_blank" %>
+        </p>
+      </div>
+    </div>
+    <div id="list">
+      <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
+        <%= render :partial => 'exhibitions/artwork_show', :object => a %>
+      <% end %>
+    </div>
+  <% else %>
+    <p></p>
+  <% end %>
+</div>

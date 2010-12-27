@@ -1,0 +1,9 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: gallery
+  pool: 5
+  username: root
+  password: shriganesh
+  socket: /var/run/mysqld/mysqld.sock

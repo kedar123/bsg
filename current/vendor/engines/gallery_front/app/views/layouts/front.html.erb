@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>BSG</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/gallery_assets/gallery_front.css"/>
+<script src="/gallery_assets/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".iteam").hover(
+    function() {
+      $(this).children().first().show('slow');
+    },
+    function() {
+      $(this).children().first().hide('slow');
+    }
+  )
+  });
+</script> 
+
+</head>
+
+<!-- Logo and Navigation -->
+<body>
+  <%#= flash_message_manager %>
+  <%=flash[:notice]%>
+<div id="header">
+        <div id="logo">
+             <a href="/"><img src="/gallery_assets/logo.png"></a>
+	        <div id="twolines">
+              <%= current_user ? "You are logged as #{@current_user.profile.full_name}" : '' %>
+            </div>
+        </div>
+	    <div id="menu">
+		    <div id="nav_1">
+		        <ul>
+
+			    <%if  params[:controller] == "exhibitions" and params[:action] == "current"%>	
+			    <li ><a href="/current" class="liselected">Current</a></li>
+			    <%else%>
+			    <li><a href="/current">Current</a></li>
+			    <%end%>
+			    <%if  params[:controller] == "exhibitions" and params[:action] == "future"%>	
+			    <li><a href="/future" class="liselected">Future</a></li>
+		             <%else%>	
+			     <li><a href="/future">Future</a></li>
+			     <%end%>
+			     <%if  params[:controller] == "exhibitions" and params[:action] == "next"%>	
+			    <li><a href="/next" class="liselected">Next</a></li>
+		             <%else%>	
+			     <li><a href="/next" >Next</a></li>
+			     <%end%>
+			     <%if  params[:controller] == "artists" and params[:action] == "show"%>	
+			    <li><a href="/artists" class="liselected">All Artists</a></li>
+		             <%else%>	
+			     <li><a href="/artists">All Artists</a></li>
+			     <%end%>
+				<%if  params[:controller] == "artists" and params[:action] == "genres"%>	
+			    <li><a href="/genres" class="liselected">By Genre</a></li>
+		             <%else%>	
+			     <li><a href="/genres">By Genre</a></li>
+			     <%end%>
+		        	
+		        	
+		        	
+				
+		        </ul>
+		    </div>
+    		<div id="nav_2">
+        		<ul>
+			<%if  params[:controller] == "app_homes" and params[:action] == "index"%>	
+                        <li><a href="/app_homes" class="liselected">Applications</a></li>
+			<%else%>
+			<li><a href="/app_homes"  >Applications</a></li>
+			<%end%>
+			<%if  ((params[:controller] == "artists") and (params[:action] == "groups" or params[:action] == "tojoin"))%>	
+                        <li><a href="/groups" class="liselected">Group Shows</a></li>
+            		<%else%>
+			        <li><a href="/groups" >Group Shows</a></li>
+			<%end%>
+			
+			<%if  params[:controller] == "competitions" and params[:action] == "show"%>	
+			<li><a href="/competitions" class="liselected">Competitions</a></li>
+			<%else%>
+			<li><a href="/competitions">Competitions</a></li>
+			<%end%>
+                        <% if @current_user.nil? %>
+		  	<%if  params[:controller] == "visitors" and params[:action] == "new"%>	
+			      <li><a href="/subscribe" class="liselected">Register</a></li>
+			<%else%>
+				<%if params[:controller] =="admin/users" and params[:action] == "create"%>
+				<li><a href="/subscribe" class="liselected">Register</a></li>
+				<%else%>
+				
+				<li><a href="/subscribe" >Register</a></li>
+				<%end%>
+
+			<%end%>
+		  	<%if  params[:action] == "login"%>	
+                          	<li><a href="/login" class="liselected">Login</a></li>
+			<%else%>
+				<li><a href="/login">Login</a></li>
+			<%end%>
+                        <% else %>
+                          <li><a href="/admin/profiles/<%=current_user.id%>">Back Access</a></li>
+                          <li><a href="/logout">Logout</a></li>
+                        <% end %>
+            			<%#*<li><a href="#">Extras</a></li>%>
+        		</ul>
+		    </div>
+         <div id="nav_3">
+		        <ul>
+			<%if  params[:controller] == "visitors" and params[:action] == "mailing_list"%>	
+				<li><a href="/mailing_list" class="liselected">Mailing List</a></li>
+			<%else%>
+				
+				<%if params[:controller] == "visitors" and params[:action] == "adding_profile" and params[:profile][:studios].blank?%>	
+			       <li><a href="/mailing_list" class="liselected">Mailing List</a></li>
+			      <%else%>		
+				<li><a href="/mailing_list" >Mailing List</a></li>
+			      <%end%>	
+			        
+			<%end%>
+			<%if  params[:controller] == "booksshops" and params[:action] == "index"%>	
+				<li><a href="/booksshops" class="liselected">Bookshop</a></li>
+			<%else%>
+				<li><a href="/booksshops">Bookshop</a></li>
+			<%end%>
+
+			<%if  params[:controller] == "visitors" and params[:action] == "studios"%>	
+				<li><a href="/studios" class="liselected">Studios</a></li>
+			<%else%>
+			     <%if params[:controller] == "visitors" and params[:action] == "adding_profile" and !params[:profile][:studios].blank?%>	
+			       <li><a href="/studios" class="liselected">Studios</a></li>
+			      <%else%>		
+				<li><a href="/studios">Studios</a></li>
+			      <%end%>	
+			<%end%>
+
+			<%if  params[:controller] == "drawings" and params[:action] == "index"%>	
+				<li><a href="/drawings" class="liselected">Life Drawing</a></li>
+			<%else%>
+				<li><a href="/drawings">Life Drawing</a></li>
+			<%end%>
+			<%if  params[:controller] == "links" and params[:action] == "index"%>	
+				<li><a href="/links" class="liselected">Links</a></li>
+			<%else%>
+				<li><a href="/links" >Links</a></li>
+			<%end%>
+		        <%#*<li><a href="#">Extras</a></li>%>
+		        </ul>
+		</div>
+	</div>
+</div>	
+    <%= yield %>
+
+<!-- Footer -->
+<div id="footer">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+brunswick street gallery I mark@bsgart.com.au I bsgart.com.au I ph 0419 390 478 I 10am-10pm 7 days a week
+</div>
+</body>

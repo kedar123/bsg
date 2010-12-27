@@ -1,0 +1,54 @@
+<div id="specific_menu" >
+<%if  @pramoting_stuff%>
+	<%for pramotingstuff in @pramoting_stuff%>
+		<div id="promo_top">
+			<div class="content">
+				<h2>
+					<%if  pramotingstuff.link.blank?%>
+					<div class="pramotion_heading" >
+					     <%= pramotingstuff.title %>
+					 </div>    
+					<%else%>
+						<%if  pramotingstuff.link == "http://"%>
+						<div class="pramotion_heading" >
+						<%= pramotingstuff.title %>
+						</div>
+						<%else%>
+						<a href="<%=pramotingstuff.link%>" target="_blank" style="color:#B0171F">
+						
+						<%=  pramotingstuff.title %>
+						
+						</a>
+						<%end%>
+						
+							
+					<%end%>
+					</h2>
+					<p><%=pramotingstuff.description%>
+					</p>
+			</div>  
+		</div>
+	  <%end%>
+<%end%>
+</div> 
+
+
+
+
+
+
+
+
+
+</div>
+
+<div id="container">
+   
+    <div id="list">
+      <%for  frontendpics in @front_image%>
+        <div id="iteam_image">
+        <img src="/system/front_end_pics/<%=frontendpics.id%>/large/<%=frontendpics.front_end_pics_file_name%>" alt="Not Found" height="352" width="600">
+        </div>
+     <%end%> 
+    </div>
+</div>

@@ -1,0 +1,46 @@
+</div>
+
+<div id="container">
+    <div id="description">
+      <div id="content_mail">
+        <h2><%= 'Receive the newsletter' %></h2>
+        <p>
+          Fill up that form to receive our newsletter ....
+        </p>
+        
+      </div>
+    </div>
+    <div id="list" >
+      <% form_for @profile, :url => '/adding_profile', :html => { :method => :post, :class => 'new_profile' } do |f| %>
+       <p style="padding-top:0px;margin-top:0px;">First name</p>
+      <label><input name="profile[first_name]" type="text" id="first_name" size="50" />
+      </label>
+      
+      <p>Last name</p>
+      <label><input name="profile[last_name]" type="text" id="last_name" size="50" />
+      </label>
+      
+<p>Address</p>
+      <label><input name="profile[address]" type="text" id="address" size="50" />
+      </label>
+      
+<p>Suburb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post Code</p>
+
+      <label><input name="profile[suburb]" type="text" id="suburb" size="30" />
+      </label>
+      <input name="profile[zip_code]" type="text" id="zip_code" size="17" />
+      <p>Phone</p>
+
+      <label><input name="profile[phone_number]" type="text" id="phone_number" size="50" />
+      </label>
+      <p>Email</p>
+
+      <label><input name="profile[email_address]" type="text" id="email" size="50" />
+      </label>
+      
+    <p><button name="submit" id="next">>>submit</button></p>
+  </div>
+
+  <% end %>
+    </div>
+</div>

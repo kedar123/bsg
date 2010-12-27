@@ -1,0 +1,27 @@
+
+
+<div class="objectList small">
+	<div class="blockCornerLeft"></div>
+	<div class="blockElementHeader sixH">
+					<span id="item_count">Manage Front End Pictures</span>
+	</div>
+	<div class="blockCornerRight"></div>
+	<div class="contentList filtered sixH">
+	
+		
+		<%for frontendpics in   @front_end_pics%>
+			
+			<p>File Name *:- <%=frontendpics.front_end_pics_file_name%> 
+			</p>
+			<p>
+			<img src="/system/front_end_pics/<%=frontendpics.id%>/thumb/<%=frontendpics.front_end_pics_file_name%>" alt="" height="100" width="100">
+			<%#=link_to "Edit", "/admin/promoting_stuffs/#{promotingstuff.id}/edit"%>  
+			<%=link_to "Delete", "/admin/front_end_pics/#{frontendpics.id}" ,:method=>"delete" ,:confirm=>"Are You Sure"%>
+			<%#=link_to "Show", "/admin/promoting_stuffs/#{promotingstuff.id}"%>
+			</p>
+			
+		<%end%>
+	</div>
+	
+	
+</div>

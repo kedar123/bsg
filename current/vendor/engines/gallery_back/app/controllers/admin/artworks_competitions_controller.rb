@@ -1,0 +1,24 @@
+class Admin::ArtworksCompetitionsController < Admin::ApplicationController
+
+	def update_state
+		@artworks_competition = ArtworksCompetition.find(params[:id])
+		@artworks_competition.state = params[:state]
+		@artworks_competition.save
+		#redirect_to item_path(@artworks_competition.competition)
+        QueuedMail.add('UserMailer', 'artwork_status',[@artworks_competition,@artworks_competition.competitions_user.user], 0, send_now=true)	
+
+		redirect_to :back
+		
+	end
+
+	def set_marks
+		ac = nil
+		params[:marks_list].delete_if{ |k,v| v.nil? }.each do |k, v|
+			ac = ArtworksCompetition.find(k)
+			ac.mark = v
+			ac.save
+		end
+		redirect_to item_path(ac.competition)
+	end
+
+end

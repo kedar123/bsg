@@ -1,0 +1,123 @@
+<% i = 1 %>
+<% %w(article workspace website folder).each do |obj| %>
+ <% %w(new edit show destroy comment ).each do |action| %>
+admin_<%=obj%>_<%=action%>:
+ role_id: 2
+ permission_id: <%=i%>
+ <% i += 1 %>
+ <% end %>
+ <% end %>
+
+<% i = 1 %>
+<% %w(article workspace website).each do |obj| %>
+ <% %w(new edit show destroy comment ).each do |action| %>
+user_<%=obj%>_<%=action%>:
+ role_id: 3
+ permission_id: <%=i%>
+ <% i += 1 %>
+ <% end %>
+ <% end %>
+ 
+admin_user_new:
+  role_id: 2
+  permission_id: 22
+
+admin_user_edit:
+  role_id: 2
+  permission_id: 23
+
+admin_user_destroy:
+  role_id: 2
+  permission_id: 24
+
+admin_user_configure:
+  role_id: 2
+  permission_id: 25
+  
+admin_user_show:
+  role_id: 2
+  permission_id: 21
+
+user_user_show:
+  role_id: 3
+  permission_id: 21
+
+co_admin_article_new:
+  role_id: 4
+  permission_id: 1
+
+co_admin_article_edit:
+  role_id: 4
+  permission_id: 2
+
+co_admin_article_show:
+  role_id: 4
+  permission_id: 3
+
+co_admin_article_destroy:
+  role_id: 4
+  permission_id: 4
+
+co_admin_article_comment:
+  role_id: 4
+  permission_id: 5
+
+co_admin_workspace_edit:
+  role_id: 4
+  permission_id: 7
+
+co_admin_workspace_show:
+  role_id: 4
+  permission_id: 8
+ 
+co_admin_workspace_administrate:
+  role_id: 4
+  permission_id: 10
+
+moderator_article_new:
+  role_id: 5
+  permission_id: 1
+
+moderator_article_edit:
+  role_id: 5
+  permission_id: 2
+
+moderator_article_show:
+  role_id: 5
+  permission_id: 3
+
+moderator_article_comment:
+  role_id: 5
+  permission_id: 5
+
+moderator_workspace_show:
+  role_id: 5
+  permission_id: 7
+
+writer_article_new:
+  role_id: 7
+  permission_id: 1
+
+writer_article_show:
+  role_id: 7
+  permission_id: 3
+
+writer_article_comment:
+  role_id: 7
+  permission_id: 5
+
+writer_workspace_show:
+  role_id: 7
+  permission_id: 7
+
+reader_article_show:
+  role_id: 6
+  permission_id: 3
+
+reader_article_comment:
+  role_id: 6
+  permission_id: 5
+
+reader_workspace_show:
+  role_id: 6
+  permission_id: 7

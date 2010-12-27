@@ -1,0 +1,33 @@
+<div id="specific_menu">
+  <% if @drawing.first %>
+        <% for i in 0..(@drawing.size-1) %>
+              <% if [0,5,10,15,20,25,30,35,40,45].include?(i) %>
+                <div id='nav_3'><ul>
+                  <% end %>
+              <li>
+	         <div class="detailsoflink">
+	      <a href="#" class="liselected">
+              <%= @drawing[0].drawingdetails%> </a>
+	      </div>
+             </li>
+                  <% if [4,9,14,19,24,29,34,39,44,49].include?(i) || i == (@drawing.size-1) %>
+                  </ul></div>
+              <% end %>
+        <% end %>
+  <% else %>
+    <div id="specific_menu">No Life Drawing Available</div>
+  <% end %>
+</div>
+
+</div>
+
+<div id="container">
+  <% if @drawing %>
+    <div id="description_competition">
+      <div id="content">
+                <%if  !@drawing[0].blank?%>
+                    <h2><%= @drawing[0].drawingdetails %></h2>
+                 <%end%>   
+	<p>
+    <%end%>
+</div>

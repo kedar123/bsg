@@ -1,0 +1,80 @@
+
+<div class="objectList small">
+	<div class="blockCornerLeft"></div>
+	<div class="blockElementHeader sixH">
+					<span id="item_count">Enter Here Application Details</span>
+	</div>
+	<div class="blockCornerRight"></div>
+	<div class="contentList filtered sixH">
+				<form action="/admin/app_homes" method="post">
+                    <label>Houres *:</label>
+					<div class="formElement">
+					    <%=text_field "app_home","houres" %>
+					</div>
+					
+					<label>openings *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","openings" ,:cols=>25,:rows=>1%>
+					</div>
+					<label>Staff *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","staff" ,:cols=>25,:rows=>1%>
+					</div>
+					<label>Costs *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","costs" ,:cols=>25,:rows=>1%>
+					</div>
+					<label>Gallery Plan Link *:</label>
+					<div class="formElement">
+					    <%=text_field "app_home","gallery_planlink",:value=>"http://" %>
+					</div>
+					<label>Bookings *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","bookings" ,:cols=>25,:rows=>1%>
+					</div>
+					<label>Bsg Praposed Link *:</label>
+					<div class="formElement">
+					    <%=text_field "app_home","bsgproposallink",:value=>"http://" %>
+					</div>
+					<label>Opening Night *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","opening_night" ,:cols=>25,:rows=>1%>
+					</div>
+					<label>Staffed *:</label>
+					<div class="formElement">
+					    <%=text_field "app_home","staffed"%>
+					</div>
+					<label>Mailing List Number *:</label>
+					<div class="formElement">
+					    <%=text_field "app_home","mailing_list_number" %>
+					</div>
+					<label>Mailing List  Desc *:</label>
+					<div class="formElement">
+					    <%=text_field "app_home","mailing_list_desc" %>
+					</div>
+					<label>Invitation *:</label>
+					<div class="formElement">
+					    <%=text_field "app_home","invitation" %>
+					</div>
+					<label>Advertising *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","advertising" ,:cols=>25,:rows=>1%>
+					</div>
+					<label>Sales *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","sales" ,:cols=>25,:rows=>1%>
+					</div>
+					<label>Your Obligations *:</label>
+					<div class="formElement">
+					    <%=text_area "app_home","your_obligations" ,:cols=>25,:rows=>1%>
+					</div>
+					
+					
+					<button type="submit" class="submitButton">
+						<span>Create</span>
+					</button>
+				</form>
+		</div>
+	
+	
+</div>

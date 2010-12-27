@@ -1,0 +1,73 @@
+<% blank_main_div(:title =>"Invoices list", :hsize => 'sixH') do %>
+          
+<table id="invoices">
+  <thead>
+  <tr>
+    <th>Client</th>
+    <th>Title</th>
+    <th>Deadline</th>
+    <th>Final amount</th>
+    <th>State</th>
+    <th>Sent at</th>
+    <th>Validated at</th>
+  </tr>
+  </thead>
+
+  <tbody>
+<% @current_objects.each do |invoice| %>
+  <tr>
+    <td><%=h invoice.client.profile.full_name %></td>
+    <td><%=h invoice.title %></td>
+    <td><%=h invoice.deadline %></td>
+    <td><%=h invoice.final_amount %></td>
+    <td><%=h invoice.state %></td>
+    <td><%=h invoice.sent_at %></td>
+    <td><%=h invoice.validated_at %></td>
+    <td><%= link_to 'Show', admin_invoice_path(invoice.id) %></td>
+    <% if @current_user.has_system_role('admin') %>
+      <td><%= link_to 'Modify', edit_admin_invoice_path(invoice.id) %></td>
+      <% if true || invoice.state != 'validated' %>
+        <td><%= link_to 'Send invoice', update_state_admin_invoice_url(invoice.id, :state => 'sent') %></td>
+        <td><%= link_to 'Validate payment', update_state_admin_invoice_path(invoice.id, :state => 'validated') %></td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>
+  </tbody>
+  <tfoot>
+    <tr style="display:none;">
+      <td colspan="5">
+	            No rows match the filter...
+      </td>
+    </tr>
+  </tfoot>
+
+</table>
+
+<% end %>
+
+
+<div class="rightBlocks">
+	<div class="itemShowRightBlock">
+	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
+			Actions
+		</div><div class="blockCornerRight"></div>
+	    <div class="blockElementBody">
+              <% if @current_user.has_system_role('admin') %>
+	        <%= link_to 'Add a new invoice', new_admin_invoice_path %><br /><br />
+              <% end %>
+			Filter the list with text :<br />
+			<input id="filter2"/><br /><br />
+	    </div>
+	</div>
+</div>
+
+
+
+<script>
+  $(document).ready(function()
+    {
+      $("#invoices").tablesorter();
+    }
+);
+</script>

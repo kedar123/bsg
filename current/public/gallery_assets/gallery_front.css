@@ -1,0 +1,446 @@
+body {
+font: 10px arial, verdana,tahoma, Lucida Grande;
+color:#ffffff;
+margin: 0px 0px 0px 0px;
+padding: 0px 0px 0px 0px;
+background-color:#000;
+min-width: -moz-fit-content;
+width:intrinsic;
+
+min-height:100%;
+border:1px solid #fff;
+white-space: nowrap;
+overflow-y: show;
+}
+
+/********** Logo, Navigation, Headlines **********/
+#header {
+width:-moz-max-content;
+min-height:146px;
+text-align:left;
+margin-bottom:-1px;
+float:left;
+border-color:#fff;
+white-space:nowrap;
+
+}
+
+#logo{
+width:120px;
+text-align:left;
+margin-bottom:20px;
+margin-top:10px;
+margin-left:10px;
+float:left;
+height:90px;
+}
+
+#logo img{
+border: 0px none;
+}
+
+
+#divider{
+width:auto;
+float:right;
+margin-top:-77px;
+min-height:115px;
+}
+
+
+#twolines{
+top:0px;
+padding:5px;
+display:block;
+position:relative;
+color:#fff;
+text-align:left;
+white-space:normal;
+margin-right:8px;
+margin-left:10px;
+}
+
+
+
+#nav_1, #nav_2, #nav_3, #nav_4, #nav_5, #nav_6, #nav_7{
+width:auto;
+float:left;
+margin-top:0px;
+}
+
+#menu {
+background: url("/gallery_assets/line.gif") repeat-y scroll 100% 0 transparent;
+background-position:left;
+width:auto;
+float:left;
+margin-top:16px;
+min-height:105px;
+}
+
+#specific_menu {
+background: url("/gallery_assets/line.gif") repeat-y scroll 100% 0 transparent;
+background-position:left;
+width:auto;
+float:left;
+margin-top:16px;
+min-height:105px;
+}
+
+ul {
+margin: 0;
+padding:0px 6px 0px 6px;
+list-style: none;
+}
+
+ul li a {
+display:block;
+text-decoration: none;
+color: #777;
+padding: 2px;
+}
+
+ul li {
+position: relative;
+font-size:1.1em;
+padding-top:2px;
+padding-bottom:2px;
+}
+
+h1 {
+font-family:tahoma, Lucida Grande, Verdana,;
+font-size:45px;
+color:#fffff;
+font-weight:bold;
+padding: 1px 0 0 15px;
+
+}
+
+h2 {
+font: 14px tahoma, Lucida Grande, Verdana, Sans-Serif;
+color:white;
+font-weight:bold;
+}
+
+h4 {
+font-weight:bold;
+margin-bottom:3px;
+}
+
+/********** Container **********/
+
+#container {
+width:-moz-max-content;
+min-width:100%;
+border-top:1px solid #fff;
+border-bottom:1px solid #fff;
+float:left;
+line-height:1.3em;
+margin:0 auto;
+height:auto;
+white-space: nowrap;
+}
+#containersubscribe {
+width:-moz-max-content;
+min-width:100%;
+border-top:1px solid #fff;
+border-bottom:1px solid #fff;
+float:left;
+line-height:1.3em;
+margin:0 auto;
+height:422px;
+white-space: nowrap;
+}
+
+#containersubscribe_reg {
+width:-moz-max-content;
+min-width:100%;
+border-top:1px solid #fff;
+border-bottom:1px solid #fff;
+float:left;
+line-height:1.3em;
+margin:0 auto;
+height:423px;
+white-space: nowrap;
+}
+
+
+#description{
+height:353px;
+width:375px;
+line-height:13px;
+float:left;
+background-color:#a2a2a2;
+
+}
+
+#description_competition{
+height:353px;
+width:375px;
+line-height:13px;
+float:left;
+background-color:#a2a2a2;
+overflow:auto;
+}
+
+#description_subscription{
+height:422px;
+width:375px;
+line-height:13px;
+float:left;
+background-color:#a2a2a2;
+}
+
+#description_subscription_reg{
+height:423px;
+width:375px;
+line-height:13px;
+float:left;
+background-color:#a2a2a2;
+}
+
+
+#description_login{
+height:353px;
+width:375px;
+line-height:13px;
+float:left;
+background-color:#a2a2a2;
+}
+
+
+
+#content{
+padding:20px;
+color:#000;
+white-space: normal;
+}
+#content_mail{
+padding:20px;
+color:#000;
+white-space: normal;
+height:292px;
+}
+
+
+#log_in{
+margin-left:20px;
+margin-right:20px;
+float:left;
+width:auto;
+
+}
+
+#list{
+padding:0px;
+float:left;
+margin:0px
+position:relative;
+visibility:visible;
+ 
+}
+
+
+#iteam{
+height:352px;
+width:auto;
+line-height:13px;
+float: left;
+position:relative;
+}
+
+#iteam_image{
+height:352px;
+width:auto;
+line-height:13px;
+float: left;
+position:relative;
+border:1px  solid;
+}
+
+
+#blank{
+max-width:100%;
+width:400px;
+margin:0px;
+padding:0px;
+}
+
+#details_box{
+width:auto;
+position:relative;
+}
+
+#details{
+background-color: rgba(21, 21, 21, .5);
+height:auto;
+left:1px;
+right:1px;
+overflow:hidden;
+padding:10px;
+position:absolute;
+
+visibility:visible;
+width:-moz-available;
+z-index:7;
+}
+
+#form{
+background-color:#B3B3B3;
+border:1px solid #FFFFFF;
+height:auto;
+overflow:visible;
+position:relative;
+padding:30px 30px 0px 30px;
+visibility:visible;
+width:-moz-max-content;
+z-index:10;
+color:#444;
+float:left;
+}
+#form .form_subscribe{
+height:392px;
+}
+
+.new_profile{
+background-color:#B3B3B3;
+border:1px solid #FFFFFF;
+color:#444444;
+float:left;
+height:321px;
+overflow:visible;
+padding:30px 30px 0;
+position:relative;
+visibility:visible;
+width:-moz-max-content;
+z-index:10;
+}
+.new_profile p{
+line-height:0.2em;
+}
+#mailing_form{
+background-color:#B3B3B3;
+border:1px solid #FFFFFF;
+color:#444444;
+float:left;
+height:auto;
+overflow:visible;
+padding:30px 30px 0;
+position:relative;
+visibility:visible;
+width:-moz-max-content;
+z-index:10;
+}
+
+
+.login_form{
+background-color:#B3B3B3;
+border:1px solid #FFFFFF;
+height:321px;;
+overflow:visible;
+position:relative;
+padding:30px 30px 0px 30px;
+visibility:visible;
+width:-moz-max-content;
+z-index:10;
+color:#444;
+float:left;
+}
+
+
+
+
+#form_subscribe{
+background-color:#B3B3B3;
+border:1px solid #FFFFFF;
+height:361px;
+overflow:visible;
+position:relative;
+padding:30px 30px 0px 30px;
+visibility:visible;
+width:-moz-max-content;
+z-index:10;
+color:#444;
+float:left;
+}
+
+
+#form p{
+margin:3px;
+}
+
+#next{
+text-align:right;
+margin-right:5px;
+margin-top:9px;
+}
+
+a {
+text-decoration:none;
+color:none;
+}
+/********** footer **********/
+#footer {
+margin-top:10px;
+padding-top:15px;
+padding-bottom:15px;
+padding-left:0px;
+padding-right:0px;
+text-align:left;
+clear:both;
+color:#a2a2a2;
+height:100px;
+position: static;
+}
+
+/************ Top Promo ************/
+#promo_top {
+height:70px;
+width:170px;
+float:left;
+margin-left:10px;
+margin-right:10px;
+color:#777777;
+}
+
+#promo_top  .content{
+	margin :0px;
+	padding:0px;
+	white-space:normal;
+	}
+
+#promo_top .content h2 {
+    margin:0;
+    padding:0;
+    font-size:12px;
+    float:left;
+    width:170px;
+	color:#777777;
+}
+
+#promo_top .content p {
+    margin:0;
+    padding:0;
+    float:left;
+    width:170px;
+}
+
+
+
+.content a{
+	color: #777777;
+	}
+	
+.liselected{
+color:#fff;
+}
+
+.pramotion_heading{
+	color:#B0171F;
+	}
+	
+	
+.detailsoflink
+{
+width: 700px;
+white-space:normal;	
+}

@@ -1,0 +1,17 @@
+<div id="specific_menu">
+  
+  <% list = ('a'..'x').to_a << 'y-z' %>
+  <% for i in list %>
+    <% if [0,5,10,15,20].include?(list.index(i)) %>
+      <div id='nav_3'><ul>
+        <% end %>
+        <li><a href='<%= "/artists/#{i}"%>'  class="liselected"><%= i %></a></li>
+        <% if [4,9,14,19,24].include?(list.index(i)) || i == 'y-z' %>
+        </ul></div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render :partial => 'artists/artists_name' %>
+
+</div>

@@ -1,0 +1,92 @@
+
+<% #render :partial => 'invoice_show', :locals => { :current_object =>@current_object, :is_modal => false } %>
+
+
+<% blank_main_div(:title => @current_object.title, :size => 'sixH', :modal => false) do %>
+
+    <b>Client name :</b>
+    <%=h @current_object.client.profile.full_name %><br />
+    <b>Deadline :</b>
+    <%=h @current_object.deadline %><br />
+    <b>Medium :</b>
+    <%=h @current_object.payment_medium %><br />
+    <b>Amount :</b>
+    <%=h @current_object.final_amount %><br />
+    <b>State :</b>
+    <%=h @current_object.state %><br />
+    <b>Sent at :</b>
+    <%=h @current_object.sent_at %><br />
+    <b>Validated at :</b>
+    <%=h @current_object.validated_at %><br />
+
+    <br /><br />
+
+    <% if false %>
+      <% if !current_object.validated_at && current_object.payment_medium=='online' %>
+        <%= blank_action_button(:name => 'Proceed the online payment', :remote => true, :url => new_admin_payment_url(:iid => current_object.id), :update => 'modal_space') %>
+      <% else %>
+        <% if current_object.purchasable_type == 'CompetitionsUser' %>
+          <%= blank_action_button(:name => 'Submit your artworks', :remote => true, :url => artworks_wizard_admin_competitions_user_path(current_object.purchasable.id), :update => 'modal_space') %>
+        <% elsif current_object.purchasable_type == 'ExhibitionsUser' %>
+          <%= blank_action_button(:name => 'Back to the exhibition', :url => item_path(current_object.purchasable.exhibition, Workspace.find(:first, :conditions => { :state => 'public' }))) %>
+        <% end %>
+      <% end %>
+    <% end %>
+ 
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="rightBlocks">
+  <div class="itemShowRightBlock">
+        <%= I18n.t('general.field.created_at')+' '+I18n.l(@current_object.created_at, :format => :verb) %><br />
+        <%= I18n.t('general.field.updated_at')+' '+I18n.l(@current_object.updated_at, :format => :verb) %>
+  </div>
+
+  <div class="itemShowRightBlock">
+    <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">What can I do?</div><div class="blockCornerRight"></div>
+    <div class="blockElementBody">
+      <!-- TODO TRANSLATE -->
+      <%= link_to I18n.t('general.link.back_to_list'), admin_invoices_path %>
+      <% if @current_user.has_system_role('admin') %>
+        <%= link_to I18n.t('general.link.add'), new_admin_invoice_path %>
+        <%= link_to I18n.t('general.link.edit'), edit_admin_invoice_path(@current_object)%>
+        <%= link_to I18n.t('general.link.delete'), "javascript:;",
+          :class => "deleteLink",
+          :modal_id => "#modalDelete_#{@current_object.id.to_s}"
+      %>
+      <div style="display:none">
+          <div id="modalDelete_<%=@current_object.id.to_s%>" class="modalDelete">
+            <p><%= I18n.t('item.destroy.delete_conform')%></p>
+            <%= link_to I18n.t('general.common_word.yes1'), admin_invoice_path(@current_object), :method => :delete%> |
+            <%= link_to I18n.t('general.common_word.no1'), "javascript:;", :class => "deleteClose" %>
+          </div>
+        </div>
+      <% end %>
+          <%= link_to 'Get a PDF version of that invoice', admin_invoice_url(@current_object, :format => 'pdf') %>
+          <%= link_to 'Send an email with the invoice attached as PDF', update_state_admin_invoice_url(@current_object.id, :state => 'sent') %>
+      <% if @current_object.state != 'validated' %>
+          <%= link_to_remote 'Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get %>
+          <%= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if @current_user.has_system_role('admin') %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
