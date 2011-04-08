@@ -10,6 +10,11 @@ ActionController::Routing::Routes.draw do |map|
  
   map.connect "/admin/invoices/new/:id",:controller=>"admin/invoices",:action=>"new"
   map.connect "/payment_response" ,:controller=>"admin/payments",:action=>"create"
+  map.connect "/admin/mail" ,:controller=>"admin/mail",:action=>"index"
+  map.connect "/admin/compose_new_mail" ,:controller=>"admin/mail",:action=>"compose_new_mail"
+  map.connect "/admin/create_sent_mail" ,:controller=>"admin/mail",:action=>"create_sent_mail"
+  
+  
   
   map.resources :periods
   map.resources :people

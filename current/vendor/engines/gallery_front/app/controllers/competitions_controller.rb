@@ -165,7 +165,7 @@
      	#Notifier.deliver_send_invoice(invoice,@competitionuser.user)
 		#here need to check the invoice amount if it is already created and the amount is more then user should pay that much extra amount and vice a versa
 		#QueuedMail.add('UserMailer', 'send_invoice',[invoice,@competitionuser.user], 0, true)	
-        @order = @competitionuser
+    @order = @competitionuser
 		@credit_card = CreditCard.new	
 		session[:purchasable] = @competitionuser
      	#flash[:notice] = "Thanks For Entering A Competition"

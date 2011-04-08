@@ -25,7 +25,7 @@ class Admin::PaymentsController < Admin::ApplicationController
 	    @order = session[:purchasable]
 
 		@current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		#@current_object.amount_in_cents = @invoice.final_amount ? @invoice.final_amount * 100 : @invoice.original_amount * 100
-		if      @order.instance_of? ExhibitionsUser
+  		if    @order.instance_of? ExhibitionsUser
 		        @current_object.amount_in_cents =params[:invoice_amount].to_i*100
 	    elsif  @order.instance_of? CompetitionsUser
 	    	     @current_object.amount_in_cents = (@order.find_price(@order.competition.id) ) * 100
@@ -194,7 +194,6 @@ class Admin::PaymentsController < Admin::ApplicationController
               session[:purchasable] = nil
               if  @order and @order.invoices.last
               	@invoice = @order.generate_invoice_extra_entry(@current_user, params[:invoicing_info])
-              
               else
               @invoice = @order.generate_invoice(@current_user, params[:invoicing_info]) 
               end 	

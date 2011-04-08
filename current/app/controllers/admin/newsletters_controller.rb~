@@ -7,13 +7,11 @@ class Admin::NewslettersController < Admin::ApplicationController
 before_filter :workspace_id
 
 def  workspace_id
-    params["newsletter"]["workspace_ids"]=Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id.to_s
+    if params[:newsletter]
+    	params["newsletter"]["workspace_ids"]=Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id.to_s
+    end
 end
 
-
-
-
-	
 	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library fro more information)
   acts_as_item do
 

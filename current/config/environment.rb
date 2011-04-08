@@ -52,7 +52,7 @@ Rails::Initializer.run do |config|
   config.gem 'builder', :version => '>=2.1.2', :lib => 'builder'
   # config.gem 'nokogiri', :version => '>=1.4.0', :lib => 'nokogiri'
 	#config.gem 'rmagick', :version => '>=2.9.1', :lib => 'RMagick'
-	#config.gem 'RMagick',:version=>"2.13.1" , :lib => 'rmagick'
+	config.gem 'rmagick', :version => '>=1.15.14', :lib => 'RMagick'
 #  config.gem 'javan-whenever', :lib => false, :source => 'http://gems.github.com'
   #	config.gem 'rspec', :version => '>=1.2.8', :lib => 'spec', :source => 'http://gems.github.com'
   #	config.gem 'test-unit', :version => '>=2.0.3', :lib => 'test/unit'
@@ -126,15 +126,15 @@ Rails::Initializer.run do |config|
 
 end
 
-#ActionMailer::Base.smtp_settings = {
-# :address => "smtp.gmail.com",
-#  :port => "587",
-#  :domain => "pragtech.co.in32",
-#  :authentication => :plain,
-#  :user_name => "test@pragtech.co.in",
-#  :password => "test123",
-#  :enable_starttls_auto => true,
-#}
+ActionMailer::Base.smtp_settings = {
+ :address => "smtp.gmail.com",
+  :port => "587",
+  :domain => "pragtech.co.in",
+  :authentication => :plain,
+  :user_name => "kedar.pathak@pragtech.co.in",
+  :password => "kedar123",
+  :enable_starttls_auto => true,
+}
 
 #trick to remove the <div class='fieldWithErrors'> that embeding automatically the
 #input field that not pass validation. It gives pain after with JQuery to retreive the input and

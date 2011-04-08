@@ -35,15 +35,6 @@ rescue
 end  
 
 config.reload_plugins = true
-#ActionMailer::Base.smtp_settings = {
-# :address => "smtp.gmail.com",
-#  :port => "587",
-#  :domain => "pragtech.co.in32",
-#  :authentication => :plain,
-#  :user_name => "test@pragtech.co.in",
-#  :password => "test123",
-#  :enable_starttls_auto => true,
-#}
 
 #ActiveSupport::Dependencies.explicitly_unloadable_constants << "Admin"
 #ActiveSupport::Dependencies.explicitly_unloadable_constants << "ActsAcItem"

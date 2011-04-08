@@ -101,12 +101,12 @@ class Admin::EmailsController < Admin::ApplicationController
    
    
 	def delete_all(deleteid)
-			   	quied_email = QueuedMail.find(deleteid)
+		quied_email = QueuedMail.find(deleteid)
    	if quied_email.tomail == current_user.profile.email_address
                  quied_email.deleteto = true
-      else
+    else
                  quied_email.deletefrom = true
-      end     	     
+    end     	     
       quied_email.save
    	qpm = quied_email
    	deleteme=true

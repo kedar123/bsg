@@ -12,15 +12,11 @@ def  workspace_id
     end
 end
 
-
-
-
-	
 	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library fro more information)
   acts_as_item do
 
     before :show do
-			# Set the group available for newsletter sending
+	# Set the group available for newsletter sending
      @current_object = current_model.find(params[:id], :include => [:groups_newsletters])
      @groups = current_container ? current_container.groups : []
     end

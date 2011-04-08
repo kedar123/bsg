@@ -153,6 +153,25 @@ class User < ActiveRecord::Base
 		:conditions => ["users.id > 1"]
 	}
 
+
+  has_many :sent_messages, :class_name => "Message", :foreign_key => "author_id"
+  has_many :received_messages, :class_name => "MessageCopy", :foreign_key => "recipient_id"
+  has_many :mailfolders
+  before_create :build_inbox
+  
+  def inbox
+    p "from inboxxxxxx"
+    p self.id
+    mailfolders.find_by_name("Inbox")
+  end
+  
+  def build_inbox
+    mailfolders.build(:name => "Inbox")
+  end
+
+
+
+
 	def all_containers
 		res = []
 		CONTAINERS.each do |cont|
@@ -372,6 +391,13 @@ class User < ActiveRecord::Base
   def make_activation_code
     self.activation_code = Digest::SHA1.hexdigest( Time.now.to_s.split(//).sort_by {rand}.join )
   end
+
+
+
+
+
+
+
 
 end
 

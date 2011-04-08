@@ -1,5 +1,4 @@
 class AppHomesController < ApplicationController
-# i want to changeeeee
  layout "gallery_promoting"  
   def index
     @app_home = AppHome.find(:all,:limit=>1,:order=>"created_at desc")

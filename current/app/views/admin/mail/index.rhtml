@@ -1,0 +1,64 @@
+<div style="float:left;padding-left:20px;">
+Mail Box
+</div>
+<div style="float:left;padding-left:40px">
+Flag
+</div>
+<div style="float:left;padding-left:20px">
+From
+</div>
+<div style="float:left;padding-left:150px">
+Subject
+</div>
+<div style="float:left;padding-left:150px">
+Date Received
+</div>
+<div style="float:left;padding-left:20px">
+Mail Box
+</div>
+
+<%for mail in []%>
+<div style="float:left;padding-left:20px;">
+Mail Box
+</div>
+<div style="float:left;padding-left:40px">
+Flag
+</div>
+<div style="float:left;padding-left:20px">
+From
+</div>
+<div style="float:left;padding-left:150px">
+Subject
+</div>
+<div style="float:left;padding-left:150px">
+Date Received
+</div>
+<div style="float:left;padding-left:20px">
+Mail Box
+</div>
+
+<%end%>
+
+
+<h2><%=h @folder %></h2>
+
+<table border="1">
+  <tr>
+    <th>From</th>
+    <th>Subject</th>
+    <th>Received</th>
+  </tr>
+  
+  <% for message in [] %>
+    <tr>
+      <td><%=h message.author.login %></td>
+      <td><%= link_to h(message.subject), message_path(message) %></td>
+      <td><%= distance_of_time_in_words(message.created_at, Time.now) %> ago</td>
+    </tr>
+  <% end %>
+</table>
+
+<%#= will_paginate @messages %>
+<%=link_to "Compose New Mail","/admin/compose_new_mail"%>
+
+

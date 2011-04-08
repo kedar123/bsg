@@ -25,7 +25,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                image bsg, :at => [10,540] ,:width=>100,:height=>100
                invoice = "#{RAILS_ROOT}/public/images/invoice.png"  
                image invoice, :at => [470,530] 
-               box = Prawn::Text::Box.new("INVOICE NO:",    :width    => 80,:height   => 20, :overflow => :ellipses, :at => [580, 470], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("INVOICE NO:",:width=>80,:height=>20,:overflow=>:ellipses,:at=>[580, 470],:align=>:left,:document=>self)
                box.render
                number = invoice_number
                box = Prawn::Text::Box.new(number,    :width    => 80,:height   => 20, :overflow => :ellipses, :at => [660, 470], :align    => :left, :document => self)

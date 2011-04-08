@@ -20,16 +20,18 @@ module ApplicationHelper
     end
     link_to_function(name, h("add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")"))
   end
-=begin
+
 	def blank_main_div(params, &block)
 		params[:hsize] ||= 'sixH'
 		if params[:modal]
 			top_div = "<div id='modal_window' title='#{params[:title].to_s}'>"+flash_messages_manager(['notice', 'error'], 'modal', false)
 		else
+			p params[:title]
 			old_top_div = "<div class='itemShowLeft'><div class='itemShowLeftBody'><h2>#{params[:title]}</h2>"
 			top_div = "<title>#{params[:title].to_s}</title><div class='objectList small'>
 				<div class='blockCornerLeft'></div>
 				<div class='blockElementHeader #{params[:hsize]}'>
+					
 					<span id='item_count'>#{params[:title]}</span>
 				</div>
 				<div class='blockCornerRight'></div>
@@ -54,10 +56,12 @@ module ApplicationHelper
 		end
 
 	end
-=end
+
 	def old_school_switching_lists(params)
         return "<div id='select_boxes'>
+        	
         	<input type='hidden' name='selectedOptions' id='selectedOptions' value='#{params[:selected_objects].map{ |e| e['id'] }.join(',')}'>
+        	
             <div id='left_select_box'>
               <div class='optionAssignmentLabel'>
                  #{I18n.t('general.common_word.remaining')}
@@ -172,6 +176,23 @@ module ApplicationHelper
 		)<br />#{users.map{ |e| @current_user.has_system_role('admin') ? link_to(e.user.profile.full_name, admin_profile_url(e.user.profile.id)) : e.user.profile.full_name}.join(', ') }"
 	end
 
+	def exhibition_in_array_gallery(exhib)
+		users = exhib.exhibitions_users  if  exhib#.all(:include => [:user => [:profile]])
+		tmp = []
+		return link_to(exhib.title, item_path(exhib))  if exhib
+	end
+        def exhibition_user_in_array_gallery(exhib)
+		users = exhib.exhibitions_users if exhib#.all(:include => [:user => [:profile]])
+		tmp=users.dup if tmp 
+		tmp=users.dup.delete_if{ |e| e.state != 'invited'}  if tmp
+		tmp=users.dup.delete_if{ |e| e.state != 'refused'}  if tmp
+		tmp=users.dup.delete_if{ |e| e.state != 'accepted'}  if tmp
+		tmp=users.dup.delete_if{ |e| e.state != 'validated' || e.state != 'unpublished'}  if tmp
+		tmp=users.dup.delete_if{ |e| e.state != 'published'}  if tmp
+		return "<br/>"+
+		users.map{ |e| @current_user.has_system_role('admin') ? "<br>" + link_to(e.user.profile.full_name, admin_profile_url(e.user.profile.id))  : "<br>" + e.user.profile.full_name }.join(', ') + "<br/>"  if users
+		
+	end
 	def flash_messages_manager(types=['notice', 'error', 'warning'], klass=nil, close=true)
 		
 		

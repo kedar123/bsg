@@ -1,3 +1,9 @@
+<%p "im rendering a formhhhhhhhh"%>
+<%p I18n.t('item.new.title')%>
+<%p I18n.t('general.item.'+@current_object.class.to_s.underscore)%>
+<%p @current_user.profile.full_name%>
 <%= render  :partial => "#{ @form ? @form : 'form'}", 
 			:locals => {:title =>  I18n.t('item.new.title', :item_type => I18n.t('general.item.'+@current_object.class.to_s.underscore), :user => @current_user.profile.full_name),
 			:current_object => @current_object} %>
+			
+

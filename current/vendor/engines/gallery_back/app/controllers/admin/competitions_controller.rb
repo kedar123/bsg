@@ -19,11 +19,9 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	    redirect_to :back
     end
 
-	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library fro more information)
+	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library for more information)
 	acts_as_item do
-
 		before :new, :edit do
-			
 			@places = Gallery.all
 			@current_object.build_timing if @current_object.timing.nil?
 			@judges = User.find(:all, :conditions => "system_role_id=2 OR system_role_id=#{Role.find_by_name('judge').id}")

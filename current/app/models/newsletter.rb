@@ -31,8 +31,8 @@ class Newsletter < ActiveRecord::Base
 include Authentication
 
   # Method defined in the ActsAsItem:ModelMethods:ClassMethods (see that library fro more information)
-	acts_as_item
-	# Relation N-N with 'groups' table
+  acts_as_item
+  # Relation N-N with 'groups' table
   has_and_belongs_to_many :groups
 	# Relation N-1 with 'groups_newsletters' table
   has_many :groups_newsletters, :dependent => :delete_all

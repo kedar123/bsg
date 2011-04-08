@@ -7,8 +7,7 @@ class Admin::ExhibitionsController < Admin::ApplicationController
 before_filter :workspace_id
 
 def  workspace_id
-   if !params[:workspace_id].blank? and !params[:exhibition].blank?
-   
+   if params[:workspace_id].blank? and !params[:exhibition].blank?
     params["exhibition"]["workspace_ids"]=Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id.to_s
 end  
 end
@@ -38,7 +37,7 @@ end
     end
 
 		after :create_fails, :update_fails do
-			
+			p @current_object.errors
 			@current_object.build_timing if @current_object.timing.nil?
 			@places = Gallery.all
 			sr = Role.find_by_name('artist')

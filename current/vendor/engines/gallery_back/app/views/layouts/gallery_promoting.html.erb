@@ -4,7 +4,6 @@
         <link rel="shortcut icon" href="<%= @configuration['sa_favicon_url'] %>"/>
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <%= stylesheet_link_tag "blank_JQ"  %>
-
         <%= stylesheet_link_tag "jquery.rating" %>
         <%#= stylesheet_link_tag "jquery.datepicker" %>
         <%= stylesheet_link_tag "smoothness/jquery-ui-1.7.2.custom.css" %>
@@ -310,6 +309,7 @@
          <li>
            <div align="right">
             <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
+                    <%=link_to "Mail","/admin/mail"%>
            </div>
 		</li>
 
@@ -336,26 +336,6 @@
                 
 </div>
 
-
-
-
-
-
-
-
-
-	      
-	      
-	      
-	      
-	      
-	      
-	      
-	      
-	      
-	      
-	      
-	      
 	      
 	      <%####################################################3%>
 	      

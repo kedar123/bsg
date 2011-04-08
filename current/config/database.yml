@@ -1,9 +1,24 @@
-development:
+DEFAULTS: &DEFAULTS
   adapter: mysql
   encoding: utf8
-  reconnect: false
-  database: gallery
-  pool: 5
+#  host: mysql.pragtech.co.in
+#  username: pragmatic_paco
+#  password: global786
+  host: localhost
   username: root
-  password: shriganesh
-  socket: /var/run/mysqld/mysqld.sock
+  password: 
+  #socket: /var/run/mysqld/mysqld.sock
+
+development:
+  database: gallery
+  <<: *DEFAULTS
+
+test:
+  database: gallery
+  <<: *DEFAULTS
+
+production:
+  database: gallery
+  <<: *DEFAULTS
+
+

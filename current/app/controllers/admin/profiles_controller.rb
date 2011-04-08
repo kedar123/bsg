@@ -1,5 +1,5 @@
 class Admin::ProfilesController < Admin::ApplicationController
-   
+
 	acts_as_ajax_validation
 
   # GET /profiles

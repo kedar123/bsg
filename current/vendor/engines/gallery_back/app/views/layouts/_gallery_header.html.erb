@@ -185,7 +185,9 @@
                                               <li><%= link_to 'All invoices', admin_invoices_path %></li>
 				        </ul>
 				        <br/><br/>
-				        <p><img src="/images/icons/exit.png" width="20px" class="logoutPic"/><%= link_to I18n.t('layout.application.logout'), admin_logout_path, :class => 'bigLink' %></p>
+				        <p><img src="/images/icons/exit.png" width="20px" class="logoutPic"/><%= link_to I18n.t('layout.application.logout'), admin_logout_path, :class => 'bigLink' %>
+       </p>
+
 			    	</div>
                             <% if @current_user.has_system_role('admin') %>
 			    	<div class="subMenuCol">
@@ -226,8 +228,13 @@
                 <% if @current_user.has_system_role('admin') %>
                
                 <li>
-            <div class="menuLabel"><%= link_to 'Contacts', admin_profiles_path %></div>
-		</li>
+                    <div class="menuLabel"><%= link_to 'Contacts', admin_profiles_path %></div>
+                   
+            		</li>
+        		    
+                    
+            		
+		
 
                 <% else %>
                 <li>
@@ -238,7 +245,11 @@
          <li>
            <div align="right">
             <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
+            <%=link_to "Mail","/admin/mail"%>
            </div>
+		</li>
+		<li>
+		
 		</li>
 
 	</ul>

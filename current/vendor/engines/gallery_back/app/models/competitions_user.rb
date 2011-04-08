@@ -140,7 +140,8 @@ class CompetitionsUser < ActiveRecord::Base
 	       
 	       
 	end
-	
+	#whenever user changes his total entry this will automatically get changed. so if user maked down the entry like from 
+	#5-2 then this will also get changed
 	def  submit_artwork
 		image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
 	       for totalentry in 0...self.total_entry.to_i

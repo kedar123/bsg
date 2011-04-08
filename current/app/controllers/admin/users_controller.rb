@@ -107,10 +107,8 @@ class Admin::UsersController < Admin::ApplicationController
 				        else
 						flash[:error] = I18n.t('user.new.flash_error')
 						if !@current_user
-						
 							format.html { render :template => "#{RAILS_ROOT}/vendor/engines/gallery_front/app/views/visitors/new.html.erb", :layout => 'front' }
 						else
-						
 							format.html { render :action => :new }
 						end
 				        end
