@@ -1,6 +1,4 @@
-<table cellpadding="10" style="padding-left:20px;"><tr><th>
-      Mail Box
-    </th>
+<table cellpadding="10" style="padding-left:20px;" border="1"><tr>
     <th>
     From
     </th>
@@ -10,15 +8,11 @@
     <th>
     Date Received
     </th>
-    <th>
-    <%=h @folder.name %>
-    </th>
+
     </tr>
     <%for message in trash_mail_detail%>
     <tr>
-    <td>
-    <%=h @folder.name %>
-    </td>
+    
     <td>
     <%=h message.author.login %>
     </td>
@@ -28,9 +22,7 @@
     <td>
     <%=message.created_at.strftime("%Y-%m-%d")%>
     </td>
-    <td>
-    <%=h @folder.name %>
-    </td>
+    
     </tr>
     <%end%>
     </table>

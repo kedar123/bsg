@@ -1120,3 +1120,19 @@ margin:0px 10px 0px 0px;
 	#fragment-1{
 	font-size: 10px;
 	}  
+	
+	
+	.mouse-link{
+		display:block;
+		height:16px;
+		width:16px;
+		background:url(/images/flag-1.png);
+	}
+
+	.mouse-onclik{
+		background:url(/images/flag-2.png);
+		display:block;
+		height:16px;
+		width:16px;
+	}	
+	

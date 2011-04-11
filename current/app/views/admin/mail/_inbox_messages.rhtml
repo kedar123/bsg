@@ -1,24 +1,48 @@
-<table cellpadding="10" style="padding-left:20px;"><tr>
-    
+<form action="/admin/delete_all_email" name="myform" method="post">
+  <table cellpadding="10" style="padding-left:20px;" border="1"><tr>
     <th>
-    From
+         <%checkboxarrayname = []%>
+<%inbox_messages.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
+<%checkboxarraynamestring= "["+(checkboxarrayname * ",")+"]" %>
+     <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{inbox_messages.length},#{checkboxarraynamestring});"%>
     </th>
     <th>
-    Subject
+      Flag
     </th>
     <th>
-    Date Received
+      From
     </th>
     <th>
-    <%=h @folder.name %>
+      Subject
+    </th>
+    <th>
+      Date Received
+    </th>
+    <th>
+      Mail Box
     </th>
     </tr>
-    <%for message in inbox_messages%>
+   <%for message in inbox_messages%>
     <tr>
     
     <td>
-    <%=h message.author.login %>
+    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id%>
+    
     </td>
+    <td>
+    <%if message.flag%>
+        <%=link_to_remote  image_tag("dot.png"),:url=>{:action=>"flag_email", :id=>message.id },:before =>"change_the_flag('flag'+#{message.id.to_s})",:html=>{:class=>"mouse-onclik",:id=>"flag"+message.id.to_s}%>
+
+    <%else%>
+        <%=link_to_remote  image_tag("dot.png"),:url=>{:action=>"flag_email", :id=>message.id },:before =>"change_the_flag('flag'+#{message.id.to_s})",:html=>{:class=>"mouse-link",:id=>"flag"+message.id.to_s}%>
+
+    <%end%>
+    
+    </td>
+    <td>
+      <%=h message.author.login %>
+    </td>
+    
     <td>
     <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%>
     </td>
@@ -26,8 +50,15 @@
     <%=message.created_at.strftime("%Y-%m-%d")%>
     </td>
     <td>
-    <%=h @folder.name %>
+    <%if message.labeled == true%>
+        <%=message.emaillabel.labelname%>
+     <%else%>   
+     <%=h @folder.name %>
+     <%end%>
+    
+    
     </td>
     </tr>
     <%end%>
     </table>
+    </form>

@@ -19,8 +19,52 @@ class Admin::MailController < ApplicationController
 
   def show
     @folder ||= current_user.mailfolders.find(params[:id])
-    @messages = @folder.messages.paginate_not_labeled :all, :per_page => 100, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
+    @messages = @folder.messages.paginate_not_deleted :all, :per_page => 100, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
   end
+
+
+
+
+  def flag_email
+    @message = current_user.received_messages.find(params[:id])
+    if @message.flag == true
+    @message.update_attribute("flag", false)
+    else  
+    @message.update_attribute("flag", true)
+    end   
+    render :nothing=>true
+  end    
+  
+  
+  def sent_flag_email
+    @message = Message.find(params[:id])
+    if @message.flag == true
+    @message.update_attribute("flag", false)
+    else  
+    @message.update_attribute("flag", true)
+    end   
+    render :nothing=>true
+  end  
+  
+
+  
+  
+  
+  def show_flag_email
+    @folder = Struct.new(:name, :user_id).new("Trash", current_user.id)
+    @messages = current_user.received_messages.paginate_flag :all, :per_page => 100, :page => params[:page],
+          :include => :message, :order => "messages.created_at DESC",:conditions=>["deleted = ? or deleted is null",false]
+    @sent_message_flag = Message.find(:all,:conditions=>["flag = ? and deletedm IS NULL OR deletedm = ?",true,false])      
+    render :update do |page|
+        page["table_structer_of_email"].replace_html(:partial =>'show_flag_email', :object =>@messages,:locals=>{:sent_message=>@sent_message_flag})
+        page["show_details"].replace_html ""
+        page["ajax_spinner"].visual_effect :hide
+    end      
+  end  
+  
+  
+
+
 
   def show_message
       @message = current_user.received_messages.find(params[:id])
@@ -75,7 +119,7 @@ class Admin::MailController < ApplicationController
  
   def sent_mail
       @folder = current_user.inbox
-      @messages = current_user.sent_messages.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
+      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 10, :page => params[:page], :order => "created_at DESC"
       render :update do |page|
         page["table_structer_of_email"].replace_html(:partial =>'sent_mail_detail', :object =>@messages)
         page["show_details"].replace_html ""
@@ -160,6 +204,39 @@ class Admin::MailController < ApplicationController
     redirect_to "/admin/mail"
   end  
   
+  def delete_sent_mail
+    params.to_hash.each do |key,value|
+       if key.include? "delete_message"
+          @message = Message.find(value)
+          @message.update_attribute("deletedm", true)
+       end
+     end
+     redirect_to :back
+  end  
+  
+  
+  #delete_message_mail will be fetch directly from message table and delete_message_sent will be the received email so they are deleted from message copies
+  def delete_show_flag_mail
+    params.to_hash.each do |key,value|
+       if key.include? "delete_message_mail"
+          @message = Message.find(value)
+          @message.update_attribute("deletedm", true)
+       end
+     end
+    params.to_hash.each do |key,value|
+       if key.include? "delete_message_sent"
+          @message = current_user.received_messages.find(value)
+          @message.update_attribute("deleted", true)
+                  
+       end
+     end
+     
+     
+     
+     
+     
+  end  
+  
   def create_label
       Emaillabel.create(:labelname=>params[:createlabel])
       flash[:notice] = "Label Is Created"
@@ -177,17 +254,45 @@ class Admin::MailController < ApplicationController
     end
   end  
  
+ 
+ def delete_label
+   emaillabel = Emaillabel.find(params[:id])
+   
+   messages = MessageCopy.find(:all,:conditions=>["emaillabel_id = ? ",emaillabel.id])
+   for msg in messages
+     msg.update_attribute("emaillabel_id", nil)
+     msg.update_attribute("labeled", nil)
+   end
+   emaillabel.destroy 
+   ############this is im copying now but need to check what need to delete from this code
+   @folder = current_user.inbox
+   @created_label = Emaillabel.find(:all)
+    show
+   # render :action => "show"
+   if request.xhr?
+        render :update do |page|
+        page.redirect_to "/admin/mail"
+        
+      end
+   end    
+ end  
+ 
+ 
  def moveto
+   if params[:selected_label] == "select"
+     flash[:notice] = "Please Select The Label To Move To"     
+   else  
     emaillabel = Emaillabel.find_by_labelname(params[:selected_label])
      params.to_hash.each do |key,value|
        if key.include? "delete_message"
           @message = current_user.received_messages.find(value)
           @message.update_attribute("emaillabel_id", emaillabel.id)
           @message.update_attribute("labeled", true)
-          
        end
      end
     flash[:notice] = "Email Moved Successfully To #{emaillabel.labelname}"     
+   end  
+     
     redirect_to "/admin/mail"
  end  
  

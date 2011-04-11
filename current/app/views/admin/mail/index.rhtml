@@ -1,9 +1,18 @@
-
+<style>
+</style>
 <script>
+function change_the_flag(attrid)
+{
+  if (document.getElementById(attrid).className == "mouse-link"){
+      document.getElementById(attrid).className = "mouse-onclik";
+      }
+  else
+  {
+      document.getElementById(attrid).className = "mouse-link";
+   }   
+}
 
 function select_all_checkbox(checkboxlength,checkboxnamearray){
-
-
   if(document.getElementById('delete_all_message').checked)
     {
       for (i=0; i < checkboxlength; i++)
@@ -19,9 +28,52 @@ function select_all_checkbox(checkboxlength,checkboxnamearray){
          	} 
 	  }
   }
+//  #{messagesentlength},#{messagerecdlength},#{messagesentarray},#{messagerecdarray})
+function select_all_checkbox_flag(messagesentlength,messagerecdlength,messagesentarray,messagerecdarray)
+{
+  
+   if(document.getElementById('delete_all_message').checked)
+    {
+      for (i=0; i < messagesentlength; i++)
+            {
+        	    messagesentarray[i].checked = true ;
+       	    }
+       	    
+      for (i=0; i < messagerecdlength; i++)
+            {
+        	    messagerecdarray[i].checked = true ;
+       	    } 	    
+       	    
+    }
+	else
+  	{
+  	   for (i=0; i  < messagesentlength ; i++ )
+  	      {
+          	messagesentarray[i].checked = false ;
+         	} 
+         	 for (i=0; i < messagerecdlength; i++)
+            {
+        	    messagerecdarray[i].checked = false ;
+       	    } 	 
+	  }
+  
+  
+  
+  
+  
+  
+  
+}
+  
+  
+  
   
 function submitForm(){
-document.myform.submit();
+if (confirm("Are You Sure"))
+  {
+  document.myform.submit();
+  }
+
 }
 
 function Moveto(){
@@ -41,13 +93,12 @@ function set_the_signature(signature)
 <form action="/admin/create_label" >
 <a href="#" onclick="Moveto();">Move To</a>&nbsp;&nbsp;&nbsp;
 <select name="select" id="selectlabel">
-
+    <option value="select"></option>
     <%for mlabelname in @created_label%>
         <option value="<%=mlabelname.labelname%>"><%=mlabelname.labelname%></option>
     <%end%>
-   
-  </select> 
-<a href="#" onclick="submitForm();">Delete</a>&nbsp;&nbsp;&nbsp;
+</select> 
+<a href="#" onclick="return submitForm();" >Delete</a>&nbsp;&nbsp;&nbsp;
 
 create label  &nbsp;
 <%=text_field_tag "createlabel",'',:style=>"width:90px;padding:0px;"%></form>
@@ -65,9 +116,22 @@ create label  &nbsp;
     <p>
   <strong><%=link_to_remote "Trash" ,:update => "",:url => { :action => "trash_mail"}%>
     </strong></p>
- <p><strong>Label</strong></p> 
+  <strong><%=link_to_remote "Flagged" ,:update => "",:url => { :action => "show_flag_email"}%>
+  <img src="/images/flag-2.png"/>
+    </strong></p>
+    
+ 
+ <p><strong style="color: #F79646;">Label</strong></p> 
 <%for mlabelname in @created_label%>
-<p><%=link_to_remote mlabelname.labelname,:update => "",:url => { :action => "show_labeled_email",:id=>mlabelname.id}%></p>
+<p>
+<%=link_to_remote mlabelname.labelname,:update => "",:url => { :action => "show_labeled_email",:id=>mlabelname.id}%>
+<span style="margin-left:20px;"><%=link_to_remote  'x',:url=>{:action=>"delete_label", :id=>mlabelname.id },:confirm=>"Are You Sure"%></span>
+</p>
+
+
+
+
+
 <%end%>
  
   
@@ -75,39 +139,54 @@ create label  &nbsp;
 <div>
 <%checkboxarrayname = []%>
 <%@messages.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
-<%abc= "["+(checkboxarrayname * ",")+"]" %>
+<%checkboxarraynamestring= "["+(checkboxarrayname * ",")+"]" %>
 
 <div id="table_structer_of_email">
 <form action="/admin/delete_all_email" name="myform" method="post">
 
 <input type="hidden" name="selected_label" value="" id="selected_label">
 
-  <table cellpadding="10" style="padding-left:20px;"><tr>
+  <table cellpadding="10" style="padding-left:20px;" border="1"><tr>
     <th>
-   <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{@messages.length},#{abc});"%>
+     <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{@messages.length},#{checkboxarraynamestring});"%>
     </th>
     <th>
-    From
+      Flag
     </th>
     <th>
-    Subject
+      From
     </th>
     <th>
-    Date Received
+      Subject
     </th>
     <th>
-    <%=h @folder.name %>
+      Date Received
+    </th>
+    <th>
+      Mail Box
     </th>
     </tr>
     <%for message in @messages%>
     <tr>
+    
     <td>
     <%=check_box_tag "delete_message"+message.id.to_s  ,message.id%>
     
     </td>
     <td>
-    <%=h message.author.login %>
+    <%if message.flag%>
+        <%=link_to_remote  image_tag("dot.png"),:url=>{:action=>"flag_email", :id=>message.id },:before =>"change_the_flag('flag'+#{message.id.to_s})",:html=>{:class=>"mouse-onclik",:id=>"flag"+message.id.to_s}%>
+
+    <%else%>
+        <%=link_to_remote  image_tag("dot.png"),:url=>{:action=>"flag_email", :id=>message.id },:before =>"change_the_flag('flag'+#{message.id.to_s})",:html=>{:class=>"mouse-link",:id=>"flag"+message.id.to_s}%>
+
+    <%end%>
+    
     </td>
+    <td>
+      <%=h message.author.login %>
+    </td>
+    
     <td>
     <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%>
     </td>
@@ -115,7 +194,13 @@ create label  &nbsp;
     <%=message.created_at.strftime("%Y-%m-%d")%>
     </td>
     <td>
-    <%=h @folder.name %>
+    <%if message.labeled == true%>
+        <strong style="color: #F79646;"><%=message.emaillabel.labelname%></strong>
+     <%else%>   
+     
+     <%end%>
+    
+    
     </td>
     </tr>
     <%end%>
