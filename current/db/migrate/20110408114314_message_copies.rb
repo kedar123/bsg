@@ -3,7 +3,7 @@ class MessageCopies < ActiveRecord::Migration
     create_table :message_copies do |t|
       t.integer :recipient_id
       t.integer :message_id
-      t.integer :folder_id
+      t.integer :mailfolder_id
 
       t.timestamps
     end

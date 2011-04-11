@@ -1,0 +1,14 @@
+    <% form_remote_tag :url => '/find_signature' do -%>
+        <div style="float:left">
+          <select name="fromemail">
+          <%for frlbl in find_signature_label%>
+            <option value="<%=frlbl.id%>"><%=frlbl.signlabel%></option>
+          <%end%>  
+          </select>
+         </div> 
+        <div style="float: left; margin-left: 155px;"><%= submit_tag 'Check a Signature' ,:style=>"width:150px;"%></div>
+        
+    <% end -%>
+    
+    <div id="show_the_signature">
+    </div>

@@ -1,5 +1,11 @@
 
 ActionController::Routing::Routes.draw do |map|
+  map.resources :frommails
+
+  map.resources :signatures
+
+  map.resources :emaillabels
+
   map.connect "/show_user_type"	,:controller=>"show_user_type",:action=>"index"
   map.connect "/admin/competitions/create_subscribe_competition"	,:controller=>"competitions",:action=>"create_subscribe_competition"
   map.connect "/admin/competitions/confirm_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"confirm_competition_subscription_details"
@@ -13,8 +19,22 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/mail" ,:controller=>"admin/mail",:action=>"index"
   map.connect "/admin/compose_new_mail" ,:controller=>"admin/mail",:action=>"compose_new_mail"
   map.connect "/admin/create_sent_mail" ,:controller=>"admin/mail",:action=>"create_sent_mail"
+  map.connect "/admin/create_temporary_inbox" ,:controller=>"admin/mail",:action=>"create_temporary_inbox"
+  map.connect "/admin/show_message" ,:controller=>"admin/mail",:action=>"show_message"
+  map.connect "/admin/replay_message" ,:controller=>"admin/mail",:action=>"replay_message"
+  map.connect "/admin/replay_to_all" ,:controller=>"admin/mail",:action=>"replay_to_all"
+  map.connect "/admin/delete_email",:controller=>"admin/mail",:action=>"delete_email"
+  map.connect "/admin/delete_all_email",:controller=>"admin/mail",:action=>"delete_all_email"
+  map.connect "/admin/create_label",:controller=>"admin/mail",:action=>"create_label"
+  map.connect "/find_signature_label",:controller=>"admin/mail",:action=>"find_signature_label"
+  map.connect "/find_signature",:controller=>"admin/mail",:action=>"find_signature"
   
-  
+  map.connect "/admin/forward_email" ,:controller=>"admin/mail",:action=>"forward_email"
+  map.connect "/admin/sent_mail" ,:controller=>"admin/mail",:action=>"sent_mail"
+  map.connect "/admin/trash_mail" ,:controller=>"admin/mail",:action=>"trash_mail"
+  map.connect "/admin/show_sent_message" ,:controller=>"admin/mail",:action=>"show_sent_message"
+  map.connect "/admin/moveto" ,:controller=>"admin/mail",:action=>"moveto"
+  map.connect "/admin/show_labeled_email" ,:controller=>"admin/mail",:action=>"show_labeled_email"
   
   map.resources :periods
   map.resources :people
@@ -54,6 +74,12 @@ ActionController::Routing::Routes.draw do |map|
     map.connect "/drawings",:controller=>"drawings",:action=>"index",:id=>"front"
     map.connect "/admin/links/approve/:id",:controller=>"links",:action=>"approve"
     map.connect "/admin/links/update/:id",:controller=>"links",:action=>"update"
+    map.connect "/admin/signature",:controller=>"signatures",:action=>"index"
+    map.connect "/add_frommail",:controller=>"signatures",:action=>"add_frommail"
+    map.connect "/add_signature",:controller=>"signatures",:action=>"add_signature"
+
+    
+    
     map.resources :links  , :path_prefix => 'admin'
     map.connect "/links",:controller=>"links",:action=>"index",:id=>"front"
     map.connect "/admin/competitions_users/update/:id",:controller=>"competitions_users",:action=>"update"

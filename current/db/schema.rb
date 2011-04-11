@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101215133926) do
+ActiveRecord::Schema.define(:version => 20110410094301) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -433,6 +433,12 @@ ActiveRecord::Schema.define(:version => 20101215133926) do
     t.datetime "updated_at"
   end
 
+  create_table "emaillabels", :force => true do |t|
+    t.string   "labelname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "exhibitions", :force => true do |t|
     t.integer  "user_id"
     t.string   "title",                                        :null => false
@@ -521,6 +527,12 @@ ActiveRecord::Schema.define(:version => 20101215133926) do
   end
 
   add_index "folders", ["creator_id"], :name => "index_folders_on_creator_id"
+
+  create_table "frommails", :force => true do |t|
+    t.string   "frommail"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "frontendpics", :force => true do |t|
     t.datetime "created_at"
@@ -702,6 +714,14 @@ ActiveRecord::Schema.define(:version => 20101215133926) do
     t.datetime "updated_at"
   end
 
+  create_table "mailfolders", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "parent_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "menus", :force => true do |t|
     t.string   "name"
     t.string   "url"
@@ -710,6 +730,26 @@ ActiveRecord::Schema.define(:version => 20101215133926) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "message_copies", :force => true do |t|
+    t.integer  "recipient_id"
+    t.integer  "message_id"
+    t.integer  "mailfolder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "deleted"
+    t.integer  "emaillabel_id"
+    t.boolean  "labeled"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "author_id"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "emaillabelid"
   end
 
   create_table "newsletters", :force => true do |t|
@@ -977,6 +1017,14 @@ ActiveRecord::Schema.define(:version => 20101215133926) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "signatures", :force => true do |t|
+    t.integer  "frommail_id"
+    t.string   "signlabel"
+    t.string   "signature"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "studio_and_mailing_lists", :force => true do |t|
     t.string   "first_name",    :limit => 50,  :null => false

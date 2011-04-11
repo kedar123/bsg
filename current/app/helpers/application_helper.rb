@@ -4,7 +4,7 @@ module ApplicationHelper
     selected ||= []
     
     ERB.new(%{
-    <div class="checklist" style="border:1px solid #666; width:20em; height:5em; overflow:auto">
+    <div class="checklist" style="border:1px solid #666; width:20em; height:5em; overflow:auto;margin:51px">
       <% for item in collection %>
         <%= check_box_tag name, item.send(value_method), selected.include?(item.send(value_method)) %> <%=h item.send(display_method) %><br />
       <% end %>

@@ -1,0 +1,30 @@
+<table cellpadding="10" style="padding-left:20px;"><tr>
+    
+    <th>
+    From
+    </th>
+    <th>
+    Subject
+    </th>
+    <th>
+    Sent At
+    </th>
+    </tr>
+    <%for message in sent_mail_detail%>
+    <tr>
+    <td>
+    <%=h message.author.login %>
+    </td>
+    <td>
+    <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_sent_message", :id => message.id }%>
+    </td>
+    
+    <td><%=message.created_at.strftime("%Y-%m-%d : %H-%m")%>
+    </td>
+    
+    <td>
+
+    </td>
+    </tr>
+    <%end%>
+    </table>

@@ -160,8 +160,6 @@ class User < ActiveRecord::Base
   before_create :build_inbox
   
   def inbox
-    p "from inboxxxxxx"
-    p self.id
     mailfolders.find_by_name("Inbox")
   end
   

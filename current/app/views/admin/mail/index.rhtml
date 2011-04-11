@@ -1,64 +1,129 @@
-<div style="float:left;padding-left:20px;">
-Mail Box
-</div>
-<div style="float:left;padding-left:40px">
-Flag
-</div>
-<div style="float:left;padding-left:20px">
-From
-</div>
-<div style="float:left;padding-left:150px">
-Subject
-</div>
-<div style="float:left;padding-left:150px">
-Date Received
-</div>
-<div style="float:left;padding-left:20px">
-Mail Box
-</div>
 
-<%for mail in []%>
-<div style="float:left;padding-left:20px;">
-Mail Box
-</div>
-<div style="float:left;padding-left:40px">
-Flag
-</div>
-<div style="float:left;padding-left:20px">
-From
-</div>
-<div style="float:left;padding-left:150px">
-Subject
-</div>
-<div style="float:left;padding-left:150px">
-Date Received
-</div>
-<div style="float:left;padding-left:20px">
-Mail Box
-</div>
+<script>
 
-<%end%>
+function select_all_checkbox(checkboxlength,checkboxnamearray){
 
 
-<h2><%=h @folder %></h2>
-
-<table border="1">
-  <tr>
-    <th>From</th>
-    <th>Subject</th>
-    <th>Received</th>
-  </tr>
+  if(document.getElementById('delete_all_message').checked)
+    {
+      for (i=0; i < checkboxlength; i++)
+            {
+        	    checkboxnamearray[i].checked = true ;
+       	    }
+    }
+	else
+  	{
+  	   for (i=0; i  < checkboxlength ; i++ )
+  	      {
+          	checkboxnamearray[i].checked = false ;
+         	} 
+	  }
+  }
   
-  <% for message in [] %>
-    <tr>
-      <td><%=h message.author.login %></td>
-      <td><%= link_to h(message.subject), message_path(message) %></td>
-      <td><%= distance_of_time_in_words(message.created_at, Time.now) %> ago</td>
-    </tr>
-  <% end %>
-</table>
+function submitForm(){
+document.myform.submit();
+}
 
-<%#= will_paginate @messages %>
-<%=link_to "Compose New Mail","/admin/compose_new_mail"%>
+function Moveto(){
+  document.myform.action = "/admin/moveto";
+  document.getElementById('selected_label').value = document.getElementById('selectlabel').value
+  document.myform.submit();
+}
+
+function set_the_signature(signature)
+{
+  document.getElementById("signature").value = signature
+}
+
+</script>
+<div style="padding-left:30%;">
+
+<form action="/admin/create_label" >
+<a href="#" onclick="Moveto();">Move To</a>&nbsp;&nbsp;&nbsp;
+<select name="select" id="selectlabel">
+
+    <%for mlabelname in @created_label%>
+        <option value="<%=mlabelname.labelname%>"><%=mlabelname.labelname%></option>
+    <%end%>
+   
+  </select> 
+<a href="#" onclick="submitForm();">Delete</a>&nbsp;&nbsp;&nbsp;
+
+create label  &nbsp;
+<%=text_field_tag "createlabel",'',:style=>"width:90px;padding:0px;"%></form>
+</div>
+
+<div style="border: 1px solid rgb(170, 170, 170); float: left; margin: 1em; padding: 1em; width: 10%;" id="mailbox_list">
+  <p>
+  <strong><%=link_to_remote "Compose" ,:update => "",:url => { :action => "compose_new_mail"}%>
+  </strong>
+  </p>
+    <p>
+  <strong><%=link_to_remote "Inbox" ,:update => "",:url => { :action => "index"}%></strong></p>
+    <p>
+  <strong><%=link_to_remote "Sent" ,:update => "",:url => { :action => "sent_mail"}%></strong></p>
+    <p>
+  <strong><%=link_to_remote "Trash" ,:update => "",:url => { :action => "trash_mail"}%>
+    </strong></p>
+ <p><strong>Label</strong></p> 
+<%for mlabelname in @created_label%>
+<p><%=link_to_remote mlabelname.labelname,:update => "",:url => { :action => "show_labeled_email",:id=>mlabelname.id}%></p>
+<%end%>
+ 
+  
+  </div>
+<div>
+<%checkboxarrayname = []%>
+<%@messages.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
+<%abc= "["+(checkboxarrayname * ",")+"]" %>
+
+<div id="table_structer_of_email">
+<form action="/admin/delete_all_email" name="myform" method="post">
+
+<input type="hidden" name="selected_label" value="" id="selected_label">
+
+  <table cellpadding="10" style="padding-left:20px;"><tr>
+    <th>
+   <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{@messages.length},#{abc});"%>
+    </th>
+    <th>
+    From
+    </th>
+    <th>
+    Subject
+    </th>
+    <th>
+    Date Received
+    </th>
+    <th>
+    <%=h @folder.name %>
+    </th>
+    </tr>
+    <%for message in @messages%>
+    <tr>
+    <td>
+    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id%>
+    
+    </td>
+    <td>
+    <%=h message.author.login %>
+    </td>
+    <td>
+    <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%>
+    </td>
+    <td>
+    <%=message.created_at.strftime("%Y-%m-%d")%>
+    </td>
+    <td>
+    <%=h @folder.name %>
+    </td>
+    </tr>
+    <%end%>
+    </table>
+ </form>   
+    
+</div>    
+<div style="width:500px;height:1000px;border:1px solid red;padding-left:50px;margin:150px;clear:both" id="show_details">
+</div>
 
 
