@@ -109,7 +109,7 @@ class Admin::MailController < ApplicationController
   def find_signature
      signature = Signature.find(params[:fromemail])  
      render :update do |page|
-        page["show_the_signature"].replace_html(:partial =>'show_the_signature', :object =>signature)
+        #page["show_the_signature"].replace_html(:partial =>'show_the_signature', :object =>signature)
         page.call("set_the_signature",signature.signature)
       end
   end   
@@ -298,10 +298,10 @@ class Admin::MailController < ApplicationController
  
  
   def create_temporary_inbox
-   # a=User.find(:all)
-   # a.each do |x|
-   #   m=Mailfolder.new(:user_id=>x.id,:name=>"inbox")
-   #   m.save
+    #a=User.find(:all)
+    #a.each do |x|
+    #  m=Mailfolder.new(:user_id=>x.id,:name=>"inbox")
+    #  m.save
    # end
   end   
  

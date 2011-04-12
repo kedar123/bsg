@@ -13326,4 +13326,1330 @@ N+1 Query method call stack
   /home/ptsadmin/11-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
   /home/ptsadmin/11-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
   /home/ptsadmin/11-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
-  /home/ptsadmin/11-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'
+  /home/ptsadmin/11-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'2011-04-12 11:01:58[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:21:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:24:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:29:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:32:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:30:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:33:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'2011-04-12 11:02:24[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:03:16[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:03:17[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:08:16[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:09:30[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:52:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:59:in `show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:58:in `show_flag_email'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:52:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:59:in `show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:58:in `show_flag_email'2011-04-12 11:09:35[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 11:09:37[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 11:09:39[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:52:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:59:in `show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:58:in `show_flag_email'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:52:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_flag_email.rhtml:29:in `_run_rhtml_app47views47admin47mail47_show_flag_email46rhtml_locals_object_sent_message_show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:59:in `show_flag_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:58:in `show_flag_email'2011-04-12 11:09:41[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 11:11:34[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:11:53[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:12:01[WARN] N+1 Query detected
+  MessageCopy => [:emaillabel]
+  Add to your finder: :include => [:emaillabel]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:12:01[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:12:11[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:12:17[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 11:12:22[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 11:12:33[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 11:12:38[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:12:42[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'2011-04-12 11:12:59[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 11:15:11[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:15:15[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 11:23:01[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 11:24:49[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 12:06:22[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:21:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:24:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:29:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:32:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:30:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:33:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/profiles_controller.rb:11:in `index'2011-04-12 12:06:34[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 12:18:33[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 12:18:37[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 12:18:38[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'2011-04-12 12:18:48[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 12:18:50[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 12:18:54[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'2011-04-12 12:19:18[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 12:19:21[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 13:29:59[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 13:31:00[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 13:31:39[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 13:32:20[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 13:40:58[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 13:41:29[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:49:08[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:49:13[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:52:22[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:52:26[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 13:52:31[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:53:00[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:53:03[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 13:53:11[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:53:28[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:53:54[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 13:54:33[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:29:22[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:29:26[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:29:28[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:30:08[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:34:26[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:36:24[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:37:41[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:37:52[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:37:57[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:38:42[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:46:01[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:47:16[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:50:34[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:50:45[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:50:50[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:42:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_sent_mail_detail.rhtml:24:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:124:in `sent_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:123:in `sent_mail'2011-04-12 14:50:58[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:51:07[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:43:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:25:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:51:41[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:55:31[WARN] N+1 Query detected
+  MessageCopy => [:emaillabel]
+  Add to your finder: :include => [:emaillabel]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:55:31[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:55:49[WARN] N+1 Query detected
+  MessageCopy => [:emaillabel]
+  Add to your finder: :include => [:emaillabel]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:55:49[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:56:03[WARN] N+1 Query detected
+  MessageCopy => [:emaillabel]
+  Add to your finder: :include => [:emaillabel]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:55:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:56:03[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:55:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:56:10[WARN] N+1 Query detected
+  MessageCopy => [:emaillabel]
+  Add to your finder: :include => [:emaillabel]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:56:10[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:198:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:56:18[WARN] N+1 Query detected
+  MessageCopy => [:message]
+  Add to your finder: :include => [:message]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:18:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:142:in `show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:141:in `show_labeled_email'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:18:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:142:in `show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:141:in `show_labeled_email'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `subject'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:21:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:142:in `show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:141:in `show_labeled_email'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `created_at'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:24:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_show_labeled_email.rhtml:14:in `_run_rhtml_app47views47admin47mail47_show_labeled_email46rhtml_locals_object_show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:142:in `show_labeled_email'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:141:in `show_labeled_email'2011-04-12 14:56:23[WARN] N+1 Query detected
+  MessageCopy => [:emaillabel]
+  Add to your finder: :include => [:emaillabel]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:55:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:56:23[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:55:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:56:29[WARN] N+1 Query detected
+  MessageCopy => [:emaillabel]
+  Add to your finder: :include => [:emaillabel]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:55:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:56:29[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:55:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:56:35[WARN] N+1 Query detected
+  MessageCopy => [:message]
+  Add to your finder: :include => [:message]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:22:in `show'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:270:in `delete_label'2011-04-12 14:56:36[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:56:43[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:44:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_inbox_messages.rhtml:26:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:13:in `index'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:12:in `index'2011-04-12 14:59:00[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:59:33[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 14:59:43[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:17:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/_trash_mail_detail.rhtml:13:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_object_trash_mail_detail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:82:in `trash_mail'
+  /home/ptsadmin/12-4-2011bsg/app/controllers/admin/mail_controller.rb:81:in `trash_mail'2011-04-12 15:04:34[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-12 15:04:52[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/12-4-2011bsg/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:187:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `each'
+  /home/ptsadmin/12-4-2011bsg/app/views/admin/mail/index.rhtml:169:in `_run_rhtml_app47views47admin47mail47index46rhtml'

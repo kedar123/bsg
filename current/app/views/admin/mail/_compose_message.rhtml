@@ -11,7 +11,11 @@
   
   <%= f.text_area :body ,:rows=>15,:style=>"margin-left:19px;"%>
   <br/>
-Signature  <input type="text" name="signature" id="signature" style="width:265px;"/>
+Signature 
+<textarea rows="2" cols="20" name="signature" id="signature"> 
+
+</textarea>
+
   <p><%= submit_tag "Send",:style=>"width: 200px; margin-left: 110px;" %></p>
 <% end %>
 
@@ -23,10 +27,11 @@ Signature  <input type="text" name="signature" id="signature" style="width:265px
             <option value="<%=fremail.id%>"><%=fremail.frommail%></option>
           <%end%>  
           </select>
-        <%= submit_tag 'Select a From Mail' ,:style=>"width:150px;"%>
+        <%=submit_tag 'Select a From Mail' ,:style=>"width:150px;"%>
         
     <% end -%>
     </div>
     <div id="update_label" style="float:left"> 
     </div>
     </div>
+    

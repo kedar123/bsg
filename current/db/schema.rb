@@ -750,9 +750,8 @@ ActiveRecord::Schema.define(:version => 20110411110726) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "emaillabelid"
     t.boolean  "flag"
-    t.boolean  "deleted"
+    t.boolean  "deletedm"
   end
 
   create_table "newsletters", :force => true do |t|
