@@ -13,15 +13,15 @@
    
     <%end%>
     <%= select_tag "exhibition[user_ids][]", options_from_collection_for_select(@artists, 'user_id', 'full_name', :selected =>selecteduser, :disabled => @current_object.user_ids), :multiple => true, :size => 6 %><br />
-       <%=link_to "Make Required User As Artist","/admin/profiles"%> <br/>
-    <%= @current_object.users.map{ |e| "<input type='hidden' value='#{e.id}' name='exhibition[user_ids][]' id='exhibition_user_ids'>" }.join(' ') %>
+       <%#=link_to "Make Required User As Artist","/admin/profiles"%> <br/>
+    <%#= @current_object.users.map{ |e| "<input type='hidden' value='#{e.id}' name='exhibition[user_ids][]' id='exhibition_user_ids'>" }.join(' ') %>
 
-    <input id="filter3" style="size:20px;">
-    </div>
-
+<!--    <input id="filter3" style="size:20px;">	 -->
+    </div>  
+<!--
 <br /><br />
 
-  <label>TIMING PART</label><br />
+  <label>TIMING PART</label>   -->  <br />
 
   <% f.fields_for :timing do |ff| %>
     <%= add_timing_fields(:form => ff, :places_list => @places, :period_used => true, :one_day => false,

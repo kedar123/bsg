@@ -29,7 +29,17 @@ $(document).ready(function(){
              <a href="/"><img src="/gallery_assets/logo.png"></a>
 	        <div id="twolines">
               <%= current_user ? "You are logged as #{@current_user.profile.full_name}" : '' %>
-            </div>
+            <br/>
+	    <%if !current_user %> 
+			<%if  params[:action] == "login"%>	
+                          	<li><a href="/login" class="liselected">Login</a></li>
+			<%else%>
+				<li><a href="/login"><b><font color=grey>Login</font></b></a></li>
+			<%end%>
+		<%else%>
+			 <li><a href="/logout"><font color=grey>Logout</font></a></li>
+		<%end%>
+		</div>
         </div>
 	    <div id="menu">
 		    <div id="nav_1">
@@ -85,25 +95,25 @@ $(document).ready(function(){
 			<li><a href="/competitions">Competitions</a></li>
 			<%end%>
                         <% if @current_user.nil? %>
-		  	<%if  params[:controller] == "visitors" and params[:action] == "new"%>	
-			      <li><a href="/subscribe" class="liselected">Register</a></li>
-			<%else%>
-				<%if params[:controller] =="admin/users" and params[:action] == "create"%>
-				<li><a href="/subscribe" class="liselected">Register</a></li>
-				<%else%>
+		                      	<%if  params[:controller] == "visitors" and params[:action] == "new"%>	
+			                          <li><a href="/subscribe" class="liselected">Register</a></li>
+			                      <%else%>
+				                            <%if params[:controller] =="admin/users" and params[:action] == "create"%>
+				                            <li><a href="/subscribe" class="liselected">Register</a></li>
+				                            <%else%>
 				
-				<li><a href="/subscribe" >Register</a></li>
-				<%end%>
+				                            <li><a href="/subscribe" >Register</a></li>
+				                            <%end%>
 
-			<%end%>
-		  	<%if  params[:action] == "login"%>	
-                          	<li><a href="/login" class="liselected">Login</a></li>
-			<%else%>
-				<li><a href="/login">Login</a></li>
-			<%end%>
+			                      <%end%>
+		                              	<!-- <%#if  params[:action] == "login"%>	
+                                                      	<li><a href="/login" class="liselected">Login</a></li>
+			                            <%#else%>
+				                            <li><a href="/login">Login</a></li>
+			                            <%#end%>  -->
                         <% else %>
                           <li><a href="/admin/profiles/<%=current_user.id%>">Back Access</a></li>
-                          <li><a href="/logout">Logout</a></li>
+                          <!-- <li><a href="/logout">Logout</a></li>  -->
                         <% end %>
             			<%#*<li><a href="#">Extras</a></li>%>
         		</ul>
@@ -121,11 +131,11 @@ $(document).ready(function(){
 			      <%end%>	
 			        
 			<%end%>
-			<%if  params[:controller] == "booksshops" and params[:action] == "index"%>	
+<!--			<%#if  params[:controller] == "booksshops" and params[:action] == "index"%>	
 				<li><a href="/booksshops" class="liselected">Bookshop</a></li>
-			<%else%>
+			<%#else%>
 				<li><a href="/booksshops">Bookshop</a></li>
-			<%end%>
+			<%#end%>   -->
 
 			<%if  params[:controller] == "visitors" and params[:action] == "studios"%>	
 				<li><a href="/studios" class="liselected">Studios</a></li>

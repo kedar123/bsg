@@ -17,7 +17,7 @@
 <% form_for 'session', :url => admin_session_path, :html => { :method => :post,:class=>"login_form" } do |f| %>
 
       <%= flash_messages_manager(['notice', 'error'], 'modal', false) %><br/><br />
-        <p style="margin:5px 0px">User Name  (Your Email Address)</p>
+        <p style="margin:5px 0px">Email Address </p>
       <label><input name="email" type="text" id="email" size="50" />
       </label>
             <p style="margin:5px 0px">Password</p>

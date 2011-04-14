@@ -69,28 +69,28 @@ margin-top:0px;
 }
 
 #menu {
-background: url("/gallery_assets/line.gif") repeat-y scroll 100% 0 transparent;
-background-position:left;
-width:auto;
-float:left;
-margin-top:16px;
-min-height:105px;
+    background: url("/gallery_assets/line.gif") repeat-y scroll left center transparent;
+    float: left;
+    margin-top: 24px;
+    min-height: 98px;
+    width: auto;
 }
+
 
 #specific_menu {
-background: url("/gallery_assets/line.gif") repeat-y scroll 100% 0 transparent;
-background-position:left;
-width:auto;
-float:left;
-margin-top:16px;
-min-height:105px;
+    background: url("/gallery_assets/line.gif") repeat-y scroll left center transparent;
+    float: left;
+    margin-top: 24px;
+    min-height: 98px;
+    width: auto;
 }
 
-ul {
-margin: 0;
-padding:0px 6px 0px 6px;
-list-style: none;
-}
+ul{
+    list-style: none outside none; 
+    margin-bottom: -6px;
+    margin-top: -6px;
+    padding: 0 6px;
+    }
 
 ul li a {
 display:block;
@@ -349,6 +349,7 @@ float:left;
 
 
 
+
 #form_subscribe{
 background-color:#B3B3B3;
 border:1px solid #FFFFFF;
@@ -394,12 +395,13 @@ position: static;
 
 /************ Top Promo ************/
 #promo_top {
-height:70px;
-width:170px;
-float:left;
-margin-left:10px;
-margin-right:10px;
-color:#777777;
+    color: #777777;
+    float: left;
+    height: 66px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -3px;
+    width: 170px;
 }
 
 #promo_top  .content{

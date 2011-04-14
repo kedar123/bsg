@@ -3,7 +3,8 @@
 <% form_for :message, :url=>"/admin/create_sent_mail" do |f| %>
 
   <p style="float:left;padding:5px;margin:25px">
-    To  <%= f.text_field :user_email ,:style=>"width:265px"%>
+    To  <%=text_field_with_auto_complete :user, :email,{},:tokens =>',',:frequency=>0.1 %>
+    <p style="margin-left:150px"><a href="Add An User">Add An User</a></p>
   </p><br/>
   <%= checklist "message[to][]", User.find(:all), :id, :login, @message.to %>
   <p>Subject: <%= f.text_field :subject ,:style=>"width:265px"%></p>

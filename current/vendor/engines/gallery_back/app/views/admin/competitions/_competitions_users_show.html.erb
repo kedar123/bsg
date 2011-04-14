@@ -1,12 +1,12 @@
 <% if @current_user.has_system_role('admin') %>
-<b>PEOPLE SUBSCRIBED</b><br />
+<b>People Subscribed</b><br />
 <% if @current_object.competitions_users.first %>
   <table id="artists"  class="compuser">
   <thead>
   <tr>
-    <th>Full name</th>
-    <th>Email</th>
-    <th>State</th>
+    <th width = "30%" >Full name</th>
+    <th width = "30%">Email</th>
+    <th width = "25%">State</th>
   </tr>
   </thead>
 

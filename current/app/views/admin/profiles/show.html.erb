@@ -1,3 +1,17 @@
+<script language="javascript"> 
+function toggle() {
+	var ele = document.getElementById("bioToggle");
+	var text = document.getElementById("displayText");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+  	}
+	else {
+		ele.style.display = "block";
+	}
+} 
+</script>
+
+
 
 <% blank_main_div(:title => @current_object.full_name, :hsize => 'sixH') do %>
 
@@ -13,9 +27,13 @@
     </div>
 
     <br /><br /><br /><br /><br /><br /><br /><br />
-    <b>Biography :</b><br />
-    <%=h @current_object.biography %>
+    <a id="displayText" href="javascript:toggle();"><b>Biography </b></a><br />
 
+<div id="bioToggle" style="display: none">
+
+		<font size=1pt>    <%=h @current_object.biography %></font>
+</div>
+<br/><br/>
     <% if @current_object.user %>
       <%= render :partial => 'admin/profiles/data' %>
     <% else %>

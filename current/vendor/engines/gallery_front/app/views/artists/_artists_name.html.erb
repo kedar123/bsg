@@ -5,7 +5,7 @@
         <div id='nav_3'><ul>
           
           <% end %>
-          <li><a href='<%= "/#{params[:which]}/#{@artists[i].id}"%>' class="liselected"><%= @artists[i].full_name %></a></li>
+          <li><b><a href='<%= "/#{params[:which]}/#{@artists[i].id}"%>' class="liselected"><%= @artists[i].full_name %></a></b></li>
           <% if [4,9,14,19,24].include?(i) || i == (@artists.size-1) %>
           </ul></div>
       <% end %>

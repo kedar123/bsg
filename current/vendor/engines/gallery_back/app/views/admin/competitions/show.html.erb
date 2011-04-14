@@ -25,7 +25,7 @@
 								<input   name="competitions_user[name]" id="competitions_user_name" size="40" value="<%=current_user.profile.first_name + ' ' +current_user.profile.last_name%>" type="text" >
 
 							</td>
-						</tr>
+/home/ptsadmin/integrationwithvipinofgallery/12-4-2011bsg/vendor/engines/gallery_back/app/views/admin/competitions/show.html.erb						</tr>
 						<tr>
 							<td valign="top">
 								<strong>Email Address:</strong>
@@ -900,7 +900,7 @@
 				          
 				          <div>
 				          
-				          <div style="width:170px;float:left">	 <b>Prizes Total Amount :</b></div>
+				          <div style="width:170px;float:left">	 <b>Prizes Total Amount </b></div>
 				          <span style="padding-left:10px;">$ <%= @current_object.prizes_total_amount %> </span>
 				          </div>
 				          
@@ -913,7 +913,7 @@
 						  <%end%>
 					 <%end%>		
 				                      <div  id="maindiv" style="width:600px">					  
-				          <div style="width:170px;float:left">      <b>   Prizes detail :</b></div>
+				          <div style="width:170px;float:left">      <b>   Prizes detail  </b></div>
 					                    <div style="padding-left:180px;width:200px">
 					                    <%if  @current_object.prizes_detail%>
 							                      <% prize_array.each do |st| %>
@@ -924,13 +924,13 @@
 					                    </div>
 					         <br/>
 				  <div >					  
-				<div style="width:170px;float:left">  <b>Judges : </b></div>
+				<div style="width:170px;float:left">  <b>Judges </b></div>
 				                      <span style="padding-left:10px">
 					                    <%=@current_object.cjudges %></span>
 				  </div>
 				  <br/>
 			    <div >					  
-		<div style="width:170px;float:left">		  <b>Commission :</b> </div>
+		<div style="width:170px;float:left">		  <b>Commission </b> </div>
 				  <span  style="padding-left:10px"><%= @current_object.commission  %></span>
 				</div>  
 				<br />
@@ -949,7 +949,7 @@
                               </b>
                               </div>
 				  <% if @current_user.has_system_role('admin') || @current_user.has_system_role('judge') || @current_object.state.include?('publish') || @current_user.login =="superadmin" %>
-					<b>ARTWORKS LIST</b>:<br />
+					<b>Artworks List</b><br />
 						  <%if @artworks_competitions.first %>
 							      <div class="artworkcomp">
 								  <table class="compuser">
@@ -1040,6 +1040,13 @@
 		
 		
 </script>
+
+
+
+
+		
+		
+
 
 
 

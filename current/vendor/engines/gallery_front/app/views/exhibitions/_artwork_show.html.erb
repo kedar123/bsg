@@ -1,7 +1,7 @@
 <div id="iteam" class="iteam">
     <div id ="details" style="display:none;">
-      <%= object.title.capitalize %><br /><br />
-      <%= object.medium.capitalize  %><br />
+      <p style="margin-bottom: 0.4em;"><%= object.title.capitalize %></p>
+      <%= object.medium.capitalize  %><br/>
       <%= object.size  %> cm<br />
       <% if object.edition_name %>
         <%= 'Edition '+object.edition  %><br />

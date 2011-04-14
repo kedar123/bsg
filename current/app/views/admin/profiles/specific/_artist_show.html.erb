@@ -1,31 +1,31 @@
-  <b>Address :</b>
+  <b>Address </b>
   <%=h profile.address %><br />
 
-  <b>Suburb :</b>
+  <b>Suburb </b>
   <%=h profile.suburb %><br />
 
-  <b>Zip code :</b>
+  <b>Post code </b>
   <%=h profile.zip_code %><br />
 
-  <b>City :</b>
-  <%=h profile.city %><br />
-
-  <b>State :</b>
+ <!-- <b>City </b>  
+  <%#=h profile.city %><br />
+	-->
+  <b>State </b>
   <%=h profile.country_state %><br />
 
-  <b>Country :</b>
+  <b>Country </b>
   <%=h profile.country %><br />
 
-  <b>Phone number :</b>
-  <%=h profile.phone_number %><br />
+<%#  <b>Phone number </b>  %>
+  <%#=h profile.phone_number %><br /> 
 
 <% if !profile.user_id %>
     <b>Email address :</b>
     <%=h profile.email_address %><br />
 <% end %>
 
-  <b> Website :</b>
-  <%= link_to profile.website, profile.website, :target => "_blank" %><br />
+<%#  <b> Website </b>  %>
+  <%#= link_to profile.website, profile.website, :target => "_blank" %><br /> 
 
 <% if !no_bio %>
   <b>Biography :</b>

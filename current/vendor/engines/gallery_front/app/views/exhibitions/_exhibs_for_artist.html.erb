@@ -3,9 +3,17 @@
     <div id="description">
       <div id="content">
         <!--<%#= render :partial => 'artists/artists_name_left' %>-->
-        <h2><%= @profile.full_name %></h2>
+        <font size="6" color="white"><b><%= @profile.full_name %></b></font>
         <div id="exhibs_list">
-          <%= @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") }.join(' | ') %>
+          <%# = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") }.join(' | ') %>
+
+					<% lists = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") } %>
+					
+					<ul>
+							<%for list in lists%>
+								<li><%= list%></li>
+							<%end%>
+					</ul>
         </div>
         <p>
           <%= @exhibition.title %>

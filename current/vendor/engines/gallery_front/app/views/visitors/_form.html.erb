@@ -1,15 +1,10 @@
 <% form_for @current_object, :url => admin_users_path, :html => { :method => :post, :id => 'form' ,:class=>"form_subscribe"} do |f| %>
+      <p>Email (This will be your UserName)</p>
+      <label><%= f.text_field :email, :size => '50' %>
+      </label>
 
   <% f.fields_for :profile do |p| %>
       
-      <p>First name</p>
-      <label><%= p.text_field :first_name, :size => '50' %>
-      </label>
-      
-      <p>Last name</p>
-      <label><%= p.text_field :last_name, :size => '50' %>
-      </label>
-
       <p>Password</p>
       <label><%= f.password_field :password, :size => '50' %>
       </label>
@@ -17,13 +12,31 @@
       <p>Confirm Password</p>
       <label><%= f.password_field :password_confirmation, :size => '50' %>
       </label>
-      
-
 
        <p>Address</p> 
       <label><%= p.text_field :address, :size => '50' %>
       </label>
+
+      <p>First name</p>
+      <label><%= p.text_field :first_name, :size => '50' %>
+      </label>
       
+     		<p>Last name</p>
+      	<label><%= p.text_field :last_name, :size => '50' %>
+      	</label>
+
+       <p>Website</p> 
+      <label><%= p.text_field :website, :size => '50' %>
+      </label>
+      
+       <p>State</p> 
+      <label><%= p.text_field :country_state, :size => '50' %>
+      </label>
+
+
+       <p>Country</p> 
+      <label><%= p.text_field :country, :size => '50' %>
+      </label>
        <p>Suburb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post Code</p>
    
       <label><%= p.text_field :suburb, :size => '28',:style=>"float:left" %>
@@ -36,9 +49,9 @@
      
    <% end %>
 
-      <p>User Name (This Should Be Email)</p>
+<!--      <p>User Name (This Should Be Email)</p>
       <label><%= f.text_field :email, :size => '50' %>
-      </label>
+      </label>  -->
       
 
     <p><button name="submit" id="next">>>submit</button></p>

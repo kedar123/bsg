@@ -6,7 +6,7 @@
 				<h2>
 					<%if  pramotingstuff.link.blank?%>
 					<div class="pramotion_heading" >
-					     <%= pramotingstuff.title %>
+					     <p><%= pramotingstuff.title %></p>
 					 </div>    
 					<%else%>
 						<%if  pramotingstuff.link == "http://"%>
@@ -23,7 +23,7 @@
 						
 							
 					<%end%>
-					</h2>
+					</h2>&nbsp<br/>
 					<p><%=pramotingstuff.description%>
 					</p>
 			</div>  

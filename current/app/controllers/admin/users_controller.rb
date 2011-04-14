@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::ApplicationController
+   
   acts_as_ajax_validation
 	acts_as_authorizable(
 		:actions_permissions_links => {
@@ -286,3 +287,27 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

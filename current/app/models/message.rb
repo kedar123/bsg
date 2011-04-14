@@ -7,11 +7,24 @@ class Message < ActiveRecord::Base
   attr_accessor  :to ,:user_email# array of people to send to
   attr_accessible :subject, :body, :to
   
-  def prepare_copies
-    return if to.blank?
-    to.each do |recipient|
-      recipient = User.find(recipient)
-       message_copies.build(:recipient_id => recipient.id, :mailfolder_id => recipient.inbox.id)
-    end
+# def prepare_copies
+#    return if to.blank?
+#    to.each do |recipient|
+#      recipient = User.find(recipient)
+#       message_copies.build(:recipient_id => recipient.id, :mailfolder_id => recipient.inbox.id)
+#    end
+# end
+  
+  def prepare_copies(emailid)
+    if emailid.blank?
+    else  
+        emailid.split(',').each do |recipient|
+          recipient = User.find_by_email(recipient)
+          message_copies.build(:recipient_id => recipient.id, :mailfolder_id => recipient.inbox.id)
+        end
+    end  
   end
+
+
+  
 end

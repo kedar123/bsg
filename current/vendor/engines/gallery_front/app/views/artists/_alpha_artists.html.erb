@@ -5,7 +5,13 @@
     <% if [0,5,10,15,20].include?(list.index(i)) %>
       <div id='nav_3'><ul>
         <% end %>
-        <li><a href='<%= "/artists/#{i}"%>'  class="liselected"><%= i %></a></li>
+        <li><a href='<%= "/artists/#{i}"%>'  class="liselected">
+				<% if params[:filter] && params[:filter]==i%>
+					<font color=white ><%= i %></font>				
+				<%else%>
+					<font color=grey ><%= i %></font>
+				<%end%>
+				</a></li>
         <% if [4,9,14,19,24].include?(list.index(i)) || i == 'y-z' %>
         </ul></div>
     <% end %>

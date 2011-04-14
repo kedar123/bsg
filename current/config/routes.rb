@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/flag_mail",:controller=>"admin/mail",:action=>"flag_mail"
   map.connect "/admin/delete_show_flag_mail",:controller=>"admin/mail",:action=>"delete_show_flag_mail"
   map.connect "/admin/delete_label",:controller=>"admin/mail",:action=>"delete_label"
+  map.connect "/auto_complete_for_user_email",:controller=>"admin/mail",:action=>"auto_complete_for_user_email"
 
   
   map.connect "/admin/forward_email" ,:controller=>"admin/mail",:action=>"forward_email"

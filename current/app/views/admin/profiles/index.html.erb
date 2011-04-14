@@ -1,40 +1,28 @@
   
 <% blank_main_div(:title =>"Contacts list (#{@num} results)", :hsize => 'sixH') do %>
-          
-<table id="profiles">
-  <thead>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th>State</th>
-  </tr>
-  </thead>
+  
+  <table id="profiles">
+    <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>&nbsp  State</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @current_objects.each do |profile| %>
+        <tr>
+            <%if  profile.user.login != "admin"%>
+              <td><%=link_to profile.first_name , admin_profile_path(profile.id)%></td>
+              <td><%=link_to profile.last_name , admin_profile_path(profile.id)%></td>
+              <td><%=link_to profile.email_address, admin_profile_path(profile.id) %></td>
+              <td><%=h profile.country_state %></td>
+             <%end%>
 
-  <tbody>
-<% @current_objects.each do |profile| %>
-  <tr>
-    <td><%=h profile.first_name %></td>
-    <td><%=h profile.last_name %></td>
-    <td><%=h profile.email_address %></td>
-    <td><%=h profile.country_state %></td>
-    <%if  profile.user.login != "admin"%>
-    <td><%= link_to 'Show', admin_profile_path(profile.id) %></td>
-   <%end%>
-   <%if  profile.user.login != "admin"%>
-    <td><%= link_to 'Modify', edit_admin_profile_path(profile.id) %></td>
-  <%end%>
-    <% if profile.user.nil? %>
-      <td><%= link_to 'Delete', admin_profile_path(profile.id), :confirm => 'Are you sure ?', :method => :delete %></td>
-    <% elsif profile.user.activation_code.to_s.size > 10 %>
-      <td><%= link_to 'Delete', admin_user_path(profile.user.id), :confirm => 'Are you sure ?', :method => :delete %></td>
-    <% else %>
-    <%if  profile.user.login != "admin"%>
-      <td><%= link_to (profile.user.activation_code=='locked' ? 'Unlock' : 'Lock'), locking_admin_user_path(profile.user_id) %></td>
-      <%end%>
-    <% end %>
+
   </tr>
-<% end %>
+ <% end %>
   </tbody>
   <tfoot>
     <tr style="display:none;">

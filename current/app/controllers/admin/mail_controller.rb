@@ -1,6 +1,11 @@
 class Admin::MailController < ApplicationController
   layout "gallery_promoting_mail"
- 
+  auto_complete_for :user, :email
+
+  
+  
+
+
  def index
     redirect_to new_session_path and return unless logged_in?
     @folder = current_user.inbox
@@ -307,3 +312,4 @@ class Admin::MailController < ApplicationController
  
  
 end
+
