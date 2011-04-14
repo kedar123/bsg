@@ -69,7 +69,7 @@ margin-top:0px;
 }
 
 #menu {
-    background: url("/gallery_assets/line.gif") repeat-y scroll left center transparent;
+  background: url("/gallery_assets/line.gif") repeat-y scroll left center transparent;
     float: left;
     margin-top: 24px;
     min-height: 98px;
@@ -85,8 +85,8 @@ margin-top:0px;
     width: auto;
 }
 
-ul{
-    list-style: none outside none; 
+ul {
+list-style: none outside none; 
     margin-bottom: -6px;
     margin-top: -6px;
     padding: 0 6px;

@@ -129,4 +129,18 @@ class Admin::ProfilesController < Admin::ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def update_notices
+	    @current_object = Profile.find(params[:id])
+p "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+#p @current_oject.notices
+#p @current_oject
+p "Byeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+			#@current_oject.notices = @current_oject.notices
+			 if @current_object.update_attributes!(params[:profile])
+				else
+      end
+			redirect_to back		
+	end
+
 end

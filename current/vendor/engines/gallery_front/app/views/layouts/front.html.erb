@@ -32,13 +32,24 @@ $(document).ready(function(){
             <br/>
 	    <%if !current_user %> 
 			<%if  params[:action] == "login"%>	
-                          	<li><a href="/login" class="liselected">Login</a></li>
+             <a href="/login" class="liselected">Login</a><br/>
 			<%else%>
-				<li><a href="/login"><b><font color=grey>Login</font></b></a></li>
+				<a href="/login"><b><font color=grey>Login</font></b></a><br/>
 			<%end%>
 		<%else%>
-			 <li><a href="/logout"><font color=grey>Logout</font></a></li>
+			 <a href="/logout"><font color=grey>Logout</font></a><br/>
 		<%end%>
+				<% if @current_user.nil? %>
+				<%if  params[:controller] == "visitors" and params[:action] == "new"%>	
+			      <a href="/subscribe" class="liselected"><font color=white>Register</font></a>
+				<%else%>
+						<%if params[:controller] =="admin/users" and params[:action] == "create"%>
+							<a href="/subscribe" class="liselected"><font color=white>Register</font></a>
+						<%else%>
+							<a href="/subscribe" ><font color=grey>Register</font></a>
+						<%end%>
+				<%end%>
+				<%end%>
 		</div>
         </div>
 	    <div id="menu">
@@ -95,22 +106,11 @@ $(document).ready(function(){
 			<li><a href="/competitions">Competitions</a></li>
 			<%end%>
                         <% if @current_user.nil? %>
-		                      	<%if  params[:controller] == "visitors" and params[:action] == "new"%>	
-			                          <li><a href="/subscribe" class="liselected">Register</a></li>
-			                      <%else%>
-				                            <%if params[:controller] =="admin/users" and params[:action] == "create"%>
-				                            <li><a href="/subscribe" class="liselected">Register</a></li>
-				                            <%else%>
-				
-				                            <li><a href="/subscribe" >Register</a></li>
-				                            <%end%>
-
-			                      <%end%>
-		                              	<!-- <%#if  params[:action] == "login"%>	
-                                                      	<li><a href="/login" class="liselected">Login</a></li>
-			                            <%#else%>
-				                            <li><a href="/login">Login</a></li>
-			                            <%#end%>  -->
+		  			  	<!-- <%if  params[:action] == "login"%>	
+                          	<li><a href="/login" class="liselected">Login</a></li>
+			<%else%>
+				<li><a href="/login">Login</a></li>
+			<%end%>  -->
                         <% else %>
                           <li><a href="/admin/profiles/<%=current_user.id%>">Back Access</a></li>
                           <!-- <li><a href="/logout">Logout</a></li>  -->

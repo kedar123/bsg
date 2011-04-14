@@ -1,30 +1,35 @@
+<script language="javascript"> 
+function ntoggle() {
+	var ele = document.getElementById("noticeToggle");
+	var text = document.getElementById("displayText");
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+  	}
+	else {
+		ele.style.display = "block";
+	}
+} 
+</script>
+
 <div id="tabass">
     <ul>
-        <li><a href="#fragment-1"><span>Artworks</span></a></li>
+      <!--  <li><a href="#fragment-1"><span>Artworks</span></a></li>  -->
         <li><a href="#fragment-2"><span>Exhibitions</span></a></li>
         <li><a href="#fragment-3"><span>Competitions</span></a></li>
         <li><a href="#fragment-4"><span>Invoices</span></a></li>
         <li><a href="#fragment-5"><span>Mail</span></a></li>
+				<li><a href="#fragment-6"><span>Biography</span></a></li>
+				<li><a href="#fragment-7"><span>Notice</span></a></li>
     </ul>
   <div style="font-size:10px;">
-    <div id="fragment-1">
+ 
+
+<!--   <div id="fragment-1">
       <% profile_workspace = @current_object.profile_workspace || @current_object.user.private_workspace %>
-      <div style="float:right;">
-      <%if current_user.login=="admin" || current_user.login=="superadmin"%>
-      <%= link_to "add an artwork for that contact", new_admin_workspace_artwork_path(profile_workspace.id) %>
-      <%end%>
-      </div><br />
-        <% if !(artworks=profile_workspace.artworks).empty? %>
-          <% artworks.each do |a| %>
-            <%#= link_to(image_tag(a.image.url(:thumb).split("?")[0], :class => "image_peview"), a.image.url.split("?")[0])%>
-            <% blank_list_element(:date => a.created_at, :title => link_to(a.title, admin_workspace_artwork_path(profile_workspace.id, a.id))) do %>
-              <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-            <% end %>
-          <% end %>
-        <% else %>
-       No artworks for that user.
-    <% end %>
-    </div>
+          </div> 
+
+-->
+
     <div id="fragment-2">
       <div style="float:right;">
       <%if current_user.login=="admin" || current_user.login=="superadmin"%>
@@ -109,6 +114,40 @@
     <div id="emails_list">
     </div>
   </div><%#fragment 5%>
+
+	
+
+	<div id="fragment-6">
+		<font size=2pt>    <%=h @current_object.biography %></font>
+	</div>
+
+	<div id="fragment-7">
+			<%if !@current_object.notices.nil? %>	<br/>	
+<a id="displayText" href="javascript:ntoggle();"><b>Add Notice</b></a><br />				
+			<font size=2pt>    <%=h @current_object.notices %></font>
+			<%else%>
+				No Notices for <%=h @current_object.first_name %>.<br/>
+<a id="displayText" href="javascript:ntoggle();"><b>Change Notice</b></a><br />				
+			<%end%>
+			<div id="notice_add">
+				hii
+			</div>	
+
+
+<div id="noticeToggle" style="display: none">
+
+		<font size=1pt>    <%#=h @current_object.biography %></font>
+			<% form_tag(update_notices_admin_profile_path, :method => "put") do %>
+				 <%= label_tag(:q, "Notice:") %> 
+					<%= text_area_tag(:q) %> 
+			<%= submit_tag("Submit") %> 
+			<% end %>
+
+</div>		
+			
+	</div>
+
+
   
 </div>
 

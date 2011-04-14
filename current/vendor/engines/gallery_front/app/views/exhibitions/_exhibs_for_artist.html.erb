@@ -1,30 +1,45 @@
+<script language="javascript" type="text/javascript">
+<!--
+function popitup(url) {
+	newwindow=window.open(url,'name','height=200,width=150');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+
+// -->
+</script>
+
+
 <div id="container">
   <% if @profile %>
     <div id="description">
       <div id="content">
         <!--<%#= render :partial => 'artists/artists_name_left' %>-->
-        <font size="6" color="white"><b><%= @profile.full_name %></b></font>
-        <div id="exhibs_list">
+        <font size="5" color="white"><b><%= @profile.full_name %></b></font>
+        <div id="exhibs_list"><br/>
           <%# = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") }.join(' | ') %>
 
 					<% lists = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") } %>
 					
-					<ul>
+					
 							<%for list in lists%>
-								<li><%= list%></li>
+								<%= list%><br/>
 							<%end%>
-					</ul>
+					
         </div>
         <p>
-          <%= @exhibition.title %>
+            <%= @exhibition.title %>
         </p>
         <p>
-          <%= @exhibition.description %>
+           <%= @exhibition.description %>
         </p>
         <p>
-          <%= link_to @profile.website, @profile.website, :style => "color:black;", :target => "_blank" %>
-        </p>
-      </div>
+          <%#= link_to @profile.website, @profile.website, :style => "color:black;", :target => "_blank" %>
+      
+ <%= link_to @profile.website, @profile.website, :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+</p>
+
+</div>
     </div>
     <div id="list">
       <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>

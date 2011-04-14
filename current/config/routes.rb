@@ -223,7 +223,7 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :credit_cards, :only => :none, :collection => { :validate => :post }
 		admin.resources :exhibitions_users, :only => :none, :member => { :send_invitation => :get, :update_state => :get }, :collection => { :set_prices => :post }
 		admin.resources :periods, :only => [:index, :create, :update, :destroy], :collection => { :validate => :post }
-		admin.resources :profiles, :collection => { :validate => :post, :filter => :post }
+		admin.resources :profiles,:member => {:update_notices => :put }, :collection => { :validate => :post, :filter => :post }
 		admin.resources :categories, :only => [:index, :create, :update, :destroy], :collection => { :validate => :post }
 		admin.resources :timings, :only => [:index, :create, :destroy], :collection => { :ajax_remove => :get, :validate => :post, :calendar => :get }, :member => { :update_state => :get }
 		admin.resources :competitions_subscriptions, :only => :none, :collection => { :validate => :post, :select => :get, :subscribe => :post , :enter => :get, :submit=> :post}

@@ -210,9 +210,9 @@ h4 {
 	font-size:12px;
 	overflow:auto;
 }
-#addSubMenu{background:#f89f36;margin-left:-27px}
-#modifySubMenu{background:#f49029;margin-left:-217px;}
-#configureSubMenu{background:#ef7c18;margin-left:-407px;}
+#addSubMenu{background:#f89f36;margin-left:-7px}
+#modifySubMenu{background:#f49029;margin-left:-169px;}
+#configureSubMenu{background:#ef7c18;margin-left:-330px;}
 /*#configureSubMenu{background:#eb6e0d;margin-left:-597px;}*/
 
 .subMenuContent .subMenuCol, .subMenuContent .subMenuLogo{
@@ -248,7 +248,7 @@ h4 {
 #topMenu{	
 	color:#FFFFFF;
 	height:50px;
-	padding-left:27px;
+	padding-left:7px;
 	margin-bottom:0;
 	margin-top:0;
 	list-style:none;
@@ -259,12 +259,12 @@ h4 {
 #powerfullSearch form{margin:0;}
 
 #topMenu li{
-	float:left;
-	font-size:180%;
-	margin:10px 10px 0 0;
-	text-align:right;
-	width:180px;
-	overflow:hidden;
+    float: left;
+    font-size: 160%;
+    margin: 10px 6px 0 0;
+    overflow: hidden;
+    text-align: right;
+    width: 156px;
 }
 #topMenu li img{
 	float:right;
@@ -747,7 +747,7 @@ a.filter{
 	font-size:80%;
 }
 .itemShowRightBlock a{
-	display:block;
+/*	display:block;*/
 	margin:5px 0;
 }
 
@@ -792,6 +792,7 @@ a.filter{
 
 .sixH{width:675px;}
 .twoH{width:180px;}
+.threeH{width:223px;}
 .sevH{width:689px;}
 .sevTenH{width:685px;}
 .nineH {width:920px;}
@@ -817,6 +818,9 @@ a.filter{
 	width:178px;
 }
 
+.itemShowRightBlock .u-info{
+	width:221px;
+}
 .rightBlocks{overflow:hidden;float:right;}
 
 /*		COMMENTS		*/
@@ -1120,19 +1124,3 @@ margin:0px 10px 0px 0px;
 	#fragment-1{
 	font-size: 10px;
 	}  
-	
-	
-	.mouse-link{
-		display:block;
-		height:16px;
-		width:16px;
-		background:url(/images/flag-1.png);
-	}
-
-	.mouse-onclik{
-		background:url(/images/flag-2.png);
-		display:block;
-		height:16px;
-		width:16px;
-	}	
-	

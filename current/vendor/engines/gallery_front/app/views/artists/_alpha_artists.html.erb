@@ -7,9 +7,17 @@
         <% end %>
         <li><a href='<%= "/artists/#{i}"%>'  class="liselected">
 				<% if params[:filter] && params[:filter]==i%>
-					<font color=white ><%= i %></font>				
+						<%if i== 'y-z'%>
+							<font color=white >y/z</font>				
+						<%else%>
+							<font color=white ><%= i %></font>				
+						<%end%>				
 				<%else%>
-					<font color=grey ><%= i %></font>
+						<%if i== 'y-z'%>
+							<font color=grey >y/z</font>				
+						<%else%>	
+							<font color=grey ><%= i %></font>
+						<%end%>
 				<%end%>
 				</a></li>
         <% if [4,9,14,19,24].include?(list.index(i)) || i == 'y-z' %>

@@ -1,8 +1,10 @@
 <div id="iteam" class="iteam">
     <div id ="details" style="display:none;">
-      <p style="margin-bottom: 0.4em;"><%= object.title.capitalize %></p>
+      <p style="margin-bottom: 0.4em; white-space: normal;">
+					<font size=2px><%= object.title.split.each{|m|m.capitalize!}.join(" ") %></font>
+			</p>
       <%= object.medium.capitalize  %><br/>
-      <%= object.size  %> cm<br />
+      <%= object.size.split('x').each{|m|m.capitalize!}.join(' x ')  %> cm<br />
       <% if object.edition_name %>
         <%= 'Edition '+object.edition  %><br />
       <% end %>
@@ -14,7 +16,7 @@
       	
       <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id) && (object.class.to_s=='Artwork' ) %>
       
-        <%= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1) %>
+        <%= link_to '<font color="white">add to the cart</font>', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1) %>
       <% end %>
       
       <%= "already in the cart !!" if  @current_object &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>

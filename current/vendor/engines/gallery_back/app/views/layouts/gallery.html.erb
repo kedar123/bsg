@@ -82,16 +82,7 @@
             <div id="container">
             
                <%if params[:controller] != 'admin/timings' and params[:controller] != 'admin/content' and params[:controller] != "admin/workspaces" and  params[:controller] !=  "admin/exhibitions" and  !params[:controller].include? "superadmin"%>
-                         <div class="rightBlocks"> 
-                                      <div class="itemShowRightBlock">
-                                          <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
-                                            <%= "Workspace" %>
-                                          </div><div class="blockCornerRight"></div>
-                                          <div class="blockElementBody">
-                                              <%= current_container ? "Dear #{@current_user.profile.full_name}, you are inside '#{current_container.title}' workspace, click #{ link_to 'here', '/admin' } to leave that workspace." : "Dear #{@current_user.profile.full_name}, you are actually at the root of the back end of the application, <br/>What can I do? #{ link_to('Back to BSG website', '/')} " %>
-                                          </div>
-                                        </div>
-                        </div> 
+                        
                 <%end%>
                 
                 <%= yield %>
