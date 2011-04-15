@@ -6,8 +6,8 @@ DEFAULTS: &DEFAULTS
 #  password: global786
   host: localhost
   username: root
-  password: 
-  #socket: /var/run/mysqld/mysqld.sock
+  password:  
+  socket: /var/run/mysqld/mysqld.sock
 
 development:
   database: gallery

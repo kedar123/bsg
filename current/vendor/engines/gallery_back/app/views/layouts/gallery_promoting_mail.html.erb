@@ -40,7 +40,7 @@
 
                 <%#*<script type="text/javascript" src="/javascripts/jquery.datepicker.min.js"></script>%>
 
-                <script type="text/javascript" src="/javascripts/blank1.js"></script>
+                <script type="text/javascript" src="/javascripts/blank_1.js"></script>
                  <script>
                      jQuery.noConflict();
                  </script>
@@ -50,7 +50,7 @@
                   <script src="/javascripts/prototype.js" type="text/javascript"></script>
                   <script src="/javascripts/effects.js" type="text/javascript"></script>
                   <script src="/javascripts/controls.js" type="text/javascript"></script>
-
+                  <script src="/javascripts/lowpro.js" type="text/javascript"></script>
 
         <% if params[:action] != 'new' and params[:action] != 'edit' %>
             <script type="text/javascript">
@@ -63,6 +63,11 @@
                         $(this).hide();
                     });
                 });
+                
+                  Event.addBehavior.reassignAfterAjax = true;
+                     Event.addBehavior({
+                      'div.pagination a' : Remote.Link
+                    })
             </script>
         <% end %>
 
@@ -373,5 +378,11 @@
             <%#= render :partial => "layouts/gallery_footer"%>
         </div>
       <div id="modal_space"></div>
+                  <script type="text/javascript">
+                $(function(){
+                    $("#notice").hide();
+                    alert('i get hidden');
+                });
+            </script>
     </body>
 </html>

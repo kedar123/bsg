@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110411110726) do
+ActiveRecord::Schema.define(:version => 20110414151551) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -752,6 +752,7 @@ ActiveRecord::Schema.define(:version => 20110411110726) do
     t.datetime "updated_at"
     t.boolean  "flag"
     t.boolean  "deletedm"
+    t.boolean  "deletedmt"
   end
 
   create_table "newsletters", :force => true do |t|
@@ -923,6 +924,7 @@ ActiveRecord::Schema.define(:version => 20110411110726) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "studios"
+    t.string   "notices"
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"

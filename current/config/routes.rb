@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/invoices/new/:id",:controller=>"admin/invoices",:action=>"new"
   map.connect "/payment_response" ,:controller=>"admin/payments",:action=>"create"
   map.connect "/admin/mail" ,:controller=>"admin/mail",:action=>"index"
+  map.connect "/admin/delete_from_trash" ,:controller=>"admin/mail",:action=>"delete_from_trash"
   map.connect "/admin/flag_email" ,:controller=>"admin/mail",:action=>"flag_email"
   map.connect "/admin/show_flag_email" ,:controller=>"admin/mail",:action=>"show_flag_email"
   map.connect "/admin/compose_new_mail" ,:controller=>"admin/mail",:action=>"compose_new_mail"

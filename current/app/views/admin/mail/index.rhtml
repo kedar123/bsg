@@ -31,7 +31,6 @@ function select_all_checkbox(checkboxlength,checkboxnamearray){
 //  #{messagesentlength},#{messagerecdlength},#{messagesentarray},#{messagerecdarray})
 function select_all_checkbox_flag(messagesentlength,messagerecdlength,messagesentarray,messagerecdarray)
 {
-  
    if(document.getElementById('delete_all_message').checked)
     {
       for (i=0; i < messagesentlength; i++)
@@ -43,7 +42,6 @@ function select_all_checkbox_flag(messagesentlength,messagerecdlength,messagesen
             {
         	    messagerecdarray[i].checked = true ;
        	    } 	    
-       	    
     }
 	else
   	{
@@ -56,18 +54,52 @@ function select_all_checkbox_flag(messagesentlength,messagerecdlength,messagesen
         	    messagerecdarray[i].checked = false ;
        	    } 	 
 	  }
-  
-  
-  
-  
-  
-  
-  
 }
+
+
+//  #{messagesentlength},#{messagerecdlength},#{messagesentarray},#{messagerecdarray})
+function select_all_checkbox_trash(messagesentlength,messagerecdlength,messagesentarray,messagerecdarray)
+{
+   if(document.getElementById('delete_all_message').checked)
+    {
+      for (i=0; i < messagesentlength; i++)
+            {
+        	    messagesentarray[i].checked = true ;
+       	    }
+       	    
+      for (i=0; i < messagerecdlength; i++)
+            {
+        	    messagerecdarray[i].checked = true ;
+       	    } 	    
+    }
+	else
+  	{
+  	   for (i=0; i  < messagesentlength ; i++ )
+  	      {
+          	messagesentarray[i].checked = false ;
+         	} 
+         	 for (i=0; i < messagerecdlength; i++)
+            {
+        	    messagerecdarray[i].checked = false ;
+       	    } 	 
+	  }
+}
+
+
+
+
+
+
   
   
+
+
+
   
   
+
+
+
 function submitForm(){
 if (confirm("Are You Sure"))
   {
@@ -150,9 +182,7 @@ create label  &nbsp;
     <th>
      <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{@messages.length},#{checkboxarraynamestring});"%>
     </th>
-    <th>
-      Flag
-    </th>
+
     <th>
       From
     </th>
@@ -162,9 +192,7 @@ create label  &nbsp;
     <th>
       Date Received
     </th>
-    <th>
-      Mail Box
-    </th>
+
     </tr>
     <%for message in @messages%>
     <tr>
@@ -173,16 +201,7 @@ create label  &nbsp;
     <%=check_box_tag "delete_message"+message.id.to_s  ,message.id%>
     
     </td>
-    <td>
-    <%if message.flag%>
-        <%=link_to_remote  image_tag("dot.png"),:url=>{:action=>"flag_email", :id=>message.id },:before =>"change_the_flag('flag'+#{message.id.to_s})",:html=>{:class=>"mouse-onclik",:id=>"flag"+message.id.to_s}%>
-
-    <%else%>
-        <%=link_to_remote  image_tag("dot.png"),:url=>{:action=>"flag_email", :id=>message.id },:before =>"change_the_flag('flag'+#{message.id.to_s})",:html=>{:class=>"mouse-link",:id=>"flag"+message.id.to_s}%>
-
-    <%end%>
-    
-    </td>
+  
     <td>
       <%=h message.author.login %>
     </td>
@@ -193,20 +212,13 @@ create label  &nbsp;
     <td>
     <%=message.created_at.strftime("%Y-%m-%d")%>
     </td>
-    <td>
-    <%if message.labeled == true%>
-        <strong style="color: #F79646;"><%=message.emaillabel.labelname%></strong>
-     <%else%>   
-     
-     <%end%>
-    
-    
-    </td>
+   
     </tr>
     <%end%>
     </table>
  </form>   
-    
+    <%= will_paginate @messages %>
+
 </div>    
 <div style="width:500px;height:1000px;border:1px solid red;padding-left:50px;margin:150px;clear:both" id="show_details">
 </div>

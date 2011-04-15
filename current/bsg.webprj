@@ -19,6 +19,7 @@
     <item url="app/controllers/admin/groups_controller.rb" uploadstatus="1" />
     <item url="app/controllers/admin/home_controller.rb" uploadstatus="1" />
     <item url="app/controllers/admin/images_controller.rb" uploadstatus="1" />
+    <item url="app/controllers/admin/mail_controller.rb" uploadstatus="1" />
     <item url="app/controllers/admin/menus_controller.rb" uploadstatus="1" />
     <item url="app/controllers/admin/newsletters_controller.rb" uploadstatus="1" />
     <item url="app/controllers/admin/notifications_controller.rb" uploadstatus="1" />
@@ -53,10 +54,13 @@
     <item url="app/controllers/competitions_artworks_controller.rb" uploadstatus="1" />
     <item url="app/controllers/contacts_controller.rb" uploadstatus="1" />
     <item url="app/controllers/drawings_controller.rb" uploadstatus="1" />
+    <item url="app/controllers/emaillabels_controller.rb" uploadstatus="1" />
+    <item url="app/controllers/frommails_controller.rb" uploadstatus="1" />
     <item url="app/controllers/front_end_pics_controller.rb" uploadstatus="1" />
     <item url="app/controllers/links_controller.rb" uploadstatus="1" />
     <item url="app/controllers/promoting_stuffs_controller.rb" uploadstatus="1" />
     <item url="app/controllers/show_user_type_controller.rb" uploadstatus="1" />
+    <item url="app/controllers/signatures_controller.rb" uploadstatus="1" />
     <item url="app/controllers/websites_controller.rb" uploadstatus="1" />
     <item url="app/controllers/workspaces_controller.rb" uploadstatus="1" />
     <item url="app/helpers/" uploadstatus="1" />
@@ -64,6 +68,7 @@
     <item url="app/helpers/admin/application_helper.rb" uploadstatus="1" />
     <item url="app/helpers/admin/articles_helper.rb" uploadstatus="1" />
     <item url="app/helpers/admin/blank_lists_helper.rb" uploadstatus="1" />
+    <item url="app/helpers/admin/mail_helper.rb" uploadstatus="1" />
     <item url="app/helpers/admin/people_helper.rb" uploadstatus="1" />
     <item url="app/helpers/admin/searches_helper.rb" uploadstatus="1" />
     <item url="app/helpers/admin/users_helper.rb" uploadstatus="1" />
@@ -76,12 +81,15 @@
     <item url="app/helpers/competitions_artworks_helper.rb" uploadstatus="1" />
     <item url="app/helpers/competitions_users_helper.rb" uploadstatus="1" />
     <item url="app/helpers/drawings_helper.rb" uploadstatus="1" />
+    <item url="app/helpers/emaillabels_helper.rb" uploadstatus="1" />
+    <item url="app/helpers/frommails_helper.rb" uploadstatus="1" />
     <item url="app/helpers/front_end_pics_helper.rb" uploadstatus="1" />
     <item url="app/helpers/links_helper.rb" uploadstatus="1" />
     <item url="app/helpers/periods_helper.rb" uploadstatus="1" />
     <item url="app/helpers/profiles_helper.rb" uploadstatus="1" />
     <item url="app/helpers/promoting_stuffs_helper.rb" uploadstatus="1" />
     <item url="app/helpers/show_user_type_helper.rb" uploadstatus="1" />
+    <item url="app/helpers/signatures_helper.rb" uploadstatus="1" />
     <item url="app/helpers/websites_helper.rb" uploadstatus="1" />
     <item url="app/helpers/yacaph_helper.rb" uploadstatus="1" />
     <item url="app/models/" uploadstatus="1" />
@@ -99,7 +107,9 @@
     <item url="app/models/data_person.rb" uploadstatus="1" />
     <item url="app/models/drawing.rb" uploadstatus="1" />
     <item url="app/models/element.rb" uploadstatus="1" />
+    <item url="app/models/emaillabel.rb" uploadstatus="1" />
     <item url="app/models/folder.rb" uploadstatus="1" />
+    <item url="app/models/frommail.rb" uploadstatus="1" />
     <item url="app/models/frontendpic.rb" uploadstatus="1" />
     <item url="app/models/generic_item.rb" uploadstatus="1" />
     <item url="app/models/grouping.rb" uploadstatus="1" />
@@ -110,7 +120,10 @@
     <item url="app/models/items_website.rb" uploadstatus="1" />
     <item url="app/models/items_workspace.rb" uploadstatus="1" />
     <item url="app/models/link.rb" uploadstatus="1" />
+    <item url="app/models/mailfolder.rb" uploadstatus="1" />
     <item url="app/models/menu.rb" uploadstatus="1" />
+    <item url="app/models/message_copy.rb" uploadstatus="1" />
+    <item url="app/models/message.rb" uploadstatus="1" />
     <item url="app/models/newsletter.rb" uploadstatus="1" />
     <item url="app/models/notification_filter.rb" uploadstatus="1" />
     <item url="app/models/notification_subscription.rb" uploadstatus="1" />
@@ -127,6 +140,7 @@
     <item url="app/models/role.rb" uploadstatus="1" />
     <item url="app/models/saved_search.rb" uploadstatus="1" />
     <item url="app/models/search.rb" uploadstatus="1" />
+    <item url="app/models/signature.rb" uploadstatus="1" />
     <item url="app/models/studio_and_mailing_list.rb" uploadstatus="1" />
     <item url="app/models/user_mailer.rb" uploadstatus="1" />
     <item url="app/models/user_observer.rb" uploadstatus="1" />
@@ -197,6 +211,22 @@
     <item url="app/views/admin/images/index.atom.builder" uploadstatus="1" />
     <item url="app/views/admin/images/_preview.html.erb" uploadstatus="1" />
     <item url="app/views/admin/images/show.html.erb" uploadstatus="1" />
+    <item url="app/views/admin/mail/" uploadstatus="1" />
+    <item url="app/views/admin/mail/_compose_message.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/compose_new_mail.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_find_signature_label.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_forward_email.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_inbox_messages.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/index.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_message_detail.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_message_sent_detail.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_replay_all_message.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_replay_message.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_sent_mail_detail.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_show_flag_email.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_show_labeled_email.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_show_the_signature.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/mail/_trash_mail_detail.rhtml" uploadstatus="1" />
     <item url="app/views/admin/menus/" uploadstatus="1" />
     <item url="app/views/admin/menus/_child.html.erb" uploadstatus="1" />
     <item url="app/views/admin/menus/_form.html.erb" uploadstatus="1" />
@@ -334,6 +364,16 @@
     <item url="app/views/drawings/index.html.erb" uploadstatus="1" />
     <item url="app/views/drawings/new.html.erb" uploadstatus="1" />
     <item url="app/views/drawings/show.html.erb" uploadstatus="1" />
+    <item url="app/views/emaillabels/" uploadstatus="1" />
+    <item url="app/views/emaillabels/edit.html.erb" uploadstatus="1" />
+    <item url="app/views/emaillabels/index.html.erb" uploadstatus="1" />
+    <item url="app/views/emaillabels/new.html.erb" uploadstatus="1" />
+    <item url="app/views/emaillabels/show.html.erb" uploadstatus="1" />
+    <item url="app/views/frommails/" uploadstatus="1" />
+    <item url="app/views/frommails/edit.html.erb" uploadstatus="1" />
+    <item url="app/views/frommails/index.html.erb" uploadstatus="1" />
+    <item url="app/views/frommails/new.html.erb" uploadstatus="1" />
+    <item url="app/views/frommails/show.html.erb" uploadstatus="1" />
     <item url="app/views/front_end_pics/" uploadstatus="1" />
     <item url="app/views/front_end_pics/index.rhtml" uploadstatus="1" />
     <item url="app/views/front_end_pics/new.rhtml" uploadstatus="1" />
@@ -343,7 +383,9 @@
     <item url="app/views/layouts/app_fat_menu.html.erb" uploadstatus="1" />
     <item url="app/views/layouts/app_homes.html.erb" uploadstatus="1" />
     <item url="app/views/layouts/booksshops.html.erb" uploadstatus="1" />
+    <item url="app/views/layouts/emaillabels.html.erb" uploadstatus="1" />
     <item url="app/views/layouts/_footer.html.erb" uploadstatus="1" />
+    <item url="app/views/layouts/frommails.html.erb" uploadstatus="1" />
     <item url="app/views/layouts/_header.html.erb" uploadstatus="1" />
     <item url="app/views/layouts/links.html.erb" uploadstatus="1" />
     <item url="app/views/layouts/login.html.erb" uploadstatus="1" />
@@ -351,6 +393,7 @@
     <item url="app/views/layouts/pop_up.css.erb" uploadstatus="1" />
     <item url="app/views/layouts/pop_up.html.erb" uploadstatus="1" />
     <item url="app/views/layouts/profiles.html.erb" uploadstatus="1" />
+    <item url="app/views/layouts/signatures.html.erb" uploadstatus="1" />
     <item url="app/views/links/" uploadstatus="1" />
     <item url="app/views/links/edit.html.erb" uploadstatus="1" />
     <item url="app/views/links/forntindex.rhtml" uploadstatus="1" />
@@ -365,6 +408,11 @@
     <item url="app/views/promoting_stuffs/show.rhtml" uploadstatus="1" />
     <item url="app/views/show_user_type/" uploadstatus="1" />
     <item url="app/views/show_user_type/index.rhtml" uploadstatus="1" />
+    <item url="app/views/signatures/" uploadstatus="1" />
+    <item url="app/views/signatures/edit.html.erb" uploadstatus="1" />
+    <item url="app/views/signatures/index.html.erb" uploadstatus="1" />
+    <item url="app/views/signatures/new.html.erb" uploadstatus="1" />
+    <item url="app/views/signatures/show.html.erb" uploadstatus="1" />
     <item url="app/views/superadmin/" uploadstatus="1" />
     <item url="app/views/superadmin/audits/" uploadstatus="1" />
     <item url="app/views/superadmin/audits/index.html.erb" uploadstatus="1" />
@@ -434,6 +482,7 @@
     <item url="config/preinitializer.rb" uploadstatus="1" />
     <item url="config/routes.rb" uploadstatus="1" />
     <item url="config/schedule.rb" uploadstatus="1" />
+    <item url="config/testabc.rb" uploadstatus="1" />
     <item url="config/tiny_mce.yml" uploadstatus="1" />
     <item url="db/" uploadstatus="1" />
     <item url="db/migrate/" uploadstatus="1" />
@@ -498,32 +547,181 @@
     <item url="db/migrate/20100929135834_at_end_work.rb" uploadstatus="1" />
     <item url="db/migrate/20100930073709_create_promoting_stuffs.rb" uploadstatus="1" />
     <item url="db/migrate/20101005102945_addlink.rb" uploadstatus="1" />
+    <item url="db/migrate/20101005102945_addlink.rbb" uploadstatus="1" />
     <item url="db/migrate/20101006153032_changeframing.rb" uploadstatus="1" />
+    <item url="db/migrate/20101006153032_changeframing.rbb" uploadstatus="1" />
     <item url="db/migrate/20101007081219_changeentryfee.rb" uploadstatus="1" />
     <item url="db/migrate/20101007110624_create_comptartworks.rb" uploadstatus="1" />
     <item url="db/migrate/20101008064307_create_app_homes.rb" uploadstatus="1" />
     <item url="db/migrate/20101013135402_create_booksshops.rb" uploadstatus="1" />
     <item url="db/migrate/20101014071257_addstudios.rb" uploadstatus="1" />
+    <item url="db/migrate/20101014071257_addstudios.rbb" uploadstatus="1" />
     <item url="db/migrate/20101014074309_drawing.rb" uploadstatus="1" />
+    <item url="db/migrate/20101014074309_drawing.rbb" uploadstatus="1" />
     <item url="db/migrate/20101014121406_create_links.rb" uploadstatus="1" />
     <item url="db/migrate/20101021071034_addcompetitionconfirm.rb" uploadstatus="1" />
+    <item url="db/migrate/20101021071034_addcompetitionconfirm.rbbb" uploadstatus="1" />
     <item url="db/migrate/20101023052928_create_frontendpics.rb" uploadstatus="1" />
+    <item url="db/migrate/20101023052928_create_frontendpics.rbb" uploadstatus="1" />
     <item url="db/migrate/20101030075900_create_studio_and_mailing_lists.rb" uploadstatus="1" />
     <item url="db/migrate/20101112115530_add_marksandstate.rb" uploadstatus="1" />
+    <item url="db/migrate/20101112115530_add_marksandstate.rbb" uploadstatus="1" />
     <item url="db/migrate/20101115131027_add_howdidyouhereaboutprizes.rb" uploadstatus="1" />
+    <item url="db/migrate/20101115131027_add_howdidyouhereaboutprizes.rbbb" uploadstatus="1" />
     <item url="db/migrate/20101116052902_changeusercompstreettoaddress.rb" uploadstatus="1" />
+    <item url="db/migrate/20101116052902_changeusercompstreettoaddress.rbb" uploadstatus="1" />
     <item url="db/migrate/20101116064819_addvarificationcode.rb" uploadstatus="1" />
+    <item url="db/migrate/20101116064819_addvarificationcode.rbb" uploadstatus="1" />
     <item url="db/migrate/20101118134921_changesubmissiondeadline.rb" uploadstatus="1" />
     <item url="db/migrate/20101206082413_addorderimagename.rb" uploadstatus="1" />
+    <item url="db/migrate/20101206082413_addorderimagename.rbb" uploadstatus="1" />
     <item url="db/migrate/20101210134344_addquidmail.rb" uploadstatus="1" />
+    <item url="db/migrate/20101210134344_addquidmail.rbb" uploadstatus="1" />
     <item url="db/migrate/20101211112122_addreplayto.rb" uploadstatus="1" />
+    <item url="db/migrate/20101211112122_addreplayto.rbb" uploadstatus="1" />
     <item url="db/migrate/20101214130503_adddeletemail.rb" uploadstatus="1" />
+    <item url="db/migrate/20101214130503_adddeletemail.rbb" uploadstatus="1" />
     <item url="db/migrate/20101215102728_addreadunread.rb" uploadstatus="1" />
+    <item url="db/migrate/20101215102728_addreadunread.rbb" uploadstatus="1" />
     <item url="db/migrate/20101215133926_alterqueudmail.rb" uploadstatus="1" />
+    <item url="db/migrate/20101215133926_alterqueudmail.rbb" uploadstatus="1" />
+    <item url="db/migrate/20110408114252_messages.rb" uploadstatus="1" />
+    <item url="db/migrate/20110408114314_message_copies.rb" uploadstatus="1" />
+    <item url="db/migrate/20110408114326_folders.rb" uploadstatus="1" />
+    <item url="db/migrate/20110408114346_add_deleted_columns.rb" uploadstatus="1" />
+    <item url="db/migrate/20110410055837_create_emaillabels.rb" uploadstatus="1" />
+    <item url="db/migrate/20110410060847_addlabeltomsgcopy.rb" uploadstatus="1" />
+    <item url="db/migrate/20110410094232_create_signatures.rb" uploadstatus="1" />
+    <item url="db/migrate/20110410094301_create_frommails.rb" uploadstatus="1" />
+    <item url="db/migrate/20110411080407_addflagtomsgcopy.rb" uploadstatus="1" />
+    <item url="db/migrate/20110411104812_addflagtomessage.rb" uploadstatus="1" />
+    <item url="db/migrate/20110411110726_adddeletetomessage.rb" uploadstatus="1" />
+    <item url="db/migrate/20110413102651_add_note_to_profile.rb" uploadstatus="1" />
+    <item url="db/migrate/b20110408114252_messages.rb" uploadstatus="1" />
+    <item url="db/migrate/database.yml" uploadstatus="1" />
     <item url="db/development_data.sql" uploadstatus="1" />
     <item url="db/schema.rb" uploadstatus="1" />
     <item url="doc/" uploadstatus="1" />
     <item url="doc/README_FOR_APP" uploadstatus="1" />
+    <item url="i18n-0.5.0/" uploadstatus="1" />
+    <item url="i18n-0.5.0/ci/" uploadstatus="1" />
+    <item url="i18n-0.5.0/ci/Gemfile.no-rails" uploadstatus="1" />
+    <item url="i18n-0.5.0/ci/Gemfile.no-rails.lock" uploadstatus="1" />
+    <item url="i18n-0.5.0/ci/Gemfile.rails-2.3.x" uploadstatus="1" />
+    <item url="i18n-0.5.0/ci/Gemfile.rails-2.3.x.lock" uploadstatus="1" />
+    <item url="i18n-0.5.0/ci/Gemfile.rails-3.x" uploadstatus="1" />
+    <item url="i18n-0.5.0/ci/Gemfile.rails-3.x.lock" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/base.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/cache.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/cascade.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/chain.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/fallbacks.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/flatten.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/gettext.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/interpolation_compiler.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/key_value.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/memoize.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/metadata.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/pluralization.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/simple.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend/transliterator.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/core_ext/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/core_ext/kernel/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/core_ext/kernel/surpress_warnings.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/core_ext/string/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/core_ext/string/interpolate.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/core_ext/hash.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/gettext/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/gettext/helpers.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/gettext/po_parser.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/interpolate/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/interpolate/ruby.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale/tag/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale/tag/parents.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale/tag/rfc4646.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale/tag/simple.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale/fallbacks.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale/tag.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/localization/" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/localization/date.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/localization/date_time.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/localization/procs.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/localization/time.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/basics.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/defaults.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/interpolation.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/link.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/localization.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/lookup.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/pluralization.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests/procs.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/backend.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/config.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/exceptions.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/gettext.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/locale.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/tests.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n/version.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/lib/i18n.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/all_features_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/cascade_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/chain_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/fallbacks_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/key_value_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/memoize_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/pluralization_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/api/simple_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/cache_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/cascade_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/chain_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/exceptions_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/fallbacks_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/interpolation_compiler_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/key_value_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/memoize_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/metadata_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/pluralization_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/simple_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/backend/transliterator_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/core_ext/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/core_ext/string/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/core_ext/string/interpolate_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/core_ext/hash_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/gettext/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/gettext/api_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/gettext/backend_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/i18n/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/i18n/exceptions_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/i18n/interpolate_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/i18n/load_path_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/locale/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/locale/tag/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/locale/tag/rfc4646_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/locale/tag/simple_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/locale/fallbacks_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/locales/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/locales/invalid/" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/locales/invalid/empty.yml" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/locales/de.po" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/locales/en.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/locales/en.yml" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_data/locales/plurals.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/all.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/i18n_test.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/run_all.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/test/test_helper.rb" uploadstatus="1" />
+    <item url="i18n-0.5.0/CHANGELOG.textile" uploadstatus="1" />
+    <item url="i18n-0.5.0/MIT-LICENSE" uploadstatus="1" />
+    <item url="i18n-0.5.0/README.textile" uploadstatus="1" />
     <item url="lib/" uploadstatus="1" />
     <item url="lib/tasks/" uploadstatus="1" />
     <item url="lib/tasks/blank.rake" uploadstatus="1" />
@@ -1438,8 +1636,11 @@
     <item url="public/images/ddownDownArrow.gif" uploadstatus="1" />
     <item url="public/images/ddownUpArrow.gif" uploadstatus="1" />
     <item url="public/images/default_avatar.png" uploadstatus="1" />
+    <item url="public/images/dot.png" uploadstatus="1" />
     <item url="public/images/favicon.ico" uploadstatus="1" />
     <item url="public/images/fieldWithInner.gif" uploadstatus="1" />
+    <item url="public/images/flag-1.png" uploadstatus="1" />
+    <item url="public/images/flag-2.png" uploadstatus="1" />
     <item url="public/images/footerBackground.gif" uploadstatus="1" />
     <item url="public/images/footerFooter.jpg" uploadstatus="1" />
     <item url="public/images/footerMiddleBackground.gif" uploadstatus="1" />
@@ -2323,7 +2524,10 @@
     <item url="public/javascripts/tuneup/prototype.js" uploadstatus="1" />
     <item url="public/javascripts/tuneup/tuneup.js" uploadstatus="1" />
     <item url="public/javascripts/application.js" uploadstatus="1" />
+    <item url="public/javascripts/blank_1.js" uploadstatus="1" />
     <item url="public/javascripts/blank.js" uploadstatus="1" />
+    <item url="public/javascripts/controls.js" uploadstatus="1" />
+    <item url="public/javascripts/effects.js" uploadstatus="1" />
     <item url="public/javascripts/fullcalendar.min.js" uploadstatus="1" />
     <item url="public/javascripts/jquery-1.4.2.min.js" uploadstatus="1" />
     <item url="public/javascripts/jquery.autocomplete.js" uploadstatus="1" />
@@ -2345,6 +2549,7 @@
     <item url="public/javascripts/jquery.validationEngine.js" uploadstatus="1" />
     <item url="public/javascripts/jrails.js" uploadstatus="1" />
     <item url="public/javascripts/popup.js" uploadstatus="1" />
+    <item url="public/javascripts/prototype.js" uploadstatus="1" />
     <item url="public/javascripts/websites.js" uploadstatus="1" />
     <item url="public/pdf_invoice/" uploadstatus="1" />
     <item url="public/pdf_invoice/10invoice.pdf" uploadstatus="1" />
@@ -2379,7 +2584,17 @@
     <item url="public/pdf_invoice/52invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/53invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/54invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/55invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/56invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/57invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/58invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/59invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/5invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/60invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/61invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/62invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/63invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/64invoice.pdf" uploadstatus="1" />
     <item url="public/players/" uploadstatus="1" />
     <item url="public/players/audioplayer.swf" uploadstatus="1" />
     <item url="public/players/swfobject.js" uploadstatus="1" />
@@ -2680,7 +2895,24 @@
     <item url="public/system/gallery/66white-feather-1280-800-677.jpg" uploadstatus="1" />
     <item url="public/system/gallery/67Deviant_ID_by_artsangel.jpg" uploadstatus="1" />
     <item url="public/system/gallery/67images1.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/68budha.jpg" uploadstatus="1" />
     <item url="public/system/gallery/68children.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/69Blue hills.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/71administration.png" uploadstatus="1" />
+    <item url="public/system/gallery/71budha.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/71camera.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/71car.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/71cartoon.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/72accounting.png" uploadstatus="1" />
+    <item url="public/system/gallery/72budha.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/73accounting.png" uploadstatus="1" />
+    <item url="public/system/gallery/73car.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/7448899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/75budha.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/76budha.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/77budha.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/78budha.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/79budha.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/" uploadstatus="1" />
     <item url="public/uploaded_files/development/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/" uploadstatus="1" />
@@ -2861,6 +3093,27 @@
     <item url="public/uploaded_files/development/artwork/17/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/17/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/17/medium/faithengine.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/173/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/173/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/173/medium/48899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/173/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/173/original/48899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/173/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/173/thumb/48899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/174/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/174/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/174/medium/image_thumb_05.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/174/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/174/original/image_thumb_05.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/174/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/174/thumb/image_thumb_05.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/175/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/175/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/175/medium/sa4.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/175/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/175/original/sa4.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/175/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/175/thumb/sa4.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/18/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/18/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/18/medium/invisicsinvite.jpeg" uploadstatus="1" />
@@ -4026,13 +4279,16 @@
     <item url="test/fixtures/audios.yml" uploadstatus="1" />
     <item url="test/fixtures/bookmarks.yml" uploadstatus="1" />
     <item url="test/fixtures/cms_files.yml" uploadstatus="1" />
+    <item url="test/fixtures/emaillabels.yml" uploadstatus="1" />
     <item url="test/fixtures/feed_items.yml" uploadstatus="1" />
     <item url="test/fixtures/feed_sources.yml" uploadstatus="1" />
+    <item url="test/fixtures/frommails.yml" uploadstatus="1" />
     <item url="test/fixtures/groups.yml" uploadstatus="1" />
     <item url="test/fixtures/images.yml" uploadstatus="1" />
     <item url="test/fixtures/items.yml" uploadstatus="1" />
     <item url="test/fixtures/newsletters.yml" uploadstatus="1" />
     <item url="test/fixtures/publications.yml" uploadstatus="1" />
+    <item url="test/fixtures/signatures.yml" uploadstatus="1" />
     <item url="test/fixtures/taggings.yml" uploadstatus="1" />
     <item url="test/fixtures/tags.yml" uploadstatus="1" />
     <item url="test/fixtures/videos.yml" uploadstatus="1" />
@@ -4043,6 +4299,22 @@
     <item url="test/fixtures_gallery/invisicsinvite.jpeg" uploadstatus="1" />
     <item url="test/fixtures_gallery/profile_artists.yml" uploadstatus="1" />
     <item url="test/fixtures_gallery/users.yml" uploadstatus="1" />
+    <item url="test/functional/" uploadstatus="1" />
+    <item url="test/functional/admin/" uploadstatus="1" />
+    <item url="test/functional/admin/mail_controller_test.rb" uploadstatus="1" />
+    <item url="test/functional/emaillabels_controller_test.rb" uploadstatus="1" />
+    <item url="test/functional/frommails_controller_test.rb" uploadstatus="1" />
+    <item url="test/functional/signatures_controller_test.rb" uploadstatus="1" />
+    <item url="test/unit/" uploadstatus="1" />
+    <item url="test/unit/helpers/" uploadstatus="1" />
+    <item url="test/unit/helpers/admin/" uploadstatus="1" />
+    <item url="test/unit/helpers/admin/mail_helper_test.rb" uploadstatus="1" />
+    <item url="test/unit/helpers/emaillabels_helper_test.rb" uploadstatus="1" />
+    <item url="test/unit/helpers/frommails_helper_test.rb" uploadstatus="1" />
+    <item url="test/unit/helpers/signatures_helper_test.rb" uploadstatus="1" />
+    <item url="test/unit/emaillabel_test.rb" uploadstatus="1" />
+    <item url="test/unit/frommail_test.rb" uploadstatus="1" />
+    <item url="test/unit/signature_test.rb" uploadstatus="1" />
     <item url="tmp/" uploadstatus="1" />
     <item url="tmp/restart.txt" uploadstatus="1" />
     <item url="vendor/" uploadstatus="1" />
@@ -4366,6 +4638,7 @@
     <item url="vendor/engines/gallery_back/app/views/layouts/gallery_header_promoting.html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/layouts/gallery.html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/layouts/gallery_promoting.html.erb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_back/app/views/layouts/gallery_promoting_mail.html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/superadmin/" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/superadmin/mailing_settings/" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/superadmin/mailing_settings/index.html.erb" uploadstatus="1" />
@@ -4715,6 +4988,15 @@
     <item url="vendor/plugins/prawnto/MIT-LICENSE" uploadstatus="1" />
     <item url="vendor/plugins/prawnto/Rakefile" uploadstatus="1" />
     <item url="vendor/plugins/prawnto/README" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/lib/" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/lib/auto_complete_macros_helper.rb" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/lib/auto_complete.rb" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/test/" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/test/auto_complete_test.rb" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/init.rb" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/Rakefile" uploadstatus="1" />
+    <item url="vendor/plugins/rails-auto_complete/README" uploadstatus="1" />
     <item url="vendor/plugins/restful-authentication/" uploadstatus="1" />
     <item url="vendor/plugins/restful-authentication/generators/" uploadstatus="1" />
     <item url="vendor/plugins/restful-authentication/generators/authenticated/" uploadstatus="1" />
@@ -5515,6 +5797,23 @@
     <item url="vendor/plugins/searchlogic/README.rdoc" uploadstatus="1" />
     <item url="vendor/plugins/searchlogic/searchlogic.gemspec" uploadstatus="1" />
     <item url="vendor/plugins/searchlogic/VERSION.yml" uploadstatus="1" />
+    <item url="vendor/plugins/svn/" uploadstatus="1" />
+    <item url="vendor/plugins/svn/lib/" uploadstatus="1" />
+    <item url="vendor/plugins/svn/lib/scope_out.rb" uploadstatus="1" />
+    <item url="vendor/plugins/svn/tasks/" uploadstatus="1" />
+    <item url="vendor/plugins/svn/tasks/active_finder_tasks.rake" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/fixtures/" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/fixtures/schools.yml" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/fixtures/students.yml" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/database.yml" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/schema.rb" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/scope_out_test.rb" uploadstatus="1" />
+    <item url="vendor/plugins/svn/test/test_helper.rb" uploadstatus="1" />
+    <item url="vendor/plugins/svn/init.rb" uploadstatus="1" />
+    <item url="vendor/plugins/svn/install.rb" uploadstatus="1" />
+    <item url="vendor/plugins/svn/Rakefile" uploadstatus="1" />
+    <item url="vendor/plugins/svn/README" uploadstatus="1" />
     <item url="vendor/plugins/thoughtbot-paperclip-b5d471d/" uploadstatus="1" />
     <item url="vendor/plugins/thoughtbot-paperclip-b5d471d/generators/" uploadstatus="1" />
     <item url="vendor/plugins/thoughtbot-paperclip-b5d471d/generators/paperclip/" uploadstatus="1" />
@@ -6506,6 +6805,21 @@
     <item url="vendor/plugins/yacaph/init.rb" uploadstatus="1" />
     <item url="vendor/plugins/yacaph/install.rb" uploadstatus="1" />
     <item url="vendor/plugins/yacaph/README" uploadstatus="1" />
+    <item url="AGPL-LICENSE" uploadstatus="1" />
+    <item url="bsg1.session" uploadstatus="1" />
+    <item url="bsg1.webprj" uploadstatus="1" />
+    <item url="bsg2.session" uploadstatus="1" />
+    <item url="bsg2.webprj" uploadstatus="1" />
+    <item url="bsg.session" uploadstatus="1" />
+    <item url="bsg.webprj" uploadstatus="1" />
+    <item url="galler30y.sql" uploadstatus="1" />
+    <item url="gallery30102010.sql" uploadstatus="1" />
+    <item url="gallery.sql" uploadstatus="1" />
+    <item url="log.development" uploadstatus="1" />
+    <item url="message.sql" uploadstatus="1" />
+    <item url="Rakefile" uploadstatus="1" />
+    <item url="README.rdoc" uploadstatus="1" />
+    <item url="REVISION" uploadstatus="1" />
     <item url="" uploadstatus="1" />
     <templates>templates/</templates>
     <toolbars>toolbars/</toolbars>

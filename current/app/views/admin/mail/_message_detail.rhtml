@@ -13,6 +13,7 @@
 
 
 <%=message_detail.body%>
+
 <p>
 
 <span style="padding-right:10px;">  <%=link_to_remote "Reply" ,:update => "",:url => { :action => "replay_message", :id => message_detail.id }%></span>

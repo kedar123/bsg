@@ -1,4 +1,17 @@
+<form action="/admin/delete_from_trash" name="myform" method="post">
 <table cellpadding="10" style="padding-left:20px;" border="1"><tr>
+     <th>
+<%checkboxsentarrayname = []%>
+<%trash_mail_detail.each do |msg| checkboxsentarrayname <<  "delete_message_recd"+msg.id.to_s end%>
+<%messagesentarray= "["+(checkboxsentarrayname * ",")+"]" %>
+<%checkboxrecdarrayname = []%>
+<%messages_sent_delete.each do |msg| checkboxrecdarrayname <<  "delete_message_mail"+msg.id.to_s end%>
+<%messagerecdarray= "["+(checkboxrecdarrayname * ",")+"]" %>
+<%messagesentlength=trash_mail_detail.length%>
+<%messagerecdlength=messages_sent_delete.length%>
+
+     <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox_trash(#{messagesentlength},#{messagerecdlength},#{messagesentarray},#{messagerecdarray});"%>
+    </th>
     <th>
     From
     </th>
@@ -12,6 +25,26 @@
     </tr>
     <%for message in trash_mail_detail%>
     <tr>
+    <td>
+      <%=check_box_tag "delete_message_recd"+message.id.to_s  ,message.id%>
+    </td>
+    <td>
+    <%=h message.author.login %>
+    </td>
+    <td>
+    <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%>
+    </td>
+    <td>
+    <%=message.created_at.strftime("%Y-%m-%d")%>
+    </td>
+    </tr>
+    <%end%>
+ 
+   <%for message in messages_sent_delete %>
+    <tr>
+    <td>
+      <%=check_box_tag "delete_message_mail"+message.id.to_s  ,message.id%>
+    </td>
     
     <td>
     <%=h message.author.login %>
@@ -22,7 +55,8 @@
     <td>
     <%=message.created_at.strftime("%Y-%m-%d")%>
     </td>
-    
     </tr>
     <%end%>
     </table>
+    
+</form>    

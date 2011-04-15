@@ -205,9 +205,6 @@ module ApplicationHelper
 		
 	end
 	def flash_messages_manager(types=['notice', 'error', 'warning'], klass=nil, close=true)
-		
-		
-		
 		res = ''
 		types.each do |msg|
 			res += content_tag(:div, flash[msg.to_sym].to_s+(close ? "<a href='#' id='error_closing'>Close</a>" : ''), :class => klass ? klass+'_'+msg : msg, :id => msg, :style => "#{'display:none' unless flash[msg.to_sym]}")

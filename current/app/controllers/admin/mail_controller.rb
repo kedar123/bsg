@@ -2,15 +2,10 @@ class Admin::MailController < ApplicationController
   layout "gallery_promoting_mail"
   auto_complete_for :user, :email
 
-  
-  
-
-
  def index
     redirect_to new_session_path and return unless logged_in?
     @folder = current_user.inbox
     @created_label = Emaillabel.find(:all)
-    
     show
    # render :action => "show"
    if request.xhr?
@@ -24,7 +19,9 @@ class Admin::MailController < ApplicationController
 
   def show
     @folder ||= current_user.mailfolders.find(params[:id])
-    @messages = @folder.messages.paginate_not_deleted :all, :per_page => 100, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
+    @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 2, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
+    p @messages
+    p "is this a ajax pagination"    
   end
 
 
@@ -83,14 +80,30 @@ class Admin::MailController < ApplicationController
     @folder = Struct.new(:name, :user_id).new("Trash", current_user.id)
     @messages = current_user.received_messages.paginate_deleted :all, :per_page => 100, :page => params[:page],
           :include => :message, :order => "messages.created_at DESC"
+@messages_sent_delete = Message.find(:all,:conditions => ["(author_id = ?) and (deletedm IS NOT NULL OR deletedm = ? ) and (deletedmt IS NULL OR deletedmt = ?)",current_user.id, true,false])      
     render :update do |page|
-        page["table_structer_of_email"].replace_html(:partial =>'trash_mail_detail', :object =>@messages)
+        page["table_structer_of_email"].replace_html(:partial =>'trash_mail_detail', :object =>@messages,:locals=>{:messages_sent_delete => @messages_sent_delete})
         page["show_details"].replace_html ""
         page["ajax_spinner"].visual_effect :hide
     end      
-          
-    
   end
+  
+  def delete_from_trash
+     params.to_hash.each do |key,value|
+       if key.include? "delete_message_recd"
+          @message = current_user.received_messages.find(value)
+          @message.destroy
+       end
+     end
+     params.to_hash.each do |key,value|
+       if key.include? "delete_message_mail"
+          @message = Message.find(value) 
+          @message.update_attribute("deletedmt", true)
+       end
+     end
+    redirect_to "/admin/mail"
+  end  
+  
   
   def compose_new_mail
      @message = current_user.sent_messages.build
@@ -157,6 +170,7 @@ class Admin::MailController < ApplicationController
  
   def create_sent_mail
     @message = current_user.sent_messages.build(params[:message])
+    @message.prepare_copies(params[:user][:email])
     @message.body = @message.body + "<br/>Signature<br/>" + params[:signature]
     if @message.save
       flash[:notice] = "Message sent."
@@ -165,6 +179,7 @@ class Admin::MailController < ApplicationController
       render :action => "new"
     end
   end
+  
  
   def replay_to_all
     @frommail = Frommail.find(:all) 
@@ -235,10 +250,6 @@ class Admin::MailController < ApplicationController
                   
        end
      end
-     
-     
-     
-     
      
   end  
   
