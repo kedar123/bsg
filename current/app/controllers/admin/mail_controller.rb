@@ -1,11 +1,42 @@
+require 'rubygems'
+require 'net/imap'
+require 'tmail'
 class Admin::MailController < ApplicationController
   layout "gallery_promoting_mail"
   auto_complete_for :user, :email
+  before_filter :check_the_email ,:only=>"index"
+  
+  def check_the_email
+      imap = Net::IMAP.new('imap.gmail.com', 993, true)
+      imap.login("kedar.pathak@pragtech.co.in", "kedar123")
+      imap.select('Inbox')
+      imap.uid_search(["NOT", "SEEN"]).each do |uid|
+        mail =  TMail::Mail.parse(imap.uid_fetch(uid, ['RFC822']).first.attr['RFC822'])
+      
+        if user = User.find_by_email(mail.from.to_s)
+            message = user.sent_messages.build
+            message.subject = mail.subject.to_s
+            message.body = mail.body.to_s
+            message.prepare_copies("contact@test.com")
+            message.body = mail.body
+            message.save
+        else
+           tempraryinbox = Tempraryinbox.new
+           tempraryinbox.fromemail =  mail.from.to_s
+           tempraryinbox.subject = mail.subject.to_s
+           tempraryinbox.body = mail.body.to_s
+           tempraryinbox.save
+        end  
+      end
+    imap.expunge        
+  end  
+  
 
  def index
     redirect_to new_session_path and return unless logged_in?
     @folder = current_user.inbox
     @created_label = Emaillabel.find(:all)
+    
     show
    # render :action => "show"
    if request.xhr?
@@ -13,6 +44,7 @@ class Admin::MailController < ApplicationController
         page["table_structer_of_email"].replace_html(:partial =>'inbox_messages', :object =>@messages)
         page["show_details"].replace_html ""
         page["ajax_spinner"].visual_effect :hide
+        page["selectlabel"].visual_effect :show
       end
    end    
   end
@@ -20,11 +52,9 @@ class Admin::MailController < ApplicationController
   def show
     @folder ||= current_user.mailfolders.find(params[:id])
     @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 2, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
-    p @messages
-    p "is this a ajax pagination"    
+    
   end
-
-
+  
 
 
   def flag_email
@@ -76,17 +106,85 @@ class Admin::MailController < ApplicationController
     end
   end  
   
+  
+  def show_unknown_message
+      @message = Tempraryinbox.find(params[:id])
+      render :update do |page|
+        page["show_details"].replace_html(:partial =>'unknown_message_detail', :object =>@message)
+        page["ajax_spinner"].visual_effect :hide
+    end
+  end  
+  
+  
+  
+  def unknown_email
+    @unknown_message = Tempraryinbox.paginate  :page => params[:page], :order => 'updated_at DESC',:per_page => 2
+      if request.xhr?
+        render :update do |page|
+        page["table_structer_of_email"].replace_html(:partial =>'temprary_messages', :object=>@unknown_message)
+        page["selectlabel"].visual_effect :hide
+        page["show_details"].replace_html ""
+        page["ajax_spinner"].visual_effect :hide
+      end
+   end    
+  end  
+  
+    def delete_temprary_email
+     params.to_hash.each do |key,value|
+       if key.include? "delete_message"
+         @unknown_message = Tempraryinbox.find(value)
+         @unknown_message.destroy
+       end
+     end
+      @unknown_message = Tempraryinbox.paginate  :page => params[:page], :order => 'updated_at DESC',:per_page => 2
+           if request.xhr?
+        render :update do |page|
+        page["table_structer_of_email"].replace_html(:partial =>'temprary_messages', :object=>@unknown_message)
+        page["selectlabel"].visual_effect :hide
+        page["show_details"].replace_html ""
+        page["ajax_spinner"].visual_effect :hide
+      end
+    else
+      redirect_to :action=>"trash_mail"
+   end 
+  end  
+  
+  
+  
+  
+  def replay_message_to_unknown
+      @message = Tempraryinbox.find(params[:id])
+      render :update do |page|
+        page["replay_to_all"].replace_html(:partial =>'replay_unknown_message', :object =>@message,:locals=>{:frommail=>@frommail,:replaymessageid=>@original})
+        page["ajax_spinner"].visual_effect :hide
+        page["selectlabel"].visual_effect :hide
+    end
+  end  
+  
+  
+  
+  
+  
   def trash_mail
+    @created_label = Emaillabel.find(:all)
     @folder = Struct.new(:name, :user_id).new("Trash", current_user.id)
-    @messages = current_user.received_messages.paginate_deleted :all, :per_page => 100, :page => params[:page],
+    @messages = current_user.received_messages.paginate_deleted :all, :per_page => 2, :page => params[:page],
           :include => :message, :order => "messages.created_at DESC"
-@messages_sent_delete = Message.find(:all,:conditions => ["(author_id = ?) and (deletedm IS NOT NULL OR deletedm = ? ) and (deletedmt IS NULL OR deletedmt = ?)",current_user.id, true,false])      
+    @messages_sent_delete = Message.find(:all,:conditions => ["(author_id = ?) and (deletedm IS NOT NULL OR deletedm = ? ) and (deletedmt IS NULL OR deletedmt = ?)",current_user.id, true,false],:order => "created_at DESC",:limit=>2)      
+  @messages << @messages_sent_delete
+  if request.xhr?
     render :update do |page|
         page["table_structer_of_email"].replace_html(:partial =>'trash_mail_detail', :object =>@messages,:locals=>{:messages_sent_delete => @messages_sent_delete})
         page["show_details"].replace_html ""
         page["ajax_spinner"].visual_effect :hide
-    end      
+        page["selectlabel"].visual_effect :hide
+    end   
+ end    
+
+    
+       
   end
+
   
   def delete_from_trash
      params.to_hash.each do |key,value|
@@ -101,7 +199,27 @@ class Admin::MailController < ApplicationController
           @message.update_attribute("deletedmt", true)
        end
      end
-    redirect_to "/admin/mail"
+         @folder = Struct.new(:name, :user_id).new("Trash", current_user.id)
+    @messages = current_user.received_messages.paginate_deleted :all, :per_page => 2, :page => params[:page],
+          :include => :message, :order => "messages.created_at DESC"
+
+@messages_sent_delete = Message.find(:all,:conditions => ["(author_id = ?) and (deletedm IS NOT NULL OR deletedm = ? ) and (deletedmt IS NULL OR deletedmt = ?)",current_user.id, true,false],:order => "created_at DESC",:limit=>2)      
+
+  @messages << @messages_sent_delete
+    if request.xhr?
+      render :update do |page|
+        page["table_structer_of_email"].replace_html(:partial =>'trash_mail_detail', :object =>@messages,:locals=>{:messages_sent_delete => @messages_sent_delete})
+        page["show_details"].replace_html ""
+        page["ajax_spinner"].visual_effect :hide
+        page["selectlabel"].visual_effect :hide
+    end   
+    else   
+        redirect_to :action=>"trash_mail"
+    end  
+    
+  
+    
+    
   end  
   
   
@@ -112,8 +230,12 @@ class Admin::MailController < ApplicationController
         render :update do |page|
           page["show_details"].replace_html (:partial =>'compose_message', :object =>@message,:locals=>{:frommail=>@frommail})
           page["ajax_spinner"].visual_effect :hide
+          page["selectlabel"].visual_effect :hide
       end
-   end    
+   end  
+   
+   
+     
   end  
  
  
@@ -136,83 +258,51 @@ class Admin::MailController < ApplicationController
  
  
   def sent_mail
+      @created_label = Emaillabel.find(:all)
       @folder = current_user.inbox
-      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 10, :page => params[:page], :order => "created_at DESC"
-      render :update do |page|
-        page["table_structer_of_email"].replace_html(:partial =>'sent_mail_detail', :object =>@messages)
-        page["show_details"].replace_html ""
-        page["ajax_spinner"].visual_effect :hide
-    end
-  end
- 
-  def show_sent_message
-      @message = current_user.sent_messages.find(params[:id])
-       render :update do |page|
-        page["show_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
-        page["ajax_spinner"].visual_effect :hide
-      end
-  end  
- 
-  def show_labeled_email
-      @message=current_user.received_messages.find(:all,:conditions=>["emaillabel_id = ?",params[:id]])
-       if request.xhr?
+      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+    if request.xhr?  
         render :update do |page|
-        page["table_structer_of_email"].replace_html(:partial =>'show_labeled_email', :object =>@message)
-        page["show_details"].replace_html ""
-        page["ajax_spinner"].visual_effect :hide
+          page["table_structer_of_email"].replace_html(:partial =>'sent_mail_detail', :object =>@messages)
+          page["show_details"].replace_html ""
+          page["ajax_spinner"].visual_effect :hide
+          page["selectlabel"].visual_effect :hide
       end
-   end    
-  end   
-  
-
-  
- 
- 
-  def create_sent_mail
-    @message = current_user.sent_messages.build(params[:message])
-    @message.prepare_copies(params[:user][:email])
-    @message.body = @message.body + "<br/>Signature<br/>" + params[:signature]
-    if @message.save
-      flash[:notice] = "Message sent."
-      redirect_to :action => "index"
-    else
-      render :action => "new"
-    end
+    end   
   end
   
- 
-  def replay_to_all
-    @frommail = Frommail.find(:all) 
-    @original = current_user.received_messages.find(params[:id])
-    subject = @original.subject.sub(/^(Re: )?/, "Re: ")
-    body = @original.body.gsub(/^/, "> ")
-    recipients = @original.recipients.map(&:id) - [current_user.id] + [@original.author.id] 
-    @message = current_user.sent_messages.build(:to => recipients, :subject => subject, :body => body)
-    render :update do |page|
-        page["replay_to_all"].replace_html(:partial =>'replay_all_message', :object =>@message,:locals=>{:frommail=>@frommail})
-        page["ajax_spinner"].visual_effect :hide
-    end
-  end  
   
-  def replay_message
-    
-    @original = current_user.received_messages.find(params[:id])
-    @frommail = Frommail.find(:all)
-    subject = @original.subject.sub(/^(Re: )?/, "Re: ")
-    body = @original.body.gsub(/^/, "> ")
-    @message = current_user.sent_messages.build(:to => [@original.author.id], :subject => subject, :body => body)
-    render :update do |page|
-        page["replay_to_all"].replace_html(:partial =>'replay_message', :object =>@message,:locals=>{:frommail=>@frommail})
-        page["ajax_spinner"].visual_effect :hide
-    end
-    
-  end  
+    def delete_sent_mail
+
+    params.to_hash.each do |key,value|
+       if key.include? "delete_message"
+          @message = Message.find(value)
+          @message.update_attribute("deletedm", true)
+       end
+     end
+      @folder = current_user.inbox
+      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+
+     if request.xhr?
+         render :update do |page|
+          page["table_structer_of_email"].replace_html(:partial =>'sent_mail_detail', :object =>@messages)
+          page["show_details"].replace_html ""
+          page["ajax_spinner"].visual_effect :hide
+          page["selectlabel"].visual_effect :hide
+       end 
+     else  
+     redirect_to :action=>"sent_mail"
+     end
+     
+  end 
   
-  def delete_email
-    @message = current_user.received_messages.find(params[:id])
-    @message.update_attribute("deleted", true)
-    redirect_to "/admin/mail"
-  end  
+  
+  
+  
+  
+  
+  
+  
   
   def delete_all_email
      params.to_hash.each do |key,value|
@@ -221,17 +311,157 @@ class Admin::MailController < ApplicationController
           @message.update_attribute("deleted", true)
        end
      end
+      @folder = current_user.inbox
+      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+    if request.xhr?  
+        render :update do |page|
+          page["table_structer_of_email"].replace_html(:partial =>'inbox_messages', :object =>@messages)
+          page["show_details"].replace_html ""
+          page["ajax_spinner"].visual_effect :hide
+          page["selectlabel"].visual_effect :hide
+      end
+   
+    else   
+        redirect_to "/admin/mail"
+    end  
+  
+    
+  end  
+ 
+ 
+ 
+ 
+ 
+ 
+  def show_sent_message
+       @message = current_user.sent_messages.find(params[:id])
+       render :update do |page|
+        page["show_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+        page["ajax_spinner"].visual_effect :hide
+      end
+  end  
+ 
+  def show_labeled_email
+      @message=current_user.received_messages.paginate :conditions=>["emaillabel_id = ?",params[:id]], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+      emaillabel =  Emaillabel.find(params[:id])     
+       if request.xhr?
+        render :update do |page|
+        page["table_structer_of_email"].replace_html(:partial =>'show_labeled_email', :object =>@message,:locals=>{:labelname=>emaillabel})
+        page["show_details"].replace_html ""
+        page["ajax_spinner"].visual_effect :hide
+        page["selectlabel"].visual_effect :hide
+       end
+   end    
+  end   
+  
+
+  
+ 
+  
+  def create_sent_mail
+    @message = current_user.sent_messages.build(params[:message])
+    @message.prepare_copies(params[:user][:email])
+    @message.body = @message.body + "<br/><font color='#FF0080'>" + params[:signature]+"</font>"
+    all_the_recipient = params[:user][:email].split(',')
+   
+    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+    if @message.save
+      flash[:notice] = "Message sent."
+      redirect_to :action => "index"
+    else
+      render :action => "new"
+    end
+  end
+  
+  
+  
+  def create_sent_mail_with_original_id
+    @original = current_user.received_messages.find(params[:id]) 
+    @message = current_user.sent_messages.build(params[:message])
+    @message.prepare_copies(params[:user][:email])
+    @message.body = @message.body + "<br/>" + @original.body
+    if @message.save
+      flash[:notice] = "Message sent."
+      redirect_to :action => "index"
+    else
+      render :action => "new"
+    end
+    
+    
+  end  
+
+  
+  
+  
+ 
+  def replay_to_all
+    @frommail = Frommail.find(:all) 
+    @original = current_user.received_messages.find(params[:id])
+    subject = @original.subject.sub(/^(Re: )?/, "Re: ")
+    body = @original.body.gsub(/^/, "> ")
+    recipients = @original.recipients.map(&:id) - [current_user.id] + [@original.author.id] 
+    recipients_email = @original.recipients.map(&:email) - [current_user.email] + [@original.author.email] 
+    @message = current_user.sent_messages.build(:to => recipients, :subject => subject, :body => body)
+    render :update do |page|
+        page["replay_to_all"].replace_html(:partial =>'replay_all_message', :object =>@message,:locals=>{:frommail=>@frommail,:recipients_email=>recipients_email})
+        page["ajax_spinner"].visual_effect :hide
+        page["selectlabel"].visual_effect :hide
+    end
+  end  
+  
+  def replay_message
+    
+    @original = current_user.received_messages.find(params[:id])
+    #@frommail = Frommail.find(:all)
+    subject = @original.subject.sub(/^(Re: )?/, "Re: ")
+    body = @original.body.gsub(/^/, "> ")
+    @message = current_user.sent_messages.build(:to => [@original.author.id], :subject => subject, :body => body)
+    render :update do |page|
+        page["replay_to_all"].replace_html(:partial =>'replay_message', :object =>@message,:locals=>{:frommail=>@frommail,:replaymessageid=>@original})
+      
+        page["ajax_spinner"].visual_effect :hide
+        page["selectlabel"].visual_effect :hide
+    end
+    
+  end  
+  
+  def create_sent_mail_with_unknown
+      message =  Tempraryinbox.find(params[:id])
+      EmailSystem::deliver_email_notification(params[:user][:email],params[:message][:subject],params[:message][:body] + message.body)
+      flash[:notice]  = "Your Reply Has Been Sent"
+      redirect_to :back
+  end  
+  
+  
+  def delete_email
+    @message = current_user.received_messages.find(params[:id])
+    @message.update_attribute("deleted", true)
     redirect_to "/admin/mail"
   end  
   
+ 
+  
   def delete_sent_mail
+
     params.to_hash.each do |key,value|
        if key.include? "delete_message"
           @message = Message.find(value)
           @message.update_attribute("deletedm", true)
        end
      end
-     redirect_to :back
+     @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+     if request.xhr?
+        render :update do |page|
+          page["table_structer_of_email"].replace_html(:partial =>'sent_mail_detail', :object =>@messages)
+          page["show_details"].replace_html ""
+          page["ajax_spinner"].visual_effect :hide
+          page["selectlabel"].visual_effect :hide
+      end
+
+     else  
+     redirect_to :action=>"sent_mail"
+     end
+     
   end  
   
   
@@ -265,10 +495,25 @@ class Admin::MailController < ApplicationController
     body = @original.body.gsub(/^/, "> ")
     @message = current_user.sent_messages.build(:subject => subject, :body => body)
      render :update do |page|
-        page["replay_to_all"].replace_html(:partial =>'replay_message', :object =>@message)
+        page["replay_to_all"].replace_html(:partial =>'replay_message', :object =>@message,:locals=>{:frommail=>@frommail,:replaymessageid=>@original})
         page["ajax_spinner"].visual_effect :hide
     end
   end  
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  def delete_label
@@ -319,7 +564,18 @@ class Admin::MailController < ApplicationController
     #  m=Mailfolder.new(:user_id=>x.id,:name=>"inbox")
     #  m.save
    # end
+#   if user = User.find_by_email('kedar.pathak@pragtech.co.ing')
+#       p "yes im in ifififi"  
+#       p user
+#   else  
+#       p "no i did not find the user"
+#       p user
+#       p "it is nil"
+#   end
+   
   end   
+ 
+  
  
  
 end

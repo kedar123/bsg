@@ -302,9 +302,13 @@
                 <% if @current_user.has_system_role('admin') %>
                
                 <li>
-            <div class="menuLabel"><%= link_to 'Contacts', admin_profiles_path %></div>
-		</li>
-
+                  <div class="menuLabel"><%= link_to 'Contacts', admin_profiles_path %></div>
+            		</li>
+                								<li>
+                    <div class="menuLabel"><%= link_to 'Invoice', admin_invoices_path %></div>
+                   
+            		</li>      
+      
                 <% else %>
                 <li>
             <div class="menuLabel"><%= link_to 'My perso info',"/admin/profiles/#{@current_user.id}" %></div>
@@ -312,10 +316,11 @@
                 <% end %>
                 
          <li>
-           <div align="right">
-            <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
-                    <%=link_to "Mail","/admin/mail"%>
-           </div>
+<div align="right">
+           <%=link_to "Mail","/admin/mail" ,:class=>"mail-text"%>
+           <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
+
+          </div>
 		</li>
 
 	</ul>

@@ -24,146 +24,144 @@ $(document).ready(function(){
 <body>
   <%#= flash_message_manager %>
   <%=flash[:notice]%>
+  <div id="bsg-top-navigation">
 <div id="header">
-        <div id="logo">
-             <a href="/"><img src="/gallery_assets/logo.png"></a>
-	        <div id="twolines">
-              <%= current_user ? "You are logged as #{@current_user.profile.full_name}" : '' %>
-            <br/>
-	    <%if !current_user %> 
-			<%if  params[:action] == "login"%>	
-             <a href="/login" class="liselected">Login</a><br/>
-			<%else%>
-				<a href="/login"><b><font color=grey>Login</font></b></a><br/>
-			<%end%>
-		<%else%>
-			 <a href="/logout"><font color=grey>Logout</font></a><br/>
-		<%end%>
-				<% if @current_user.nil? %>
-				<%if  params[:controller] == "visitors" and params[:action] == "new"%>	
-			      <a href="/subscribe" class="liselected"><font color=white>Register</font></a>
-				<%else%>
-						<%if params[:controller] =="admin/users" and params[:action] == "create"%>
-							<a href="/subscribe" class="liselected"><font color=white>Register</font></a>
-						<%else%>
-							<a href="/subscribe" ><font color=grey>Register</font></a>
-						<%end%>
-				<%end%>
-				<%end%>
-		</div>
-        </div>
-	    <div id="menu">
-		    <div id="nav_1">
-		        <ul>
-
-			    <%if  params[:controller] == "exhibitions" and params[:action] == "current"%>	
-			    <li ><a href="/current" class="liselected">Current</a></li>
-			    <%else%>
-			    <li><a href="/current">Current</a></li>
-			    <%end%>
-			    <%if  params[:controller] == "exhibitions" and params[:action] == "future"%>	
-			    <li><a href="/future" class="liselected">Future</a></li>
-		             <%else%>	
-			     <li><a href="/future">Future</a></li>
-			     <%end%>
-			     <%if  params[:controller] == "exhibitions" and params[:action] == "next"%>	
-			    <li><a href="/next" class="liselected">Next</a></li>
-		             <%else%>	
-			     <li><a href="/next" >Next</a></li>
-			     <%end%>
-			     <%if  params[:controller] == "artists" and params[:action] == "show"%>	
-			    <li><a href="/artists" class="liselected">All Artists</a></li>
-		             <%else%>	
-			     <li><a href="/artists">All Artists</a></li>
-			     <%end%>
-				<%if  params[:controller] == "artists" and params[:action] == "genres"%>	
-			    <li><a href="/genres" class="liselected">By Genre</a></li>
-		             <%else%>	
-			     <li><a href="/genres">By Genre</a></li>
-			     <%end%>
-		        	
-		        	
-		        	
-				
-		        </ul>
-		    </div>
-    		<div id="nav_2">
-        		<ul>
-			<%if  params[:controller] == "app_homes" and params[:action] == "index"%>	
-                        <li><a href="/app_homes" class="liselected">Applications</a></li>
-			<%else%>
-			<li><a href="/app_homes"  >Applications</a></li>
-			<%end%>
-			<%if  ((params[:controller] == "artists") and (params[:action] == "groups" or params[:action] == "tojoin"))%>	
-                        <li><a href="/groups" class="liselected">Group Shows</a></li>
-            		<%else%>
-			        <li><a href="/groups" >Group Shows</a></li>
-			<%end%>
+                <div id="logo">
+                     <a href="/"><img src="/gallery_assets/logo.png"></a>
+	                          <div id="twolines">
+                                <%= current_user ? "You are logged as #{@current_user.profile.full_name}" : '' %>
+                                <br/>
+	                                <%if !current_user %> 
+			                            <%if  params[:action] == "login"%>	
+                                         <a href="/login" class="liselected">Login</a><br/>
+			                            <%else%>
+				                            <a href="/login"><b><font color=grey>Login</font></b></a><br/>
+			                            <%end%>
+		                            <%else%>
+			                             <a href="/logout"><font color=grey>Logout</font></a><br/>
+		                            <%end%>
+				                          <% if @current_user.nil? %>
+				                          <%if  params[:controller] == "visitors" and params[:action] == "new"%>	
+			                                <a href="/subscribe" class="liselected"><font color=white>Register</font></a>
+				                          <%else%>
+						                          <%if params[:controller] =="admin/users" and params[:action] == "create"%>
+							                          <a href="/subscribe" class="liselected"><font color=white>Register</font></a>
+						                          <%else%>
+							                          <a href="/subscribe" ><font color=grey>Register</font></a>
+						                          <%end%>
+				                          <%end%>
+				                          <%end%>
+		                        </div>
+                </div><%#logoisclosed%>
+	                 <div id="menu">
+		                        <div id="nav_1">
+		                                <ul>
+			                            <%if  params[:controller] == "exhibitions" and params[:action] == "current"%>	
+			                            <li ><a href="/current" class="liselected">Current</a></li>
+			                            <%else%>
+			                            <li><a href="/current">Current</a></li>
+			                            <%end%>
+			                            <%if  params[:controller] == "exhibitions" and params[:action] == "future"%>	
+			                            <li><a href="/future" class="liselected">Future</a></li>
+		                                     <%else%>	
+			                             <li><a href="/future">Future</a></li>
+			                             <%end%>
+			                             <%if  params[:controller] == "exhibitions" and params[:action] == "next"%>	
+			                            <li><a href="/next" class="liselected">Next</a></li>
+		                                     <%else%>	
+			                             <li><a href="/next" >Next</a></li>
+			                             <%end%>
+			                             <%if  params[:controller] == "artists" and params[:action] == "show"%>	
+			                            <li><a href="/artists" class="liselected">All Artists</a></li>
+		                                     <%else%>	
+			                             <li><a href="/artists">All Artists</a></li>
+			                             <%end%>
+				                        <%if  params[:controller] == "artists" and params[:action] == "genres"%>	
+			                            <li><a href="/genres" class="liselected">By Genre</a></li>
+		                                     <%else%>	
+			                             <li><a hre f="/genres">By Genre</a></li>
+			                             <%end%>
+		                                </ul>
+		                        </div>
+                        		<div id="nav_2">
+                            		<ul>
+			                    <%if  params[:controller] == "app_homes" and params[:action] == "index"%>	
+                                            <li><a href="/app_homes" class="liselected">Applications</a></li>
+			                    <%else%>
+			                    <li><a href="/app_homes"  >Applications</a></li>
+			                    <%end%>
+			                    <%if  ((params[:controller] == "artists") and (params[:action] == "groups" or params[:action] == "tojoin"))%>	
+                                            <li><a href="/groups" class="liselected">Group Shows</a></li>
+                                		<%else%>
+			                            <li><a href="/groups" >Group Shows</a></li>
+			                    <%end%>
 			
-			<%if  params[:controller] == "competitions" and params[:action] == "show"%>	
-			<li><a href="/competitions" class="liselected">Competitions</a></li>
-			<%else%>
-			<li><a href="/competitions">Competitions</a></li>
-			<%end%>
-                        <% if @current_user.nil? %>
-		  			  	<!-- <%if  params[:action] == "login"%>	
-                          	<li><a href="/login" class="liselected">Login</a></li>
-			<%else%>
-				<li><a href="/login">Login</a></li>
-			<%end%>  -->
-                        <% else %>
-                          <li><a href="/admin/profiles/<%=current_user.id%>">Back Access</a></li>
-                          <!-- <li><a href="/logout">Logout</a></li>  -->
-                        <% end %>
-            			<%#*<li><a href="#">Extras</a></li>%>
-        		</ul>
-		    </div>
-         <div id="nav_3">
-		        <ul>
-			<%if  params[:controller] == "visitors" and params[:action] == "mailing_list"%>	
-				<li><a href="/mailing_list" class="liselected">Mailing List</a></li>
-			<%else%>
+			                    <%if  params[:controller] == "competitions" and params[:action] == "show"%>	
+			                    <li><a href="/competitions" class="liselected">Competitions</a></li>
+			                    <%else%>
+			                    <li><a href="/competitions">Competitions</a></li>
+			                    <%end%>
+                                            <% if @current_user.nil? %>
+		                      			  	<!-- <%if  params[:action] == "login"%>	
+                                              	<li><a href="/login" class="liselected">Login</a></li>
+			                    <%else%>
+				                    <li><a href="/login">Login</a></li>
+			                    <%end%>  -->
+                                            <% else %>
+                                              <li><a href="/admin/profiles/<%=current_user.id%>">Back Access</a></li>
+                                              <!-- <li><a href="/logout">Logout</a></li>  -->
+                                            <% end %>
+                                			<%#*<li><a href="#">Extras</a></li>%>
+                            		</ul>
+		                        </div>
+                           <div id="nav_3">
+		                          <ul>
+			                  <%if  params[:controller] == "visitors" and params[:action] == "mailing_list"%>	
+				                  <li><a href="/mailing_list" class="liselected">Mailing List</a></li>
+			                  <%else%>
 				
-				<%if params[:controller] == "visitors" and params[:action] == "adding_profile" and params[:profile][:studios].blank?%>	
-			       <li><a href="/mailing_list" class="liselected">Mailing List</a></li>
-			      <%else%>		
-				<li><a href="/mailing_list" >Mailing List</a></li>
-			      <%end%>	
-			        
-			<%end%>
-<!--			<%#if  params[:controller] == "booksshops" and params[:action] == "index"%>	
-				<li><a href="/booksshops" class="liselected">Bookshop</a></li>
-			<%#else%>
-				<li><a href="/booksshops">Bookshop</a></li>
-			<%#end%>   -->
+				                  <%if params[:controller] == "visitors" and params[:action] == "adding_profile" and params[:profile][:studios].blank?%>	
+			                         <li><a href="/mailing_list" class="liselected">Mailing List</a></li>
+			                        <%else%>		
+				                  <li><a href="/mailing_list" >Mailing List</a></li>
+			                        <%end%>	
+			                          
+			                  <%end%>
+                  <!--			<%#if  params[:controller] == "booksshops" and params[:action] == "index"%>	
+				                  <li><a href="/booksshops" class="liselected">Bookshop</a></li>
+			                  <%#else%>
+				                  <li><a href="/booksshops">Bookshop</a></li>
+			                  <%#end%>   -->
 
-			<%if  params[:controller] == "visitors" and params[:action] == "studios"%>	
-				<li><a href="/studios" class="liselected">Studios</a></li>
-			<%else%>
-			     <%if params[:controller] == "visitors" and params[:action] == "adding_profile" and !params[:profile][:studios].blank?%>	
-			       <li><a href="/studios" class="liselected">Studios</a></li>
-			      <%else%>		
-				<li><a href="/studios">Studios</a></li>
-			      <%end%>	
-			<%end%>
+			                  <%if  params[:controller] == "visitors" and params[:action] == "studios"%>	
+				                  <li><a href="/studios" class="liselected">Studios</a></li>
+			                  <%else%>
+			                       <%if params[:controller] == "visitors" and params[:action] == "adding_profile" and !params[:profile][:studios].blank?%>	
+			                         <li><a href="/studios" class="liselected">Studios</a></li>
+			                        <%else%>		
+				                  <li><a href="/studios">Studios</a></li>
+			                        <%end%>	
+			                  <%end%>
 
-			<%if  params[:controller] == "drawings" and params[:action] == "index"%>	
-				<li><a href="/drawings" class="liselected">Life Drawing</a></li>
-			<%else%>
-				<li><a href="/drawings">Life Drawing</a></li>
-			<%end%>
-			<%if  params[:controller] == "links" and params[:action] == "index"%>	
-				<li><a href="/links" class="liselected">Links</a></li>
-			<%else%>
-				<li><a href="/links" >Links</a></li>
-			<%end%>
-		        <%#*<li><a href="#">Extras</a></li>%>
-		        </ul>
-		</div>
-	</div>
-</div>	
+			                  <%if  params[:controller] == "drawings" and params[:action] == "index"%>	
+				                  <li><a href="/drawings" class="liselected">Life Drawing</a></li>
+			                  <%else%>
+				                  <li><a href="/drawings">Life Drawing</a></li>
+			                  <%end%>
+			                  <%if  params[:controller] == "links" and params[:action] == "index"%>	
+				                  <li><a href="/links" class="liselected">Links</a></li>
+			                  <%else%>
+				                  <li><a href="/links" >Links</a></li>
+			                  <%end%>
+		                          <%#*<li><a href="#">Extras</a></li>%>
+		                          </ul>
+		                  </div>
+		                  
+
+</div>	<%#menu closed%>
+</div><%#header closed%>
+
     <%= yield %>
-
 <!-- Footer -->
 <div id="footer">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

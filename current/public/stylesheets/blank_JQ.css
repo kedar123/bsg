@@ -302,7 +302,7 @@ h4 {
 	float:left;
 }
 
-.logoutPic{float:left!important;margin:0 5px 0 !important;}
+.logoutPic{float:left!important;margin:6px 0px 0px 8px !important;}
 
 /* 		FOOTER  	*/
 
@@ -1124,3 +1124,9 @@ margin:0px 10px 0px 0px;
 	#fragment-1{
 	font-size: 10px;
 	}  
+	.mail-text{
+   float: left;
+   margin-left: 67px;
+   margin-right: 18px;
+}
+	

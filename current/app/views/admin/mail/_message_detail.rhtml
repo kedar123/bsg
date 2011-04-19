@@ -1,4 +1,16 @@
-
+<style>
+	.compose-mail{
+		width:550px;
+		height:auto;
+		border:1px solid #dedede;
+		background:#f3f3f3;
+		border-radius:5px;
+		padding:10px;
+		float:right;
+    margin-top:-110px;
+	}
+	</style>
+<div class="compose-mail">
 <h2><%=message_detail.subject%></h2>
 <br/>
 <h5>From:-<%=message_detail.author.login%></h5>
@@ -18,10 +30,11 @@
 
 <span style="padding-right:10px;">  <%=link_to_remote "Reply" ,:update => "",:url => { :action => "replay_message", :id => message_detail.id }%></span>
 <span style="padding-right:10px;">  <%=link_to_remote "Reply To All" ,:update => "",:url => { :action => "replay_to_all", :id => message_detail.id }%></span>
-<span style="padding-right:10px;">  <%=link_to "Delete" , :action => "delete_email", :id => message_detail.id %></span>
+<span style="padding-right:10px;">  <%#=link_to "Delete" , :action => "delete_email", :id => message_detail.id %></span>
 <span style="padding-right:10px;">  <%=link_to_remote "Forward" ,:update => "",:url => { :action => "forward_email", :id => message_detail.id }%></span>
   
 </p>
 
 <div id="replay_to_all">
+</div>
 </div>

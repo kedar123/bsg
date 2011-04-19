@@ -18,12 +18,15 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/invoices/new/:id",:controller=>"admin/invoices",:action=>"new"
   map.connect "/payment_response" ,:controller=>"admin/payments",:action=>"create"
   map.connect "/admin/mail" ,:controller=>"admin/mail",:action=>"index"
+  
+  map.connect "/admin/delete_temprary_email" ,:controller=>"admin/mail",:action=>"delete_temprary_email"
   map.connect "/admin/delete_from_trash" ,:controller=>"admin/mail",:action=>"delete_from_trash"
   map.connect "/admin/flag_email" ,:controller=>"admin/mail",:action=>"flag_email"
   map.connect "/admin/show_flag_email" ,:controller=>"admin/mail",:action=>"show_flag_email"
   map.connect "/admin/compose_new_mail" ,:controller=>"admin/mail",:action=>"compose_new_mail"
   map.connect "/admin/create_sent_mail" ,:controller=>"admin/mail",:action=>"create_sent_mail"
   map.connect "/admin/create_temporary_inbox" ,:controller=>"admin/mail",:action=>"create_temporary_inbox"
+  map.connect "/admin/create_sent_mail_with_unknown" ,:controller=>"admin/mail",:action=>"create_sent_mail_with_unknown"  
   map.connect "/admin/show_message" ,:controller=>"admin/mail",:action=>"show_message"
   map.connect "/admin/replay_message" ,:controller=>"admin/mail",:action=>"replay_message"
   map.connect "/admin/replay_to_all" ,:controller=>"admin/mail",:action=>"replay_to_all"
@@ -35,7 +38,11 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/flag_mail",:controller=>"admin/mail",:action=>"flag_mail"
   map.connect "/admin/delete_show_flag_mail",:controller=>"admin/mail",:action=>"delete_show_flag_mail"
   map.connect "/admin/delete_label",:controller=>"admin/mail",:action=>"delete_label"
+  map.connect "/admin/unknown_email",:controller=>"admin/mail",:action=>"unknown_email"
   map.connect "/auto_complete_for_user_email",:controller=>"admin/mail",:action=>"auto_complete_for_user_email"
+  map.connect "/admin/show_unknown_message",:controller=>"admin/mail",:action=>"show_unknown_message"
+  map.connect "/admin/replay_message_to_unknown",:controller=>"admin/mail",:action=>"replay_message_to_unknown"
+  
 
   
   map.connect "/admin/forward_email" ,:controller=>"admin/mail",:action=>"forward_email"
@@ -46,8 +53,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/show_labeled_email" ,:controller=>"admin/mail",:action=>"show_labeled_email"
   map.connect "/admin/sent_flag_email" ,:controller=>"admin/mail",:action=>"sent_flag_email"
   map.connect "/admin/delete_sent_mail" ,:controller=>"admin/mail",:action=>"delete_sent_mail"
+  map.connect "/admin/create_sent_mail_with_original_id/:id" ,:controller=>"admin/mail",:action=>"create_sent_mail_with_original_id"
   
-  
+      
   
   
   
@@ -194,6 +202,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.connect "/emails/detail_mail/:id",:controller=>"emails",:action=>"detail_email"
     admin.connect "/emails/reply_email/:id",:controller=>"emails",:action=>"reply_email"
     admin.connect "/emails/delete_email/:id",:controller=>"emails",:action=>"delete_email"
+
     
     # Items created outside any workspace are private or fully public.
     # Items may be acceded by a list that gives all items the user can consult.

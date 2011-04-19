@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
 	# Filter checking authentication with 'is_logged' method
   before_filter :logged_in?
 
+
+
+
+
+
 def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_address = " " ,invoice_user_fullname = " " ,invoice_competition_title="",invoice_full_amount="",note="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
 				
 				headers, body = nil, nil  

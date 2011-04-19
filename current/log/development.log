@@ -1065,3 +1065,424 @@ Processing VisitorsController#login (for 127.0.0.1 at 2011-04-15 11:09:24) [GET]
 Rendering template within layouts/front
 Rendering visitors/login
 Completed in 225ms (View: 62, DB: 1) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#home_page (for 127.0.0.1 at 2011-04-19 20:48:30) [GET]
+  [4;36;1mPromotingStuff Load (0.1ms)[0m   [0;1mSELECT * FROM `promoting_stuffs` ORDER BY created_at desc LIMIT 3[0m
+  [4;35;1mPromotingStuff Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `promoting_stuffs`[0m
+  [4;36;1mFrontendpic Load (0.1ms)[0m   [0;1mSELECT * FROM `frontendpics` ORDER BY created_at desc LIMIT 5[0m
+  [4;35;1mFrontendpic Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `frontendpics`[0m
+Rendering template within layouts/front
+Rendering visitors/home_page
+Completed in 135ms (View: 75, DB: 3) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-19 20:48:31) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#login (for 127.0.0.1 at 2011-04-19 20:48:33) [GET]
+Rendering template within layouts/front
+Rendering visitors/login
+Completed in 92ms (View: 72, DB: 1) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-19 20:48:33) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-19 20:48:34) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-04-19 20:48:34) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+
+Rendering rescues/layout (not_found)
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::SessionsController#create (for 127.0.0.1 at 2011-04-19 20:48:37) [POST]
+  Parameters: {"submit"=>"", "action"=>"create", "controller"=>"admin/sessions", "password"=>"[FILTERED]", "email"=>"contact@test.com"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'contact@test.com') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/admin/profiles
+Completed in 84ms (DB: 2) | 302 Found [http://localhost/admin/session]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::ProfilesController#index (for 127.0.0.1 at 2011-04-19 20:48:38) [GET]
+  Parameters: {"action"=>"index", "controller"=>"admin/profiles"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mProfile Load (0.2ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (profiles.id > 1) ORDER BY first_name asc[0m
+  [4;35;1mProfile Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+Rendering template within layouts/gallery
+Rendering admin/profiles/index
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 23) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 6) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 17) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 10) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 37) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 11) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 19) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 31) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 15) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 20) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 5) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 9) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 16) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 8) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 44) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 45) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 41) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 21) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 42) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 22) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 25) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 28) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 29) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 33) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 7) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 14) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 13) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 32) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 18) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 34) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 26) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 27) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 30) [0m
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/ptsadmin/newgitcopyv/bsg/current/app/helpers/application_helper.rb:62)
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/ptsadmin/newgitcopyv/bsg/current/app/helpers/application_helper.rb:63)
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/ptsadmin/newgitcopyv/bsg/current/app/helpers/application_helper.rb:64)
+  [4;35;1mCategory Load (0.1ms)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mRole Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mWorkspace Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `workspaces`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `workspaces` [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `workspaces` [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `workspaces` [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `workspaces` [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `workspaces` [0m
+  [4;35;1mProfile Load (0.1ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.user_id = 2) LIMIT 1[0m
+  [4;36;1mWorkspace Load (0.1ms)[0m   [0;1mSELECT * FROM `workspaces` WHERE (`workspaces`.`state` = 'public') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mpermissions_roles Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `permissions_roles`[0m
+  [4;36;1mPermission Load (0.2ms)[0m   [0;1mSELECT * FROM `permissions` INNER JOIN `permissions_roles` ON `permissions`.id = `permissions_roles`.permission_id WHERE (`permissions_roles`.role_id = 2 ) [0m
+  [4;35;1mPermission Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Rendered layouts/_gallery_header (241.1ms)
+Completed in 960ms (View: 890, DB: 13) | 200 OK [http://localhost/admin/profiles]
+N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:16:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#index (for 127.0.0.1 at 2011-04-19 20:48:43) [GET]
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'mailer-daemon@googlemail.com') LIMIT 1[0m
+  [4;36;1mTempraryinbox Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tempraryinboxes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTempraryinbox Create (1.7ms)[0m   [0;1mINSERT INTO `tempraryinboxes` (`fromemail`, `created_at`, `body`, `updated_at`, `subject`) VALUES('mailer-daemon@googlemail.com', '2011-04-19 15:18:48', 'Delivery to the following recipient failed permanently:\r\n\r\n contact@test.com\r\n\r\nTechnical details of permanent failure: \r\nThe recipient server did not accept our requests to connect. Learn more at http://mail.google.com/support/bin/answer.py?answer=7720 \r\n[test.com (1): Connection timed out]\r\n\r\n----- Original message -----\r\n\r\nReceived: by 10.68.5.36 with SMTP id p4mr3626062pbp.253.1302958499921;\r\n Sat, 16 Apr 2011 05:54:59 -0700 (PDT)\r\nReturn-Path: <kedar.pathak@pragtech.co.in>\r\nReceived: from pragtech.co.in ([122.169.71.232])\r\n by mx.google.com with ESMTPS id s1sm1069153pbm.0.2011.04.16.05.54.58\r\n (version=TLSv1/SSLv3 cipher=OTHER);\r\n Sat, 16 Apr 2011 05:54:59 -0700 (PDT)\r\nDate: Sat, 16 Apr 2011 18:24:58 +0530\r\nFrom: kedar.pathak@pragtech.co.in\r\nTo: contact@test.com\r\nMessage-Id: <4da991a3.212e440a.7298.6ba7@mx.google.com>\r\nSubject: suhg\r\nMime-Version: 1.0\r\nContent-Type: text/html; charset=utf-8\r\n\r\n----- End of message -----\r\n\r\n', '2011-04-19 15:18:48', 'Delivery Status Notification (Failure)')[0m
+  [4;35;1mSQL (46.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMailfolder Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `mailfolders`[0m
+  [4;35;1mMailfolder Load (0.1ms)[0m   [0mSELECT * FROM `mailfolders` WHERE (`mailfolders`.`name` = 'Inbox') AND (`mailfolders`.user_id = 2) LIMIT 1[0m
+  [4;36;1mEmaillabel Load (0.1ms)[0m   [0;1mSELECT * FROM `emaillabels` [0m
+  [4;35;1mEmaillabel Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `emaillabels`[0m
+  [4;36;1mMessageCopy Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `message_copies`[0m
+  [4;35;1mMessage Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mMessageCopy Load IDs For Limited Eager Loading (0.6ms)[0m   [0;1mSELECT DISTINCT `message_copies`.id FROM `message_copies` LEFT OUTER JOIN `messages` ON `messages`.id = `message_copies`.message_id WHERE ((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) ORDER BY messages.created_at DESC LIMIT 0, 2[0m
+  [4;35;1mMessageCopy Load Including Associations (1.1ms)[0m   [0mSELECT `message_copies`.`id` AS t0_r0, `message_copies`.`recipient_id` AS t0_r1, `message_copies`.`message_id` AS t0_r2, `message_copies`.`mailfolder_id` AS t0_r3, `message_copies`.`created_at` AS t0_r4, `message_copies`.`updated_at` AS t0_r5, `message_copies`.`deleted` AS t0_r6, `message_copies`.`emaillabel_id` AS t0_r7, `message_copies`.`labeled` AS t0_r8, `message_copies`.`flag` AS t0_r9, `messages`.`id` AS t1_r0, `messages`.`author_id` AS t1_r1, `messages`.`subject` AS t1_r2, `messages`.`body` AS t1_r3, `messages`.`created_at` AS t1_r4, `messages`.`updated_at` AS t1_r5, `messages`.`flag` AS t1_r6, `messages`.`deletedm` AS t1_r7, `messages`.`deletedmt` AS t1_r8, `messages`.`deletefrom` AS t1_r9, `messages`.`deleteto` AS t1_r10, `messages`.`deletefromt` AS t1_r11, `messages`.`deletetot` AS t1_r12 FROM `message_copies` LEFT OUTER JOIN `messages` ON `messages`.id = `message_copies`.message_id WHERE ((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) AND `message_copies`.id IN (141, 140) ORDER BY messages.created_at DESC[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM `message_copies` WHERE (((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) AND (`message_copies`.mailfolder_id = 2)) [0m
+Rendering template within layouts/gallery_promoting_mail
+Rendering admin/mail/index
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mRole Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mpermissions_roles Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `permissions_roles`[0m
+  [4;36;1mPermission Load (0.2ms)[0m   [0;1mSELECT * FROM `permissions` INNER JOIN `permissions_roles` ON `permissions`.id = `permissions_roles`.permission_id WHERE (`permissions_roles`.role_id = 2 ) [0m
+  [4;35;1mPermission Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `permissions`[0m
+  [4;36;1mWorkspace Load (0.1ms)[0m   [0;1mSELECT * FROM `workspaces` WHERE (`workspaces`.`creator_id` = 2 AND `workspaces`.`state` = 'private') LIMIT 1[0m
+  [4;35;1mWorkspace Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `workspaces`[0m
+  [4;36;1mWorkspace Load (0.1ms)[0m   [0;1mSELECT * FROM `workspaces` WHERE (`workspaces`.`state` = 'public') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `permissions` INNER JOIN `permissions_roles` ON `permissions`.id = `permissions_roles`.permission_id WHERE (`permissions_roles`.role_id = 2 ) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `roles` WHERE (`roles`.`id` = 2) [0m
+Completed in 6227ms (View: 408, DB: 61) | 200 OK [http://localhost/admin/mail]
+N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#index (for 127.0.0.1 at 2011-04-19 20:48:53) [POST]
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mMailfolder Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `mailfolders`[0m
+  [4;36;1mMailfolder Load (0.1ms)[0m   [0;1mSELECT * FROM `mailfolders` WHERE (`mailfolders`.`name` = 'Inbox') AND (`mailfolders`.user_id = 2) LIMIT 1[0m
+  [4;35;1mEmaillabel Load (0.1ms)[0m   [0mSELECT * FROM `emaillabels` [0m
+  [4;36;1mEmaillabel Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `emaillabels`[0m
+  [4;35;1mMessageCopy Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `message_copies`[0m
+  [4;36;1mMessage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mMessageCopy Load IDs For Limited Eager Loading (0.1ms)[0m   [0mSELECT DISTINCT `message_copies`.id FROM `message_copies` LEFT OUTER JOIN `messages` ON `messages`.id = `message_copies`.message_id WHERE ((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) ORDER BY messages.created_at DESC LIMIT 0, 2[0m
+  [4;36;1mMessageCopy Load Including Associations (0.1ms)[0m   [0;1mSELECT `message_copies`.`id` AS t0_r0, `message_copies`.`recipient_id` AS t0_r1, `message_copies`.`message_id` AS t0_r2, `message_copies`.`mailfolder_id` AS t0_r3, `message_copies`.`created_at` AS t0_r4, `message_copies`.`updated_at` AS t0_r5, `message_copies`.`deleted` AS t0_r6, `message_copies`.`emaillabel_id` AS t0_r7, `message_copies`.`labeled` AS t0_r8, `message_copies`.`flag` AS t0_r9, `messages`.`id` AS t1_r0, `messages`.`author_id` AS t1_r1, `messages`.`subject` AS t1_r2, `messages`.`body` AS t1_r3, `messages`.`created_at` AS t1_r4, `messages`.`updated_at` AS t1_r5, `messages`.`flag` AS t1_r6, `messages`.`deletedm` AS t1_r7, `messages`.`deletedmt` AS t1_r8, `messages`.`deletefrom` AS t1_r9, `messages`.`deleteto` AS t1_r10, `messages`.`deletefromt` AS t1_r11, `messages`.`deletetot` AS t1_r12 FROM `message_copies` LEFT OUTER JOIN `messages` ON `messages`.id = `message_copies`.message_id WHERE ((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) AND `message_copies`.id IN (141, 140) ORDER BY messages.created_at DESC[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `message_copies` WHERE (((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) AND (`message_copies`.mailfolder_id = 2)) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendered admin/mail/_inbox_messages (33.3ms)
+Completed in 3896ms (View: 45, DB: 6) | 200 OK [http://localhost/admin/mail]
+N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#sent_mail (for 127.0.0.1 at 2011-04-19 20:49:00) [POST]
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mEmaillabel Load (0.1ms)[0m   [0;1mSELECT * FROM `emaillabels` [0m
+  [4;35;1mEmaillabel Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `emaillabels`[0m
+  [4;36;1mMailfolder Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `mailfolders`[0m
+  [4;35;1mMailfolder Load (0.1ms)[0m   [0mSELECT * FROM `mailfolders` WHERE (`mailfolders`.`name` = 'Inbox') AND (`mailfolders`.user_id = 2) LIMIT 1[0m
+  [4;36;1mMessage Load (0.5ms)[0m   [0;1mSELECT * FROM `messages` WHERE (`messages`.author_id = 2 AND (deletedm = 0 or deletedm is null)) ORDER BY created_at DESC LIMIT 0, 2[0m
+  [4;35;1mMessage Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `messages` WHERE (deletedm = 0 or deletedm is null) AND (`messages`.author_id = 2) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendered admin/mail/_sent_mail_detail (25.1ms)
+Completed in 102ms (View: 35, DB: 5) | 200 OK [http://localhost/admin/sent_mail]
+N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:207:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:266:in `sent_mail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:265:in `sent_mail'
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#trash_mail (for 127.0.0.1 at 2011-04-19 20:49:02) [POST]
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mEmaillabel Load (0.1ms)[0m   [0mSELECT * FROM `emaillabels` [0m
+  [4;36;1mEmaillabel Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `emaillabels`[0m
+  [4;35;1mMessageCopy Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `message_copies`[0m
+  [4;36;1mMessage Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mMessageCopy Load IDs For Limited Eager Loading (0.1ms)[0m   [0mSELECT DISTINCT `message_copies`.id FROM `message_copies` LEFT OUTER JOIN `messages` ON `messages`.id = `message_copies`.message_id WHERE ((`message_copies`.recipient_id = 2) AND (`message_copies`.`deleted` = 1)) ORDER BY messages.created_at DESC LIMIT 0, 2[0m
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM `messages` WHERE ((author_id = 2) and (deletedm IS NOT NULL OR deletedm = 1 ) and (deletedmt IS NULL OR deletedmt = 0)) ORDER BY created_at DESC LIMIT 2[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendered admin/mail/_trash_mail_detail (20.8ms)
+Completed in 226ms (View: 33, DB: 5) | 200 OK [http://localhost/admin/trash_mail]
+N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:239:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:232:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:232:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:177:in `trash_mail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:176:in `trash_mail'
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#unknown_email (for 127.0.0.1 at 2011-04-19 20:49:05) [POST]
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mTempraryinbox Load (0.4ms)[0m   [0mSELECT * FROM `tempraryinboxes` ORDER BY updated_at DESC LIMIT 0, 2[0m
+  [4;36;1mTempraryinbox Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `tempraryinboxes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `tempraryinboxes` [0m
+Rendered admin/mail/_temprary_messages (21.5ms)
+Completed in 73ms (View: 33, DB: 3) | 200 OK [http://localhost/admin/unknown_email]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#unknown_email (for 127.0.0.1 at 2011-04-19 20:49:09) [GET]
+  Parameters: {"page"=>"2"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mTempraryinbox Load (0.5ms)[0m   [0;1mSELECT * FROM `tempraryinboxes` ORDER BY updated_at DESC LIMIT 2, 2[0m
+  [4;35;1mTempraryinbox Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `tempraryinboxes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `tempraryinboxes` [0m
+Rendered admin/mail/_temprary_messages (13.1ms)
+Completed in 65ms (View: 21, DB: 3) | 200 OK [http://localhost/admin/unknown_email?page=2]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#index (for 127.0.0.1 at 2011-04-19 20:49:11) [POST]
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mMailfolder Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `mailfolders`[0m
+  [4;36;1mMailfolder Load (0.1ms)[0m   [0;1mSELECT * FROM `mailfolders` WHERE (`mailfolders`.`name` = 'Inbox') AND (`mailfolders`.user_id = 2) LIMIT 1[0m
+  [4;35;1mEmaillabel Load (0.1ms)[0m   [0mSELECT * FROM `emaillabels` [0m
+  [4;36;1mEmaillabel Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `emaillabels`[0m
+  [4;35;1mMessageCopy Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `message_copies`[0m
+  [4;36;1mMessage Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mMessageCopy Load IDs For Limited Eager Loading (0.1ms)[0m   [0mSELECT DISTINCT `message_copies`.id FROM `message_copies` LEFT OUTER JOIN `messages` ON `messages`.id = `message_copies`.message_id WHERE ((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) ORDER BY messages.created_at DESC LIMIT 0, 2[0m
+  [4;36;1mMessageCopy Load Including Associations (0.1ms)[0m   [0;1mSELECT `message_copies`.`id` AS t0_r0, `message_copies`.`recipient_id` AS t0_r1, `message_copies`.`message_id` AS t0_r2, `message_copies`.`mailfolder_id` AS t0_r3, `message_copies`.`created_at` AS t0_r4, `message_copies`.`updated_at` AS t0_r5, `message_copies`.`deleted` AS t0_r6, `message_copies`.`emaillabel_id` AS t0_r7, `message_copies`.`labeled` AS t0_r8, `message_copies`.`flag` AS t0_r9, `messages`.`id` AS t1_r0, `messages`.`author_id` AS t1_r1, `messages`.`subject` AS t1_r2, `messages`.`body` AS t1_r3, `messages`.`created_at` AS t1_r4, `messages`.`updated_at` AS t1_r5, `messages`.`flag` AS t1_r6, `messages`.`deletedm` AS t1_r7, `messages`.`deletedmt` AS t1_r8, `messages`.`deletefrom` AS t1_r9, `messages`.`deleteto` AS t1_r10, `messages`.`deletefromt` AS t1_r11, `messages`.`deletetot` AS t1_r12 FROM `message_copies` LEFT OUTER JOIN `messages` ON `messages`.id = `message_copies`.message_id WHERE ((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) AND `message_copies`.id IN (141, 140) ORDER BY messages.created_at DESC[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `message_copies` WHERE (((`message_copies`.mailfolder_id = 2) AND ((deleted IS NULL OR deleted = 0) and (labeled IS NULL OR labeled = 0))) AND (`message_copies`.mailfolder_id = 2)) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendered admin/mail/_inbox_messages (22.9ms)
+Completed in 3692ms (View: 30, DB: 6) | 200 OK [http://localhost/admin/mail]
+N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at /home/ptsadmin/.rvm/gems/ruby-1.8.7-p334@videogallery/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::MailController#sent_mail (for 127.0.0.1 at 2011-04-19 20:49:17) [POST]
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mEmaillabel Load (0.1ms)[0m   [0;1mSELECT * FROM `emaillabels` [0m
+  [4;35;1mEmaillabel Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `emaillabels`[0m
+  [4;36;1mMailfolder Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `mailfolders`[0m
+  [4;35;1mMailfolder Load (0.1ms)[0m   [0mSELECT * FROM `mailfolders` WHERE (`mailfolders`.`name` = 'Inbox') AND (`mailfolders`.user_id = 2) LIMIT 1[0m
+  [4;36;1mMessage Load (0.1ms)[0m   [0;1mSELECT * FROM `messages` WHERE (`messages`.author_id = 2 AND (deletedm = 0 or deletedm is null)) ORDER BY created_at DESC LIMIT 0, 2[0m
+  [4;35;1mMessage Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `messages` WHERE (deletedm = 0 or deletedm is null) AND (`messages`.author_id = 2) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendered admin/mail/_sent_mail_detail (15.7ms)
+Completed in 90ms (View: 22, DB: 5) | 200 OK [http://localhost/admin/sent_mail]
+N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:207:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:266:in `sent_mail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:265:in `sent_mail'

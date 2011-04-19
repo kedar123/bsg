@@ -7,12 +7,15 @@
 	}
 	#compose-mail{
 		width:550px;
-		height:520px;
+		height:auto;
 		border:1px solid #dedede;
 		background:#f3f3f3;
 		border-radius:5px;
-		padding:20px;
+		padding:10px;
+		float:right;
+    margin-top:-110px;
 	}
+	
 #compose-mail lable{
 	display:block;
 	
@@ -62,25 +65,59 @@
 	  width:55px;
 	}
 </style>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="compose-mail">
+<p style="margin-left:150px"><a href="Add An User">Add An User</a></p>
 <h2>Compose</h2>
 
-<% form_for :message, :url=>"/admin/create_sent_mail/#{replay_all_message.id}" do |f| %>
+<% form_for :message, :url=>"/admin/create_sent_mail_with_unknown" do |f| %>
+  
+  <p >
+    <label class="labeloverride">To</label>  <%=text_field_with_auto_complete :user, :email,{:value=>replay_unknown_message.fromemail+","},{:tokens =>',',:frequency=>0.1 ,:style=>"width:150px;"}%>
+    
+  </p><br/>
 
+  <label class="labeloverride">Subject</label> 
+  
+<%= f.text_field :subject %></p>
   <p>
-    <label class="labeloverride"> To</label><%=text_field_with_auto_complete :user, :email,{:value=>recipients_email * "," +","},{:tokens =>',',:frequency=>0.1 ,:style=>"width:150px;"}%>
-
+  <label class="labeloverride">Body </label>
+  
+ <%= replay_unknown_message.body %> 
+  </p>
+  
+  <p>
+  <label class="labeloverride">Body </label>
+  
+ <%= f.text_area :body ,:value=>""%>
   </p>
 
-  <p>    <label class="labeloverride"> Subject</label> <%= f.text_field :subject %></p>
-  <p><label class="labeloverride">Body</label><%= @message.body %></p>
-  
-  <p><label class="labeloverride">Body</label><%= f.text_area :body ,:value=>""%></p>
- 
-  <p><%= submit_tag "Send",:style=>"width: 160px; margin-left: 65px;" %></p>
+ <p><%= submit_tag "Send" %></p>
 <% end %>
 
     <div>
  
-    <div id="update_label" style="float:left"> 
     </div>
-    </div>
+  </div>  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

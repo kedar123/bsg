@@ -252,10 +252,11 @@
                 <% end %>
                 
          <li>
-           <div align="right">
-            <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
-            <%=link_to "Mail","/admin/mail"%>
-           </div>
+<div align="right">
+           <%=link_to "Mail","/admin/mail" ,:class=>"mail-text"%>
+           <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
+
+          </div>
 		</li>
 		<li>
 		

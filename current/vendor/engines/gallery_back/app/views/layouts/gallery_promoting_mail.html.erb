@@ -316,7 +316,11 @@
                
                 <li>
             <div class="menuLabel"><%= link_to 'Contacts', admin_profiles_path %></div>
-		</li>
+          		</li>
+          										<li>
+                    <div class="menuLabel"><%= link_to 'Invoice', admin_invoices_path %></div>
+                   
+            		</li>
 
                 <% else %>
                 <li>
@@ -325,10 +329,11 @@
                 <% end %>
                 
          <li>
-           <div align="right">
-            <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
-                    <%=link_to "Mail","/admin/mail"%>
-           </div>
+<div align="right">
+           <%=link_to "Mail","/admin/mail" ,:class=>"mail-text"%>
+           <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
+
+          </div>
 		</li>
 
 	</ul>
@@ -360,16 +365,16 @@
 	      
             </div>
             <div id="container">
-                         <div class="rightBlocks"> 
+                         <!--<div class="rightBlocks"> 
                                       <div class="itemShowRightBlock">
                                           <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
-                                            <%= "Workspace" %>
+                                            <%#= "Workspace" %>
                                           </div><div class="blockCornerRight"></div>
                                           <div class="blockElementBody">
-                                              <%= current_container ? "Dear #{@current_user.profile.full_name}, you are inside '#{current_container.title}' workspace, click #{ link_to 'here', '/admin' } to leave that workspace." : "Dear #{@current_user.profile.full_name}, you are actually at the root of the back end of the application, <br/>What can I do? #{ link_to('Back to BSG website', '/')} " %>
+                                              <%#= current_container ? "Dear #{@current_user.profile.full_name}, you are inside '#{current_container.title}' workspace, click #{ link_to 'here', '/admin' } to leave that workspace." : "Dear #{@current_user.profile.full_name}, you are actually at the root of the back end of the application, <br/>What can I do? #{ link_to('Back to BSG website', '/')} " %>
                                           </div>
                                         </div>
-                        </div> 
+                        </div> -->
                 <%= yield %>
 
             </div>

@@ -20,8 +20,6 @@ class Message < ActiveRecord::Base
     else  
         emailid.split(',').each do |recipient|
           recipient = User.find_by_email(recipient)
-          p "im also building the recipient"
-          p recipient
           message_copies.build(:recipient_id => recipient.id, :mailfolder_id => recipient.inbox.id)
         end
     end  

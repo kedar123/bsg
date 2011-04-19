@@ -113,4 +113,81 @@ N+1 Query method call stack2011-04-15 11:07:50[WARN] Unused Eager Loading detect
   Remove from your finder: :include => [:artworks_competitions]2011-04-15 11:07:50[WARN] N+1 Query detected
   CompetitionsUser => [:artworks_competitions]
   Add to your finder: :include => [:artworks_competitions]
+N+1 Query method call stack2011-04-19 20:48:39[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
 N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:16:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-04-19 20:48:49[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-04-19 20:48:57[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'2011-04-19 20:49:00[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:207:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:266:in `sent_mail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:265:in `sent_mail'2011-04-19 20:49:02[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:239:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:232:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:232:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:177:in `trash_mail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:176:in `trash_mail'2011-04-19 20:49:15[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:44:in `index'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:43:in `index'2011-04-19 20:49:17[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:207:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `each'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/views/admin/mail/_sent_mail_detail.rhtml:201:in `_run_rhtml_app47views47admin47mail47_sent_mail_detail46rhtml_locals_object_sent_mail_detail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:266:in `sent_mail'
+  /home/ptsadmin/newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:265:in `sent_mail'

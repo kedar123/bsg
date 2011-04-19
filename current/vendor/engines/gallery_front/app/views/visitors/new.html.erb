@@ -13,16 +13,17 @@
       </div>
     </div>
     <div id="list">
+
       <%= render :partial => 'visitors/form' %>
-      <% if @current_object.errors.first %>
-      <div id="form">
-        <%= "ERRORS DURING USER CREATION :<br /><br />" %>
-        <%@current_object.errors.each do |attr,msg|%>
-        <%=msg%><br/>
-        <%end%>
-        <%#= @current_object.errors.full_messages.join('<br />') %>
-      </div>
-      <% end %>
-    </div>
+          <% if @current_object.errors.first %>
+                <div id="form">
+                  <%= "ERRORS DURING USER CREATION :<br /><br />" %>
+                  <%@current_object.errors.each do |attr,msg|%>
+                  <%=msg%><br/>
+                  <%end%>
+                  <%#= @current_object.errors.full_messages.join('<br />') %>
+                </div>
+                <% end %>
+   </div>
     
 </div>

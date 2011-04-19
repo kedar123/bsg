@@ -75,9 +75,8 @@
 	padding:0px;
 }
 #mail-head li{
-/*	background:#FFC580;  */
-	font-weight:bold;
-/*	color:#ffffff;  */
+ font-weight: bold;
+ padding-left: 0px;
 }
 
 #mail-head .field-date{
@@ -125,15 +124,15 @@
 }
 
 .field-from{
-	min-width:148px;
+	min-width:222px;
 	}
 	
 .field-subject{
-	min-width:355px;
+	min-width:315px;
 }
 
 .head-subject{
-	min-width:396px;
+	min-width:324px;
 }
 
 .field-lable{
@@ -142,7 +141,7 @@
 
 .field-date{
 	text-align:right;
-	width:151px;
+	width:115px;
 	padding-right:5px;
 
 }
@@ -161,23 +160,23 @@ margin-right:-14px;
 
 </style>
 
-         <div class="objectList small">
-        <h2>Sent</h2>
+        
+        
+        
+        
+                <div class="objectList small">
+        <h2>Not Registered Users</h2>
 <div class="blockCornerLeft"></div>
 
-<form action="/admin/delete_sent_mail" name="myform" method="post">
+<form action="/admin/delete_temprary_email" name="myform" method="post">
 	<div class="blockElementHeader sixH">
 	<input type="hidden" name="selected_label" value="" id="selected_label">
 	  <span ><ul class="mm-field" id="mail-head">
     <li class="field-checkbox fc">     
-     <%checkboxarrayname = []%>
-<%if sent_mail_detail%>     
-<%sent_mail_detail.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
-<%end%>
+         <%checkboxarrayname = []%>
+<%temprary_messages.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
 <%checkboxarraynamestring= "["+(checkboxarrayname * ",")+"]" %>
-<%if sent_mail_detail%>
-     <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{sent_mail_detail.length},#{checkboxarraynamestring});",:class=>'mm-cb'%>
-<%end%> 
+    <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{temprary_messages.length},#{checkboxarraynamestring});",:class=>'mm-cb'%>
     </li>
   
    <li class="head-from field-from">From</li>
@@ -197,28 +196,15 @@ margin-right:-14px;
      
      <div class="bsg-right">
     <ul> 
-    <%if sent_mail_detail%>
-    <%for message in sent_mail_detail%>
+    <%for message in temprary_messages%>
                                         	<ul class="mm-field">					
-                                              <li class="field-checkbox fc">    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%>
-                                              
-                                              
-                                              </li>
-	                                      	    <li class="field-from"><%=h message.author.email %></li>
-                                        	    <li class="field-subject">
-                                        	        <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_sent_message", :id => message.id }%>
-                                        	    
-                                        	    
-                                        	    
-                                        	    
-                                        	    </li>
-                                      	    
-                                        	    <li class="field-date">
-                                        	    <%=message.created_at.strftime("%Y-%m-%d       ")%>
-                                        	    </li>
+                                              <li class="field-checkbox fc">   <%=check_box_tag "delete_message"+message.id.to_s  ,message.id%></li>
+	                                      	    <li class="field-from">      <%=h message.fromemail %></li>
+                                        	    <li class="field-subject"> <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_unknown_message", :id => message.id }%></li>
+                                      	   
+                                        	    <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
                                             </ul>
                         								<%end%>   
-                        								<%end%>
       </ul>
                                    </div>
                                   </td> 
@@ -227,16 +213,16 @@ margin-right:-14px;
     </div>
     </div>
     </div>
- </form>   
- <%if sent_mail_detail%>
-        <%= will_paginate sent_mail_detail %>
-        <%end%>
+ </form> 
+      <%= will_paginate temprary_messages %>  
  </div>
+
  </div>
     <script>
         Event.addBehavior.reassignAfterAjax = true;
                      Event.addBehavior({
                       'div.pagination a' : Remote.Link
                     })
-    </script>  
+    </script>    
+        
         

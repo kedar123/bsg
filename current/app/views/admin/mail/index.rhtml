@@ -1,4 +1,166 @@
 <style>
+/* MAIL INDEX */
+
+#mail-box{
+	width:970px;
+	margin:0px auto;
+	padding:0px;
+	background:#fff;
+	font-size:13px;
+	color:#333;
+	}
+	
+#main-top{
+	margin:0px auto;
+	padding-top:10px;
+	background: none repeat scroll 0 0 #d6d6d6;
+	border-bottom:1px solid #a2a2a2;
+}
+
+
+
+#mail-box ul li{
+	list-style-type:none;
+	display:block;
+}
+.top-menu{
+	height:30px;
+	margin:7px 155px;
+	padding:0px;
+}
+
+.top-menu li{
+	float:left;
+	height:30px;
+	margin-right:30px;
+	}
+	
+.move-select{
+    border: 1px solid #a2a2a2;
+    height: 24px;
+    margin-left: 5px;
+    width: 131px;
+	padding:1px;
+}
+
+.delete{
+	padding-top:3px;
+	background:url("delete.png") no-repeat scroll 2px 4px transparent;
+	width:63px;
+	text-align:right;
+}
+
+.cnl{
+	border:1px solid #a2a2a2;
+	padding:3px;
+}
+#main-middle{
+	/*margin:0px auto;*/
+	margin: 0 auto 0 0px;
+	padding:0px;
+	height:auto;
+}
+
+.bsg-left{
+	/*width:161px;
+	float:right;*/
+
+
+}
+
+.bsg-right{
+	margin:0 auto;
+}
+.mm-field{
+	padding:0px;
+}
+#mail-head li{
+ font-weight: bold;
+   padding-left: 0;
+}
+
+#mail-head .field-date{
+	width:79px;
+}
+#mail-head .field-flag{
+	background-color:#FFC580 !important;
+	}
+	
+.mm-field li{
+    border-bottom: 1px solid #ccc;
+		list-style-type:none;
+    float: left;
+    height: 23px;
+
+/*	background:#ffe7ca;  */
+
+}
+.mail-parent{
+    margin: 0px 10px 10px 0px;
+    padding: 0;
+}
+
+.mail-parent li{
+    border-bottom: 1px dashed #ccc;
+    color: #666666;
+    font-weight: bold;
+    height: 20px;
+    padding: 7px;
+		list-style-type:none;
+	}
+	
+.field-checkbox{
+	width:25px;
+/*	border-left: 3px solid #ffc580;  */
+}
+.fc{
+	padding-left:9px;
+}
+.field-flag{
+	min-width:25px;
+	background: url("flag-2.png") no-repeat scroll 0px 11px transparent !important;
+	background-color:#ffe3c3 !important;
+		
+}
+
+.field-from{
+	min-width:148px;
+	}
+	
+.field-subject{
+	min-width:355px;
+}
+
+.head-subject{
+	min-width:395px;
+}
+
+.field-lable{
+	min-width:25px;	
+}
+
+.field-date{
+	text-align:right;
+	width:126px;
+	padding-right:5px;
+
+}
+.head-checkbox, .head-flag, .head-from, .head-subject, .head-lable, .head-date, .head-checkbox{
+	border:none !important;
+}
+
+.mailbox-table{
+margin-left:-12px;
+margin-right:-14px;
+}
+
+.mm-field .mm-cb{
+	width:13px;
+}
+.checkbowidth{
+  width:0px;
+}
+
 </style>
 <script>
 function change_the_flag(attrid)
@@ -13,6 +175,7 @@ function change_the_flag(attrid)
 }
 
 function select_all_checkbox(checkboxlength,checkboxnamearray){
+
   if(document.getElementById('delete_all_message').checked)
     {
       for (i=0; i < checkboxlength; i++)
@@ -88,23 +251,14 @@ function select_all_checkbox_trash(messagesentlength,messagerecdlength,messagese
 
 
 
-
-
-  
-  
-
-
-
-  
-  
-
-
-
 function submitForm(){
 if (confirm("Are You Sure"))
   {
-  document.myform.submit();
-  }
+
+new Ajax.Request(document.myform.action,
+      {asynchronous:true, evalScripts:true, parameters:Form.serialize(document.myform)});
+      return false;
+ }
 
 }
 
@@ -120,107 +274,145 @@ function set_the_signature(signature)
 }
 
 </script>
-<div style="padding-left:30%;">
-   
-<form action="/admin/create_label" >
-<a href="#" onclick="Moveto();">Move To</a>&nbsp;&nbsp;&nbsp;
-<select name="select" id="selectlabel">
-    <option value="select"></option>
-    <%for mlabelname in @created_label%>
-        <option value="<%=mlabelname.labelname%>"><%=mlabelname.labelname%></option>
-    <%end%>
-</select> 
-<a href="#" onclick="return submitForm();" >Delete</a>&nbsp;&nbsp;&nbsp;
-
-create label  &nbsp;
-<%=text_field_tag "createlabel",'',:style=>"width:90px;padding:0px;"%></form>
-</div>
-
-<div style="border: 1px solid rgb(170, 170, 170); float: left; margin: 1em; padding: 1em; width: 10%;" id="mailbox_list">
-  <p>
-  <strong><%=link_to_remote "Compose" ,:update => "",:url => { :action => "compose_new_mail"}%>
-  </strong>
-  </p>
-    <p>
-  <strong><%=link_to_remote "Inbox" ,:update => "",:url => { :action => "index"}%></strong></p>
-    <p>
-  <strong><%=link_to_remote "Sent" ,:update => "",:url => { :action => "sent_mail"}%></strong></p>
-    <p>
-  <strong><%=link_to_remote "Trash" ,:update => "",:url => { :action => "trash_mail"}%>
-    </strong></p>
-  <strong><%=link_to_remote "Flagged" ,:update => "",:url => { :action => "show_flag_email"}%>
-  <img src="/images/flag-2.png"/>
-    </strong></p>
-    
- 
- <p><strong style="color: #F79646;">Label</strong></p> 
-<%for mlabelname in @created_label%>
-<p>
-<%=link_to_remote mlabelname.labelname,:update => "",:url => { :action => "show_labeled_email",:id=>mlabelname.id}%>
-<span style="margin-left:20px;"><%=link_to_remote  'x',:url=>{:action=>"delete_label", :id=>mlabelname.id },:confirm=>"Are You Sure"%></span>
-</p>
-
-
-
-
-
-<%end%>
- 
+  <div class="rightBlocks"> 
+     <div class="itemShowRightBlock">
+      <div class="blockCornerLeft"></div>
+        <div class="blockElementHeader twoH">
+          <%= "Action" %>
+        </div>
+        <div class="blockCornerRight"></div>
+          <div class="blockElementBody">
+            <div  id="mailbox_list">
+                  <form action="/admin/create_label" >
+                      <p><strong>
+                      <select name="select" id="selectlabel" onchange="Moveto();">
+                        <option value="select">Move To</option>
+                          <%for mlabelname in @created_label%>
+                              <option value="<%=mlabelname.labelname%>"><%=mlabelname.labelname%></option>
+                           <%end%>
+                      </select> </strong>
+                      </p>
+                      <p><strong>
+                      <a href="#" onclick="return submitForm();" >Delete</a>&nbsp;&nbsp;&nbsp;</strong></p>
+                      <p><strong>create label  &nbsp;
+                      <%=text_field_tag "createlabel",'',:style=>"width:90px;padding:0px;"%></strong></p>
+                   </form>
+          
+        </div><%#mailbox_list%>
+      </div><%#blockElementBody%>
+    </div><%#itemShowRightBlock"%>
+    <div class="itemShowRightBlock">
+      <div class="blockCornerLeft"></div>
+        <div class="blockElementHeader twoH">
+          <%= "Mailbox" %>
+        </div>
+        <div class="blockCornerRight"></div>
+          <div class="blockElementBody">
+            <div  id="mailbox_list">
+              <p>
+                  <strong><%=link_to_remote "Compose" ,:update => "",:url => { :action => "compose_new_mail"}%>
+                  </strong>
+              </p>
+              <p>
+                 <strong><%=link_to_remote "Inbox" ,:update => "",:url => { :action => "index"}%></strong>
+              </p>
+              <p>
+                <strong><%=link_to_remote "Sent" ,:update => "",:url => { :action => "sent_mail"}%></strong>
+              </p>
+              <p>
+                <strong><%=link_to_remote "Trash" ,:update => "",:url => { :action => "trash_mail"}%>
+                </strong>
+              </p>
+                <strong><%#=link_to_remote "Flagged" ,:update => "",:url => { :action => "show_flag_email"}%>
+                  <!--<img src="/images/flag-2.png"/>-->
+                </strong>
+              </p>
+              <p>
+                <strong><%=link_to_remote "Unregistered Email" ,:update => "",:url => { :action => "unknown_email"}%>
+                </strong>
+              </p>
+             <p><strong style="color: #F79646;">Label</strong>
+             </p> 
+            <%for mlabelname in @created_label%>
+            <p>
+                <%=link_to_remote mlabelname.labelname,:update => "",:url => { :action => "show_labeled_email",:id=>mlabelname.id}%>
+                  <span style="margin-left:20px;float: right;margin-left: 20px;margin-right: 70px;"><%=link_to_remote  'x',:url=>{:action=>"delete_label", :id=>mlabelname.id },:confirm=>"Are You Sure"%>
+                  </span>
+          </p>
+          <%end%>
+        </div><%#mailbox_list%>
+      </div><%#blockElementBody%>
+    </div><%#itemShowRightBlock"%>
+     
+  </div> <%#rightBlocks%>
   
-  </div>
+  
+  
+  
 <div>
 <%checkboxarrayname = []%>
 <%@messages.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
 <%checkboxarraynamestring= "["+(checkboxarrayname * ",")+"]" %>
 
 <div id="table_structer_of_email">
+<div class="objectList small">
+<h2>Inbox</h2>
+<div class="blockCornerLeft"></div>
+
 <form action="/admin/delete_all_email" name="myform" method="post">
-
-<input type="hidden" name="selected_label" value="" id="selected_label">
-
-  <table cellpadding="10" style="padding-left:20px;" border="1"><tr>
-    <th>
-     <%=check_box_tag "delete_all_message" ,0,false,:onClick=>"select_all_checkbox(#{@messages.length},#{checkboxarraynamestring});"%>
-    </th>
-
-    <th>
-      From
-    </th>
-    <th>
-      Subject
-    </th>
-    <th>
-      Date Received
-    </th>
-
-    </tr>
-    <%for message in @messages%>
-    <tr>
-    
-    <td>
-    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id%>
-    
-    </td>
+	<div class="blockElementHeader sixH">
+	<input type="hidden" name="selected_label" value="" id="selected_label">
+	  <span ><ul class="mm-field" id="mail-head">
+    <li class="field-checkbox fc"> <%=check_box_tag "delete_all_message" ,0,false,{:onClick=>"select_all_checkbox(#{@messages.length},#{checkboxarraynamestring});",:class=>'mm-cb'}%></li>
   
-    <td>
-      <%=h message.author.login %>
-    </td>
-    
-    <td>
-    <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%>
-    </td>
-    <td>
-    <%=message.created_at.strftime("%Y-%m-%d")%>
-    </td>
-   
-    </tr>
-    <%end%>
-    </table>
+   <li class="head-from field-from">From</li>
+    <li class="head-subject field-subject">Subject</li>
+     <li class="head-date field-date">Date</li>
+     </span>
+	</div>
+	<div class="blockCornerRight"></div>
+
+     <div class="contentList filtered sixH">  
+      <div>
+         <div id="main-middle">
+    <table class="mailbox-table">
+        	<tbody><tr>
+           	  
+                <td align="left" valign="top" nowrap="nowrap">
+     
+     <div class="bsg-right">
+    <ul> 
+   	<%for message in @messages%>
+                                        	<ul class="mm-field">					
+                                              <li class="field-checkbox fc">    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>
+	                                      	    <li class="field-from"><%=h message.author.login %></li>
+                                        	    <li class="field-subject"><%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%></li>
+                                      	    <li class="field-lable">
+                                      	      <%if message.labeled == true%>
+                                                <span style="color: #F79646;"><%=message.emaillabel.labelname%></span>
+                                              <%else%>   
+                                              <%end%>
+                                             </li>
+                                        	    <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
+                                            </ul>
+                        								<%end%>   
+      </ul>
+                                   </div>
+                                  </td> 
+		                           </tr>
+                            </table>
+    </div>
+    </div>
+    </div>
  </form>   
-    <%= will_paginate @messages %>
+      <%= will_paginate @messages %>
+ </div>
+
+ </div>
+
 
 </div>    
-<div style="width:500px;height:1000px;border:1px solid red;padding-left:50px;margin:150px;clear:both" id="show_details">
+<div style="width:592px;height:110%;padding-left:0px;margin:40px;clear:both" id="show_details">
 </div>
 
 

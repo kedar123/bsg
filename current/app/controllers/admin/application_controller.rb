@@ -3,6 +3,10 @@ require 'RMagick'
 
 class Admin::ApplicationController < ApplicationController
 
+
+
+
+
   # Protect from cross-site requests
   # protect_from_forgery
   # Filter the password fields to protect password & password confirmation
