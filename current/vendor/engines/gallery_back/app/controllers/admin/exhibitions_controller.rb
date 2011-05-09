@@ -37,7 +37,6 @@ end
     end
 
 		after :create_fails, :update_fails do
-			p @current_object.errors
 			@current_object.build_timing if @current_object.timing.nil?
 			@places = Gallery.all
 			sr = Role.find_by_name('artist')

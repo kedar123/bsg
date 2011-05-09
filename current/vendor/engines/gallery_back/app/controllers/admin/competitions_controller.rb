@@ -22,6 +22,11 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library for more information)
 	acts_as_item do
 		before :new, :edit do
+      	     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@current_object.id.to_s+"competition"])
+	     @oldlabelvalue={}
+	     columnnameandheader.each do |x|   
+	       @oldlabelvalue[x.column_name] = x.column_header
+	     end
 			@places = Gallery.all
 			@current_object.build_timing if @current_object.timing.nil?
 			@judges = User.find(:all, :conditions => "system_role_id=2 OR system_role_id=#{Role.find_by_name('judge').id}")
@@ -29,6 +34,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
 		end
 		
 	   before :update do
+
          begin
          @current_object.submission_deadline = Date.civil(params[:competition][:submission_deadline].split("-")[0].to_i,params[:competition][:submission_deadline].split("-")[1].to_i,params[:competition][:submission_deadline].split("-")[2].to_i)
 	     rescue
@@ -40,7 +46,40 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	          rescue
 	          end
 	   end
+
+      after :create do
+              params.to_hash.each do |key,value|
+                   if key.include? "header"
+                      columnnameandheader = Columnnameandheader.new
+                      columnnameandheader.column_name = key.split("header")[1]        
+                      columnnameandheader.column_header = value
+                      columnnameandheader.idoffieldwithtablename = (@current_object.id.to_s+"competition")
+                      columnnameandheader.save
+                   end 
+               end      
+      end  
+after :update do
+
+              Columnnameandheader.delete_all(["idoffieldwithtablename = ?",@current_object.id.to_s+"competition"])
+              params.to_hash.each do |key,value|
+                
+                   if key.include? "header"
+                      columnnameandheader = Columnnameandheader.new
+                      columnnameandheader.column_name = key.split("header")[1]        
+                      columnnameandheader.column_header = value
+                      columnnameandheader.idoffieldwithtablename = (@current_object.id.to_s+"competition")
+                      columnnameandheader.save
+                   end 
+               end      
+      end  
+
+
+
+
 		
+
+
+
 		
 		after :create_fails, :update_fails do
 			#raise @current_object.errors.inspect

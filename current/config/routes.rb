@@ -11,9 +11,81 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/competitions/confirm_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"confirm_competition_subscription_details"
   map.connect "/admin/competitions/edit_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"edit_competition_subscription_details"
   map.connect "/admin/competitions/update_subscribe_competition/:id",:controller=>"competitions",:action=>"update_subscribe_competition"
+
+
+
+
+
+  
+  map.connect "/create_subscribe_competition_front",:controller=>"competitions",:action=>"create_subscribe_competition_front"
+  map.connect "/create_subscribe_competition_front_edit",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
+  
+  
+
+  map.connect "/competitions/upload_exhibition_artwork/:id",:controller=>"competitions",:action=>"upload_exhibition_artwork"
+  map.connect "/upload_exhibition_artwork/:id",:controller=>"competitions",:action=>"upload_exhibition_artwork"
+
+  map.connect "/competitions/edit_upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"edit_upload_the_artwork_to_competition"
+  map.connect "/edit_upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"edit_upload_the_artwork_to_competition"
+
+  
+  
+  
+  map.connect "/competitions/upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"upload_the_artwork_to_competition"
+  
+  map.connect "/upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"upload_the_artwork_to_competition"
+
+  map.connect "/test_delete/:id" ,:controller=>"competitions",:action=>"test_delete"
+  
+  map.connect "/competitions/upload_exhibition_image/:id",:controller=>"competitions",:action=>"upload_exhibition_image"
+  map.connect "/upload_exhibition_image/:id",:controller=>"competitions",:action=>"upload_exhibition_image"
   
 
 
+  
+  map.connect "/competitions/create_exhibition_artwork",:controller=>"competitions",:action=>"create_exhibition_artwork"
+  
+  map.connect "/create_exhibition_artwork",:controller=>"competitions",:action=>"create_exhibition_artwork"
+
+  map.connect "/competitions/edit_exhibition_image/:id",:controller=>"competitions",:action=>"edit_exhibition_image"
+  
+  map.connect "/edit_exhibition_image/:id",:controller=>"competitions",:action=>"edit_exhibition_image"
+
+  map.connect "/paypal_return/:id",:controller=>"competitions",:action=>"paypal_return"
+  
+  map.connect "/paypal_cancel/:id" ,:controller=>"competitions",:action=>"paypal_cancel"
+
+
+ 
+  
+  map.connect "/competitions/add_exhibition_artwork",:controller=>"competitions",:action=>"add_exhibition_artwork"
+  map.connect "/add_exhibition_artwork",:controller=>"competitions",:action=>"add_exhibition_artwork"
+  
+  
+  map.connect "/competitions/create_the_payment",:controller=>"competitions",:action=>"create_the_payment"
+  map.connect "/competitions/create_the_payment_exhibition",:controller=>"competitions",:action=>"create_the_payment_exhibition"
+  
+  map.connect "/create_the_payment_exhibition",:controller=>"competitions",:action=>"create_the_payment_exhibition"
+  
+  
+  map.connect "/create_the_payment",:controller=>"competitions",:action=>"create_the_payment"
+  map.connect "/competitions/create_login_front",:controller=>"competitions",:action=>"create_login_front"
+
+  
+  
+
+
+  map.connect "/competitions/add_the_artwork",:controller=>"competitions",:action=>"add_the_artwork"
+  map.connect "/add_the_artwork",:controller=>"competitions",:action=>"add_the_artwork"
+  map.connect "/competitions/add_the_artwork_to_competition",:controller=>"competitions",:action=>"add_the_artwork_to_competition"
+  map.connect "/add_the_artwork_to_competition",:controller=>"competitions",:action=>"add_the_artwork_to_competition"
+  map.connect "/competitions/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
+  map.connect "/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
+  map.connect "/competitions/add_the_artwork_link",:controller=>"competitions",:action=>"add_the_artwork_link"
+  map.connect "/add_the_artwork_link",:controller=>"competitions",:action=>"add_the_artwork_link"
+  map.connect "/competitions/delete_old_competitionuserdata",:controller=>"competitions",:action=>"delete_old_competitionuserdata"
+  
+  
  
   map.connect "/admin/invoices/new/:id",:controller=>"admin/invoices",:action=>"new"
   map.connect "/payment_response" ,:controller=>"admin/payments",:action=>"create"
@@ -25,6 +97,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/show_flag_email" ,:controller=>"admin/mail",:action=>"show_flag_email"
   map.connect "/admin/compose_new_mail" ,:controller=>"admin/mail",:action=>"compose_new_mail"
   map.connect "/admin/create_sent_mail" ,:controller=>"admin/mail",:action=>"create_sent_mail"
+  map.connect "/admin/create_sent_mail/:id" ,:controller=>"admin/mail",:action=>"create_sent_mail"
+  
   map.connect "/admin/create_temporary_inbox" ,:controller=>"admin/mail",:action=>"create_temporary_inbox"
   map.connect "/admin/create_sent_mail_with_unknown" ,:controller=>"admin/mail",:action=>"create_sent_mail_with_unknown"  
   map.connect "/admin/show_message" ,:controller=>"admin/mail",:action=>"show_message"
@@ -117,6 +191,10 @@ ActionController::Routing::Routes.draw do |map|
     admin.connect "/competitions/winner/:id",:controller=>"competitions",:action=>"winner"
     admin.connect "/competitions/send_winner_email/:id",:controller=>"competitions",:action=>"send_winner_email"
     admin.connect "/profiles/exhibition_payment/:id",:controller=>"profiles",:action=>"exhibition_payment"
+    admin.connect "/profiles/exhibition_payment_front/:id",:controller=>"profiles",:action=>"exhibition_payment_front"
+    admin.connect "/profiles/edit_password/:id",:controller=>"profiles",:action=>"edit_password"
+    admin.connect "/profiles/change_password/:id",:controller=>"profiles",:action=>"change_password"
+    
 
     
     # Generated by Restful Authentification
@@ -286,13 +364,14 @@ ActionController::Routing::Routes.draw do |map|
 	map.connect '/competitions', :controller => :competitions, :action => 'show'
 	map.connect '/competitions/:competition_id', :controller => :competitions, :action => 'show'
 
-	map.connect '/subscribe', :controller => :visitors, :action => 'new'
+	map.connect '/subscribe/:id', :controller => :visitors, :action => 'new'
 	map.connect '/mailing_list', :controller => :visitors, :action => 'mailing_list'
 	map.connect '/adding_profile', :controller => :visitors, :action => 'adding_profile'
 	map.connect '/studios', :controller => :visitors, :action => 'studios'
 	
-	map.connect '/login', :controller => :visitors, :action => 'login'
-	map.connect '/logout', :controller => 'admin/sessions', :action => 'destroy'
+	map.connect '/login/:id', :controller => :visitors, :action => 'login'
+	map.connect '/logout/:id', :controller => 'admin/sessions', :action => 'destroy'
+	
   map.connect '/site/:site_title', :controller => 'websites', :action => 'index'
   map.connect '/site/:site_title/:title_sanitized', :controller => 'websites', :action => 'index'
   map.connect '/:title_sanitized', :controller =>'websites', :action => 'index'

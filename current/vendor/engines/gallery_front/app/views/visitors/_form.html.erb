@@ -1,5 +1,12 @@
-
-<% form_for @current_object, :url => admin_users_path, :html => { :method => :post, :id => 'form' ,:class=>"form_subscribe"} do |f| %>
+<style>
+#form p {
+  margin-bottom:5px;  
+}
+#form{
+  height:455px;
+}
+</style>
+<% form_for @current_object, :url => admin_users_path, :html => { :method => :post, :id => 'form' ,:class=>"form_subscribe",:style=>"height:455px;"} do |f| %>
 			<div class="form-registration">
         <p>Email (This will be your UserName)</p>
        <label><%= f.text_field :email,:class=>"reg-field" %>

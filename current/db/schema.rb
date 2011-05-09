@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414151551) do
+ActiveRecord::Schema.define(:version => 20110428100037) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20110414151551) do
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "exhibition_id"
   end
 
   add_index "artworks", ["user_id"], :name => "index_artworks_on_user_id"
@@ -215,6 +216,14 @@ ActiveRecord::Schema.define(:version => 20110414151551) do
   end
 
   add_index "cms_files", ["user_id"], :name => "index_cms_files_on_user_id"
+
+  create_table "columnnameandheaders", :force => true do |t|
+    t.string   "column_header"
+    t.string   "column_name"
+    t.string   "idoffieldwithtablename"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "text",                           :null => false
@@ -435,6 +444,11 @@ ActiveRecord::Schema.define(:version => 20110414151551) do
 
   create_table "emaillabels", :force => true do |t|
     t.string   "labelname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exhi_artworks", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -753,6 +767,10 @@ ActiveRecord::Schema.define(:version => 20110414151551) do
     t.boolean  "flag"
     t.boolean  "deletedm"
     t.boolean  "deletedmt"
+    t.string   "deletefrom"
+    t.string   "deleteto"
+    t.string   "deletefromt"
+    t.string   "deletetot"
   end
 
   create_table "newsletters", :force => true do |t|
@@ -1040,6 +1058,14 @@ ActiveRecord::Schema.define(:version => 20110414151551) do
     t.string   "phone_number",  :limit => 25
     t.boolean  "studio"
     t.boolean  "mailing_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tempraryinboxes", :force => true do |t|
+    t.string   "fromemail"
+    t.string   "subject"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

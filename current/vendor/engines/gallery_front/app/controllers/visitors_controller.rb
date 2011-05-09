@@ -5,13 +5,37 @@ class VisitorsController < ApplicationController
 	def home_page
 		@pramoting_stuff = PromotingStuff.find(:all,:limit=>3,:order=>"created_at desc")
 		@front_image = Frontendpic.find(:all,:order=>"created_at desc",:limit=>5)
-	end
+	if logged_in?
+	  @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",current_user.id])
+	   image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
+	   @useruploadedpics = []
+      for compu in @competitionuserenteredlist
+        for imgarname in image_array
+            if !compu.send(imgarname.to_sym).blank?
+                @useruploadedpics << compu.send(imgarname.to_sym)
+            end  
+        end  
+      end 
+     @exhibitionuserlist = current_user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')
+     @edit_ex_img = {}
+     for eul in @exhibitionuserlist
+          if Artwork.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",current_user.id,eul.exhibition.id])
+            @edit_ex_img[eul.exhibition.id] = "true"
+          end  
+     end
+ end
+ 
 
+end
 	def new
 		@current_object = User.new
 		@current_object.build_profile if @current_object.profile.nil?
-		
+		session[:compredirecid] = params[:id]
 	end
+	
+	def login
+	  session[:compredirecid] = params[:id]
+	end  
 
 #  def create
 #

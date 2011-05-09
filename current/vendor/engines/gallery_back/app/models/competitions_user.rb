@@ -18,45 +18,134 @@ class CompetitionsUser < ActiveRecord::Base
   #select his sartwork. and after payment the invoice is get sent. this case is only for competition.
   #after the image is added the reference  is get added to artwork competition thanks kedar.so when updating
   # 
-	def save_image(competitions_user)
-		image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
-		for imagename in image_array
-			if  !competitions_user[imagename].blank?
+#	def save_image(competitions_user)
+#		image_array = #['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+#		for imagename in image_array
+#		if  !competitions_user[imagename].blank?
+#				self.save
+#				dataname=self.id.to_s+competitions_user[imagename].original_filename
+#				name=dataname.split(".")[1]
+#				isitimage=name =~ /jpg|jpeg|gif|png/
+#					if  isitimage
+#						if  imagename == "fworkimage"
+#						self.fworkimage = dataname
+#						elsif imagename == "sworkimage"
+#						self.sworkimage = dataname	
+#						elsif imagename == "tworkimage"
+#						self.tworkimage = dataname	
+#						elsif imagename == "foworkimage"
+#						self.foworkimage = dataname	
+#						elsif imagename == "fiworkimage"
+#						self.fiworkimage = dataname	
+#						elsif imagename == "siworkimage"
+#						self.siworkimage = dataname	
+#						elsif imagename == "seworkimage"
+#						self.seworkimage = dataname
+#						elsif imagename == "eworkimage"
+#						self.eworkimage = dataname			
+#						elsif imagename == "nworkimage"
+#						self.nworkimage = dataname	
+#						elsif imagename == "teworkimage"
+#						self.teworkimage = dataname	
+#						end
+#						directory = "public/system/gallery"
+#						# create the file path
+#						path = File.join(directory, dataname)
+#						# write the file
+#						File.open(path, "wb") { |f| f.write(competitions_user[imagename].read) }
+#				             #this if else is for when updating the image its state shold be unselected
+#	                            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and #image_name = ? and  competitions_users_id = ?",self.competition_id,imagename,self.id]).blank?)
+#                                else
+#                                	 ac=ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and #image_name = ? and  competitions_users_id = ?",self.competition_id,imagename,self.id])
+#                                	 ac.state="unselected"
+#                                	 ac.mark=0
+#                                	 ac.save                       
+#                                end
+#                           
+#					else
+#					end
+#			else
+#			end#if end		
+#		end	#for end
+		
+		
+#	end	
+	
+
+#	def save_image(competitions_user)
+#		image_array =['1workimage','2workimage','3workimage','4workimage','5workimage','6workimage','7workimage','8workimage','9workimage','10workimage']
+#		for imagename in image_array
+#		if  !competitions_user[imagename].blank?
+#				self.save
+#				dataname=self.id.to_s+competitions_user[imagename].original_filename
+#				name=dataname.split(".")[1]
+#				isitimage=name =~ /jpg|jpeg|gif|png/
+#					if  isitimage
+#						if  imagename == "1workimage"
+#						self.fworkimage = dataname
+#						elsif imagename == "2workimage"
+#						self.sworkimage = dataname	
+#						elsif imagename == "3workimage"
+#						self.tworkimage = dataname	
+#						elsif imagename == "4workimage"
+#						self.foworkimage = dataname	
+#						self.fiworkimage = dataname	
+#						elsif imagename == "6workimage"
+#						self.siworkimage = dataname	
+#						elsif imagename == "7workimage"
+#						self.seworkimage = dataname
+#					elsif imagename == "8workimage"
+#						self.eworkimage = dataname			
+#				elsif imagename == "9workimage"
+#						self.nworkimage = dataname	
+#						elsif imagename == "10workimage"
+#						self.teworkimage = dataname	
+#						end
+#						directory = "public/system/gallery"
+#						# create the file path
+#						path = File.join(directory, dataname)
+#						# write the file
+#						File.open(path, "wb") { |f| f.write(competitions_user[imagename].read) }
+#				             #this if else is for when updating the image its state shold be unselected
+#	                            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,imagename,self.id]).blank?)
+#                                else
+#                                	 ac=ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,imagename,self.id])
+#                                	 ac.state="unselected"
+#                                	 ac.mark=0
+#                                	 ac.save                       
+#                                end
+#                           
+#					else
+#					end
+#			else
+#			end#if end		
+#		end	#for end
+#		
+#		
+#	end	
+
+
+
+	def save_image(competitions_user,i)
+		image_array =[:fworkimage=,:sworkimage=,:tworkimage=,:foworkimage=,:fiworkimage=,:siworkimage=,:seworkimage=,:eworkimage=,:nworkimage=,:teworkimage=]
+
+		if  !competitions_user["workimage"].blank?
 				self.save
-				dataname=self.id.to_s+competitions_user[imagename].original_filename
+				dataname=self.id.to_s+competitions_user["workimage"].original_filename
 				name=dataname.split(".")[1]
 				isitimage=name =~ /jpg|jpeg|gif|png/
 					if  isitimage
-						if  imagename == "fworkimage"
-						self.fworkimage = dataname
-						elsif imagename == "sworkimage"
-						self.sworkimage = dataname	
-						elsif imagename == "tworkimage"
-						self.tworkimage = dataname	
-						elsif imagename == "foworkimage"
-						self.foworkimage = dataname	
-						elsif imagename == "fiworkimage"
-						self.fiworkimage = dataname	
-						elsif imagename == "siworkimage"
-						self.siworkimage = dataname	
-						elsif imagename == "seworkimage"
-						self.seworkimage = dataname
-						elsif imagename == "eworkimage"
-						self.eworkimage = dataname			
-						elsif imagename == "nworkimage"
-						self.nworkimage = dataname	
-						elsif imagename == "teworkimage"
-						self.teworkimage = dataname	
-						end
+						self.send(image_array[i],dataname)
+					end
 						directory = "public/system/gallery"
 						# create the file path
 						path = File.join(directory, dataname)
 						# write the file
-						File.open(path, "wb") { |f| f.write(competitions_user[imagename].read) }
+						File.open(path, "wb") { |f| f.write(competitions_user["workimage"].read) }
 				             #this if else is for when updating the image its state shold be unselected
-	                            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,imagename,self.id]).blank?)
+	                            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i].to_s,self.id]).blank?)
                                 else
-                                	 ac=ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,imagename,self.id])
+                                	 ac=ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i].to_s,self.id])
                                 	 ac.state="unselected"
                                 	 ac.mark=0
                                 	 ac.save                       
@@ -64,13 +153,25 @@ class CompetitionsUser < ActiveRecord::Base
                            
 					else
 					end
-			else
-			end#if end		
-		end	#for end
+
 		
 		
 	end	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	def find_price(competition_id)
 	    compeition = Competition.find(competition_id)
         j=1

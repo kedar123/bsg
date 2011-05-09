@@ -74,7 +74,7 @@
         <div class="formElement" style="font-size:10px;margin-top:10px;">
 <%#= blank_form_submit_button(:name => 'Proceed', :remote => true, :url => admin_payments_url, :update => 'modal_space_answer', :method => :post) %>
 <div id="show_ajax_request" style="display:none">
-    <img alt="loading" src="/images/ajax-spinner.gif">
+    <img alt="loading" src="/images/ajax-spinner.gif" height=20>
 </div>
 <%=  submit_to_remote 'da_btn', "Proceed",{ :url => admin_payments_url, :update =>  'modal_space_answer',:complete=>"document.getElementById('show_ajax_request').style.display='none'" ,:before=>"document.getElementById('show_ajax_request').style.display='block'"}%>
   

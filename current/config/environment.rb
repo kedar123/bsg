@@ -131,8 +131,8 @@ ActionMailer::Base.smtp_settings = {
   :port => "587",
   :domain => "pragtech.co.in",
   :authentication => :plain,
-  :user_name => "kedar.pathak@pragtech.co.in",
-  :password => "kedar123",
+  :user_name => "test@pragtech.co.in",
+  :password => "test123",
   :enable_starttls_auto => true,
 }
 

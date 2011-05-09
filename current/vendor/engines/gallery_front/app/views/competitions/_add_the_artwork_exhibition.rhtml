@@ -1,0 +1,70 @@
+
+<style>
+.changecolorgray{
+  color: #444444;
+  line-height: 15px;
+}
+   
+</style>
+<form action="/competitions/create_exhibition_artwork" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition" method="post" onsubmit="return Checkfiles()">
+          <%=hidden_field_tag "exhibition_id",exhibition_id%>
+          <div class="changecolorgray">
+					<label>Title </label>
+					</div>
+
+							<input type="text" ajax="true" hint="Title of Item" id="artwork_title" itemclass="Artwork" name="artwork[title<%=artwork_count%>]" style="width:310px;" url="/admin/artworks/validate" validate="title">
+<div class="changecolorgray">
+							<label>Image</label>
+</div>
+							<input type="file" class="file" id="artwork_image" name="artwork[image<%=artwork_count%>]" size="27" value="/images/original/missing.png">
+			<div class="changecolorgray">
+                   
+					<label>Medium </label>
+				</div>
+						
+						<input type="text" ajax="true" id="artwork_medium" itemclass="Artwork" name="artwork[medium<%=artwork_count%>]" style="width:310px;" url="/admin/artworks/validate" validate="medium">
+					
+				<div class="changecolorgray">		
+					<label>
+						Size <span style="font-size: 10px;">width (cm) x height (cm)  x depth (cm - 3d work only)</span>
+					</label>
+				</div>
+					<font style="color:#444444">
+					<input type="text" id="artwork_width" name="artwork[width<%=artwork_count%>]" style="width: 92px;"> x <input type="text" id="artwork_height" name="artwork[height<%=artwork_count%>]" style="width: 92px;"> x <input type="text" id="artwork_depth" name="artwork[depth<%=artwork_count%>]" style="width: 92px;"> 
+<div class="changecolorgray">
+					        <label>
+					Edition <span style="font-size: 10px;">(if applicable)</span>
+				</label>
+</div>
+					<input type="text" id="artwork_edition_name" name="artwork[edition_name<%=artwork_count%>]" style="width: 100px;"> of <input type="text" id="artwork_edition_number" name="artwork[edition_number<%=artwork_count%>]" style="width: 100px;">
+			    </font>
+      <div class="changecolorgray">         
+				<label>Price </label>
+			</div>
+
+				<input type="text" ajax="true" id="artwork_price" itemclass="Artwork" name="artwork[price<%=artwork_count%>]"  url="/admin/artworks/validate" validate="price" style="width: 100px;">
+				<div class="changecolorgray">
+			
+				<label>For Sale      Not For Sale</label>
+				</div>
+
+
+				<input type="radio" name="artwork[is_purchasable<%=artwork_count%>" value=1>&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="artwork[is_purchasable<%=artwork_count%>" value=0>
+				
+				
+				<div class="changecolorgray">
+				
+				
+			  <button class="submitButton" type="submit" onclick="return CheckImageUrl('artwork_image')"
+>
+				  <span>Upload</span>
+				</button>
+        </div>
+</form>
+<%=link_to_remote "Add More", :update => "",
+    :url => {:action => "add_exhibition_artwork",:exhibition_user_id => exhibition_user_id,:artwork_count=>artwork_count }
+%>
+
+
+

@@ -95,14 +95,19 @@ class Admin::UsersController < Admin::ApplicationController
                            redirect_to admin_profiles_path
                            return
                         end
-						if session[:return_to].blank?
+						if session[:compredirecid].blank?
 						        self.current_user = @current_object
-								redirect_to "/admin/profiles/" +@current_object.id.to_s+ "?email="+@current_object.email
+								    redirect_to "/"
+								    
 				    	return
 						else
 						self.current_user = @current_object
-						redirect_to  session[:return_to].to_s + "?user_id="+@current_object.id.to_s + "&&email="+@current_object.email
-				                return
+						#here i need to put the competition url
+						#redirect_to  session[:return_to].to_s + "?user_id="+@current_object.id.to_s + "&&email="+@current_object.email
+						  redirect_to "/competitions/"+session[:compredirecid]
+						  session[:compredirecid] = nil
+				       return
+				                
                         end
                         
 				        else

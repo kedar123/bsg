@@ -29,12 +29,19 @@ class Admin::SessionsController < Admin::ApplicationController
       new_cookie_flag = (params[:remember_me] == "1")
       handle_remember_cookie! new_cookie_flag
 			session[:cart] = {}
-			flash[:notice] = I18n.t('user.session.flash_notice')
+			#flash[:notice] = I18n.t('user.session.flash_notice')
 			
       if (current_user.login == "admin" or current_user.login ==   "superadmin")
 	      redirect_to admin_profiles_path
       else
-             redirect_back_or_default("/admin/profiles/#{current_user.id}")
+             #redirect_back_or_default("/admin/profiles/#{current_user.id}")
+             if session[:compredirecid].blank?
+               redirect_back_or_default("/")
+             else  
+               redirect_to "/competitions/"+session[:compredirecid]  
+             end  
+              session[:compredirecid] = nil                
+      
       end	       
       
       
@@ -56,9 +63,9 @@ class Admin::SessionsController < Admin::ApplicationController
   # Usage URL :
   # - GET /logout
   def destroy
-    User.find(current_user.id).update_attributes(:last_connected_at => Time.now)
+    User.find(params[:id]).update_attributes(:last_connected_at => Time.now)
     logout_killing_session!
-    flash[:notice] = I18n.t('user.session.logout_notice')
+    #flash[:notice] = I18n.t('user.session.logout_notice')
     redirect_back_or_default('/')
   end
 

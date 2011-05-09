@@ -25,6 +25,7 @@ end
 	    @exhibition = current_user.exhibitions
 	    end
 	
+
 	end
 		
   # Download the file link to an Image item

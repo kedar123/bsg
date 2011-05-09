@@ -5,11 +5,11 @@ class CreditCard < ActiveRecord::Base
 
 	validates_presence_of :number, :first_name, :last_name, :expiring_date, :verification_value
 
-	validates_length_of :number, :is => 12
-	validates_format_of :number, :with => /(#{NUM})/
+	#validates_length_of :number, :is => 12
+	#validates_format_of :number, :with => /(#{NUM})/
 
-	validates_length_of :verification_value, :is => 3
-	validates_format_of :verification_value, :with => /(#{NUM})/
+	#validates_length_of :verification_value, :is => 3
+	#validates_format_of :verification_value, :with => /(#{NUM})/
 
 	validate :valid_expiring_date
 

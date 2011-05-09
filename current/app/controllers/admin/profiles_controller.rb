@@ -56,12 +56,38 @@ class Admin::ProfilesController < Admin::ApplicationController
         else
         @invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , exhibitionuser.user,exhibitionuser])
         end
-        
         @order = exhibitionuser
-		@credit_card = CreditCard.new	
-		session[:purchasable] = exhibitionuser
-		render :partial=>"exhibitionpayment"
+    		@credit_card = CreditCard.new	
+		    session[:purchasable] = exhibitionuser
+		    render :partial=>"exhibitionpayment"
      end
+     
+     def exhibition_payment_front 
+        exhibitionuser = ExhibitionsUser.find(params[:id])
+        @invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ? ","ExhibitionsUser" , exhibitionuser.user,exhibitionuser.id])
+        if  @invoice != nil and @invoice.state == "created"
+        else
+        @invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , exhibitionuser.user,exhibitionuser])
+        end
+        @order = exhibitionuser
+    		@credit_card = CreditCard.new	
+		    session[:purchasable] = exhibitionuser
+		    #render :partial=>"exhibitionpaymentfront"
+	  	  render :update do |page|
+	  	    
+		        page["enterintocompetitionfront"].replace_html :partial=>"exhibitionpaymentfront",:locals=>  {:order=>@order,:invoice=>@invoice,:exhibitionuser=>exhibitionuser,:credit_card=>@credit_card}
+		        page["description_competition_ex_py"].show
+		        
+        end
+
+		    
+		    
+		    
+     end
+     
+     
+     
+     
   # GET /profiles/new
   # GET /profiles/new.xml
   def new
@@ -78,7 +104,29 @@ class Admin::ProfilesController < Admin::ApplicationController
     @current_object = Profile.find(params[:id])
     @role = Role.find(:all)
   end
+    
+  def edit_password
+      render :action=>"password"  
+  end  
+  
+  def change_password
+      @user = User.find(params[:id])
+      @user.password = params[:user][:password]
+      @user.password_confirmation = params[:user][:password_confirmation]
+      if @user.save
+        flash[:notice] = "Password Has Been Changed For #{@user.profile.first_name} #{@user.profile.last_name}"
+        redirect_to :back
+      else
+       
+        flash[:notice] = "Password Has Not Been Changed"
+      redirect_to :back
+        
+      end  
+  end  
+  
+    
 
+  
   # POST /profiles
   # POST /profiles.xml
   def create
@@ -132,10 +180,6 @@ class Admin::ProfilesController < Admin::ApplicationController
 
 	def update_notices
 	    @current_object = Profile.find(params[:id])
-p "Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
-#p @current_oject.notices
-#p @current_oject
-p "Byeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
 			#@current_oject.notices = @current_oject.notices
 			 if @current_object.update_attributes!(params[:profile])
 				else

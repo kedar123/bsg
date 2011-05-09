@@ -1,0 +1,63 @@
+<style>
+    .changecolorgray{
+        color: #444444;
+        line-height: 15px;
+  }
+</style>
+<%title_message_array = ['First work you are entering','Second work you are entering',' Third work  you are entering  ','Fourth work you are entering','Fifth work you are entering','Sixth work you are entering','Seventh work you are entering','Eight work you are entering ','Ninth work you are entering','Tenth work you are entering']%>
+<!--
+  <div class="changecolorgray">
+    <%#=link_to_remote "Add Artwork", :update => "",
+           :url => {:action => "add_the_artwork",:competition_id => competition_id,:artwork_count=>artwork_count ,:order_id=>order_id}
+    %>
+ </div>-->
+ 
+ <div id="messageforimageuploaded">
+
+<%if !messageforimageuploaded.blank?%>
+  <%=messageforimageuploaded%>
+<%end%>
+ </div>
+ 
+<%if i == total_entry%>
+
+You Have Uploaded The Images Upto Your Limit 
+<%else%>
+    <div>
+          <%=title_message_array[i]%>
+      </div>
+      <form action="upload_the_artwork_to_competition" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_competition')" id="add_the_artwork_to_competition" target="upload_frame" >  
+              <%=hidden_field_tag "order_id",order_id%>    
+                 <div class="changecolorgray">
+                      Title 
+                 </div> 
+                  <input  name="competitions_user[worktitle]" id="field-28b2641aed510f0"  value="" type="text" style="width:310px;">
+                   <div class="changecolorgray">
+                            Medium
+                     </div>   
+                                <input  name="competitions_user[workmedium]" id="field-35aefdde6159fe0"  value="" type="text" style="width:310px;"> 
+                     <div class="changecolorgray">
+                            	<span style="font-size: 10px;">Size (width (cm) x height (cm)  x depth (cm - 3d work only)</span>   
+                     </div>  	
+                     <font style="color:#444444">
+                      	<input  name="competitions_user[worksize1]" id="field-c65f89902a9847f" size="10" value="" type="text" style="width: 92px;">
+                            x
+                        <input  name="competitions_user[worksize2]" id="field-c65f89902a9847g" size="10" value="" type="text" style="width: 92px;">
+                            x
+                         <input  name="competitions_user[worksize3]" id="field-c65f89902a9847h" size="10" value="" type="text" style="width: 92px;"> 
+                      </font>
+                      <div class="changecolorgray"> 
+                          Price
+                      </div> 
+                           <input  name="competitions_user[workprice]" id="field-a94ac5a259d7675" style="width: 100px;" value="" type="text">
+                        <div class="changecolorgray">    
+                        	 Image 
+                    	 </div>
+                      	 <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" size="26">
+                       <%= submit_tag 'Upload'%>
+                      </div>
+                      <input type="hidden" name="competitionuserid" id="competitionuserid" value="<%=order_id%>"/>
+        </form>
+<iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>
+<%end%>
+

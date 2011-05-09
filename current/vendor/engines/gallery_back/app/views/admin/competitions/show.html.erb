@@ -2,100 +2,83 @@
 <link rel="stylesheet" href="/stylesheets/template.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 
 <%if  @my_subscription.blank?  and current_user.login != "admin"  and  current_user.login != "superadmin"%>
-		
-
-<% item_show( :title => 'Competition',  :object => @current_object ) do %>
-      
-    	<div id="competitionformscroll" style="overflow:auto;height:500px;margin:60px 60px 60px 60px; " onscroll="$.validationEngine.closePrompt('.formError',true)">
-      
-	
-	<div class="mandatory_fields">
-	<%=flash[:notice]%>
-	</div>
-	
-	<form method="post"   id="competition_form"  action="/admin/competitions/create_subscribe_competition" enctype="multipart/form-data" onsubmit="return check_term(); ">
-				<table>
-				<tbody><tr>
-							<td valign="top">
-								<strong>Name:</strong>
-							</td>
-						</tr>
-						<tr>	
-							<td valign="top">
-								<input   name="competitions_user[name]" id="competitions_user_name" size="40" value="<%=current_user.profile.first_name + ' ' +current_user.profile.last_name%>" type="text" >
-
-							</td>
-						</tr>
-						<tr>
-							<td valign="top">
-								<strong>Email Address:</strong>
-							</td>
-						</tr>
-						<tr>		
-							<td valign="top">
-								<input name="competitions_user[email]" id="competitions_user_email" size="40" value="<%=current_user.profile.email_address%>" type="text">
-								
-							</td>
-						</tr>
-
-						<tr>
-							<td valign="top">
-								<strong>Address:</strong>
-							</td>
-						</tr>
-						<tr>			
-							<td valign="top">
-								<input name="competitions_user[address]" id="competitions_user_address" size="40" value="<%=current_user.profile.address%>" type="text">
-								
-							</td>
-						</tr>
-
-						<tr>
-							<td valign="top">
-								<strong>Suburb:</strong>
-							</td>
-						</tr>
-						<tr>			
-							<td valign="top">
-								<input name="competitions_user[suburb]" id="competitions_user_suburb" size="40" value="<%=current_user.profile.suburb%>" type="text">
-								
-							</td>
-						</tr>
-
-						<tr>
-							<td valign="top">
-								<strong>Post Code:</strong>
-							</td>
-						</tr>
-						<tr>			
-							<td valign="top">
-								<input name="competitions_user[post_code]" id="competitions_user_post_code" size="40" value="<%=current_user.profile.zip_code%>" type="text">
-								
-							</td>
-						</tr>
-
-						<tr>
-							<td valign="top">
-								<strong>How did you here about the Prize:</strong>
-							</td>
-						</tr>
-						<tr>			
-							<td valign="top">
-							   <%if  @current_object.how_did_you_here.blank?%>
-								<%option = ["BSG Website"]%>
-								<%else%>
-								<%option = @current_object.how_did_you_here.split(",")%>
-								<%end%>
-								<select name="competitions_user[here_prize]" id="competitions_user_here_prize">
-								  <%option.each do |opt|%>
-								  <option value="<%=opt%>"><%=opt%></option>
-								  <%end%>
-								</select>
-								
-							</td>
-						</tr>
-
-						<tr>
+  <% item_show( :title => 'Competition',  :object => @current_object ) do %>
+    	<div id="competitionformscroll" style="overflow:auto;height:500px;margin:60px 60px 60px 60px; "   onscroll="$.validationEngine.closePrompt('.formError',true)">
+      	<div class="mandatory_fields">
+        	<%=flash[:notice]%>
+      	</div>
+      	<form method="post"   id="competition_form"  action="/admin/competitions/create_subscribe_competition" enctype="multipart/form-data" onsubmit="return check_term(); ">
+    				<table>
+      				<tbody><tr>
+    							<td valign="top">
+    								<strong>Name:</strong>
+    							</td>
+        						</tr>
+        						<tr>	
+      							<td valign="top">
+    								<input   name="competitions_user[name]" id="competitions_user_name" size="40" value="<%=current_user.profile.first_name + ' ' +current_user.profile.last_name%>" type="text" >
+      							</td>
+        						</tr>
+        						<tr>
+      							<td valign="top">
+        								<strong>Email Address:</strong>
+      							</td>
+        						</tr>
+        						<tr>		
+      							<td valign="top">
+    								<input name="competitions_user[email]" id="competitions_user_email" size="40" value="<%=current_user.profile.email_address%>" type="text">
+      							</td>
+        						</tr>
+          						<tr>
+	      						<td valign="top">
+	    							<strong>Address:</strong>
+	      						</td>
+	        					</tr>
+	        					<tr>			
+	      						<td valign="top">
+	      							<input name="competitions_user[address]" id="competitions_user_address" size="40" value="<%=current_user.profile.address%>" type="text">
+	    							</td>
+	      					</tr>
+      						<tr>
+	    						<td valign="top">
+	    							<strong>Suburb:</strong>
+	    						</td>
+	    					</tr>
+	    					<tr>			
+	    						<td valign="top">
+	    							<input name="competitions_user[suburb]" id="competitions_user_suburb" size="40" value="<%=current_user.profile.suburb%>" type="text">
+	    						</td>
+	    					</tr>
+    						<tr>
+	    						<td valign="top">
+	    							<strong>Post Code:</strong>
+	    						</td>
+	    					</tr>
+	    					<tr>			
+	    						<td valign="top">
+	  							<input name="competitions_user[post_code]" id="competitions_user_post_code" size="40" value="<%=current_user.profile.zip_code%>" type="text">
+	  							</td>
+	    					</tr>
+    						<tr>
+  							<td valign="top">
+  								<strong>How did you here about the Prize:</strong>
+  							</td>
+  						</tr>
+					  	<tr>			
+						  	<td valign="top">
+						  	   <%if  @current_object.how_did_you_here.blank?%>
+						      		<%option = ["BSG Website"]%>
+						    		<%else%>
+						      		<%option = @current_object.how_did_you_here.split(",")%>
+						    		<%end%>
+						      		<select name="competitions_user[here_prize]" id="competitions_user_here_prize">
+						      	  <%option.each do |opt|%>
+								        <option value="<%=opt%>"><%=opt%></option>
+								      <%end%>
+								    </select>
+								</td>
+					  	</tr>
+            	<tr>
 							<td valign="top">
 								<strong>If other where?</strong>
 							</td>
@@ -1040,6 +1023,13 @@
 		
 		
 </script>
+
+
+
+
+		
+		
+
 
 
 

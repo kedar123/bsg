@@ -11,7 +11,10 @@
                                     <div id ="details" style="display:none;">
                                           <%=(object.send title_array[j]).capitalize if  (object.send title_array[j]) != nil %><br /><br />
                                           <%= (object.send medium_array[j]).capitalize  %><br />
-                                          <%= (object.send size_array[j]).to_s[0..1] + "x" +(object.send size_array[j]).to_s[1..2] +"x"+(object.send size_array[j]).to_s[2..3]%> cm<br />
+                                           <%if !(object.send size_array[j]).blank? %> 
+                                          <%= (object.send size_array[j]).to_s[0..1] + "x" +(object.send size_array[j]).to_s[1..2] +"x"+(object.send size_array[j]).to_s[2..3]%> cm
+                                            <%end%>
+                                          <br />
                                           <%# if object.edition_name %>
                                           <%#= 'Edition '+object.edition  %><br />
                                           <% #end %>

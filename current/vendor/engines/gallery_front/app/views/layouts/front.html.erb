@@ -4,15 +4,212 @@
 <title>BSG</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="/gallery_assets/gallery_front.css"/>
+<script src="/javascripts/prototype.js" type="text/javascript"></script>
+<script src="/javascripts/effects.js" type="text/javascript"></script>
+<script src="/javascripts/controls.js" type="text/javascript"></script>
+
 <script src="/gallery_assets/jquery-1.4.2.min.js"></script>
+<script language="javascript">
+
+function callmessagedisplay(element){
+  var myarray = ["title","image","medium","price","is_purchasable","width","height","edition_name","edition_number","size1","size2","price"]
+      for (i=0;i<myarray.length;i++)  
+      {
+        if (element.name.indexOf(myarray[i]) != -1)
+        {
+           if (myarray[i] == "size1" || myarray[i] == "size2")
+           {
+             alert("Please Enter Size"); 
+           }
+           else{
+             alert("Please Enter "+myarray[i]);
+            }
+            return
+        }
+      }
+  }
+function Checkfiles(formid)
+{
+    var elem = document.getElementById(formid).elements;
+    var myreturnvalue = false;
+    var mysaleornotsale = false;
+        for(var i = 0; i < elem.length; i++)
+        {
+             if (elem[i].type  == "text")
+            {  
+                var fup = elem[i];
+                var fieldvalue = fup.value;
+                 if(fieldvalue == "" || fieldvalue == 0 || fieldvalue.charAt(0) == '')
+                  {
+                     if (elem[i].name.indexOf("depth") == -1)
+                        {
+                            callmessagedisplay(elem[i]);
+                            return false;
+                        }
+                  } 
+                else
+                  {
+                    myreturnvalue = check_numericvalue(elem[i])
+                  }
+             }     
+            if (elem[i].type  == "file")
+            {
+                var fup = elem[i];
+                var fileName = fup.value;
+                var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+                if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ||  ext ==  "PNG" || ext == "png")
+                  {
+                     myreturnvalue = true
+                  } 
+                else
+                  {
+                    alert("Please Upload The Image");
+                    fup.focus();
+                    return false;
+                  }
+             }     
+              if (elem[i].type  == "radio")
+            {
+                if(elem[i].checked)
+                  {
+                     mysaleornotsale = true
+                  } 
+                else
+                  {
+                  }
+             }     
+          } 
+       if (mysaleornotsale)   
+       {
+       }
+       else
+       {
+         alert("Please Select Atwork Sale Option");
+         return false;
+       }
+      return myreturnvalue;            
+}
+
+
+
+
+
+
+function Checkfilescomp(formid)
+{
+    var elem = document.getElementById(formid).elements;
+    var myreturnvalue = false;
+        for(var i = 0; i < elem.length; i++)
+        {
+             if (elem[i].type  == "text")
+            {  
+                var fup = elem[i];
+                var fieldvalue = fup.value;
+                 if(fieldvalue == "" || fieldvalue == 0 || fieldvalue.charAt(0) == '')
+                  {
+                  
+                     if (elem[i].name.indexOf("depth") == -1 )
+                        {
+                          
+                           if (elem[i].name.indexOf("3") == -1)
+                              {
+                                    callmessagedisplay(elem[i]);
+                                    return false;
+                               }     
+                        }
+                        else
+                        {
+                        
+                        }
+                  } 
+                else
+                  {
+                    myreturnvalue = check_numericvalue(elem[i])
+                  }
+             }     
+            if (elem[i].type  == "file")
+            {
+                var fup = elem[i];
+                var fileName = fup.value;
+                var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+                if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ||  ext ==  "PNG" || ext == "png")
+                  {
+                     myreturnvalue = true
+                  } 
+                else
+                  {
+                    alert("Please Upload The Image");
+                    fup.focus();
+                    return false;
+                  }
+             }     
+            
+            
+          } 
+       
+      return myreturnvalue;            
+      
+}
+
+
+
+
+
+function check_numericvalue(element){
+  /*here i need to check weather it is a number or not for price height width etc*/   
+    var myarray = ["price","width","height","edition_name","edition_number","worksize1","worksize2"]
+                 for (i=0;i<myarray.length;i++)  
+                    {  
+                        if (element.name.indexOf(myarray[i]) != -1)
+                            {
+                                var tfv= element.value;
+                                
+                                    if (parseInt(tfv) > 0)
+                                       {
+                                       return true;
+                                       }
+                                    else
+                                       {
+                                      
+                                       if ( myarray[i] == "worksize1" ||  myarray[i] == "worksize2"){
+                                       alert("Please Enter Numeric value For Size" );
+                                         }
+                                         else
+                                         {
+                                           alert("Please Enter Numeric Value For  "+ myarray[i] );
+                                         }
+                                       return false;
+                                       }
+                             
+                             }   
+                            else{
+
+                            } 
+                      }
+    }  
+
+
+
+
+
+
+</script>
+<script>
+      jQuery.noConflict();
+</script>
+<style>
+  #twolines a {
+    color: gray;
+  }
+</style>
 <script type="text/javascript">
-$(document).ready(function(){
-    $(".iteam").hover(
+jQuery(document).ready(function(){
+    jQuery(".iteam").hover(
     function() {
-      $(this).children().first().show('slow');
+      jQuery(this).children().first().show('slow');
     },
     function() {
-      $(this).children().first().hide('slow');
+      jQuery(this).children().first().hide('slow');
     }
   )
   });
@@ -33,12 +230,12 @@ $(document).ready(function(){
                                 <br/>
 	                                <%if !current_user %> 
 			                            <%if  params[:action] == "login"%>	
-                                         <a href="/login" class="liselected">Login</a><br/>
+			                                   <a href="/login" class="liselected">Login</a>
 			                            <%else%>
-				                            <a href="/login"><b><font color=grey>Login</font></b></a><br/>
+				                            <a href="/login"><b><font color=grey>Login</font></b></a>
 			                            <%end%>
 		                            <%else%>
-			                             <a href="/logout"><font color=grey>Logout</font></a><br/>
+			                             <a href="/logout/<%=current_user.id%>"><font color=grey>Logout</font></a><br/>
 		                            <%end%>
 				                          <% if @current_user.nil? %>
 				                          <%if  params[:controller] == "visitors" and params[:action] == "new"%>	

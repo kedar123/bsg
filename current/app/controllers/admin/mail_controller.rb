@@ -7,6 +7,7 @@ class Admin::MailController < ApplicationController
   before_filter :check_the_email ,:only=>"index"
   
   def check_the_email
+     begin
       imap = Net::IMAP.new('imap.gmail.com', 993, true)
       imap.login("kedar.pathak@pragtech.co.in", "kedar123")
       imap.select('Inbox')
@@ -16,19 +17,21 @@ class Admin::MailController < ApplicationController
         if user = User.find_by_email(mail.from.to_s)
             message = user.sent_messages.build
             message.subject = mail.subject.to_s
-            message.body = mail.body.to_s
+            message.body = mail.body
             message.prepare_copies("contact@test.com")
             message.body = mail.body
             message.save
-        else
+          else
            tempraryinbox = Tempraryinbox.new
            tempraryinbox.fromemail =  mail.from.to_s
            tempraryinbox.subject = mail.subject.to_s
-           tempraryinbox.body = mail.body.to_s
+           tempraryinbox.body = mail.body
            tempraryinbox.save
         end  
       end
     imap.expunge        
+  rescue
+  end
   end  
   
 
@@ -312,7 +315,7 @@ class Admin::MailController < ApplicationController
        end
      end
       @folder = current_user.inbox
-      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+          @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 2, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
     if request.xhr?  
         render :update do |page|
           page["table_structer_of_email"].replace_html(:partial =>'inbox_messages', :object =>@messages)
@@ -359,9 +362,16 @@ class Admin::MailController < ApplicationController
  
   
   def create_sent_mail
+    if params[:id]
+      @original = current_user.received_messages.find(params[:id]) 
+    end
     @message = current_user.sent_messages.build(params[:message])
     @message.prepare_copies(params[:user][:email])
-    @message.body = @message.body + "<br/><font color='#FF0080'>" + params[:signature]+"</font>"
+    if params[:id]
+    @message.body = "<br/>" + @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>" + "<br/>"+@original.body 
+    else
+       @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
+    end  
     all_the_recipient = params[:user][:email].split(',')
    
     EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
@@ -381,6 +391,8 @@ class Admin::MailController < ApplicationController
     @message.prepare_copies(params[:user][:email])
     @message.body = @message.body + "<br/>" + @original.body
     if @message.save
+      all_the_recipient = params[:user][:email].split(',')
+      EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
       flash[:notice] = "Message sent."
       redirect_to :action => "index"
     else
@@ -403,7 +415,7 @@ class Admin::MailController < ApplicationController
     recipients_email = @original.recipients.map(&:email) - [current_user.email] + [@original.author.email] 
     @message = current_user.sent_messages.build(:to => recipients, :subject => subject, :body => body)
     render :update do |page|
-        page["replay_to_all"].replace_html(:partial =>'replay_all_message', :object =>@message,:locals=>{:frommail=>@frommail,:recipients_email=>recipients_email})
+        page["replay_to_all"].replace_html(:partial =>'replay_all_message', :object =>@original,:locals=>{:frommail=>@frommail,:recipients_email=>recipients_email})
         page["ajax_spinner"].visual_effect :hide
         page["selectlabel"].visual_effect :hide
     end

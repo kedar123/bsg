@@ -19,6 +19,8 @@
     <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">Actions</div><div class="blockCornerRight"></div>
     <div class="blockElementBody">
       <%= link_to("Back to the list", admin_profiles_path) if @current_user.has_system_role('admin')   %>
+      
+      <%= link_to("Password", "/admin/profiles/edit_password/#{@current_object.user.id}") if @current_user.has_system_role('admin')   %>
       <% if !@current_object.new_record? %>
         <%= link_to "Show", admin_profile_path(@current_object) %>
   <%#= link_to I18n.t('general.object.comment').pluralize.capitalize, admin_comments_path %>
@@ -29,6 +31,7 @@
             :class => "deleteLink",
             :modal_id => "#modalDelete_#{@current_object.id.to_s}"
         %>
+        
           <div style="display:none">
             <div id="modalDelete_<%=@current_object.id.to_s%>" class="modalDelete">
               <p>I18n.t('general.common_word.confirmation')</p>

@@ -23,14 +23,13 @@ class Admin::PaymentsController < Admin::ApplicationController
 
 	def create
 	    @order = session[:purchasable]
-
-		@current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		#@current_object.amount_in_cents = @invoice.final_amount ? @invoice.final_amount * 100 : @invoice.original_amount * 100
+  		@current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		
   		if    @order.instance_of? ExhibitionsUser
 		        @current_object.amount_in_cents =params[:invoice_amount].to_i*100
 	    elsif  @order.instance_of? CompetitionsUser
 	    	     @current_object.amount_in_cents = (@order.find_price(@order.competition.id) ) * 100
-	    else #all the amount is get set here		#@current_object.amount_in_cents = @invoice.final_amount ? @invoice.final_amount * 100 : @invoice.original_amount * 100
-		end#amount seting if end
+	    else 
+		end
 	    @current_object.user = @current_user		#@current_object.invoice = @invoice
 		if  @order.instance_of? ExhibitionsUser
 		                   if params[:invoicing_info][:payment_medium] ==  "online" 

@@ -73,14 +73,20 @@ class Payment < ActiveRecord::Base
         last_name = params[:credit_card][:last_name] 
        billing_address = "paud phata pune"
        cvc=params[:credit_card][:verification_value]
+       
         paypal = Paypal.new(username, password, signature) # uses the PayPal sandbox
        response = paypal.do_direct_payment_sale("192.168.0.16", amount, card_type,card_no, exp_date, first_name, last_name,cvc=nil,{:STREET=>"1 Main St",:city=>"San Jose",:STATE=>"ca",:zip=>95131})
+
         if response.ack == 'Success' 
                       self.state = 'online_validated'
                       self.save
         else
-	    end
+          p "the paypal ack is not validated"
+          p response.ack
+          p response
 	    
+	    end
+	   
 end
    
 

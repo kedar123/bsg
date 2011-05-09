@@ -42,7 +42,7 @@ class Invoice < ActiveRecord::Base
 		end
 	end
 
-    def  accept_cash_or_cheque_payment(cashorcheque)
+    def  accept_cash_or_cheque_or_bank_payment(cashorchequeorbank)
             self.state = "created"
             self.payment_medium = cashorcheque
           	if self.save
