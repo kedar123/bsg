@@ -306,6 +306,7 @@ class CompetitionsController < ApplicationController
 	 end  
    
  def  create_the_payment
+
        if ((params[:invoicing_info][:payment_medium] ==  "online") or (params[:invoicing_info][:payment_medium] ==  "paypal") )         
            credit_card = CreditCard.find_by_user_id(current_user.id)
            if credit_card.blank?
@@ -317,12 +318,13 @@ class CompetitionsController < ApplicationController
 	     else
        end 
       #######################################this is im copying here is something from payment controller create method
-    	
     	if params[:order_id]
     	  @order = CompetitionsUser.find(params[:order_id])
     	else  
     	  @order = session[:purchasable]  
     	end  
+    	 session[:order] = @order
+   	   session[:invoice_id] = params[:invoice_id]
     	#@order.total_entry = params[:competitions_user][:total_entry]
     	#@order.save
     	if  params[:competitions_user][:total_entry] == "0"
@@ -333,10 +335,11 @@ class CompetitionsController < ApplicationController
   		if     @order.instance_of? ExhibitionsUser
 		         @current_object.amount_in_cents =params[:invoice_amount].to_i*100
 	    elsif  @order.instance_of? CompetitionsUser
-	    	     @current_object.amount_in_cents = (@order.find_price(@order.competition.id) ) * 100
+	    	     @current_object.amount_in_cents = (@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100
 	    else 
 		  end
-	    
+	    session[:total_entry] = params[:competitions_user][:total_entry]
+	    session[:current_object] = @current_object
 	    @current_object.user = @current_user		#@current_object.invoice = @invoice
 		  if  @order.instance_of? ExhibitionsUser
 		                   if params[:invoicing_info][:payment_medium] ==  "online" 
@@ -350,8 +353,8 @@ class CompetitionsController < ApplicationController
 	        	   if @order.invoices.last   
 		                           total_amount = 0
 		                           @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
-		                          if  total_amount  < @order.find_price(@order.competition.id) 
-		                                 more_amount = (@order.find_price(@order.competition.id) ) -  total_amount
+		                          if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
+		                                 more_amount = (@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) -  total_amount
 		                                @current_object.amount_in_cents = more_amount * 100
                                          if params[:invoicing_info][:payment_medium] ==  "online" 
     		                                         @current_object.common_wealth_bank_process((more_amount * 100),params)
@@ -366,21 +369,25 @@ class CompetitionsController < ApplicationController
                	                                          session[:paypal_amount] = (more_amount * 100)
                	                                          set_the_token#from here i need to redirect him to paypal after getting the token
                                                           session[:competition_id] = @order.competition.id
+                                                          session[:current_object_id] = @current_object
                                                                   render :update do |page|
                                                                           page["modal_space_answer"].hide                                     
-                                                                          page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>((@order.find_price(@order.competition.id) ) * 100)}
+                                                                          page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>(more_amount * 100)}
                                                                            page.call 'submit_my_form'
                                                                   end
                                                                   return
                                                     #@current_object.make_paypal_payment((more_amount * 100),params) 
 	                                     end
 		                        else
+		                          p total_amount
+		                          p @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
+		                          p "this is the difference of amounts"
 		                                                    render :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "
 		                               return
 		                        end   
 	                else
 	                            if params[:invoicing_info][:payment_medium] ==  "online" 
-	     	                                 @current_object.common_wealth_bank_process(((@order.find_price(@order.competition.id) ) * 100),params)#payment is done if invoice is not yet  created. for competition user
+	     	                                 @current_object.common_wealth_bank_process(((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100),params)#payment is done if invoice is not yet  created. for competition user
  	     	                                   if @current_object.state == "online_validated"
 	         	                                    @order.total_entry = params[:competitions_user][:total_entry]
                                                 @order.save              
@@ -390,13 +397,14 @@ class CompetitionsController < ApplicationController
                                 @order.total_entry = params[:competitions_user][:total_entry]
                                	@order.save              
                                 elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
+                                                session[:paypal_amount]=((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i)) * 100)
                                                 set_the_token#from here i need to redirect him to paypal after getting the token
                                                 session[:competition_id] = @order.competition.id
-                                                session[:paypal_amount]=((@order.find_price(@order.competition.id)) * 100)
+                                                session[:current_object_id] = @current_object
                                                 render :update do |page|
-             page["modal_space_answer"].hide                                     
-             page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>((@order.find_price(@order.competition.id) ) * 100)}
-             page.call 'submit_my_form'
+                                                       page["modal_space_answer"].hide                                     
+                                                       page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i)) * 100)}
+                                                       page.call 'submit_my_form'
                                                 end
                                                   return
                                                   #@current_object.make_paypal_payment(((@order.find_price(@order.competition.id) ) * 100),params) 
@@ -417,7 +425,7 @@ class CompetitionsController < ApplicationController
 	                                if  @order and @order.invoices.last
 	                                         total_amount = 0
 	                            	        @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
-	                                        if  total_amount  < @order.find_price(@order.competition.id) 
+	                                        if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
 	                                                  make_the_payment
 	                                                   #flash[:notice] = "Your Extra Selected Entry Payment Is Done <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
 	                                                   #render :partial=>"extra_payment_done",:locals=>{:competition=>@order.competition,:order=>@order} 
@@ -743,11 +751,11 @@ i = title_array.index params[:titleforupdate]
                     @invoice = Invoice.find(params[:invoice_id])
                 	if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
            	                   	@invoice.accept_cash_or_cheque_or_bank_payment(params[:invoicing_info][:payment_medium]) 
-           	        elsif params[:invoicing_info][:payment_medium] == "paypal"
+           	      elsif params[:invoicing_info][:payment_medium] == "paypal"
                                 @invoice.validating("paypal")
-                    else
+                  else
                                    @invoice.validating
-                    end     	
+                  end     	
   end
 
     #actual payment is done in above method onlyhere the invoice processing is done
@@ -819,32 +827,33 @@ price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice
     for eachimage in image_array
       #first i will append the title
        if  !@competitions_user.send(eachimage.to_sym).blank? 
-          image_array=[]
-          image_array << @competitions_user.send(title_array[i].to_sym)
-          image_array << @competitions_user.send(medium_array[i].to_sym)
-          image_array << @competitions_user.send(size_array[i].to_sym)
-          image_array << @competitions_user.send(eachimage.to_sym)
+          image_arrayi=[]
+          image_arrayi << @competitions_user.send(title_array[i].to_sym)
+          image_arrayi << @competitions_user.send(medium_array[i].to_sym)
+          image_arrayi << @competitions_user.send(size_array[i].to_sym)
+          image_arrayi << @competitions_user.send(eachimage.to_sym)
     
           #if !@competitions_user.send(eachimage.to_sym).blank?
           #    add_art_cnt = add_art_cnt +1
           #end  
-          image_array << @competitions_user.send(price_array[i].to_sym)
-          image_array << title_array[i]
-          @image_array << image_array
+          image_arrayi << @competitions_user.send(price_array[i].to_sym)
+          image_arrayi << title_array[i]
+          @image_array << image_arrayi
           counttodisplayviwform = counttodisplayviwform + 1
         else
-          image_array=[]
-          image_array << @competitions_user.send(title_array[i].to_sym)
-          image_array << @competitions_user.send(medium_array[i].to_sym)
-          image_array << @competitions_user.send(size_array[i].to_sym)
-          image_array << @competitions_user.send(eachimage.to_sym)
-          image_array << @competitions_user.send(price_array[i].to_sym)
-          image_array << title_array[i]
-          @image_array << image_array
+          image_arrayi=[]
+          image_arrayi << @competitions_user.send(title_array[i].to_sym)
+          image_arrayi << @competitions_user.send(medium_array[i].to_sym)
+          image_arrayi << @competitions_user.send(size_array[i].to_sym)
+          image_arrayi << @competitions_user.send(eachimage.to_sym)
+          image_arrayi << @competitions_user.send(price_array[i].to_sym)
+          image_arrayi << title_array[i]
+          @image_array << image_arrayi
         end  
       i=i+1
     end  
   i=0
+   
  render :update do |page|
                 if ((@competitions_user.total_entry == nil) or (@competitions_user.total_entry == 0))
                     page.alert("Please Pay For One Entry")
@@ -923,7 +932,6 @@ end
 
 #this method is copy of above create_the_payment method this i have seperated for the sake of simplicity. actually the complete code is same but a minor difference
 def create_the_payment_exhibition
-
        if ((params[:invoicing_info][:payment_medium] ==  "online") or (params[:invoicing_info][:payment_medium] ==  "paypal") )         
            credit_card = CreditCard.find_by_user_id(current_user.id)
            if credit_card.blank?
@@ -935,7 +943,6 @@ def create_the_payment_exhibition
 	     else
        end 
       #######################################this is im copying here is something from payment controller create method
-    	
     	@order = session[:purchasable]  
     	if @order.blank?
     	      render :text =>"Please Refresh The Page And Try Again"
@@ -950,15 +957,26 @@ def create_the_payment_exhibition
 	    	     @current_object.amount_in_cents = (@order.find_price(@order.competition.id) ) * 100
 	    else 
 		  end
-	    
 	    @current_object.user = @current_user		#@current_object.invoice = @invoice
 		  if  @order.instance_of? ExhibitionsUser
 		                   if params[:invoicing_info][:payment_medium] ==  "online" 
     		                              @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params)
 	                       elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
-                           elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
-                                          @current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
-	                      end
+                         elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
+                                          #@current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
+                                          session[:paypal_amount] = params[:invoice_amount].to_i
+               	                          set_the_token#from here i need to redirect him to paypal after getting the token
+               	                          session[:invoice_id] = params[:invoice_id]
+               	                          session[:order] = @order
+                                          session[:exhibition_id] = @order.exhibition.id
+                                          session[:current_object_id] = @current_object
+                                          render :update do |page|
+                                                page["modal_space_answer"].hide                                     
+                                                page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>params[:invoice_amount].to_i}
+                                                page.call 'submit_my_form'
+                                          end
+                                          return
+                        end
       elsif    @order.instance_of? CompetitionsUser
 	        	   if @order.invoices.last   
 		                           total_amount = 0
@@ -1207,11 +1225,16 @@ def set_the_token
        password = "1259733733"
        signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
        paypal = Paypal.new(username, password, signature)
+       logger.info "there is problem in total"
+       logger.info session[:paypal_amount].to_i
+       logger.info session[:paypal_amount].to_i/100
        response = paypal.do_set_express_checkout(
                 return_url="http://" + request.host_with_port + "/paypal_return",
                 cancel_url="http://" + request.host_with_port + "/paypal_cancel",
                 amount=session[:paypal_amount].to_i/100
                 )
+               logger.info response.to_s
+               logger.info "this is paypal response"
         @token = (response.ack == 'Success') ? response['TOKEN'] : ''
         session[:token] = @token
 end  
@@ -1222,34 +1245,134 @@ def  paypal_return
        signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
        paypal = Paypal.new(username, password, signature)
        response = paypal.do_get_express_checkout_details(session[:token])
+       logger.info response.to_s
+       logger.info "this is paypal response"
        if response.ack == "Success"
-                response = paypal.do_express_checkout_payment(token=session[:token],
-                payment_action='Sale',
-                payer_id=response.payerid,
-                amount=session[:paypal_amount].to_i/100)
-                cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
-                cu.state = 'online_validated'
-                cu.total_entry = params[:competitions_user][:total_entry]
-                cu.save
+                 response = paypal.do_express_checkout_payment(token=session[:token],
+                 payment_action='Sale',
+                 payer_id=response.payerid,
+                 amount=session[:paypal_amount].to_i/100)#end of do express checkout method
+                    if   !session[:total_entry].blank?     
+                    cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
+                    cu.total_entry = session[:total_entry].to_i
+                    cu.save
+                 end
+                 if (!session[:current_object_id].blank?)
+                      payment = session[:current_object_id]
+                      payment.state = 'online_validated'
+                      #payment.save
+                      # i assume here that when session[:totalentry present then it is competition user payment so the procedure of online payment will be followed here, same to the case for exhibition user payment]
+                      if session[:total_entry].blank?
+                        params[:invoice_id] = session[:invoice_id] 
+                        session[:invoice_id] = nil
+                        make_the_payment_exhibition_paypal#here the invoice in created and validated
+                        make_the_invoice #this method is extraction from above make exhibition payment . because this method is get called after the paypal returns. so in previous method the next procedure is get called which im putting it in this method  
+                       else
+                         make_the_payment_comp_paypal
+                       end  
+                      session[:current_object_id] = nil
+                 end
+              
        end 
-    flash[:notice] = "Your Payment Is Done"
-    comid = session[:competition_id]
-    session[:competition_id] = nil
-    redirect_to "/competitions/#{ comid }"                  
+
+       comid = session[:competition_id]
+       session[:competition_id] = nil
+       session[:total_entry] = nil
+       if comid.blank?
+        flash[:notice] = "Your Payment Is Done"
+         redirect_to "/"                  
+       else  
+         flash[:notice] = "Your Payment Is Done.Please Click On Browse Image To Upload  The Artwork"
+         redirect_to "/competitions/#{ comid }"                  
+       end 
+        
+        
 end
 
 def paypal_cancel
+    logger.info "cancelled transaction"
+    logger.info "this is paypal response"
     flash[:notice] = "You Have Cancelled The Paypal Transaction"
     comid = session[:competition_id]
     session[:competition_id] = nil
     session[:paypal_amount] = nil
-    redirect_to "/competitions/#{ comid }"
+    session[:total_entry] = nil
+    session[:current_object_id] = nil
+    if comid.blank?
+      redirect_to "/"
+    else  
+      redirect_to "/competitions/#{ comid }"
+    end  
 end    
 
 
 def test_delete
   CompetitionsUser.delete_all("competition_id = #{params[:id]}");
 end  
+
+
+def make_the_invoice
+  invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , session[:order].user,session[:order].id])
+                	                       	   if  invoice.state == "created"
+                                            	    create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,session[:order].exhibition.title,invoice.final_amount.to_i,session[:order].exhibition.timing.note)
+                                                 QueuedMail.add( 'UserMailer',  'send_invoice_exhibition', [invoice.user.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, invoice.user],0,true,invoice.user.profile.email_address,"test@pragtech.co.in") 
+		                                       end    
+
+end
+
+def  make_the_payment_exhibition_paypal
+      @invoice = Invoice.find(params[:invoice_id])
+     	@invoice.validating("paypal")
+end
+
+def make_the_payment_comp_paypal
+    if   session[:order]  and session[:order].invoices.last
+	          total_amount = 0
+	      session[:order].invoices.each {|x| total_amount = total_amount + x.final_amount}
+	                  if  total_amount  < session[:order].find_price(session[:order].competition.id) 
+	                      make_the_payment_paypal
+	                #flash[:notice] = "Your Extra Selected Entry Payment Is Done <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
+	                 #render :partial=>"extra_payment_done",:locals=>{:competition=>@order.competition,:order=>@order} 
+	                #add_the_artwork_intopaymentdiv
+	                  return        
+	                 else
+	                              #                  flash[:error] = "Your Payment Is Already Done Please Go To Home Page  <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
+			             end
+	#    render :text => @template.blank_main_div(:title => 'System error', :hsize => 'sixH', :modal => true), :layout => false
+	#		                              return
+		 else   
+		   make_the_payment_paypal
+	    end
+  
+end 
+
+ #actual payment is done in above method onlyhere the invoice processing is done
+   def make_the_payment_paypal
+              #here i need to refresh the order because the total entry field is changed
+              order=CompetitionsUser.find(session[:order].id)
+              if  order and order.invoices.last
+              	@invoice = order.generate_invoice_extra_entry(@current_user,{"payment_medium"=>"paypal"} )
+              else
+                @invoice = order.generate_invoice(@current_user, {"payment_medium"=>"paypal"}) 
+              end 	
+           	  @invoice.validating("paypal")
+              session[:current_object].invoice = @invoice
+              session[:current_object].save
+         	invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",@current_user.id,order.id])
+         	   if order.instance_of? CompetitionsUser
+                  create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.competition.title,invoice.final_amount.to_i,order.competition.timing.note)
+            elsif  order.instance_of? ExhibitionsUser
+                  create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.exhibition.title,invoice.final_amount.to_i,order.exhibition.timing.note)
+            end
+           	       #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
+   	     	    		 QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
+			      	    email= UserMailer.create_send_invoice(invoice,@current_user)
+	                  # UserMailer.deliver(email)
+	          
+ end
+
+
+
 
 end
 

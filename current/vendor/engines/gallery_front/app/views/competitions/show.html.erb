@@ -81,7 +81,7 @@ function check_the_checkbox(){
 		      <%=@competition.insurance%><br/>
 		      <br/>
 		      <%if logged_in?%>  
-		            <%if !@competitionuser.blank?%>
+		          <%if !@competitionuser.blank?%>
 		                   Click <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
 		  %>   To Edit The Competition
 		  <br/>

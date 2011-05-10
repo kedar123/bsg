@@ -45,7 +45,7 @@ class Artwork < ActiveRecord::Base
   validates_attachment_presence :image
 	# Validation of the type of the attached file
   validates_attachment_content_type :image,
-                                    :content_type => ['image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg']
+                                    :content_type => ['image/jpeg','image/jpg', 'image/png', 'image/gif','image/bmp', 'image/x-png', 'image/pjpeg','image/JPG'']
 	# Validation of the size of the attached file
   validates_attachment_size :image, :less_than => 6.megabytes, :message => 'The image is too big (max. 6 Mb).'
 

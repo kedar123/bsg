@@ -133,7 +133,7 @@ class CompetitionsUser < ActiveRecord::Base
 				self.save
 				dataname=self.id.to_s+competitions_user["workimage"].original_filename
 				name=dataname.split(".")[1]
-				isitimage=name =~ /jpg|jpeg|gif|png/
+				isitimage=name =~ /jpg|jpeg|gif|png|JPG|JPEG|GIF|PNG/
 					if  isitimage
 						self.send(image_array[i],dataname)
 					end
@@ -184,8 +184,30 @@ class CompetitionsUser < ActiveRecord::Base
            end
            j=j+1
 	    end
+	    p "im finding the price for invoice but it is wrong"
+	    p amount
+	    p self.total_entry.to_i
+	    p self
+	    p self.total_entry
 	    return amount 
 	end
+	
+	
+	def find_price_total_entry(competition_id,total_entry)
+	    compeition = Competition.find(competition_id)
+        j=1
+        amount=0
+	    competition.entry_fees.each do |x|
+           amount = amount + x.split("works")[1].split(/\r/)[0].split("$")[1].to_i
+           if j ==  total_entry
+             break;
+             return amount;
+           end
+           j=j+1
+	    end
+	    return amount 
+	end
+	
 	
 	def generate_invoice(user=nil, invoicing_info={})
 	   if (invoice = Invoice.find(:first,:conditions=>["client_id = ? and purchasable_id = ?",self.user_id,self.id]).blank?)

@@ -4429,4 +4429,189 @@ N+1 Query method call stack2011-05-09 17:47:48[WARN] N+1 Query detected
 N+1 Query method call stack2011-05-09 17:47:52[WARN] N+1 Query detected
   Competition => [:timing]
   Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 10:59:52[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 10:59:56[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 11:04:43[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 11:05:58[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 11:08:29[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 11:08:36[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 12:03:35[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 13:01:39[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 13:24:37[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 13:24:55[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 13:33:20[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 13:33:25[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 13:36:18[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 13:38:08[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 13:40:30[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 14:33:43[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 14:37:49[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 14:38:52[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 14:47:30[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 14:47:50[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 14:48:52[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 14:49:44[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-10 14:49:44[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-10 14:49:44[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-10 16:02:01[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-10 16:02:01[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-10 16:02:15[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 16:02:59[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 16:04:21[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/10-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:16:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/10-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `each'
+  /home/ptsadmin/10-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/10-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/10-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/10-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-10 16:04:30[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-10 16:04:38[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-10 16:09:08[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 16:09:23[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-10 16:42:15[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 16:50:15[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 17:01:39[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 17:03:01[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 17:04:12[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 17:19:53[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 17:42:00[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 17:49:30[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 17:55:59[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 17:56:06[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 18:00:17[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-10 18:00:31[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 18:09:23[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 18:11:46[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 18:54:20[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 18:57:15[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-10 18:57:15[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-10 18:57:15[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-10 19:01:44[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-10 19:02:12[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-10 19:59:03[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-10 19:59:03[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-10 19:59:03[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-10 20:16:13[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-10 20:16:13[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-10 20:16:13[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-10 20:17:23[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-10 20:17:23[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-10 20:17:23[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
 N+1 Query method call stack

@@ -74,15 +74,11 @@ class Admin::ProfilesController < Admin::ApplicationController
 		    session[:purchasable] = exhibitionuser
 		    #render :partial=>"exhibitionpaymentfront"
 	  	  render :update do |page|
-	  	    
 		        page["enterintocompetitionfront"].replace_html :partial=>"exhibitionpaymentfront",:locals=>  {:order=>@order,:invoice=>@invoice,:exhibitionuser=>exhibitionuser,:credit_card=>@credit_card}
 		        page["description_competition_ex_py"].show
-		        
+		        page["iteam_image_uploaded"].hide
+		      
         end
-
-		    
-		    
-		    
      end
      
      

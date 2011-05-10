@@ -44,7 +44,7 @@ class Invoice < ActiveRecord::Base
 
     def  accept_cash_or_cheque_or_bank_payment(cashorchequeorbank)
             self.state = "created"
-            self.payment_medium = cashorcheque
+            self.payment_medium = cashorchequeorbank
           	if self.save
             		if self.purchasable_type == 'ExhibitionsUser' || self.purchasable_type == 'CompetitionsUser' || self.purchasable_type == 'Order'
 				        purc = self.purchasable
