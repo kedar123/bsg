@@ -31,9 +31,13 @@ module Resourceful
 
       # POST /foos
       def create
-        build_object
+            build_object
         load_object
         before :create
+        
+      if params[:group_show] == "0"
+         
+      else    
         if current_object.save
           save_succeeded!
           after :create
@@ -43,6 +47,7 @@ module Resourceful
           after :create_fails
           response_for :create_fails
         end
+      end 
       end
 
       # PUT /foos/12

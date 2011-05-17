@@ -11,42 +11,25 @@ function popitup(url) {
 
 
 <div id="container">
-  <% if @profile %>
+  <% if @groups %>
     <div id="description">
       <div id="content">
+       
         <!--<%#= render :partial => 'artists/artists_name_left' %>-->
-        <font size="5" color="white"><b><%= @profile.full_name %></b></font>
-        <div id="exhibs_list"><br/>
-          <%# = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") }.join(' | ') %>
+        <font size="5" color="white"><b><%= @groups[0].title %></b></font><br/>
+                                <%= @groups[0].description %><br/>
+                                <%= @groups[0].note %><br/>
 
-					<% lists = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") } %>
-					
-					
-							<%for list in lists%>
-								<%= list%><br/>
-							<%end%>
-					
-        </div>
-        <p>
-            <%= @exhibition.title %>
-        </p>
-        <p>
-           <%= @exhibition.description %>
-        </p>
-        <p>
-          <%#= link_to @profile.website, @profile.website, :style => "color:black;", :target => "_blank" %>
-      
- <%= link_to @profile.website, @profile.website, :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
-</p>
-
+      </div>
 </div>
     </div>
     <div id="list">
-      <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
-        <%= render :partial => 'exhibitions/artwork_show', :object => a %>
-      <% end %>
+      <%# (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
+        <%#= render :partial => 'exhibitions/artwork_show', :object => a %>
+      <% #end %>
     </div>
   <% else %>
     <p></p>
   <% end %>
+     
 </div>

@@ -70,31 +70,33 @@ class ArtistsController < ApplicationController
 	end
 
 	def groups
-		@groups = UserGroup.all.sort {|x,y| x.title <=> y.title }
-		@artists = []
-		if params[:id]
-			@profile = Profile.find(params[:id])
-		end
-		if params[:group_id]
-			@artists = UserGroup.find(params[:group_id]).users.all(:include => [:profile]).delete_if{ |u| u.exhibitions.published.empty? }.map{ |e| e.profile }.sort {|x,y| x.full_name <=> y.full_name }
-		else
-			@artists = UserGroup.all.rand.users.all(:include => [:profile]).delete_if{ |u| u.exhibitions.published.empty? }.map{ |e| e.profile }.sort {|x,y| x.full_name <=> y.full_name }
-		end
-		@profile ||= @artists.first
-		if @profile
-			params[:group_id] ||= @profile.user.user_groups_users.first.user_group_id
-			if @exhibitions=@profile.user.exhibitions.published.uniq#.delete_if{ |e| !e.title.include?('Group Show') })
-				if params[:exhib_id]
-					@exhibition = Exhibition.find(params[:exhib_id])
-				else
-					@exhibition = @exhibitions.first
-				end
-			else
-				# TODO dddeeerrr
-			end
-		end
-		params[:which] = "groups/#{params[:group_id]}/artists"
-	end
+#		@groups = UserGroup.all.sort {|x,y| x.title <=> y.title }
+#		@artists = []
+#		if params[:id]
+#			@profile = Profile.find(params[:id])
+#		end
+#		if params[:group_id]
+#			@artists = UserGroup.find(params[:group_id]).users.all(:include => [:profile]).delete_if{ |u| u.exhibitions.published.empty? }.map{ |e| e.profile }.sort {|x,y| x.full_name <=> y.full_name }
+#		else
+#			@artists = UserGroup.all.rand.users.all(:include => [:profile]).delete_if{ |u| u.exhibitions.published.empty? }.map{ |e| e.profile }.sort {|x,y| x.full_name <=> y.full_name }
+#		end
+#		@profile ||= @artists.first
+#		if @profile
+#			params[:group_id] ||= @profile.user.user_groups_users.first.user_group_id
+#	  		if @exhibitions=@profile.user.exhibitions.published.uniq#.delete_if{ |e| !e.title.include?('Group Show') })
+#				if params[:exhib_id]
+#					@exhibition = Exhibition.find(params[:exhib_id])
+#				else
+#					@exhibition = @exhibitions.first
+#				end
+#			else
+#				# TODO dddeeerrr
+#			end
+#		end
+#		params[:which] = "groups/#{params[:group_id]}/artists"
+    @groups = Groupshow.find(:all,:conditions=>["starting_date > '#{Date.civil(Time.now.strftime('%Y').to_i,Time.now.strftime('%m').to_i,Time.now.strftime('%d').to_i)}'"])
+    @artists = []
+ 	end
 
   def tojoin
     @groups = UserGroup.all

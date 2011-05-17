@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110428100037) do
+ActiveRecord::Schema.define(:version => 20110516115141) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -617,6 +617,34 @@ ActiveRecord::Schema.define(:version => 20110428100037) do
   add_index "groups_newsletters", ["group_id"], :name => "index_groups_newsletters_on_group_id"
   add_index "groups_newsletters", ["newsletter_id"], :name => "index_groups_newsletters_on_newsletter_id"
 
+  create_table "groupshowartworks", :force => true do |t|
+    t.integer  "groupshow_id"
+    t.integer  "user_id"
+    t.string   "artworkurl"
+    t.string   "title"
+    t.string   "medium"
+    t.integer  "size1"
+    t.integer  "size2"
+    t.integer  "size3"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groupshows", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title",         :null => false
+    t.text     "description",   :null => false
+    t.date     "starting_date"
+    t.date     "ending_date"
+    t.string   "note"
+    t.string   "gallery_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groupshows", ["user_id"], :name => "index_groupshows_on_user_id"
+
   create_table "images", :force => true do |t|
     t.integer  "user_id"
     t.string   "title",                                                 :null => false
@@ -1112,6 +1140,12 @@ ActiveRecord::Schema.define(:version => 20110428100037) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "usergroupshows", :force => true do |t|
+    t.integer "user_id"
+    t.integer "groupshow_id"
+    t.string  "state"
   end
 
   create_table "users", :force => true do |t|

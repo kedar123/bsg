@@ -29,11 +29,9 @@ end
 			sr = Role.find_by_name('artist')
 			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
 			session[:user_ids] = @current_object.user_ids
-			
 			if  !params[:workspace_id].blank?
 				@workspace = Workspace.find(params[:workspace_id])
 			end
-			
     end
 
 		after :create_fails, :update_fails do
@@ -45,7 +43,9 @@ end
 
 		before :create, :update do
 			 # TODO manage the add for artists, just what they can access ...
-		
+		   if params[:group_show] == "0"
+		         create_group_show
+	       end
 		end
 
        #i have commented it just for requirement it may be required to change it again
@@ -54,8 +54,8 @@ end
 		#end
         
         after :create do
-			@current_object.exhibitions_users.map{ |e| e.init }
-		end
+          	@current_object.exhibitions_users.map{ |e| e.init }
+        end
 		after :update do
 		 	        if  @current_object.user_ids.blank?
 		            newuserid = []
@@ -109,6 +109,7 @@ end
 		@galleries_ids = @galleries.map{ |e| e.id }
 	end
 
+    
 	def submit_artworks
 		@current_object = Exhibition.find(params[:id])
 		if !@current_user.has_system_role('admin')
@@ -119,6 +120,28 @@ end
 		redirect_to item_path(@current_object)
 	end
 
+  
+  def  create_group_show
+ 
+    groupshow = Groupshow.new
+    groupshow.title = params[:exhibition][:title]
+    
+    groupshow.gallery_id = params[:exhibition][:timing_attributes][:gallery_ids].join(",")
+    groupshow.description = params[:exhibition][:description]
+    groupshow.note = params[:exhibition][:timing_attributes][:note]
+    period = Period.find(params[:exhibition][:timing_attributes][:period_id])
+    groupshow.starting_date = period.starting_date
+    groupshow.ending_date = period.ending_date
+    groupshow.save
+    flash[:notice] = "Your Group Show Is Created"
+    redirect_to "/admin/groupshows/#{groupshow.id}"
+  end
+  
+  
+  
+  
+  
+  
 	protected
 
 	def get_artworks_lists
@@ -133,4 +156,34 @@ end
 		end
 	end
 
+end
+
+
+module Resourceful
+  module Default
+    module Actions
+      def create
+       
+        
+        build_object
+        load_object
+        before :create
+        
+      if params[:group_show] == "0"
+         
+      else    
+        if current_object.save
+          save_succeeded!
+          after :create
+          response_for :create
+        else
+          save_failed!
+          after :create_fails
+          response_for :create_fails
+        end
+      end  
+      
+      end
+    end
+  end
 end

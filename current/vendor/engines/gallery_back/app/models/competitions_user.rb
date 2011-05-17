@@ -11,9 +11,9 @@ class CompetitionsUser < ActiveRecord::Base
 
 	validates_presence_of :price
 
-    attr_accessible :card_number4
-    attr_reader :card_number4
-     attr_writer :card_number4
+  attr_accessible :card_number4
+  attr_reader     :card_number4
+  attr_writer     :card_number4
   #for competition whenever the payment is done at that time the user is validated and admin will entitled to 
   #select his sartwork. and after payment the invoice is get sent. this case is only for competition.
   #after the image is added the reference  is get added to artwork competition thanks kedar.so when updating
@@ -153,9 +153,6 @@ class CompetitionsUser < ActiveRecord::Base
                            
 					else
 					end
-
-		
-		
 	end	
 
 
@@ -184,12 +181,7 @@ class CompetitionsUser < ActiveRecord::Base
            end
            j=j+1
 	    end
-	    p "im finding the price for invoice but it is wrong"
-	    p amount
-	    p self.total_entry.to_i
-	    p self
-	    p self.total_entry
-	    return amount 
+	  	    return amount 
 	end
 	
 	

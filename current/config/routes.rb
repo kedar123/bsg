@@ -1,5 +1,7 @@
 
 ActionController::Routing::Routes.draw do |map|
+
+
   map.resources :frommails
 
   map.resources :signatures
@@ -8,14 +10,22 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect "/show_user_type"	,:controller=>"show_user_type",:action=>"index"
   map.connect "/admin/competitions/create_subscribe_competition"	,:controller=>"competitions",:action=>"create_subscribe_competition"
+  map.connect "/add_user_to_groupshow/:id"	,:controller=>"groupshows",:action=>"add_user_to_groupshow"
+  map.connect "/addusergroupshow/:id"	,:controller=>"groupshows",:action=>"addusergroupshow"
+  
+  
+  
   map.connect "/admin/competitions/confirm_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"confirm_competition_subscription_details"
   map.connect "/admin/competitions/edit_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"edit_competition_subscription_details"
   map.connect "/admin/competitions/update_subscribe_competition/:id",:controller=>"competitions",:action=>"update_subscribe_competition"
-
-
-
-
-
+  map.connect "/admin/competitions/add_exhibition_artwork_insamediv",:controller=>"competitions",:action=>"add_exhibition_artwork_insamediv"
+  map.connect "/admin/competitions/show_group_show_form/:id",:controller=>"competitions",:action=>"show_group_show_form"
+  map.connect "/show_group_payment",:controller=>"competitions",:action=>"show_group_payment"
+  map.connect "/upload_the_artwork_to_groupshow",:controller=>"competitions",:action=>"upload_the_artwork_to_groupshow"
+  map.connect "/show_upload_groupform/:id",:controller=>"competitions",:action=>"show_upload_groupform"
+  map.connect "/edit_groupshow_image/:id",:controller=>"competitions",:action=>"edit_groupshow_image"
+  map.connect "/edit_upload_the_artwork_to_groupshow/:id",:controller=>"competitions",:action=>"edit_upload_the_artwork_to_groupshow"
+  
   
   map.connect "/create_subscribe_competition_front",:controller=>"competitions",:action=>"create_subscribe_competition_front"
   map.connect "/create_subscribe_competition_front_edit",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
@@ -24,6 +34,12 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect "/competitions/upload_exhibition_artwork/:id",:controller=>"competitions",:action=>"upload_exhibition_artwork"
   map.connect "/upload_exhibition_artwork/:id",:controller=>"competitions",:action=>"upload_exhibition_artwork"
+  
+  map.connect "/competitions/create_exhibition_artwork_insamediv",:controller=>"competitions",:action=>"create_exhibition_artwork_insamediv"
+  map.connect "/create_exhibition_artwork_insamediv",:controller=>"competitions",:action=>"create_exhibition_artwork_insamediv"
+
+
+
 
   map.connect "/competitions/edit_upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"edit_upload_the_artwork_to_competition"
   map.connect "/edit_upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"edit_upload_the_artwork_to_competition"
@@ -321,7 +337,7 @@ ActionController::Routing::Routes.draw do |map|
     # Search related routes
     admin.resources :searches, :collection => { :print_advanced => :any, :validate => :post }
     admin.resources :saved_searches, :only => [:create, :index, :destroy], :member => {:results => :get}, :collection => { :validate => :post }
-
+    admin.resources :groupshows
   # Catch Errors and show custom message, avoid SWW
     admin.error '/admin/error/:status' , :controller => 'home', :action => 'error'
     

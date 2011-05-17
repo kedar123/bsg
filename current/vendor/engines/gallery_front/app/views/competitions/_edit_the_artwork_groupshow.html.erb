@@ -1,0 +1,49 @@
+<div id="artworkchange<%=updateimage.id%>">
+<style>
+    .changecolorgray{
+        color: #444444;
+        line-height: 15px;
+  }
+</style>
+<div id="messageforimageuploaded">
+<%if !messageforimageuploaded.blank?%>
+  <%=messageforimageuploaded%>
+<%end%>
+</div>
+<form action="edit_upload_the_artwork_to_groupshow" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_competition<%=updateimage.id%>')" id="add_the_artwork_to_competition<%=updateimage.id%>" target="upload_frame<%=updateimage.id%>" >  
+                <%=hidden_field_tag 'artworkgroupshowid',updateimage.id%>
+                <div class="changecolorgray">
+                     Title 
+                </div> 
+                  <input  name="groupshow_user[title]" id="field-28b2641aed510f0"  value="<%=updateimage.title%>" type="text" style="width:310px;">
+                   <div class="changecolorgray">
+                            Medium
+                     </div>   
+                                <input  name="groupshow_user[medium]" id="field-35aefdde6159fe0"  value="<%=updateimage.medium%>" type="text" style="width:310px;"> 
+                     <div class="changecolorgray">
+                            	<span style="font-size: 10px;">Size (width (cm) x height (cm)  x depth (cm - 3d work only)</span>   
+                     </div>  	
+                     <font style="color:#444444">
+                      	<input  name="groupshow_user[size1]" id="field-c65f89902a9847f" size="10" value="<%=updateimage.size1%>" type="text" style="width: 92px;">
+                            x
+                        <input  name="groupshow_user[size2]" id="field-c65f89902a9847g" size="10" value="<%=updateimage.size2%>" type="text" style="width: 92px;">
+                            x
+                         <input  name="groupshow_user[size3]" id="field-c65f89902a9847h" size="10" value="<%=updateimage.size3%>" type="text" style="width: 92px;"> 
+                      </font>
+                      <div class="changecolorgray"> 
+                          Price
+                      </div> 
+                           <input  name="groupshow_user[price]" id="field-a94ac5a259d7675" style="width: 100px;" value="<%=updateimage.price%>" type="text">
+                        <div class="changecolorgray">    
+                        	 Image 
+                    	 </div>
+                      	 <input  name="groupshow_user[image]" id="field-7a24db800403e5f" type="file" size="26">
+                       <%= submit_tag 'Upload'%>
+                  
+                      <div>
+                          <img src ="/system/groupshow/<%=updateimage.artworkurl%>" width="90px" height="90px"/>
+                      </div>
+        </form>
+</div>
+
+<iframe id="upload_frame<%=updateimage.id%>" name="upload_frame<%=updateimage.id%>" style="width:1px;height:1px;display:none"></iframe>

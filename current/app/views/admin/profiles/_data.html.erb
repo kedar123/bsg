@@ -33,9 +33,10 @@ function ntoggle() {
     <div id="fragment-2">
       <div style="float:right;">
       <%if current_user.login=="admin" || current_user.login=="superadmin"%>
-      <%= link_to "add an exhibition", new_admin_workspace_exhibition_path(profile_workspace.id) %>
+          <%= link_to "add an exhibition", new_admin_workspace_exhibition_path(profile_workspace.id) %><br/>
+          <%= link_to "add to group show", "/add_user_to_groupshow/#{@current_object.user.id}" %>
       <%end%>
-      </div><br />
+    </div><br/>
       
       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
         <% exhibitions_users.each do |eu| %>
@@ -122,17 +123,18 @@ function ntoggle() {
 	</div>
 
 	<div id="fragment-7">
-			<%if !@current_object.notices.nil? %>	<br/>	
+          <!--
+			<%#if !@current_object.notices.nil? %>	<br/>	
 <a id="displayText" href="javascript:ntoggle();"><b>Add Notice</b></a><br />				
-			<font size=2pt>    <%=h @current_object.notices %></font>
-			<%else%>
-				No Notices for <%=h @current_object.first_name %>.<br/>
+			<font size=2pt>    <%#=h @current_object.notices %></font>
+			<%#else%>
+				No Notices for <%#=h @current_object.first_name %>.<br/>
 <a id="displayText" href="javascript:ntoggle();"><b>Change Notice</b></a><br />				
-			<%end%>
+			<%#end%>
 			<div id="notice_add">
 				hii
 			</div>	
-
+                        -->
 
 <div id="noticeToggle" style="display: none">
 

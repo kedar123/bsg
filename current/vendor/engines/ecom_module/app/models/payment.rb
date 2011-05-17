@@ -59,33 +59,26 @@ class Payment < ActiveRecord::Base
 	end
 
  def make_paypal_payment(more_amount ,params) 
- 	 username = "pathak_1259733727_biz_api1.gmail.com"
-         password = "1259733733"
-         signature = "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
-         amount = more_amount.to_s
-         card_type = params[:credit_card][:type_of_card].upcase
+        username = "pathak_1259733727_biz_api1.gmail.com"
+        password = "1259733733"
+        signature = "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+        amount = more_amount.to_s
+        card_type = params[:credit_card][:type_of_card].upcase
         card_no = params[:credit_card][:number]
         cardexpdate=Date.civil(params["credit_card"]["expiring_date(1i)"].to_i,params["credit_card"]["expiring_date(2i)"].to_i).strftime("%m%Y")
-    
         exp_date = cardexpdate
-
         first_name = params[:credit_card][:first_name]
         last_name = params[:credit_card][:last_name] 
-       billing_address = "paud phata pune"
-       cvc=params[:credit_card][:verification_value]
-       
+        billing_address = "paud phata pune"
+        cvc=params[:credit_card][:verification_value]
         paypal = Paypal.new(username, password, signature) # uses the PayPal sandbox
-       response = paypal.do_direct_payment_sale("192.168.0.16", amount, card_type,card_no, exp_date, first_name, last_name,cvc=nil,{:STREET=>"1 Main St",:city=>"San Jose",:STATE=>"ca",:zip=>95131})
+        response = paypal.do_direct_payment_sale("192.168.0.16", amount, card_type,card_no, exp_date, first_name, last_name,cvc=nil,{:STREET=>"1 Main St",:city=>"San Jose",:STATE=>"ca",:zip=>95131})
 
         if response.ack == 'Success' 
                       self.state = 'online_validated'
                       self.save
         else
-          p "the paypal ack is not validated"
-          p response.ack
-          p response
-	    
-	    end
+        end
 	   
 end
    

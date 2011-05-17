@@ -1,3 +1,4 @@
+  
 <% form_for_item @current_object, title do |f| -%>
 
   <label>ARTISTS SELECTION :</label>
@@ -15,9 +16,15 @@
     <%= select_tag "exhibition[user_ids][]", options_from_collection_for_select(@artists, 'user_id', 'full_name', :selected =>selecteduser, :disabled => @current_object.user_ids), :multiple => true, :size => 6 %><br />
        <%#=link_to "Make Required User As Artist","/admin/profiles"%> <br/>
     <%#= @current_object.users.map{ |e| "<input type='hidden' value='#{e.id}' name='exhibition[user_ids][]' id='exhibition_user_ids'>" }.join(' ') %>
+    
 
 <!--    <input id="filter3" style="size:20px;">	 -->
     </div>  
+        <div class="formElement" style="clear:both">
+        
+    <label>Group Show </label>  <%=check_box_tag "group_show",0,false,:style=>"width:20px;"%>
+    
+    </div>
 <!--
 <br /><br />
 

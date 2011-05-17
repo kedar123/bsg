@@ -63,21 +63,26 @@ class Admin::ProfilesController < Admin::ApplicationController
      end
      
      def exhibition_payment_front 
+       alreadypaidamt = nil
         exhibitionuser = ExhibitionsUser.find(params[:id])
         @invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ? ","ExhibitionsUser" , exhibitionuser.user,exhibitionuser.id])
         if  @invoice != nil and @invoice.state == "created"
         else
         @invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , exhibitionuser.user,exhibitionuser])
+        alreadypaidamt = exhibitionuser.price - @invoice.final_amount
         end
         @order = exhibitionuser
     		@credit_card = CreditCard.new	
 		    session[:purchasable] = exhibitionuser
 		    #render :partial=>"exhibitionpaymentfront"
 	  	  render :update do |page|
-		        page["enterintocompetitionfront"].replace_html :partial=>"exhibitionpaymentfront",:locals=>  {:order=>@order,:invoice=>@invoice,:exhibitionuser=>exhibitionuser,:credit_card=>@credit_card}
+		        page["enterintocompetitionfront"].replace_html :partial=>"exhibitionpaymentfront",:locals=>  {:order=>@order,:invoice=>@invoice,:exhibitionuser=>exhibitionuser,:credit_card=>@credit_card,:alreadypaidamt=>alreadypaidamt}
 		        page["description_competition_ex_py"].show
 		        page["iteam_image_uploaded"].hide
-		      
+		        for k in 0..9
+		              page["iteam_image#{k}"].hide
+            end
+		         
         end
      end
      
