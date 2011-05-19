@@ -1,7 +1,5 @@
 
 ActionController::Routing::Routes.draw do |map|
-
-
   map.resources :frommails
 
   map.resources :signatures
@@ -12,8 +10,11 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/competitions/create_subscribe_competition"	,:controller=>"competitions",:action=>"create_subscribe_competition"
   map.connect "/add_user_to_groupshow/:id"	,:controller=>"groupshows",:action=>"add_user_to_groupshow"
   map.connect "/addusergroupshow/:id"	,:controller=>"groupshows",:action=>"addusergroupshow"
-  
-  
+  map.connect "/shoppingcart/add_to_cart/:id",:controller=>"shoppingcart",:action=>"add_to_cart"
+  map.connect "/shoppingcart/show_me_cart",:controller=>"shoppingcart",:action=>"show_me_cart"
+  map.connect "/shoppingcart/remove_from_cart",:controller=>"shoppingcart",:action=>"remove_from_cart"
+  map.connect "/shoppingcart/show_payment_form",:controller=>"shoppingcart",:action=>"show_payment_form"
+  map.connect "/shoppingcart/shopping_cart_payment",:controller=>"shoppingcart",:action=>"shopping_cart_payment"
   
   map.connect "/admin/competitions/confirm_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"confirm_competition_subscription_details"
   map.connect "/admin/competitions/edit_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"edit_competition_subscription_details"

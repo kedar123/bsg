@@ -375,9 +375,6 @@ class CompetitionsController < ApplicationController
             #@current_object.make_paypal_payment((more_amount * 100),params) 
           end
         else
-          p total_amount
-          p @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
-          p "this is the difference of amounts"
           render :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "
           return
         end   

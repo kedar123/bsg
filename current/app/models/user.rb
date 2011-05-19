@@ -87,6 +87,7 @@ class User < ActiveRecord::Base
 	has_many :competitions_users, :dependent => :delete_all
 	has_many :competitions, :through => :competitions_users
 	has_many :competitions_subscriptions, :through => :competitions_users
+  has_many :groupshowartworks
 	has_many :user_groups_users, :dependent => :delete_all
 	has_many :user_groups, :through => :user_groups_users
    has_many :orders, :foreign_key => 'client_id', :dependent => :delete_all

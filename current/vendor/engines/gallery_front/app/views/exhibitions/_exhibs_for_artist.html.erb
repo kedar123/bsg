@@ -8,28 +8,85 @@ function popitup(url) {
 
 // -->
 </script>
-
-
-<div id="container">
-  <% if @groups %>
-    <div id="description">
+<div id="container" >
+    <div id="description" style="overflow:auto">
       <div id="content">
-       
-        <!--<%#= render :partial => 'artists/artists_name_left' %>-->
-        <font size="5" color="white"><b><%= @groups[0].title %></b></font><br/>
+        <!--%#= render :partial => 'artists/artists_name_left' %>-->
+         <% if @groups %>
+            <%if @groups[0]%>
+                <font size="5" color="white"><b><%= @groups[0].title %></b></font><br/>
                                 <%= @groups[0].description %><br/>
                                 <%= @groups[0].note %><br/>
-
+            <%end%>           
+         <%end%>      
+        
+       <%if @profile%>                           
+          <font size="5" color="white"><b><%= @profile.full_name %></b></font>
+          <%if @exhibitions%>
+            <div id="exhibs_list"><br/>
+                         
+                <% lists = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") } %>
+                      <%for list in lists%>
+					<%= list%><br/>
+		      <%end%>
+              </div>
+            <p>
+              <%= @exhibition.title %>
+            </p>
+            <p>
+              <%= @exhibition.description %>
+            </p>
+            <p>
+        <%end%>    
+            <div id="exhibs_list"><br/>
+              <%@profile.user.groupshowartworks.each do |gsa|%>
+                  <p>
+                    <font color="white"><%=gsa.groupshow.title%> </font><br/>
+                  </p>
+                  <p>
+                    <%=gsa.groupshow.description%> <br/>
+                  </p>
+              <%end%>
+            </div>  
+            <div id="exhibs_list"><br/>
+              
+              <%@profile.user.competitions.each do |cp|%>
+                  <p>
+                    <font color="white"><%=cp.title%> </font><br/>
+                  </p>
+                  <p>
+                    <%=cp.description%> <br/>
+                  </p>
+              <%end%>
+            </div>  
+              
+              
+              
+       <%end%>                         
+                                
+                                
+                                
+                                
+                                
+                                
       </div>
 </div>
+      <div id="list">
+        <%if @exhibition%>
+      <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
+        <%= render :partial => 'exhibitions/artwork_show', :object => a %>
+        <%end%>  
+      <% end %>
+      <%if !@groupshowartworks.blank?%>
+              <%@groupshowartworks.each do |a|%>
+              <%= render :partial => 'exhibitions/groupshow_artwork_show', :object => a %>
+              <%end%>
+      <% end %>  
+      <% if  !@competitionuser.blank?%>
+            <%@competitionuser.each do |a|%>
+                  <%= render :partial => 'exhibitions/compuser_artwork_show', :object => a %>
+            <%end%>  
+      <%end%>  
     </div>
-    <div id="list">
-      <%# (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
-        <%#= render :partial => 'exhibitions/artwork_show', :object => a %>
-      <% #end %>
     </div>
-  <% else %>
-    <p></p>
-  <% end %>
-     
 </div>

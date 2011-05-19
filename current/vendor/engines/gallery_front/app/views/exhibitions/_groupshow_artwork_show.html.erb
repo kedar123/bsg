@@ -1,0 +1,32 @@
+
+<div id="iteam" class="iteam">
+    <div id ="details" style="display:none;">
+      <p style="margin-bottom: 0.4em; white-space: normal;">
+					<font size=2px><%= object.title.split.each{|m|m.capitalize!}.join(" ") %></font>
+			</p>
+      <%= object.medium.capitalize  %><br/>
+      <%if object.size3.blank?%>  
+      <%= object.size1.to_s + " x " + object.size2.to_s %>   cm<br />
+      <%else%>
+      <%= object.size1.to_s + " x " + object.size2.to_s + " x " + object.size3.to_s%>   cm<br />
+      <%end%>
+      <%# if object.edition_name %>
+        <%#= 'Edition '+object.edition  %><br />
+      <% #end %>
+      <% if object.price %>
+        <%= '$'+object.price.to_s %><br />
+      <% end %>
+      <br />
+<%#=object.is_purchasable%> 
+      	 <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%>">
+      <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id)  %>
+        <%#= link_to '<font color="white">add to the cart</font>', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1) %>
+        <%#=link_to "<font color='white'>add to cart</font>" ,{:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
+        <%=link_to_remote '<font color="white">add to the cart</font>', :update => "",
+    :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
+      <% end %>
+        </div>   
+      <%= "already in the cart !!" if  @current_object &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>
+    </div>
+  <img src="/system/groupshow/<%=object.artworkurl%>" height="400" width="400"/>
+</div>

@@ -6534,4 +6534,1628 @@ N+1 Query method call stack
   /home/ptsadmin/17-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `_run_erb_app47views47admin47profiles47index46html46erb'
   /home/ptsadmin/17-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
   /home/ptsadmin/17-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
-  /home/ptsadmin/17-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'
+  /home/ptsadmin/17-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-18 11:05:09[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 11:05:09[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 11:05:59[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 11:05:59[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 11:08:38[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 11:08:38[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 11:09:29[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 11:09:29[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 11:14:52[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 11:14:52[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 12:54:42[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:16:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `each'
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-18 12:55:18[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:55:31[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:55:40[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:55:48[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:55:55[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:56:05[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:56:14[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:56:24[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:56:38[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:56:46[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:58:49[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 12:59:18[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 13:01:43[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 13:01:43[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 13:04:12[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 13:05:21[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 13:05:43[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 13:12:49[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 13:13:29[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 14:31:50[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 14:31:50[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 14:44:02[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 14:45:01[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 14:47:55[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 14:55:11[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:01:10[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:01:42[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:01:50[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:02:17[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:02:40[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:04:33[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:04:59[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:06:27[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:08:10[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:09:22[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:10:26[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:10:28[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:11:02[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 15:11:02[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 15:22:29[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:23:52[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:25:50[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:48:57[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 15:50:44[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:08:07[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:08:07[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:08:51[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:08:51[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:09:41[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:09:41[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:09:41[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:10:45[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:10:45[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:10:45[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:14:10[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:14:10[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:14:10[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:15:54[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:15:54[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:15:54[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:16:00[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:16:00[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:16:00[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:17:00[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-18 16:17:47[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:17:47[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:17:47[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:19:19[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:19:19[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:19:19[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:19:40[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:19:40[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:19:40[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:19:51[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:19:51[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:19:51[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:20:26[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:20:26[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:20:26[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:23:39[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:23:39[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:23:39[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:31:39[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-18 16:31:50[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 16:38:42[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 16:38:42[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 16:38:42[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 16:39:22[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-18 17:21:42[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:21:42[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:21:42[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:22:34[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:22:34[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:22:34[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:24:51[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:24:51[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:24:51[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:26:32[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:26:32[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:26:32[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:27:16[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:27:16[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:27:16[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:29:00[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:29:00[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:29:00[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:30:41[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:30:41[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:30:41[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:31:43[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:31:43[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:31:43[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:32:34[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:32:34[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:32:34[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:33:07[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:33:07[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:33:07[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:35:04[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:35:04[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:35:04[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:37:22[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:37:22[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:37:22[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:41:15[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:41:15[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:41:15[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:41:46[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:41:46[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:41:46[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:42:28[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:42:28[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:42:28[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:43:01[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:43:01[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:43:01[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:50:38[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:50:38[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:50:38[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:51:11[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:51:11[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:51:11[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 17:53:18[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 17:53:18[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 17:53:18[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 18:20:28[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 18:20:28[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 18:20:28[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 18:20:36[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 18:20:36[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 18:20:36[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 18:29:58[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-18 18:30:46[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 18:30:46[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 18:31:57[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 18:31:57[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 18:32:45[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 18:33:14[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 18:33:20[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 18:33:31[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 18:48:57[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-18 19:34:52[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 19:34:52[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:35:12[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 19:35:12[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:37:37[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 19:37:37[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:38:17[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 19:38:17[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 19:38:45[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 19:38:52[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 19:38:52[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:50:05[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:50:48[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:50:50[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:50:58[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 19:50:58[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:51:00[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:51:14[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:55:21[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:56:15[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:57:20[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:58:27[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 19:58:34[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:00:39[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:02:08[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:02:42[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:03:08[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:03:39[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:04:32[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:07:15[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:07:15[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:07:50[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:09:21[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:09:21[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 20:09:27[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:09:57[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:10:02[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:10:12[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/18-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-18 20:10:35[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:10:35[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 20:11:02[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:12:05[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:13:38[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:13:38[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:14:22[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:14:22[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:14:27[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:14:27[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 20:14:31[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:15:39[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:15:39[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:16:27[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:18:09[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:18:09[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:19:05[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:19:05[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:23:59[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:23:59[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:24:40[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:24:40[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:25:43[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:25:43[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:26:18[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:26:18[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:26:18[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:27:00[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:27:00[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:27:00[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:28:36[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:28:36[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:28:36[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:28:42[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:28:42[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:28:42[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:28:48[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:36:57[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:41:30[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:43:39[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:43:46[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:43:46[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:43:46[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:44:01[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:44:01[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:44:01[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:44:13[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:44:13[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:44:13[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:44:18[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:44:18[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-18 20:44:18[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:45:23[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:45:23[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:45:23[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-18 20:45:38[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:45:38[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-18 20:45:38[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-18 20:46:56[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-18 20:46:56[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-18 20:50:51[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 10:55:53[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 10:59:54[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-19 11:08:14[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:09:02[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:11:09[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:11:22[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:11:39[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:12:12[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:12:56[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:13:05[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:13:57[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:13:57[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 11:15:14[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:17:41[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:16:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `each'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-19 11:17:49[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-19 11:18:46[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-19 11:19:15[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-19 11:19:20[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-19 11:19:55[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-19 11:20:03[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:22:39[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:23:26[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:31:14[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:32:41[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:33:45[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:35:28[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:35:28[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:35:28[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:35:33[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:37:57[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:37:57[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 11:38:05[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:38:05[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:39:18[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:39:18[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 11:39:32[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:16:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `each'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:14:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-19 11:39:42[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-19 11:39:42[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:46:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:46:in `show'2011-05-19 11:39:42[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:46:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:46:in `show'2011-05-19 11:39:54[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `each'
+  /home/ptsadmin/19-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'2011-05-19 11:40:00[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:40:00[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:40:00[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 11:44:09[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:44:09[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:44:09[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:47:33[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:47:33[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:47:33[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:49:16[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:49:16[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:49:16[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:52:16[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:52:16[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:52:16[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:53:04[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:53:04[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:53:04[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:53:21[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:53:21[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:53:21[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:54:01[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:54:01[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:54:01[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:57:18[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:57:18[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:57:18[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:57:26[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:57:26[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:57:26[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:57:46[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:57:46[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:57:46[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:58:20[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:58:20[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:58:20[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:58:39[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:58:39[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:58:39[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:59:26[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 11:59:26[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 11:59:26[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 11:59:42[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-19 12:01:25[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-19 12:04:28[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:04:28[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:04:28[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:04:57[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:04:57[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:04:57[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:05:45[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:05:45[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:05:45[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:10:08[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:10:08[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:10:08[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:11:43[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:11:43[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:11:43[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:12:06[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:12:06[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:12:06[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:20:19[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:20:19[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:20:19[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:21:36[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:21:36[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:21:36[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:23:45[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:23:45[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:23:45[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:24:32[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:24:32[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:24:32[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:26:11[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:26:11[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:26:11[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:28:36[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:28:36[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:28:36[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:35:31[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:35:31[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:35:31[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:38:57[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:38:57[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:38:57[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:39:17[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:39:17[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:39:17[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:40:27[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:40:27[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:40:27[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:46:13[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:46:13[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:46:13[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:46:42[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:46:42[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:46:42[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 12:59:52[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 12:59:52[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 12:59:52[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:00:08[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:00:08[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:00:08[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:02:46[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:02:46[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:02:46[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:04:54[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:04:54[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:04:54[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:05:18[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:05:18[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:05:18[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 13:05:22[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:05:22[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:05:22[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:06:06[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:06:06[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:06:06[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 13:06:08[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:06:08[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:06:08[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:10:16[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:10:16[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:10:16[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:10:33[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:10:33[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:10:33[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 13:10:35[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:10:35[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:10:35[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:15:09[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:15:09[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:15:09[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:16:07[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:16:07[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:16:07[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 13:16:12[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:16:12[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:16:12[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 13:34:51[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 13:34:51[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 13:34:51[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 14:08:22[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 14:08:22[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 14:08:22[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 14:08:35[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 14:08:35[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 14:08:35[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 14:08:40[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 14:08:40[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 14:08:40[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 14:19:26[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 14:19:26[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 14:19:26[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 14:19:37[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 14:19:37[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 14:19:37[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 14:19:42[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 14:19:42[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 14:19:42[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 15:01:27[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 15:01:27[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 15:01:27[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:22:34[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:22:34[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:22:34[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:22:53[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:22:53[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:22:53[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 17:22:57[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:22:57[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:22:57[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:26:03[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:26:03[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:26:03[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:26:27[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:26:27[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:26:27[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:26:36[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:26:36[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:26:36[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:28:33[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:28:33[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:28:33[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:30:39[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:30:39[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:30:39[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 17:30:45[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:31:17[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:31:17[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:31:17[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:31:25[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:31:25[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:31:25[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:31:46[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:31:46[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:31:46[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 17:31:51[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:31:51[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:31:51[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:32:17[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:32:17[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:32:17[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:36:34[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:36:34[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:36:34[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-19 17:36:37[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:36:37[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:36:37[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:36:59[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:36:59[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-19 17:36:59[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:49:32[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:49:32[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:49:32[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-19 17:49:38[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-19 17:49:38[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-19 17:49:38[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack

@@ -1,0 +1,105 @@
+
+<style>
+.changecolorgray{
+  color: #444444;
+  line-height: 15px;
+}
+</style>
+<script type="text/javascript">
+           function changetheline(){
+
+                   cmbv = document.getElementById("invoicing_info_payment_medium").value;
+                   
+                   if  (cmbv == "cash")
+                   {
+                      document.getElementById("changethelineinfo").innerHTML = "You will need to come into the gallery at 322 Brunswick St, Fitzroy to make your payment";
+                   }
+                   if  (cmbv == "cheque")
+                   {
+                      document.getElementById("changethelineinfo").innerHTML = "Make out to BSG and send to 322 Brunswick St, Fitzroy 3065";
+                   }
+                   if  (cmbv == "bank")
+                   {
+                      document.getElementById("changethelineinfo").innerHTML = "Please pay to BSG, BSB 063212, Account No  1017 2051, CBA with your name on the transaction";
+                   }
+                   if  (cmbv == "online")
+                   {
+                      document.getElementById("changethelineinfo").innerHTML = "";
+                   }
+                   if  (cmbv == "paypal")
+                   {
+                      document.getElementById("changethelineinfo").innerHTML = "";
+                   }
+
+           }
+
+						function change_entry_fee_value()
+						{
+						changed_value = 0
+						for (myvalue=0;myvalue<=document.getElementById('field-5da43579005846d').selectedIndex;myvalue++)
+						{
+						changed_value = changed_value + parseInt(document.getElementById('mychangevalue'+myvalue).value)
+				    }
+						   document.getElementById("change_entry_fee").value=changed_value;
+						}
+								function change_the_required_field_value(entry_fee_value_for_calculation){
+						  changed_value = 0
+						    for (myvalue=0;myvalue<=entry_fee_value_for_calculation;myvalue++)
+						    {
+						      changed_value = changed_value + parseInt(document.getElementById('mychangevalue'+myvalue).value)
+				        }
+				        return changed_value;
+						}
+					
+</script>
+						<div >
+<% form_for 'payment', :url => "shopping_cart_payment", :builder => BlankFormBuilder,  :html => { :method => :post } do |f| %>
+                <div>
+                          <%= hidden_field_tag :user_id, :value => @current_user.id %>
+                            <div class="changecolorgray">
+                                      Payment
+                            </div>   
+                            <%= select :credit_card, :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
+                             <div class="changecolorgray">
+                                      <span >First Name</span> <span style="margin-left:75px;">Last Name</span>
+                             </div>   
+                             <%= text_field  :credit_card,:first_name, :label => 'First name' ,:style=>"width:117px;height:16px;"%>
+                              <%= text_field :credit_card, :last_name, :label => 'Last name' ,:style=>"width:117px;height:16px;"%>
+                              <%= hidden_field :credit_card, :user_id,:value=>current_user.id%>
+                  
+                               <div class="changecolorgray">
+                                        Number
+                                </div>
+                                 <%= text_field :credit_card, :number, :label => 'Number',:value=>"4987654321098769",:style=>"width:242px;height:16px;"%>
+                                 <div class="changecolorgray">
+                                         <span> Expiry Date</span><span style="margin-left:112px;">Varification Value</span>
+                                  </div>
+                                    <%=date_select:credit_card, :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year =>   2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"float:left"%>
+                                 <%= text_field :credit_card, :verification_value, :label => 'Verification value' ,:value=>"123" ,:style=>"width:76px;height:16px;"%>
+                                 <div class="changecolorgray" style="clear:both;margin:5px;">
+                                        
+                                  </div>    
+                                  <%= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Paypal','paypal']], {},:style=>"float:left",:onchange=>"changetheline()"%>
+                                  <div style="float:left;margin-left:90px;">
+                                  
+                                  <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "shopping_cart_payment", :update =>    'modal_space_answer',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
+                                   </div>  
+                                   <div id="show_ajax_request" style="display:none">
+                                              <img height="18" src="/images/ajax-spinner.gif" alt="loading" >
+                                  </div>
+                </div><%#the blank div ends%>
+                <div id="changethelineinfo" style="margin-top:1px;clear:both;width:250px;">
+                </div>
+                <b>
+                <div id="modal_space_answer" style="margin-top:1px;clear:both" >
+                </div>
+                </b>
+</div><%#div style="height:570px;" end%>
+
+  <% end %>
+
+<div id="paypal_form">
+</div>
+    
+
+

@@ -19,7 +19,7 @@
 
   <tbody>
     <% @current_object.order_lines.each do |ol| %>
-  <%if   ol.orderable_type == "CompetitionsUser"%>  
+  <%if   ol.orderable_type.to_s.include?("CompetitionsUser")%>  
   <tr>
     <th><%= ol.orderable.send title_array.fetch(image_array.index(ol.imagename)) %></th>
     <th><%= ol.orderable.send price_array.fetch(image_array.index(ol.imagename)) %></th>
