@@ -1,38 +1,38 @@
-<div id="specific_menu">
-  <% if @groups.first %>
-    <% for i in 0..(@groups.size-1) %>
-      <% if [0,5,10,15,20,25,30,35,40,45].include?(i) %>
-        <div id='nav_3'><ul>
-             <%if params[:group_id].blank?%>
-                <li><a href="/tojoin" class="liselected">To Join</a></li>
-           <%else%>
-           <li><a href="/tojoin/<%=params[:group_id]%>" class="liselected">To Join</a></li>
-           <%end%>
-          <% end %>
-          <li><a href='<%= "/groups/#{@groups[i].id}"%>'  class="liselected"><%= @groups[i].title %></a></li>
-          <% if [4,9,14,19,24,29,34,39,44,49].include?(i) || i == (@groups.size-1) %>
-          </ul></div>
-      <% end %>
-    <% end %>
-  <% else %>
-    <div id='nav_3'>
-      <ul><li>No artists for that group</li></ul>
-    </div>
-  <% end %>
+<div id="specific_menu" style="width:auto;">
+     <br/>
+      <%if params[:id].to_s == (Time.now.year-2).to_s%>
+      <a href="/groups/year/<%=Time.now.year-2%>"  style="color:white;padding:12px;font-size: 15px;"><%=Time.now.year-2%></a>
+      <%else%>
+      <a href="/groups/year/<%=Time.now.year-2%>" style="color:#777777;padding:12px;font-size: 15px;"><%=Time.now.year-2%></a>
+      <%end%>
+      <br/><br/>
+      <%if params[:id].to_s == (Time.now.year-1).to_s%>
+        <a href="/groups/year/<%=Time.now.year-1%>"  style="color:white;padding:12px;font-size: 15px;"><%=Time.now.year-1%></a>
+      <%else%>
+        <a href="/groups/year/<%=Time.now.year-1%>"  style="color:#777777;padding:12px;font-size: 15px;"><%=Time.now.year-1%></a>
+      <%end%>
+      <br/><br/>
+      <%if params[:id].to_s == (Time.now.year).to_s%>
+      <a href="/groups/year/<%=Time.now.year%>"  style="color:white;padding:12px;font-size: 15px;"><%=Time.now.year%></a>
+      <%else%>
+      <a href="/groups/year/<%=Time.now.year%>"  style="color:#777777;padding:12px;font-size: 15px;"><%=Time.now.year%></a>
+      <%end%>
+      <br/>
+ </div>
 
-</div>
-
-<%= render :partial => 'artists/artists_name' %>
-
-<div id="specific_menu">
+<%#= render :partial => 'artists/artists_name' %>
+<%if !params[:year].blank?%>
+<div id="displayatyear" style="display:block;" >
+<div id="specific_menu" style="padding-top:4px;">
   <div id='nav_3'>
-    <ul><li>
-     <!-- HOW TO JOIN THAT GROUP ?<br /><br />
+    <ul><li>  
+      HOW TO JOIN  GROUP ?<br /><br />
       If you want to join that group, send <br/>
       an email at contact@bsgart.au.co, with<br />
-      some artworks you want to show off.-->
+      some artworks you want to show off.
     </li></ul>
   </div>
 </div>
-
+</div>
+<%end%>
 </div>

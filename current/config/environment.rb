@@ -68,7 +68,7 @@ Rails::Initializer.run do |config|
   config.gem 'populator', :lib => 'populator', :version => '>=0.2.5'
 
 #	config.gem 'SystemTimer', :lib => 'system_timer', :version => '>=1.2'
-
+  
 	config.gem 'tmail', :version => '>=1.2.3.1'
 	config.gem 'prawn', :version => '>=0.8.4'
 	

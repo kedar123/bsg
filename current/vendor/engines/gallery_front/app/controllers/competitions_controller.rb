@@ -777,7 +777,7 @@ class CompetitionsController < ApplicationController
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
     email= UserMailer.create_send_invoice(invoice,@current_user)
-    # UserMailer.deliver(email)
+    #UserMailer.deliver(email)
 	                       
     if  @invoice.purchasable_type == "Order"
       session[:cart]=nil

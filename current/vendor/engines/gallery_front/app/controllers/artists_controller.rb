@@ -94,9 +94,18 @@ class ArtistsController < ApplicationController
 #			end
 #		end
 #		params[:which] = "groups/#{params[:group_id]}/artists"
+# here i need to find out the groupshow for last two years that is current year. last year and last to last year
+#currently im showing the future groupshow first as default
     @groups = Groupshow.find(:all,:conditions=>["starting_date > '#{Date.civil(Time.now.strftime('%Y').to_i,Time.now.strftime('%m').to_i,Time.now.strftime('%d').to_i)}'"])
+   # @groups << Groupshow.find(:all,:conditions=>["starting_date > '#{Date.civil((Time.now.strftime('%Y').to_i-1),Time.now.strftime('%m').to_i,Time.now.strftime('%d').to_i)}'"])
+   # @groups << Groupshow.find(:all,:conditions=>["starting_date > '#{Date.civil((Time.now.strftime('%Y').to_i-2),Time.now.strftime('%m').to_i,Time.now.strftime('%d').to_i)}'"])
+    if params[:id]
+       @groups =   Groupshow.find(:all,:conditions=>["YEAR(starting_date) = ? ",params[:id].to_i])
+    end
+    p @groups
+    p "this is i got because of the year as a id"
     @artists = []
- 	end
+  end
 
   def tojoin
     @groups = UserGroup.all

@@ -11,6 +11,11 @@
 </div>
 <div id="container" >
     <div id="description" style="overflow:auto">
+      <div style="padding-left:25px" id="paypal_payment">
+        <%if !@paymentdone.blank?%>
+             <%=@paymentdone%>
+        <%end%>
+      </div> 
       <div id="content">
       <%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	%>
       <%title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']	%>
@@ -18,6 +23,7 @@
       <%size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
       <b>Client name </b>
       <%=h @current_object.client.profile.full_name %><br />
+      <%if @current_object.total_amount != 0%>
       <b>Order details </b>
       <table id="order_lines">
         <thead>
@@ -50,7 +56,7 @@
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id) if @current_object.new_record? %>
                  <%=link_to_remote 'Remove', :update => "",
-:url => {:controller=>"shoppingcart",:action=>"remove_from_cart",:orderable_type => orderable_type, :orderable_id => orderable_id}%>
+:url => {:controller=>"shoppingcart",:action=>"remove_from_cart",:orderable_type => orderable_type, :orderable_id => orderable_id,:i=>i}%>
                 </th>
               </tr>
               <%end%>
@@ -63,14 +69,17 @@
     <div id="total_amount">
        <%=h @current_object.total_amount %> AUD<br />
     </div>
+   
     <% if !@current_object.new_record? %>
     <b>Completed at </b>
     <%=h @current_object.completed_at %><br />
     <% end %>
-            <%=link_to_remote 'Pay Online', :update => "",
+<%=link_to_remote 'Pay Online', :update => "",
 :url => {:controller=>"shoppingcart",:action=>"show_payment_form",:orderable_type => orderable_type, :orderable_id => orderable_id}%>
-
- 
+     <%end%>
+    <br/>
+<%=link_to_remote 'List Of My Order', :update => "",:url => {:controller=>"shoppingcart",:action=>"list_of_my_order"}%>
+        
     
     </div>
     </div> 

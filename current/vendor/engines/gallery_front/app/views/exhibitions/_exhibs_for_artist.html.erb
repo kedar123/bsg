@@ -11,6 +11,7 @@ function popitup(url) {
 <div id="container" >
     <div id="description" style="overflow:auto">
       <div id="content">
+        
         <!--%#= render :partial => 'artists/artists_name_left' %>-->
          <% if @groups %>
             <%if @groups[0]%>
@@ -18,8 +19,14 @@ function popitup(url) {
                                 <%= @groups[0].description %><br/>
                                 <%= @groups[0].note %><br/>
             <%end%>           
+             <%if @groups.first %>
+               <%else%>                 
+              <div id='nav_3'>
+                    <ul><li>No artists for that group</li></ul>
+              </div>            
+             <%end%>                   
          <%end%>      
-        
+                                
        <%if @profile%>                           
           <font size="5" color="white"><b><%= @profile.full_name %></b></font>
           <%if @exhibitions%>
@@ -59,23 +66,15 @@ function popitup(url) {
                   </p>
               <%end%>
             </div>  
-              
-              
-              
        <%end%>                         
-                                
-                                
-                                
-                                
-                                
-                                
       </div>
 </div>
       <div id="list">
         <%if @exhibition%>
       <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
         <%= render :partial => 'exhibitions/artwork_show', :object => a %>
-        <%end%>  
+     <%end%>  
+           <%else%> 
       <% end %>
       <%if !@groupshowartworks.blank?%>
               <%@groupshowartworks.each do |a|%>

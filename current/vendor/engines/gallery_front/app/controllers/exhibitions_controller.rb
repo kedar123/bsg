@@ -77,6 +77,9 @@ class ExhibitionsController < ApplicationController
         @competitionuser << CompetitionsUser.find(:all,:conditions=>["competition_id = #{cp.id}"])
       end
       @competitionuser.flatten!
+      @competitionuser.each do |cu|
+        @artists << cu.user.profile
+      end
       @artists.uniq!
       if @profile.blank? 
         @profile = @artists.rand

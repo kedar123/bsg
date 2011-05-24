@@ -11,10 +11,18 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/add_user_to_groupshow/:id"	,:controller=>"groupshows",:action=>"add_user_to_groupshow"
   map.connect "/addusergroupshow/:id"	,:controller=>"groupshows",:action=>"addusergroupshow"
   map.connect "/shoppingcart/add_to_cart/:id",:controller=>"shoppingcart",:action=>"add_to_cart"
-  map.connect "/shoppingcart/show_me_cart",:controller=>"shoppingcart",:action=>"show_me_cart"
+  map.connect "/shoppingcart/show_me_cart/:id",:controller=>"shoppingcart",:action=>"show_me_cart"
   map.connect "/shoppingcart/remove_from_cart",:controller=>"shoppingcart",:action=>"remove_from_cart"
   map.connect "/shoppingcart/show_payment_form",:controller=>"shoppingcart",:action=>"show_payment_form"
   map.connect "/shoppingcart/shopping_cart_payment",:controller=>"shoppingcart",:action=>"shopping_cart_payment"
+  map.connect "/shoppingcart/list_of_my_order",:controller=>"shoppingcart",:action=>"list_of_my_order"
+  
+  
+  map.connect "/shopping_paypal_cancel/:id" ,:controller=>"shoppingcart",:action=>"paypal_cancel"
+  map.connect "/shopping_paypal_return/:id" ,:controller=>"shoppingcart",:action=>"paypal_return"
+  
+  
+  
   
   map.connect "/admin/competitions/confirm_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"confirm_competition_subscription_details"
   map.connect "/admin/competitions/edit_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"edit_competition_subscription_details"
@@ -71,7 +79,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/paypal_return/:id",:controller=>"competitions",:action=>"paypal_return"
   
   map.connect "/paypal_cancel/:id" ,:controller=>"competitions",:action=>"paypal_cancel"
-
+  
+  
+  
 
  
   
@@ -372,11 +382,12 @@ ActionController::Routing::Routes.draw do |map|
 	map.connect '/genres/:genre_id/artists/:id/exhibs/:exhib_id', :controller => :artists, :action => 'genres'
 
 	map.connect '/groups', :controller => :artists, :action => 'groups'
-	map.connect '/groups/:group_id', :controller => :artists, :action => 'groups'
+	map.connect '/groups/:year/:id', :controller => :artists, :action => 'groups'
+ 	map.connect '/groups/:group_id', :controller => :artists, :action => 'groups'
 	map.connect '/groups/:group_id/artists/:id', :controller => :artists, :action => 'groups'
 	map.connect '/groups/:group_id/artists/:id/exhibs/:exhib_id', :controller => :artists, :action => 'groups'
-    map.connect '/tojoin', :controller => :artists, :action => 'tojoin'
-    map.connect '/tojoin/:group_id', :controller => :artists, :action => 'tojoin'
+  map.connect '/tojoin', :controller => :artists, :action => 'tojoin'
+  map.connect '/tojoin/:group_id', :controller => :artists, :action => 'tojoin'
 
 	map.connect '/competitions', :controller => :competitions, :action => 'show'
 	map.connect '/competitions/:competition_id', :controller => :competitions, :action => 'show'

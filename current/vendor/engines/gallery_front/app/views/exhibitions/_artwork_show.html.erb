@@ -1,4 +1,5 @@
-
+<%p "im getting called"%>
+<%p object%>
 <%if object.is_purchasable == true%>
 <div id="iteam" class="iteam">
     <div id ="details" style="display:none;">
@@ -7,15 +8,16 @@
 			</p>
       <%= object.medium.capitalize  %><br/>
       <%= object.size.split('x').each{|m|m.capitalize!}.join(' x ')  %> cm<br />
-      <%if object == nil%>
+      
       <% if object.edition_name %>
         <%= 'Edition '+object.edition  %><br />
       <% end %>
-        
+        <%p object%>
+        <%p "from artworksssssss"%>
       <% if object.price %>
         <%= '$'+object.price.to_s %><br />
       <% end %>
-      <%end%>  
+       
       
       <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%>">
       <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id) && (object.class.to_s=='Artwork' ) %>

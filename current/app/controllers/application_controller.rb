@@ -67,7 +67,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                box.render
                
                move_down 250
-               table [ ["#{invoice_date}", "#{invoice_user_fullname}", "#{invoice_competition_title}", "$#{invoice_full_amount}"], ] ,
+               table [["#{invoice_date}", "#{invoice_user_fullname}", "#{invoice_competition_title}", "$#{invoice_full_amount}"],],
                       :position => :left,
                       :headers => ['Start Date', 'Name', 'Description', 'Price'],
                       :column_widths => { 0 => 160, 1 => 210, 2 => 190, 3 => 50},
@@ -83,7 +83,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
             box.render
             fill_color("ffffff")
         
-             box = Prawn::Text::Box.new("#{note}",    :width    => 550,:height   => 90, :overflow => :ellipses, :at => [22, 28], :align    => :left, :document => self)
+            box = Prawn::Text::Box.new("#{note}",    :width    => 250,:height   => 90, :overflow => :truncate, :at => [22, 28], :align    => :left, :document => self)
             fill_color("000000")
             box.render
             
@@ -97,7 +97,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
             box.render
             fill_color("0147FA")
             #fill_and_stroke_rectangle([490,42],120,13)
-            box = Prawn::Text::Box.new("GST:#{(invoice_full_amount*10/100).to_i}",    :width    => 220,:height   => 13, :overflow => :ellipses, :at => [490, 155], :align    => :left, :document => self)
+            box = Prawn::Text::Box.new("GST:#{(invoice_full_amount*10/100).to_i}",    :width    => 220,:height   => 13, :overflow => :shrink_to_fit, :at => [490, 155], :align    => :left, :document => self)
             fill_color("ffffff")
             box.render
             fill_color("0147FA")
