@@ -10,7 +10,7 @@ class Admin::ExhibitionsUsersController < Admin::ApplicationController
 		@current_object.generate_invoice(@current_object.user)
          invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , @current_object.user,@current_object.id])
 
-	     create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@current_object.exhibition.title,invoice.final_amount.to_i,@current_object.exhibition.timing.note)
+	     create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@current_object.exhibition.title,invoice.final_amount.to_i,@current_object.exhibition.timing.note,invoice.final_amount.to_i,0)
    
   
 		if QueuedMail.add( 'UserMailer',  'send_invoice_exhibition', [@current_object.user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Sent To Your Email. Please Make The Payment by Login To This Account.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in")

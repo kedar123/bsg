@@ -140,10 +140,24 @@ class UserMailer < ActionMailer::Base
 
 	def send_invoice(invoice, user)
 	    setup_email(user)
-	    subject "invoice#{invoice.id}"
+	    subject "invoice#{invoice.number}"
         content_type    "multipart/alternative"
         part  "text/html" do |p|
-        p.body render_message("user_mailer/send_invoice.html.erb","")
+        p.body render_message("user_mailer/send_invoice.html.erb",:invoice=>invoice)
+        p.transfer_encoding "base64"
+       end
+       attachment "application/pdf" do |a|
+        a.body = File.read("#{RAILS_ROOT}/public/pdf_invoice/#{invoice.id}invoice.pdf")
+        a.filename = "invoice.pdf"
+        end
+  end
+  
+  def send_invoice_groupshow(invoice, user)
+	    setup_email(user)
+	    subject "invoice#{invoice.number}"
+        content_type    "multipart/alternative"
+        part  "text/html" do |p|
+        p.body render_message("user_mailer/send_invoice_groupshow.html.erb",:invoice=>invoice)
         p.transfer_encoding "base64"
        end
        attachment "application/pdf" do |a|
@@ -154,16 +168,18 @@ class UserMailer < ActionMailer::Base
 
 	def send_invoice_exhibition(tomial,subject,body,invoice, user)
 	    setup_email(user)
-	    subject "invoice#{invoice.id}"
+	    subject "invoice#{invoice.number}"
         content_type    "multipart/alternative"
         part  "text/html" do |p|
-        p.body render_message("user_mailer/send_invoice_exhibition.html.erb","")
+        p.body render_message("user_mailer/send_invoice_exhibition.html.erb",:invoice=>invoice)
         p.transfer_encoding "base64"
        end
+       p "here im doing the attachment"
+       p invoice.id
        attachment "application/pdf" do |a|
         a.body = File.read("#{RAILS_ROOT}/public/pdf_invoice/#{invoice.id}invoice.pdf")
         a.filename = "invoice.pdf"
-        end
+       end
   end
 
 	
