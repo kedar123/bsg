@@ -1,3 +1,4 @@
+
 class UserMailer < ActionMailer::Base
 
 	# Library included to get the application configuration methods
@@ -93,7 +94,6 @@ class UserMailer < ActionMailer::Base
 		body :description => description, :newsletter_body => newsletter_body, :site => self.site_name,:sha1_id => sha1_id,:url => self.daurl
     sent_on Time.now
     content_type "text/html"
-
   end
 
   # Send Newsletter to Subscribed Users
@@ -174,15 +174,24 @@ class UserMailer < ActionMailer::Base
         p.body render_message("user_mailer/send_invoice_exhibition.html.erb",:invoice=>invoice)
         p.transfer_encoding "base64"
        end
-       p "here im doing the attachment"
-       p invoice.id
        attachment "application/pdf" do |a|
         a.body = File.read("#{RAILS_ROOT}/public/pdf_invoice/#{invoice.id}invoice.pdf")
         a.filename = "invoice.pdf"
        end
   end
 
+  def send_emailnewsletter(titlenewsletter,newsletterbody,user)
+      recipients user.profile.email_address
+      from "mark@bsgart.com"
+      
+    	subject titlenewsletter
+
+      body :htmlbody => newsletterbody
+      sent_on Time.now
+      content_type "text/html"
+  end
 	
+  
 	
 	
 	

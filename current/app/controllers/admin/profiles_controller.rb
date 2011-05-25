@@ -20,7 +20,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   end
 
 	def filter
-		if params[:category_ids]
+ 		if params[:category_ids]
 			@current_objects = []
 			params[:category_ids].each do |cat|
 				@current_objects += ProfilesCategory.find(:all, :conditions => { :category_id => cat.to_i }).map{ |e| e.profile }
@@ -33,6 +33,8 @@ class Admin::ProfilesController < Admin::ApplicationController
 		end
 		@num = @current_objects.size
 		@filters = params[:category_ids].map{ |e| e.to_i }
+   
+    @newsletter = Newsletter.find(:all)
 		respond_to do |format|
       format.html { render :template => 'admin/profiles/index.html.erb'}
       format.xml  { render :xml => @current_objects }
@@ -49,7 +51,7 @@ class Admin::ProfilesController < Admin::ApplicationController
     end
   end
 
-     def exhibition_payment 
+   def exhibition_payment 
         exhibitionuser = ExhibitionsUser.find(params[:id])
         @invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ? ","ExhibitionsUser" , exhibitionuser.user,exhibitionuser.id])
         if  @invoice != nil and @invoice.state == "created"
@@ -60,7 +62,7 @@ class Admin::ProfilesController < Admin::ApplicationController
     		@credit_card = CreditCard.new	
 		    session[:purchasable] = exhibitionuser
 		    render :partial=>"exhibitionpayment"
-     end
+   end
      
      def exhibition_payment_front 
        alreadypaidamt = nil

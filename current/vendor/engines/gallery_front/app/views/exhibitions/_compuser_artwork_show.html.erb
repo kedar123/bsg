@@ -32,6 +32,9 @@
                 <% end %>
                   </div>
                 <%= "already in the cart !!" if  @current_object &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>
+                    <%if current_user.blank?%>
+                           <a href="/login/?msg=buy artwork" method='post' ><img src="/images/buy.jpeg"/> </a>
+                    <%end%>
               </div>
             <img src="/system/gallery/<%=object.send(eachimage.to_sym)%>" height="400" width="400"/>
           </div>

@@ -8,6 +8,7 @@
           <th>Last name</th>
           <th>Email</th>
           <th>&nbsp  State</th>
+          
         </tr>
     </thead>
     <tbody>
@@ -33,7 +34,22 @@
   </tfoot>
 
 </table>
-
+              <br/></br>  
+                        <div>
+                          <form action="/admin/send_news_letter">
+                            <%if @newsletter%>
+                              <select size="6" name="newsletter"  id="category_ids_" >
+                                <%for newsletter in @newsletter%>
+                                <option  value="<%=newsletter.id%>"><%=newsletter.title%></option>
+                                <%end%>
+                              </select>
+                            <%=hidden_field_tag "categoryid",@filters * ","%>
+                            
+                            <%=submit_tag "send newsletter", :style => "width:115px;"%>
+                            <%end%>
+                          </form>
+                        </div>
+            
 <% end %>
 
 
@@ -57,7 +73,10 @@
                           <%= f.submit 'filter', :style => "width:115px;" %>
                         <% end %>
                         </div>
-	    </div>
+          
+             </div>
+                
+                
 	</div>
 </div>
 

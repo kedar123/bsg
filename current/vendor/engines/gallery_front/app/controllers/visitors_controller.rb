@@ -31,11 +31,18 @@ class VisitorsController < ApplicationController
 	def new
 		@current_object = User.new
 		@current_object.build_profile if @current_object.profile.nil?
+  
+    if params[:msg] == "buy artwork"
+       flash[:notice] = "Need To Login To Buy Atrwork"
+    end
 		session[:compredirecid] = params[:id]
 	end
 	
 	def login
+   
+   
 	  session[:compredirecid] = params[:id]
+    
 	end  
 
 #  def create

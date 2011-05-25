@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110516115141) do
+ActiveRecord::Schema.define(:version => 20110525104454) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -801,24 +801,20 @@ ActiveRecord::Schema.define(:version => 20110516115141) do
     t.string   "deletetot"
   end
 
-  create_table "newsletters", :force => true do |t|
+  create_table "newsletteremails", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",                                             :null => false
-    t.text     "description",                                       :null => false
-    t.string   "subject"
-    t.string   "from_email",      :limit => 50
-    t.string   "state",           :limit => 10
-    t.text     "body"
-    t.integer  "viewed_number",                 :default => 0
-    t.integer  "rates_average",                 :default => 0
-    t.integer  "comments_number",               :default => 0
+    t.integer  "newsletter_id"
+    t.boolean  "emailsend"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "published",                     :default => false
-    t.string   "source",                        :default => "form"
   end
 
-  add_index "newsletters", ["user_id"], :name => "index_newsletters_on_user_id"
+  create_table "newsletters", :force => true do |t|
+    t.string   "title"
+    t.text     "news_letter_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notification_filters", :force => true do |t|
     t.string   "name"

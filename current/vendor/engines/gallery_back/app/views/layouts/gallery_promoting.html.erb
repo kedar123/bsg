@@ -24,6 +24,8 @@
                 <%= params[:controller].capitalize %>
             <% end %>
         </title>
+                <%#= javascript_include_tag :fckeditor %>
+                <script type="text/javascript" src="/javascripts/fckeditor/fckeditor.js"></script>
                 <script type="text/javascript" src="/javascripts/jquery.js"></script>
                 <script type="text/javascript" src="/javascripts/jquery-1.4.2.min.js"></script>
                 <script type="text/javascript" src="/javascripts/jquery-ui-1.8.1.custom.min.js"></script>
@@ -260,6 +262,11 @@
                                               
                                               <li><%= link_to 'All invoices', admin_invoices_path %></li>
 				        </ul>
+                                        <ul>
+                                           <li>
+                                             <a href="/admin/send_news_letter">Send News Letter </a>
+                                           </li>
+                                        </ul>  
 				        <br/><br/>
 				        <p><img src="/images/icons/exit.png" width="20px" class="logoutPic"/><%= link_to I18n.t('layout.application.logout'), admin_logout_path, :class => 'bigLink' %></p>
 			    	</div>

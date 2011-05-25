@@ -48,7 +48,7 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
-  
+  config.gem 'tiny_mce'
   config.gem 'builder', :version => '>=2.1.2', :lib => 'builder'
   # config.gem 'nokogiri', :version => '>=1.4.0', :lib => 'nokogiri'
 	#config.gem 'rmagick', :version => '>=2.9.1', :lib => 'RMagick'
@@ -120,7 +120,7 @@ Rails::Initializer.run do |config|
 	#require 'hodel_3000_compliant_logger'
 	#config.logger = Hodel3000CompliantLogger.new(config.log_path)
 	#config.action_view.field_error_proc = proc {|html, instance| html }
-     config.action_mailer.raise_delivery_errors = true
+   config.action_mailer.raise_delivery_errors = true
    config.action_mailer.perform_deliveries = true
    config.action_mailer.delivery_method = :smtp
 

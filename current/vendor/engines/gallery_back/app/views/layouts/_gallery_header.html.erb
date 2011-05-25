@@ -189,6 +189,11 @@
                                               
                                               <li><%= link_to 'All invoices', admin_invoices_path %></li>
 				        </ul>
+                                        <ul>
+                                           <li>
+                                             <a href="/admin/send_news_letter">Send News Letter </a>
+                                           </li>
+				        </ul>
 				        <br/><br/>
 				        <p><img src="/images/icons/exit.png" width="20px" class="logoutPic"/><%= link_to I18n.t('layout.application.logout'), admin_logout_path, :class => 'bigLink' %>
        </p>

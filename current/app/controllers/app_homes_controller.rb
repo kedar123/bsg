@@ -40,7 +40,6 @@ class AppHomesController < ApplicationController
     @app_home = AppHome.find(params[:id])
     @app_home.update_attributes!(params[:app_home])
 	redirect_to :action=>"index"
- 
   end
 
   

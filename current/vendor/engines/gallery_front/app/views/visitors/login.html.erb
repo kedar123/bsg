@@ -11,6 +11,9 @@
     <div id="list">
       <% if @current_user.nil? %>
         <% form_for 'session', :url => admin_session_path, :html => { :method => :post,:class=>"login_form" } do |f| %>
+         <%if params[:msg] == "buy artwork"%>
+              <%="Need To Login To Buy An Artwork"%>
+         <%end%>
       <%= flash_messages_manager(['notice', 'error'], 'modal', false) %><br/><br />
         <p style="margin:5px 0px">Email Address </p>
       <label><input name="email" type="text" id="email" size="50" />
