@@ -303,6 +303,7 @@ class CompetitionsController < ApplicationController
   end  
    
   def  create_the_payment
+  
     if ((params[:invoicing_info][:payment_medium] ==  "online") or (params[:invoicing_info][:payment_medium] ==  "paypal") )         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
@@ -316,6 +317,8 @@ class CompetitionsController < ApplicationController
     #######################################this is im copying here is something from payment controller create method
     if params[:order_id]
       @order = CompetitionsUser.find(params[:order_id])
+      current_user.profile.biography = params[:biography]
+      current_user.profile.save
     else  
       @order = session[:purchasable]  
     end  
@@ -944,6 +947,8 @@ class CompetitionsController < ApplicationController
       return
     else  
       @order.save
+      current_user.profile.biography = params[:biography]
+      current_user.profile.save
     end
     @current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		
     if     @order.instance_of? ExhibitionsUser
@@ -1477,6 +1482,8 @@ class CompetitionsController < ApplicationController
   
   def show_group_payment
     @payment = Payment.new
+    current_user.profile.biography = params[:biography]
+    current_user.profile.save
     if ((params[:invoicing_info][:payment_medium] == "cash") or (params[:invoicing_info][:payment_medium] == "bank") or (params[:invoicing_info][:payment_medium] == "cheque"))
          show_cash_response_groupshow
          return

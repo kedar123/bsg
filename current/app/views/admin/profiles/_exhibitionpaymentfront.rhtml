@@ -56,38 +56,40 @@
 <div>
     <% fields_for credit_card do |ff| %>
       <%= ff.hidden_field :user_id, :value => @current_user.id %>
-          <div style="margin-top:3px;">
-            <label style="margin-left:5px;">Payment</label>
-          </div> 
+          
           <div class="formElement" style="font-size:10px;margin-top:3px;">
                   <%= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
           </div>
       <div style="margin-top:3px;">
            <span> 
-               <label style="margin-left:5px;">First Name</label>
-                <label style="margin-left:55px;">Last Name</label>
+               <label style="margin-left:5px;color:#444444">First Name</label>
+                <label style="margin-left:55px;color:#444444">Last Name</label>
             </span>   
       </div> 
       
-     <div class="formElement" style="font-size:10px;margin-top:5px;">
+     <div class="formElement" style="font-size:10px;margin-top:2px;">
       <%= ff.text_field :first_name, :label => 'First name' ,:style=>"width:100px;"%>
       <%= ff.text_field :last_name, :label => 'Last name' ,:style=>"width:100px;"%>
       </div>
-      <div style="margin-top:3px;">     
-         <label style="margin-left:5px;">Number
+       <div class="changecolorgray">
+            Biography
+       </div> 
+       <%=text_area_tag 'biography',current_user.profile.biography,:cols=>35 %>  
+      <div style="margin-top:1px;">     
+         <label style="margin-left:5px;color:#444444">Number
          </label>
       </div>     
      <div class="formElement" style="font-size:10px;margin-top:3px;">
       <%= ff.text_field :number, :label => 'Number',:value=>"4987654321098769",:style=>"width:210px;"%>
       </div>
-    <div style="margin-top:3px;">     
-      <label style="margin-left:5px;">Expiry Date
+    <div style="margin-top:1px;">     
+      <label style="margin-left:5px;color:#444444">Expiry Date
      </label>
      </div>
-     <div class="formElement" style="font-size:10px;margin-top:3px;">
+     <div class="formElement" style="font-size:10px;margin-top:1px;">
       <%= ff.date_select :expiring_date, :order => [:year, :month], :label => 'Expiring date' ,:default => { :year => 2013,:month=>05 }%>
       </div>
-      <div style="margin-top:3px;">     
+      <div style="margin-top:1px;color:#444444">     
       <label style="margin-left:5px;">
       Varification Value
      </label>

@@ -16546,4 +16546,551 @@ N+1 Query method call stack
 N+1 Query method call stack2011-05-27 18:06:01[WARN] N+1 Query detected
   CompetitionsUser => [:competition]
   Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 18:44:23[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 18:44:23[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 18:44:28[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 18:45:35[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 18:45:35[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 18:45:40[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 18:45:50[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
 N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-27 18:53:53[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-27 18:57:40[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 18:57:40[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 18:57:57[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 18:58:25[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 19:01:24[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 19:06:09[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 19:53:10[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 19:58:27[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 19:58:27[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:00:30[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 20:00:58[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:00:58[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:01:47[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:01:47[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:08:46[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:08:46[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:14:36[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:14:36[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:14:56[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 20:16:55[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 20:17:02[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'2011-05-27 20:17:09[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'2011-05-27 20:18:16[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:18:16[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:27:19[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 20:27:47[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 20:30:19[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 20:33:20[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 20:38:16[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:38:16[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:38:56[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:38:56[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:39:10[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-27 20:40:37[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-27 20:40:53[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-27 20:41:12[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:41:12[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:41:44[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 20:41:44[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 20:41:44[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 20:45:20[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-27 21:03:07[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 21:03:26[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 21:03:26[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:03:26[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:04:09[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-27 21:04:21[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 21:04:21[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:04:21[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:04:37[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:04:37[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:04:37[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:04:40[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:04:40[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:04:40[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:05:05[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 21:05:23[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:05:23[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:05:23[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:06:48[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:06:48[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:06:48[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:06:52[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:06:52[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:06:52[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:07:10[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'2011-05-27 21:07:34[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'2011-05-27 21:07:47[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:07:47[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:07:47[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:08:32[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:08:32[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:08:32[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:10:12[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-27 21:10:12[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-27 21:10:12[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-27 21:10:51[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 21:11:24[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 21:11:24[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:11:24[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:11:43[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-27 21:11:43[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:11:43[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:11:52[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-27 21:12:03[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:12:03[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:16:38[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-27 21:16:38[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'

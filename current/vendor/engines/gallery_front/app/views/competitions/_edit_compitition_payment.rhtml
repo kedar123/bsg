@@ -95,15 +95,16 @@
             <div>
                       <% fields_for credit_card do |ff| %>
                               <%= ff.hidden_field :user_id, :value => @current_user.id %>
-                              <div class="changecolorgray" >
-                                    Payment
-                              </div>     
                               <%= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
                               <div class="changecolorgray">
                                   <span >First Name</span> <span style="margin-left:60px;">Last Name</span>
                                </div>   
                                 <%= ff.text_field :first_name, :label => 'First name' ,:style=>"width:115px;height:16px;float:left"%>
                                 <%= ff.text_field :last_name, :label => 'Last name' ,:style=>"width:115px;height:16px;"%>
+                                   <div class="changecolorgray">
+                                        Biography
+                             </div> 
+                              <%=text_area_tag 'biography',current_user.profile.biography,:cols=>35 %>
                                   <div class="changecolorgray" >
                                       Number
                                    </div>
@@ -130,7 +131,7 @@
                                             <div id="changethelineinfo" style="margin-top:1px;clear:both">
                                             </div>     
                                     <b>
-                                    <div id="modal_space_answer" style="margin-top:5px;clear:both">
+                                    <div id="modal_space_answer" style="margin-top:1px;clear:both">
                                     </div>
                                     </b>
          

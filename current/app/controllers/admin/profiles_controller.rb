@@ -64,8 +64,8 @@ class Admin::ProfilesController < Admin::ApplicationController
 		    render :partial=>"exhibitionpayment"
    end
      
-     def exhibition_payment_front 
-       alreadypaidamt = nil
+    def exhibition_payment_front 
+        alreadypaidamt = nil
         exhibitionuser = ExhibitionsUser.find(params[:id])
         @invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ? ","ExhibitionsUser" , exhibitionuser.user,exhibitionuser.id])
         if  @invoice != nil and @invoice.state == "created"
@@ -86,7 +86,7 @@ class Admin::ProfilesController < Admin::ApplicationController
             end
 		         
         end
-     end
+    end
      
      
      
@@ -153,7 +153,8 @@ class Admin::ProfilesController < Admin::ApplicationController
     @role = Role.find(:all)
     @current_object = Profile.find(params[:id])
     respond_to do |format|
-      if @current_object.update_attributes!(params[:profile])
+      
+      if @current_object.update_attributes(params[:profile])
 				@current_object.create_profile_workspace if @current_object.profile_workspace.nil?
 				if user = @current_object.user
 					user.email = @current_object.email_address
@@ -164,6 +165,7 @@ class Admin::ProfilesController < Admin::ApplicationController
         format.html { redirect_to admin_profile_path(@current_object.id) }
         format.xml  { head :ok }
       else
+        flash[:notice] = "Problem in saving the profile "+@current_object.errors.first[1]
         format.html { render :action => "edit" }
         format.xml  { render :xml => @current_object.errors, :status => :unprocessable_entity }
       end

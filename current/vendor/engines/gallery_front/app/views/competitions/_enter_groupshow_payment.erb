@@ -76,7 +76,13 @@
                              </div>   
                              <%= ff.text_field :first_name, :label => 'First name' ,:style=>"width:117px;height:16px;"%>
                               <%= ff.text_field :last_name, :label => 'Last name' ,:style=>"width:117px;height:16px;"%>
-                               <div class="changecolorgray">
+                             <div class="changecolorgray">
+                                       Biography
+                             </div> 
+                              <%=text_area_tag 'biography',current_user.profile.biography,:cols=>35 %>
+
+                              
+                                <div class="changecolorgray">
                                         Number
                                 </div>
                                  <%= ff.text_field :number, :label => 'Number',:value=>"4987654321098769",:style=>"width:242px;height:16px;"%>

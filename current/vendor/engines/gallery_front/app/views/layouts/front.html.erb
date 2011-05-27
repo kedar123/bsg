@@ -305,8 +305,16 @@ jQuery(document).ready(function(){
 				                    <li><a href="/login">Login</a></li>
 			                    <%end%>  -->
                                             <% else %>
-                                              <li><a href="/admin/profiles/<%=current_user.id%>">Back Access</a></li>
+                                              <%if params[:controller] == "visitors" and params[:action] == "home_page"%>
+                                              <li><a href="/" class="liselected">My Page</a></li>
+                                              <%else%>
+                                              <li><a href="/">My Page</a></li>
+                                              <%end%>
+                                              <%if params[:controller] == "shoppingcart" and params[:action] == "show_me_cart"%>
+                                              <li><a href="/shoppingcart/show_me_cart" class="liselected">Show Cart</a></li>
+                                              <%else%>
                                               <li><a href="/shoppingcart/show_me_cart">Show Cart</a></li>
+                                              <%end%>
                                               <!-- <li><a href="/logout">Logout</a></li>  -->
                                             <% end %>
                                 			<%#*<li><a href="#">Extras</a></li>%>
