@@ -102,8 +102,8 @@ class Admin::UsersController < Admin::ApplicationController
 						   self.current_user = admin_logged_in
                 email= UserMailer.create_admin_register_user(@current_object)
                 UserMailer.deliver(email)
-                 Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
-               
+                Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
+                Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
                redirect_to admin_profiles_path
                            return
                         end
@@ -122,25 +122,20 @@ class Admin::UsersController < Admin::ApplicationController
 				    end
                         
 				        else
+                  mssg = ""
                   @current_object.errors.each do |attr,msg|
-                p msg
-              end
-						flash[:error] = I18n.t('user.new.flash_error') + " " +@current_object.errors.first[1]
+                   mssg << " " + msg 
+                  end
+        		flash[:error] = I18n.t('user.new.flash_error') + " " +mssg
 						if !@current_user
-              
-
-							format.html { render :template => "#{RAILS_ROOT}/vendor/engines/gallery_front/app/views/visitors/new.html.erb", :layout => 'front' }
+          		format.html { render :template => "#{RAILS_ROOT}/vendor/engines/gallery_front/app/views/visitors/new.html.erb", :layout => 'front' }
 						else
 							format.html { render :action => :new }
             end
-        
-             @current_object.errors.each do |attr,msg|
-                
+           @current_object.errors.each do |attr,msg|
                 p msg
-                
               end
-				      
-            end
+				    end
                 
 			        end
 		else

@@ -65,7 +65,11 @@
 	  width:55px;
 	}
 </style>
-
+<script>  
+             function openwindow(){
+               window.open ("http://localhost:3000/signup","Register New User");
+             }
+</script>
 
 <script>
 function change_sign_1()
@@ -77,7 +81,10 @@ function change_sign_1()
 }
 </script>
 <div id="compose-mail">
-<p style="margin-left:150px"><a href="" onclick="window.open ("http://www.javascript-coder.com","mywindow");">Add An User</a></p>
+<p style="margin-left:150px">
+  
+<a href="#" onclick="openwindow();">Add An User</a>
+</p>
 <h2>Compose</h2>
 
 <% form_for :message, :url=>"/admin/create_sent_mail" do |f| %>

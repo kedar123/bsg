@@ -101,7 +101,7 @@ class Admin::NewslettersController < ApplicationController
     redirect_to "/admin/profiles"
   end
   def send_news_letter_category_wise
-       nlm = Newsletteremail.find(:all,:conditions=>["emailsend is null"],:limit=>1)
+       nlm = Newsletteremail.find(:all,:conditions=>["emailsend is null"])
        for nl in nlm
          begin
          nlc=nl.newsletter.news_letter_content

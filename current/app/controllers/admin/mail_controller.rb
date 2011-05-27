@@ -4,7 +4,7 @@ require 'tmail'
 class Admin::MailController < ApplicationController
   layout "gallery_promoting_mail"
   auto_complete_for :user, :email
-  #before_filter :check_the_email ,:only=>"index"
+  before_filter :check_the_email ,:only=>"index"
   
   def check_the_email
      begin
@@ -13,19 +13,24 @@ class Admin::MailController < ApplicationController
       imap.select('Inbox')
       imap.uid_search(["NOT", "SEEN"]).each do |uid|
         mail =  TMail::Mail.parse(imap.uid_fetch(uid, ['RFC822']).first.attr['RFC822'])
-      
         if user = User.find_by_email(mail.from.to_s)
-            message = user.sent_messages.build
+            message = user.sent_messages.new
             message.subject = mail.subject.to_s
-            message.body = mail.body
             message.prepare_copies("contact@test.com")
-            message.body = mail.body
+            if mail.reply_to.blank? 
+              message.body = mail.body.to_s.split("\r\n\r\n")[1]
+            else
+              message.body = mail.body.to_s.split("\r\n\r\n")[0]
+            end
+            if !mail.in_reply_to.blank?
+              message.body = mail.body.to_s.split("\r\n\r\n")[0]
+            end
             message.save
           else
            tempraryinbox = Tempraryinbox.new
            tempraryinbox.fromemail =  mail.from.to_s
            tempraryinbox.subject = mail.subject.to_s
-           tempraryinbox.body = mail.body
+           tempraryinbox.body = mail.body.to_s.split("\r\n\r\n")[1]
            tempraryinbox.save
         end  
       end
@@ -35,6 +40,10 @@ class Admin::MailController < ApplicationController
   end  
   
 
+  
+
+  
+  
  def index
     redirect_to new_session_path and return unless logged_in?
     @folder = current_user.inbox
@@ -54,7 +63,7 @@ class Admin::MailController < ApplicationController
 
   def show
     @folder ||= current_user.mailfolders.find(params[:id])
-    @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 2, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
+    @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 10, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
     
   end
   
@@ -121,7 +130,7 @@ class Admin::MailController < ApplicationController
   
   
   def unknown_email
-    @unknown_message = Tempraryinbox.paginate  :page => params[:page], :order => 'updated_at DESC',:per_page => 2
+    @unknown_message = Tempraryinbox.paginate  :page => params[:page], :order => 'updated_at DESC',:per_page => 10
       if request.xhr?
         render :update do |page|
         page["table_structer_of_email"].replace_html(:partial =>'temprary_messages', :object=>@unknown_message)
@@ -139,7 +148,7 @@ class Admin::MailController < ApplicationController
          @unknown_message.destroy
        end
      end
-      @unknown_message = Tempraryinbox.paginate  :page => params[:page], :order => 'updated_at DESC',:per_page => 2
+      @unknown_message = Tempraryinbox.paginate  :page => params[:page], :order => 'updated_at DESC',:per_page => 10
            if request.xhr?
         render :update do |page|
         page["table_structer_of_email"].replace_html(:partial =>'temprary_messages', :object=>@unknown_message)
@@ -171,7 +180,7 @@ class Admin::MailController < ApplicationController
   def trash_mail
     @created_label = Emaillabel.find(:all)
     @folder = Struct.new(:name, :user_id).new("Trash", current_user.id)
-    @messages = current_user.received_messages.paginate_deleted :all, :per_page => 2, :page => params[:page],
+    @messages = current_user.received_messages.paginate_deleted :all, :per_page => 10, :page => params[:page],
           :include => :message, :order => "messages.created_at DESC"
     @messages_sent_delete = Message.find(:all,:conditions => ["(author_id = ?) and (deletedm IS NOT NULL OR deletedm = ? ) and (deletedmt IS NULL OR deletedmt = ?)",current_user.id, true,false],:order => "created_at DESC",:limit=>2)      
   @messages << @messages_sent_delete
@@ -203,7 +212,7 @@ class Admin::MailController < ApplicationController
        end
      end
          @folder = Struct.new(:name, :user_id).new("Trash", current_user.id)
-    @messages = current_user.received_messages.paginate_deleted :all, :per_page => 2, :page => params[:page],
+    @messages = current_user.received_messages.paginate_deleted :all, :per_page => 10, :page => params[:page],
           :include => :message, :order => "messages.created_at DESC"
 
 @messages_sent_delete = Message.find(:all,:conditions => ["(author_id = ?) and (deletedm IS NOT NULL OR deletedm = ? ) and (deletedmt IS NULL OR deletedmt = ?)",current_user.id, true,false],:order => "created_at DESC",:limit=>2)      
@@ -263,7 +272,7 @@ class Admin::MailController < ApplicationController
   def sent_mail
       @created_label = Emaillabel.find(:all)
       @folder = current_user.inbox
-      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 10, :page => params[:page], :order => "created_at DESC"
     if request.xhr?  
         render :update do |page|
           page["table_structer_of_email"].replace_html(:partial =>'sent_mail_detail', :object =>@messages)
@@ -284,7 +293,7 @@ class Admin::MailController < ApplicationController
        end
      end
       @folder = current_user.inbox
-      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+      @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 10, :page => params[:page], :order => "created_at DESC"
 
      if request.xhr?
          render :update do |page|
@@ -315,7 +324,7 @@ class Admin::MailController < ApplicationController
        end
      end
       @folder = current_user.inbox
-          @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 2, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
+          @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 10, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
     if request.xhr?  
         render :update do |page|
           page["table_structer_of_email"].replace_html(:partial =>'inbox_messages', :object =>@messages)
@@ -345,7 +354,7 @@ class Admin::MailController < ApplicationController
   end  
  
   def show_labeled_email
-      @message=current_user.received_messages.paginate :conditions=>["emaillabel_id = ?",params[:id]], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+      @message=current_user.received_messages.paginate :conditions=>["emaillabel_id = ?",params[:id]], :per_page => 10, :page => params[:page], :order => "created_at DESC"
       emaillabel =  Emaillabel.find(params[:id])     
        if request.xhr?
         render :update do |page|
@@ -368,7 +377,7 @@ class Admin::MailController < ApplicationController
     @message = current_user.sent_messages.build(params[:message])
     @message.prepare_copies(params[:user][:email])
     if params[:id]
-    @message.body = "<br/>" + @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>" + "<br/>"+@original.body 
+    @message.body = "<br/>" + @message.body + ">><br/><font color='#FF0080'>" + params[:signature].to_s+"</font>" + "<br/>"+@original.body 
     else
        @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
     end  
@@ -389,7 +398,7 @@ class Admin::MailController < ApplicationController
     @original = current_user.received_messages.find(params[:id]) 
     @message = current_user.sent_messages.build(params[:message])
     @message.prepare_copies(params[:user][:email])
-    @message.body = @message.body + "<br/>" + @original.body
+    @message.body = @message.body + ">><br/>" + @original.body
     if @message.save
       all_the_recipient = params[:user][:email].split(',')
       EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
@@ -398,8 +407,6 @@ class Admin::MailController < ApplicationController
     else
       render :action => "new"
     end
-    
-    
   end  
 
   
@@ -426,7 +433,7 @@ class Admin::MailController < ApplicationController
     @original = current_user.received_messages.find(params[:id])
     #@frommail = Frommail.find(:all)
     subject = @original.subject.sub(/^(Re: )?/, "Re: ")
-    body = @original.body.gsub(/^/, "> ")
+    body = @original.body#.gsub(/^/, "> ")
     @message = current_user.sent_messages.build(:to => [@original.author.id], :subject => subject, :body => body)
     render :update do |page|
         page["replay_to_all"].replace_html(:partial =>'replay_message', :object =>@message,:locals=>{:frommail=>@frommail,:replaymessageid=>@original})
@@ -461,7 +468,7 @@ class Admin::MailController < ApplicationController
           @message.update_attribute("deletedm", true)
        end
      end
-     @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 2, :page => params[:page], :order => "created_at DESC"
+     @messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 10, :page => params[:page], :order => "created_at DESC"
      if request.xhr?
         render :update do |page|
           page["table_structer_of_email"].replace_html(:partial =>'sent_mail_detail', :object =>@messages)
