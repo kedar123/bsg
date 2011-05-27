@@ -1,3 +1,8 @@
+<script>  
+             function openwindow(email){
+               window.open ("http://localhost:3000/signup?email="+email,"Register New User");
+             }
+</script>
 <style>
 /* MAIL INDEX */
 
@@ -124,15 +129,15 @@
 }
 
 .field-from{
-	min-width:222px;
+	min-width:230px;
 	}
 	
 .field-subject{
-	min-width:315px;
+	min-width:275px;
 }
 
 .head-subject{
-	min-width:324px;
+	min-width:315px;
 }
 
 .field-lable{
@@ -141,9 +146,11 @@
 
 .field-date{
 	text-align:right;
-	width:115px;
+	width:113px;
 	padding-right:5px;
-
+}
+.field-reg{
+  width:30px;
 }
 .head-checkbox, .head-flag, .head-from, .head-subject, .head-lable, .head-date, .head-checkbox{
 	border:none !important;
@@ -172,7 +179,7 @@ margin-right:-14px;
 	<div class="blockElementHeader sixH">
 	<input type="hidden" name="selected_label" value="" id="selected_label">
 	  <span ><ul class="mm-field" id="mail-head">
-    <li class="field-checkbox fc">     
+    <li class="field-checkbox fc" style="border:0px;">     
          <%checkboxarrayname = []%>
 <%temprary_messages.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
 <%checkboxarraynamestring= "["+(checkboxarrayname * ",")+"]" %>
@@ -198,10 +205,10 @@ margin-right:-14px;
     <ul> 
     <%for message in temprary_messages%>
                                         	<ul class="mm-field">					
-                                              <li class="field-checkbox fc">   <%=check_box_tag "delete_message"+message.id.to_s  ,message.id%></li>
+                                              <li class="field-checkbox fc">   <%=check_box_tag "delete_message"+message.id.to_s  ,message.id,false,:class=>'mm-cb'%></li>
 	                                      	    <li class="field-from">      <%=h message.fromemail %></li>
-                                        	    <li class="field-subject"> <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_unknown_message", :id => message.id }%></li>
-                                      	   
+                                        	    <li class="field-subject"> <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_unknown_message", :id => message.id }%></li>
+                                                    <li class="field-reg"> <a href="#" onclick="openwindow('<%=message.fromemail%>');"><img src="/images/reg.jpeg"/></a> </li> 
                                         	    <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
                                             </ul>
                         								<%end%>   
@@ -210,6 +217,7 @@ margin-right:-14px;
                                   </td> 
 		                           </tr>
                             </table>
+           
     </div>
     </div>
     </div>

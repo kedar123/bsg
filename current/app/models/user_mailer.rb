@@ -29,8 +29,15 @@ class UserMailer < ActionMailer::Base
 			:site => self.site_name,
 			:user_login => user.login,
 			:user_password => user.password
-   end
-   
+  end
+  
+  def admin_register_user(user)
+      setup_email(user)
+      subject "Notification Of Registration To Bsgart.com"
+      body :password => user.password,:email=>user.email
+  end
+  
+  
     def artwork_status(artworks_competition,current_user)
               setup_email(current_user)
               subject self.site_name+" : "+ "Artwork submites Status"

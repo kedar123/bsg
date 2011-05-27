@@ -4,7 +4,7 @@ require 'tmail'
 class Admin::MailController < ApplicationController
   layout "gallery_promoting_mail"
   auto_complete_for :user, :email
-  before_filter :check_the_email ,:only=>"index"
+  #before_filter :check_the_email ,:only=>"index"
   
   def check_the_email
      begin

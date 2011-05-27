@@ -63,7 +63,9 @@ class Admin::SessionsController < Admin::ApplicationController
   # Usage URL :
   # - GET /logout
   def destroy
-    User.find(params[:id]).update_attributes(:last_connected_at => Time.now)
+    if params[:id]
+      User.find(params[:id]).update_attributes(:last_connected_at => Time.now)
+    end
     logout_killing_session!
     #flash[:notice] = I18n.t('user.session.logout_notice')
     redirect_back_or_default('/')

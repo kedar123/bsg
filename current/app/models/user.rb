@@ -114,20 +114,20 @@ class User < ActiveRecord::Base
 
   # Validationof the presence of these attributes
   #validates_presence_of :login,:message=>"First Name Or Last Name Can't Be Blank"
-  validates_presence_of :email, :system_role_id
-	validates_presence_of     :password, :on => :create
-	validates_presence_of     :password_confirmation, :on => :create
+  validates_presence_of      :email, :system_role_id,:message=>"Please Enter Email"
+	validates_presence_of     :password, :on => :create,:message=>"Please Enter Password"
+	validates_presence_of     :password_confirmation, :on => :create,:message=>"Please Enter Confirm Password"
 	# Validation of the confirmation of this attribute
-	validates_confirmation_of :password, :on => :create
+	validates_confirmation_of :password, :on => :create,:message=>"Please Enter Password And Confirm Password Correctly"
 	# Validation of the uniqueness of these attributes
   validates_uniqueness_of   :login,     :case_sensitive => false, :on => :create,:message=>"First Name Or Last Name Is Already Taken"
-	validates_uniqueness_of   :email,    :case_sensitive => false, :on => :create
+	validates_uniqueness_of   :email,    :case_sensitive => false, :on => :create,:message=>"Please Enter Email"
 	# Validation of the length of these attributes
   validates_length_of       :login,     :within => 3..40,:message=>"Enter Valid First Name Or Last Name"
-	validates_length_of       :email,    :within => 6..40
+	validates_length_of       :email,    :within => 6..40,:message=>"Email Is Too Short"
 	# Validation of the format of these fields
   validates_format_of       :login,    :with => /\A[0-9A-Za-z_\.-]+\z/,:message=>"Please Enter Valid First Name Or Last Name"
-	validates_format_of       :email,    :with => RE_EMAIL_OK
+	validates_format_of       :email,    :with => RE_EMAIL_OK,:message=>"Please Check The Format Of Email"
 
   # Encrypt the password before storing in the database
 	before_save :encrypt_password
@@ -358,10 +358,15 @@ class User < ActiveRecord::Base
   end
 
 	def auto_login
+     chars = 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+     extrachar = ''
+     extrachar << chars[rand(chars.size)] 
+     extrachar << chars[rand(chars.size)] 
+     extrachar << chars[rand(chars.size)] 
 		i = 0
 		if self.profile && self.profile.first_name && self.profile.last_name
 			until self.login
-				check = "#{self.profile.first_name[0..i].downcase.underscore}.#{self.profile.last_name.downcase.underscore}"
+				check = "#{self.profile.first_name[0..i].downcase.underscore}.#{self.profile.last_name.downcase.underscore}"+extrachar
 				if !User.exists?(:login => check)
 					self.login = check
 				end

@@ -125,24 +125,23 @@
 }
 
 .field-from{
-	min-width:185px;
+	min-width:230px;
 	}
 	
 .field-subject{
-	min-width:355px;
+	min-width:275px;
 }
 
 .head-subject{
-	min-width:355px;
+	min-width:315px;
 }
-
 .field-lable{
 	min-width:25px;	
 }
 
 .field-date{
 	text-align:right;
-	width:115px;
+	width:143px;
 	padding-right:5px;
 
 }
@@ -170,7 +169,7 @@ margin-right:-14px;
 	<div class="blockElementHeader sixH">
 	<input type="hidden" name="selected_label" value="" id="selected_label">
 	  <span ><ul class="mm-field" id="mail-head">
-    <li class="field-checkbox fc">     
+    <li class="field-checkbox fc" style="border:0px;">     
 <%checkboxsentarrayname = []%>
 <%msglength=0%>
 <%trash_mail_detail.each do |msg| 
@@ -217,7 +216,7 @@ margin-right:-14px;
                                               </li>
 	                                      	    <li class="field-from"><%=h message.author.email %></li>
                                         	    <li class="field-subject">
-                                        	    <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%>
+                                        	    <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message", :id => message.id }%>
                                         	    
                                         	    </li>
                                       	   
@@ -238,7 +237,7 @@ margin-right:-14px;
                                               </li>
 	                                      	    <li class="field-from"><%=h message.author.email %></li>
                                         	    <li class="field-subject">
-                                        	    <%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%>
+                                        	    <%= link_to_remote truncate(message.subject,45) ,:update => "",:url => { :action => "show_message", :id => message.id }%>
                                         	    
                                         	    </li>
                                       	   

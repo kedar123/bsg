@@ -124,15 +124,15 @@
 }
 
 .field-from{
-	min-width:148px;
+	min-width:230px;
 	}
 	
 .field-subject{
-	min-width:355px;
+	min-width:275px;
 }
 
 .head-subject{
-	min-width:395px;
+	min-width:315px;
 }
 
 .field-lable{
@@ -141,7 +141,7 @@
 
 .field-date{
 	text-align:right;
-	width:126px;
+	width:143px;
 	padding-right:5px;
 
 }
@@ -362,8 +362,8 @@ function set_the_signature(signature)
 <form action="/admin/delete_all_email" name="myform" method="post">
 	<div class="blockElementHeader sixH">
 	<input type="hidden" name="selected_label" value="" id="selected_label">
-	  <span ><ul class="mm-field" id="mail-head">
-    <li class="field-checkbox fc"> <%=check_box_tag "delete_all_message" ,0,false,{:onClick=>"select_all_checkbox(#{@messages.length},#{checkboxarraynamestring});",:class=>'mm-cb'}%></li>
+	  <span ><ul class="mm-field" id="mail-head"  >
+    <li class="field-checkbox fc" style="border:0px;"> <%=check_box_tag "delete_all_message" ,0,false,{:onClick=>"select_all_checkbox(#{@messages.length},#{checkboxarraynamestring});",:class=>'mm-cb'}%></li>
   
    <li class="head-from field-from">From</li>
     <li class="head-subject field-subject">Subject</li>
@@ -383,18 +383,13 @@ function set_the_signature(signature)
      <div class="bsg-right">
     <ul> 
    	<%for message in @messages%>
-                                        	<ul class="mm-field">					
-                                              <li class="field-checkbox fc">    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>
-	                                      	    <li class="field-from"><%=h message.author.login %></li>
-                                        	    <li class="field-subject"><%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%></li>
-                                      	    <li class="field-lable">
-                                      	      <%if message.labeled == true%>
-                                                <span style="color: #F79646;"><%=message.emaillabel.labelname%></span>
-                                              <%else%>   
-                                              <%end%>
-                                             </li>
-                                        	    <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
-                                            </ul>
+             <ul class="mm-field">					
+                <li class="field-checkbox fc">    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>
+	          <li class="field-from"><%=h message.author.email %></li>
+                    <li class="field-subject"><%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message", :id => message.id }%></li>
+
+                      <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
+              </ul>
                         								<%end%>   
       </ul>
                                    </div>
@@ -412,7 +407,7 @@ function set_the_signature(signature)
 
 
 </div>    
-<div style="width:592px;height:110%;padding-left:0px;margin:40px;clear:both" id="show_details">
+<div style="width:592px;height:110%;padding-left:0px;margin:40px;padding-top:1px;margin-top:1px; clear:both" id="show_details">
 </div>
 
 

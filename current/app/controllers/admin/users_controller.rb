@@ -26,6 +26,9 @@ class Admin::UsersController < Admin::ApplicationController
 	end
 
 	def show
+    
+    
+    
 		@current_object = User.find(params[:id])
 		@profile = @current_object.profile
 		respond_to do |format|
@@ -34,7 +37,12 @@ class Admin::UsersController < Admin::ApplicationController
 	end
 
 	def new
-		@current_object = User.new
+   	@current_object = User.new
+    if params[:email]
+       @current_object.email = params[:email]
+    end
+    
+    
 		if (!current_user && is_allowed_free_user_creation?) || (current_user && @current_object.has_permission_for?('new', @current_user, current_container))
 			@current_object.build_profile if @current_object.profile.nil?
 			respond_to do |format|
@@ -72,11 +80,11 @@ class Admin::UsersController < Admin::ApplicationController
      if logged_in?
  	    admin_logged_in=current_user
      end
-	@current_object = User.new(params[:user])
+	  @current_object = User.new(params[:user])
 		@current_object.build_profile if @current_object.profile.nil?
 		if (!current_user && is_allowed_free_user_creation?) || (current_user && @current_object.has_permission_for?('new', @current_user, current_container))
 			if @current_object.login.nil?
-				@current_object.auto_login
+			   @current_object.auto_login
 			end
 			@current_object.profile.email_address = @current_object.email if @current_object.profile
 			@current_object.system_role_id = Role.find(:first, :conditions => { :name => 'competitor' }).id if !@current_object.system_role_id || !@current_user.has_system_role("admin")
@@ -92,7 +100,11 @@ class Admin::UsersController < Admin::ApplicationController
 						session[:latest_register] = false
 						   flash[:notice]="User Has Been Successfully created"
 						   self.current_user = admin_logged_in
-                           redirect_to admin_profiles_path
+                email= UserMailer.create_admin_register_user(@current_object)
+                UserMailer.deliver(email)
+                 Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
+               
+               redirect_to admin_profiles_path
                            return
                         end
 						if session[:compredirecid].blank?
@@ -107,17 +119,29 @@ class Admin::UsersController < Admin::ApplicationController
 						  redirect_to "/competitions/"+session[:compredirecid]
 						  session[:compredirecid] = nil
 				       return
-				                
-                        end
+				    end
                         
 				        else
-						flash[:error] = I18n.t('user.new.flash_error')
+                  @current_object.errors.each do |attr,msg|
+                p msg
+              end
+						flash[:error] = I18n.t('user.new.flash_error') + " " +@current_object.errors.first[1]
 						if !@current_user
+              
+
 							format.html { render :template => "#{RAILS_ROOT}/vendor/engines/gallery_front/app/views/visitors/new.html.erb", :layout => 'front' }
 						else
 							format.html { render :action => :new }
-						end
-				        end
+            end
+        
+             @current_object.errors.each do |attr,msg|
+                
+                p msg
+                
+              end
+				      
+            end
+                
 			        end
 		else
 			no_permission_redirection

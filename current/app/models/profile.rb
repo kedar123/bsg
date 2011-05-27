@@ -14,19 +14,19 @@ class Profile < ActiveRecord::Base
   has_many :contacts_workspaces, :as => :contactable, :dependent => :destroy
 
 	#acts_as_searchable :full_text_fields => [:firstname, :lastname], :conditionnal_attribute => []
-  validates_uniqueness_of :email_address
-  validates_presence_of :first_name, :last_name
-  validates_presence_of :suburb
-  validates_presence_of :zip_code
+  validates_uniqueness_of :email_address,:message=>"Email Is Already Taken"
+  validates_presence_of :first_name, :last_name,:message=>"Please Enter First Name And Last Name"
+  validates_presence_of :suburb,:message=>"Please Enter Suburb"
+  validates_presence_of :zip_code,:message=>"Please Enter Zip Code"
 		
 	# Validation of the format of these fields
-  validates_format_of :first_name, :last_name, :with => /\A(#{ALPHA_AND_EXTENDED}|#{SPECIAL})+\Z/, :allow_blank => false
+  validates_format_of :first_name, :last_name, :with => /\A(#{ALPHA_AND_EXTENDED}|#{SPECIAL})+\Z/, :allow_blank => false,:message=>"Please Check The First Name"
 
-  validates_format_of       :address, :with => /\A(#{ALPHA_AND_EXTENDED}|#{SPECIAL}|#{NUM})+\Z/, :allow_blank => false
+  validates_format_of       :address, :with => /\A(#{ALPHA_AND_EXTENDED}|#{SPECIAL}|#{NUM})+\Z/, :allow_blank => false,:message=>"Please Check The Address"
 	#validates_not_format_of   :address, :with => /(#{SCRIPTING_TAGS})/, :allow_blank => true
-  validates_length_of       :phone_number, :in => 7..20, :allow_blank => false
+  validates_length_of       :phone_number, :in => 7..20, :allow_blank => false,:message=>"Please Enter Valid Phone Number"
   validates_format_of       :phone_number, :with => /(#{PHONE})/, :allow_blank => true
-  validates_format_of			:website, :with => /(#{URL})/, :allow_blank => true
+  validates_format_of			:website, :with => /(#{URL})/, :allow_blank => true,:message=>"Please Enter Valid Website"
 
 	after_create :add_to_admin_contacts
 

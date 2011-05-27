@@ -318,11 +318,11 @@ jQuery(document).ready(function(){
 				                  <li><a href="/mailing_list" class="liselected">Mailing List</a></li>
 			                  <%else%>
 				
-				                  <%if params[:controller] == "visitors" and params[:action] == "adding_profile" and params[:profile][:studios].blank?%>	
-			                         <li><a href="/mailing_list" class="liselected">Mailing List</a></li>
-			                        <%else%>		
-				                  <li><a href="/mailing_list" >Mailing List</a></li>
-			                        <%end%>	
+				                  <%if params[:profile] && params[:profile][:studio].blank?%>
+				                  <li><a href="/mailing_list" class="liselected">Mailing List</a></li>
+                                                  <%else%>
+                                                  <li><a href="/mailing_list" >Mailing List</a></li>
+                                                  <%end%>
 			                          
 			                  <%end%>
                   <!--			<%#if  params[:controller] == "booksshops" and params[:action] == "index"%>	
@@ -334,11 +334,15 @@ jQuery(document).ready(function(){
 			                  <%if  params[:controller] == "visitors" and params[:action] == "studios"%>	
 				                  <li><a href="/studios" class="liselected">Studios</a></li>
 			                  <%else%>
-			                       <%if params[:controller] == "visitors" and params[:action] == "adding_profile" and !params[:profile][:studios].blank?%>	
-			                         <li><a href="/studios" class="liselected">Studios</a></li>
-			                        <%else%>		
-				                  <li><a href="/studios">Studios</a></li>
-			                        <%end%>	
+                                                  
+                                                  
+                                                  <%if params[:profile] && params[:profile][:studio] == 'true'%>
+				                  <li><a href="/studios" class="liselected">Studios</a></li>
+                                                  <%else%>
+                                                  <li><a href="/studios">Studios</a></li>
+                                                  <%end%>
+                                                  
+                                                  
 			                  <%end%>
 
 			                  <%if  params[:controller] == "drawings" and params[:action] == "index"%>	

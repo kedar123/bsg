@@ -95,12 +95,12 @@ class Admin::NewslettersController < ApplicationController
           newlem.save
         end
     end
+    #in future i think i need to call this method by cron tab but currently as discussed with amit sir im sending email  immedietly
+    send_news_letter_category_wise
     flash[:notice] = "Email Sent To Users"
     redirect_to "/admin/profiles"
   end
-  
   def send_news_letter_category_wise
-      
        nlm = Newsletteremail.find(:all,:conditions=>["emailsend is null"],:limit=>1)
        for nl in nlm
          begin
@@ -110,8 +110,6 @@ class Admin::NewslettersController < ApplicationController
             cip= node.get_attribute('src')
             node.set_attribute('src',"http://#{request.host_with_port}/"+cip)
           end
-          p "i set the attributes"
-          p doc.to_html
           email= UserMailer.create_send_emailnewsletter(nl.newsletter.title,doc.to_html,nl.user)
           UserMailer.deliver(email)
          rescue
@@ -119,7 +117,7 @@ class Admin::NewslettersController < ApplicationController
          nl.emailsend = true
          nl.save
        end
-       render :nothing=>true 
+   #    render :nothing=>true 
   end
   
   

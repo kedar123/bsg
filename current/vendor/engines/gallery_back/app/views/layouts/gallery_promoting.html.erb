@@ -80,86 +80,89 @@
 	      <%#= render :partial => "layouts/gallery_header_promoting"%>
 	      <div id="menuAndSearch">
     <ul id="topMenu">
-       	<%if current_user.login == "admin" ||  current_user.login == "superadmin"%>
+             <% if @current_user.has_system_role('admin') %>
+                <li>
+                  <div class="menuLabel"><%= link_to 'Contacts', admin_profiles_path %></div>
+                 </li>
+                  
+                       
+              <% else %>
+                <li>
+                  <div class="menuLabel"><%= link_to 'My perso info',"/admin/profiles/#{@current_user.id}" %></div>
+		</li>
+              <% end %>
+
+        
+        
+         <% if @current_user.has_system_role('admin') %>
         <li>
             <a href="#" class="menuDropButton"><img src="/images/icons/white_down.png"/></a>
-                   <div id="addSubMenu" class="subMenu">
-                         <div class="subMenuContent">
-                                <div class="subMenuLogo">
-                                    <img src="/images/icons/add_128.png"/>
-                                    <p><%= I18n.t('layout.menu.add_help') %></p>
-                                </div>
-                            <div class="subMenuCol">
-                            	<%if current_user.login == "admin" ||  current_user.login == "superadmin"%>
-                                        <h3>Add Items</h3>
-                                                    <ul>
-                                                                <li>
-                                                                        <a href="/admin/artworks/new">Artwork</a>
-                                                                </li>
-				                                                <li>
-                                                                        <a href="/admin/competitions/new">Competition</a>
-                                                                </li>
-                                                				<li>
-                                                                        <a href="/admin/exhibitions/new">Exhibition</a>
-                                                                </li>
-                                                				<li>
-                                                                        <a href="/admin/galleries/new">Gallery</a>
-                                                                </li>
-                                                				<li>
-                                                                        <a href="/admin/newsletters/new">Newsletter</a>
-                                                                </li>
-		                                        			
-		                                		                <li>
-                                                                        <a href="/admin/front_end_pics/new">Front End Pics</a>
-                                                                </li>
-		                                		                <li>
-                                                                        <a href="/admin/promoting_stuffs/new">Promoting Stuff</a>
-                                                                </li>
-                                                                <li>
-                                                                        <a href="/admin/booksshops/new">Book Shop</a>
-                                                                </li>
-                                                                 <li>
-                                                                        <a href="/admin/drawings/new">Life Drawing</a>
-                                                                 </li>
-                                                                 <li>
-                                                                            <a href="/admin/app_homes/new">Application</a>
-                                                                </li>
-			                                            
-                                                            	  <li>
-                                                                              <a href="/admin/links/new">Link</a>
-                                                                </li>
-                                                                 <li>
-                                                                              <a href="/admin/signature">Signature</a>
-                                                                </li>
-                                                                
-                                                                
-                                                </ul>
-                                                	<%end%>
-                            </div><%#submenucolumn is ended here%>
-                    <div class="subMenuCol">
-                      <% if false %>
-                        <h3><%= I18n.t('layout.application.add_containers') %></h3>
-                        <ul>
-                            <% available_containers.each do |container| %>
-                                <% if @current_user.has_system_permission(container, 'new') -%>
-                                    <li><%= link_to I18n.t("general.container.#{container}"), new_container_path(container) %></li>
-                                <% end -%>
-                            <% end %>
-                        </ul>
-                        <% end %>
-                        <% if @current_user.has_system_permission('user', 'new') -%>
-                          <h3><%= I18n.t('layout.application.add_people') %></h3>
-                          <ul>
-                            <li><%= link_to I18n.t('general.object.user').capitalize, new_admin_user_path %></li>
-                          </ul>
-                        <% end -%>
+            <div id="configureSubMenu" class="subMenu">
+                <div class="subMenuContent">
+                    <div class="subMenuLogo">
+                        <img src="/images/icons/settings_128.png"/>
+                        <p><%= I18n.t('layout.menu.configure_help') %></p>
+                        <% if (available_languages.size > 1) -%>
+                            <p><%= I18n.t('layout.application.change_language')%>&nbsp;&nbsp;</p>
+                            <p><%= select_language(  :languages => available_languages,
+                                    :params_name => 'locale') %>
+                            </p>
+                        <%end-%>
                     </div>
-                </div>
-            </div>
-            <div class="menuLabel"><%= I18n.t('layout.menu.add') %></div>
-        </li>
-    <%end%>    
-         	<%if current_user.login == "admin" ||  current_user.login == "superadmin"%>
+
+                                <div class="subMenuCol">
+                                  <h3>Users Informations</h3>
+				        <ul>
+                                              
+                                              <li><%= link_to 'All invoices', admin_invoices_path %></li>
+				        </ul>
+                                        <ul>
+                                           <li>
+                                             <a href="/admin/send_news_letter">Send News Letter </a>
+                                           </li>
+                                        </ul>  
+				        <br/><br/>
+				        <p><img src="/images/icons/exit.png" width="20px" class="logoutPic"/><%= link_to I18n.t('layout.application.logout'), admin_logout_path, :class => 'bigLink' %></p>
+			    	</div>
+                            <% if @current_user.has_system_role('admin') %>
+			    	<div class="subMenuCol">
+                                        <h3>Administration</h3>
+				        <ul>
+				              <% available_containers.each do |container| %>
+				                <% if @current_user.has_system_permission(container, 'new') -%>
+				                  <li><%= link_to I18n.t("user.administration.#{container}_management"), containers_path(container) %></li>
+				                <% end %>
+				              <% end %>
+                                              <li><%= link_to 'Categories', admin_categories_path %></li>
+                                              <li><%= link_to 'Periods', admin_periods_path %></li>
+                                              <li><%= link_to 'Payments', admin_payments_path %></li>
+				        </ul>
+			    	</div>
+                   <% end %>
+                            <% if @current_user.has_system_role('superadmin') %>
+			      	<div class="subMenuCol">
+						  <h3>Superadmin</h3>
+			              <ul>
+                                          <li><%= link_to "Audits", superadmin_audits_path %></li>
+			                  <li><%= link_to "Action Mailer Settings", superadmin_mailer_settings_path %></li>
+			                  <li><%= link_to "General Settings", superadmin_general_settings_path %></li>
+			                  <li><%= link_to "Google Analytic Settings", superadmin_google_analytics_path %></li>
+			                  <li><%= link_to "Roles & Permissions", superadmin_roles_path %></li>
+			                  <li><%= link_to "Translations", superadmin_translations_path %></li>
+			                  <li><%= link_to "Tasks", superadmin_tasks_path %></li>
+			                  <li><%= link_to "User Interface", superadmin_user_interfaces_path %></li>
+			              </ul>
+					    </div>
+					  <% end %>
+				</div>
+			</div>
+			<div class="menuLabel"><%= I18n.t('layout.menu.configure') %></div>
+		</li>
+                <% end %>
+               
+                  
+                  
+                         	<%if current_user.login == "admin" ||  current_user.login == "superadmin"%>
         <li>
             <a href="#" class="menuDropButton"><img src="/images/icons/white_down.png"/></a>
             <div id="modifySubMenu" class="subMenu">
@@ -237,94 +240,99 @@
                 <%end%>    
         </li>
         
-        <%end%>
-        
-        
-         <% if @current_user.has_system_role('admin') %>
+        <%end%>  
+                  
+                  
+           	<%if current_user.login == "admin" ||  current_user.login == "superadmin"%>
         <li>
             <a href="#" class="menuDropButton"><img src="/images/icons/white_down.png"/></a>
-            <div id="configureSubMenu" class="subMenu">
-                <div class="subMenuContent">
-                    <div class="subMenuLogo">
-                        <img src="/images/icons/settings_128.png"/>
-                        <p><%= I18n.t('layout.menu.configure_help') %></p>
-                        <% if (available_languages.size > 1) -%>
-                            <p><%= I18n.t('layout.application.change_language')%>&nbsp;&nbsp;</p>
-                            <p><%= select_language(  :languages => available_languages,
-                                    :params_name => 'locale') %>
-                            </p>
-                        <%end-%>
+                   <div id="addSubMenu" class="subMenu" style="width:650px;">
+                         <div class="subMenuContent">
+                                <div class="subMenuLogo">
+                                    <img src="/images/icons/add_128.png"/>
+                                    <p><%= I18n.t('layout.menu.add_help') %></p>
+                                </div>
+                            <div class="subMenuCol">
+                            	<%if current_user.login == "admin" ||  current_user.login == "superadmin"%>
+                                        <h3>Add Items</h3>
+                                                    <ul>
+                                                                <li>
+                                                                        <a href="/admin/artworks/new">Artwork</a>
+                                                                </li>
+				                                                <li>
+                                                                        <a href="/admin/competitions/new">Competition</a>
+                                                                </li>
+                                                				<li>
+                                                                        <a href="/admin/exhibitions/new">Exhibition</a>
+                                                                </li>
+                                                				<li>
+                                                                        <a href="/admin/galleries/new">Gallery</a>
+                                                                </li>
+                                                				<li>
+                                                                        <a href="/admin/newsletters/new">Newsletter</a>
+                                                                </li>
+		                                        			
+		                                		                <li>
+                                                                        <a href="/admin/front_end_pics/new">Front End Pics</a>
+                                                                </li>
+		                                		                <li>
+                                                                        <a href="/admin/promoting_stuffs/new">Promoting Stuff</a>
+                                                                </li>
+                                                                <li>
+                                                                        <a href="/admin/booksshops/new">Book Shop</a>
+                                                                </li>
+                                                                 <li>
+                                                                        <a href="/admin/drawings/new">Life Drawing</a>
+                                                                 </li>
+                                                                 <li>
+                                                                            <a href="/admin/app_homes/new">Application</a>
+                                                                </li>
+			                                            
+                                                            	  <li>
+                                                                              <a href="/admin/links/new">Link</a>
+                                                                </li>
+                                                                 <li>
+                                                                              <a href="/admin/signature">Signature</a>
+                                                                </li>
+                                                                
+                                                                
+                                                </ul>
+                                                	<%end%>
+                            </div><%#submenucolumn is ended here%>
+                    <div class="subMenuCol">
+                      <% if false %>
+                        <h3><%= I18n.t('layout.application.add_containers') %></h3>
+                        <ul>
+                            <% available_containers.each do |container| %>
+                                <% if @current_user.has_system_permission(container, 'new') -%>
+                                    <li><%= link_to I18n.t("general.container.#{container}"), new_container_path(container) %></li>
+                                <% end -%>
+                            <% end %>
+                        </ul>
+                        <% end %>
+                        <% if @current_user.has_system_permission('user', 'new') -%>
+                          <h3><%= I18n.t('layout.application.add_people') %></h3>
+                          <ul>
+                            <li><%= link_to I18n.t('general.object.user').capitalize, new_admin_user_path %></li>
+                          </ul>
+                        <% end -%>
                     </div>
-
-                                <div class="subMenuCol">
-                                  <h3>Users Informations</h3>
-				        <ul>
-                                              
-                                              <li><%= link_to 'All invoices', admin_invoices_path %></li>
-				        </ul>
-                                        <ul>
-                                           <li>
-                                             <a href="/admin/send_news_letter">Send News Letter </a>
-                                           </li>
-                                        </ul>  
-				        <br/><br/>
-				        <p><img src="/images/icons/exit.png" width="20px" class="logoutPic"/><%= link_to I18n.t('layout.application.logout'), admin_logout_path, :class => 'bigLink' %></p>
-			    	</div>
-                            <% if @current_user.has_system_role('admin') %>
-			    	<div class="subMenuCol">
-                                        <h3>Administration</h3>
-				        <ul>
-				              <% available_containers.each do |container| %>
-				                <% if @current_user.has_system_permission(container, 'new') -%>
-				                  <li><%= link_to I18n.t("user.administration.#{container}_management"), containers_path(container) %></li>
-				                <% end %>
-				              <% end %>
-                                              <li><%= link_to 'Categories', admin_categories_path %></li>
-                                              <li><%= link_to 'Periods', admin_periods_path %></li>
-                                              <li><%= link_to 'Payments', admin_payments_path %></li>
-				        </ul>
-			    	</div>
-                   <% end %>
-                            <% if @current_user.has_system_role('superadmin') %>
-			      	<div class="subMenuCol">
-						  <h3>Superadmin</h3>
-			              <ul>
-                                          <li><%= link_to "Audits", superadmin_audits_path %></li>
-			                  <li><%= link_to "Action Mailer Settings", superadmin_mailer_settings_path %></li>
-			                  <li><%= link_to "General Settings", superadmin_general_settings_path %></li>
-			                  <li><%= link_to "Google Analytic Settings", superadmin_google_analytics_path %></li>
-			                  <li><%= link_to "Roles & Permissions", superadmin_roles_path %></li>
-			                  <li><%= link_to "Translations", superadmin_translations_path %></li>
-			                  <li><%= link_to "Tasks", superadmin_tasks_path %></li>
-			                  <li><%= link_to "User Interface", superadmin_user_interfaces_path %></li>
-			              </ul>
-					    </div>
-					  <% end %>
-				</div>
-			</div>
-			<div class="menuLabel"><%= I18n.t('layout.menu.configure') %></div>
-		</li>
-                <% end %>
-
-                <% if @current_user.has_system_role('admin') %>
-               
-                <li>
-                  <div class="menuLabel"><%= link_to 'Contacts', admin_profiles_path %></div>
-            		</li>
-                								<li>
-                    <div class="menuLabel"><%= link_to 'Invoice', admin_invoices_path %></div>
-                   
-            		</li>      
-      
-                <% else %>
-                <li>
-            <div class="menuLabel"><%= link_to 'My perso info',"/admin/profiles/#{@current_user.id}" %></div>
-		</li>
-                <% end %>
+                </div>
+            </div>
+            <div class="menuLabel"><%= I18n.t('layout.menu.add') %></div>
+        </li>
+    <%end%> 
+    <% if @current_user.has_system_role('admin') %>       
+        <li>
+            <div class="menuLabel">
+              <%=link_to "Mail","/admin/mail" %>
+            </div>
+        </li>            
+    <%end%>    
                 
          <li>
 <div align="right">
-           <%=link_to "Mail","/admin/mail" ,:class=>"mail-text"%>
+           <%= link_to 'Invoice', admin_invoices_path ,:class=>"mail-text"%>
            <%= link_to "<img src='/images/icons/exit.png' width='20px' class='logoutPic'/>", admin_logout_path, :class => 'menuDropButton' %>
 
           </div>

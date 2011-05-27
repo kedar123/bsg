@@ -125,15 +125,15 @@
 }
 
 .field-from{
-	min-width:180px;
+	min-width:230px;
 	}
 	
 .field-subject{
-	min-width:315px;
+	min-width:275px;
 }
 
 .head-subject{
-	min-width:364px;
+	min-width:315px;
 }
 
 .field-lable{
@@ -142,7 +142,7 @@
 
 .field-date{
 	text-align:right;
-	width:158px;
+	width:143px;
 	padding-right:5px;
 
 }
@@ -172,7 +172,7 @@ margin-right:-14px;
 	<div class="blockElementHeader sixH">
 	<input type="hidden" name="selected_label" value="" id="selected_label">
 	  <span ><ul class="mm-field" id="mail-head">
-    <li class="field-checkbox fc">     
+    <li class="field-checkbox fc" style="border:0px;">     
              <%checkboxarrayname = []%>
 <%inbox_messages.each do |msg| checkboxarrayname <<  "delete_message"+msg.id.to_s end%>
 <%checkboxarraynamestring= "["+(checkboxarrayname * ",")+"]" %>
@@ -200,7 +200,7 @@ margin-right:-14px;
                                         	<ul class="mm-field">					
                                               <li class="field-checkbox fc">    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>
 	                                      	    <li class="field-from"><%=h message.author.email %></li>
-                                        	    <li class="field-subject"><%= link_to_remote message.subject ,:update => "",:url => { :action => "show_message", :id => message.id }%></li>
+                                        	    <li class="field-subject"><%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message", :id => message.id }%></li>
                                       	   
                                         	    <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
                                             </ul>

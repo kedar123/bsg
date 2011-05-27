@@ -1,10 +1,10 @@
 <% form_for ['admin',@current_object], :builder => BlankFormBuilder, :url => @current_object.new_record? ? admin_users_path : admin_user_path(@current_object), :html => { :multipart=> true } do |f| -%>
 
   <% blank_main_div(:title => "User #{@current_object.new_record? ? 'creation' : 'edition'}") do %>
-      <% f.field :avatar,
+      <%# f.field :avatar,
         :label => I18n.t('user.field.photo_label')+" : " do %>
-        <%= file_field 'user', 'avatar', :class => 'file' %>
-      <% end %>
+        <%#= file_field 'user', 'avatar', :class => 'file' %>
+      <% #end %>
 
       <%= f.text_field :email,
         :label => I18n.t('user.field.email_label')+" * : ",
@@ -43,105 +43,5 @@
 
 <% end %>
 
-  <div class="rightBlocks">
-    <div class="itemShowRightBlock">
-      <% if @current_object.new_record? %>
-        <%= I18n.t('general.field.created_at')+' '+I18n.l(Time.now, :format => :verb) %>
-      <% else %>
-        <%= I18n.t('general.field.created_at')+' '+I18n.l(@current_object.created_at, :format => :verb) %><br />
-        <%= I18n.t('general.field.updated_at')+' '+I18n.l(@current_object.updated_at, :format => :verb) %>
-      <% end %>
-    </div>
 
-        <div class="itemShowRightBlock">
-		<div class="blockCornerLeft"></div><div class="blockElementHeader twoH">Actions</div><div class="blockCornerRight"></div>
-        <div class="blockElementBody">
-          <%= link_to("Back to the list", admin_users_path) if @current_user.has_system_role('admin')   %>
-          <% if !@current_object.new_record? %>
-          <%= link_to "Show", admin_user_path(@current_object) %>
-          <%#= link_to I18n.t('general.object.comment').pluralize.capitalize, admin_comments_path %>
-          <%#= link_to I18n.t('rating.index.link').pluralize, admin_ratings_path %>
-          <%#= link_to I18n.t('general.notification.link'), admin_user_notifications_path(@current_object) %>
-          <% if @current_object.has_permission_for?('destroy', @current_user, @current_container) %>
-          <% if @current_object.activation_code.to_s.size > 10 %>
-          <%#= link_to I18n.t('general.link.delete'), "javascript:;",
-              :class => "deleteLink",
-              :modal_id => "#modalDelete_#{@current_object.id.to_s}"
-          %>
-            <div style="display:none">
-              <div id="modalDelete_<%=@current_object.id.to_s%>" class="modalDelete">
-                <p>I18n.t('general.common_word.confirmation')</p>
-                <%= link_to I18n.t('general.common_word.yes1'), admin_user_path(@current_object.id), :method => :delete%> |
-                <%= link_to I18n.t('general.common_word.no1'), "javascript:;", :class => "deleteClose" %>
-              </div>
-            </div>
-          <% else %>
-          <%= link_to (@current_object.activation_code=='locked' ? 'Unlock' : 'Lock'), locking_admin_user_path(@current_object.id) %>
-          <% end %>
-          <%end%>
-          <% end %>
-        </div>
-    </div>
-
-
-    <% if @current_user && @current_user.has_system_role("admin") %>
-      <div class="itemShowRightBlock">
-        <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
-          <%=I18n.t('user.field.system_role_id_label')%> <!-- TODO HINT -->
-        </div><div class="blockCornerRight"></div>
-        <div class="blockElementBody">
-          <%= f.select 	:system_role_id,
-            Role.find(:all, :conditions => { :type_role => 'system' }).reverse.map{ |e| [I18n.t('general.role.'+e.name), e.id] }+['--------------', nil],
-            :label => " "
-          %>
-          <%= ajax_error_message_on(@current_object, "system_role_id") %>
-        </div>
-      </div>
-    <% end %>
-
-  <%# if !@current_object.new_record? && @current_object.has_permission_for?('configure', @current_user, 'workspace') -%>
-
-    <div class="itemShowRightBlock">
-      <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
-        User interface settings<!-- TODO HINT -->
-      </div><div class="blockCornerRight"></div>
-      <div class="blockElementBody">
-  <%# if !@current_object.new_record? && @current_object.has_permission_for?('configure', @current_user, 'workspace') -%>
-        <% if (list = available_languages).size > 1 %>
-          <p>
-            language :
-            <select id="user_u_language" name="user[u_language]">
-              <% list.each do |l| %>
-                <option value="<%= l%>"><%= I18n.t('general.language.'+l)%></option>
-              <%end-%>
-            </select>
-          </p>
-        <% end %>
-        <% if (list = available_layouts).size > 1 %>
-          <p>
-            layout :
-            <select id="user_u_layout" name="user[u_layout]">
-              <% list.each do |l| %>
-                <option value="<%= l%>"><%= l %></option>
-              <%end-%>
-            </select>
-          </p>
-        <% end %>
-        <p>
-          <%= I18n.t('user.field.results_per_page_label')+" : "%>
-          <select>
-            <option value="10">10</option>
-            <option value="20">30</option>
-            <option value="30">60</option>
-          </select>
-        </p>
-      <%end%>
-    </div>
-  </div>
-<%# else -%>
-<%#= f.hidden_field(:u_layout, :value=>@configuration['sa_default_layout'].to_s) %>
-<%#= f.hidden_field(:u_language, :value=>@configuration['sa_default_language'].to_s) %>
-<%#= f.hidden_field(:u_per_page, :value=>@configuration['sa_per_page_default'].to_s) %>
-<%# end -%>
-</div>
-<%# end -%>
+<% end -%>

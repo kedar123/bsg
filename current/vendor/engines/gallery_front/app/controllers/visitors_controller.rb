@@ -65,7 +65,7 @@ class VisitorsController < ApplicationController
 			   @studiosndmailinglist.mailing_list=false
        	else
  		       @studiosndmailinglist.mailing_list=true
- 	           @studiosndmailinglist.studio=false
+ 	         @studiosndmailinglist.studio=false
 		end
 	   if  !StudioAndMailingList.find(:first,:conditions=>["email_address = ? and studio = ? and mailing_list = ?",@studiosndmailinglist.email_address,@studiosndmailinglist.studio,@studiosndmailinglist.mailing_list]).blank?
 		       flash[:notice] = "Record Is Already There"
@@ -73,19 +73,19 @@ class VisitorsController < ApplicationController
              if @studiosndmailinglist.save
 			         flash[:notice] = "Your Name Was Added To Email List"
 			            if !params[:profile][:studio].blank?
-			                 	     QueuedMail.add('UserMailer', 'studio_notification',[@studiosndmailinglist.email_address,@studiosndmailinglist.first_name + " " + @studiosndmailinglist.last_name], 0, true)
+			                 	 QueuedMail.add('UserMailer', 'studio_notification',[@studiosndmailinglist.email_address,@studiosndmailinglist.first_name + " " + @studiosndmailinglist.last_name], 0, true)
                         else
-                 		  	         QueuedMail.add('UserMailer', 'mailing_list_notification',[@studiosndmailinglist.email_address,@studiosndmailinglist.first_name + " " + @studiosndmailinglist.last_name], 0, true)	
+                 		  	 QueuedMail.add('UserMailer', 'mailing_list_notification',[@studiosndmailinglist.email_address,@studiosndmailinglist.first_name + " " + @studiosndmailinglist.last_name], 0, true)	
 			            end
 			            redirect_to('/')
 			            return
-			  end        
+            end        
       end 	
       if params[:profile][:studio].blank?
-                     			render :action => 'mailing_list'
-	                        	else
-	                          	render :action => 'studios'
-	                        	end 		     
+       			render :action => 'mailing_list'
+	   	else
+     	render :action => 'studios'
+	   	end 		     
       
 	end
      
