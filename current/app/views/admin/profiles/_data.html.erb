@@ -124,26 +124,30 @@ function ntoggle() {
 	</div>
 
 	<div id="fragment-7">
-          <!--
-			<%#if !@current_object.notices.nil? %>	<br/>	
-<a id="displayText" href="javascript:ntoggle();"><b>Add Notice</b></a><br />				
-			<font size=2pt>    <%#=h @current_object.notices %></font>
-			<%#else%>
-				No Notices for <%#=h @current_object.first_name %>.<br/>
+          
+	<%if !@current_object.notices.blank? %>	<br/>	
+              <a id="displayText" href="javascript:ntoggle();">
+                  <b>Update Notice</b></a>
+        
+                        
+                        <br />				
+			<font size=2pt>    <%=h @current_object.notices %></font>
+			<%else%>
+				No Notices for <%=h @current_object.first_name %>.<br/>
 <a id="displayText" href="javascript:ntoggle();"><b>Change Notice</b></a><br />				
-			<%#end%>
+			<%end%>
 			<div id="notice_add">
-				hii
+			
 			</div>	
-                        -->
+                        
 
 <div id="noticeToggle" style="display: none">
 
 		<font size=1pt>    <%#=h @current_object.biography %></font>
 			<% form_tag(update_notices_admin_profile_path, :method => "put") do %>
 				 <%= label_tag(:q, "Notice:") %> 
-					<%= text_area_tag(:q) %> 
-			<%= submit_tag("Submit") %> 
+					<%= text_area_tag(:notice,@current_object.notices,:cols=>40) %> <br/>
+			<%= submit_tag("Submit",:style=>"width:150px;margin-left:140px;") %> 
 			<% end %>
 
 </div>		

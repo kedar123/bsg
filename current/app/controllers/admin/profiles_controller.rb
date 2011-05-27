@@ -186,10 +186,10 @@ class Admin::ProfilesController < Admin::ApplicationController
 	def update_notices
 	    @current_object = Profile.find(params[:id])
 			#@current_oject.notices = @current_oject.notices
-			 if @current_object.update_attributes!(params[:profile])
-				else
-      end
-			redirect_to back		
+			@current_object.notices = params[:notice]
+      @current_object.save
+			flash[:notice] = "Profile Is Updated"
+			redirect_to :back		
 	end
 
 end
