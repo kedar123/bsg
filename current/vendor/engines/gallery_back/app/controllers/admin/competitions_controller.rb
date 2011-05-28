@@ -113,7 +113,8 @@ after :update do
 			end
 			get_artworks_lists
 			@my_subscription = CompetitionsUser.find(:first,  :conditions => { :user_id => @current_user.id, :competition_id => @current_object.id })
-		end
+		  
+    end
 		
 	end
 

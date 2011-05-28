@@ -41,7 +41,12 @@ function popitup(url) {
               <b><%= @exhibition.title %></b><br/>
               <%= @exhibition.description %>
             </p>
-            
+            <%if @profile.website.blank?%>
+            <%else%>
+            <p>
+               <%= link_to @profile.website, @profile.website, :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+            </p>  
+            <%end%>
             <p>
         <%end%>    
             <div id="exhibs_list"><br/>

@@ -7,8 +7,12 @@ class Admin::ArtworksCompetitionsController < Admin::ApplicationController
 		#redirect_to item_path(@artworks_competition.competition)
         QueuedMail.add('UserMailer', 'artwork_status',[@artworks_competition,@artworks_competition.competitions_user.user], 0, send_now=true)	
 
-		redirect_to :back
 		
+		if request.xhr?
+      render :nothing=>true
+    else
+      redirect_to :back
+    end
 	end
 
 	def set_marks

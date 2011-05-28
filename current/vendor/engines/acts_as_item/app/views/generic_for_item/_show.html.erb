@@ -3,7 +3,14 @@
 
     <%= keywords_links_list_for(@current_object) %>
 
-    <div class="description_comp_show"><b>Description  &nbsp  &nbsp  </b><%= object.description %></div>
+    <div class="description_comp_show">
+        <%if params[:controller] == "admin/competitions"%>
+       <div style="width:180px;float:left">
+      <b>Description   </b></div ><%= object.description %></div>
+        <%else%>
+          
+      <b>Description   </b><%= object.description %></div>
+        <%end%>
 
     <%= capture(&block) %>
 

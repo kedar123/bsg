@@ -17831,4 +17831,1031 @@ N+1 Query method call stack2011-05-27 21:42:32[WARN] N+1 Query detected
 N+1 Query method call stack2011-05-27 21:42:32[WARN] N+1 Query detected
   Exhibition => [:artworks]
   Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:39:58[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:39:58[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:39:58[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:40:16[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:40:16[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:42:49[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:48:59[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:48:59[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:49:19[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:19[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:19[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:49:22[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:22[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:22[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:49:25[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:25[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:25[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:49:28[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:31[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:49:34[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:34[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:49:39[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:39[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:49:49[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:49[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:49:49[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:54[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:49:54[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:49:54[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:01[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:01[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-28 10:50:01[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:50:01[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:09[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:09[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-28 10:50:09[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:50:09[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:16[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:16[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-28 10:50:16[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:50:16[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:22[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:50:25[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:50:39[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:50:41[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:41[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-28 10:50:41[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-28 10:50:41[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:46[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:50:46[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:52:02[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:52:02[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:53:14[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-28 10:53:14[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-28 10:57:46[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
 N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-28 10:57:55[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-05-28 10:59:12[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:217:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:211:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:211:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:189:in `trash_mail'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:188:in `trash_mail'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:217:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:211:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_trash_mail_detail.rhtml:211:in `_run_rhtml_app47views47admin47mail47_trash_mail_detail46rhtml_locals_messages_sent_delete_object_trash_mail_detail'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:189:in `trash_mail'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:188:in `trash_mail'2011-05-28 10:59:32[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:56:in `index'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:55:in `index'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:202:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/_inbox_messages.rhtml:199:in `_run_rhtml_app47views47admin47mail47_inbox_messages46rhtml_locals_inbox_messages_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:56:in `index'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/mail_controller.rb:55:in `index'2011-05-28 11:01:56[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'2011-05-28 11:07:29[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-28 11:07:37[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 11:29:50[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-28 12:00:18[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-28 12:00:18[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-28 12:00:18[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-28 12:08:44[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-28 12:08:44[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-28 12:08:44[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:49:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/blank_lists/_list_element.html.erb:10:in `_run_erb_app47views47admin47blank_lists47_list_element46html46erb_locals_block_date_list_element_object_title'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:220:in `blank_list_element'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:47:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `each'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/_data.html.erb:42:in `_run_erb_app47views47admin47profiles47_data46html46erb_locals_data_object'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:40:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/show.html.erb:16:in `_run_erb_app47views47admin47profiles47show46html46erb'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:48:in `show'2011-05-28 12:09:32[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-28 12:10:48[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 12:12:37[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 12:39:23[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 12:51:40[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 12:53:55[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 13:50:57[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+N+1 Query method call stack2011-05-28 14:03:37[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+N+1 Query method call stack2011-05-28 14:04:12[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+N+1 Query method call stack2011-05-28 14:06:48[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+N+1 Query method call stack2011-05-28 14:07:04[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+N+1 Query method call stack2011-05-28 14:09:18[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+N+1 Query method call stack2011-05-28 14:11:41[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:12:41[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:13:12[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:13:42[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:14:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:17:57[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:20:33[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:27:40[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:28:26[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:28:46[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:29:40[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:31:25[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:49:45[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-28 14:49:51[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:51:11[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:53:25[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:54:06[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:55:08[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 14:57:26[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:01:07[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:02:44[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:04:11[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:11:39[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:12:27[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:12:40[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:12:58[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:14:50[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:15:29[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:15:46[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:16:22[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:16:48[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:17:54[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:17:58[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:18:05[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:19:08[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:19:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:39:21[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:40:44[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:42:15[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:42:57[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:45:22[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:46:24[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:50:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:51:26[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:52:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:52:57[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:54:11[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:54:53[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:56:55[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 15:58:33[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:01:03[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:03:59[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:05:52[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:06:23[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:07:12[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:07:55[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:09:06[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:10:15[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:13:04[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:19:10[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:20:45[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:21:26[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:22:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:24:31[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:31:28[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:35:40[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:36:01[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:36:22[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:39:02[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:39:18[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:39:39[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:48:03[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:53:23[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:54:19[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:56:49[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:57:10[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:57:47[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:58:10[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 16:58:36[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:09:30[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:11:49[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:13:46[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:14:21[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:14:58[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:16:21[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:17:09[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:21:53[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:22:42[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:23:02[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:25:44[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:27:41[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:29:02[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:31:00[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:38:58[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:40:14[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:46:00[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:46:35[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:47:21[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:50:08[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:51:09[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:51:14[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:54:27[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 17:58:28[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:00:28[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:03:19[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:07:24[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:12:12[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:12:37[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:18:40[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:20:52[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:24:31[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:51:36[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:53:11[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:55:13[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:58:26[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:59:18[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 18:59:45[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:28:35[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:29:58[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:32:05[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:34:16[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:35:17[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:37:58[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:39:11[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:14[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:16[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:19[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:21[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:24[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:26[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:29[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:31[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:36[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:39[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:41[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:44[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:47[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:49[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:52[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:40:54[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:42:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:43:24[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:44:51[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:46:20[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:48:53[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:57:28[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 19:59:37[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:01:44[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:01:57[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:02:20[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:02:41[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:03:00[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:03:11[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:06:04[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:06:30[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:08:02[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:16:06[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:22:08[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:22:17[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:23:52[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:32:30[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:34:06[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:34:53[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:41:21[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-28 20:44:50[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-28 20:44:56[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:45:34[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:46:43[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:47:23[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:48:05[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:48:26[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:49:22[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:49:43[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'

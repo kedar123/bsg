@@ -1072,7 +1072,7 @@ a.filter{
 
 .artworkcomp{
 	overflow:auto;
-	height:400px;
+	height:auto;
 	}
 	
 #linkdetails	{

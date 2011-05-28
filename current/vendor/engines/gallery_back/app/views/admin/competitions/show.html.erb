@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="/stylesheets/validationEngine.jquery.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 <link rel="stylesheet" href="/stylesheets/template.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 
@@ -877,9 +878,15 @@
 <%else%>
 <%#else of @my_subscription.blank? %>
 	<% item_show( :title => 'Competition',  :object => @current_object ) do %>
+                                  <div style="width:170px;float:left">
+                                    <b> Deadline for submission </b> 
+                                  </div>
 
-				  <%#*Deadline for submission : <%= @current_object.submission_deadline %>
-				  <%#*<br /><br />%>
+                                <div style="padding-left:180px;width:200px">  
+                                    <%= @current_object.submission_deadline %>
+                                </div>    
+                                 
+				  <br/><br/>
 				          
 				          <div>
 				          
@@ -987,7 +994,7 @@
 																	                                                    <% if @current_object.state == 'results_publish' %>
 																			                                                    <td style="padding-left:10px"> <%= a.mark %></td>
 																			                                             <%end%>       
-															                                       </tr>
+															                                 </tr>
 															                                 <%end%>   
 														                                     <%end%>	 
 														                                     <%end%><%#a.competitions_user!=nil%>
@@ -999,6 +1006,7 @@
 										   </tbody>
 								    <% end %><%#form end%>
 								  </table>
+                                                                <%=render :partial=>"show_slide_show",:locals=>{:firstslide=>@firstslide}%>
 							        </div>	  
 						  <% else %>
 						      No artworks added already ...
@@ -1018,15 +1026,7 @@
         $(document).ready(function() {
         $("#competition_form").validationEngine()
        })
-		
-
-		
-		
 </script>
-
-
-
-
 		
 		
 
@@ -1034,7 +1034,6 @@
 
 
 
-		
 		
 
 
