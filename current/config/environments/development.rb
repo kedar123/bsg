@@ -35,7 +35,7 @@ rescue
 end  
 
 config.reload_plugins = true
-
+ActiveSupport::Deprecation.silenced = true
 #ActiveSupport::Dependencies.explicitly_unloadable_constants << "Admin"
 #ActiveSupport::Dependencies.explicitly_unloadable_constants << "ActsAcItem"
 #ActiveSupport::Dependencies.explicitly_unloadable_constants << "ActsAsContainer"

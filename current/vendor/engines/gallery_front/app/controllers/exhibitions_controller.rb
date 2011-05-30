@@ -92,7 +92,8 @@ class ExhibitionsController < ApplicationController
   
   def do_the_job_for_groupshow_future(which)
          currentgroupshow = Groupshow.find(:all,:conditions=>["starting_date >= '#{Time.now.strftime('%Y-%m-%d')}'"])
-         @groupshowartworks = []
+        p  currentgroupshow
+        @groupshowartworks = []
          currentgroupshow.each do |cgs|
             cgs.groupshowartworks.each  do |gsa|
               @groupshowartworks << gsa

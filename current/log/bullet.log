@@ -18858,4 +18858,1029 @@ N+1 Query method call stack
   ArtworksCompetition => [:competitions_user]
   Add to your finder: :include => [:competitions_user]
 N+1 Query method call stack
-  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-28 20:57:39[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/27-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 10:41:40[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 10:41:51[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-30 10:42:13[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-30 10:42:22[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-30 10:42:31[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-30 10:51:13[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-30 10:52:33[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-30 11:04:10[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 11:04:10[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 11:04:10[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 11:04:14[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-30 11:36:36[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 11:36:36[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 11:36:36[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 11:38:27[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 11:38:27[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 11:38:27[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 11:41:06[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 11:41:06[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 11:41:06[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 11:46:07[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-30 11:57:52[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 11:57:52[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 11:57:52[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 12:00:33[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:03:32[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:04:07[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:05:49[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:06:45[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:07:15[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:09:48[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:10:47[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:11:51[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:16:18[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:17:23[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 12:17:23[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 12:17:23[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 12:18:44[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:19:54[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:20:13[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:20:36[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:21:46[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:25:55[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 12:35:04[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-30 12:35:12[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-30 12:35:20[WARN] Need Counter Cache
+  Competition => [:keywords]2011-05-30 12:39:04[WARN] N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-30 12:43:38[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 12:43:38[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 12:43:38[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 12:58:53[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 12:58:53[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 12:58:53[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 13:06:59[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 13:06:59[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 13:06:59[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 13:16:57[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 13:17:41[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 13:17:56[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 13:18:16[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 13:22:27[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-30 13:22:47[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-30 13:22:56[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-30 13:23:02[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-30 13:35:54[WARN] N+1 Query detected
+  UsersContainer => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 13:35:54[WARN] N+1 Query detected
+  Timing => [:period]
+  Add to your finder: :include => [:period]
+N+1 Query method call stack2011-05-30 13:37:25[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 13:37:25[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:12:13[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:12:13[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:18:08[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:18:08[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:18:14[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:18:14[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:18:31[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:18:31[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:20:03[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:20:03[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:20:05[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-30 14:20:05[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack2011-05-30 14:20:10[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:20:10[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:30:50[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:30:50[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:31:01[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-30 14:31:01[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack2011-05-30 14:31:54[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-30 14:31:54[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack2011-05-30 14:32:08[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:32:08[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:33:02[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-30 14:33:03[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:33:03[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:34:56[WARN] Unused Eager Loading detected
+  CompetitionsUser => ["artworks_competitions"]
+  Remove from your finder: :include => [:artworks_competitions]2011-05-30 14:34:56[WARN] N+1 Query detected
+  ArtworksCompetition => [:competitions_user]
+  Add to your finder: :include => [:competitions_user]
+N+1 Query method call stack2011-05-30 14:36:04[WARN] N+1 Query detected
+  Invoice => [:payment]
+  Add to your finder: :include => [:payment]
+N+1 Query method call stack2011-05-30 14:36:04[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 14:36:04[WARN] N+1 Query detected
+  Invoice => [:purchasable]
+  Add to your finder: :include => [:purchasable]
+N+1 Query method call stack2011-05-30 14:36:10[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:36:10[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:37:34[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:37:34[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:43:53[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:43:53[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:44:41[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:44:41[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:46:11[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:46:11[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:48:15[WARN] N+1 Query detected
+  Exhibition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack2011-05-30 14:48:17[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:48:17[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 14:54:21[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:54:21[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:54:21[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-30 14:54:26[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:54:30[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:54:30[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:54:30[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:54:30[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:56:11[WARN] Need Counter Cache
+  Exhibition => [:keywords]2011-05-30 14:56:19[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 14:56:48[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 14:57:04[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:57:04[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:57:04[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:57:04[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:57:22[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:57:25[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:57:28[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:57:28[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:57:28[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-30 14:57:33[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:57:36[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:57:36[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:57:36[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:58:03[WARN] N+1 Query detected
+  Artwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'2011-05-30 14:58:12[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:58:12[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:58:12[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:58:18[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:58:18[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:58:18[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:58:18[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:58:46[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:58:46[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:58:46[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:59:01[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:59:01[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:59:09[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:59:09[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 14:59:13[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:59:13[WARN] N+1 Query detected
+  ExhibitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:59:13[WARN] N+1 Query detected
+  Exhibition => [:artworks]
+  Add to your finder: :include => [:artworks]
+N+1 Query method call stack2011-05-30 14:59:19[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:59:19[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:59:27[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 14:59:27[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:59:51[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 14:59:51[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:03:57[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:03:57[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:06:02[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:06:02[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:06:02[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:06:50[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:06:50[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:06:50[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:07:02[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:07:02[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:07:02[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:07:05[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:07:05[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:07:05[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:07:14[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:07:14[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:07:14[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:08:18[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:08:18[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:08:18[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:08:18[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:08:29[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:08:29[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:08:29[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:08:29[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:09:08[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:09:08[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:09:08[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:11:26[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:11:26[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:11:30[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:11:30[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:11:30[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:11:30[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:13:27[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:13:27[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:21:04[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:21:08[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:25:21[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:25:21[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:25:21[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:25:21[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:25:36[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:25:36[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:25:39[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:25:39[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:25:39[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:29:53[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:29:53[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:29:53[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:29:53[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:29:54[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:29:54[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:29:54[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:30:50[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:30:50[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:30:50[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:30:50[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:31:21[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:31:21[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:31:21[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:31:44[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:31:44[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:33:01[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:34:57[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:35:20[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-30 15:35:26[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'2011-05-30 15:35:33[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/groupshows_controller.rb:18:in `add_user_to_groupshow'2011-05-30 15:35:42[WARN] N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:35:42[WARN] N+1 Query detected
+  CompetitionsUser => [:competition]
+  Add to your finder: :include => [:competition]
+N+1 Query method call stack2011-05-30 15:36:34[WARN] N+1 Query detected
+  Invoice => [:client]
+  Add to your finder: :include => [:client]
+N+1 Query method call stack2011-05-30 15:37:18[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:37:18[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:39:56[WARN] N+1 Query detected
+  Payment => [:invoice]
+  Add to your finder: :include => [:invoice]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/shoppingcart/_list_of_order.html.erb:15:in `_run_erb_app47views47shoppingcart47_list_of_order46html46erb_locals_list_of_order_object'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/shoppingcart/_list_of_order.html.erb:12:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/shoppingcart/_list_of_order.html.erb:12:in `_run_erb_app47views47shoppingcart47_list_of_order46html46erb_locals_list_of_order_object'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/shoppingcart_controller.rb:70:in `list_of_my_order'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/shoppingcart_controller.rb:69:in `list_of_my_order'2011-05-30 15:41:00[WARN] N+1 Query detected
+  CompetitionsUser => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:41:00[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:41:00[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:41:00[WARN] N+1 Query detected
+  Groupshowartwork => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack2011-05-30 15:41:41[WARN] N+1 Query detected
+  Payment => [:invoice]
+  Add to your finder: :include => [:invoice]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/shoppingcart/_list_of_order.html.erb:15:in `_run_erb_app47views47shoppingcart47_list_of_order46html46erb_locals_list_of_order_object'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/shoppingcart/_list_of_order.html.erb:12:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/shoppingcart/_list_of_order.html.erb:12:in `_run_erb_app47views47shoppingcart47_list_of_order46html46erb_locals_list_of_order_object'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/shoppingcart_controller.rb:70:in `list_of_my_order'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/shoppingcart_controller.rb:69:in `list_of_my_order'2011-05-30 15:44:43[WARN] N+1 Query detected
+  Groupshowartwork => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack2011-05-30 15:44:43[WARN] N+1 Query detected
+  Groupshow => [:groupshowartworks]
+  Add to your finder: :include => [:groupshowartworks]
+N+1 Query method call stack2011-05-30 15:44:55[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:45:57[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:50:12[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:50:17[WARN] N+1 Query detected
+  ProfilesCategory => [:profile]
+  Add to your finder: :include => [:profile]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `map'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `uniq!'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:18:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:19:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:20:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:21:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'2011-05-30 15:50:30[WARN] N+1 Query detected
+  ProfilesCategory => [:profile]
+  Add to your finder: :include => [:profile]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `map'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `uniq!'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:18:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:19:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:20:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:21:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'2011-05-30 15:50:36[WARN] N+1 Query detected
+  ProfilesCategory => [:profile]
+  Add to your finder: :include => [:profile]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `map'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `uniq!'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:18:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:19:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:20:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:21:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'2011-05-30 15:50:42[WARN] N+1 Query detected
+  ProfilesCategory => [:profile]
+  Add to your finder: :include => [:profile]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `map'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:26:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:25:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `uniq!'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:28:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:18:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:19:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:20:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:21:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:39:in `filter'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:38:in `filter'2011-05-30 15:51:00[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:51:18[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-30 15:51:34[WARN] Unused Eager Loading detected
+  CompetitionsUser => [:competitions_subscription]
+  Remove from your finder: :include => [:competitions_subscription]2011-05-30 15:51:41[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:52:33[WARN] N+1 Query detected
+  Profile => [:user]
+  Add to your finder: :include => [:user]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:17:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:15:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:61:in `blank_main_div'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/profiles/index.html.erb:2:in `_run_erb_app47views47admin47profiles47index46html46erb'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/controllers/admin/profiles_controller.rb:11:in `index'2011-05-30 15:58:23[WARN] N+1 Query detected
+  Message => [:author]
+  Add to your finder: :include => [:author]
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `__send__'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/models/message_copy.rb:7:in `author'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+N+1 Query method call stack
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:388:in `_run_rhtml_app47views47admin47mail47index46rhtml'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `each'
+  /home/ptsadmin/30-5-2011newgitcopyv/bsg/current/app/views/admin/mail/index.rhtml:385:in `_run_rhtml_app47views47admin47mail47index46rhtml'

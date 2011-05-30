@@ -11,11 +11,11 @@
         <%=I18n.t('general.copyright.copyright_restriction')%>
       <% end %>
       <%= f.text_field    :title,
-        :label => I18n.t('item.field.title_label') + " *:",
+        :label => I18n.t('item.field.title_label') ,
         :hint => I18n.t('item.field.title_hint'),
         :readonly => is_copyright %>
       <%= f.text_field    :description,
-        :label => I18n.t('item.field.description_label') + ':',
+        :label => I18n.t('item.field.description_label') ,
         :hint => I18n.t('item.field.description_hint') if @current_object.class.to_s != 'Artwork' %>
       <% if current_container_type == 'website' -%>
         <%# TODO nothing to do here ... %>

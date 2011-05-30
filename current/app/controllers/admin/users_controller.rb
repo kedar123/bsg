@@ -76,7 +76,7 @@ class Admin::UsersController < Admin::ApplicationController
      end
   
 	def create
-	admin_logged_in = false
+	   admin_logged_in = false
      if logged_in?
  	    admin_logged_in=current_user
      end
