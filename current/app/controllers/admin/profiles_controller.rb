@@ -45,12 +45,38 @@ class Admin::ProfilesController < Admin::ApplicationController
   # GET /profiles/1.xml
   def show
     @current_object = Profile.find(params[:id])
+		@my_subscription = CompetitionsUser.find(:last);
+    p @my_subscription
+    p "i got here my subscription"
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @current_object }
     end
   end
-
+  
+  def compose_user_mail
+     @message = current_user.sent_messages.build
+     @frommail = Frommail.find(:all)
+     @sendusermail=User.find(params[:id])
+     render :layout=> "gallery_promoting_mail"
+  end
+  
+  def create_sent_mail
+    
+    @message = current_user.sent_messages.build(params[:message])
+    @message.prepare_copies(params[:user][:email])
+    @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
+    all_the_recipient = params[:user][:email].split(',')
+    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+    if @message.save
+      flash[:notice] = "Message sent."
+      redirect_to :back
+    else
+      flash[:notice] = "Please Try Again There Was a Problem In Sending an Email."
+      redirect_to :back
+    end
+  end
+  
    def exhibition_payment 
         exhibitionuser = ExhibitionsUser.find(params[:id])
         @invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ? ","ExhibitionsUser" , exhibitionuser.user,exhibitionuser.id])

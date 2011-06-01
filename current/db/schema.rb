@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525104454) do
+ActiveRecord::Schema.define(:version => 20110531080404) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -186,6 +186,12 @@ ActiveRecord::Schema.define(:version => 20110525104454) do
 
   create_table "booksshops", :force => true do |t|
     t.text     "bookshopdetails"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bottomlines", :force => true do |t|
+    t.text     "bottomline"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -555,6 +561,7 @@ ActiveRecord::Schema.define(:version => 20110525104454) do
     t.string   "front_end_pics_content_type"
     t.integer  "front_end_pics_file_size"
     t.datetime "front_end_pics_updated_at"
+    t.boolean  "select"
   end
 
   create_table "galleries", :force => true do |t|

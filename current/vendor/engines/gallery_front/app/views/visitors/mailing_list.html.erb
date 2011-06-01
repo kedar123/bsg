@@ -8,19 +8,22 @@
       <label><input name="profile[first_name]" type="text" id="first_name" size="50" value="<%=params[:profile][:first_name] if params[:profile]%>"/>
       </label>
       
-      <div style="line-height: 34px"><p style="margin-bottom: 0.4em;">Last name</p>
+      <div style="line-height: 34px"><p style="margin-bottom: 0.2em;">Last name</p>
       <label><input name="profile[last_name]" type="text" id="last_name" size="50" value="<%=params[:profile][:last_name] if params[:profile]%>"/>
       </label>
       
-<p style="margin-bottom: 0.4em;">Address</p>
+<p style="margin-bottom: 0.2em;margin-top:4px;">Address</p>
       <label><input name="profile[address]" type="text" id="address" size="50" value="<%=params[:profile][:address] if params[:profile]%>"/>
       </label></div>
       
-<p style="margin-bottom: 0.4em;"> Suburb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post Code</p>
+<p style="margin-bottom: 0.4em;" style="width:94%"> Suburb <span style="padding-left:60%">Post Code</span></p>
 
-      <label><input name="profile[suburb]" type="text" id="suburb" size="30" value="<%=params[:profile][:suburb] if params[:profile]%>"/>
-      </label>
-      <input name="profile[zip_code]" type="text" id="zip_code" size="17" />
+      <div style="width:94%;">
+        <input name="profile[suburb]" type="text" id="suburb" size="30" value="<%=params[:profile][:suburb] if params[:profile]%>" style="width:70%"/>
+     
+      <input name="profile[zip_code]" type="text" id="zip_code" size="16"  style="width:30%"/> </div>
+      
+      
       <p style="margin-bottom: 0.4em;">Phone</p>
 
       <label><input name="profile[phone_number]" type="text" id="phone_number" size="50" value="<%=params[:profile][:phone_number] if params[:profile]%>"/>

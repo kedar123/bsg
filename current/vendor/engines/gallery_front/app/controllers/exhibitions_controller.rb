@@ -36,7 +36,13 @@ class ExhibitionsController < ApplicationController
 
 	def do_the_job_for(which)
 		@artists = []
-  	if !(exhibitions=Exhibition.send(which)).empty? && !(@artists=ExhibitionsUser.all(:include => [:user => [:profile]], :conditions => { :exhibition_id => exhibitions.map{|e| e.id}, :state => 'published'}).map{ |e| e.user.profile}.uniq.sort {|x,y| x.full_name <=> y.full_name } ).empty?
+    exhibitions=Exhibition.send(which)
+  p exhibitions
+  p "i got the future exhibition"
+  p @artists=ExhibitionsUser.all(:include => [:user => [:profile]], :conditions => { :exhibition_id => exhibitions.map{|e| e.id}, :state => 'published'}).map{ |e| e.user.profile}.uniq.sort {|x,y| x.full_name <=> y.full_name } 
+  p "i got th artist"
+  
+    if !(exhibitions=Exhibition.send(which)).empty? && !(@artists=ExhibitionsUser.all(:include => [:user => [:profile]], :conditions => { :exhibition_id => exhibitions.map{|e| e.id}, :state => 'published'}).map{ |e| e.user.profile}.uniq.sort {|x,y| x.full_name <=> y.full_name } ).empty?
 			#raise @current_exposing_artists.map{ |e| e.id }.inspect
 			#raise @artists.inspect
 			if params[:id]
@@ -44,19 +50,20 @@ class ExhibitionsController < ApplicationController
 			else
 				@profile = @artists.rand
 			end
-			@exhibitions = @profile.user.exhibitions.send(which).published.uniq
+			@exhibitions = @profile.user.exhibitions.send(which).uniq
 			if params[:exhib_id]
 				@exhibition = Exhibition.find(params[:exhib_id])
 			else
-				@exhibition = @exhibitions.first
+				@exhibition = @exhibitions.rand
 			end
     else
     end
-  #  @artists.uniq!
-  #   params[:which] = "#{which.to_s}/artists"
-  #   respond_to do |format|
-  #         format.html { render :template => 'exhibitions/show.html.erb' }
-  #   end
+    
+    @artists.uniq!
+     params[:which] = "#{which.to_s}/artists"
+    # respond_to do |format|
+    #       format.html { render :template => 'exhibitions/show.html.erb' }
+    # end
 	end
   
   def do_the_job_for_groupshow_current(which)
@@ -92,7 +99,6 @@ class ExhibitionsController < ApplicationController
   
   def do_the_job_for_groupshow_future(which)
          currentgroupshow = Groupshow.find(:all,:conditions=>["starting_date >= '#{Time.now.strftime('%Y-%m-%d')}'"])
-        p  currentgroupshow
         @groupshowartworks = []
          currentgroupshow.each do |cgs|
             cgs.groupshowartworks.each  do |gsa|

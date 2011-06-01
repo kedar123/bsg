@@ -11,7 +11,25 @@ function toggle() {
 } 
 </script>
 
+<style>
+  
+ .menuLabel a:link {
+color: #9C9C9C;
+}
+.menuLabel a:visited {
+color: #9C9C9C;
+}
+ .menuLabel a:hover {
+color: #9C9C9C;
+background-color: #333333;
+text-decoration: none;
+text-transform: none; 
+}
+ .menuLabel a:active {
+color: #9C9C9C;
+}
 
+  </style>
 
 <% blank_main_div(:title => @current_object.full_name, :hsize => 'sixH') do %>
 
@@ -37,9 +55,11 @@ function toggle() {
 </div>
 <br/><br/>
     <%# if @current_object.user %>
+
       <%= render :partial => 'admin/profiles/data' %>
+    
     <%# else %>
-      Create a user link to that profile before to link data to it. Functionality coming soon ...
+      
     <%# end %>
     
   </div>
@@ -65,7 +85,7 @@ function toggle() {
   <b>Full name </b>
 </td>
 <td valign="top">
-  <%=h @current_object.full_name %><br />
+  <%=h @current_object.full_name %>
 </td>
 </tr>
 
@@ -76,7 +96,9 @@ function toggle() {
   <b>Email </b>
 </td>
 <td valign="top">
-  <%=h @current_object.email_address %><br />
+  <div class="menuLabel">
+  <%=link_to @current_object.email_address, "/admin/profiles/compose_user_mail/#{@current_object.id}", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+ </div>
 </td>
 <tr>
 
@@ -85,7 +107,7 @@ function toggle() {
 	<b>Phone number </b> 
 </td>
 <td valign="top">
-  <%=h @current_object.phone_number %><br />	
+  <%=h @current_object.phone_number %>
 </td>
 </tr>
 
@@ -94,7 +116,8 @@ function toggle() {
 	<b> Website </b>
 </td>
 <td valign="top">
-  <%= link_to @current_object.website, @current_object.website, :target => "_blank" %>
+  <%#= link_to @current_object.website, @current_object.website, :target => "_blank" %>
+  <%=link_to @current_object.website, @current_object.website, :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
 </td>
 </tr>
 

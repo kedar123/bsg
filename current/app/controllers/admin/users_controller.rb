@@ -87,7 +87,7 @@ class Admin::UsersController < Admin::ApplicationController
 			   @current_object.auto_login
 			end
 			@current_object.profile.email_address = @current_object.email if @current_object.profile
-			@current_object.system_role_id = Role.find(:first, :conditions => { :name => 'competitor' }).id if !@current_object.system_role_id || !@current_user.has_system_role("admin")
+			@current_object.system_role_id = Role.find(:first, :conditions => { :name => 'artist' }).id if !@current_object.system_role_id || !@current_user.has_system_role("admin")
 			respond_to do |format|
 					if @current_object.save
 						if is_given_private_workspace

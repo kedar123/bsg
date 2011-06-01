@@ -1,22 +1,33 @@
 
 <div id="iteam" class="iteam">
-    <div id ="details" style="display:none;">
-      <p style="margin-bottom: 0.4em; white-space: normal;">
+    <div id ="details" style="display:none;line-height:8px;">
+      <p style="white-space: normal;">
 					<font size=2px><%= object.title.split.each{|m|m.capitalize!}.join(" ") %></font>
 			</p>
-      <%= object.medium.capitalize  %><br/>
+      <p style="white-space: normal;">                  
+      <%= object.medium.capitalize  %>
+        </p>
+      
       <%if object.size3.blank?%>  
-      <%= object.size1.to_s + " x " + object.size2.to_s %>   cm<br />
+        <p style="white-space: normal;">
+      <%= object.size1.to_s + " x " + object.size2.to_s %>   cm
+      </p>
       <%else%>
-      <%= object.size1.to_s + " x " + object.size2.to_s + " x " + object.size3.to_s%>   cm<br />
+      <p style="white-space: normal;">
+      <%= object.size1.to_s + " x " + object.size2.to_s + " x " + object.size3.to_s%>   cm
+      </p>
       <%end%>
+      
       <%# if object.edition_name %>
-        <%#= 'Edition '+object.edition  %><br />
+        <%#= 'Edition '+object.edition  %>
       <% #end %>
+      
       <% if object.price %>
-        <%= '$'+object.price.to_s %><br />
+      <p style="white-space: normal;">
+        <%= '$'+object.price.to_s %>
+      </p>  
       <% end %>
-      <br />
+      
 <%#=object.is_purchasable%> 
       	 <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%>">
       <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id)  %>
@@ -33,5 +44,5 @@
           
     </div>
   
-  <img src="/system/groupshow/<%=object.artworkurl%>" height="400" width="400"/>
+  <img src="/system/groupshow/<%=object.artworkurl%>" height="400"  />
 </div>

@@ -13,9 +13,24 @@ class FrontEndPicsController < ApplicationController
         @front_end_pics.update_attributes(params[:front_end_pic])
     end
     
+    def select_pic
+      @front_end_pics = Frontendpic.find(params[:id])
+      @front_end_pics.selectpic = params[:select]
+      @front_end_pics.save
+      render :nothing=>true
+    end
+    
+    
     def create
            front_end_pics = Frontendpic.new(params[:front_end_pic])    
-           front_end_pics.save!
+           if params[:show_in_front] == "1"
+              front_end_pics.select = true 
+           else
+             
+             front_end_pics.select = false 
+           end
+           
+           front_end_pics.save
            redirect_to :action=>"index"
     end
    

@@ -9,19 +9,28 @@
 <%for eachimage in image_array%>
   <%if  !object.send(eachimage.to_sym).blank? %>
           <div id="iteam" class="iteam">
-              <div id ="details" style="display:none;">
-                <p style="margin-bottom: 0.4em; white-space: normal;">
+              <div id ="details" style="display:none;line-height:8px;">
+                
+                <p style="white-space: normal;">
                    <font size=2px><%=(object.send title_array[i]).split.each{|m|m.capitalize!}.join(" ") %></font>
                 </p>
-                <%= object.send(medium_array[i].to_sym).capitalize  %><br/>
-                <%= object.send(size_array[i].to_sym).split('x').each{|m|m.capitalize!}.join(' x ')  %> cm<br />
-                <%# if object.edition_name %>
-                  <%#= 'Edition '+object.edition  %><br />
+                <p style="white-space: normal;">
+                <%= object.send(medium_array[i].to_sym).capitalize  %>
+                </p>
+                <p style="white-space: normal;">
+                <%= object.send(size_array[i].to_sym).split('x').each{|m|m.capitalize!}.join(' x ')  %> cm
+                </p>
+
+                  <%# if object.edition_name %>
+                  <%#= 'Edition '+object.edition  %>
                 <% #end %>
+                
                 <% if object.send(price_array[i].to_sym) %>
-                  <%= '$' + object.send(price_array[i].to_sym).to_s %><br />
+                <p style="white-space: normal;">
+                  <%= '$' + object.send(price_array[i].to_sym).to_s %>
+                  </p>
                 <% end %>
-                <br />
+
           <%#=object.is_purchasable%> 
                  <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%><%=eachimage.to_s%>">
                 <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id)  %>
@@ -36,7 +45,7 @@
                            <a href="/login/?msg=buy artwork" method='post' ><img src="/images/buy.jpeg"/> </a>
                     <%end%>
               </div>
-            <img src="/system/gallery/<%=object.send(eachimage.to_sym)%>" height="400" width="400"/>
+            <img src="/system/gallery/<%=object.send(eachimage.to_sym)%>" height="400" />
           </div>
  <%end%>         
 <%i=i+1%>

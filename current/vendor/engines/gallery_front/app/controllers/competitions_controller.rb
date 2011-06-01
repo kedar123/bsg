@@ -736,8 +736,11 @@ class CompetitionsController < ApplicationController
       end 
     end       
     create_pdf(@invoice.id,@invoice.number,@invoice.sent_at.strftime("%d %b %Y"),@invoice.client.profile.full_address_for_invoice,@invoice.client.profile.full_name_for_invoice,@order.title,@invoice.final_amount.to_i,nil)
-    email= UserMailer.create_send_invoice(@invoice,@current_user)
-     UserMailer.deliver(email)        	
+    begin
+      email= UserMailer.create_send_invoice(@invoice,@current_user)
+      UserMailer.deliver(email)        	
+    rescue
+    end
   end
   
   
@@ -783,9 +786,12 @@ class CompetitionsController < ApplicationController
     end
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
+    begin
     email= UserMailer.create_send_invoice(invoice,@current_user)
     UserMailer.deliver(email)
-	  session[:total_entry] = nil                     
+    rescue
+    end
+    session[:total_entry] = nil                     
     if  @invoice.purchasable_type == "Order"
       session[:cart]=nil
     end
@@ -1350,8 +1356,11 @@ class CompetitionsController < ApplicationController
           payment.invoice = groupshowuser.generate_invoice(current_user.id,{"payment_medium"=>"paypal"},amount)
           payment.save
           create_pdf(payment.invoice.id,payment.invoice.number,payment.invoice.sent_at.strftime("%d %b %Y"),payment.invoice.client.profile.full_address_for_invoice,payment.invoice.client.profile.full_name_for_invoice,groupshowuser.groupshow.title,payment.invoice.final_amount.to_i,groupshowuser.groupshow.note)
+          begin
           email = UserMailer.create_send_invoice_groupshow(payment.invoice,current_user)
           UserMailer.deliver(email)
+          rescue
+          end
       end
     end 
     comid = session[:competition_id]
@@ -1405,8 +1414,11 @@ class CompetitionsController < ApplicationController
       #p "from here im sending the email8888888888888888888888888888"
       #QueuedMail.add('UserMailer', 'send_invoice_exhibition', [invoice, invoice.client], 0, true)
       #send_invoice_exhibition(tomial,subject,body,invoice, user)
+      begin
       email= UserMailer.create_send_invoice_exhibition(invoice.client.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email",invoice, invoice.client)
       UserMailer.deliver(email)
+      rescue
+      end
     end    
 
   end
@@ -1457,10 +1469,11 @@ class CompetitionsController < ApplicationController
     end
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
-    
+    begin
     email= UserMailer.create_send_invoice(invoice,@current_user)
     UserMailer.deliver(email)
-	          
+    rescue
+    end
   end
 
   #############333333333333333333333333333333333333333333this all is for group show payment
@@ -1532,8 +1545,11 @@ class CompetitionsController < ApplicationController
     @payment.save
     
     create_pdf(@payment.invoice.id,@payment.invoice.number,@payment.invoice.sent_at.strftime("%d %b %Y"),@payment.invoice.client.profile.full_address_for_invoice,@payment.invoice.client.profile.full_name_for_invoice,@groupshowuser.groupshow.title,@payment.invoice.final_amount.to_i,@groupshowuser.groupshow.note)
+    begin
     email = UserMailer.create_send_invoice_groupshow(@payment.invoice,current_user)
     UserMailer.deliver(email)
+    rescue
+    end
     render :update do |page|
       page["add_the_artwork0"].replace_html :partial=>"create_groupshow_artwork",:locals=>{:groupshow_id => params[:groupshowid],:messageforimageuploaded=>"Your Payment Is Done Please Upload The Artwork"}
       page["description_competition_ex_py"].hide

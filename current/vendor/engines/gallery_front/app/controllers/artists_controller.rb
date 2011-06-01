@@ -25,7 +25,7 @@ class ArtistsController < ApplicationController
 				if params[:exhib_id]
 					@exhibition = Exhibition.find(params[:exhib_id])
 				else
-					@exhibition = @exhibitions.first
+					@exhibition = @exhibitions.rand
 				end
 			else
 				# TODO dddeeerrr

@@ -65,8 +65,6 @@ function sendunselectrequest(selectedid){
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=unselected'}); return false;
   return false;
 }
-
-
 </script>
 
 

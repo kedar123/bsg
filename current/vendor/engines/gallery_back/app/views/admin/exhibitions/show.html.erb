@@ -5,7 +5,7 @@
 
 <br /><br />
 
-<% if (ExhibitionsUser.exists?(["exhibition_id = ? and user_id =  ? and state= ? or state = ?",@current_object.id,@current_user.id,"published","validated"])|| @current_user.has_system_role('admin')) && @current_object.timing.ending_date > Time.now.to_date %>
+<% if (ExhibitionsUser.exists?(["exhibition_id = ? and user_id =  ? ",@current_object.id,@current_user.id])|| @current_user.has_system_role('admin')) && @current_object.timing.ending_date > Time.now.to_date %>
 
   <% form_for @current_object, :url => submit_artworks_admin_exhibition_path(@current_object), :html => { :method => :post } do |f| %>
   <b>ARTWORKS SELECTION : </b>
@@ -21,7 +21,10 @@
       %>
     <%= f.submit %>
   <%end%>   
+  
   <% end %>
+  <%else%>
+  
 <% end %>
 
   <br />

@@ -28,13 +28,13 @@
   <label>Galleries</label>
   <%#= f.select :place_id, @places.collect{ |e| [e.title, e.id] }, :label => 'Place :' %>
   <%#= @places.map{ |e| f.checkbox :gallery } %>
-  <div class="formElement"
+  <div class="formElement">
 
   <% places_list.each do |p| %>
-
     <%#= check_box_tag @current_object.class.to_s.downcase+'[timing_attributes][gallery_ids][]', p.id, @current_object.timing.galleries.include?(p) %> <%#= p.title %>
+<%=check_box_tag @current_object.class.to_s.downcase+'[timing_attributes][gallery_ids][]', p.id, @current_object.timing.galleries.include?(p),:style=>"width:30px;" %> <%= p.id %> 
 
-<%= check_box_tag @current_object.class.to_s.downcase+'[timing_attributes][gallery_ids][]', p.id, @current_object.timing.galleries.include?(p) %> <%= p.id %> &nbsp
+       
   <% end %>
   </div>
 <% end %>

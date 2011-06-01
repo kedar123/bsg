@@ -24,13 +24,14 @@
 
 <div id="container">
   <% if @drawing %>
-    <div id="description_competition">
+    <div id="description_competition" >
 			
       <div id="content">
 							<h2>Life Drawing</h2><br/>
                 <%if  !@drawing[0].blank?%>
-                    <h2><%= @drawing[0].drawingdetails %></h2>
+                   <%= @drawing[0].drawingdetails %>
                  <%end%>   
-	<p>
+      </div>
+    </div>
     <%end%>
 </div>

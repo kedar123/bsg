@@ -373,8 +373,10 @@ jQuery(document).ready(function(){
 
     <%= yield %>
 <!-- Footer -->
-<div id="footer">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-brunswick street gallery I mark@bsgart.com.au I bsgart.com.au I ph 0419 390 478 I 10am-10pm 7 days a week
+<div id="footer" style="text-align:center">
+ <%=Bottomline.find(:first).bottomline if Bottomline.find(:first)%>
+
+
+
 </div>
 </body>

@@ -38,8 +38,8 @@ function popitup(url) {
 		      <%end%>
               </div>
             <p>
-              <b><%= @exhibition.title %></b><br/>
-              <%= @exhibition.description %>
+              <b><%#= @exhibition.title %></b><br/>
+              <%#= @exhibition.description %>
             </p>
             <%if @profile.website.blank?%>
             <%else%>
@@ -74,9 +74,13 @@ function popitup(url) {
       </div>
 </div>
       <div id="list">
+        
         <%if @exhibition%>
-      <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
-        <%= render :partial => 'exhibitions/artwork_show', :object => a %>
+        
+            <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
+        <%p "calling the artwork"%>
+        <%p a%>
+            <%= render :partial => 'exhibitions/artwork_show', :object => a %>
      <%end%>  
            <%else%> 
       <% end %>

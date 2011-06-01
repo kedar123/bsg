@@ -245,9 +245,6 @@ class Admin::MailController < ApplicationController
           page["selectlabel"].visual_effect :hide
       end
    end  
-   
-   
-     
   end  
  
  

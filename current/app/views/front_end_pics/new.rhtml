@@ -6,10 +6,17 @@
 	<div class="blockCornerRight"></div>
 	<div class="contentList filtered sixH">
 	            <form action="/admin/front_end_pics" method="post"   enctype="multipart/form-data">
-                	<label>Insert Here Front End Picture Photo File *:</label>
-					<div class="formElement">
+                	<label>Insert Here Front End Picture Photo File </label>
+			<div class="formElement">
                              <%= file_field  :front_end_pic,:front_end_pics %>
-					 </div>
+                        </div>
+                        <label>Show In Front End </label>
+			<div class="formElement">
+                             <%= check_box_tag :show_in_front %>
+                          
+                        </div>
+                                     
+                        
 			    	<button type="submit" class="submitButton">
 						<span>Create</span>
 					</button>

@@ -24,7 +24,7 @@ end
 			        User.find(Workspace.find(params[:workspace_id]).creator_id).update_attribute("system_role_id",8 )
 			    end
 		       end       
-			@current_object.build_timing if @current_object.timing.nil?
+			@current_object.build_timing 
 			@places = Gallery.all
 			sr = Role.find_by_name('artist')
 			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
@@ -54,6 +54,7 @@ end
 		#end
         
         after :create do
+          
           	@current_object.exhibitions_users.map{ |e| e.init }
         end
 		after :update do
