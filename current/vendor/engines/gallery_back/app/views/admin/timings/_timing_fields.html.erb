@@ -1,6 +1,7 @@
 <% if period_used %>
 
-  <%= form.select :period_id, Period.all.map{ |e| [e.name, e.id] }, :label => 'Period' %>
+  <%= form.select :period_id, options_for_select(Period.all.map{ |e| [e.name, e.id] }, period_id), :label => 'Period' %>
+
 
 <% elsif one_day %>
 

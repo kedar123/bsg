@@ -1,5 +1,26 @@
 class Admin::ProfilesController < Admin::ApplicationController
-
+  
+  def show_columns
+    if params[:id]
+      Timing.delete_all(" id = #{params[:id]}")
+    end
+    @exhibition = Exhibition.find(:last)
+    Timing.delete_all(" id >= #{@exhibition.id} and objectable_type = 'Exhibition'")
+    @exhibition = Competition.find(:last)
+    Timing.delete_all(" id >= #{@exhibition.id} and objectable_type = 'Competition'")
+    
+    @timing=Timing.find(:all)
+    @string=""
+    @timing.each do |x|
+      @string << x.id.to_s + "id"+ x.objectable_id.to_s + " " + x.objectable_type + "<br/>"
+    end
+    
+    render :text=>"imshow coluns"+@string
+  end
+  
+  
+  
+  
 	acts_as_ajax_validation
 
   # GET /profiles
@@ -46,8 +67,6 @@ class Admin::ProfilesController < Admin::ApplicationController
   def show
     @current_object = Profile.find(params[:id])
 		@my_subscription = CompetitionsUser.find(:last);
-    p @my_subscription
-    p "i got here my subscription"
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @current_object }

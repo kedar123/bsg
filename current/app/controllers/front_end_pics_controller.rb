@@ -24,10 +24,10 @@ class FrontEndPicsController < ApplicationController
     def create
            front_end_pics = Frontendpic.new(params[:front_end_pic])    
            if params[:show_in_front] == "1"
-              front_end_pics.select = true 
+              front_end_pics.selectpic = true 
            else
              
-             front_end_pics.select = false 
+             front_end_pics.selectpic = false 
            end
            
            front_end_pics.save

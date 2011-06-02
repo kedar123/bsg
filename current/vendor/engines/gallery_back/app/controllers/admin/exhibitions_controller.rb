@@ -24,6 +24,7 @@ end
 			        User.find(Workspace.find(params[:workspace_id]).creator_id).update_attribute("system_role_id",8 )
 			    end
 		       end       
+      @oldtimingperiodid =  @current_object.timing.period_id    if !@current_object.timing.blank?
 			@current_object.build_timing 
 			@places = Gallery.all
 			sr = Role.find_by_name('artist')
@@ -56,6 +57,10 @@ end
         after :create do
           
           	@current_object.exhibitions_users.map{ |e| e.init }
+            p "im after create what is date of exhibition"
+            p @current_object.timing
+            p params
+            p "wwwwwwwwwwwwwwwwwwwwwwwwww"
         end
 		after :update do
 		 	        if  @current_object.user_ids.blank?
@@ -89,6 +94,8 @@ end
    #     end
 		before :show do
 			get_artworks_lists
+      p "im before show"
+      p @current_object
 		end
 
   end

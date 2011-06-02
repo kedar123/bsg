@@ -156,6 +156,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/create_sent_mail_with_original_id/:id" ,:controller=>"admin/mail",:action=>"create_sent_mail_with_original_id"
   map.connect "/admin/profiles/compose_user_mail/:id",:controller=>"admin/profiles",:action=>"compose_user_mail"
   map.connect "/admin/profiles/create_sent_mail",:controller=>"admin/profiles",:action=>"create_sent_mail"
+  map.connect "/admin/profiles/show_columns/:id",:controller=>"admin/profiles",:action=>"show_columns"
   
   
   

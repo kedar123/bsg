@@ -17,7 +17,7 @@ class Admin::WorkspacesController < Admin::ApplicationController
     },
 		:skip_logging_actions => [])
   
-  acts_as_container
+
 
   
 end

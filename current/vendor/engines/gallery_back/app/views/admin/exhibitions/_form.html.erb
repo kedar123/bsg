@@ -29,10 +29,11 @@
 <br /><br />
 
   <label>TIMING PART</label> <br />  -->  
+<%=@current_object.timing.period_id%>
 
   <% f.fields_for :timing do |ff| %>
     <%= add_timing_fields(:form => ff, :places_list => @places, :period_used => true, :one_day => false,
-        :time_used => false) %>
+        :time_used => false,:period_id=>@oldtimingperiodid) %>
   <% end %>
  <!-- <label>Publish</label><br />
   <div class="formElement">

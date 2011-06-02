@@ -17,7 +17,17 @@ class Admin::WorkspacesController < Admin::ApplicationController
     },
 		:skip_logging_actions => [])
   
-  acts_as_container
-
+  acts_as_container do
+  before :show do
+  #  p Groupshow.find(:all)
+  #  p "groupshow"
+  #  p @current_object
+  #  @paginated_objects = []
+    @groupshow = Groupshow.find(:all)
+  #  @paginated_objects.flatten!
+  #  p @paginated_objects
+  #end
+end
+  end
   
 end

@@ -32,7 +32,7 @@ function popitup(url) {
           <%if @exhibitions%>
             <div id="exhibs_list"><br/>
                          
-                <% lists = @exhibitions.map{ |e| link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;") } %>
+                <% lists = @exhibitions.map{ |e| (link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;")).to_s+"<br/><font style='color:black'>"+e.description+"</font>" } %>
                       <%for list in lists%>
 					<%= list%><br/>
 		      <%end%>

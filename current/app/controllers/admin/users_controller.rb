@@ -132,9 +132,7 @@ class Admin::UsersController < Admin::ApplicationController
 						else
 							format.html { render :action => :new }
             end
-           @current_object.errors.each do |attr,msg|
-                p msg
-              end
+
 				    end
                 
 			        end
