@@ -12,6 +12,7 @@
 function check_the_checkbox(){
   if (document.getElementById("rails").checked)
   {
+    
     return true;
   }
   else
@@ -22,6 +23,14 @@ function check_the_checkbox(){
 
   
 }
+</script>
+<script>
+  function calleditbrowseimage(comid,orderid){
+    document.getElementById('pleaseaccepttccheckbox').style.display='none';
+    document.getElementById('pleaseaccepttermsandcondition').style.display='none';
+    document.getElementById('click_to_browse_images').innerHTML = "Click<a onclick=\"jQuery.ajax({data:'', success:function(request){jQuery('#').html(request);}, type:'post', url:'/competitions/edit_images_front?id="+comid+"&amp;order_id="+orderid+"'}); return false;\" href=\"#\"> Here</a> To Brows The Images."
+    document.getElementById('click_to_browse_images').style.display='block';
+  }
 </script>
 <div id="specific_menu">
   <% if @competitions.first %>
@@ -46,6 +55,8 @@ function check_the_checkbox(){
       <div id="description_competition">
         <div id="content" style="padding: 20px 5px 20px 20px">
             <h2><%= @competition.title %></h2>
+                  <h4><%=@oldlabelvalue["description"]%></h4>
+	          <%=@competition.description%>
 	          <h4>$<%=@competition.prizes_total_amount%> in <%=@oldlabelvalue["prizes_total_amount"]%></h4>
 	          <%if  @competition.prizes_detail%>
 	  	      			  <% @competition.prizes_detail.each do |st| %>
@@ -83,32 +94,33 @@ function check_the_checkbox(){
 		      <%if logged_in?%>  
 		          <%if !@competitionuser.blank?%>
 		                   Click <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
-		  %>   To Edit The Competition
-		  <br/>
-		  Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                          %>   To Edit The Competition
+                          <br/>
+                       Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
 		  %> To Brows The Images. 
-		          <%else%>   
+                           <%else%>   
+                  <span id="clickheretoenterintocompetition">
 		        Click  <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front", :id => @competition.id},:condition=>"check_the_checkbox()"
 		  %> To Enter Into Competition. 
-		  
-               <%end%>
+                  </span>
+	       <%end%>
           <%else%>    
               Please  <a href="/login/<%=@competition.id%>"><b>Login</b></a>  To Enter Into Competition &nbsp;&nbsp;or &nbsp;&nbsp;
        <a href="/subscribe/<%=@competition.id%>" > Register </a>   
           <%end%>
           <div id="click_to_browse_images" style="display:none">
+                     
           </div>
-        
         
 		      
         <%if logged_in?%>  
 		            <%if !@competitionuser.blank?%>
 		            <%else%>     
 		                <h4>
-                        <div style="float:left">
+                        <div style="float:left" id="pleaseaccepttccheckbox">
                               <%=check_box_tag 'rails', 'accepted', false%>
                         </div>
-                        <div style="margin-left: 10px;padding-top: 4px;">
+                        <div style="margin-left: 10px;padding-top: 4px;" id="pleaseaccepttermsandcondition">
                               Please Accept Terms And Conditions Before Entering Into A Competition.
                         </div>
                       </h4>
@@ -221,11 +233,21 @@ function check_the_checkbox(){
                    </div>           
           </div>
     </div>  
+        <div id="buylist">
           <div id="list">
+            <%if logged_in?%>
+            
+            <% @competitionusers.each do |a| %>
+              <%= render :partial => 'competitions/artwork_show', :object => a %>
+          <% end %>
+            <%else%>
+            
           <% @competitionuser.each do |a| %>
               <%= render :partial => 'competitions/artwork_show', :object => a %>
           <% end %>
+            <%end%>
          </div>
+       </div>   
         
   <% else %>
   No competition available.

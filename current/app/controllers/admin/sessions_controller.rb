@@ -36,12 +36,22 @@ class Admin::SessionsController < Admin::ApplicationController
       else
              #redirect_back_or_default("/admin/profiles/#{current_user.id}")
              if session[:compredirecid].blank?
-               redirect_back_or_default("/")
+               if session[:buyartwork].blank?
+                 if session[:comp].blank?
+                    redirect_back_or_default("/")
+                 else
+                    redirect_to "/competitions/"+session[:comp][1].to_s
+                 end
+                 
+                 
+               else
+                 redirect_to "/"+session[:buyartwork][1]
+                 session[:buyartwork]=nil
+               end
              else  
                redirect_to "/competitions/"+session[:compredirecid]  
              end  
-              session[:compredirecid] = nil                
-      
+             session[:compredirecid] = nil                
       end	       
       
       

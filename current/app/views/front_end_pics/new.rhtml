@@ -12,12 +12,9 @@
                         </div>
                         <label>Show In Front End </label>
 			<div class="formElement">
-                             <%= check_box_tag :show_in_front %>
-                          
+                             <%= check_box_tag :show_in_front, value = "1", checked = false, options = {:style=>"width:20px;"}%>
                         </div>
-                                     
-                        
-			    	<button type="submit" class="submitButton">
+                           	<button type="submit" class="submitButton">
 						<span>Create</span>
 					</button>
 				</form>

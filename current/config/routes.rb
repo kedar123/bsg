@@ -55,6 +55,10 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect "/competitions/upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"upload_the_artwork_to_competition"
   
+  map.connect "/competitions/show_buy_competition_artwork",:controller=>"competitions",:action=>"show_buy_competition_artwork"
+  
+  
+  
   map.connect "/upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"upload_the_artwork_to_competition"
 
   map.connect "/test_delete/:id" ,:controller=>"competitions",:action=>"test_delete"

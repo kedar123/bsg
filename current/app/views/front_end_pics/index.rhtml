@@ -119,8 +119,6 @@ ss.textarea = document.ss_form.ss_textarea;
 </div>
         <%########################33333333all front end slide show end%>  
        	<%for frontendpics in   @front_end_pics%>
-			<p>File Name  <%=frontendpics.front_end_pics_file_name%> 
-			</p>
 			<p>
 			<img src="/system/front_end_pics/<%=frontendpics.id%>/thumb/<%=frontendpics.front_end_pics_file_name%>" alt="" height="100" width="100">
 			<%#=link_to "Edit", "/admin/promoting_stuffs/#{promotingstuff.id}/edit"%>  
@@ -136,7 +134,6 @@ ss.textarea = document.ss_form.ss_textarea;
 			</p>
 	<%end%>
 	</div>
-        
 </div>
 <SCRIPT TYPE="text/javascript">
 // Finish defining and activating the slideshow

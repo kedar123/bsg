@@ -49,7 +49,7 @@ function Checkfiles(formid)
                   } 
                 else
                   {
-                    myreturnvalue = check_numericvalue(elem[i])
+                    myreturnvalue = check_numericvalue(elem[i]);
                   }
              }     
             if (elem[i].type  == "file")
@@ -229,11 +229,11 @@ jQuery(document).ready(function(){
                                 <%= current_user ? "You are logged as #{@current_user.profile.full_name}" : '' %>
                                 <br/>
 	                                <%if !current_user %> 
-			                            <%if  params[:action] == "login"%>	
-			                                   <a href="/login" class="liselected">Login</a>
-			                            <%else%>
-				                            <a href="/login"><b><font color=grey>Login</font></b></a>
-			                            <%end%>
+                                                    <%if  params[:action].to_s == 'login'%>	
+                                                           <a href="/login" ><font color=white>Login</font></a>
+                                                    <%else%>
+                                                           <a href="/login"><b><font color=grey>Login</font></b></a>
+                                                    <%end%>
 		                            <%else%>
 			                             <a href="/logout/<%=current_user.id%>"><font color=grey>Logout</font></a><br/>
 		                            <%end%>

@@ -5,6 +5,20 @@
    <tr align="left">
    <td valign="bottom">
    <%if !@oldlabelvalue.blank?%>
+    <%=text_field_tag  "headerdescription",@oldlabelvalue["description"],:style=>"width:150px;float:left;"%>  
+   <%else%> 
+   <%=text_field_tag  "headerdescription","Description",:style=>"width:150px;float:left;"%>  
+   <%end%>
+   </td>
+   <td valign="bottom"> 
+    <%= f.text_field :description, :label => ''  %>
+   </td>
+   </tr> 
+</table>
+<table>
+   <tr align="left">
+   <td valign="bottom">
+   <%if !@oldlabelvalue.blank?%>
     <%=text_field_tag  "headersubmission_deadline",@oldlabelvalue["submission_deadline"],:style=>"width:150px;float:left;"%>  
    <%else%> 
    <%=text_field_tag  "headersubmission_deadline","Submission Of Entries",:style=>"width:150px;float:left;"%>  

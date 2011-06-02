@@ -3,7 +3,7 @@ class Competition < ActiveRecord::Base
   # Method defined in the ActsAsItem:ModelMethods:ClassMethods (see that library fro more information)
   acts_as_item
 
-	has_one :timing, :as => :objectable
+	has_one :timing, :as => :objectable, :dependent => :delete
 	accepts_nested_attributes_for :timing, :reject_if => lambda { |a| a[:starting_date].blank? }, :allow_destroy => true
 
 	has_many :competitions_subscriptions, :dependent => :delete_all

@@ -4,7 +4,7 @@ class VisitorsController < ApplicationController
 
 	def home_page
 		@pramoting_stuff = PromotingStuff.find(:all,:limit=>3,:order=>"created_at desc")
-		@front_image = Frontendpic.find(:all,:conditions =>[" selectpic = ? ",1])
+		@front_image = Frontendpic.find(:all,:conditions =>[" selectpic = ? ",1],:order=>"created_at desc")
     if logged_in?
       @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",current_user.id])
        image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
@@ -39,11 +39,17 @@ class VisitorsController < ApplicationController
 	end
 	
 	def login
+    #this is for entering into a competition
+   session[:compredirecid] = params[:id]
+   if params[:msg]
+      session[:buyartwork] = params[:msg].to_s.split("-")
+   end
+   #this is for buy the artwork
+   if params[:comp]
+      session[:comp] = params[:comp].to_s.split("-")
+   end
    
-   
-	  session[:compredirecid] = params[:id]
-    
-	end  
+ 	end  
 
 #  def create
 #

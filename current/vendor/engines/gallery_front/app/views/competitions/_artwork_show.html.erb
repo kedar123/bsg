@@ -6,38 +6,48 @@
 <%j=0%>
 <%for image in  image_array%>
    <%if (object.send title_array[j]) != nil  && !(object.send image_array[j]).blank? %>
-                   
-                                <div id="iteam" class="iteam">
-                                    <div id ="details" style="display:none;">
-                                          <%=(object.send title_array[j]).capitalize if  (object.send title_array[j]) != nil %><br /><br />
-                                          <%= (object.send medium_array[j]).capitalize  %><br />
-                                           <%if !(object.send size_array[j]).blank? %> 
-                                          <%= (object.send size_array[j]).to_s[0..1] + "x" +(object.send size_array[j]).to_s[1..2] +"x"+(object.send size_array[j]).to_s[2..3]%> cm
-                                            <%end%>
-                                          <br />
-                                          <%# if object.edition_name %>
-                                          <%#= 'Edition '+object.edition  %><br />
-                                          <% #end %>
-                                           <% if ( !(object.send price_array[j]).blank?   )%>
-                                                    <%= '$' + (object.send price_array[j]).to_s %><br />
-                                            <% end %>
-                                            <br />
-
-                                            <% if (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s+"_"+image_array[j].to_s)   && object.user.id != @current_user.id) && (object.instance_of? (CompetitionsUser)) %>
-                                                  <%= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
-                                            
-                                            <% end %>
-                                                <%if !session[:cart].blank?  &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s+"_"+image_array[j].to_s) %>
-                                                      <%= "already in the cart !!"  %>
-                                                 <%end%>     
-                                    </div>
-                                                         <%if  object.artworks_competitions.find(:first,:conditions=>"state='selected' and image_name = '#{image_array[j]}'")%>
-
-                                            <div id="iteam_image">  
-                                                  <img src="/system/gallery/<%=object.send image_array[j]%>" alt="" height="352"  width="600">
-                                            </div>
-                                            <%end%>
-                                </div>
+           <div id="iteam" class="iteam">
+               <div id ="details" style="display:none;">
+                   <p style="margin-bottom: 0.2em; white-space: normal;">
+                       <font size=2px><%=(object.send title_array[j]).capitalize if  (object.send title_array[j]) != nil %></font>
+                   </p>
+                   <p style="white-space: normal;">                  
+                        <%= (object.send medium_array[j]).capitalize  %>
+                   </p> 
+                   <p style="white-space: normal;">                  
+                        <%if !(object.send size_array[j]).blank? %> 
+                            <%= (object.send size_array[j]).to_s[0..1] + "x" +(object.send size_array[j]).to_s[1..2] +"x"+(object.send size_array[j]).to_s[2..3]%> cm
+                        <%end%>
+                   </p>
+                    <% if object.price %>
+                      <p style="white-space: normal;">                  
+                          <% if ( !(object.send price_array[j]).blank?   )%>
+                                  <%= '$' + (object.send price_array[j]).to_s %>
+                          <% end %>
+                      </p>  
+                    <% end %>
+                   <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%><%=image.to_s%>">
+                   <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id ) %>
+                           <%#= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
+                           <%=link_to_remote '<font color="orange">add to the cart</font>', :update => "",
+                                :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1,:eachimage=>image}%>
+                    <%else%>
+                    
+                    <% end %>
+                    </div>  
+                    <%if !session[:cart].blank?  &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>
+                              <%= "already in the cart !!"  %>
+                    <%end%>     
+                    <%if current_user.blank?%>
+                          <a href="/login/?comp=competition-<%=params[:competition_id]%>" method='post' ><img src="/images/buy.jpeg"/> </a>
+                    <%end%>  
+                 </div>
+                  <%if  object.artworks_competitions.find(:first,:conditions=>"state='selected' and image_name = '#{image_array[j]}'")%>
+                      <div id="iteam_image">  
+                           <img src="/system/gallery/<%=object.send image_array[j]%>" alt="" height="352"  width="600">
+                       </div>
+                  <%end%>
+       </div>
                                 
                                 
       <%end%>

@@ -22,6 +22,14 @@
 <%if i == total_entry%>
 <br/><br/><br/><h2>
 You Have Uploaded The Images Upto Your Limit </h2>
+<br/>
+<script>
+  
+  calleditbrowseimage('<%=com_id%>','<%=order_id%>');
+  
+  
+</script>  
+ 
 <%else%>
     <div>
           <%=title_message_array[i]%>

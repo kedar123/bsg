@@ -18,8 +18,16 @@ class CompetitionsController < ApplicationController
 		if logged_in?
 		  if params[:competition_id]
         @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:competition_id])
+        @competitionusers = CompetitionsUser.find_all_by_competition_id(params[:competition_id])
     	else
         @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,@competition.id) 
+        @competitionusers = CompetitionsUser.find_all_by_competition_id(@competition.id) 
+    	end
+    else
+      if params[:competition_id]
+        @competitionuser = CompetitionsUser.find_by_competition_id(params[:competition_id])
+    	else
+        @competitionuser = CompetitionsUser.find_by_competition_id(@competition.id) 
     	end
     end  
     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@competition.id.to_s+"competition"])
@@ -446,7 +454,9 @@ class CompetitionsController < ApplicationController
         else
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
           if  invoice.state == "created"
-            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,@order.exhibition.timing.note)
+              note = "no note created"
+              note = @order.exhibition.timing.note if @order.exhibition.timing
+            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,note)
             QueuedMail.add( 'UserMailer',  'send_invoice_exhibition', [@current_object.user.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in") 
           end    
           render :text=>"Your Payment Is Done Now Upload And Then Select The Artworks  <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
@@ -481,7 +491,9 @@ class CompetitionsController < ApplicationController
           make_the_payment_exhibition
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
           if  invoice.state == "created"
-            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,@order.exhibition.timing.note)
+            note = "no note is created"
+            note = @order.exhibition.timing.note if @order.exhibition.timing
+            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,note)
             QueuedMail.add('UserMailer', 'send_invoice_exhibition', [invoice, @order.user], 0, true)
           end       
         end      
@@ -651,7 +663,7 @@ class CompetitionsController < ApplicationController
     responds_to_parent do
       render :update do |page|
         if order.total_entry.to_i > i
-		      page["enterintocompetitionfront"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i}
+		      page["enterintocompetitionfront"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
 		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
 		      #page["click_to_browse_images"].show
         else  
@@ -734,7 +746,8 @@ class CompetitionsController < ApplicationController
 
         render :text=>"There Is Error In Payment    Please Try Again"
       end 
-    end       
+    end  
+    note = "no note created"
     create_pdf(@invoice.id,@invoice.number,@invoice.sent_at.strftime("%d %b %Y"),@invoice.client.profile.full_address_for_invoice,@invoice.client.profile.full_name_for_invoice,@order.title,@invoice.final_amount.to_i,nil)
     begin
       email= UserMailer.create_send_invoice(@invoice,@current_user)
@@ -776,13 +789,17 @@ class CompetitionsController < ApplicationController
     @current_object.save
     invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",@current_user.id,@order.id])
     if @order.instance_of? CompetitionsUser
+      note = "no notes created"
+      note = @order.competition.timing.note if @order.competition.timing
       if params[:invoicing_info][:payment_medium] ==  "cash"
-          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,@order.competition.timing.note,invoice.final_amount.to_i,0)
+          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0)
       else
-          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,@order.competition.timing.note,"",invoice.final_amount.to_i)
+          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i)
       end
     elsif  @order.instance_of? ExhibitionsUser
-      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,@order.exhibition.timing.note)
+      note = "no notes created"
+      note = @order.exhibition.timing.note if @order.exhibition.timing
+      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,note)
     end
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
@@ -870,6 +887,7 @@ class CompetitionsController < ApplicationController
           end                   
           page["enterartworkcompetition"].show
           page["enterintocompetition"].hide
+          page["buylist"].hide
           page["list_show"].show
           page["add_the_artwork"+((@image_array.index updateimage) ).to_s].show
           page["iteam_image"+((@image_array.index updateimage) ).to_s].show
@@ -880,7 +898,12 @@ class CompetitionsController < ApplicationController
     end 
   end  
 
-
+ def show_buy_competition_artwork
+    render :update do |page|
+      page["list_show"].hide
+      page["enterintocompetition"].show
+    end
+ end
 
 
 
@@ -1051,7 +1074,9 @@ class CompetitionsController < ApplicationController
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
           if  invoice.state == "created"
             alreadypaidamt = @order.price - invoice.final_amount
-            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,@order.price.to_i,@order.exhibition.timing.note,@order.price - alreadypaidamt,alreadypaidamt)
+            note = "no notes created"
+            note = @order.exhibition.timing.note if @order.exhibition.timing
+            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,@order.price.to_i,note,@order.price - alreadypaidamt,alreadypaidamt)
             QueuedMail.add('UserMailer','send_invoice_exhibition',[@current_object.user.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in") 
           end    
           #render :text=>"Your Payment Is Done Now Upload And Then Select The Artworks  <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
@@ -1082,7 +1107,9 @@ class CompetitionsController < ApplicationController
           make_the_payment_exhibition
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
           if  invoice.state == "created"
-            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,@order.exhibition.timing.note)
+            note = "no notes created"
+            note = @order.exhibition.timing.note if @order.exhibition.timing
+            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,note)
             QueuedMail.add('UserMailer', 'send_invoice_exhibition', [invoice, @order.user], 0, true)
           end       
         end      
@@ -1355,7 +1382,9 @@ class CompetitionsController < ApplicationController
           payment = Payment.new
           payment.invoice = groupshowuser.generate_invoice(current_user.id,{"payment_medium"=>"paypal"},amount)
           payment.save
-          create_pdf(payment.invoice.id,payment.invoice.number,payment.invoice.sent_at.strftime("%d %b %Y"),payment.invoice.client.profile.full_address_for_invoice,payment.invoice.client.profile.full_name_for_invoice,groupshowuser.groupshow.title,payment.invoice.final_amount.to_i,groupshowuser.groupshow.note)
+          note = "no notes created"
+          note = groupshowuser.groupshow.note if groupshowuser.groupshow
+          create_pdf(payment.invoice.id,payment.invoice.number,payment.invoice.sent_at.strftime("%d %b %Y"),payment.invoice.client.profile.full_address_for_invoice,payment.invoice.client.profile.full_name_for_invoice,groupshowuser.groupshow.title,payment.invoice.final_amount.to_i,note)
           begin
           email = UserMailer.create_send_invoice_groupshow(payment.invoice,current_user)
           UserMailer.deliver(email)
@@ -1409,7 +1438,9 @@ class CompetitionsController < ApplicationController
     invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , session[:order].user,session[:order].id])
     if  invoice.state == "created"
       alreadypaidamt = session[:order].price - invoice.final_amount
-      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,session[:order].exhibition.title,session[:order].price.to_i,session[:order].exhibition.timing.note,session[:order].price - alreadypaidamt,alreadypaidamt)
+      note = "no note is created"
+      note = session[:order].exhibition.timing.note if session[:order].exhibition.timing
+      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,session[:order].exhibition.title,session[:order].price.to_i,note,session[:order].price - alreadypaidamt,alreadypaidamt)
       #QueuedMail.add( 'UserMailer',  'send_invoice_exhibition', [invoice.client.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, invoice.client],0,true,invoice.client.profile.email_address,"test@pragtech.co.in") 
       #p "from here im sending the email8888888888888888888888888888"
       #QueuedMail.add('UserMailer', 'send_invoice_exhibition', [invoice, invoice.client], 0, true)
@@ -1462,10 +1493,15 @@ class CompetitionsController < ApplicationController
     session[:current_object].invoice = @invoice
     session[:current_object].save
     invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",@current_user.id,order.id])
+    
     if order.instance_of? CompetitionsUser
-      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.competition.title,invoice.final_amount.to_i,order.competition.timing.note)
+      note = "no note created"
+      note = order.competition.timing.note if order.competition.timing 
+      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.competition.title,invoice.final_amount.to_i,note)
     elsif  order.instance_of? ExhibitionsUser
-      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.exhibition.title,invoice.final_amount.to_i,order.exhibition.timing.note)
+      note = "no note created"
+      note = order.exhibition.timing.note if order.exhibition.timing 
+      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.exhibition.title,invoice.final_amount.to_i,note)
     end
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
@@ -1543,8 +1579,9 @@ class CompetitionsController < ApplicationController
     @groupshowuser.save
     @payment.invoice = @groupshowuser.generate_invoice(current_user.id,params[:invoicing_info],params[:price].to_i)
     @payment.save
-    
-    create_pdf(@payment.invoice.id,@payment.invoice.number,@payment.invoice.sent_at.strftime("%d %b %Y"),@payment.invoice.client.profile.full_address_for_invoice,@payment.invoice.client.profile.full_name_for_invoice,@groupshowuser.groupshow.title,@payment.invoice.final_amount.to_i,@groupshowuser.groupshow.note)
+    note = "no note created"
+    note = @groupshowuser.groupshow.note  if @groupshowuser.groupshow
+    create_pdf(@payment.invoice.id,@payment.invoice.number,@payment.invoice.sent_at.strftime("%d %b %Y"),@payment.invoice.client.profile.full_address_for_invoice,@payment.invoice.client.profile.full_name_for_invoice,@groupshowuser.groupshow.title,@payment.invoice.final_amount.to_i,note)
     begin
     email = UserMailer.create_send_invoice_groupshow(@payment.invoice,current_user)
     UserMailer.deliver(email)

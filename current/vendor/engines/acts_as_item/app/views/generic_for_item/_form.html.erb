@@ -10,13 +10,26 @@
         <%= f.hidden_field :state, :value => 'copyright' %>
         <%=I18n.t('general.copyright.copyright_restriction')%>
       <% end %>
-      <%= f.text_field    :title,
+    <%if !(params[:controller]=="admin/competitions")%>      
+        <%= f.text_field    :title,
         :label => I18n.t('item.field.title_label') ,
         :hint => I18n.t('item.field.title_hint'),
         :readonly => is_copyright %>
+    <%else%>    
+        <%= f.text_field    :title,
+        :label => I18n.t('item.field.title_label') ,
+        :hint => I18n.t('item.field.title_hint'),
+        :readonly => is_copyright ,
+        :style=>"padding-left:5px;margin-left:15px;"
+        %>
+    <%end%>
+     <%if !(params[:controller]=="admin/competitions")%>      
       <%= f.text_field    :description,
         :label => I18n.t('item.field.description_label') ,
         :hint => I18n.t('item.field.description_hint') if @current_object.class.to_s != 'Artwork' %>
+     <%end%>   
+
+
       <% if current_container_type == 'website' -%>
         <%# TODO nothing to do here ... %>
         <%= f.select 	:published,
