@@ -5,15 +5,15 @@ class EmailSystem
 
 	attr_accessor 'host', 'username', 'password', 'port', 'ssl', 'connection'
 
-  #def initialize#(host, username, password, port, ssl)
-	#	conf = BlankConfiguration::ConfigFile.open('mailing.yml').hash
-	#	@host     = conf['host']
-	#	@username = conf['user_name']
-	#	@password = conf['password']
-	#	@port     = conf['port'] #993
-	#	@ssl      = conf['ssl']
-	#	@connection = nil
-	#end
+  def initialize#(host, username, password, port, ssl)
+		conf = BlankConfiguration::ConfigFile.open('mailing.yml').hash
+		@host     = conf['host']
+		@username = conf['user_name']
+		@password = conf['password']
+		@port     = conf['port'] #993
+		@ssl      = conf['ssl']
+		@connection = nil
+	end
 
 	def connecting
 		imap = Net::IMAP.new(self.host, self.port, self.ssl)

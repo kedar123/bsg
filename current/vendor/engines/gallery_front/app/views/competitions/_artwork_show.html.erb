@@ -15,9 +15,8 @@
                         <%= (object.send medium_array[j]).capitalize  %>
                    </p> 
                    <p style="white-space: normal;">                  
-                        <%if !(object.send size_array[j]).blank? %> 
-                            <%= (object.send size_array[j]).to_s[0..1] + "x" +(object.send size_array[j]).to_s[1..2] +"x"+(object.send size_array[j]).to_s[2..3]%> cm
-                        <%end%>
+ <%= object.send(size_array[j].to_sym).split('x').each{|m|m.capitalize!}.join(' x ')  %> cm
+                </p>
                    </p>
                     <% if object.price %>
                       <p style="white-space: normal;">                  
