@@ -23,7 +23,10 @@ class Admin::WorkspacesController < Admin::ApplicationController
   #  p "groupshow"
   #  p @current_object
   #  @paginated_objects = []
-    @groupshow = Groupshow.find(:all)
+    if params[:item_type] == 'exhibitions'
+        @groupshow = Groupshow.find(:all)
+    end    
+    
   #  @paginated_objects.flatten!
   #  p @paginated_objects
   #end

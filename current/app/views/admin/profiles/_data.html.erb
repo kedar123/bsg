@@ -1,61 +1,68 @@
+<style>
+  .textareaimage{
+        width: 300px;
+        height: 80px;
+        border: 3px solid #cccccc;
+        padding: 5px;
+        font-size: 10px !important;
+        font-family: arial narrow !important; 
+        background-color: #9C9C9C;
+        background-position: bottom right;
+        background-repeat: no-repeat;
+  }
+</style>
+<%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']%>
+<%size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
+<%title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']%>
+<%medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
+<%price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
+<%imgname=[]%>       
+<%sizename=[]%>
+<%titlename=[]%>
+<%mediumname=[]%>
+<%pricename=[]%> 
 <SCRIPT TYPE="text/javascript">
-<!--
+ 
+ <% if !(competitions_users=@current_object.user.competitions_users.all(:include => [:competition, :competitions_subscription])).empty? %>
+   <% competitions_users.each do |cu| %> 
+        eval("var ss"+<%=cu.competition_id%>);
+        ss<%=cu.competition_id%> = new slideshow("ss"+<%=cu.competition_id%>);
+           <%cu.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'"]).each do |a|%>
+                  <%if  (a.competitions_user.send a.image_name) != nil %>  
+                           <%if  (a.competitions_user.send a.image_name).blank? == false%>
+                              <%imgname <<  "/system/gallery/#{a.competitions_user.send a.image_name}"%>
+                              <%sizename <<  a.competitions_user.send(size_array[image_array.index(a.image_name)]) %>  
+                              <%titlename << a.competitions_user.send(title_array[image_array.index(a.image_name)]) %>  
+                              <%mediumname << a.competitions_user.send(medium_array[image_array.index(a.image_name)])%>  
+                                s = new slide();
+                                s.src =  '<%="/system/gallery/#{a.competitions_user.send a.image_name}"%>';
+                                s.link = '<%="/system/gallery/#{a.competitions_user.send a.image_name}"%>';
+                                s.slideshowid = '<%=a.id%>';
+                                s.title = "<%=a.competitions_user.send(title_array[image_array.index(a.image_name)])%>";
+                                s.text = "<%=a.competitions_user.user.profile.first_name%>  <%=a.competitions_user.user.profile.last_name%>      \n"+
+                                  "Size <%=a.competitions_user.send(size_array[image_array.index(a.image_name)])%>    \n" + 
+                                  "<%=a.competitions_user.send(medium_array[image_array.index(a.image_name)])%>  \n" + 
+                                  "price  <%=a.competitions_user.send(price_array[image_array.index(a.image_name)]);%>";
+                                ss<%=cu.competition_id%>.add_slide(s);
+                          <%end%>       
+		      <%end%> 		
+           <%end%>
+             for (var i=0; i < ss<%=cu.competition_id%>.slides.length; i++) {
+                  s = ss<%=cu.competition_id%>.slides[i];
+                  s.target = "ss<%=cu.competition_id%>_popup";
+                   s.attr = "width=320,height=420,resizable=yes,scrollbars=yes";
+          }
+    <%end%>    
+ <%end%>     
 
-// Create the slideshow object
-ss = new slideshow("ss");
-
-// Set the delay between slides, 1000 = 1 sec
-// ss.timeout = 3000;
-
-// By default, all of the slideshow images are prefetched.
-// If you have a large number of slides you can limit the
-// number of images that are prefetched.
-// ss.prefetch = 1;
-
-// By default the slideshow will repeat when you get to the end.
-// ss.repeat = false;
-
-// Create the slides and add them to the slideshow.
-s = new slide();
-s.src =  "/images/button.png";
-s.link = "/images/button.png";
-s.title = "First slide";
-s.text = "This is the text for slide number <em>one<\/em>.";
-//s.target = "";
-//s.attr = "";
-//s.filter = "";
-//s.timeout = "";
-ss.add_slide(s);
-
-s = new slide();
-s.src =  "/images/calendar.gif";
-s.link = "/images/calendar.gif";
-s.title = "Second slide";
-s.text = "This is the text for slide number <em>two<\/em>.";
-ss.add_slide(s);
-
-s = new slide();
-s.src =  "/images/flag-1.png";
-s.link = "/images/flag-1.png";
-s.title = "Third slide";
-s.text = "This is the text for slide number <em>three<\/em>.";
-ss.add_slide(s);
-
-// The following loop sets an attribute for all of the slides.
-// This is easier than setting the attributes individually.
-
-for (var i=0; i < ss.slides.length; i++) {
-
-  s = ss.slides[i];
-  s.target = "ss_popup";
-  s.attr = "width=320,height=420,resizable=yes,scrollbars=yes";
-
-}
-
-//-->
 </SCRIPT>
+
+
+
+
+
 <script language="javascript"> 
-function ntoggle() {
+  function ntoggle() {
 	var ele = document.getElementById("noticeToggle");
 	var text = document.getElementById("displayText");
 	if(ele.style.display == "block") {
@@ -64,8 +71,20 @@ function ntoggle() {
 	else {
 		ele.style.display = "block";
 	}
-} 
+  }
+  function comptoggle(comid) {
+	var ele = document.getElementById("comp"+comid);
+	
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+  	}
+	else {
+		ele.style.display = "block";
+	}
+  }
+  
 </script>
+
 
 <div id="tabass">
     <ul>
@@ -120,29 +139,92 @@ function ntoggle() {
       				<%= link_to "add an competition", new_admin_workspace_competition_path(profile_workspace.id) %>
       		<%end%>
       	</div><br />
-      		<% if !(competitions_users=@current_object.user.competitions_users.all(:include => [:competition, :competitions_subscription])).empty? %>
-        				<% competitions_users.each do |cu| %>
-           					<%if  cu.state.blank?%>
-                        	<% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))) do %>
-                     			   <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-                        			<a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>
-                  			<% end %>
-           					<%elsif   cu.state == "accepted"%>
-                      		<% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))) do %>
-                        	<%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-                         	<a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>
-                  			<% end %>
-            				<%else%>     
-                  			<% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state '#{cu.state}'") do %>
-                        		<%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-                  			<% end %>
-          					<%end%>       
-                                
-        				<% end %>
-          				<br /><br />
-      	  <% else %>
-          			No subscriptions to competitions for that user.
-      		<% end %>
+      	<% if !(competitions_users=@current_object.user.competitions_users.all(:include => [:competition, :competitions_subscription])).empty? %>
+          <% competitions_users.each do |cu| %>
+            <%if  cu.state.blank?%>
+              <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))) do %>
+                <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
+                  <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>
+              <% end %>
+           <%elsif   cu.state == "accepted"%>
+              <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))) do %>
+                <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
+                  <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>
+                  <a href="#" onclick="comptoggle('<%=cu.competition_id%>')">Display Images</a>
+                  <div id="comp<%=cu.competition_id%>" style="display:none">   
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <DIV ID="slideshow">
+                          <FORM ID="ss<%=cu.competition_id%>_form" NAME="ss<%=cu.competition_id%>_form" ACTION="" METHOD="GET">
+                          <DIV ID="ss<%=cu.competition_id%>_controls">
+                          <A ID="ss<%=cu.competition_id%>_start" HREF="javascript:ss<%=cu.competition_id%>.next();ss<%=cu.competition_id%>.play()"><SPAN>start</SPAN></A>
+                          <A ID="ss<%=cu.competition_id%>_stop" HREF="javascript:ss<%=cu.competition_id%>.pause()"><SPAN>stop</SPAN></A>
+                          <A ID="ss<%=cu.competition_id%>_view" HREF="javascript:ss<%=cu.competition_id%>.hotlink()"><SPAN>view</SPAN></A>
+                          <A ID="ss<%=cu.competition_id%>_prev" HREF="javascript:ss<%=cu.competition_id%>.previous()"><SPAN>&lt;prev</SPAN></A>
+                          <A ID="ss<%=cu.competition_id%>_next" HREF="javascript:ss<%=cu.competition_id%>.next()"><SPAN>next&gt;</SPAN></A>
+                          <SELECT ID="ss<%=cu.competition_id%>_select" NAME="ss<%=cu.competition_id%>_select" ONCHANGE="ss<%=cu.competition_id%>.goto_slide(this.selectedIndex)">
+                            <OPTION>Welcome to the slideshow!
+                            <OPTION>
+                            <OPTION>
+                            <OPTION>
+                            <OPTION>
+                          </SELECT>
+                          </DIV>
+                          <DIV ID="ss<%=cu.competition_id%>_img_div">
+                          <A ID="ss<%=cu.competition_id%>_img_link" HREF="javascript:ss<%=cu.competition_id%>.hotlink()"><IMG
+                          ID="ss<%=cu.competition_id%>_img" NAME="ss<%=cu.competition_id%>_img" SRC="pics/pic01.jpg"
+                          STYLE="width:200px;height:200px;"
+                          ALT="Slideshow image"></A>
+                          </DIV>
+                          <DIV ID="ss<%=cu.competition_id%>_text">
+                          <SCRIPT type="text/javascript">
+                          document.write('<TEXTAREA ID="ss<%=cu.competition_id%>_textarea" NAME="ss<%=cu.competition_id%>_textarea" CLASS="textareaimage"  WRAP="virtual"><\/TEXTAREA>\n');
+                          ss<%=cu.competition_id%>.textarea = document.ss<%=cu.competition_id%>_form.ss<%=cu.competition_id%>_textarea;
+                          </SCRIPT>
+                          </DIV>
+                          </FORM>
+                    </DIV>
+                        <SCRIPT TYPE="text/javascript">
+                        function config_ss<%=cu.competition_id%>_select() {
+                          var selectlist = document.ss<%=cu.competition_id%>_form.ss<%=cu.competition_id%>_select;
+                          selectlist.options.length = 0;
+                          for (var i = 0; i < ss<%=cu.competition_id%>.slides.length; i++) {
+                            selectlist.options[i] = new Option();
+                            selectlist.options[i].text = (i + 1) + '. ' + ss<%=cu.competition_id%>.slides[i].title;
+                          }
+                          selectlist.selectedIndex = ss<%=cu.competition_id%>.current;
+                        }
+                        ss<%=cu.competition_id%>.pre_update_hook = function() {
+                          return;
+                        }
+                        ss<%=cu.competition_id%>.post_update_hook = function() {
+                          document.ss<%=cu.competition_id%>_form.ss<%=cu.competition_id%>_select.selectedIndex = this.current;
+                          return;
+                        }
+                        if (document.images) {
+                          ss<%=cu.competition_id%>.image = document.images.ss<%=cu.competition_id%>_img;
+                          ss<%=cu.competition_id%>.textid = "ss_text";
+                          config_ss<%=cu.competition_id%>_select();
+                          ss<%=cu.competition_id%>.update();
+                        }
+                        </SCRIPT>
+                  </div>  
+              <% end %>
+           <%else%>     
+             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state '#{cu.state}'") do %>
+               <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
+             <% end %>
+           <%end%>       
+         <% end %>
+        	<br /><br />
+      	<% else %>
+         			No subscriptions to competitions for that user.
+      	<% end %>
     </div>
   	<div id="fragment-4">
    	 <div style="float:right;">
@@ -224,123 +306,3 @@ function ntoggle() {
 <%#*</script>%>
 
 
-<DIV ID="slideshow">
-
-<FORM ID="ss_form" NAME="ss_form" ACTION="" METHOD="GET">
-
-<DIV ID="ss_controls">
-
-<A ID="ss_start" HREF="javascript:ss.next();ss.play()"><SPAN>start</SPAN></A>
-
-<A ID="ss_stop" HREF="javascript:ss.pause()"><SPAN>stop</SPAN></A>
-
-<A ID="ss_view" HREF="javascript:ss.hotlink()"><SPAN>view</SPAN></A>
-
-<A ID="ss_prev" HREF="javascript:ss.previous()"><SPAN>&lt;prev</SPAN></A>
-
-<A ID="ss_random" HREF="javascript:ss.goto_random_slide()"><SPAN>random</SPAN></A>
-
-<A ID="ss_next" HREF="javascript:ss.next()"><SPAN>next&gt;</SPAN></A>
-
-<!--
-The following select list will be modified with the slide titles.
--->
-<SELECT ID="ss_select" NAME="ss_select" ONCHANGE="ss.goto_slide(this.selectedIndex)">
-  <OPTION>Welcome to the slideshow!
-  <OPTION>
-  <OPTION>
-  <OPTION>
-  <OPTION>
-</SELECT>
-
-</DIV>
-
-<DIV ID="ss_img_div">
-
-<A ID="ss_img_link" HREF="javascript:ss.hotlink()"><IMG
-ID="ss_img" NAME="ss_img" SRC="pics/pic01.jpg"
-STYLE="width:300px;"
-ALT="Slideshow image"></A>
-
-</DIV>
-
-<DIV ID="ss_text">
-
-<SCRIPT type="text/javascript">
-<!--
-
-// The contents of this DIV will be overwritten by browsers
-// that support innerHTML.
-//
-// For browsers that do not support innerHTML, we will display
-// a TEXTAREA element to hold the slide text.
-// Note however that if the slide text contains HTML, then the
-// HTML codes will be visible in the textarea.
-
-document.write('<TEXTAREA ID="ss_textarea" NAME="ss_textarea" ROWS="6" COLS="40" WRAP="virtual"><\/TEXTAREA>\n');
-
-ss.textarea = document.ss_form.ss_textarea;
-
-//-->
-</SCRIPT>
-
-</DIV>
-
-</FORM>
-
-</DIV>
-
-<SCRIPT TYPE="text/javascript">
-<!--
-
-// Finish defining and activating the slideshow
-
-// Set up the select list with the slide titles
-function config_ss_select() {
-  var selectlist = document.ss_form.ss_select;
-  selectlist.options.length = 0;
-  for (var i = 0; i < ss.slides.length; i++) {
-    selectlist.options[i] = new Option();
-    selectlist.options[i].text = (i + 1) + '. ' + ss.slides[i].title;
-  }
-  selectlist.selectedIndex = ss.current;
-}
-
-// If you want some code to be called before or
-// after the slide is updated, define the functions here
-
-ss.pre_update_hook = function() {
-  return;
-}
-
-ss.post_update_hook = function() {
-  // For the select list with the slide titles,
-  // set the selected item to the current slide
-  document.ss_form.ss_select.selectedIndex = this.current;
-  return;
-}
-
-if (document.images) {
-
-  // Tell the slideshow which image object to use
-  ss.image = document.images.ss_img;
-
-  // Tell the slideshow the ID of the element
-  // that will contain the text for the slide
-  ss.textid = "ss_text";
-
-  // Randomize the slideshow?
-  // ss.shuffle();
-
-  // Set up the select list with the slide titles
-  config_ss_select();
-
-  // Update the image and the text for the slideshow
-  ss.update();
-
-  // Auto-play the slideshow
-  //ss.play();
-}
-
-//-->
-</SCRIPT>

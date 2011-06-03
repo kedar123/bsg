@@ -696,10 +696,14 @@ function showhidediv(showdivid)
 
 { 
   if (oldshowid){
-    document.getElementById("changemystatebefore"+oldshowid).style.display="none";
+     if ( (document.getElementById("changemystatebefore"+showdivid)) != null ) {   
+        document.getElementById("changemystatebefore"+oldshowid).style.display="none";
+     }
   }
   if (showdivid) {
-    document.getElementById("changemystatebefore"+showdivid).style.display="block";
+    if ( (document.getElementById("changemystatebefore"+showdivid)) != null ) {
+            document.getElementById("changemystatebefore"+showdivid).style.display="block";
+        }
     oldshowid = showdivid;
   }
 }

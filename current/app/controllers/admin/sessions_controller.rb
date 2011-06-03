@@ -45,11 +45,11 @@ class Admin::SessionsController < Admin::ApplicationController
                  
                  
                else
-                 redirect_to "/"+session[:buyartwork][1]
+                 redirect_to "/"+session[:buyartwork][1].to_s
                  session[:buyartwork]=nil
                end
              else  
-               redirect_to "/competitions/"+session[:compredirecid]  
+               redirect_to "/competitions/"+session[:compredirecid].to_s  
              end  
              session[:compredirecid] = nil                
       end	       

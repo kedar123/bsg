@@ -122,7 +122,7 @@ Rails::Initializer.run do |config|
 	#config.action_view.field_error_proc = proc {|html, instance| html }
    config.action_mailer.raise_delivery_errors = true
    config.action_mailer.perform_deliveries = true
-   config.action_mailer.delivery_method = :smtp
+   config.action_mailer.delivery_method = :test
 
 end
 

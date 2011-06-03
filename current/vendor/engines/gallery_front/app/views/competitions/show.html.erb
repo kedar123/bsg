@@ -90,7 +90,10 @@ function check_the_checkbox(){
 		      <%=@competition.commission%>
     	    <h4><%=@oldlabelvalue["insurance"]%></h4>
 		      <%=@competition.insurance%><br/>
-		      <br/>
+	    <br/>
+                           Click <%=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork"}
+		  %> To Buy Images.  
+            <br/>        
 		      <%if logged_in?%>  
 		          <%if !@competitionuser.blank?%>
 		                   Click <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
@@ -98,6 +101,7 @@ function check_the_checkbox(){
                           <br/>
                        Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
 		  %> To Brows The Images. 
+                           
                            <%else%>   
                   <span id="clickheretoenterintocompetition">
 		        Click  <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front", :id => @competition.id},:condition=>"check_the_checkbox()"
@@ -108,10 +112,11 @@ function check_the_checkbox(){
               Please  <a href="/login/<%=@competition.id%>"><b>Login</b></a>  To Enter Into Competition &nbsp;&nbsp;or &nbsp;&nbsp;
        <a href="/subscribe/<%=@competition.id%>" > Register </a>   
           <%end%>
+       
           <div id="click_to_browse_images" style="display:none">
                      
           </div>
-        
+       
 		      
         <%if logged_in?%>  
 		            <%if !@competitionuser.blank?%>

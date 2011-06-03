@@ -307,11 +307,11 @@ class CompetitionsController < ApplicationController
       page["enterintocompetitionfront"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
       page["enterintocompetition"].show
       page["list_show"].hide
+      page["buylist"].hide
     end
   end  
    
   def  create_the_payment
-  
     if ((params[:invoicing_info][:payment_medium] ==  "online") or (params[:invoicing_info][:payment_medium] ==  "paypal") )         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
@@ -572,6 +572,8 @@ class CompetitionsController < ApplicationController
       if @order.total_entry.to_i > i  
         page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
         page["enterintocompetitionfront"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
+        page["pleaseaccepttermsandcondition"].hide
+        page["pleaseaccepttccheckbox"].hide
       else  
         page.alert("Your Limit Is Over")
         page["messageforimageuploaded"].replace_html "Your Limit Is Over Can Not Save The Image"
@@ -828,6 +830,7 @@ class CompetitionsController < ApplicationController
         page["enterintocompetitionfront"].replace_html :partial=>"edit_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
         page["enterintocompetition"].show
         page["list_show"].hide
+        page["buylist"].hide
       end
     end   
   end  
@@ -901,7 +904,8 @@ class CompetitionsController < ApplicationController
  def show_buy_competition_artwork
     render :update do |page|
       page["list_show"].hide
-      page["enterintocompetition"].show
+      page["enterintocompetition"].hide
+      page["buylist"].show
     end
  end
 
