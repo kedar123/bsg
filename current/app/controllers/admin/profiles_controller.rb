@@ -66,7 +66,8 @@ class Admin::ProfilesController < Admin::ApplicationController
   # GET /profiles/1.xml
   def show
     @current_object = Profile.find(params[:id])
-		@my_subscription = CompetitionsUser.find(:last);
+		#@my_subscription = CompetitionsUser.find(:last);
+    @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",@current_user.id,@current_object.id])
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @current_object }

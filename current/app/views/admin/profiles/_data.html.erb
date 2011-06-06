@@ -22,6 +22,53 @@
 <%mediumname=[]%>
 <%pricename=[]%> 
 <SCRIPT TYPE="text/javascript">
+      <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
+          <% exhibitions_users.each do |eu| %>
+                         eval("var sse"+<%=eu.exhibition.id%>);
+                         sse<%=eu.exhibition.id%> = new slideshow("sse"+<%=eu.exhibition.id%>);
+                         <%@artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",eu.user.id,eu.exhibition.id])%>
+                         <%if !@artworkexhibition.blank?%> 
+                              <%for artwork in @artworkexhibition%>
+                                    s1 = new slide();
+                                      s1.src =  '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+                                      s1.link = '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+                                      s1.slideshowid = '<%=eu.exhibition.id%>';
+                                      s1.title = "<%=artwork.title%>";
+                                      <%size = ""%>
+                                      <%size = artwork.height.to_s + " x " + artwork.width.to_s%>
+                                      <%size = size + " x "+artwork.depth.to_s if !artwork.depth.blank?%>  
+                                      s1.text = "<%=artwork.user.profile.first_name%>  <%=artwork.user.profile.last_name%>      <br/>"+
+                                              "Size <%=size%> <br/>" + 
+                                              "<%=artwork.medium%> <br/>" + 
+                                              "price  <%=artwork.price%><br/>";
+                                      sse<%=eu.exhibition.id%>.add_slide(s1);
+                              <%end%>  
+                         <%end%>  
+          for (var i=0; i < sse<%=eu.exhibition.id%>.slides.length; i++) {
+                  s = sse<%=eu.exhibition.id%>.slides[i];
+                  s.target = "sse<%=eu.exhibition.id%>_popup";
+                  s.attr = "width=320,height=420,resizable=yes,scrollbars=yes";
+          }  
+          <%end%>
+      <%end%>  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  <% if !(competitions_users=@current_object.user.competitions_users.all(:include => [:competition, :competitions_subscription])).empty? %>
    <% competitions_users.each do |cu| %> 
@@ -55,6 +102,9 @@
     <%end%>    
  <%end%>     
 
+
+     
+         
 </SCRIPT>
 
 
@@ -75,6 +125,16 @@
   function comptoggle(comid) {
 	var ele = document.getElementById("comp"+comid);
 	
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+  	}
+	else {
+		ele.style.display = "block";
+	}
+  }
+  
+  function exhitoggle(exhiid){
+    var ele = document.getElementById("exhi"+exhiid);
 	if(ele.style.display == "block") {
     		ele.style.display = "none";
   	}
@@ -112,7 +172,6 @@
           <%= link_to "add to group show", "/add_user_to_groupshow/#{@current_object.user.id}" %>
       <%end%>
     </div><br/>
-      
       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
         <% exhibitions_users.each do |eu| %>
           
@@ -120,10 +179,12 @@
             <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
           <%# end %>
           <% blank_list_element(:date => eu.exhibition.timing.starting_date, :title => link_to(eu.exhibition.title, admin_exhibition_path(eu.exhibition_id))) do %>
-   
+                <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
         <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) %>
             <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
             <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",:update => 'modal_space', :method => :get%>
+     
+     <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,user_id=>@current_object.user.id,:eu=>eu.exhibition}%>
           <%end%>  
           <% end %>
           <br />

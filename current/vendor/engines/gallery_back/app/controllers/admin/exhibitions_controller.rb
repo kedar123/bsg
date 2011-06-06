@@ -55,12 +55,7 @@ end
 		#end
         
         after :create do
-          
           	@current_object.exhibitions_users.map{ |e| e.init }
-            p "im after create what is date of exhibition"
-            p @current_object.timing
-            p params
-            p "wwwwwwwwwwwwwwwwwwwwwwwwww"
         end
 		after :update do
 		 	        if  @current_object.user_ids.blank?
@@ -93,10 +88,8 @@ end
    #     end
    #     end
 		before :show do
-			get_artworks_lists
-      p "im before show"
-      p @current_object
-		end
+    	get_artworks_lists
+  	end
 
   end
 
@@ -130,10 +123,8 @@ end
 
   
   def  create_group_show
- 
     groupshow = Groupshow.new
     groupshow.title = params[:exhibition][:title]
-    
     groupshow.gallery_id = params[:exhibition][:timing_attributes][:gallery_ids].join(",")
     groupshow.description = params[:exhibition][:description]
     groupshow.note = params[:exhibition][:timing_attributes][:note]
@@ -141,6 +132,16 @@ end
     groupshow.starting_date = period.starting_date
     groupshow.ending_date = period.ending_date
     groupshow.save
+    if !params[:exhibition][:user_ids].blank?
+        @user = User.find(params[:exhibition][:user_ids])
+        @user.each do |user|
+          usergroupshow = Usergroupshow.new
+          usergroupshow.groupshow_id = groupshow.id
+          usergroupshow.user_id = user.id
+          usergroupshow.state = "created"
+          usergroupshow.save
+        end
+    end 
     flash[:notice] = "Your Group Show Is Created"
     redirect_to "/admin/groupshows/#{groupshow.id}"
   end
@@ -151,19 +152,16 @@ end
   
   
 	protected
-
 	def get_artworks_lists
 		if @current_user.has_system_role('admin')
 			@selected_artworks = @current_object.new_record? ? [] : @current_object.artworks
 			@remaining_artworks = @current_object.exhibitions_users.all(:conditions => { :state => ['validated', 'published', 'unpublished']}).map{ |e| e.user }.delete_if{ |e| !e.private_workspace }.map{ |e| e.private_workspace.artworks }.flatten - @selected_artworks
-			
 		elsif ExhibitionsUser.exists?(:user_id => @current_user.id, :exhibition_id => @current_object.id, :state => ['validated', 'published', 'unpublished'])
-			@selected_artworks = @current_object.new_record? ? [] : @current_object.artworks & @current_user.private_workspace.artworks
+      @selected_artworks = @current_object.new_record? ? [] : @current_object.artworks & @current_user.private_workspace.artworks
 			# TODO hack for rights ...
 			@remaining_artworks = @current_user.private_workspace.artworks - @selected_artworks
 		end
 	end
-
 end
 
 
