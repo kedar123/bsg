@@ -27,9 +27,16 @@
       <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id) && (object.class.to_s=='Artwork' ) %>
         <%#= link_to '<font color="white">add to the cart</font>', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1) %>
         <%#=link_to "<font color='white'>add to cart</font>" ,{:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
-       <%=link_to_remote '<font color="orange">add to the cart</font>', :update => "",
-    :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
+        
+        <%if ((object.sold == nil) or (object.sold == false))%>  
+            <%=link_to_remote '<font color="orange">add to the cart</font>', :update => "",
+              :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
+        <%else%>      
+           Already Sold
+        <%end%>
       <% end %>
+        
+        
       </div>
       <%= "already in the cart !!" if  @current_object &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>
       <%if current_user.blank?%>

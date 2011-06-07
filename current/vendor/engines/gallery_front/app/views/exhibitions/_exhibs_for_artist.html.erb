@@ -30,17 +30,12 @@ function popitup(url) {
        <%if @profile%>                           
           <font size="5" color="white"><b><%= @profile.full_name %></b></font>
           <%if @exhibitions%>
-            <div id="exhibs_list"><br/>
-                         
-                <% lists = @exhibitions.map{ |e| (link_to(e.title, "/#{params[:which]}/#{@profile.id}/exhibs/#{e.id}", :style => "color:white;")).to_s+"<br/><font style='color:black'>"+e.description+"</font>" } %>
-                      <%for list in lists%>
-					<%= list%><br/>
-		      <%end%>
-              </div>
-            <p>
-              <b><%#= @exhibition.title %></b><br/>
-              <%#= @exhibition.description %>
-            </p>
+           <%for exhi in @exhibitions%>   
+              <p>
+                <b style="color:white"><%= exhi.title %></b><br/>
+                  <%= exhi.description %>
+              </p>
+           <%end%> 
             <%if @profile.website.blank?%>
             <%else%>
             <p>
@@ -49,24 +44,32 @@ function popitup(url) {
             <%end%>
             <p>
         <%end%>    
-            <div id="exhibs_list"><br/>
+            <div id="exhibs_list">
+                <%gtitle=[]%>
+                <%gdescription=[]%>
               <%@profile.user.groupshowartworks.each do |gsa|%>
-                  <p>
-                    <font color="white"><%=gsa.groupshow.title%> </font><br/>
-                  </p>
-                  <p>
-                    <%=gsa.groupshow.description%> <br/>
-                  </p>
+                  <%gtitle << gsa.groupshow.title%>
+                  <%gdescription << gsa.groupshow.description%>
               <%end%>
+              <%gtitle.uniq!%>
+                <%gdescription.uniq!%>
+              <%for gst in gtitle%>
+                  <p>
+                      <font color="white"><%=gst%> </font>
+                  </p>
+                  <p>
+                      <%=gdescription[gtitle.index(gst)]%> 
+                  </p>
+              <%end%>    
             </div>  
-            <div id="exhibs_list"><br/>
+            <div id="exhibs_list">
               
               <%@profile.user.competitions.each do |cp|%>
                   <p>
-                    <font color="white"><%=cp.title%> </font><br/>
+                    <font color="white"><%=cp.title%> </font>
                   </p>
                   <p>
-                    <%=cp.description%> <br/>
+                    <%=cp.description%> 
                   </p>
               <%end%>
             </div>  

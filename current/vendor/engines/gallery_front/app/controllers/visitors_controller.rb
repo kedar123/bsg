@@ -24,9 +24,7 @@ class VisitorsController < ApplicationController
             end  
        end
        @groupshowusers = Usergroupshow.find(:all,:conditions=>[" user_id = ? ",current_user.id])
-       
    end
- 
   end
 	def new
 		@current_object = User.new

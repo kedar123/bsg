@@ -87,10 +87,20 @@ class ShoppingcartController < ApplicationController
           payment.save
           if session[:cart]  
              session[:cart].each do |k, v|
-    		         if  k.split('_')[0] == "CompetitionsUser"
+    		        if  k.split('_')[0] == "CompetitionsUser"
                     cu = CompetitionsUser.find(k.split('_')[1])      
                     cu.send (sold_array[image_array.index(k.split('_')[2])],true)
                     cu.save
+                end
+                if  k.split('_')[0] == "Artwork"
+                    art = Artwork.find(k.split('_')[1])      
+                    art.sold = true
+                    art.save
+                end
+                if  k.split('_')[0] == "Groupshowartwork"
+                  art = Groupshowartwork.find(k.split('_')[1])      
+                  art.sold = true
+                  art.save
                 end
             end    
           end 
@@ -156,6 +166,16 @@ class ShoppingcartController < ApplicationController
                     cu = CompetitionsUser.find(k.split('_')[1])      
                     cu.send (sold_array[image_array.index(k.split('_')[2])],true)
                     cu.save
+                end
+                if  k.split('_')[0] == "Artwork"
+                    art = Artwork.find(k.split('_')[1])      
+                    art.sold = true
+                    art.save
+                end
+                 if  k.split('_')[0] == "Groupshowartwork"
+                  art = Groupshowartwork.find(k.split('_')[1])      
+                  art.sold = true
+                  art.save
                 end
             end    
        end 

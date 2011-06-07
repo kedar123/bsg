@@ -1,4 +1,34 @@
 
+<SCRIPT TYPE="text/javascript">
+ss = new slideshow("ss");
+<%for gart in @groupshow.groupshowartworks%>
+    s = new slide();
+    s.src =  '<%="/system/groupshow/#{gart.artworkurl}"%>';
+    s.link = '<%="/system/groupshow/#{gart.artworkurl}"%>';
+    s.title = "<%=gart.title%>";
+    <%size = ""%>
+    <%size = gart.size1.to_s + " x " + gart.size2.to_s%>
+    <%size = size + " x " + gart.size3.to_s  if  gart.size3%>  
+    <%sold = "not sold"%>  
+    <%sold = "sold" if gart.sold%>    
+    s.text = "<%=gart.user.profile.first_name%> <%=gart.user.profile.last_name%> <br/>"+
+              "size  <%=size%> <br/>"+
+              "Price <%=gart.price%><br/>"+
+               "sold";
+    ss.add_slide(s);
+<%end%>
+for (var i=0; i < ss.slides.length; i++) {
+  s = ss.slides[i];
+  s.target = "ss_popup";
+  s.attr = "width=320,height=420,resizable=yes,scrollbars=yes";
+}
+
+</SCRIPT>
+  
+
+
+
+
 <title>Group Show: <%=@groupshow.title%></title><div class="objectList small">
 				<div class="blockCornerLeft"></div>
 				<div class="blockElementHeader sixH">
@@ -16,6 +46,66 @@
   From <%=@groupshow.starting_date%>
   To <%=@groupshow.ending_date%>
 <br/>
+
+<%#this all upto end for slideshow%>
+<DIV ID="slideshow" style="background-color:#E5E5E5;">
+<FORM ID="ss_form" NAME="ss_form" ACTION="" METHOD="GET">
+<DIV ID="ss_controls">
+<A ID="ss_start" HREF="javascript:ss.next();ss.play()"><SPAN>start</SPAN></A>
+<A ID="ss_stop" HREF="javascript:ss.pause()"><SPAN>stop</SPAN></A>
+<A ID="ss_view" HREF="javascript:ss.hotlink()"><SPAN>view</SPAN></A>
+<A ID="ss_prev" HREF="javascript:ss.previous()"><SPAN>&lt;prev</SPAN></A>
+<A ID="ss_next" HREF="javascript:ss.next()"><SPAN>next&gt;</SPAN></A>
+<SELECT ID="ss_select" NAME="ss_select" ONCHANGE="ss.goto_slide(this.selectedIndex)">
+  <OPTION>Welcome to the slideshow!
+  <OPTION>
+  <OPTION>
+  <OPTION>
+  <OPTION>
+</SELECT>
+</DIV>
+<DIV ID="ss_img_div">
+<A ID="ss_img_link" HREF="javascript:ss.hotlink()"><IMG
+ID="ss_img" NAME="ss_img" SRC="pics/pic01.jpg"
+STYLE=""
+ALT="Slideshow image"></A>
+</DIV>
+<DIV ID="ss_text">
+<SCRIPT type="text/javascript">
+document.write('<TEXTAREA ID="ss_textarea" NAME="ss_textarea" ROWS="6" COLS="40" WRAP="virtual"><\/TEXTAREA>\n');
+ss.textarea = document.ss_form.ss_textarea;
+</SCRIPT>
+</DIV>
+</FORM>
+</DIV>
+<SCRIPT TYPE="text/javascript">
+function config_ss_select() {
+  var selectlist = document.ss_form.ss_select;
+  selectlist.options.length = 0;
+  for (var i = 0; i < ss.slides.length; i++) {
+    selectlist.options[i] = new Option();
+    selectlist.options[i].text = (i + 1) + '. ' + ss.slides[i].title;
+  }
+  selectlist.selectedIndex = ss.current;
+}
+ss.pre_update_hook = function() {
+  return;
+}
+ss.post_update_hook = function() {
+  document.ss_form.ss_select.selectedIndex = this.current;
+  return;
+}
+if (document.images) {
+  ss.image = document.images.ss_img;
+  ss.textid = "ss_text";
+  config_ss_select();
+  ss.update();
+}
+</SCRIPT>
+
+<%#all for slide show ends here%>
+
+
 </div></div>
       <div class="rightBlocks">
         <div class="itemShowRightBlock">

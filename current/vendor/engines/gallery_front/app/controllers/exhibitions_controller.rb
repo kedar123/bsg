@@ -5,7 +5,7 @@ class ExhibitionsController < ApplicationController
   def current
   	do_the_job_for(:current)
     do_the_job_for_groupshow_current(:current)
-    do_the_job_for_competition_current(:current)
+    #do_the_job_for_competition_current(:current)
  	end
 
 	def past
@@ -20,7 +20,7 @@ class ExhibitionsController < ApplicationController
 	def next
     do_the_job_for(:next)
     do_the_job_for_groupshow_next(:next)
-    do_the_job_for_competition_next(:next)
+    #do_the_job_for_competition_next(:next)
 	end
 
 #	def submit_form
@@ -37,10 +37,7 @@ class ExhibitionsController < ApplicationController
 	def do_the_job_for(which)
 		@artists = []
     exhibitions=Exhibition.send(which)
-  p exhibitions
-  p "i got the future exhibition"
-  p @artists=ExhibitionsUser.all(:include => [:user => [:profile]], :conditions => { :exhibition_id => exhibitions.map{|e| e.id}, :state => 'published'}).map{ |e| e.user.profile}.uniq.sort {|x,y| x.full_name <=> y.full_name } 
-  p "i got th artist"
+
   
     if !(exhibitions=Exhibition.send(which)).empty? && !(@artists=ExhibitionsUser.all(:include => [:user => [:profile]], :conditions => { :exhibition_id => exhibitions.map{|e| e.id}, :state => 'published'}).map{ |e| e.user.profile}.uniq.sort {|x,y| x.full_name <=> y.full_name } ).empty?
 			#raise @current_exposing_artists.map{ |e| e.id }.inspect
@@ -75,7 +72,11 @@ class ExhibitionsController < ApplicationController
             @artists<<gsa.user.profile
         end
       end
-      
+       @artists.uniq!
+     params[:which] = "#{which.to_s}/artists"
+     respond_to do |format|
+           format.html { render :template => 'exhibitions/show.html.erb' }
+     end
   end
   def do_the_job_for_competition_current(which)
       competition = Competition.find(:all,:conditions=>["state = 'open'"])
@@ -125,6 +126,11 @@ class ExhibitionsController < ApplicationController
               @artists<<gsa.user.profile
             end
          end
+     @artists.uniq!
+     params[:which] = "#{which.to_s}/artists"
+     respond_to do |format|
+           format.html { render :template => 'exhibitions/show.html.erb' }
+     end
   end
   
   def do_the_job_for_competition_next(which)
