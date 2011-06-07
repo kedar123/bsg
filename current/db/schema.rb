@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531080404) do
+ActiveRecord::Schema.define(:version => 20110607105235) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20110531080404) do
     t.datetime "updated_at"
     t.string   "image_name"
     t.integer  "competitions_users_id"
+    t.boolean  "sold"
   end
 
   add_index "artworks_competitions", ["artwork_id"], :name => "index_artworks_competitions_on_artwork_id"
@@ -372,6 +373,16 @@ ActiveRecord::Schema.define(:version => 20110531080404) do
     t.string   "at_end_work"
     t.boolean  "confirm"
     t.string   "varification_code"
+    t.boolean  "fsold"
+    t.boolean  "ssold"
+    t.boolean  "tsold"
+    t.boolean  "fosold"
+    t.boolean  "fisold"
+    t.boolean  "sisold"
+    t.boolean  "sesold"
+    t.boolean  "eisold"
+    t.boolean  "nsold"
+    t.boolean  "tesold"
   end
 
   add_index "competitions_users", ["competition_id"], :name => "index_competitions_users_on_competition_id"
@@ -561,7 +572,7 @@ ActiveRecord::Schema.define(:version => 20110531080404) do
     t.string   "front_end_pics_content_type"
     t.integer  "front_end_pics_file_size"
     t.datetime "front_end_pics_updated_at"
-    t.boolean  "select"
+    t.boolean  "selectpic"
   end
 
   create_table "galleries", :force => true do |t|

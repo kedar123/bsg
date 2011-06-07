@@ -73,8 +73,11 @@ class ShoppingcartController < ApplicationController
   end 
   
   def makeshoppingcartpayment
+    image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+    sold_array = [ 'fsold=','ssold=','tsold=','fosold=','fisold=','sisold=','sesold=','eisold=','nsold=','tesold=']
     	@current_object = Order.new_from_cart(session[:cart], @current_user)
       payment = Payment.new()
+      order = Order.complete_from_cart(session[:cart], @current_user)
       payment.common_wealth_bank_process(@current_object.total_amount*100,params)
       if  payment.state == "online_validated"
           order = Order.complete_from_cart(session[:cart], @current_user)
@@ -82,6 +85,15 @@ class ShoppingcartController < ApplicationController
           payment.user_id = current_user.id
           payment.amount_in_cents = @current_object.total_amount*100
           payment.save
+          if session[:cart]  
+             session[:cart].each do |k, v|
+    		         if  k.split('_')[0] == "CompetitionsUser"
+                    cu = CompetitionsUser.find(k.split('_')[1])      
+                    cu.send (sold_array[image_array.index(k.split('_')[2])],true)
+                    cu.save
+                end
+            end    
+          end 
           session[:cart] = {}
           render :update do |page|
               page["modal_space_answer"].hide
@@ -138,6 +150,15 @@ class ShoppingcartController < ApplicationController
        payment.amount_in_cents = session[:paypal_amount].to_i * 100
        payment.save
        order.save
+       if session[:cart]  
+             session[:cart].each do |k, v|
+    		         if  k.split('_')[0] == "CompetitionsUser"
+                    cu = CompetitionsUser.find(k.split('_')[1])      
+                    cu.send (sold_array[image_array.index(k.split('_')[2])],true)
+                    cu.save
+                end
+            end    
+       end 
        session[:cart] = {}
        redirect_to :action=>"show_me_cart",:payment_message=>"Your Payment Is Done"
     end 

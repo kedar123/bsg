@@ -1,8 +1,9 @@
-<%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	%>
-<%title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']	%>
+<%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']%>
+<%title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']%>
 <%price_array=['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
 <%medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
 <%size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
+<%sold_array = [ 'fsold','ssold','tsold','fosold','fisold','sisold','sesold','eisold','nsold','tesold']%>
 <%j=0%>
 <%for image in  image_array%>
    <%if (object.send title_array[j]) != nil  && !(object.send image_array[j]).blank? %>
@@ -27,10 +28,15 @@
                     <% end %>
                    <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%><%=image.to_s%>">
                    <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id ) %>
-                           <%#= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
-                           <%=link_to_remote '<font color="orange">add to the cart</font>', :update => "",
+                     
+                    <%#= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
+                        <%if (((object.send sold_array[j]) == nil) or ((object.send sold_array[j]) == false))%>  
+                            <%=link_to_remote '<font color="orange">add to the cart</font>', :update => "",
                                 :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1,:eachimage=>image}%>
-                    <%else%>
+                        <%else%>          
+                                already sold
+                        <%end%>
+                  <%else%>
                     
                     <% end %>
                     </div>  

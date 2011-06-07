@@ -7,7 +7,8 @@
 		<div class="itemInListTitle">
                         <%if object.class == Groupshow%>
                           <%= link_to object.title, "/admin/groupshows/#{object.id}" %>
-                            &nbsp;&nbsp;&nbsp; <font style="color:#cccccc;font-size:13px">groupshow</font>
+                  
+                            <span style="float:right"> <font style="color:#cccccc;font-size:13px">groupshow</font></span>
                         <%else%>    
                           <%= link_to object.title, item_path(object) %>
                         <%end%>

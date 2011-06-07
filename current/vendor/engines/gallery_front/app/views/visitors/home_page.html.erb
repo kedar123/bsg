@@ -138,6 +138,9 @@
                      <%if !@groupshowusers.blank?%>
                             <%for gsu in @groupshowusers%>
                                   <div style="margin-left:5px;">
+                                    <%p gsu%>
+                                    <%p gsu.groupshow%>
+                                    <%p "im nil here"%>
                                       <%=gsu.groupshow.title%> 
                                    </div>   
                                    <div style="margin-left:5px;"> 
