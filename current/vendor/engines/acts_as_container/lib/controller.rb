@@ -30,9 +30,12 @@ module ActsAsContainer
               @paginated_objects = []
               @paginated_objects = params[:item_type].classify.constantize.get_da_objects_list(setting_searching_params(:from_params => params))
               if params[:item_type] == 'exhibitions'
-                  @paginated_objects << Groupshow.find(:all)
+                  @paginated_objects << Groupshow.find(:all,:order => "created_at DESC")
               end  
               @paginated_objects.flatten!
+              
+              @paginated_objects.sort! { |x,y| y.created_at <=> x.created_at } 
+              
               @total_objects_count = params[:item_type].classify.constantize.matching_user_with_permission_in_containers(@current_user, 'show', [current_object.class.to_s.underscore+'-'+current_object.id.to_s]).uniq.size
               @ordering_filters = ['created_at','comments_number', 'viewed_number', 'rates_average', 'title']
               #generate the correct address for ITEM IN WORKSPACe PAGINATION
