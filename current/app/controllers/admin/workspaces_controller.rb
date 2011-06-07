@@ -16,21 +16,5 @@ class Admin::WorkspacesController < Admin::ApplicationController
       'add_new_user' => 'edit'
     },
 		:skip_logging_actions => [])
-  
-  acts_as_container do
-  before :show do
-  #  p Groupshow.find(:all)
-  #  p "groupshow"
-  #  p @current_object
-  #  @paginated_objects = []
-    if params[:item_type] == 'exhibitions'
-        @groupshow = Groupshow.find(:all)
-    end    
-    
-  #  @paginated_objects.flatten!
-  #  p @paginated_objects
-  #end
-end
-  end
-  
+  acts_as_container 
 end

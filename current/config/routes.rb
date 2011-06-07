@@ -19,7 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/shopping_paypal_return/:id" ,:controller=>"shoppingcart",:action=>"paypal_return"
   
   
-  
+  map.connect "admin/groupshows/update/:id",:controller=>"/admin/groupshows",:action=>"update"
+  map.connect "admin/groupshows/delete/:id",:controller=>"/admin/groupshows",:action=>"destroy"
   
   map.connect "/admin/competitions/confirm_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"confirm_competition_subscription_details"
   map.connect "/admin/competitions/edit_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"edit_competition_subscription_details"

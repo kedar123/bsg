@@ -1,8 +1,4 @@
 <!DOCTYPE webprojectsession>
 <webprojectsession>
-  <session usePreviewPrefix="0" previewPrefix="" >
-    <itemcursorpositions>
-      <item line="25" column="80" url="vendor/engines/acts_as_item/app/helpers/generic_for_item_helper.rb" />
-    </itemcursorpositions>
-  </session>
+  <session usePreviewPrefix="0" previewPrefix="" />
 </webprojectsession>

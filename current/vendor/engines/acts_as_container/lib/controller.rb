@@ -27,7 +27,12 @@ module ActsAsContainer
             # Just for the first load of the show, means without item selected
             current_container.class.to_s.underscore == "website" ? params[:item_type] = "pages" : params[:item_type] ||= get_allowed_item_types(@current_object).first.to_s.pluralize
             if !params[:item_type].blank?
+              @paginated_objects = []
               @paginated_objects = params[:item_type].classify.constantize.get_da_objects_list(setting_searching_params(:from_params => params))
+              if params[:item_type] == 'exhibitions'
+                  @paginated_objects << Groupshow.find(:all)
+              end  
+              @paginated_objects.flatten!
               @total_objects_count = params[:item_type].classify.constantize.matching_user_with_permission_in_containers(@current_user, 'show', [current_object.class.to_s.underscore+'-'+current_object.id.to_s]).uniq.size
               @ordering_filters = ['created_at','comments_number', 'viewed_number', 'rates_average', 'title']
               #generate the correct address for ITEM IN WORKSPACe PAGINATION

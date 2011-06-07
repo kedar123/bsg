@@ -30,8 +30,8 @@
                          <%if !@artworkexhibition.blank?%> 
                               <%for artwork in @artworkexhibition%>
                                     s1 = new slide();
-                                      s1.src =  '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
-                                      s1.link = '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+                                      s1.src =  '<%="/uploaded_files/production/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+                                      s1.link = '<%="/uploaded_files/production/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
                                       s1.slideshowid = '<%=eu.exhibition.id%>';
                                       s1.title = "<%=artwork.title%>";
                                       <%size = ""%>
@@ -179,13 +179,14 @@
             <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
           <%# end %>
           <% blank_list_element(:date => eu.exhibition.timing.starting_date, :title => link_to(eu.exhibition.title, admin_exhibition_path(eu.exhibition_id))) do %>
-                <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
+                <%#=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
         <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) %>
             <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
             <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",:update => 'modal_space', :method => :get%>
      
-     <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,user_id=>@current_object.user.id,:eu=>eu.exhibition}%>
+    
           <%end%>  
+     <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
           <% end %>
           <br />
         <% end %>

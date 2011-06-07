@@ -66,6 +66,13 @@ class Admin::GroupshowsController < ApplicationController
   # GET /groupshows/1/edit
   def edit
     @groupshow = Groupshow.find(params[:id])
+    @user_ids = []
+    @places = Gallery.all
+    sr = Role.find_by_name('artist')
+		@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
+    usergroupshow = Usergroupshow.find(:all,:conditions=>["groupshow_id = ?",@groupshow.id])
+    usergroupshow.each do |ugs| @user_ids << ugs.user_id end
+    @period_id = Period.find_by_starting_date_and_ending_date(@groupshow.starting_date,@groupshow.ending_date);
   end
 
   # POST /groupshows
@@ -88,10 +95,26 @@ class Admin::GroupshowsController < ApplicationController
   # PUT /groupshows/1.xml
   def update
     @groupshow = Groupshow.find(params[:id])
-
     respond_to do |format|
-      if @groupshow.update_attributes(params[:groupshow])
-        format.html { redirect_to(@groupshow, :notice => 'Groupshow was successfully updated.') }
+      if @groupshow.update_attributes(:title=>params[:groupshow][:title],:description=>params[:groupshow][:description],:note=>params[:groupshow][:note])
+         period_id = Period.find(params[:period_id])
+         @groupshow.starting_date = period_id.starting_date
+         @groupshow.ending_date = period_id.ending_date
+         @groupshow.save
+             if !params[:groupshow][:user_ids].blank?
+        @user = User.find(params[:groupshow][:user_ids])
+          @user.each do |user|
+            usergroupshow = Usergroupshow.find(:first,:conditions=>["user_id = ? and groupshow_id =?",user.id,@groupshow.id])
+            if usergroupshow.blank?
+               usergroupshow = Usergroupshow.new
+               usergroupshow.groupshow_id = @groupshow.id
+               usergroupshow.user_id = user.id
+               usergroupshow.state = "created"
+               usergroupshow.save
+            end
+          end
+        end 
+        format.html { redirect_to("/admin/groupshows/#{@groupshow.id}", :notice => 'Groupshow was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -105,9 +128,8 @@ class Admin::GroupshowsController < ApplicationController
   def destroy
     @groupshow = Groupshow.find(params[:id])
     @groupshow.destroy
-
     respond_to do |format|
-      format.html { redirect_to(groupshows_url) }
+      format.html { redirect_to :back}
       format.xml  { head :ok }
     end
   end

@@ -53,10 +53,9 @@ end
 		#after :create, :update do
 		#	@current_object.exhibitions_users.map{ |e| e.init }
 		#end
-        
-        after :create do
+    after :create do
           	@current_object.exhibitions_users.map{ |e| e.init }
-        end
+    end
 		after :update do
 		 	        if  @current_object.user_ids.blank?
 		            newuserid = []

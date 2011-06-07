@@ -11,7 +11,12 @@
         background-repeat: no-repeat;
   }
 </style> 
-<a href="#" onclick="exhitoggle('<%=eu.exhibition.id%>')">Display Images</a>
+ <%artexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",eu.user.id,eu.exhibition.id])%>
+ <%if !artexhibition.blank?%>
+        <a href="#" onclick="exhitoggle('<%=eu.exhibition.id%>')">Display Images</a>
+  <%else%>      
+        No Images Uploaded
+ <%end%>       
                   <div id="exhi<%=eu.exhibition.id%>" style="display:none">   
                      <DIV ID="slideshow">
 

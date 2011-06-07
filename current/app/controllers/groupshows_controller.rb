@@ -64,7 +64,10 @@ class GroupshowsController < ApplicationController
 
   # GET /groupshows/1/edit
   def edit
+
     @groupshow = Groupshow.find(params[:id])
+   
+
   end
 
   # POST /groupshows

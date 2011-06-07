@@ -5,59 +5,32 @@
 	</div>
 	<div class="itemInListBody">
 		<div class="itemInListTitle">
-			<%= link_to object.title, item_path(object) %>
+                        <%if object.class == Groupshow%>
+                          <%= link_to object.title, "/admin/groupshows/#{object.id}" %>
+                        <%else%>    
+                          <%= link_to object.title, item_path(object) %>
+                        <%end%>
+                  
 		</div>
 		<div class="itemInListActions">
-			<% if object.has_permission_for?('edit', @current_user, @current_container)  -%>
+                      <%if object.class == Groupshow%>
+                                <%= link_to I18n.t('general.link.edit'), "/admin/groupshows/#{object.id}/edit"%> |
+                      <%else%>
+                  	<% if object.has_permission_for?('edit', @current_user, @current_container)  -%>
 				<%= link_to I18n.t('general.link.edit'), edit_item_path(object)%> |
 			<% end -%>
-			<% if object.has_permission_for?('destroy', @current_user, @current_container) %>
-				<%#= link_to I18n.t('general.link.delete'), 
-							"javascript:;", 
-							:class => "deleteLink",
-							:modal_id => "#modalDelete_#{object.id.to_s}"%>	
-				
-				
-						<%= link_to I18n.t('general.link.delete'), item_path(object), :method => :delete,:confirm=>"Are You Sure" %> | 
-						<%#= link_to I18n.t('general.common_word.no1'), "javascript:;", :class => "deleteClose" %>
-				
-				
-			<% end -%>
-		</div>
-		<div class="itemInListTags"><%= keywords_links_list_for(object) %></div>
-	</div>
-	<!-- div class="itemInListMore">
-		<%# garder le + pour faire un tool tip avec des infos complémentaires%>
-		<%#= link_to '+', item_path(object) %>
-	</div-->
-</li>
-<% end %>
-<%if !@groupshow.blank?%>
-<% @groupshow.each do |object| %>
-<li class="itemInList">
-	<div class="itemInListDate">
-		<%= I18n.l object.created_at, :format =>:verb %>
-	</div>
-	<div class="itemInListBody">
-		<div class="itemInListTitle">
-			<%=  object.title %>
-		</div>
-		<div class="itemInListActions">
-			<%# if object.has_permission_for?('edit', @current_user, @current_container)  -%>
-				<%#= link_to I18n.t('general.link.edit'), edit_item_path(object)%> |
-			<% #end -%>
-			<% #if object.has_permission_for?('destroy', @current_user, @current_container) %>
-				<%#= link_to I18n.t('general.link.delete'), 
-							"javascript:;", 
-							:class => "deleteLink",
-							:modal_id => "#modalDelete_#{object.id.to_s}"%>	
-				
-				
-						<%#= link_to I18n.t('general.link.delete'), item_path(object), :method => :delete,:confirm=>"Are You Sure" %> | 
-						<%#= link_to I18n.t('general.common_word.no1'), "javascript:;", :class => "deleteClose" %>
-				
-				
-			<% #end -%>
+                     <%end%>           
+                      <%if object.class == Groupshow%>          
+               
+                       <%= link_to I18n.t('general.link.delete'), "/admin/groupshows/delete/#{object.id}", :method => :delete,:confirm=>"Are You Sure" %> | 
+                     <%else%>   
+                         <%# if object.has_permission_for?('destroy', @current_user, @current_container) %>
+			 
+                          <%= link_to I18n.t('general.link.delete'), item_path(object), :method => :delete,:confirm=>"Are You Sure" %> | 
+                         
+                        <%# end -%> 
+                     <%end%>     
+                        
 		</div>
 		<div class="itemInListTags"><%#= keywords_links_list_for(object) %></div>
 	</div>
@@ -67,6 +40,4 @@
 	</div-->
 </li>
 <% end %>
-<%end%>
 
-<%#= remote_pagination(@paginated_objects, @ajax_url) %>

@@ -2,8 +2,8 @@
 <webproject>
   <project type="Local" name="bsg" encoding="utf8" >
     <upload/>
-    <author/>
-    <email/>
+    <author></author>
+    <email></email>
     <defaultDTD>-//W3C//DTD HTML 4.01 Transitional//EN</defaultDTD>
     <item url="app/" uploadstatus="1" />
     <item url="app/controllers/" uploadstatus="1" />
@@ -52,6 +52,7 @@
     <item url="app/controllers/app_homes_controller.rb" uploadstatus="1" />
     <item url="app/controllers/application_controller.rb" uploadstatus="1" />
     <item url="app/controllers/booksshops_controller.rb" uploadstatus="1" />
+    <item url="app/controllers/bottomline_controller.rb" uploadstatus="1" />
     <item url="app/controllers/competitions_artworks_controller.rb" uploadstatus="1" />
     <item url="app/controllers/contacts_controller.rb" uploadstatus="1" />
     <item url="app/controllers/drawings_controller.rb" uploadstatus="1" />
@@ -83,6 +84,7 @@
     <item url="app/helpers/app_homes_helper.rb" uploadstatus="1" />
     <item url="app/helpers/application_helper.rb" uploadstatus="1" />
     <item url="app/helpers/booksshops_helper.rb" uploadstatus="1" />
+    <item url="app/helpers/bottomline_helper.rb" uploadstatus="1" />
     <item url="app/helpers/competitions_artworks_helper.rb" uploadstatus="1" />
     <item url="app/helpers/competitions_users_helper.rb" uploadstatus="1" />
     <item url="app/helpers/drawings_helper.rb" uploadstatus="1" />
@@ -110,6 +112,7 @@
     <item url="app/models/audit_observer.rb" uploadstatus="1" />
     <item url="app/models/bookmark.rb" uploadstatus="1" />
     <item url="app/models/booksshop.rb" uploadstatus="1" />
+    <item url="app/models/bottomline.rb" uploadstatus="1" />
     <item url="app/models/category.rb" uploadstatus="1" />
     <item url="app/models/cms_file.rb" uploadstatus="1" />
     <item url="app/models/columnnameandheader.rb" uploadstatus="1" />
@@ -298,8 +301,11 @@
     <item url="app/views/admin/profiles/specific/" uploadstatus="1" />
     <item url="app/views/admin/profiles/specific/_artist_fields.html.erb" uploadstatus="1" />
     <item url="app/views/admin/profiles/specific/_artist_show.html.erb" uploadstatus="1" />
+    <item url="app/views/admin/profiles/compose_user_mail.rhtml" uploadstatus="1" />
+    <item url="app/views/admin/profiles/_compslideshow.html.erb" uploadstatus="1" />
     <item url="app/views/admin/profiles/_data.html.erb" uploadstatus="1" />
     <item url="app/views/admin/profiles/edit.html.erb" uploadstatus="1" />
+    <item url="app/views/admin/profiles/_exhbslideshow.html.erb" uploadstatus="1" />
     <item url="app/views/admin/profiles/_exhibitionpayment.erb" uploadstatus="1" />
     <item url="app/views/admin/profiles/_exhibitionpaymentfront.rhtml" uploadstatus="1" />
     <item url="app/views/admin/profiles/_form.html.erb" uploadstatus="1" />
@@ -394,6 +400,8 @@
     <item url="app/views/booksshops/index.html.erb" uploadstatus="1" />
     <item url="app/views/booksshops/new.html.erb" uploadstatus="1" />
     <item url="app/views/booksshops/show.html.erb" uploadstatus="1" />
+    <item url="app/views/bottomline/" uploadstatus="1" />
+    <item url="app/views/bottomline/index.rhtml" uploadstatus="1" />
     <item url="app/views/competitions_artworks/" uploadstatus="1" />
     <item url="app/views/competitions_artworks/show.rhtml" uploadstatus="1" />
     <item url="app/views/drawings/" uploadstatus="1" />
@@ -661,7 +669,8 @@
     <item url="db/migrate/20110516115141_create_groupshowartworks.rb" uploadstatus="1" />
     <item url="db/migrate/20110525071738_create_admin_newsletters.rb" uploadstatus="1" />
     <item url="db/migrate/20110525104454_create_newsletteremails.rb" uploadstatus="1" />
-    <item url="db/migrate/20110525122312_create_newsletters.rb" uploadstatus="1" />
+    <item url="db/migrate/20110530130534_create_bottomlines.rb" uploadstatus="1" />
+    <item url="db/migrate/20110531080404_selectfrontendpic.rb" uploadstatus="1" />
     <item url="db/migrate/b20110408114252_messages.rb" uploadstatus="1" />
     <item url="db/migrate/database.yml" uploadstatus="1" />
     <item url="db/development_data.sql" uploadstatus="1" />
@@ -697,6 +706,7 @@
     <item url="nbproject/" uploadstatus="1" />
     <item url="nbproject/private/" uploadstatus="1" />
     <item url="nbproject/private/private.properties" uploadstatus="1" />
+    <item url="nbproject/private/private.xml" uploadstatus="1" />
     <item url="nbproject/private/rake-d.txt" uploadstatus="1" />
     <item url="nbproject/project.properties" uploadstatus="1" />
     <item url="nbproject/project.xml" uploadstatus="1" />
@@ -3176,83 +3186,6 @@
     <item url="public/javascripts/slideshow.js" uploadstatus="1" />
     <item url="public/javascripts/websites.js" uploadstatus="1" />
     <item url="public/pdf_invoice/" uploadstatus="1" />
-    <item url="public/pdf_invoice/394invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/395invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/396invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/397invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/398invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/399invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/400invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/401invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/402invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/403invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/404invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/405invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/406invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/407invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/408invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/409invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/410invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/411invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/412invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/413invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/414invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/415invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/416invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/417invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/418invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/419invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/420invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/421invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/422invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/423invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/424invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/425invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/426invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/427invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/428invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/429invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/430invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/431invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/432invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/433invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/435invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/437invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/438invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/439invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/440invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/441invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/442invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/443invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/444invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/445invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/446invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/447invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/448invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/453invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/454invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/455invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/456invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/457invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/458invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/459invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/460invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/461invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/462invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/463invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/464invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/465invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/466invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/467invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/468invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/470invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/471invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/472invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/473invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/474invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/475invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/476invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/477invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/478invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/479invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/480invoice.pdf" uploadstatus="1" />
@@ -3264,6 +3197,75 @@
     <item url="public/pdf_invoice/486invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/488invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/489invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/490invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/491invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/492invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/493invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/494invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/495invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/496invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/497invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/498invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/499invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/500invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/501invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/502invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/503invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/504invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/505invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/506invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/507invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/508invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/509invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/510invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/513invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/514invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/515invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/516invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/517invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/518invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/519invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/520invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/521invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/522invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/523invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/524invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/525invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/526invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/527invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/528invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/529invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/531invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/532invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/533invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/535invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/536invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/537invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/539invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/540invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/541invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/543invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/544invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/545invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/546invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/547invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/548invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/549invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/550invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/551invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/552invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/553invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/554invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/556invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/557invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/558invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/559invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/561invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/562invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/563invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/564invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/565invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/567invoice.pdf" uploadstatus="1" />
     <item url="public/players/" uploadstatus="1" />
     <item url="public/players/audioplayer.swf" uploadstatus="1" />
     <item url="public/players/swfobject.js" uploadstatus="1" />
@@ -3489,6 +3491,13 @@
     <item url="public/stylesheets/validationEngine.jquery.css" uploadstatus="1" />
     <item url="public/system/" uploadstatus="1" />
     <item url="public/system/front_end_pics/" uploadstatus="1" />
+    <item url="public/system/front_end_pics/13/" uploadstatus="1" />
+    <item url="public/system/front_end_pics/13/large/" uploadstatus="1" />
+    <item url="public/system/front_end_pics/13/large/image_thumb_04.jpg" uploadstatus="1" />
+    <item url="public/system/front_end_pics/13/original/" uploadstatus="1" />
+    <item url="public/system/front_end_pics/13/original/image_thumb_04.jpg" uploadstatus="1" />
+    <item url="public/system/front_end_pics/13/thumb/" uploadstatus="1" />
+    <item url="public/system/front_end_pics/13/thumb/image_thumb_04.jpg" uploadstatus="1" />
     <item url="public/system/front_end_pics/2/" uploadstatus="1" />
     <item url="public/system/front_end_pics/2/large/" uploadstatus="1" />
     <item url="public/system/front_end_pics/2/large/mg3623.jpeg" uploadstatus="1" />
@@ -3570,6 +3579,7 @@
     <item url="public/system/gallery/17248899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/172black1.jpg" uploadstatus="1" />
     <item url="public/system/gallery/172car.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/174black1.jpg" uploadstatus="1" />
     <item url="public/system/gallery/18548899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/185car.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/185image_thumb_03.jpg" uploadstatus="1" />
@@ -3626,8 +3636,48 @@
     <item url="public/system/gallery/296administration.png" uploadstatus="1" />
     <item url="public/system/gallery/296image_thumb_03.jpg" uploadstatus="1" />
     <item url="public/system/gallery/296image_thumb_04.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/315demo21.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/315demo22.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/315mg3623.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/31648899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/316car.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/318bsg.png" uploadstatus="1" />
+    <item url="public/system/gallery/318Urban.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/319churfirsten_switzerland_small.JPG" uploadstatus="1" />
+    <item url="public/system/gallery/319image_thumb_04.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/319image_thumb_05.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/319sa1.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/322image_thumb_03.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/322image_thumb_04.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/32348899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/325home_mega.gif" uploadstatus="1" />
+    <item url="public/system/gallery/326demo22.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/326demo29.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/326demo30.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/326image_thumb_05.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/326Urban.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/327demo37.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/328demo35.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/328demo36.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/329demo9.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/330demo1.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/330demo2.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/330demo3.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/330demo5.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/332demo12.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/332demo29.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/332demo4.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/333demo12.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/333demo5.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/333demo9.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/334Amy.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/334demo14.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/336demo15.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/337demo9.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/338demo1.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/341demo8.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/341mg3623.jpeg" uploadstatus="1" />
+    <item url="public/system/gallery/342demo28.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/45synergy.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/45tree.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/46Imagine_the_Music_by_artsangel.jpg" uploadstatus="1" />
@@ -3683,12 +3733,36 @@
     <item url="public/system/gallery/7948899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/79budha.jpg" uploadstatus="1" />
     <item url="public/system/groupshow/" uploadstatus="1" />
+    <item url="public/system/groupshow/1048899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/1148899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/12car.jpeg" uploadstatus="1" />
     <item url="public/system/groupshow/12churfirsten_switzerland_small.JPG" uploadstatus="1" />
+    <item url="public/system/groupshow/1348899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/groupshow/13image_thumb_04.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/1448899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/15car.jpeg" uploadstatus="1" />
+    <item url="public/system/groupshow/16black1.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/17churfirsten_switzerland_small.JPG" uploadstatus="1" />
+    <item url="public/system/groupshow/18black1.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/19administration.png" uploadstatus="1" />
+    <item url="public/system/groupshow/20accounting.png" uploadstatus="1" />
+    <item url="public/system/groupshow/2148899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/22black1.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/22churfirsten_switzerland_small.JPG" uploadstatus="1" />
+    <item url="public/system/groupshow/23black1.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/2448899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/24administration.png" uploadstatus="1" />
     <item url="public/system/groupshow/2548899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/groupshow/25car.jpeg" uploadstatus="1" />
     <item url="public/system/groupshow/26churfirsten_switzerland_small.JPG" uploadstatus="1" />
     <item url="public/system/groupshow/27sa4.jpeg" uploadstatus="1" />
+    <item url="public/system/groupshow/28administration.png" uploadstatus="1" />
+    <item url="public/system/groupshow/29demo19.jpeg" uploadstatus="1" />
+    <item url="public/system/groupshow/30demo20.jpeg" uploadstatus="1" />
+    <item url="public/system/groupshow/648899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/748899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/848899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/system/groupshow/948899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/" uploadstatus="1" />
     <item url="public/uploaded_files/development/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/" uploadstatus="1" />
@@ -4296,9 +4370,142 @@
     <item url="public/uploaded_files/development/artwork/230/original/administration.png" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/230/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/230/thumb/administration.png" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/231/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/231/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/231/medium/48899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/231/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/231/original/48899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/231/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/231/thumb/48899_1074997208_1258_n.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/232/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/232/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/232/medium/image_thumb_02.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/232/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/232/original/image_thumb_02.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/232/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/232/thumb/image_thumb_02.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/233/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/233/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/233/medium/Amy.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/233/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/233/original/Amy.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/233/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/233/thumb/Amy.jpg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/234/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/234/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/234/medium/demo7.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/234/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/234/original/demo7.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/234/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/234/thumb/demo7.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/235/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/235/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/235/medium/demo8.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/235/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/235/original/demo8.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/235/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/235/thumb/demo8.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/236/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/236/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/236/medium/administration.png" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/236/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/236/original/administration.png" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/236/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/236/thumb/administration.png" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/237/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/237/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/237/medium/demo10.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/237/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/237/original/demo10.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/237/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/237/thumb/demo10.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/238/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/238/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/238/medium/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/238/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/238/original/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/238/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/238/thumb/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/239/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/239/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/239/medium/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/239/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/239/original/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/239/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/239/thumb/demo11.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/24/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/24/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/24/medium/ephemera04.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/240/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/240/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/240/medium/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/240/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/240/original/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/240/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/240/thumb/demo11.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/241/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/241/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/241/medium/demo12.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/241/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/241/original/demo12.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/241/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/241/thumb/demo12.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/242/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/242/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/242/medium/demo13.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/242/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/242/original/demo13.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/242/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/242/thumb/demo13.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/243/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/243/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/243/medium/demo15.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/243/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/243/original/demo15.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/243/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/243/thumb/demo15.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/244/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/244/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/244/medium/demo19.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/244/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/244/original/demo19.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/244/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/244/thumb/demo19.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/245/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/245/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/245/medium/demo19.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/245/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/245/original/demo19.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/245/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/245/thumb/demo19.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/246/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/246/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/246/medium/demo37.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/246/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/246/original/demo37.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/246/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/246/thumb/demo37.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/247/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/247/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/247/medium/demo29.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/247/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/247/original/demo29.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/247/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/247/thumb/demo29.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/248/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/248/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/248/medium/demo30.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/248/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/248/original/demo30.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/248/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/248/thumb/demo30.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/249/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/249/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/249/medium/demo16.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/249/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/249/original/demo16.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/249/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/249/thumb/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/25/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/25/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/25/medium/ephemera04.jpeg" uploadstatus="1" />
@@ -5449,6 +5656,7 @@
     <item url="test/fixtures/articles.yml" uploadstatus="1" />
     <item url="test/fixtures/audios.yml" uploadstatus="1" />
     <item url="test/fixtures/bookmarks.yml" uploadstatus="1" />
+    <item url="test/fixtures/bottomlines.yml" uploadstatus="1" />
     <item url="test/fixtures/cms_files.yml" uploadstatus="1" />
     <item url="test/fixtures/columnnameandheaders.yml" uploadstatus="1" />
     <item url="test/fixtures/emaillabels.yml" uploadstatus="1" />
@@ -5480,6 +5688,7 @@
     <item url="test/functional/admin/" uploadstatus="1" />
     <item url="test/functional/admin/mail_controller_test.rb" uploadstatus="1" />
     <item url="test/functional/admin/newsletters_controller_test.rb" uploadstatus="1" />
+    <item url="test/functional/bottomline_controller_test.rb" uploadstatus="1" />
     <item url="test/functional/emaillabels_controller_test.rb" uploadstatus="1" />
     <item url="test/functional/frommails_controller_test.rb" uploadstatus="1" />
     <item url="test/functional/groupshows_controller_test.rb" uploadstatus="1" />
@@ -5493,12 +5702,14 @@
     <item url="test/unit/helpers/admin/" uploadstatus="1" />
     <item url="test/unit/helpers/admin/mail_helper_test.rb" uploadstatus="1" />
     <item url="test/unit/helpers/admin/newsletters_helper_test.rb" uploadstatus="1" />
+    <item url="test/unit/helpers/bottomline_helper_test.rb" uploadstatus="1" />
     <item url="test/unit/helpers/emaillabels_helper_test.rb" uploadstatus="1" />
     <item url="test/unit/helpers/frommails_helper_test.rb" uploadstatus="1" />
     <item url="test/unit/helpers/groupshows_helper_test.rb" uploadstatus="1" />
     <item url="test/unit/helpers/sendemailnewsletter_helper_test.rb" uploadstatus="1" />
     <item url="test/unit/helpers/shoppingcart_helper_test.rb" uploadstatus="1" />
     <item url="test/unit/helpers/signatures_helper_test.rb" uploadstatus="1" />
+    <item url="test/unit/bottomline_test.rb" uploadstatus="1" />
     <item url="test/unit/columnnameandheader_test.rb" uploadstatus="1" />
     <item url="test/unit/emaillabel_test.rb" uploadstatus="1" />
     <item url="test/unit/exhi_artwork_test.rb" uploadstatus="1" />
@@ -8735,8 +8946,5 @@
     <item url="paypal_cert.pem" uploadstatus="1" />
     <item url="Rakefile" uploadstatus="1" />
     <item url="" uploadstatus="1" />
-    <templates>templates/</templates>
-    <toolbars>toolbars/</toolbars>
-    <annotations/>
   </project>
 </webproject>
