@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607123353) do
+ActiveRecord::Schema.define(:version => 20110611092448) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20110607123353) do
     t.string   "bsgproposallink"
     t.text     "opening_night"
     t.string   "staffed"
-    t.integer  "mailing_list_number"
+    t.text     "mailing_list_number"
     t.string   "mailing_list_desc"
     t.string   "invitation"
     t.text     "advertising"

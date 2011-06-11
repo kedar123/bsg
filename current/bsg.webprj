@@ -2,8 +2,8 @@
 <webproject>
   <project type="Local" name="bsg" encoding="utf8" >
     <upload/>
-    <author></author>
-    <email></email>
+    <author/>
+    <email/>
     <defaultDTD>-//W3C//DTD HTML 4.01 Transitional//EN</defaultDTD>
     <item url="app/" uploadstatus="1" />
     <item url="app/controllers/" uploadstatus="1" />
@@ -671,6 +671,10 @@
     <item url="db/migrate/20110525104454_create_newsletteremails.rb" uploadstatus="1" />
     <item url="db/migrate/20110530130534_create_bottomlines.rb" uploadstatus="1" />
     <item url="db/migrate/20110531080404_selectfrontendpic.rb" uploadstatus="1" />
+    <item url="db/migrate/20110607102647_artworkcompetitionsell.rb" uploadstatus="1" />
+    <item url="db/migrate/20110607105235_addsoldtocompetitionartwork.rb" uploadstatus="1" />
+    <item url="db/migrate/20110607120719_addsoldtoartworks.rb" uploadstatus="1" />
+    <item url="db/migrate/20110607123353_addsoldtogroupshow.rb" uploadstatus="1" />
     <item url="db/migrate/b20110408114252_messages.rb" uploadstatus="1" />
     <item url="db/migrate/database.yml" uploadstatus="1" />
     <item url="db/development_data.sql" uploadstatus="1" />
@@ -3266,6 +3270,8 @@
     <item url="public/pdf_invoice/564invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/565invoice.pdf" uploadstatus="1" />
     <item url="public/pdf_invoice/567invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/569invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/570invoice.pdf" uploadstatus="1" />
     <item url="public/players/" uploadstatus="1" />
     <item url="public/players/audioplayer.swf" uploadstatus="1" />
     <item url="public/players/swfobject.js" uploadstatus="1" />
@@ -4509,6 +4515,20 @@
     <item url="public/uploaded_files/development/artwork/25/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/25/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/25/medium/ephemera04.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/250/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/250/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/250/medium/demo8.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/250/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/250/original/demo8.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/250/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/250/thumb/demo8.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/251/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/251/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/251/medium/demo35.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/251/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/251/original/demo35.jpeg" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/251/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/development/artwork/251/thumb/demo35.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/26/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/26/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/26/medium/ephemera04.jpeg" uploadstatus="1" />
@@ -8946,5 +8966,8 @@
     <item url="paypal_cert.pem" uploadstatus="1" />
     <item url="Rakefile" uploadstatus="1" />
     <item url="" uploadstatus="1" />
+    <templates>templates/</templates>
+    <toolbars>toolbars/</toolbars>
+    <annotations/>
   </project>
 </webproject>

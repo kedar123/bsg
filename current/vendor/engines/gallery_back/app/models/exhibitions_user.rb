@@ -6,23 +6,27 @@ class ExhibitionsUser < ActiveRecord::Base
 	has_many :artworks_exhibitions
 	has_many :artworks, :through => :artworks_exhibitions
 
-	has_many :invoices, :as => :purchasable
+	has_many :invoices, :as => :purchasable, :dependent => :delete_all
+  
 
 #	after :destroy do
 #		# TODO destroy artworks linked to
 #	end
+ 
+ 
+ 
+ 
 
-	named_scope :with_state, lambda{ |state|
+  named_scope :with_state, lambda{ |state|
 		{ :conditions => { :state => state } }
 	}
 
 	def generate_invoice(user=nil, invoicing_info={})
 	    invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , user.id,self.id])
-	    if invoice != nil  then
+	  	    if invoice != nil  then
 	    return
 	    end
-	    
-	    
+	  
 		amount1 = (self.price * 0.3).round(2)
 		amount2 = self.price - amount1
 		invoice = Invoice.new(
@@ -44,6 +48,7 @@ class ExhibitionsUser < ActiveRecord::Base
 		)
 		invoice.generate_number
 		invoice.title= "Invoice #{invoice.number}"
+  
 		invoice2 = Invoice.new(
 				:purchasable_type => self.class.to_s,
 				:purchasable_id => self.id,
@@ -64,6 +69,7 @@ class ExhibitionsUser < ActiveRecord::Base
 		invoice2.generate_number
 		invoice2.title= "Invoice #{invoice2.number}"
 		if invoice.save && invoice2.save
+    
 			self.state == 'accepted'
 			self.save
 			return invoice

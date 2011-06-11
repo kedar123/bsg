@@ -1,6 +1,6 @@
 <% item_show( :title => 'Image',  :object => @current_object ) do %>
 
-<b>ARTISTS LIST : </b>
+<b>Artists List  </b>
 <%= render :partial => 'admin/exhibitions/exhibitions_users_show' %>
 
 <br /><br />
@@ -8,7 +8,7 @@
 <% if (ExhibitionsUser.exists?(["exhibition_id = ? and user_id =  ? ",@current_object.id,@current_user.id])|| @current_user.has_system_role('admin')) && @current_object.timing.ending_date > Time.now.to_date %>
 
   <% form_for @current_object, :url => submit_artworks_admin_exhibition_path(@current_object), :html => { :method => :post } do |f| %>
-  <b>ARTWORKS SELECTION : </b>
+  <b>Artworks Selection  </b>
   <%if  @selected_artworks%>
     <%= old_school_switching_lists(
         :ajax_url => filtering_artworks_admin_exhibitions_url,
@@ -33,7 +33,7 @@
 
 <br />
 <div style="float:left">
-    <b>ARTWORKS LIST :</b><br />
+    <b>Artworks List </b><br />
     <%if (artworks=@current_object.artworks.all(:include => [:user => [:profile]])).first %>
     <table>
       <thead>
@@ -68,7 +68,7 @@
 <%if current_user.login == "admin" or  current_user.login == "superadmin"%>
 <div style="padding-left:300px;">
 
-    <b>REMAINING ARTWORKS LIST :</b><br />
+    <b>Remaining Artworks List </b><br />
     <%if !(artworks=@remaining_artworks).blank?%>
     <table>
       <thead>

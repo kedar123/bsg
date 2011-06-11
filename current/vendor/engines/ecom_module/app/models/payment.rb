@@ -59,9 +59,9 @@ class Payment < ActiveRecord::Base
 	end
 
  def make_paypal_payment(more_amount ,params) 
-        username = "pathak_1259733727_biz_api1.gmail.com"
-        password = "1259733733"
-        signature = "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+        username = "kedar._1307778315_biz_api1.pragtech.co.in"
+        password = "1307778325"
+        signature = "AOrvOfVxLIlci28rFr5.0uNFZt-5A0RGW5jfcK7gepaohgBNnJ4AFDF5"
         amount = more_amount.to_s
         card_type = params[:credit_card][:type_of_card].upcase
         card_no = params[:credit_card][:number]

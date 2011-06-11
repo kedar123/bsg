@@ -111,6 +111,7 @@ class Admin::ProfilesController < Admin::ApplicationController
    end
      
     def exhibition_payment_front 
+        
         alreadypaidamt = nil
         exhibitionuser = ExhibitionsUser.find(params[:id])
         @invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ? ","ExhibitionsUser" , exhibitionuser.user,exhibitionuser.id])

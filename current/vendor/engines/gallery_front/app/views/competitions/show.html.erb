@@ -90,6 +90,10 @@ function check_the_checkbox(){
 		      <%=@competition.commission%>
     	    <h4><%=@oldlabelvalue["insurance"]%></h4>
 		      <%=@competition.insurance%><br/>
+            <h4><%=@oldlabelvalue["message_for_subscribers"]%></h4>
+		      <%=@competition.message_for_subscribers%><br/>          
+            
+                      
 	    <br/>
                            Click <%=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork"}
 		  %> To Buy Images.  

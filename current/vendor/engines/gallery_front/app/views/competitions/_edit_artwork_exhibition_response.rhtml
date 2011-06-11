@@ -8,7 +8,7 @@
       <%if !messageforimageuploaded.blank?%>
             <%=messageforimageuploaded%>
       <%end%>
-       <form action="/competitions/create_exhibition_artwork" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition<%=updateimage.id%>" method="post" onsubmit="return Checkfiles('add_the_artwork_to_competition<%=updateimage.id%>')" target="upload_frame<%=updateimage.id%>">
+       <form action="/competitions/create_exhibition_artwork" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition<%=updateimage.id%>" method="post" onsubmit="return Checkfiles('add_the_artwork_to_competition<%=updateimage.id%>','show_ajax_request<%=updateimage.id%>')" target="upload_frame<%=updateimage.id%>">
               <%=hidden_field_tag "artwork_id",updateimage.id%>
                     <div class="changecolorgray">
                 					<label>Title </label>
@@ -41,6 +41,7 @@
                 <input type="text" ajax="true" id="artwork_price" itemclass="Artwork" name="artwork[price<%=updateimage.id%>]" style="width: 50px;height:16px;margin-left:17px;" url="/admin/artworks/validate" validate="price" value="<%=updateimage.price%>" >
                 
                 </font>
+                <!--
 				      <div class="changecolorgray">
 		            		<label>For Sale      Not For Sale</label>
 				      </div>
@@ -53,11 +54,18 @@
     	          	<input type="radio" name="artwork[is_purchasable<%=updateimage.id%>]" value=0 checked="checked">
      <%end%>
 		</div>      		
-				<div >
-			   <button class="submitButton" type="submit" >
-				  <span>Upload</span>
-				</button>
-        </div>
+                -->
+              <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none"> 
+              <br/>
+				<div style="float:left;margin-top:5px;padding-top:5px;">
+                        	   <button class="submitButton" type="submit" >
+                                	  <span>Upload</span>
+                                   </button>
+                                </div>
+                                <div style="display: none;padding-top:12px;" id="show_ajax_request<%=updateimage.id%>">
+                                                      <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+                                </div>
+              
         <div style="clear:both">
         <img src="/uploaded_files/production/artwork/<%=updateimage.id%>/thumb/<%=updateimage.image_file_name%>" />
         </div>

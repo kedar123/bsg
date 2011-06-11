@@ -13,7 +13,7 @@
     </div>
 
     
- <form action="edit_upload_the_artwork_to_competition" method="post" enctype="multipart/form-data"  onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[0]%>')" id="add_the_artwork_to_competition<%=updateimagearray[0]%>"  target="upload_frame<%=updateimagearray[0]%>">  
+ <form action="edit_upload_the_artwork_to_competition" method="post" enctype="multipart/form-data"  onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[0]%>','show_ajax_request<%=updateimagearray[0]%>')" id="add_the_artwork_to_competition<%=updateimagearray[0]%>"  target="upload_frame<%=updateimagearray[0]%>">  
 <div class="changecolorgray">   
   Title 
 </div>  
@@ -43,9 +43,18 @@
 	 <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" style="height:28px;">
 	 <%=hidden_field_tag "competitionuserid",competitionuser%>
 	 <%=hidden_field_tag "titleforupdate",updateimagearray[5] %>
-   <%= submit_tag 'Submit Artwork'%>
-<br/>
-	 <img src="/system/gallery/<%=updateimagearray[3]%>" width="90px" height="90px"/>   
+   
+          <div style="float:left">
+                   <%= submit_tag 'Submit Artwork'%>
+          </div>  
+          <div style="display: none;padding-top:2px;" id="show_ajax_request<%=updateimagearray[0]%>">
+                     <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+          </div>
+
+        <div style="clear:both">
+          <img src="/system/gallery/<%=updateimagearray[3]%>" width="90px" height="90px"/>   
+        </div>  
+         
 </div>
 </form>
 <iframe id="'upload_frame<%=updateimagearray[0]%>"   name="upload_frame<%=updateimagearray[0]%>" style="width:1px;height:1px;display:none"></iframe>

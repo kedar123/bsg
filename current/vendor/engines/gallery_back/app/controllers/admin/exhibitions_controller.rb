@@ -15,7 +15,7 @@ end
 	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library fro more information)
 	acts_as_item do
 		#Filter calling the encoder method of ConverterWorker with parameters
-    before :new, :edit do
+    before :new do
 		       if !params[:workspace_id].blank?
 		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
 		    
@@ -34,6 +34,29 @@ end
 				@workspace = Workspace.find(params[:workspace_id])
 			end
     end
+    
+  before :edit do
+		       if !params[:workspace_id].blank?
+		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
+		    
+		       end
+		        if  Workspace.find(params[:workspace_id]).creator_id != 2 and Workspace.find(params[:workspace_id]).creator_id != 1#admin and superadmin role should not be artist
+			        User.find(Workspace.find(params[:workspace_id]).creator_id).update_attribute("system_role_id",8 )
+			    end
+		       end       
+      @oldtimingperiodid =  @current_object.timing.period_id    if !@current_object.timing.blank?
+		
+      #@current_object.build_timing 
+			@places = Gallery.all
+			sr = Role.find_by_name('artist')
+			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
+			session[:user_ids] = @current_object.user_ids
+			if  !params[:workspace_id].blank?
+				@workspace = Workspace.find(params[:workspace_id])
+			end
+    end
+  
+  
 
 		after :create_fails, :update_fails do
 			@current_object.build_timing if @current_object.timing.nil?
@@ -43,21 +66,34 @@ end
     end
 
 		before :create, :update do
+      
 			 # TODO manage the add for artists, just what they can access ...
 		   if params[:group_show] == "0"
 		         create_group_show
-	       end
+       else
+         
+       end
 		end
 
        #i have commented it just for requirement it may be required to change it again
 		#after :create, :update do
 		#	@current_object.exhibitions_users.map{ |e| e.init }
 		#end
+    before :destroy do
+     begin 
+     exhibitionuser =  ExhibitionsUser.find(:all,:conditions=>["exhibition_id = #{@current_object.id}"])
+     for exhu in exhibitionuser
+       Invoice.delete_all("purchasable_type = 'ExhibitionsUser' and purchasable_id = #{exhu.id}") 
+     end
+     rescue
+     end
+    end  
+  
     after :create do
           	@current_object.exhibitions_users.map{ |e| e.init }
     end
 		after :update do
-		 	        if  @current_object.user_ids.blank?
+		 	      if  @current_object.user_ids.blank?
 		            newuserid = []
 		        else
 		            newuserid =  @current_object.user_ids
@@ -68,18 +104,20 @@ end
 		             olduserid = session[:user_ids]
 		        end
 		        new_user_id = newuserid - olduserid
+            
 		        session[:user_ids]  = nil
-				user = User.find(new_user_id)
-				user.each do |u|
+				    user = User.find(new_user_id)
+				    user.each do |u|
 				        if !u.blank?
 				            exhibitionuser = ExhibitionsUser.find(:first,:conditions=>["user_id= #{u.id} and exhibition_id=#{@current_object.id}"])
 				            exhibitionuser.init
-				           #  Notifier.deliver_website_role_change(u.email,u.profile.first_name + " " + u.profile.last_name ,"Artist",@current_object.title)
-				           # QueuedMail.add('UserMailer', 'website_role_change',[u.email,u.profile.first_name + " " + u.profile.last_name ,"Artist",@current_object.title], 0, true)	
-	                       # QueuedMail.send_emails
-	                    end
-				end
-		end
+				            #  Notifier.deliver_website_role_change(u.email,u.profile.first_name + " " + u.profile.last_name ,"Artist",@current_object.title)
+				            # QueuedMail.add('UserMailer', 'website_role_change',[u.email,u.profile.first_name + " " + u.profile.last_name ,"Artist",@current_object.title], 0, true)	
+	                  # QueuedMail.send_emails
+	              end
+            end
+            #here i need update all the user 
+   	end
 
    #     after :update do
    #     if params[:exhibitions] and params[:exhibitions][:publish] == "1"

@@ -10,11 +10,11 @@ ss = new slideshow("ss");
     <%size = gart.size1.to_s + " x " + gart.size2.to_s%>
     <%size = size + " x " + gart.size3.to_s  if  gart.size3%>  
     <%sold = "not sold"%>  
-    <%sold = "sold" if gart.sold%>    
+    <%sold = "sold" if gart.sold == true%>    
     s.text = "<%=gart.user.profile.first_name%> <%=gart.user.profile.last_name%> <br/>"+
               "size  <%=size%> <br/>"+
               "Price <%=gart.price%><br/>"+
-               "sold";
+               "<%=sold%>";
     ss.add_slide(s);
 <%end%>
 for (var i=0; i < ss.slides.length; i++) {

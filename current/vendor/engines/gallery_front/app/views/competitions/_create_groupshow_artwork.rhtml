@@ -11,7 +11,7 @@
   <%=messageforimageuploaded%>
 <%end%>
 </div>
-<form action="upload_the_artwork_to_groupshow" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_competition')" id="add_the_artwork_to_competition" target="upload_frame" >  
+<form action="upload_the_artwork_to_groupshow" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_groupshow<%=groupshow_id%>','show_ajax_request<%=groupshow_id%>')" id="add_the_artwork_to_groupshow<%=groupshow_id%>" target="upload_frame" >  
                 <%=hidden_field_tag 'groupshow_id',groupshow_id%>
                 <div class="changecolorgray">
                      Title 
@@ -39,7 +39,13 @@
                         	 Image 
                     	 </div>
                       	 <input  name="groupshow_user[image]" id="field-7a24db800403e5f" type="file" size="26">
-                       <%= submit_tag 'Upload'%>
+                              <div style="float:left">
+                          <%= submit_tag 'Upload'%>
+                         </div>  
+                         
+                         <div style="display: none;padding-top:12px;" id="show_ajax_request<%=groupshow_id%>">
+                                <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+                        </div>
                       </div>
         </form>
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>

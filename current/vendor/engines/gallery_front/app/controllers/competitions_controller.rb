@@ -947,10 +947,7 @@ class CompetitionsController < ApplicationController
           i=i+1
         end  
         page["iteam_image_uploaded"].hide  
-                
-                
       end
-          
     end      
   end  
 
@@ -1080,7 +1077,7 @@ class CompetitionsController < ApplicationController
             alreadypaidamt = @order.price - invoice.final_amount
             note = "no notes created"
             note = @order.exhibition.timing.note if @order.exhibition.timing
-            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,@order.price.to_i,note,@order.price - alreadypaidamt,alreadypaidamt)
+            create_pdf(invoice.id,invoice.number,@order.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,@order.price.to_i,note,@order.price - alreadypaidamt,alreadypaidamt,true,@order.exhibition.timing.ending_date,"")
             QueuedMail.add('UserMailer','send_invoice_exhibition',[@current_object.user.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in") 
           end    
           #render :text=>"Your Payment Is Done Now Upload And Then Select The Artworks  <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
@@ -1358,23 +1355,27 @@ class CompetitionsController < ApplicationController
         payment_action='Sale',
         payer_id=response.payerid,
         amount=session[:paypal_amount].to_i/100)#end of do express checkout method
-      if !session[:total_entry].blank?     
-        cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
-        cu.total_entry = session[:total_entry].to_i
-        cu.save
+      if !session[:total_entry].blank?   
+        if !session[:competition_id].blank?
+            cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
+            cu.total_entry = session[:total_entry].to_i
+            cu.save
+        end
       end
       if (!session[:current_object_id].blank?)
         payment = session[:current_object_id]
         payment.state = 'online_validated'
         #payment.save
         # i assume here that when session[:totalentry present then it is competition user payment so the procedure of online payment will be followed here, same to the case for exhibition user payment]
-        if session[:total_entry].blank?
+        if session[:competition_id].blank?
           params[:invoice_id] = session[:invoice_id] 
           session[:invoice_id] = nil
           make_the_payment_exhibition_paypal#here the invoice in created and validated
           make_the_invoice #this method is extraction from above make exhibition payment . because this method is get called after the paypal returns. so in previous method the next procedure is get called which im putting it in this method  
         else
+          
           make_the_payment_comp_paypal
+          
         end  
         session[:current_object_id] = nil
       end
@@ -1436,7 +1437,13 @@ class CompetitionsController < ApplicationController
   def test_delete
     CompetitionsUser.delete_all("competition_id = #{params[:id]}");
   end  
-
+ 
+  def test_anything
+    @timingperiod = Timing.find(:all)
+    @array=[]
+    @timingperiod.each do |x| @array<<x.objectable_id.to_s+x.objectable_type.to_s end
+    render :text=>@array.to_s
+  end
 
   def make_the_invoice
     invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , session[:order].user,session[:order].id])
@@ -1644,7 +1651,6 @@ class CompetitionsController < ApplicationController
   def edit_groupshow_image
     i=0
     @groupshowuser   =  Groupshowartwork.find_all_by_groupshow_id_and_user_id(params[:id],current_user.id)  
-    
     render :update do |page|
         page["description_competition_ex_py1"].hide  
         page["description_competition_ex_py"].hide  

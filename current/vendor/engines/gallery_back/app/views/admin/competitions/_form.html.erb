@@ -1,6 +1,22 @@
 
+<div style="color:black;padding-left:45px;">
+     <%i=0%> 
+     <%for error in @current_object.errors%>
+        <%="<b>"+error[0].to_s + "</b> " + error[1].to_s.to_s + "  " %>
+          <%i=i+1%>
+          <%if i==3%>  
+            </br>
+            <%i=0%>
+            
+           <%end%> 
+     <%end%>
+</div>
 
 <% form_for_item @current_object, "Competition Creation" do |f| -%>
+
+
+
+
 <table>
    <tr align="left">
    <td valign="bottom">
@@ -170,7 +186,8 @@
     </tr>
 </table>      
 <table> 
-    <tr align="left">
+   
+  <tr align="left">
         <td valign="bottom">
            <%if !@oldlabelvalue.blank?%>
            <%=text_field_tag "headerprizes_total_amount",@oldlabelvalue["prizes_total_amount"],:style=>"width:150px;float:left;"%>  
@@ -183,8 +200,10 @@
             <%= f.text_field :prizes_total_amount, :label => '', :hint => 'Should be an integer representing AUD'  %>
          </td> 
     </tr>
-</table>        
+
+</table>          
     </table>
+<!--
    <table> 
     <tr align="left">
       <td valign="bottom">
@@ -202,6 +221,7 @@
     </tr>
     
     </table>
+
    <table> 
     <tr align="left">  
        <td valign="bottom">
@@ -217,7 +237,7 @@
         </td> 
     </tr>
     
-    </table>
+    </table>-->
 <br/>
   <table>  
     <tr align="left">
@@ -266,7 +286,7 @@
 <label>Exhibition Runs</label><br />
 
   <% f.fields_for :timing do |ff| %>
-    <%= add_timing_fields(:form => ff, :places_list => nil, :period_used => false, :one_day => false, :time_used => false) %>
+    <%= add_timing_fields(:form => ff, :places_list => nil, :period_used => false, :one_day => false, :time_used => false,:period_id=>@oldtimingperiodid) %>
   <% end %>
 
  <%#= f.text_field :exhibition_date, :label => 'Exhibition Start And End Dates:-' %>

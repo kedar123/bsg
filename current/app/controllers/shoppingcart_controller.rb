@@ -141,6 +141,9 @@ class ShoppingcartController < ApplicationController
   
   
   def  paypal_return
+    image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+    sold_array = [ 'fsold=','ssold=','tsold=','fosold=','fisold=','sisold=','sesold=','eisold=','nsold=','tesold=']
+
     username = "pathak_1259733727_biz_api1.gmail.com"
     password = "1259733733"
     signature = "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"

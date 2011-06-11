@@ -73,6 +73,9 @@ class ExhibitionsController < ApplicationController
         end
       end
        @artists.uniq!
+       if @profile.blank? 
+         @profile = @artists.rand
+       end
      params[:which] = "#{which.to_s}/artists"
      respond_to do |format|
            format.html { render :template => 'exhibitions/show.html.erb' }
@@ -118,7 +121,7 @@ class ExhibitionsController < ApplicationController
   end
   
   def do_the_job_for_groupshow_next(which)
-         currentgroupshow = Groupshow.find(:all,:conditions=>["starting_date >= '#{Time.now.strftime('%Y-%m-%d')}'"])
+         currentgroupshow = Groupshow.find(:all,:conditions=>["starting_date >= '#{Time.now.strftime('%Y-%m-%d')}' and  ending_date < '#{(Time.now + 2505600).strftime('%Y-%m-%d')}' "])
          @groupshowartworks = []
          currentgroupshow.each do |cgs|
             cgs.groupshowartworks.each  do |gsa|

@@ -20,11 +20,13 @@ class Competition < ActiveRecord::Base
 	#accepts_nested_attributes_for :timing, :reject_if => lambda { |a| a[:starting_date].blank? }, :allow_destroy => true
  validates_presence_of :timing ,:message=>"Please Enter Exhibition Date"
 	#validates_presence_of :submission_deadline
-	validates_format_of :prizes_total_amount, :with => /\A[0-9]*\Z/i
+ validates_format_of :prizes_total_amount, :with => /\A[0-9]*\Z/i
   
-	validates_presence_of :entry_fees
-    validates_presence_of :submission_deadline
-    validate :entry_fee_format
+ validates_presence_of :entry_fees
+ validates_presence_of :submission_deadline
+ validates_presence_of :no_of_entry
+ validate :entry_fee_format
+ 
     
 
     def entry_fee_format

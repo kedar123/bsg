@@ -17,7 +17,7 @@ class ArtistsController < ApplicationController
 			@profile ||= @artists.first
 		else
 			@profile ||= ExhibitionsUser.all(:conditions => { :state => 'published' }).rand.user.profile if ExhibitionsUser.all(:conditions => { :state => 'published' }).first
-			params[:filter] = @profile.first_name.first
+			params[:filter] = @profile.first_name.first if @profile
 			@artists = Profile.find(:all, :conditions => ["first_name LIKE :filter", { :filter => "#{@profile.first_name.first}%"}]).delete_if{ |p| p.user.exhibitions.published.empty? }.sort {|x,y| x.full_name <=> y.full_name } if @profile
 		end
 		if @profile
@@ -106,7 +106,7 @@ class ArtistsController < ApplicationController
     p "this is i got because of the year as a id"
     @artists = []
   end
-
+  
   def tojoin
     @groups = UserGroup.all
 		@artists = []

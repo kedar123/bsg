@@ -15,9 +15,19 @@ function popitup(url) {
         <!--%#= render :partial => 'artists/artists_name_left' %>-->
          <% if @groups %>
             <%if @groups[0]%>
-                <font size="5" color="white"><b><%= @groups[0].title %></b></font><br/>
-                                <%= @groups[0].description %><br/>
-                                <%= @groups[0].note %><br/>
+                   <%for group in @groups%>
+                     <div style="padding:2px;">
+                        <p>
+                          <font size="5" color="white"><b><%= group.title %></b></font>
+                        </p>
+                        <p style="padding:0px;margin:0px;">
+                          <%= group.description %>
+                        </p> 
+                        <p style="padding:0px;margin:0px;">
+                            <%= group.note %>
+                        </p>  
+                     </div>           
+                   <%end%>               
             <%end%>           
              <%if @groups.first %>
                <%else%>                 
@@ -81,8 +91,7 @@ function popitup(url) {
         <%if @exhibition%>
         
             <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
-        <%p "calling the artwork"%>
-        <%p a%>
+      
             <%= render :partial => 'exhibitions/artwork_show', :object => a %>
      <%end%>  
            <%else%> 
@@ -91,10 +100,17 @@ function popitup(url) {
               <%@groupshowartworks.each do |a|%>
               <%= render :partial => 'exhibitions/groupshow_artwork_show', :object => a %>
               <%end%>
-      <% end %>  
+     <% end %>  
+        <%if !@groups.blank?%>
+             <%for group in @groups%>
+                  <%for groupart in group.groupshowartworks%>
+                    <%= render :partial => 'exhibitions/groupshow_artwork_show', :object => groupart %>
+                  <%end%>
+             <%end%> 
+        <%end%>
       <% if  !@competitionuser.blank?%>
             <%@competitionuser.each do |a|%>
-                  <%= render :partial => 'exhibitions/compuser_artwork_show', :object => a %>
+                  <%#= render :partial => 'exhibitions/compuser_artwork_show', :object => a %>
             <%end%>  
       <%end%>  
     </div>

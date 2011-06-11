@@ -23,10 +23,10 @@
     <div id="description_competition">
       <div id="content">
             <%if  !@app_home[0].blank?%>
-                  <h3>Houres:-</h3><%=@app_home[0].houres %>
-		          <h3>Openings:-</h3><%=@app_home[0].openings %>
-		          <h3>Staff:-</h3><%=@app_home[0].staff %>
-		          <h3>Cost:-</h3>
+                  <h3><%=@oldlabelvalue['houres']%></h3><%=@app_home[0].houres %>
+		          <h3><%=@oldlabelvalue['openings']%></h3><%=@app_home[0].openings %>
+		          <h3><%=@oldlabelvalue['staff']%></h3><%=@app_home[0].staff %>
+		          <h3><%=@oldlabelvalue['cost']%></h3>
 		          
 		          <%@app_home[0].costs.each do |cost| %>
 		          <p><%=cost%></p>
@@ -34,17 +34,17 @@
 		          
 		          
 		          <h3><a href="<%=@app_home[0].gallery_planlink%>">
-		          Click Here To Plan Link:-</a></h3>
-		          <h3>Bookings:-</h3><%=@app_home[0].bookings %>
-		          <h3>Bsg Praposal Link:-</h3><%=@app_home[0].bsgproposallink %>
-		          <h3>Opening Night:-</h3><%=@app_home[0].opening_night %>
-		          <h3>Staff:-</h3><%=@app_home[0].staffed %>
-		          <h3>Mailing List :- <%=@app_home[0].mailing_list_number %></h3>
+		          <%=@oldlabelvalue['gallery_planlink']%></a></h3>
+		          <h3><%=@oldlabelvalue['bookings']%></h3><%=@app_home[0].bookings %>
+		          <h3><%=@oldlabelvalue['bsgproposallink']%></h3><%=@app_home[0].bsgproposallink %>
+		          <h3><%=@oldlabelvalue['opening_night']%></h3><%=@app_home[0].opening_night %>
+		          <h3><%=@oldlabelvalue['staffed']%></h3><%=@app_home[0].staffed %>
+		          <h3><%=@oldlabelvalue['mailing_list_number']%><%=@app_home[0].mailing_list_number %></h3>
 		         <p> <%=@app_home[0].mailing_list_desc %></p>
-		          <h3>Invitation:-</h3><%=@app_home[0].invitation %>
-		           <h3>Advertising:-</h3><%=@app_home[0].advertising %>
-		           <h3>Sales:-</h3><%=@app_home[0].sales %>
-		           <h3>Your Obligations:-</h3><%=@app_home[0].your_obligations %>
+		          <h3><%=@oldlabelvalue['invitation']%></h3><%=@app_home[0].invitation %>
+		           <h3><%=@oldlabelvalue['advertising']%></h3><%=@app_home[0].advertising %>
+		           <h3><%=@oldlabelvalue['sales']%></h3><%=@app_home[0].sales %>
+		           <h3><%=@oldlabelvalue['your_obligations']%></h3><%=@app_home[0].your_obligations %>
              <%end%>   
        </div>
        </div> 	

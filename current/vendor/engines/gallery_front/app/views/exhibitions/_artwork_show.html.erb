@@ -29,7 +29,7 @@
         <%#=link_to "<font color='white'>add to cart</font>" ,{:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
         
         <%if ((object.sold == nil) or (object.sold == false))%>  
-            <%=link_to_remote '<font color="orange">add to the cart</font>', :update => "",
+            <%=link_to_remote '<img src="/images/buy.jpeg"/>', :update => "",
               :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
         <%else%>      
            Already Sold
@@ -43,6 +43,6 @@
          <a href="/login/?msg=buyartwork-<%=params[:action]%>" method='post' ><img src="/images/buy.jpeg"/> </a>
       <%end%>
     </div>
-  <img src='<%= object.image.url(:medium) %>' height="400px">
+  <img src='<%= object.image.url(:medium) %>' height="400px"/>
 </div>
 <%end%>

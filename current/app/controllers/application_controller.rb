@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
 
 
-def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_address = " " ,invoice_user_fullname = " " ,invoice_competition_title="",invoice_full_amount="",note="",amount_due="",paid="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
+def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_address = " " ,invoice_user_fullname = " " ,invoice_competition_title="",invoice_full_amount="",note="",amount_due="",paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
 				
 				headers, body = nil, nil  
                dir = File.expand_path(File.dirname(__FILE__))
@@ -67,7 +67,38 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                box.render
                
                move_down 250
-               table [["#{invoice_date}", "#{invoice_user_fullname}", "#{invoice_competition_title}", "$#{invoice_full_amount}"],],
+               if exhibitionpdf
+                 
+                 if deposit_required.blank?  
+                   table [["#{invoice_competition_title}","#{invoice_date}", "#{finish_date}","$#{invoice_full_amount}"],
+                        ],
+                      :position => :left,
+                      :style => :bold,
+                      :headers => ['Description', 'Start Date', 'Finish Date', 'Price'],
+                      :column_widths => { 0 => 160, 1 => 210, 2 => 190, 3 => 50},
+                      :border=>:none,
+                      :border_width       => 0,
+                      :header_color => '0147FA',
+                      :header_text_color  => "ffffff"
+                 else
+                   table [["#{invoice_competition_title}","#{invoice_date}", "#{finish_date}","$#{invoice_full_amount}"],
+                        ["","", "Deposit Required  $#{deposit_required}",""],],
+                      :position => :left,
+                      :style => :bold,
+                      :headers => ['Description', 'Start Date', 'Finish Date', 'Price'],
+                      :column_widths => { 0 => 160, 1 => 210, 2 => 190, 3 => 50},
+                      :border=>:none,
+                      :border_width       => 0,
+                      :header_color => '0147FA',
+                      :header_text_color  => "ffffff"
+                 end  
+                 
+                    
+      
+                    
+      
+               else
+                 table [["#{invoice_date}", "#{invoice_user_fullname}", "#{invoice_competition_title}", "$#{invoice_full_amount}"],],
                       :position => :left,
                       :style => :bold,
                       :headers => ['Start Date', 'Name', 'Description', 'Price'],
@@ -76,24 +107,24 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                       :border_width       => 0,
                       :header_color => '0147FA',
                       :header_text_color  => "ffffff"
-                     
-                    
+               end
+               
             fill_color("e6f0ff")
-            fill_and_stroke_rectangle([8,185],400,125)
-            fill_and_stroke_rectangle([8,54],300,80)
-            box = Prawn::Text::Box.new("Notes:",    :width    => 600,:height   => 100, :overflow => :ellipses, :at => [20, 47], :align    => :left, :document => self,:style=>:bold)
-            fill_color("000000")
-            box.render
-            fill_color("ffffff")
-        
-            box = Prawn::Text::Box.new("#{note}",    :width    => 250,:height   => 90, :overflow => :truncate, :at => [22, 28], :align    => :left, :document => self)
+            fill_and_stroke_rectangle([8,-11],440,21)
+            fill_and_stroke_rectangle([8,14],440,18)
+            #box = Prawn::Text::Box.new("Notes:",    :width    => 600,:height   => 100, :overflow => :ellipses, :at => [20, 20], :align    => :left, :document => self,:style=>:bold)
+            #fill_color("000000")
+            #box.render
+            #fill_color("ffffff")
+            
+            box = Prawn::Text::Box.new("#{note}",:width=>420,:height=>17,:overflow=>:shrink_to_fit,:at=>[20, 10],:align=>:left,:document => self)
             fill_color("000000")
             box.render
             
-            box = Prawn::Text::Box.new("PAYMENT CAN BE MADE:",:width=>300,:height=>50,:overflow=>:ellipses,:at=>[10,178],:align=> :left, :document => self,:style=>:bold)
-            fill_color("000000")
-            box.render
-            box = Prawn::Text::Box.new("CREDIT CARD ONLINE www.bsgart.com.au                                    PAYPAL mark@bsgart.com.au                       BANK DEPOSIT Brunswick St Gallery, CBA, bsb 063212, AC# 1017 2051   Please make sure your name is on the transaction",:width=>300,:height=>300,:overflow=>:ellipses,:at=>[10,155],:align=> :left, :document => self)
+            #box = Prawn::Text::Box.new("PAYMENT CAN BE MADE:",:width=>300,:height=>50,:overflow=>:ellipses,:at=>[10,178],:align=> :left, :document => self,:style=>:bold)
+            #fill_color("000000")
+            #box.render
+            box = Prawn::Text::Box.new("Payment can be made online at http://173.230.149.35/login, paypal account mark@bsgart.com.au, or by direct debit to BSG, CBA, BSB 063 212  Account No 1017 2051 with your name on the transaction.",:width=>425,:height=>30,:overflow=>:shrink_to_fit,:at=>[10,-13],:align=> :left, :document => self)
             fill_color("000000")
             box.render
             fill_color("0147FA")

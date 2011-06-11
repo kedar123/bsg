@@ -17,16 +17,18 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	    QueuedMail.add('UserMailer', 'send_winner_email',[@artworks_competition,@artworks_competition.competitions_user.user], 0, send_now=true)	
 	    flash[:notice]="The Email Is Sent To  #{@artworks_competition.competitions_user.user.profile.full_name}"
 	    redirect_to :back
-    end
+  end
 
 	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library for more information)
 	acts_as_item do
 		before :new, :edit do
-      	     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@current_object.id.to_s+"competition"])
+       
+       columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@current_object.id.to_s+"competition"])
 	     @oldlabelvalue={}
 	     columnnameandheader.each do |x|   
 	       @oldlabelvalue[x.column_name] = x.column_header
 	     end
+       
 			@places = Gallery.all
 			@current_object.build_timing if @current_object.timing.nil?
 			@judges = User.find(:all, :conditions => "system_role_id=2 OR system_role_id=#{Role.find_by_name('judge').id}")
@@ -87,8 +89,13 @@ after :update do
 			@current_object.build_timing if @current_object.timing.nil?
 			@judges = User.find(:all, :conditions => "system_role_id=1 OR system_role_id=2")
 			@current_object.competitions_subscriptions.build if @current_object.competitions_subscriptions.empty?
-		end
+      
+   	end
 
+    
+    
+    
+    
       before :destroy do
 				
 		  @current_object.competitions_users.each do |cu|

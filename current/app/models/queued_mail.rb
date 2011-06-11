@@ -53,7 +53,7 @@ class QueuedMail < ActiveRecord::Base
   end
 
 	def send_email
-		mailer_class = self.mailer.constantize
+  	mailer_class = self.mailer.constantize
     mailer_method = ("deliver_" + self.mailer_method).to_sym
 		#raise self.args.inspect
     if mailer_class.send(mailer_method, *self.args)

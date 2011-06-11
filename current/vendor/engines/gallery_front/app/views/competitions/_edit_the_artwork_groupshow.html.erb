@@ -2,7 +2,7 @@
 <style>
     .changecolorgray{
         color: #444444;
-        line-height: 15px;
+        line-height: 14px;
   }
 </style>
 <div id="messageforimageuploaded">
@@ -10,7 +10,7 @@
   <%=messageforimageuploaded%>
 <%end%>
 </div>
-<form action="edit_upload_the_artwork_to_groupshow" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_competition<%=updateimage.id%>')" id="add_the_artwork_to_competition<%=updateimage.id%>" target="upload_frame<%=updateimage.id%>" >  
+<form action="edit_upload_the_artwork_to_groupshow" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_groupshow<%=updateimage.id%>','show_ajax_request<%=updateimage.id%>')" id="add_the_artwork_to_groupshow<%=updateimage.id%>" target="upload_frame<%=updateimage.id%>" >  
                 <%=hidden_field_tag 'artworkgroupshowid',updateimage.id%>
                 <div class="changecolorgray">
                      Title 
@@ -38,9 +38,16 @@
                         	 Image 
                     	 </div>
                       	 <input  name="groupshow_user[image]" id="field-7a24db800403e5f" type="file" size="26">
-                       <%= submit_tag 'Upload'%>
-                  
-                      <div>
+                         
+                         <div style="float:left;padding-top:1px;margin-top:1px;">
+                            <%= submit_tag 'Upload'%>
+                         </div>  
+                         
+                         <div style="display:none;padding-top:6px;" id="show_ajax_request<%=updateimage.id%>">
+                                <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+                        </div>
+                         <br/>
+                      <div style="clear:both;padding-top:1px;margin-top:1px;line-height:6px;">
                           <img src ="/system/groupshow/<%=updateimage.artworkurl%>" width="90px" height="90px"/>
                       </div>
         </form>
