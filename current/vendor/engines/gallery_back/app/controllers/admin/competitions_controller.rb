@@ -4,6 +4,7 @@
 # so see the documentation of that module for further informations.
 #
 class Admin::CompetitionsController < Admin::ApplicationController
+  auto_complete_for :profile, :email
    before_filter :workspace_id
 
     def  workspace_id
@@ -13,13 +14,55 @@ class Admin::CompetitionsController < Admin::ApplicationController
     end
 
 	def  send_winner_email
-       @artworks_competition = ArtworksCompetition.find(params[:id])
+      @artworks_competition = ArtworksCompetition.find(params[:id])
 	    QueuedMail.add('UserMailer', 'send_winner_email',[@artworks_competition,@artworks_competition.competitions_user.user], 0, send_now=true)	
 	    flash[:notice]="The Email Is Sent To  #{@artworks_competition.competitions_user.user.profile.full_name}"
 	    redirect_to :back
   end
 
-	# Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library for more information)
+  def send_mail_to_artist
+    @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
+    @emailsendarray=[]
+    @usernames = []
+    @total_selected.each do |arc|
+    @emailsendarray << arc.competitions_user.user.profile.email_address
+    @usernames << arc.competitions_user.user.profile.first_name + " " + arc.competitions_user.user.profile.last_name
+    @usernames.uniq!
+    @emailsendarray.uniq!
+    end
+    @frommail = Frommail.find(:all)
+    render :layout=>"gallery_promoting_mail"
+  end
+  
+  def compcreate_sent_mail_to_artist
+    @message = current_user.sent_messages.build(params[:message])
+    @message.prepare_copies(params[:profile][:email])
+    @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
+    all_the_recipient = params[:profile][:email].split(',')
+    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+    if @message.save
+      flash[:notice] = "Message sent."
+      redirect_to :back
+    else
+      render :action => "send_mail_to_artist"
+    end
+  end
+  
+  
+  def compfind_signature_label
+     signature = Signature.find(:all,:conditions=>["frommail_id = ?",params[:fromemail]])  
+     render :update do |page|
+        page["update_label"].replace_html(:partial =>'find_signature_label', :object =>signature)
+     end
+  end
+  def compfind_signature
+     signature = Signature.find(params[:fromemail])  
+     render :update do |page|
+        page.call("set_the_signature",signature.signature)
+     end
+  end
+ 	
+  # Method defined in the ActsAsItem:ControllerMethods:ClassMethods (see that library for more information)
 	acts_as_item do
 		before :new, :edit do
        

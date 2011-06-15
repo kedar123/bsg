@@ -52,7 +52,8 @@
                        <%#=link_to "Shortlist" ,"/admin/competitions/open/#{@current_object.id}"%>     
                <%#end%>
 <%#end%>    
-	<%=link_to "Go Back" ,"/admin/profiles/#{current_user.id}"%>
+	 <%=link_to "Go Back" ,"/admin/profiles/#{current_user.id}"%>
+          
          <%if current_user.system_role_id == 8  and params[:controller] == "admin/exhibitions"%>
               <%=link_to  "Add Artwork" ,"/admin/artworks/new?exhibition_id=#{params[:id]}"%> 
          <%end%>
@@ -65,7 +66,7 @@
 	<%if params[:controller] == "admin/artworks" and params[:action] == "show"%>
 		<%= link_to I18n.t('general.link.edit'), edit_item_path(object)%>
 	<%end%>
-
+          
          <% if @current_object.has_permission_for?('destroy', @current_user, @current_container) %>
               <%= link_to I18n.t('general.link.delete'), "javascript:;",
                    :class => "deleteLink",
@@ -78,8 +79,20 @@
                 <%= link_to I18n.t('general.common_word.no1'), "javascript:;", :class => "deleteClose" %>
           </div>
         </div>
-        
       <% end %>
+          
+         <%if params[:controller] == "admin/competitions" and params[:action] == "show"%>
+              <p>
+                  <%=link_to "Selected", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=selected", :popup => ['dialog name','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,height=600,width=1000'] %>
+              </p>
+              <p>
+                  <%=link_to "UnSelected", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=unselected", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+              </p>
+              <p>
+                  <%=link_to "Maybe", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=maybe", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+              </p>
+        <%end%>  
+          
       <% if is_activated_rating_part && @current_object.has_permission_for?('rate', @current_user, @current_container) %>
         <%= item_rate(@current_object) %>
       <% end %>

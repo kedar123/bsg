@@ -283,6 +283,7 @@ class CompetitionsUser < ActiveRecord::Base
 	        invoice.original_amount = find_price(self.competition_id)
 			invoice.final_amount = find_price(self.competition_id)	
 			invoice.save
+      return invoice
 			else
 			generate_invoice
 			end

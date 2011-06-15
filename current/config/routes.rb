@@ -229,6 +229,12 @@ ActionController::Routing::Routes.draw do |map|
     admin.connect "/competitions/finalist/:id",:controller=>"competitions",:action=>"finalist"
     admin.connect "/competitions/winner/:id",:controller=>"competitions",:action=>"winner"
     admin.connect "/competitions/send_winner_email/:id",:controller=>"competitions",:action=>"send_winner_email"
+    admin.connect "/competitions/send_mail_to_artist/:id",:controller=>"competitions",:action=>"send_mail_to_artist"
+    admin.connect "/compcreate_sent_mail_to_artist/:id",:controller=>"competitions",:action=>"compcreate_sent_mail_to_artist"
+    admin.connect "/competitions/auto_complete_for_profile_email",:controller=>"competitions",:action=>"auto_complete_for_profile_email"
+    admin.connect "/compfind_signature_label",:controller=>"competitions",:action=>"compfind_signature_label"
+    admin.connect "/compfind_signature",:controller=>"competitions",:action=>"compfind_signature"
+    
     admin.connect "/profiles/exhibition_payment/:id",:controller=>"profiles",:action=>"exhibition_payment"
     admin.connect "/profiles/exhibition_payment_front/:id",:controller=>"profiles",:action=>"exhibition_payment_front"
     admin.connect "/profiles/edit_password/:id",:controller=>"profiles",:action=>"edit_password"

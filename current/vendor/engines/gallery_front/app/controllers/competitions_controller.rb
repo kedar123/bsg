@@ -1501,6 +1501,8 @@ class CompetitionsController < ApplicationController
     else
       @invoice = order.generate_invoice(@current_user, {"payment_medium"=>"paypal"}) 
     end 	
+    p session[:order]
+    p "im true here"
     @invoice.validating("paypal")
     session[:current_object].invoice = @invoice
     session[:current_object].save
