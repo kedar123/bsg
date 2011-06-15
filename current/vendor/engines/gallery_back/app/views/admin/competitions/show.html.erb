@@ -992,10 +992,121 @@
 				 <%=@current_object.timing.places_id%>
                  </td>
 	 </tr>
-
-           
           </table> 
-				  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <% if @current_user.has_system_role('admin') || @current_user.has_system_role('judge') || @current_object.state.include?('results_publish') || @current_user.login =="superadmin" ||@current_object.state.include?('final_published') %>
+                    <%if !@current_object.state.include?('open')%>
+					<b>Artworks List</b><br />
+						  <%if @artworks_competitions.first %>
+							      <div class="artworkcomp">
+								  <table class="compuser">
+								    <thead>
+								    <tr>
+								      <th>Thumbs</th>
+								      <th>Title</th>
+								      <th>Artist</th>
+								      <th>State</th>
+								        <% if @current_object.state == 'results_publish'  and (current_user.login == "admin" or   current_user.login == "superadmin")%>
+								        <th>Send Winner Email</th>
+								        <%end%>
+								        <% if @current_object.state == 'results_publish' %>
+								         <th>Marks</th>
+								        <%end%>
+								        
+								      <th></th>
+								    </tr>
+								    </thead>
+
+								    <% form_for 'marks_list', :url => set_marks_admin_artworks_competitions_url, :html => { :method => :post } do %>
+										    <tbody>
+											<%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	%>
+											<%title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']	%>
+												    <% @artworks_competitions.each do |a| %>
+												            <%#j=0%>
+												 	                     <%#for image in image_array%>
+												                                         <%if  a.competitions_user!=nil%>
+													                                         <%if  (a.competitions_user.send a.image_name) != nil %>  
+														                                          <%if  (a.competitions_user.send a.image_name).blank? == false%>
+														                                        <tr>
+																	                                <td>
+															                                      	<%= link_to(image_tag("/system/gallery/#{a.competitions_user.send a.image_name}", :class => "image_preview",:width=>50,:height=>50)	, "#")%>
+																	                                </td>
+																	                                <td><%= a.competitions_user.send title_array[image_array.index(a.image_name)]%></td>
+																	                                <td><%= a.competitions_user.user.profile.full_name if a.competitions_user.user %></td>
+																	                                <td><%= a.state %></td>
+																	                                                    <% if @current_user.has_system_role('judge') || @current_user.has_system_role('admin')  || @current_user.login =="superadmin"%>
+																		                                                    <% if @current_object.state == 'open' %>
+																			                                                    <td>
+																				                                                    <%= link_to 'Select', update_state_admin_artworks_competition_path(a.id, :state => 'selected') %> |
+																				                                                    <%= link_to 'Maybe', update_state_admin_artworks_competition_path(a.id, :state => 'maybe') %> |
+																				                                                    <%= link_to 'Unselect', update_state_admin_artworks_competition_path(a.id, :state => 'unselected') %>
+																			                                                    </td>
+																		                                                    <% elsif @current_object.state == 'final_published' %>
+																			                                                    <td>Marks : <%= text_field_tag "marks_list[#{a.id}]", a.mark, :size => 5 %></td>
+																		                                                    <% elsif @current_object.state == 'results_publish' %>
+																			                                                     <td>   <%=link_to  "Send winner Email","/admin/competitions/send_winner_email/#{a.id}"%></td>
+																		                                                    <% end %>
+																	                                                    <% end %>
+																	                                                    
+																	                                                    <% if @current_object.state == 'results_publish' %>
+																			                                                    <td style="padding-left:10px"> <%= a.mark %></td>
+																			                                             <%end%>       
+															                                 </tr>
+															                                 <%end%>   
+														                                     <%end%>	 
+														                                     <%end%><%#a.competitions_user!=nil%>
+														                     <%#j=j+1%>	 
+													                     <%#end%>	
+												    <% end %><tr><td>
+											<%= submit_tag if (@current_user.has_system_role('judge') || @current_user.has_system_role('admin')) && @current_object.state != 'results_publish' %>	    
+											</td></tr>
+										   </tbody>
+								    <% end %><%#form end%>
+								  </table>
+                                                                <%#=render :partial=>"show_slide_show",:locals=>{:firstslide=>@firstslide}%>
+							        </div>	  
+						  <% else %>
+						      No artworks added already ...
+						  <% end %> <%# if artworks competition end%>
+                                           <%end%>           
+				  <% end %><%#if current user admin%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<% end %><%#item.show%>
 <%end%><%#if @my_subscription%>
 

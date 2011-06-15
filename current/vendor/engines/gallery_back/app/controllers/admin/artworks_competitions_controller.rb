@@ -5,7 +5,7 @@ class Admin::ArtworksCompetitionsController < Admin::ApplicationController
 		@artworks_competition.state = params[:state]
 		@artworks_competition.save
 		#redirect_to item_path(@artworks_competition.competition)
-        QueuedMail.add('UserMailer', 'artwork_status',[@artworks_competition,@artworks_competition.competitions_user.user], 0, send_now=true)	
+    #QueuedMail.add('UserMailer', 'artwork_status',[@artworks_competition,@artworks_competition.competitions_user.user], 0, send_now=true)	
 
 		
 		if request.xhr?
