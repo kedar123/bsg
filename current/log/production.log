@@ -1,0 +1,19 @@
+# Logfile created on Mon Jun 13 20:51:00 +0530 2011DEPRECATION WARNING: Disabling sessions for a single controller has been deprecated. Sessions are now lazy loaded. So if you don't access them, consider them off. You can still modify the session cookie options with request.session_options. (called from acts_as_item at /home/ptsadmin/13-6-2011newgitcopyv/bsg/current/vendor/engines/acts_as_item/lib/controller.rb:35)
+
+
+Processing Admin::CompetitionsController#show (for 127.0.0.1 at 2011-06-13 20:51:15) [GET]
+  Parameters: {"action"=>"show", "id"=>"31", "controller"=>"admin/competitions", "workspace_id"=>"3"}
+Rendering template within layouts/gallery
+Rendering admin/competitions/show
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/ptsadmin/13-6-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:62)
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/ptsadmin/13-6-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:63)
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/ptsadmin/13-6-2011newgitcopyv/bsg/current/app/helpers/application_helper.rb:64)
+Completed in 724ms (View: 333, DB: 70) | 200 OK [http://localhost/admin/workspaces/3/competitions/31]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-06-13 20:51:16) [GET]
+
+ActionController::RoutingError (No route matches "/admin/workspaces/3/competitions/pics/pic01.jpg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

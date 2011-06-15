@@ -37,7 +37,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
 		
 	   before :update do
 
-         begin
+       begin
          @current_object.submission_deadline = Date.civil(params[:competition][:submission_deadline].split("-")[0].to_i,params[:competition][:submission_deadline].split("-")[1].to_i,params[:competition][:submission_deadline].split("-")[2].to_i)
 	     rescue
 	     end
@@ -48,7 +48,6 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	          rescue
 	          end
 	   end
-
       after :create do
               params.to_hash.each do |key,value|
                    if key.include? "header"
@@ -107,6 +106,28 @@ after :update do
       		
 		
 		before :show do
+       
+        
+        @total_artist = CompetitionsUser.count(:conditions => "competition_id = #{@current_object.id}")
+        @total_entry = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id}")
+        @total_selected = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id} and state = 'selected'")
+        @total_unselected = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id} and state = 'unselected'")
+        @total_maybe = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id} and state = 'maybe'")
+        @total_price = 0
+        @total_artist_paid = CompetitionsUser.find(:all,:conditions => "competition_id = #{@current_object.id} ")
+        @total_artist_paid_id = []
+        @total_artist_paid.each do |tap|
+        @total_artist_paid_id << tap.id    
+        end
+        if !@total_artist_paid_id.blank? 
+          @invoice = Invoice.find(:all,:conditions=>"purchasable_type = 'CompetitionsUser' and state = 'validated' and (payment_medium = 'paypal' or payment_medium = 'online') and purchasable_id in (#{@total_artist_paid_id.join(',')})")
+        end
+        if !@invoice.blank?
+          @invoice.each do |inv|
+            @total_price = @total_price + inv.final_amount
+          end
+        end
+        
 			if @current_object.state == 'results_publish'
 				@artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'"], :order => "mark DESC")
     	elsif @current_object.state == 'final_published'

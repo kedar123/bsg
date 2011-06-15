@@ -38,7 +38,7 @@ class Admin::PaymentsController < Admin::ApplicationController
                            elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
                                           @current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
 	                      end
-      elsif      @order.instance_of? CompetitionsUser
+    elsif      @order.instance_of? CompetitionsUser
 	        	   if @order.invoices.last   
 		                           total_amount = 0
 		                           @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
@@ -190,34 +190,33 @@ class Admin::PaymentsController < Admin::ApplicationController
 
     #actual payment is done in above method onlyhere the invoice processing is done
     def  make_the_payment
-              session[:purchasable] = nil
-              if  @order and @order.invoices.last
+            session[:purchasable] = nil
+            if  @order and @order.invoices.last
               	@invoice = @order.generate_invoice_extra_entry(@current_user, params[:invoicing_info])
-              else
+            else
               @invoice = @order.generate_invoice(@current_user, params[:invoicing_info]) 
-              end 	
+            end 	
            	if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
-           	
-                   	@invoice.accept_cash_or_cheque_payment(params[:invoicing_info][:payment_medium]) 
+           	       	@invoice.accept_cash_or_cheque_payment(params[:invoicing_info][:payment_medium]) 
             elsif params[:invoicing_info][:payment_medium] == "paypal"
                     @invoice.validating("paypal")
-             else
+            else
                    @invoice.validating
-             end     	
-             @current_object.invoice = @invoice
-             @current_object.save
+            end     	
+            @current_object.invoice = @invoice
+            @current_object.save
          	invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",@current_user.id,@order.id])
          	if @order.instance_of? CompetitionsUser
                   create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,@order.competition.timing.note)
-            elsif  @order.instance_of? ExhibitionsUser
+          elsif  @order.instance_of? ExhibitionsUser
                   create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,@order.exhibition.timing.note)
-            end
-           	       #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
-   	     	    		 QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
-			      	    email= UserMailer.create_send_invoice(invoice,@current_user)
+          end
+                 #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
+   	     	   		 QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
+			     	    email= UserMailer.create_send_invoice(invoice,@current_user)
 	                   UserMailer.deliver(email)
 	                       
-            if  @invoice.purchasable_type == "Order"
+          if  @invoice.purchasable_type == "Order"
 	                session[:cart]=nil
 	        end
     end

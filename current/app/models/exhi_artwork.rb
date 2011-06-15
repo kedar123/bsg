@@ -1,6 +1,6 @@
 class ExhiArtwork < ActiveRecord::Base
   set_table_name "artworks"
-  	has_many :artworks_exhibitions
+  has_many :artworks_exhibitions
 	has_many :exhibitions, :through => :artworks_exhibitions
 	has_many :artworks_competitions
 	has_many :exhibitions, :through => :artworks_competitions

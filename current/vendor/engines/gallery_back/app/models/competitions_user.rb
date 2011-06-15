@@ -142,17 +142,19 @@ class CompetitionsUser < ActiveRecord::Base
 						path = File.join(directory, dataname)
 						# write the file
 						File.open(path, "wb") { |f| f.write(competitions_user["workimage"].read) }
-				             #this if else is for when updating the image its state shold be unselected
-	                            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i].to_s,self.id]).blank?)
-                                else
-                                	 ac=ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i].to_s,self.id])
-                                	 ac.state="unselected"
-                                	 ac.mark=0
-                                	 ac.save                       
-                                end
+			             #this if else is for when updating the image its state shold be unselected
+	                           if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i].to_s,self.id]).blank?)
+                             else
+                             	 ac=ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i].to_s,self.id])
+                             	 ac.state="unselected"
+                             	 ac.mark=0
+                             	 ac.save                       
+                             end
                            
-					else
-					end
+	else
+    
+	end
+  
 	end	
 
 
@@ -257,13 +259,22 @@ class CompetitionsUser < ActiveRecord::Base
 	end
 	#whenever user changes his total entry this will automatically get changed. so if user maked down the entry like from 
 	#5-2 then this will also get changed
-	def  submit_artwork
+	def  submit_artwork(competitionuser = "",i=0)
 		image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
-	       for totalentry in 0...self.total_entry.to_i
+ 	       for totalentry in 0...self.total_entry.to_i
 	            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[totalentry],self.id]).blank?)
-	                ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[totalentry],:competitions_users_id =>self.id)
-               end
-           end
+                  if !(self.send image_array[totalentry]).blank?
+                    ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[totalentry],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"])
+                  end
+              else#here i need to update the image
+                 artc = ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i],self.id])
+                 if !artc.blank?
+                    artc.update_attribute('avatar',competitionuser["workimage"]);
+                 else#in else it will come when first time enter into compe user select 10 entry but enter 2 entry so artwork compeition is not created so here it gets created
+                    ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[i],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"])     
+                 end   
+              end
+         end
 	end
 	    	
 	def  generate_invoice_update(competitions_user_user_id,competitions_user_id)
@@ -276,7 +287,7 @@ class CompetitionsUser < ActiveRecord::Base
 			generate_invoice
 			end
 	end	
-    def generate_invoice_with_price()
+  def generate_invoice_with_price()
 		invoice = Invoice.new(
 				:purchasable_type => self.class.to_s,
 				:purchasable_id => self.id,

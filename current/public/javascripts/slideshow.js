@@ -40,6 +40,8 @@ function slide(src,link,text,target,attr,slideshowid) {
 
   // Text to display
   this.text = text;
+  
+  
 
   // Name of the target window ("_blank")
   this.target = target;
@@ -72,6 +74,9 @@ function slide(src,link,text,target,attr,slideshowid) {
     if (!this.loaded) {
       this.image.src = this.src;
       this.loaded = true;
+      
+      
+      
     }
   }
 
@@ -138,7 +143,7 @@ function slideshow( slideshowname ) {
   // IMAGE element on your HTML page.
   // For example, document.images.SLIDES1IMG
   this.image;
-
+  
   // ID of a DIV element on your HTML page that will contain the text.
   // For example, "slides2text"
   // Note: after you set this variable, you should call
