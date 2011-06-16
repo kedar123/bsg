@@ -22,18 +22,16 @@ class ShoppingcartController < ApplicationController
       else
         page["shoppingcartlink#{params[:orderable_id]}#{params[:orderable_type]}"].replace_html msg
       end
-  end 
+    end 
   end
   
   def remove_from_cart
-    
     if params[:orderable_type].to_s.include? "CompetitionsUser"
       session[:cart].delete("#{params[:orderable_type]}_#{params[:orderable_id]}_#{params[:imagename]}")
     else
       session[:cart].delete("#{params[:orderable_type]}_#{params[:orderable_id]}")
     end
-		
-   	@current_object = Order.new_from_cart(session[:cart], @current_user)
+		@current_object = Order.new_from_cart(session[:cart], @current_user)
     render :update do |page|
       page["order#{params[:i]}"].hide
       page["total_amount"].replace_html "<h> #{@current_object.total_amount}  AUD</h><br />"
@@ -75,6 +73,10 @@ class ShoppingcartController < ApplicationController
   def makeshoppingcartpayment
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
     sold_array = [ 'fsold=','ssold=','tsold=','fosold=','fisold=','sisold=','sesold=','eisold=','nsold=','tesold=']
+    editionnamearray = ['fworkedname=','sworkedname=','tworkedname=','foworkedname=','fiworkedname=','siworkedname=','seworkedname=','eiworkedname=','niworkedname=','teworkedname=']
+    editionnamearrayv = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarrayv = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
+
     	@current_object = Order.new_from_cart(session[:cart], @current_user)
       payment = Payment.new()
       order = Order.complete_from_cart(session[:cart], @current_user)
@@ -89,17 +91,27 @@ class ShoppingcartController < ApplicationController
              session[:cart].each do |k, v|
     		        if  k.split('_')[0] == "CompetitionsUser"
                     cu = CompetitionsUser.find(k.split('_')[1])      
-                    cu.send (sold_array[image_array.index(k.split('_')[2])],true)
+                    editvalue = cu.send editionnamearrayv[image_array.index(k.split('_')[2])]
+                    cu.send(editionnamearray[image_array.index(k.split('_')[2])],editvalue.to_i+1)
+                    if( editvalue.to_i+1 > (cu.send(editionnumberarrayv[image_array.index(k.split('_')[2])])).to_i)  
+                      cu.send (sold_array[image_array.index(k.split('_')[2])],true)
+                    end
                     cu.save
                 end
                 if  k.split('_')[0] == "Artwork"
                     art = Artwork.find(k.split('_')[1])      
-                    art.sold = true
+                    art.edition_name = art.edition_name.to_i + 1
+                    if art.edition_name.to_i > art.edition_number.to_i
+                      art.sold = true 
+                    end
                     art.save
                 end
                 if  k.split('_')[0] == "Groupshowartwork"
-                  art = Groupshowartwork.find(k.split('_')[1])      
-                  art.sold = true
+                  art = Groupshowartwork.find(k.split('_')[1]) 
+                  art.editionname = art.editionname.to_i + 1
+                  if art.editionname.to_i > art.editionumber
+                     art.sold = true
+                  end
                   art.save
                 end
             end    
@@ -143,6 +155,9 @@ class ShoppingcartController < ApplicationController
   def  paypal_return
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
     sold_array = [ 'fsold=','ssold=','tsold=','fosold=','fisold=','sisold=','sesold=','eisold=','nsold=','tesold=']
+    editionnamearray = ['fworkedname=','sworkedname=','tworkedname=','foworkedname=','fiworkedname=','siworkedname=','seworkedname=','eiworkedname=','niworkedname=','teworkedname=']
+    editionnamearrayv = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarrayv = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
 
     username = "pathak_1259733727_biz_api1.gmail.com"
     password = "1259733733"
@@ -167,17 +182,27 @@ class ShoppingcartController < ApplicationController
              session[:cart].each do |k, v|
     		         if  k.split('_')[0] == "CompetitionsUser"
                     cu = CompetitionsUser.find(k.split('_')[1])      
-                    cu.send (sold_array[image_array.index(k.split('_')[2])],true)
+                    editvalue = cu.send editionnamearrayv[image_array.index(k.split('_')[2])]
+                    cu.send(editionnamearray[image_array.index(k.split('_')[2])],editvalue.to_i+1)
+                    if( editvalue.to_i+1 > (cu.send(editionnumberarrayv[image_array.index(k.split('_')[2])])).to_i)  
+                      cu.send (sold_array[image_array.index(k.split('_')[2])],true)
+                    end
                     cu.save
                 end
                 if  k.split('_')[0] == "Artwork"
                     art = Artwork.find(k.split('_')[1])      
-                    art.sold = true
+                    art.edition_name = art.edition_name.to_i + 1
+                    if art.edition_name.to_i > art.edition_number.to_i
+                      art.sold = true 
+                    end
                     art.save
                 end
                  if  k.split('_')[0] == "Groupshowartwork"
                   art = Groupshowartwork.find(k.split('_')[1])      
-                  art.sold = true
+                  art.editionname = art.editionname.to_i + 1
+                  if art.editionname.to_i > art.editionumber
+                     art.sold = true
+                  end
                   art.save
                 end
             end    

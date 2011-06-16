@@ -49,7 +49,7 @@
                                <div style="display: none;padding-top:12px;" id="show_ajax_request<%=updateimage.id%>">
                                                       <img height="20" src="/images/ajax-spinner.gif" alt="loading">
                                </div>               
-                               <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
+                               <input type="radio"  name="artwork[is_purchasable<%=updateimage.id%>]" value='1' checked="checked"  style="display:none">
         </form>
 	    <div style="clear:both">  
               <img src="/uploaded_files/production/artwork/<%=updateimage.id%>/thumb/<%=updateimage.image_file_name%>" />

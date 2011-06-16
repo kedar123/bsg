@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613154122) do
+ActiveRecord::Schema.define(:version => 20110616101039) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -389,6 +389,26 @@ ActiveRecord::Schema.define(:version => 20110613154122) do
     t.boolean  "eisold"
     t.boolean  "nsold"
     t.boolean  "tesold"
+    t.integer  "fworkedname"
+    t.integer  "sworkedname"
+    t.integer  "tworkedname"
+    t.integer  "foworkedname"
+    t.integer  "fiworkedname"
+    t.integer  "siworkedname"
+    t.integer  "seworkedname"
+    t.integer  "eiworkedname"
+    t.integer  "niworkedname"
+    t.integer  "teworkedname"
+    t.integer  "fworkednumber"
+    t.integer  "sworkednumber"
+    t.integer  "tworkednumber"
+    t.integer  "foworkednumber"
+    t.integer  "fiworkednumber"
+    t.integer  "siworkednumber"
+    t.integer  "seworkednumber"
+    t.integer  "eiworkednumber"
+    t.integer  "niworkednumber"
+    t.integer  "teworkednumber"
   end
 
   add_index "competitions_users", ["competition_id"], :name => "index_competitions_users_on_competition_id"
@@ -654,6 +674,8 @@ ActiveRecord::Schema.define(:version => 20110613154122) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "sold"
+    t.integer  "editionname"
+    t.integer  "editionumber"
   end
 
   create_table "groupshows", :force => true do |t|

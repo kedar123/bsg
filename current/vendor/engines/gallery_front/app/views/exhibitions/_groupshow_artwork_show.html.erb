@@ -23,10 +23,20 @@
       <% #end %>
       
       <% if object.price %>
-      <p style="white-space: normal;">
-        <%= '$'+object.price.to_s %>
-      </p>  
+        <p style="white-space: normal;">
+          <%= '$'+object.price.to_s %>
+        </p>  
       <% end %>
+      
+      <% if !object.editionname.blank? %>
+        <p style="white-space: normal;">
+          <%= object.editionname %>
+          <%if !object.editionumber.blank?%>
+            of <%=object.editionumber%>
+          <%end%>
+        </p>  
+      <% end %>  
+      
       
 <%#=object.is_purchasable%> 
       	 <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%>">

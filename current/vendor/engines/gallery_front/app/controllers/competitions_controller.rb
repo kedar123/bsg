@@ -26,10 +26,16 @@ class CompetitionsController < ApplicationController
     else
       if params[:competition_id]
         @competitionuser = CompetitionsUser.find_by_competition_id(params[:competition_id])
+        
+        
     	else
+   
         @competitionuser = CompetitionsUser.find_by_competition_id(@competition.id) 
+   
     	end
     end  
+   
+    
     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@competition.id.to_s+"competition"])
     @oldlabelvalue={}
     columnnameandheader.each do |x|   
@@ -690,13 +696,17 @@ class CompetitionsController < ApplicationController
  	  title_array_send = ['fworktitle=','sworktitle=','tworktitle=','foworktitle=','fiworktitle=','siworktitle=','seworktitle=','eworktitle=','nworktitle=','teworktitle=']
     price_array_send = ['fworkprice=','sworkprice=','tworkprice=','foworkprice=','fiworkprice=','siworkprice=','seworkprice=','eworkprice=','nworkprice=','teworkprice=']
     price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
- 	  order = CompetitionsUser.find(params[:competitionuserid])
+ 	  editionnamearray = ['fworkedname=','sworkedname=','tworkedname=','foworkedname=','fiworkedname=','siworkedname=','seworkedname=','eiworkedname=','niworkedname=','teworkedname=']
+    editionnumberarray = ['fworkednumber=','sworkednumber=','tworkednumber=','foworkednumber=','fiworkednumber=','siworkednumber=','seworkednumber=','eiworkednumber=','niworkednumber=','teworkednumber=']
+    order = CompetitionsUser.find(params[:competitionuserid])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     i = title_array.index params[:titleforupdate]
     order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
     order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"]) 
     order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"]) 
+    order.send(editionnamearray[i].to_sym,params[:competitions_user]["editionname"]) 
+    order.send(editionnumberarray[i].to_sym,params[:competitions_user]["editionnumber"]) 
     totalsize = params[:competitions_user]["worksize1"].to_s+"x"+params[:competitions_user]["worksize2"].to_s+"x"+params[:competitions_user]["worksize3"].to_s
     order.send(size_array_send[i],totalsize)
     order.save_image(params[:competitions_user],i)
@@ -843,6 +853,8 @@ class CompetitionsController < ApplicationController
     medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
     size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']
     price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
+    editionnamearray = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarray = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
     @competition = Competition.find(params[:id])
     @competitions_user = CompetitionsUser.find(params[:order_id])
     @image_array = []
@@ -857,11 +869,12 @@ class CompetitionsController < ApplicationController
         image_arrayi << @competitions_user.send(medium_array[i].to_sym)
         image_arrayi << @competitions_user.send(size_array[i].to_sym)
         image_arrayi << @competitions_user.send(eachimage.to_sym)
-    
         #if !@competitions_user.send(eachimage.to_sym).blank?
         #    add_art_cnt = add_art_cnt +1
         #end  
         image_arrayi << @competitions_user.send(price_array[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
         image_arrayi << title_array[i]
         @image_array << image_arrayi
         counttodisplayviwform = counttodisplayviwform + 1
@@ -872,6 +885,8 @@ class CompetitionsController < ApplicationController
         image_arrayi << @competitions_user.send(size_array[i].to_sym)
         image_arrayi << @competitions_user.send(eachimage.to_sym)
         image_arrayi << @competitions_user.send(price_array[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
         image_arrayi << title_array[i]
         @image_array << image_arrayi
       end  
@@ -1193,10 +1208,12 @@ class CompetitionsController < ApplicationController
 
   def create_exhibition_artwork
     i=1
+    p params
+    p "this all is my params"
     params[:artwork].each do   
       if !params[:artwork_id].blank?
         @artwork = ExhiArtwork.find(params[:artwork_id])
-        @artwork.title=params[:artwork]["title"+@artwork.id.to_s]
+        @artwork.title=params[:artwork]["title"+@artwork.id.to_s]                                                                                                                                 
         @artwork.user_id=current_user.id
         @artwork.image = params[:artwork]["image"+@artwork.id.to_s]
         @artwork.medium = params[:artwork]["medium"+@artwork.id.to_s]
@@ -1206,7 +1223,10 @@ class CompetitionsController < ApplicationController
         @artwork.edition_name = params[:artwork]["edition_name"+@artwork.id.to_s]
         @artwork.edition_number = params[:artwork]["edition_number"+@artwork.id.to_s]
         @artwork.price = params[:artwork]["price"+@artwork.id.to_s]
-        @artwork.is_purchasable = params[:artwork]["is_purchasable"+@artwork.id.to_s]      
+        @artwork.is_purchasable = params[:artwork]["is_purchasable"+@artwork.id.to_s]  
+        p "just checking here is purchasable"
+        p @artwork.is_purchasable
+        p params[:artwork]["is_purchasable"+@artwork.id.to_s]
         @artwork.save
       else  
         @artwork = ExhiArtwork.new()
@@ -1635,6 +1655,8 @@ class CompetitionsController < ApplicationController
     groupshowartwork.size2  = params[:groupshow_user][:size2]
     groupshowartwork.size3  = params[:groupshow_user][:size3]
     groupshowartwork.price  = params[:groupshow_user][:price]
+    groupshowartwork.editionname  = params[:groupshow_user][:editionname]
+    groupshowartwork.editionumber  = params[:groupshow_user][:editionumber]
     groupshowartwork.user_id = current_user.id
     groupshowartwork.groupshow_id = params[:groupshow_id]
     groupshowartwork.save_image(params)
@@ -1682,6 +1704,8 @@ class CompetitionsController < ApplicationController
     @groupshowuser.size2  = params[:groupshow_user][:size2]
     @groupshowuser.size3  = params[:groupshow_user][:size3]
     @groupshowuser.price  = params[:groupshow_user][:price]
+    @groupshowuser.editionname  = params[:groupshow_user][:editionname]
+    @groupshowuser.editionumber  = params[:groupshow_user][:editionumber]
     @groupshowuser.user_id = current_user.id
     #@groupshowuser.groupshow_id = params[:groupshow_id]
     @groupshowuser.save_image(params)

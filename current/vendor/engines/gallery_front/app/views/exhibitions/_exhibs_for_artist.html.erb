@@ -91,7 +91,7 @@ function popitup(url) {
         <%if @exhibition%>
         
             <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
-      
+
             <%= render :partial => 'exhibitions/artwork_show', :object => a %>
      <%end%>  
            <%else%> 

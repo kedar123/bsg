@@ -75,7 +75,7 @@ class Artwork < ActiveRecord::Base
 	end
 
 	def edition
-		return (self.edition_name && self.edition_name.blank?) ? nil : "#{self.edition_number.to_s} of #{self.edition_name}"
+		return (self.edition_name && self.edition_name.blank?) ? nil : "#{self.edition_name.to_s} of #{self.edition_number}"
 	end
  
 end
