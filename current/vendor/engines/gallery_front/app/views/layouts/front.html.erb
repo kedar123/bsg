@@ -12,7 +12,7 @@
 <script language="javascript">
 
 function callmessagedisplay(element){
-  var myarray = ["title","image","medium","price","is_purchasable","width","height","edition_name","edition_number","size1","size2","price"]
+  var myarray = ["title","image","medium","price","is_purchasable","width","height","edition_name","edition_number","size1","size2","price","editionnumber","editionname"]
       for (i=0;i<myarray.length;i++)  
       {
         if (element.name.indexOf(myarray[i]) != -1)
@@ -22,20 +22,33 @@ function callmessagedisplay(element){
              alert("Please Enter Size"); 
              return false;
            }
+           if(myarray[i] == 'editionname'){
+             alert("Please Enter  Edition from ");
+             return false;
+           }
+           if(myarray[i] == 'editionnuber'){
+             alert("Please Enter  Edition Number ");
+             return false;
+           }
+           if(myarray[i] == 'edition_nuber'){
+             alert("Please Enter  Edition Number ");
+             return false;
+           }
+           if(myarray[i] == 'edition_name'){
+             alert("Please Enter  Edition from ");
+             return false;
+           }
            else{
              alert("Please Enter "+myarray[i]);
              return false;
-             
             }
             return
         }
       }
   }
-function Checkfiles(formid,show_ajax_request)
+function Checkfiles(formid,show_ajax_request,editionnumber,editionname)
 {
     var elem = document.getElementById(formid).elements;
-    var myreturnvalue = false;
-    var mysaleornotsale = false;
         for(var i = 0; i < elem.length; i++)
         {
              if (elem[i].type  == "text")
@@ -52,65 +65,101 @@ function Checkfiles(formid,show_ajax_request)
                   } 
                 else
                   {
-                    myreturnvalue = check_numericvalue(elem[i]);
+                    myreturnvalue = check_numericvalue(elem[i],editionnumber,editionname);
+                    if(myreturnvalue)
+                      {
+                      }
+                    else{
+                     
+                      return false;
+                    }  
                   }
              }     
             if (elem[i].type  == "file")
             {
+               
                 var fup = elem[i];
                 var fileName = fup.value;
                 var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
                 if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ||  ext ==  "PNG" || ext == "png")
                   {
-                     myreturnvalue = true
+                    // if (myreturnvalue){
+                    // myreturnvalue = true
+                    // }
                   } 
                 else
                   {
                     alert("Please Upload The Image");
                     fup.focus();
+                    myreturnvalue = false;
                     return false;
                   }
              }     
-              if (elem[i].type  == "radio")
-            {
-                if(elem[i].checked)
-                  {
-                     mysaleornotsale = true
-                     
-                  } 
-                else
-                  {
-                  }
-             }     
+              
           } 
-               if (mysaleornotsale)   
+          var myeditionvalue = false;
+          var ednm=document.getElementById(editionname).value;
+          var ednu=document.getElementById(editionnumber).value;
+                   if(  ((parseInt(ednm) < parseInt(ednu))   || (ednm == parseInt(ednu))) && ( parseInt(ednm)!=0 && parseInt(ednu) !=0 ) )
+                      {
+                        
+                         var price=document.getElementById("artwork_price").value;
+                         if (parseInt(price) > 0 && parseInt(ednm) > 0 && parseInt(ednu) > 0) {
+                          myeditionvalue = true;
+                         }
+                      }
+                      
+                   else{
+                    
+                          if (parseInt(ednm) > 0){
+                              alert("Please Enter edition from greater than edition number");
+                              myeditionvalue = false;
+                              return false;
+                              }
+                          else{
+                            alert("Please Enter Numeric value for edition from");
+                            myeditionvalue = false;
+                              return false;
+                          }
+                          if (parseInt(ednu) > 0){
+                             alert("Please Enter edition from greater than edition number");
+                              myeditionvalue = false;
+                              return false;
+                              }
+                          else{
+                                alert("Please Enter Numeric value for edition number");
+                                  myeditionvalue = false;
+                                  return false;
+                          }
+                       return false;
+                      } 
+          
+          
+          
+               if (myeditionvalue)   
                {
                  showajaximage = document.getElementById(show_ajax_request);
                  if (showajaximage)
                    {
-                     document.getElementById(show_ajax_request).style.display='block'
+                     document.getElementById(show_ajax_request).style.display='block';
                    }
                  else
                    {
 
                    }
                }
-               else
-               {
-                 alert("Please Select Atwork Sale Option");
-                 return false;
-               }
-      return mysaleornotsale;            
+            
+      return myeditionvalue;            
 }
 
 
 
 
 
-function Checkfilescomp(formid,show_ajax_request)
+function Checkfilescomp(formid,show_ajax_request,editionnumber,editionname)
 {
     var elem = document.getElementById(formid).elements;
-    var myreturnvalue = false;
+    var myreturnvalue = true;
         for(var i = 0; i < elem.length; i++)
         {
              if (elem[i].type  == "text")
@@ -133,17 +182,31 @@ function Checkfilescomp(formid,show_ajax_request)
                   } 
                 else
                   {
-                    myreturnvalue = check_numericvalue(elem[i])
+                   
+                    myreturnvalue = check_numericvaluecomp(elem[i],editionnumber,editionname)
+                    
                   }
              }     
+                  
+                
+                                       
+           
             if (elem[i].type  == "file")
             {
+               
+   
                 var fup = elem[i];
                 var fileName = fup.value;
                 var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
                 if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ||  ext ==  "PNG" || ext == "png")
                   {
-                     myreturnvalue = true;
+                     if (myreturnvalue)
+                       {
+                         myreturnvalue = true;
+                       }
+                       
+                     
+                     
                   } 
                 else
                   {
@@ -151,10 +214,54 @@ function Checkfilescomp(formid,show_ajax_request)
                     fup.focus();
                     return false;
                   }
-             }     
+            }     
+           
+             
           } 
           
-          if(myreturnvalue){
+          
+          var myeditionvalue = false;
+          var ednm=document.getElementById(editionname).value;
+          var ednu=document.getElementById(editionnumber).value;
+              if(  ((parseInt(ednm) < parseInt(ednu))   || (parseInt(ednm) == parseInt(ednu))) && ( parseInt(ednm)!=0 && parseInt(ednu) !=0 ))
+                     { 
+                        var price=document.getElementById("artwork_price").value;
+                        if (parseInt(price) > 0 && parseInt(ednm) > 0 && parseInt(ednu) > 0) {
+                         myeditionvalue = true;
+                        }
+                     }
+                  else{
+                   
+                          if (parseInt(ednm) > 0){
+                              alert("Please Enter edition from greater than edition number");
+                              myeditionvalue = false;
+                              return false;
+                              }
+                          else{
+                            alert("Please Enter Numeric value for edition from");
+                            myeditionvalue = false;
+                              return false;
+                          }
+                          if (parseInt(ednu) > 0){
+                             alert("Please Enter edition from greater than edition number");
+                              myeditionvalue = false;
+                              return false;
+                              }
+                          else{
+                                alert("Please Enter Numeric value for edition number");
+                                  myeditionvalue = false;
+                                  return false;
+                          }
+                          
+                       return false;
+                      } 
+          
+          
+          
+          
+          
+          
+          if(myeditionvalue){
              showajaximage = document.getElementById(show_ajax_request);
                if (showajaximage)
                  {
@@ -166,41 +273,45 @@ function Checkfilescomp(formid,show_ajax_request)
                  }
           }
           
-      return myreturnvalue;            
+      return myeditionvalue;            
       
 }
 
 
 
-
-
-function check_numericvalue(element){
+function check_numericvalue(element,editionnumber,editionname){
   /*here i need to check weather it is a number or not for price height width etc*/   
-    var myarray = ["price","width","height","edition_name","edition_number","worksize1","worksize2"]
+    var myarray = ["price","width","height","edition_name","edition_number","worksize1","worksize2","editionnumber","editionname"]
                  for (i=0;i<myarray.length;i++)  
                     {  
                         if (element.name.indexOf(myarray[i]) != -1)
                             {
                                 var tfv= element.value;
-                                        if (myarray[i] == "edition_number"){  
-                                         var ednm=document.getElementById("artwork_edition_name").value;
-                                         var ednu=document.getElementById("artwork_edition_number").value;
-                                         if (  (ednm < ednu)   || (ednm == ednu) )
-                                          {
-                                          }   
-                                         else{
-                                             alert("Please Enter edition name greater than edition number");
-                                             return false;
-                                          }
-                                       }  
+                                        
                                     if (parseInt(tfv) > 0)
                                        {
                                        return true;
                                        }
                                     else
                                        {
-                                       if ( myarray[i] == "worksize1" ||  myarray[i] == "worksize2"){
+                                        if( myarray[i] == "worksize1" ||  myarray[i] == "worksize2"){
                                           alert("Please Enter Numeric value For Size" );
+                                           return false;
+                                         }
+                                         if( myarray[i] == "editionname" ){
+                                          alert("Please Enter Numeric value For edition from" );
+                                           return false;
+                                         }
+                                         if( myarray[i] == "edition_name" ){
+                                          alert("Please Enter Numeric value For edition from" );
+                                           return false;
+                                         }
+                                         if( myarray[i] == "edition_number" ){
+                                          alert("Please Enter Numeric value For edition number" );
+                                           return false;
+                                         }
+                                         if( myarray[i] == "editionnumber" ){
+                                          alert("Please Enter Numeric value For edition number" );
                                            return false;
                                          }
                                          else
@@ -214,7 +325,85 @@ function check_numericvalue(element){
                             else{
                             } 
                       }
+                      return true;
     }  
+    
+    
+    function check_numericvaluecomp(element,editionnumber,editionname){
+  /*here i need to check weather it is a number or not for price height width etc*/   
+    var myarray = ["price","width","height","edition_name","edition_number","worksize1","worksize2","editionnumber","editionname","size1","size2"]
+                 for (i=0;i<myarray.length;i++)  
+                    { 
+                        if (element.name.indexOf(myarray[i]) != -1)
+                            {
+                                    var tfv= element.value;
+                                      if (myarray[i] == "edition_number" || myarray[i] == "editionnumber"){  
+                                         var ednm=document.getElementById(editionname).value;
+                                         var ednu=document.getElementById(editionnumber).value;
+                                         if (  (ednm < ednu)   || (ednm == ednu) )
+                                          {
+                                          }   
+                                         else{
+                                             alert("Please Enter edition from greater than edition number");
+                                             return false;
+                                          }
+                                       }
+                                    if (parseInt(tfv) > 0)
+                                       {
+                                         
+                                       
+                                       return true;
+                                       
+                                       }
+                                    else
+                                       {
+                                       if ( myarray[i] == "worksize1" ||  myarray[i] == "worksize2" || myarray[i] == "size2" || myarray[i] == "size1"){
+                                          alert("Please Enter Numeric value For Size" );
+                                           return false;
+                                         }
+                                         
+                                         if ( myarray[i] == "editionnumber" ){
+                                          alert("Please Enter Numeric value For Edition Number" );
+                                           return false;
+                                         }
+                                         if ( myarray[i] == "edition_number" ){
+                                          alert("Please Enter Numeric value For Edition Number" );
+                                           return false;
+                                         }
+                                         
+                                         if ( myarray[i] == "edition_name" ){
+                                          alert("Please Enter Numeric value For Edition from" );
+                                           return false;
+                                         }
+                                         
+                                         if ( myarray[i] == "editionname" ){
+                                          alert("Please Enter Numeric value For Edition from" );
+                                           return false;
+                                         }
+                                         else
+                                         {
+                                           alert("Please Enter Numeric Value For  "+ myarray[i] );
+                                            return false;
+                                         }
+                                         
+                                         
+                                         return false;
+                                       
+                                     }
+                             }   
+                            else{
+                             // return true;
+                            } 
+                      }
+    
+                         
+          
+
+
+        }  
+
+    
+    
 </script>
 <script>
       jQuery.noConflict();

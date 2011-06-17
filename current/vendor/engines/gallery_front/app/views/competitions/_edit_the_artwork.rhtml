@@ -13,7 +13,7 @@
     <%end%>
     </div>
 
-      <form action="edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[7]%>','show_ajax_request<%=updateimagearray[7]%>')"  id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>" >  
+      <form action="edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[7]%>','show_ajax_request<%=updateimagearray[7]%>','competitions_user_editionnumber<%=updateimagearray[7]%>','competitions_user_editionname<%=updateimagearray[7]%>')"  id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>" >  
       
       
 <div class="changecolorgray">   
@@ -46,8 +46,8 @@
   
 </div>  
    <input  name="competitions_user[workprice]" id="field-a94ac5a259d7675" size="40" value="<%=updateimagearray[4]%>" type="text" style="width: 92px;height: 14px;">
-   <input  name="competitions_user[editionname]" id="field-a94ac5a259d7675" size="40" value="<%=updateimagearray[5]%>" type="text" style="width: 92px;height: 14px;">
-   <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="field-a94ac5a259d7675" size="40" value="<%=updateimagearray[6]%>" type="text" style="width: 92px;height: 14px;">
+   <input  name="competitions_user[editionname]" id="competitions_user_editionname<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[5]%>" type="text" style="width: 92px;height: 14px;">
+   <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="competitions_user_editionnumber<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[6]%>" type="text" style="width: 92px;height: 14px;">
    
    
 <div class="changecolorgray">         

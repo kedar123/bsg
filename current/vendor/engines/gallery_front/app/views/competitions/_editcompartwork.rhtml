@@ -13,7 +13,7 @@
     </div>
 
     
- <form action="edit_upload_the_artwork_to_competition" method="post" enctype="multipart/form-data"  onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[0]%>','show_ajax_request<%=updateimagearray[0]%>')" id="add_the_artwork_to_competition<%=updateimagearray[0]%>"  target="upload_frame<%=updateimagearray[0]%>">  
+ <form action="edit_upload_the_artwork_to_competition" method="post" enctype="multipart/form-data"  onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[7]%>','show_ajax_request<%=updateimagearray[7]%>','competitions_user_editionnumber<%=updateimagearray[7]%>','competitions_user_editionname<%=updateimagearray[7]%>')" id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>">  
 <div class="changecolorgray">   
   Title 
 </div>  
@@ -34,15 +34,27 @@
    <input  name="competitions_user[worksize3]" id="field-c65f89902a9847h"  value="<%=updateimagearray[2].split('x')[2]%>" type="text" style="width: 92px;height: 14px;">
 </font>
 <div class="changecolorgray">      
-   Price
+    <span style="padding-right:90px">
+                               Price
+                           </span> 
+                          <span style="padding-right:50px">
+                               Edition From
+                          </span> 
+                        <span>
+                               Edition Number
+                          </span> 
 </div>  
-   <input  name="competitions_user[workprice]" id="field-a94ac5a259d7675" size="40" value="<%=updateimagearray[4]%>" type="text" style="width: 100px;height: 14px;">
+   <input  name="competitions_user[workprice]" id="field-a94ac5a259d7675" size="40" value="<%=updateimagearray[4]%>" type="text" style="width: 92px;height: 14px;">
+   <input  name="competitions_user[editionname]" id="competitions_user_editionname<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[5]%>" type="text" style="width: 92px;height: 14px;margin-left:10px;">
+   <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="competitions_user_editionnumber<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[6]%>" type="text" style="width: 82px;height: 14px;">
+
+   
 <div class="changecolorgray">         
 	 Image
 </div>
 	 <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" style="height:28px;">
 	 <%=hidden_field_tag "competitionuserid",competitionuser%>
-	 <%=hidden_field_tag "titleforupdate",updateimagearray[5] %>
+	 <%=hidden_field_tag "titleforupdate",updateimagearray[7] %>
    
           <div style="float:left">
                    <%= submit_tag 'Submit Artwork'%>
@@ -51,11 +63,11 @@
                      <img height="20" src="/images/ajax-spinner.gif" alt="loading">
           </div>
 
-        <div style="clear:both">
+        <div style="clear:both" id="show_ajax_request<%=updateimagearray[7]%>">
           <img src="/system/gallery/<%=updateimagearray[3]%>" width="90px" height="90px"/>   
         </div>  
          
 </div>
 </form>
-<iframe id="'upload_frame<%=updateimagearray[0]%>"   name="upload_frame<%=updateimagearray[0]%>" style="width:1px;height:1px;display:none"></iframe>
+<iframe id="'upload_frame<%=updateimagearray[7]%>"   name="upload_frame<%=updateimagearray[7]%>" style="width:1px;height:1px;display:none"></iframe>
 

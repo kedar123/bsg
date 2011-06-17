@@ -12,7 +12,7 @@
   <%=messageforimageuploaded%>
 <%end%>
  </div>
-<form action="/competitions/create_exhibition_artwork_insamediv" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition" method="post" onsubmit="return Checkfiles('add_the_artwork_to_competition','show_ajax_request')" target="upload_frame">
+<form action="/competitions/create_exhibition_artwork_insamediv" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition" method="post" onsubmit="return Checkfiles('add_the_artwork_to_competition','show_ajax_request','artwork_edition_number','artwork_edition_name')" target="upload_frame">
     <%=hidden_field_tag "exhibition_id",exhibition_id%>
           <div class="changecolorgray">
 					<label>Title </label>
@@ -52,7 +52,7 @@
                                   <br/>
 				<div class="changecolorgray" style="margin-top:5px;padding-top:5px;float:left">
 				     <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
-			            <button class="submitButton" type="submit" onclick="return CheckImageUrl('artwork_image')">
+			            <button class="submitButton" type="submit" onclick="">
                                       <span>Upload</span>
                                     </button>
                                 </div>

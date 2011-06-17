@@ -649,6 +649,9 @@ class CompetitionsController < ApplicationController
     title_array_send = ['fworktitle=','sworktitle=','tworktitle=','foworktitle=','fiworktitle=','siworktitle=','seworktitle=','eworktitle=','nworktitle=','teworktitle=']
     medium_array = ['fworkmedium=','sworkmedium=','tworkmedium=','foworkmedium=','fiworkmedium=','siworkmedium=','seworkmedium=','eworkmedium=','nworkmedium=','teworkmedium=']
     price_array = ['fworkprice=','sworkprice=','tworkprice=','foworkprice=','fiworkprice=','siworkprice=','seworkprice=','eworkprice=','nworkprice=','teworkprice=']
+    editionnamearray=['fworkedname=','sworkedname=','tworkedname=','foworkedname=','fiworkedname=','siworkedname=','seworkedname=','eiworkedname=','niworkedname=','teworkedname=']
+    editionnumberarray=['fworkednumber=','sworkednumber=','tworkednumber=','foworkednumber=','fiworkednumber=','siworkednumber=','seworkednumber=','eiworkednumber=','niworkednumber=','teworkednumber=']
+    
     order = CompetitionsUser.find(params[:order_id])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
@@ -663,7 +666,10 @@ class CompetitionsController < ApplicationController
       
       order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
       order.send(medium_array[i].to_sym,params[:competitions_user]["workmedium"]) 
-      order.send(price_array[i].to_sym,params[:competitions_user]["workprice"]) 
+      order.send(price_array[i].to_sym,params[:competitions_user]["workprice"])
+      order.send(editionnamearray[i].to_sym,params[:competitions_user]["editionname"])
+      order.send(editionnumberarray[i].to_sym,params[:competitions_user]["editionnumber"])
+      
       totalsize = params[:competitions_user]["worksize1"].to_s+"x"+params[:competitions_user]["worksize2"].to_s+"x"+params[:competitions_user]["worksize3"].to_s
       order.send(size_array[i],totalsize)
       order.save_image(params[:competitions_user],i)
@@ -698,6 +704,9 @@ class CompetitionsController < ApplicationController
     price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
  	  editionnamearray = ['fworkedname=','sworkedname=','tworkedname=','foworkedname=','fiworkedname=','siworkedname=','seworkedname=','eiworkedname=','niworkedname=','teworkedname=']
     editionnumberarray = ['fworkednumber=','sworkednumber=','tworkednumber=','foworkednumber=','fiworkednumber=','siworkednumber=','seworkednumber=','eiworkednumber=','niworkednumber=','teworkednumber=']
+    editionnamearrayv = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarrayv = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
+    
     order = CompetitionsUser.find(params[:competitionuserid])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
@@ -718,6 +727,8 @@ class CompetitionsController < ApplicationController
     updateimagearray << order.send(size_array[i].to_sym)
     updateimagearray << order.send(image_array[i])
     updateimagearray << order.send(price_array[i].to_sym)
+    updateimagearray << order.send(editionnamearrayv[i].to_sym)
+    updateimagearray << order.send(editionnumberarrayv[i].to_sym)
     updateimagearray << title_array[i]
     responds_to_parent do
       render :update do |page|

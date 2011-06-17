@@ -34,7 +34,7 @@ You Have Uploaded The Images Upto Your Limit </h2>
     <div>
           <%=title_message_array[i]%>
       </div>
-      <form action="upload_the_artwork_to_competition" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_competition')" id="add_the_artwork_to_competition" target="upload_frame" >  
+      <form action="upload_the_artwork_to_competition" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition','show_ajax_request','competitions_user_editionnumber','competitions_user_editionname')" id="add_the_artwork_to_competition" target="upload_frame" >  
               <%=hidden_field_tag "order_id",order_id%>    
                  <div class="changecolorgray">
                       Title 
@@ -55,16 +55,20 @@ You Have Uploaded The Images Upto Your Limit </h2>
                          <input  name="competitions_user[worksize3]" id="field-c65f89902a9847h" size="10" value="" type="text" style="width: 92px;height:14px;"> 
                       </font>
                       <div class="changecolorgray"> 
-                          <span style="padding-right:100px">
+                          <span style="padding-right:90px">
                                Price
                            </span> 
-                          <span >
-                               Edition(if applicable)
+                          <span style="padding-right:50px">
+                               Edition From
                           </span> 
+                        <span>
+                               Edition Number
+                          </span> 
+                        
                       </div> 
                            <input  name="competitions_user[workprice]" id="field-a94ac5a259d7675" style="width: 92px;height: 14px;" value="" type="text">
-                           <input  name="competitions_user[editionname]" id="field-a94ac58859d7675" size="40" value="" type="text" style="width: 92px;height: 14px;">
-   <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="field-a94ac5a259d7675" size="40" value="" type="text" style="width: 92px;height: 14px;">
+                           <input  name="competitions_user[editionname]" id="competitions_user_editionname" size="40" value="" type="text" style="width: 92px;height: 14px;margin-left:10px;">
+   <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="competitions_user_editionnumber" size="40" value="" type="text" style="width: 82px;height: 14px;">
 
                            
                            
@@ -77,7 +81,13 @@ You Have Uploaded The Images Upto Your Limit </h2>
                         	 Image 
                     	 </div>
                       	 <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" size="26">
-                       <%= submit_tag 'Upload'%>
+                       <div style="float:left">  
+                         <%= submit_tag 'Upload'%>
+                       </div> 
+                       <div style="display: none;padding-top:2px;" id="show_ajax_request">
+                                   <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+                       </div>  
+                         
                       </div>
                       <input type="hidden" name="competitionuserid" id="competitionuserid" value="<%=order_id%>"/>
         </form>
