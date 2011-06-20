@@ -58,7 +58,7 @@ class ExhibitionsController < ApplicationController
     p "i got this exhibition"
     p @exhibition
     p "i got this artworks"
-    p @exhibition.artworks
+    p @exhibition.artworks if @exhibition
     @artists.uniq!
      params[:which] = "#{which.to_s}/artists"
     # respond_to do |format|

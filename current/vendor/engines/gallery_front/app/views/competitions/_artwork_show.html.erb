@@ -22,6 +22,8 @@
  <%= object.send(size_array[j].to_sym).split('x').each{|m|m.capitalize!}.join(' x ')  %> cm
                 </p>
                    </p>
+                   <%if (object.send sold_array[j]) == true%>               
+                    <%else%> 
                     <% if object.price %>
                       <p style="white-space: normal;">                  
                           <% if ( !(object.send price_array[j]).blank?   )%>
@@ -29,6 +31,8 @@
                           <% end %>
                       </p>  
                     <% end %>
+                      
+                    
                     <%if ( !(object.send(editionnamearray[j])).blank?)%>  
                          <p>
                            <%=object.send(editionnamearray[j])%>
@@ -38,25 +42,34 @@
                            <%end%>
                          </p>  
                     <%end%>
+                    <%end%>     
+                         
                       
                       
                    <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%><%=image.to_s%>">
+                    
                    <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id ) %>
                     <%#= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
+                       
                         <%if (((object.send sold_array[j]) == nil) or ((object.send sold_array[j]) == false))%>  
-                            <%=link_to_remote '<font color="orange">add to the cart</font>', :update => "",
+                            <%=link_to_remote '<img src="/images/buy.jpeg"/>', :update => "",
                                 :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1,:eachimage=>image}%>
                         <%else%>          
                                 already sold
                         <%end%>
                   <%else%>
+                                
                     <% end %>
                     </div>  
                     <%if !session[:cart].blank?  &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>
                               <%= "already in the cart !!"  %>
                     <%end%>     
                     <%if current_user.blank?%>
+                        <%if (object.send sold_array[j]) == true%>               
+                          already sold
+                         <%else%>
                           <a href="/login/?comp=competition-<%=params[:competition_id]%>" method='post' ><img src="/images/buy.jpeg"/> </a>
+                         <%end%> 
                     <%end%>  
                  </div>
                   <%if  object.artworks_competitions.find(:first,:conditions=>"state='selected' and image_name = '#{image_array[j]}'")%>

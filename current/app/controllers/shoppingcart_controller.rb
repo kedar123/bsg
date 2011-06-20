@@ -93,9 +93,15 @@ class ShoppingcartController < ApplicationController
                     cu = CompetitionsUser.find(k.split('_')[1])      
                     editvalue = cu.send editionnamearrayv[image_array.index(k.split('_')[2])]
                     cu.send(editionnamearray[image_array.index(k.split('_')[2])],editvalue.to_i+1)
-                    if( editvalue.to_i+1 > (cu.send(editionnumberarrayv[image_array.index(k.split('_')[2])])).to_i)  
+                    p cu
+                    p "this is before changing the sold state"
+                    p editvalue.to_i+1
+                    p cu.send(editionnumberarrayv[image_array.index(k.split('_')[2])]).to_i
+                    p 
+                    if(editvalue.to_i+1 > (cu.send(editionnumberarrayv[image_array.index(k.split('_')[2])])).to_i)  
                       cu.send (sold_array[image_array.index(k.split('_')[2])],true)
                     end
+                    p cu
                     cu.save
                 end
                 if  k.split('_')[0] == "Artwork"

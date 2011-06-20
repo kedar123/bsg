@@ -26,26 +26,17 @@ class Competition < ActiveRecord::Base
  validates_presence_of :submission_deadline
  validates_presence_of :no_of_entry
  validate :entry_fee_format
- 
-    
 
-    def entry_fee_format
-
+def entry_fee_format
           self.entry_fees.each do |x|
             if  !(x.split("works")[1] != nil and    x.split("works")[1].split(/\r/)[0].split("$")[1].to_i > 0  and x.split("works")[1].split(/\r/)[0].split("$")[1].to_i != 0)
                 errors.add_to_base("Entry Fee Validation Failed") 
             else
-
             end 
          end   
-      
-    end
- 	
-	
-	after_save :send_results_notification
-	
-	
-	
+end
+
+  after_save :send_results_notification
 	
 	def judge
 		return User.find(self.judge_id)

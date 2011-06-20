@@ -30,17 +30,19 @@ class CompetitionsController < ApplicationController
         
     	else
    
-        @competitionuser = CompetitionsUser.find_by_competition_id(@competition.id) 
+        @competitionuser = CompetitionsUser.find_by_competition_id(@competition.id) if @competition
    
     	end
     end  
    
     
-    columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@competition.id.to_s+"competition"])
+    columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@competition.id.to_s+"competition"])  if @competition
     @oldlabelvalue={}
-    columnnameandheader.each do |x|   
-      @oldlabelvalue[x.column_name] = x.column_header
-    end
+    if columnnameandheader
+        columnnameandheader.each do |x|   
+          @oldlabelvalue[x.column_name] = x.column_header
+        end
+    end    
 		if @competition
 			# TODO publish rules ...
 			if @competition.state == 'final_published'
@@ -73,7 +75,7 @@ class CompetitionsController < ApplicationController
   	if  logged_in? 
 			@competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? and user_id     = ?",@competition.id,current_user.id])
     end  
-    @competitionuser.uniq!
+    @competitionuser.uniq! if @competitionuser
   end
 	def create_subscribe_competition
 		@competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:competion_id])

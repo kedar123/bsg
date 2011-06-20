@@ -87,7 +87,7 @@ function popitup(url) {
       </div>
 </div>
       <div id="list">
-        
+         <div id="list">
         <%if @exhibition%>
         
             <% (@exhibition.artworks & @profile.user.private_workspace.artworks).each do |a| %>
@@ -104,7 +104,9 @@ function popitup(url) {
         <%if !@groups.blank?%>
              <%for group in @groups%>
                   <%for groupart in group.groupshowartworks%>
-                    <%= render :partial => 'exhibitions/groupshow_artwork_show', :object => groupart %>
+                      
+                         <%= render :partial => 'exhibitions/groupshow_artwork_show', :object => groupart %>
+                      
                   <%end%>
              <%end%> 
         <%end%>
@@ -114,5 +116,6 @@ function popitup(url) {
             <%end%>  
       <%end%>  
     </div>
+        </div>
     </div>
 </div>
