@@ -921,18 +921,15 @@
 	      <%end%>		
 	   
 	   <%if  @current_object.prizes_detail%>
-	         <% prize_array.each do |st| %>
                     <tr>					  
-                      <td>		  <b><%=st.split("$")[0]%> </b> </td>
-                    
-                    
-                      <td>
-		      <%="$"+st.split("$")[1]%>
-                        </td>
-                     
-		   </tr>                 
-
-	                      <%end%>
+                      <td>   <b>Prize Details </b> </td>
+                    <td>  
+	         <% prize_array.each do |st| %>
+                        <%=st%>
+                        </br>
+                   <%end%>
+                    </td> 
+                  </tr>  
 	          <%end%>		
 	  <tr>					  
                       <td>  <b>Judges </b>
@@ -1058,7 +1055,10 @@
 																		                                                    <% elsif @current_object.state == 'final_published' %>
 																			                                                    <td>Marks : <%= text_field_tag "marks_list[#{a.id}]", a.mark, :size => 5 %></td>
 																		                                                    <% elsif @current_object.state == 'results_publish' %>
-																			                                                     <td>   <%=link_to  "Send winner Email","/admin/competitions/send_winner_email/#{a.id}"%></td>
+																			                                                     <td>   <%#=link_to  "Send winner Email","/admin/competitions/send_winner_email/#{a.id}"%>
+                                                                                                                                                                                                             <%=link_to "Send winner Email", "/admin/profiles/compose_user_mail/#{a.competitions_user.user.id}", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+                                                                                                                                                                                                             
+                                                                                                                                                                                                             </td>
 																		                                                    <% end %>
 																	                                                    <% end %>
 																	                                                    
