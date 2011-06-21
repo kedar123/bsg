@@ -39,13 +39,15 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                box.render
                box = Prawn::Text::Box.new("#{invoice_date}",    :width    => 80,:height   => 20, :overflow => :ellipses, :at => [525, 475], :align    => :left, :document => self)
                box.render
-               box = Prawn::Text::Box.new("Brunswick Street Gallery 322 Brunswick St,Fitzroy 0419 390 478 mark@bsgart.com.au www.bsgart.com.au     ABN:  35 108 985 002",    :width    => 140,:height   => 100, :overflow => :ellipses, :at => [10, 400], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("Brunswick Street Gallery 322 Brunswick St,Fitzroy 0419 390 478 mark@bsgart.com.au www.bsgart.com.au ",    :width    => 140,:height   => 100, :overflow => :ellipses, :at => [10, 390], :align    => :left, :document => self)
+               box.render
+               box = Prawn::Text::Box.new("ABN:  35 108 985 002",    :width    => 140,:height   => 20, :overflow => :ellipses, :at => [10, 315], :align    => :left, :document => self)
                box.render
                box = Prawn::Text::Box.new("Bill To :-",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 380], :align    => :left,:style=>:bold, :document => self)
                fill_color("80b2ff")
                box.render
                
-               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 360], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 365], :align    => :left, :document => self)
                fill_color("000000")
                box.render
                
@@ -58,7 +60,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                box.render
                
                
-               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 360], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 366], :align    => :left, :document => self)
                fill_color("000000")
                box.render
                
@@ -110,14 +112,14 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                end
                
             fill_color("e6f0ff")
-            fill_and_stroke_rectangle([8,-11],440,21)
-            fill_and_stroke_rectangle([8,14],440,18)
+            #fill_and_stroke_rectangle([8,-11],440,21)
+            #fill_and_stroke_rectangle([8,14],440,18)
             #box = Prawn::Text::Box.new("Notes:",    :width    => 600,:height   => 100, :overflow => :ellipses, :at => [20, 20], :align    => :left, :document => self,:style=>:bold)
             #fill_color("000000")
             #box.render
             #fill_color("ffffff")
             
-            box = Prawn::Text::Box.new("#{note}",:width=>420,:height=>17,:overflow=>:shrink_to_fit,:at=>[20, 10],:align=>:left,:document => self)
+            box = Prawn::Text::Box.new("#{note}",:width=>420,:height=>17,:overflow=>:shrink_to_fit,:at=>[10, 10],:align=>:left,:document => self)
             fill_color("000000")
             box.render
             
@@ -138,7 +140,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
             box.render
             fill_color("0147FA")
             fill_and_stroke_rectangle([460,40],140,20)
-            box = Prawn::Text::Box.new("GST",:width => 50,:height => 13, :overflow => :ellipses, :at => [462, 35], :align    => :left, :document => self)
+            box = Prawn::Text::Box.new("GST(inc)",:width => 50,:height => 13, :overflow => :ellipses, :at => [462, 35], :align    => :left, :document => self)
             fill_color("ffffff")
             box.render
             fill_color("0147FA")
