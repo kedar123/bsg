@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616101039) do
+ActiveRecord::Schema.define(:version => 20110621134449) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -676,6 +676,14 @@ ActiveRecord::Schema.define(:version => 20110616101039) do
     t.boolean  "sold"
     t.integer  "editionname"
     t.integer  "editionumber"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "artworkurl_file_name"
+    t.string   "artworkurl_content_type"
+    t.integer  "artworkurl_file_size"
+    t.datetime "artworkurl_updated_at"
   end
 
   create_table "groupshows", :force => true do |t|

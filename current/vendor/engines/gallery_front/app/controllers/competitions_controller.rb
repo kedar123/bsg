@@ -1668,7 +1668,8 @@ class CompetitionsController < ApplicationController
     groupshowartwork.editionumber  = params[:groupshow_user][:editionumber]
     groupshowartwork.user_id = current_user.id
     groupshowartwork.groupshow_id = params[:groupshow_id]
-    groupshowartwork.save_image(params)
+    groupshowartwork.artworkurl = params[:groupshow_user][:image]
+   # groupshowartwork.save_image(params)
     groupshowartwork.save
     responds_to_parent do
       render :update do |page|
@@ -1717,7 +1718,8 @@ class CompetitionsController < ApplicationController
     @groupshowuser.editionumber  = params[:groupshow_user][:editionumber]
     @groupshowuser.user_id = current_user.id
     #@groupshowuser.groupshow_id = params[:groupshow_id]
-    @groupshowuser.save_image(params)
+    @groupshowuser.artworkurl = params[:groupshow_user][:image]
+    #@groupshowuser.save_image(params)
     @groupshowuser.save
     responds_to_parent do
        render :update do |page|
