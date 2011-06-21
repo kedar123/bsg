@@ -204,19 +204,19 @@
       	<% if !(competitions_users=@current_object.user.competitions_users.all(:include => [:competition, :competitions_subscription])).empty? %>
           <% competitions_users.each do |cu| %>
             <%if  cu.state.blank?%>
-              <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))) do %>
+              <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state unpaid") do %>
                 <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-                  <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>
+                  <!--<a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
                   <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
               <% end %>
            <%elsif   cu.state == "accepted"%>
-              <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))) do %>
+              <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state unpaid") do %>
                 <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-                  <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>
+                 <!-- <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
                   <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>  
               <% end %>
            <%else%>     
-             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state '#{cu.state}'") do %>
+             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state paid") do %>
                <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
                   <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
               <% end %>
@@ -240,7 +240,7 @@
         				<% blank_list_element(:date => i.created_at, :title => link_to(i.title, admin_invoice_path(i.id))+" with state '#{i.state}'") do %>
           					<%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
                                  					
-          					<%= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if (i.state != 'validated') && @current_user.has_system_role('admin') %>
+          					<%#= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if (i.state != 'validated') && @current_user.has_system_role('admin') %>
         				<% end %>
       			<% end %>
     	 <% else %>

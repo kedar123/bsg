@@ -116,6 +116,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/add_the_artwork_link",:controller=>"competitions",:action=>"add_the_artwork_link"
   map.connect "/competitions/delete_old_competitionuserdata",:controller=>"competitions",:action=>"delete_old_competitionuserdata"
   
+  map.connect "/admin/exhibitions/submit_exhibition_artwork/:id",:controller=>"admin/exhibitions",:action=>"submit_exhibition_artwork"
+  map.connect "/admin/exhibitions/unselect_exhibition_artwork/:id",:controller=>"admin/exhibitions",:action=>"unselect_exhibition_artwork"
   
  
   map.connect "/admin/invoices/new/:id",:controller=>"admin/invoices",:action=>"new"
@@ -357,8 +359,8 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :invoices, :collection => { :validate => :post, :invoicing => :get, :generate_invoice => :post }, :member => { :update_state => :get }
 		admin.resources :payments, :only => [:new, :create, :index]
 		admin.resources :credit_cards, :only => :none, :collection => { :validate => :post }
-		admin.resources :exhibitions_users, :only => :none, :member => { :send_invitation => :get, :update_state => :get }, :collection => { :set_prices => :post }
-		admin.resources :periods, :only => [:index, :create, :update, :destroy], :collection => { :validate => :post }
+		admin.resources :exhibitions_users, :only => :none, :member => { :send_invitation => :get, :update_state => :get,:delete_user => :post }, :collection => { :set_prices => :post }
+    admin.resources :periods, :only => [:index, :create, :update, :destroy], :collection => { :validate => :post }
 		admin.resources :profiles,:member => {:update_notices => :put }, :collection => { :validate => :post, :filter => :post }
 		admin.resources :categories, :only => [:index, :create, :update, :destroy], :collection => { :validate => :post }
 		admin.resources :timings, :only => [:index, :create, :destroy], :collection => { :ajax_remove => :get, :validate => :post, :calendar => :get }, :member => { :update_state => :get }

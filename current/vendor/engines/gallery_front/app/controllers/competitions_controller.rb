@@ -1317,9 +1317,7 @@ class CompetitionsController < ApplicationController
 
 
   def upload_exhibition_artwork
-  
     artwork = ExhiArtwork.new()
-              
     artwork.title=params[:artwork]["title"]
     artwork.user_id=current_user.id
     artwork.image = params[:artwork]["image"]
@@ -1332,13 +1330,11 @@ class CompetitionsController < ApplicationController
     artwork.price = params[:artwork]["price"]
     artwork.is_purchasable = params[:artwork]["is_purchasable"]
     artwork.exhibition_id = params["exhibition_id"]
-              
     if  artwork.save
       wcp = Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id
       itw=ItemsWorkspace.new(:workspace_id=>wcp,:itemable_type=>"Artwork",:itemable_id=>artwork.id)
       itw.save
       responds_to_parent do
-                  
         render :update do |page|
           page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
           page["description_competition_ex_py"].show

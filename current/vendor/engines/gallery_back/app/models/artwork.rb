@@ -35,12 +35,12 @@ class Artwork < ActiveRecord::Base
 	has_many :exhibitions, :through => :artworks_exhibitions
 	has_many :artworks_competitions
 	has_many :exhibitions, :through => :artworks_competitions
-
+  belongs_to :user
   # Paperclip attachment definition
   has_attached_file :image,
                     :url =>    "/uploaded_files/#{RAILS_ENV}/artwork/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/uploaded_files/#{RAILS_ENV}/artwork/:id/:style/:basename.:extension",
-                    :styles => { :medium => "x350", :thumb => "x48" }
+                    :styles => { :medium => "400x400", :thumb => "48x48" }
   # Validation of the presence of an attached file
   validates_attachment_presence :image
 	# Validation of the type of the attached file

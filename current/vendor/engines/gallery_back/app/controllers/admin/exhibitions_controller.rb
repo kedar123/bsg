@@ -157,6 +157,29 @@ end
 		@current_object.save
 		redirect_to item_path(@current_object)
 	end
+  
+  def submit_exhibition_artwork
+    artwork = Artwork.find(params[:id])
+    @current_object = Exhibition.find(artwork.exhibition_id)
+		#if !@current_user.has_system_role('admin')
+		#	params[:selectedOptions] += ",#{(@current_object.artworks - @current_user.private_workspace.artworks).map{ |e| e.id }.join(',')}" if params[:selectedOptions]
+		#end
+		@current_object.artworks << artwork
+		@current_object.save
+  render :nothing=>true
+  end
+  
+  def unselect_exhibition_artwork
+    artwork = Artwork.find(params[:id])
+    @current_object = Exhibition.find(artwork.exhibition_id)
+		#if !@current_user.has_system_role('admin')
+		#	params[:selectedOptions] += ",#{(@current_object.artworks - @current_user.private_workspace.artworks).map{ |e| e.id }.join(',')}" if params[:selectedOptions]
+		#end
+  	@current_object.artworks.delete(artwork)
+		@current_object.save
+    render :nothing=>true
+  end
+  
 
   
   def  create_group_show
@@ -184,20 +207,21 @@ end
   end
   
   
-  
-  
-  
-  
+   
 	protected
 	def get_artworks_lists
 		if @current_user.has_system_role('admin')
 			@selected_artworks = @current_object.new_record? ? [] : @current_object.artworks
-			@remaining_artworks = @current_object.exhibitions_users.all(:conditions => { :state => ['validated', 'published', 'unpublished']}).map{ |e| e.user }.delete_if{ |e| !e.private_workspace }.map{ |e| e.private_workspace.artworks }.flatten - @selected_artworks
+			@remaining_artworks = @current_object.exhibitions_users.all(:conditions => { :state => ['validated', 'published', 'unpublished']}).map{ |e| e.user }.delete_if{ |e| !e.private_workspace }.map{ |e| e.private_workspace.artworks.find(:all,:conditions=>["exhibition_id = #{@current_object.id}"]) }.flatten - @selected_artworks
+      @all_artworks = @remaining_artworks + @selected_artworks
+      
+      
 		elsif ExhibitionsUser.exists?(:user_id => @current_user.id, :exhibition_id => @current_object.id, :state => ['validated', 'published', 'unpublished'])
       @selected_artworks = @current_object.new_record? ? [] : @current_object.artworks & @current_user.private_workspace.artworks
 			# TODO hack for rights ...
 			@remaining_artworks = @current_user.private_workspace.artworks - @selected_artworks
-		end
+  	
+    end
 	end
 end
 

@@ -1,12 +1,14 @@
-<% item_show( :title => 'Image',  :object => @current_object ) do %>
 
-<b>Artists List  </b>
-<%= render :partial => 'admin/exhibitions/exhibitions_users_show' %>
+
+
+<% item_show( :title => 'Image',  :object => @current_object ) do %>
+  <%=render :partial=> "admin/exhibitions/exhibitions_slide_show"%>
+
 
 <br /><br />
 
 <% if (ExhibitionsUser.exists?(["exhibition_id = ? and user_id =  ? ",@current_object.id,@current_user.id])|| @current_user.has_system_role('admin')) && @current_object.timing.ending_date > Time.now.to_date %>
-
+<!-- here the slide show images will get displayed
   <% form_for @current_object, :url => submit_artworks_admin_exhibition_path(@current_object), :html => { :method => :post } do |f| %>
   <b>Artworks Selection  </b>
   <%if  @selected_artworks%>
@@ -21,17 +23,49 @@
       %>
     <%= f.submit %>
   <%end%>   
-  
+  -->
   <% end %>
   <%else%>
   
 <% end %>
 
   <br />
+  <table>
+    <tr>
+      <td>
+        <b>Start Date </b>
+      </td>  
+      <td>
+        <%=@current_object.timing.starting_date.strftime("%d %b %y")%>        
+      </td>  
+    </tr>
+    <tr>
+      <td>
+        <b>End Date </b>
+      </td>  
+      <td>
+        <%=@current_object.timing.ending_date.strftime("%d %b %y")%>        
+      </td>  
+    </tr>
+    <tr>
+      <td>
+        <b>Galleries </b>
+      </td>  
+      <td>
+        <%=  "#{@current_object.timing.galleries.map{ |e| e.id}.join(', ')}" if @current_object.timing.galleries.first%>        
+      </td>  
+    </tr>
+  </table>
 
-<%= render :partial => 'admin/timings/timing_show' %>
+
+
+<br/>
+<%#= render :partial => 'admin/timings/timing_show' %>
 
 <br />
+<b>Artists </b>
+<%= render :partial => 'admin/exhibitions/exhibitions_users_show' %>
+<!--
 <div style="float:left">
     <b>Artworks List </b><br />
     <%if (artworks=@current_object.artworks.all(:include => [:user => [:profile]])).first %>
@@ -62,8 +96,8 @@
     <% end %>
 
 </div>
-
-
+-->
+<!--
 
 <%if current_user.login == "admin" or  current_user.login == "superadmin"%>
 <div style="padding-left:300px;">
@@ -95,6 +129,7 @@
     <% end %>
 </div>
 <%end%>
+-->
     <% end %>
 
 

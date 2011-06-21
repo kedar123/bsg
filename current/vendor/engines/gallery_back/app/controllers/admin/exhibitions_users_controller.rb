@@ -25,6 +25,19 @@ class Admin::ExhibitionsUsersController < Admin::ApplicationController
 		redirect_to item_path(@current_object.exhibition)
 	end
 
+  
+  def delete_user
+    exus = ExhibitionsUser.find(params[:id])
+    artwork=Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",exus.user_id,exus.exhibition_id])
+    artwork.each do |art|
+    ArtworksExhibition.delete_all("artwork_id = #{art.id}")
+    end
+    ExhibitionsUser.delete_all(params[:id])
+    flash[:notice] = "Exhibition User is Deleted"
+    redirect_to :back
+  end
+  
+  
 	def update_state
 		@current_object = ExhibitionsUser.find(params[:id])
 		if params[:state] == 'accepted'
