@@ -1,4 +1,8 @@
-
+<style>
+  #competition_state{
+    margin-left:20px;
+  }
+  </style>
 <div style="color:black;padding-left:45px;">
      <%i=0%> 
      <%for error in @current_object.errors%>
@@ -100,7 +104,7 @@
           
         </td>    
         <td valign="bottom">
-            <%= f.text_area :entry_fees, :label => 'Entry Fee Format:-'+'<br/>'+' 1 works $50 '+'<br/>'+' 2 works $60'+'<br/> And Also no Empty Line'  %>
+            <%= f.text_area :entry_fees, :label => 'Entry Fee Format:-'+'<br/>'+' 1 works $50 '+'<br/>'+' 2 works $60'+'<br/> And Also no Empty Line',:style=>"width:430px;"  %>
          </td>
     </tr>
     </table>
@@ -251,7 +255,7 @@
             
       </td>    
       <td valign="bottom">
-  <%= f.text_area :prizes_detail, :label => 'Prize Details. Please Enter On New Line Each Prize. 1st prize $40'+'<br/>'+'2nd  prize $80', :hint => 'Please pass a line between each price' %>
+  <%= f.text_area :prizes_detail, :label => 'Prize Details. Please Enter On New Line Each Prize. 1st prize $40'+'<br/>'+'2nd  prize $80', :hint => 'Please pass a line between each price',:style=>"width:430px;" %>
       </td>
     </tr>  
     
@@ -260,7 +264,7 @@
     
     <tr align="left">
       <td valign="bottom">
-  <%= f.select :state, [['Open', 'open'], ['Publish the final artworks list', 'final_published'], ['Publish the results of the competition', 'results_publish']], :label => 'State' %>
+  <%= f.select :state, [['Open', 'open'], ['Publish the final artworks list', 'final_published'], ['Publish the results of the competition', 'results_publish']], :label => 'State',:style=>"margin-left:20px;"%>
     </td>
     </tr>
     
@@ -279,7 +283,7 @@
       </td> 
 </div>   
      <td valign="top">
-            <%= f.text_area :message_for_subscribers, :label => '' %>
+            <%= f.text_area :message_for_subscribers, :label => '',:style=>"width:430px;" %>
       </td>
     </tr>  
 </table>
