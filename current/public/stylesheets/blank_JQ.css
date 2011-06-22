@@ -1130,3 +1130,15 @@ margin:0px 10px 0px 0px;
    margin-right: 18px;
 }
 	
+#filter223{
+    width: 172px;
+}
+
+.collectionlist{
+     margin-bottom: 10px;
+     width: 172px;
+}
+.submitfilter{
+     margin-left: 30px; 
+     width: 115px;
+}

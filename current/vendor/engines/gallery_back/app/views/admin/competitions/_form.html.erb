@@ -288,11 +288,11 @@
     </tr>  
 </table>
 <label>Exhibition Runs</label><br />
-
+  <div style="margin-left:22px;">
   <% f.fields_for :timing do |ff| %>
     <%= add_timing_fields(:form => ff, :places_list => @places, :period_used => false, :one_day => false, :time_used => false,:period_id=>@oldtimingperiodid) %>
   <% end %>
-
+  </div>
  <%#= f.text_field :exhibition_date, :label => 'Exhibition Start And End Dates:-' %>
 
 

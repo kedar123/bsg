@@ -60,17 +60,17 @@
 		</div><div class="blockCornerRight"></div>
 	    <div class="blockElementBody">
 	        <%= link_to I18n.t('user.new.add_user'), new_admin_user_path %><br /><br />
-			Filter the list with text :<br />
-			<input id="filter2"/><br /><br />
-                        Filter the list by categories :<br />
-                        <div style="padding:0 0 0 30px;">
+			Filter the list with text <br />
+			<input id="filter223" /><br /><br />
+                        Filter the list by categories <br />
+                        <div id="filterthecategory">
                         <%#= link_to 'All', admin_profiles_path %>
                         <%# Category.all.each do |cat| %>
                           <%#= link_to cat.name, admin_profiles_path(:category => cat.id) %>
                         <%# end %>
                         <% form_for 'filter', :url => filter_admin_profiles_path, :html => { :method =>:post } do |f| %>
-                          <%= select_tag "category_ids[]", options_from_collection_for_select(Category.all, 'id', 'name', :selected => @filters), :multiple => true, :size => 6 %>
-                          <%= f.submit 'filter', :style => "width:115px;" %>
+                          <%= select_tag "category_ids[]", options_from_collection_for_select(Category.all, 'id', 'name', :selected => @filters), :multiple => true, :size => 6,:class=>"collectionlist" %>
+                          <%= f.submit 'filter', :class => "submitfilter" %>
                         <% end %>
                         </div>
           
