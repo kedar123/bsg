@@ -20,8 +20,8 @@ class CompetitionsController < ApplicationController
         @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:competition_id])
         @competitionusers = CompetitionsUser.find_all_by_competition_id(params[:competition_id])
     	else
-        @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,@competition.id) 
-        @competitionusers = CompetitionsUser.find_all_by_competition_id(@competition.id) 
+        @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,@competition.id)  if @competition
+        @competitionusers = CompetitionsUser.find_all_by_competition_id(@competition.id) if @competition
     	end
     else
       if params[:competition_id]
@@ -73,7 +73,7 @@ class CompetitionsController < ApplicationController
 			end
 		end
   	if  logged_in? 
-			@competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? and user_id     = ?",@competition.id,current_user.id])
+			@competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? and user_id     = ?",@competition.id,current_user.id]) if @competition
     end  
     @competitionuser.uniq! if @competitionuser
   end
