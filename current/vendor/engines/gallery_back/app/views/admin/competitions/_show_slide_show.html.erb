@@ -13,14 +13,15 @@
   ss = new slideshow("ss");
 <% if @current_user.has_system_role('admin') || @current_user.has_system_role('judge') || @current_object.state.include?('publish') || @current_user.login =="superadmin" %>
       <%if @artworks_competitions.first %>
+        <%p "im artwork competition"%>
+          <%p @artworks_competitions%>
 	    <% @artworks_competitions.each do |a| %>
                  <%if  a.competitions_user!=nil%>
                       <%if  (a.competitions_user.send a.image_name) != nil %>  
+                        <%p "first here"%>
                            <%if  (a.competitions_user.send a.image_name).blank? == false%>
-                              <%imgname <<  "/system/gallery/#{a.competitions_user.send a.image_name}"%>
-                              <%sizename <<  a.competitions_user.send(size_array[image_array.index(a.image_name)]) %>  
-                              <%titlename << a.competitions_user.send(title_array[image_array.index(a.image_name)]) %>  
-                              <%mediumname << a.competitions_user.send(medium_array[image_array.index(a.image_name)])%>  
+                            <%p "second here"%>
+                              <%p "/uploaded_files/competition/artwork/#{a.id}/medium/#{a.avatar_file_name}"%>
                                 s = new slide();
                                 s.src =  '<%="/uploaded_files/competition/artwork/#{a.id}/medium/#{a.avatar_file_name}"%>';
                                 s.link = '<%="/uploaded_files/competition/artwork/#{a.id}/medium/#{a.avatar_file_name}"%>';
@@ -103,12 +104,12 @@ The following select list will be modified with the slide titles.
 
 </DIV>
 
-<DIV ID="ss_img_div" style="text-align: center;">
+<DIV ID="ss_img_div" style=" width: 657px;">
 
-<A ID="ss_img_link" HREF="javascript:ss.hotlink()"><IMG
-ID="ss_img" NAME="ss_img" SRC="pics/pic01.jpg"
+<A ID="ss_img_link" HREF="javascript:ss.hotlink()" style=""><IMG
+ID="ss_img" NAME="ss_img" 
 
-ALT="Slideshow image" style="display:none"></A>
+ALT="Slideshow image" style="display:block"></A>
 
 </DIV>
 
@@ -124,7 +125,7 @@ ss.textarea = document.ss_form.ss_textarea;
                  <%if  a.competitions_user!=nil%>
                       <%if  (a.competitions_user.send a.image_name) != nil %>  
                            <%if  (a.competitions_user.send a.image_name).blank? == false%>
-                              <p id='changemystatebefore<%=a.id%>' style="display:none;text-align:center">State </p>
+                              <p id='changemystatebefore<%=a.id%>' style="display:none;text-align:center">State  <%= a.state %></p>
                             <%end%>
                       <%end%>        
                  <%end%>             

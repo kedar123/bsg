@@ -484,3 +484,7 @@ white-space: nowrap;
     white-space: normal;
     width: 183px;
 }
+
+.inputfont input{
+    font-size :12px;
+}

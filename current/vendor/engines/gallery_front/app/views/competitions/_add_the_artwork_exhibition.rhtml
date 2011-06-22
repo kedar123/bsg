@@ -12,6 +12,7 @@
   <%=messageforimageuploaded%>
 <%end%>
  </div>
+<div  class="inputfont">
 <form action="/competitions/create_exhibition_artwork_insamediv" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition" method="post" onsubmit="return Checkfiles('add_the_artwork_to_competition','show_ajax_request','artwork_edition_number','artwork_edition_name')" target="upload_frame">
     <%=hidden_field_tag "exhibition_id",exhibition_id%>
           <div class="changecolorgray">
@@ -61,6 +62,7 @@
                                 </div>
                                 <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
 </form>
+</div>
 <%#=link_to_remote "Add More", :update => "",
     :url => {:action => "add_exhibition_artwork",:exhibition_user_id => exhibition_user_id,:artwork_count=>artwork_count }
 %>

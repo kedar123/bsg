@@ -14,7 +14,7 @@
 <%end%>
 </div>
 
-
+<div  class="inputfont">
 <form target="upload_frame" method="post" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>" onsubmit="return  Checkfiles('add_the_artwork_to_competition','show_ajax_request<%=exhibition_id%>','artwork_edition_number','artwork_edition_name')" id="add_the_artwork_to_competition">
 
           <%=hidden_field_tag "exhibition_id",exhibition_id%>
@@ -64,6 +64,6 @@
                                             <img height="20" src="/images/ajax-spinner.gif" alt="loading">
                                 </div>
 </form>
-
+</div>
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>
 

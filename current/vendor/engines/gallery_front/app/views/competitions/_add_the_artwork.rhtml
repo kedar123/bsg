@@ -34,6 +34,7 @@ You Have Uploaded The Images Upto Your Limit </h2>
     <div>
           <%=title_message_array[i]%>
       </div>
+<div  class="inputfont">
       <form action="upload_the_artwork_to_competition" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition','show_ajax_request','competitions_user_editionnumber','competitions_user_editionname')" id="add_the_artwork_to_competition" target="upload_frame" >  
               <%=hidden_field_tag "order_id",order_id%>    
                  <div class="changecolorgray">
@@ -91,6 +92,7 @@ You Have Uploaded The Images Upto Your Limit </h2>
                       </div>
                       <input type="hidden" name="competitionuserid" id="competitionuserid" value="<%=order_id%>"/>
         </form>
+</div>
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>
 <%end%>
 

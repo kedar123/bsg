@@ -9,6 +9,7 @@
   <%=messageforimageuploaded%>
 <%end%>
 </div>
+<div  class="inputfont">
 <form action="edit_upload_the_artwork_to_groupshow" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_groupshow<%=updateimage.id%>','show_ajax_request<%=updateimage.id%>')" id="add_the_artwork_to_groupshow<%=updateimage.id%>" target="upload_frame<%=updateimage.id%>" >  
                 <%=hidden_field_tag 'artworkgroupshowid',updateimage.id%>
                 <div class="changecolorgray">
@@ -58,3 +59,4 @@
                           <img src ="/uploaded_files/groupshow/artwork/<%=updateimage.id%>/thumb/<%=updateimage.artworkurl_file_name%>" width="90px" height="90px"/>
                       </div>
         </form>
+</div>

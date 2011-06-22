@@ -1,11 +1,11 @@
-<div id="editartwork<%=updateimagearray[7] %>">
+<div id="editartwork<%=updateimagearray[7] %>" >
 <style>
   .changecolorgray{
     color: #444444;
     line-height: 15px;
   }
 </style>
-<div>
+<div class="inputfont">
 
     <div id="messageforimageuploaded">
     <%if !messageforimageuploaded.blank?%>
@@ -40,9 +40,13 @@
   <span style="padding-right:100px">
    Price
   </span> 
-  <span >
-   Edition(if applicable)
+  <span style="padding-right:40px;">
+     Edition From
   </span> 
+  <span >
+     Edition To
+  </span> 
+  
   
 </div>  
    <input  name="competitions_user[workprice]" id="field-a94ac5a259d7675" size="40" value="<%=updateimagearray[4]%>" type="text" style="width: 92px;height: 14px;">

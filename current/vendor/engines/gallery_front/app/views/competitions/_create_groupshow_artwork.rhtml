@@ -9,6 +9,7 @@
   <%=messageforimageuploaded%>
 <%end%>
 </div>
+<div  class="inputfont">
 <form action="upload_the_artwork_to_groupshow" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp  ('add_the_artwork_to_groupshow<%=groupshow_id%>','show_ajax_request<%=groupshow_id%>','groupshow_user_editionnumber','groupshow_user_editionname')" id="add_the_artwork_to_groupshow<%=groupshow_id%>" target="upload_frame" >  
                 <%=hidden_field_tag 'groupshow_id',groupshow_id%>
                 <div class="changecolorgray">
@@ -53,6 +54,6 @@
                          <div style="display: none;padding-top:12px;" id="show_ajax_request<%=groupshow_id%>">
                                 <img height="20" src="/images/ajax-spinner.gif" alt="loading">
                         </div>
-                      </div>
         </form>
+ </div> 
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>

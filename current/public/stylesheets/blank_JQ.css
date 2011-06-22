@@ -1142,3 +1142,10 @@ margin:0px 10px 0px 0px;
      margin-left: 30px; 
      width: 115px;
 }
+#ss_img_div{
+    width:657px;
+}
+
+#ss_img_div img{
+    margin:0 auto;
+}

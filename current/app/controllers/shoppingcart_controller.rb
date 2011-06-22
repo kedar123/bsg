@@ -23,6 +23,7 @@ class ShoppingcartController < ApplicationController
         page["shoppingcartlink#{params[:orderable_id]}#{params[:orderable_type]}"].replace_html msg
       end
     end 
+ 
   end
   
   def remove_from_cart
