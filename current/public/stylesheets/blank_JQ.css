@@ -654,7 +654,7 @@ ul#tabs li.selected{
 	background-color:#F79646;
 	color:#fff;
 	text-decoration:none;
-	text-transform:uppercase;
+	
 }
 .star-rating-readonly a:hover, .star-rating-on a:hover ,.rating-cancel a:hover, .star-rating a:hover, #keywords_list a:hover {
 	background-color:transparent !important;

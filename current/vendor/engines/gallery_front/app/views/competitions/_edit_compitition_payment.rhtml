@@ -65,7 +65,7 @@
           		        <script>
                       			document.getElementById("rupees_paid").innerHTML= change_the_required_field_value(<%=order.total_entry%>)
                   		</script>
-          		</div>
+               </div>
 	            <!--<div>
 		                  <%# if order.total_entry.to_i != 0%>
 		                          <%#=link_to_remote "Edit Artworks", :update => "",:url => { :action => "edit_images_front", :id => competition.id,:order_id=>order.id }
@@ -119,8 +119,6 @@
                                            Payment type   
                                     </div>                           
                                       <%= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Cash','cash'],['Cheque','cheque'],['Paypal','paypal'],['Bank Deposit','bank']] ,{},:style=>"float:left",:onchange=>"changetheline()"%>
-                                      
-
                                           <div style="float:left;margin-left:14px;">
                                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment", :update =>    'modal_space_answer',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
                                            </div>  
@@ -134,13 +132,9 @@
                                     <div id="modal_space_answer" style="margin-top:1px;clear:both">
                                     </div>
                                     </b>
-         
-<%end%>
-
- 
-<% end %>
-
-</div><%#<div style="height:570px;">ends%>
+  <%end%>
+    <% end %>
+  </div><%#<div style="height:570px;">ends%>
 
 <div id="paypal_form">
 </div>

@@ -61,17 +61,22 @@
   </div>
 
   <div class="itemShowRightBlock">
-    <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">What can I do?</div><div class="blockCornerRight"></div>
+    <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">What can I do?</div>
+    <div class="blockCornerRight"></div>
     <div class="blockElementBody">
       <!-- TODO TRANSLATE -->
       <%= link_to I18n.t('general.link.back_to_list'), admin_invoices_path %>
+      <br/>
       <% if @current_user.has_system_role('admin') %>
         <%= link_to I18n.t('general.link.add'), new_admin_invoice_path %>
+          <br/>
         <%= link_to I18n.t('general.link.edit'), edit_admin_invoice_path(@current_object)%>
+          <br/>
         <%= link_to I18n.t('general.link.delete'), "javascript:;",
           :class => "deleteLink",
           :modal_id => "#modalDelete_#{@current_object.id.to_s}"
       %>
+          <br/>
       <div style="display:none">
           <div id="modalDelete_<%=@current_object.id.to_s%>" class="modalDelete">
             <p><%= I18n.t('item.destroy.delete_conform')%></p>
@@ -81,10 +86,17 @@
         </div>
       <% end %>
           <%= link_to 'Get a PDF version of that invoice', admin_invoice_url(@current_object, :format => 'pdf') %>
+          <br/>
           <%= link_to 'Send an email with the invoice attached as PDF', update_state_admin_invoice_url(@current_object.id, :state => 'sent') %>
+          <br/>
       <% if @current_object.state != 'validated' %>
-          <%= link_to_remote 'Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get %>
+          <%#= link_to_remote 'Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get %>
+          <%= link_to 'Pay online', "/admin/invoices/pay_for_invoice/#{@current_object.id}",:popup => ['dialog name','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=500,height=500'] %>
+          <%#= link_to @current_object.email_address, "/admin/profiles/compose_user_mail/#{@current_object.id}", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+
+          <br/>
           <%= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if @current_user.has_system_role('admin') %>
+       <br/>   
       <% end %>
     </div>
   </div>

@@ -72,33 +72,41 @@ class Invoice < ActiveRecord::Base
 			if self.purchasable_type == 'ExhibitionsUser' || self.purchasable_type == 'CompetitionsUser' || self.purchasable_type == 'Order'
 
 				purc = self.purchasable
-               if  purc.instance_of? ExhibitionsUser 
-                     invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , self.client_id,self.purchasable_id])
-                     invoice1 = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , self.client_id,self.purchasable_id])
-                     
-                    if  invoice.state == "validated"  and  invoice1.state == "validated"
-                         purc.state = "validated"
+        
+                   if  purc.instance_of? ExhibitionsUser 
+                         invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , self.client_id,self.purchasable_id])
+                         invoice1 = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , self.client_id,self.purchasable_id])
+
+                          if  invoice.state == "validated"  and  invoice1.state == "validated"
+                               purc.state = "validated"
+                          end
+                  else
+                    
+            purc.state = "validated"
+             
+            end
+              if purc.save
+                # email
+                    if !self.payment
+                        if payment = Payment.create(:invoice_id => self.id, :user_id => self.client_id, :amount_in_cents => self.final_amount * 100, :state => "validated_manually")
+                                else
+                          raise "Error during payment creation : "+payment.errors.inspect
+                        end
+                    else
+                      payment = self.payment
+                      # #raise "Payment already done ..."
                     end
+                payment.sending_confirmation_to_client
               else
-			  purc.state = "validated"
-			  end
-				if purc.save
-					# email
-					if !self.payment
-						if payment = Payment.create(:invoice_id => self.id, :user_id => self.client_id, :amount_in_cents => self.final_amount * 100, :state => "validated_manually")
-                		else
-							raise "Error during payment creation : "+payment.errors.inspect
-						end
-					else
-						payment = self.payment
-						# #raise "Payment already done ..."
-					end
-					payment.sending_confirmation_to_client
-				else
-					raise "Purchasable object and payment not done ..."
-				end
+                raise "Purchasable object and payment not done ..."
+              end
 			else
-				raise "samerelapute"
+        
+         if self.purchasable_type == 'Invoice'
+         else 
+           raise "samerelapute"
+         end
+        
 			end
 		else
 			raise self.errors.inspect

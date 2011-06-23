@@ -121,6 +121,10 @@ ActionController::Routing::Routes.draw do |map|
   
  
   map.connect "/admin/invoices/new/:id",:controller=>"admin/invoices",:action=>"new"
+  
+  map.connect "/admin/invoices/pay_for_invoice/:id",:controller=>"admin/invoices",:action=>"pay_for_invoice"
+  map.connect "/admin/invoices/create_the_payment/:id",:controller=>"admin/invoices",:action=>"create_the_payment"
+  
   map.connect "/payment_response" ,:controller=>"admin/payments",:action=>"create"
   map.connect "/admin/mail" ,:controller=>"admin/mail",:action=>"index"
   

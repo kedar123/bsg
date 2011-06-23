@@ -14,6 +14,45 @@ class Admin::InvoicesController < Admin::ApplicationController
     end
   end
 
+  def pay_for_invoice
+    @credit_card = CreditCard.new	
+    render :partial => 'pay_for_invoice', :layout => false
+  end
+  
+  
+  def create_the_payment
+    
+    payment = Payment.find(:first,:conditions=>["state = 'online_validated' and invoice_id = #{params[:invoiceid]}"])
+    if payment.blank?
+         payment=Payment.new
+         invoice=Invoice.find(params[:invoiceid])
+         payment.invoice_id = params[:invoiceid]
+         payment.user_id = invoice.client_id
+         payment.amount_in_cents = (invoice.final_amount.to_i*100)
+         if params[:invoicing_info][:payment_medium] == "online"
+                payment.common_wealth_bank_process((invoice.final_amount.to_i*100),params)
+         end
+         if params[:invoicing_info][:payment_medium] == "paypal"
+            
+         end
+         
+         if payment.state == "online_validated"
+                payment.save
+                invoice.state = "validated"
+                invoice.payment_medium = "online"
+                invoice.purchasable_type = "Invoice"
+                invoice.save
+              render :text=>"Your Payment Is Done"
+         else
+              render :text=>"Your Payment Is Not Done Please Check The Fields Properly"
+         end
+    else
+        render :text=>"Your Payment Is Already Done"  
+    end
+  end
+  
+  
+  
   # GET /Invoices/1
   # GET /Invoices/1.xml
   def show
@@ -30,7 +69,7 @@ class Admin::InvoicesController < Admin::ApplicationController
   # GET /Invoices/new.xml
   def new
     @current_object = Invoice.new
-    @profile = Profile.find(params[:id])
+   # @profile = Profile.find(params[:id])
     
     respond_to do |format|
       format.html # new.html.erb
@@ -54,9 +93,14 @@ class Admin::InvoicesController < Admin::ApplicationController
     @current_object = Invoice.new(params[:invoice])
 		@current_object.final_amount ||= @current_object.original_amount
 		@current_object.state = 'created'
+    @current_object.number = rand(123456789)
 		@current_object.creator_id = @current_user.id
+    
+    
     respond_to do |format|
       if @current_object.save
+       create_pdf(@current_object.id.to_s,@current_object.number.to_s,@current_object.created_at.strftime("%d %b %Y"),@current_object.client.profile.full_address_for_invoice ,@current_object.client.profile.full_name ,@current_object.title,@current_object.final_amount,@current_object.note,@current_object.final_amount,paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
+    
         flash[:notice] = 'Invoice was successfully created.'
         format.html { redirect_to admin_invoice_url(@current_object) }
         format.xml  { render :xml => @current_object, :status => :created, :location => @current_object }
@@ -75,6 +119,8 @@ class Admin::InvoicesController < Admin::ApplicationController
     @current_object = Invoice.find(params[:id])
     respond_to do |format|
       if @current_object.update_attributes(params[:invoice])
+          create_pdf(@current_object.id.to_s,@current_object.number.to_s,@current_object.created_at.strftime("%d %b %Y"),@current_object.client.profile.full_address_for_invoice ,@current_object.client.profile.full_name ,@current_object.title,@current_object.final_amount,@current_object.note,@current_object.final_amount,paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
+ 
         flash[:notice] = 'Invoice was successfully updated.'
         format.html { redirect_to admin_invoice_url(@current_object) }
         format.xml  { head :ok }

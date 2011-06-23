@@ -1,12 +1,21 @@
-<%= f.text_field :title, :label => 'Title : ' %>
+<%= f.text_field :title, :label => 'Title  ' %>
 
-<%= f.text_area :description, :label => 'Description : ' %>
+<%= f.text_area :description, :label => 'Description  ' %>
 
 
-    <%= f.select :client_id,options_for_select(Profile.all(:order => 'first_name ASC').map{ |e| [e.full_name, e.id]},:selected=>@profile.id), :size => 6, :label => "Client" %>
+<%if  @profile%>
 
-<%= f.date_select :deadline, :label => 'Deadline : ', :hint => 'Enter the deadline for the payment' %>
+<%= f.select :client_id,options_for_select(Profile.all(:order => 'first_name ASC').map{ |e| [e.full_name, e.id]},:selected=>@profile.id), :size => 6, :label => "Client"   %>
 
-<%= f.text_field :original_amount, :label => 'Amount : ', :hint => 'Enter the amount in AUD' %>
+<%else%>
+<%= f.select :client_id,options_for_select(Profile.all(:order => 'first_name ASC').map{ |e| [e.full_name, e.id]}), :size => 6, :label => "Client"   %>
+
+<%end%>
+
+<%= f.date_select :deadline, :label => 'Deadline  ', :hint => 'Enter the deadline for the payment' %>
+
+<%= f.text_field :original_amount, :label => 'Amount  ', :hint => 'Enter the amount in AUD' %>
+
+<%= f.text_field :note, :label => 'Note  ', :hint => 'Enter max 78 character' %>
 
 <%= blank_form_submit_button(:object => @current_object) %>
