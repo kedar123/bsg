@@ -77,11 +77,15 @@ function showhidediv(showdivid)
     
 		<div id="ajax_spinner">
                   <%if @artworks_competitions.blank?%>  
-                  <img src="/images/ajax-spinner.gif" alt="loading" />
+                    <%if params[:controller] == "admin/exhibitions" and params[:action] == "show"%>
+                     <%else%>
+                        <img src="/images/ajax-spinner.gif" alt="loading" />
+                     <%end%>   
                   <%else%>
-                    
                   <%end%>
                 </div>
+                  <%=params[:controller]%>
+                 <%=params[:action]%>
           <%= flash_messages_manager() %>
 	
         <div id="page_container">

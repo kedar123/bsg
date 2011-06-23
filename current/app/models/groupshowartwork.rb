@@ -5,7 +5,7 @@ class Groupshowartwork < ActiveRecord::Base
   
   
   has_attached_file :artworkurl,
-                    :url =>"/uploaded_files/groupshow/artwork/:id/:style/:basename.:extension",
+                    :url =>"/uploaded_files/groupshow/artwork/:id/:style/:basename:id:.:extension",
                     :path =>":rails_root/public/uploaded_files/groupshow/artwork/:id/:style/:basename.:extension",
                     :styles => { :medium => "600x400", :thumb => "48x48" }
 

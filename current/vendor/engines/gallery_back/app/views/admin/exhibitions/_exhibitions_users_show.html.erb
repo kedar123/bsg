@@ -24,13 +24,18 @@
       <%end%> 
      
     </td>
-    <td><%#= link_to 'Show', admin_profile_path(ue.user.profile.id) %></td>
+    <td><%#= link_to 'Show', admin_profile_path(ue.user.profile.id) %>
+    
+    </td>
     <% if ue.state == 'created' || ue.state == 'invitation_sent' %>
       <td><%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %></td>
-      <td><%= link_to 'Publish', update_state_admin_exhibitions_user_path(ue.id, :state => 'published') %></td>
+      
     <% elsif ue.state == 'published' %>
       <td><%= link_to 'Unpublish', update_state_admin_exhibitions_user_path(ue.id, :state => 'unpublished') %></td>
     <% end %>
+     <%if ue.state != 'published'%> 
+      <td><%= link_to 'Publish', update_state_admin_exhibitions_user_path(ue.id, :state => 'published') %></td>
+     <%end%>
     <td><%= text_field_tag "prices_list[#{ue.id}]", ue.price, :disabled => (['accepted', 'validated', 'published'].include?(ue.state)), :size => 8,:style=>"display:none" %></td>
   
       <td><%= link_to 'Delete', delete_user_admin_exhibitions_user_path(ue.id) ,:method=>'post',:confirm=>"Are You Sure To Delete This User From #{@current_object.title}"%></td>

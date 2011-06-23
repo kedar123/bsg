@@ -1718,7 +1718,9 @@ class CompetitionsController < ApplicationController
     @groupshowuser.editionumber  = params[:groupshow_user][:editionumber]
     @groupshowuser.user_id = current_user.id
     #@groupshowuser.groupshow_id = params[:groupshow_id]
+    p params[:groupshow_user][:image]
     @groupshowuser.artworkurl = params[:groupshow_user][:image]
+    p @groupshowuser.artworkurl
     #@groupshowuser.save_image(params)
     @groupshowuser.save
     responds_to_parent do
