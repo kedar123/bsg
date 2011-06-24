@@ -172,6 +172,12 @@ class UserMailer < ActionMailer::Base
         a.filename = "invoice.pdf"
         end
   end
+  
+  def send_invoice_forchangenote(user,invoice)
+    
+        setup_email(user)
+        
+  end
 
 	def send_invoice_exhibition(tomial,subject,body,invoice, user)
 	    setup_email(user)

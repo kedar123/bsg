@@ -359,7 +359,7 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :emails, :only => :none, :collection => { :list_all_messages => :get, :display_full_message => :get,:inbox=>:get,:sent_mail=>:get,:compose_mail=>:get,:compose_email=>:post ,:detail_email=>:get}
 		
 		admin.resources :orders, :collection => { :show_cart => :get, :add_to_cart => :get, :remove_from_cart => :get, :complete_order => :get }
-		admin.resources :invoices, :collection => { :validate => :post, :invoicing => :get, :generate_invoice => :post }, :member => { :update_state => :get }
+		admin.resources :invoices, :collection => { :validate => :post, :invoicing => :get, :generate_invoice => :post,:create_sent_mail => :post }, :member => { :update_state => :get , :open_update_state => :get,:create_sent_mail => :post}
 		admin.resources :payments, :only => [:new, :create, :index]
 		admin.resources :credit_cards, :only => :none, :collection => { :validate => :post }
 		admin.resources :exhibitions_users, :only => :none, :member => { :send_invitation => :get, :update_state => :get,:delete_user => :post }, :collection => { :set_prices => :post }

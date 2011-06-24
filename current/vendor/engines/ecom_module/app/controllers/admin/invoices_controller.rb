@@ -24,7 +24,7 @@ class Admin::InvoicesController < Admin::ApplicationController
     payment = Payment.find(:first,:conditions=>["state = 'online_validated' and invoice_id = #{params[:invoiceid]}"])
     invoice = Invoice.find(params[:invoiceid])
     if payment.blank?
-      
+           
          payment=Payment.new
          
          invoice=Invoice.find(params[:invoiceid])
@@ -226,6 +226,62 @@ end
 		end
 		redirect_to admin_invoice_url(@current_object)
 	end
+  
+  
+  def open_update_state
+      @invoice = Invoice.find(params[:id])
+      @sendusermail = @invoice.client
+      @frommail = Frommail.find(:all)
+  end
+  
+  def create_sent_mail
+    #the order work is remaining
+    p params
+    exit
+    
+    invoice = Invoice.find(params[:invoiceid])
+    invoice.note = params[:message][:note]
+    invoice.save
+    if invoice.purchasable_type == 'invoice'
+        create_pdf(invoice.id.to_s,invoice.number.to_s,invoice.created_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice ,invoice.client.profile.full_name ,invoice.title,invoice.final_amount,invoice.note,invoice.final_amount,paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
+    end
+    
+    if invoice.purchasable_type == 'CompetitionsUser'
+     create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i)
+    end
+    
+    if invoice.purchasable_type == 'ExhibitionsUser'
+     create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i)
+    end
+    
+    if invoice.purchasable_type == 'ExhibitionsUser'
+      countinvoice = Invoice.count(:conditions => "purchasable_id = #{invoice.purchasable_id} and purchasable_type = 'ExhibitionsUser' and client_id = #{invoice.client_id}")
+      exhibitionuser = ExhibitionsUser.find(invoice.purchasable_id)
+      if countinvoice == 2
+         create_pdf(invoice.id,invoice.number,exhibitionuser.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,exhibitionuser.exhibition.title,exhibitionuser.price.to_i,note,exhibitionuser.price - alreadypaidamt,alreadypaidamt,true,exhibitionuser.exhibition.timing.ending_date,"")
+      else
+          create_pdf(invoice.id,invoice.number,exhibitionuser.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,exhibitionuser.exhibition.title,exhibitionuser.price.to_i,exhibitionuser.exhibition.timing.note,exhibitionuser.price.to_i,0,true,exhibitionuser.exhibition.timing.ending_date.strftime("%d %b %Y"),invoice.final_amount.to_i)
+      end
+    end
+    
+    begin
+     email = UserMailer.create_send_invoice_forchangenote(invoice.client,invoice,params[:signature],params[:message][:body],params[:message][:subject])
+     UserMailer.deliver(email)
+    rescue
+    end
+    
+    {"commit"=>"Send",
+ "signature"=>"gdfgdfgdffg",
+ "invoiceid"=>"803",
+ "user"=>{"email"=>"pathakorama1@gmail.com"},
+ "message"=>{"body"=>"fgdg",
+ "subject"=>"dfd",
+ "note"=>"dfgd"}}
+    
+    
+    
+    
+  end
 
 	def invoicing
 	  if  params[:show_layout] == "true"
@@ -234,12 +290,8 @@ end
 	  layout =  false  	 
 	  end
 		@order = params[:purchasable_type].classify.constantize.find(params[:purchasable_id])
-        
         total_amount = 0
-        
 		@order.invoices.each {|x| total_amount = total_amount + x.final_amount}
-		  
-        
 		if  @order.instance_of? CompetitionsUser
 		        if total_amount  == @order.find_price(@order.competition.id) 
 			        flash[:notice] = 'Your Payment Is Done No Due Is Remaining'
@@ -266,8 +318,6 @@ end
 			
 		end
 		end
-	
-	
 	end
 
 	

@@ -423,6 +423,7 @@ form input, .simulate{
 	font-size:100% !important;
 }
 
+
 .continue{float:left;clear:none;}
 
 .advancedEditor{
@@ -746,7 +747,19 @@ a.filter{
 	margin:0 20px 15px 5px;
 	font-size:80%;
 }
+.itemShowRightBlockinvoice{
+	overflow:hidden;
+	margin:0 20px 30px 30px;
+	font-size:80%;
+}
+
+
 .itemShowRightBlock a{
+/*	display:block;*/
+	margin:5px 0;
+}
+
+.itemShowRightBlockinvoice a{
 /*	display:block;*/
 	margin:5px 0;
 }
@@ -792,6 +805,7 @@ a.filter{
 
 .sixH{width:675px;}
 .twoH{width:180px;}
+.twoHinv{width:900px;}
 .threeH{width:223px;}
 .sevH{width:689px;}
 .sevTenH{width:685px;}
@@ -811,6 +825,15 @@ a.filter{
 	clear:both;overflow:hidden;
 	-moz-border-radius-bottomleft:6px;
 	-moz-border-radius-bottomright:6px;
+}
+
+.blockElementBodyinv{
+	padding:0 10px;
+	border:1px solid #ccc;
+	clear:both;overflow:hidden;
+	-moz-border-radius-bottomleft:6px;
+	-moz-border-radius-bottomright:6px;
+        width:898px;
 }
 
 .itemShowRightBlock .blockElementBody{
@@ -1158,5 +1181,5 @@ margin:0px 10px 0px 0px;
 }
 
 .sevenH{
-    width:700px;
+    width:900px;
 }

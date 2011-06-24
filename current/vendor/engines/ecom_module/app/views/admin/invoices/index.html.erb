@@ -1,15 +1,29 @@
+	<div class="itemShowRightBlockinvoice">
+	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoHinv">
+			Actions
+		</div><div class="blockCornerRight"></div>
+	    <div class="blockElementBodyinv">
+              <% if @current_user.has_system_role('admin') %>
+	        <%= link_to 'Add a new invoice', new_admin_invoice_path %><br /><br />
+              <% end %>
+			Filter the list with text <br />
+			<input id="filter2"/><br /><br />
+	    </div>
+	</div>
+
 <% blank_main_div(:title =>"Invoices list", :hsize => 'sevenH') do %>
           
-<table cellpadding="0" cellspacing="0" id="invoices" border="1">
+<table  id="invoices"  >
   <thead>
   <tr>
+    <th>Inv No</th>
     <th>Client</th>
     <th>Title</th>
-    <th>Deadline</th>
-    <th>Final amount</th>
-    <th>State</th>
-    <th>Sent at</th>
-    <th>Paid at</th>
+    <th>Date Due</th>
+    <th>Total</th>
+    <th>Paid</th>
+    <th>Sent on</th>
+    <th>Paid on</th>
     <th>Email Address</th>
   </tr>
   </thead>
@@ -17,26 +31,30 @@
   <tbody style="color:#666666;">
 <% @current_objects.each do |invoice| %>
   <tr>
-    <td><%=h invoice.client.profile.full_name %></td>
-    <td><%=h invoice.title %></td>
-    <td><%=h invoice.deadline %></td>
-    <td><%=h invoice.final_amount %></td>
+    <td width="50px"><%=h invoice.number %></td>
+    <td width="90px"><%=h invoice.client.profile.full_name %></td>
+    <td width="120px"><%=h invoice.title %></td>
+    <td width="50px"><%=h invoice.deadline.strftime("%d %b %Y") if  invoice.deadline%></td>
+    <td width="50px"><%=h '$' + invoice.final_amount.to_i.to_s  %></td>
     
-    <td>
+    <td width="50px">
     <%if invoice.state == "validated"%>
       paid
       <%end%>
     </td>
     
-    <td><%=h invoice.sent_at %></td>
-    <td><%=h invoice.validated_at %></td>
-    <td><%=h invoice.client.email %></td>
-    <td><%= link_to 'Show', admin_invoice_path(invoice.id) %></td>
+    <td width="50px"><%=h invoice.sent_at.strftime("%d %b %Y") if invoice.sent_at%></td>
+    <td width="50px"><%=h invoice.validated_at.strftime("%d %b %Y") if  invoice.validated_at%></td>
+    <td width="100px"><%=h invoice.client.email %>
+    </td>
+    <td width="50px"><%= link_to 'Show', admin_invoice_path(invoice.id) %></td>
     <% if @current_user.has_system_role('admin') %>
-      <td><%= link_to 'Modify', edit_admin_invoice_path(invoice.id) %></td>
+      <td width="50px"><%= link_to 'Edit', edit_admin_invoice_path(invoice.id) %></td>
       <% if true || invoice.state != 'validated' %>
-        <td><%= link_to 'Send invoice', update_state_admin_invoice_url(invoice.id, :state => 'sent') %></td>
-        <td><%= link_to 'pay payment', update_state_admin_invoice_path(invoice.id, :state => 'validated') %></td>
+        <td width="50px">
+         <%=link_to 'Send', open_update_state_admin_invoice_url(invoice.id, :state => 'sent'), :popup => ['dialog name','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes'] %>
+        </td>
+        <td width="50px"><%= link_to 'Pay', update_state_admin_invoice_path(invoice.id, :state => 'validated') %></td>
       <% end %>
     <% end %>
   </tr>
@@ -55,20 +73,7 @@
 <% end %>
 
 
-<div class="rightBlocks">
-	<div class="itemShowRightBlock">
-	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
-			Actions
-		</div><div class="blockCornerRight"></div>
-	    <div class="blockElementBody">
-              <% if @current_user.has_system_role('admin') %>
-	        <%= link_to 'Add a new invoice', new_admin_invoice_path %><br /><br />
-              <% end %>
-			Filter the list with text <br />
-			<input id="filter2"/><br /><br />
-	    </div>
-	</div>
-</div>
+
 
 
 
