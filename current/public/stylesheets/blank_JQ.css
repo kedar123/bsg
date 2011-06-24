@@ -1133,6 +1133,9 @@ margin:0px 10px 0px 0px;
 #filter223{
     width: 172px;
 }
+#filter2{
+    width: 172px;
+}
 
 .collectionlist{
      margin-bottom: 10px;
@@ -1148,4 +1151,12 @@ margin:0px 10px 0px 0px;
 
 #ss_img_div img{
     margin:0 auto;
+}
+
+#invoices{
+  font-size:11px;  
+}
+
+.sevenH{
+    width:700px;
 }

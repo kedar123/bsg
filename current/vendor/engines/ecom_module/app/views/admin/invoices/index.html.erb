@@ -1,6 +1,6 @@
-<% blank_main_div(:title =>"Invoices list", :hsize => 'sixH') do %>
+<% blank_main_div(:title =>"Invoices list", :hsize => 'sevenH') do %>
           
-<table id="invoices">
+<table cellpadding="0" cellspacing="0" id="invoices" border="1">
   <thead>
   <tr>
     <th>Client</th>
@@ -9,27 +9,34 @@
     <th>Final amount</th>
     <th>State</th>
     <th>Sent at</th>
-    <th>Validated at</th>
+    <th>Paid at</th>
+    <th>Email Address</th>
   </tr>
   </thead>
 
-  <tbody>
+  <tbody style="color:#666666;">
 <% @current_objects.each do |invoice| %>
   <tr>
     <td><%=h invoice.client.profile.full_name %></td>
     <td><%=h invoice.title %></td>
     <td><%=h invoice.deadline %></td>
     <td><%=h invoice.final_amount %></td>
-    <td><%=h invoice.state %></td>
+    
+    <td>
+    <%if invoice.state == "validated"%>
+      paid
+      <%end%>
+    </td>
     
     <td><%=h invoice.sent_at %></td>
     <td><%=h invoice.validated_at %></td>
+    <td><%=h invoice.client.email %></td>
     <td><%= link_to 'Show', admin_invoice_path(invoice.id) %></td>
     <% if @current_user.has_system_role('admin') %>
       <td><%= link_to 'Modify', edit_admin_invoice_path(invoice.id) %></td>
       <% if true || invoice.state != 'validated' %>
         <td><%= link_to 'Send invoice', update_state_admin_invoice_url(invoice.id, :state => 'sent') %></td>
-        <td><%= link_to 'Validate payment', update_state_admin_invoice_path(invoice.id, :state => 'validated') %></td>
+        <td><%= link_to 'pay payment', update_state_admin_invoice_path(invoice.id, :state => 'validated') %></td>
       <% end %>
     <% end %>
   </tr>
