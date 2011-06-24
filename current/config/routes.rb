@@ -84,10 +84,9 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect "/paypal_cancel/:id" ,:controller=>"competitions",:action=>"paypal_cancel"
   
+  map.connect "/paypal_return_invoice",:controller=>"admin/invoices",:action=>"paypal_return_invoice"
   
-  
-
- 
+  map.connect "/paypal_cancel_invoice",:controller=>"admin/invoices",:action=>"paypal_cancel_invoice"
   
   map.connect "/competitions/add_exhibition_artwork",:controller=>"competitions",:action=>"add_exhibition_artwork"
   map.connect "/add_exhibition_artwork",:controller=>"competitions",:action=>"add_exhibition_artwork"

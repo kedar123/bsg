@@ -87,7 +87,7 @@
                                  <div class="changecolorgray" style="clear:both;margin:5px;">
                                         
                                   </div>    
-                                  <%= select 'invoicing_info', 'payment_medium', [['Online', 'online']], {},:style=>"float:left",:onchange=>"changetheline()"%>
+                                  <%= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Paypal', 'paypal']], {},:style=>"float:left",:onchange=>"changetheline()"%>
                                   <div style="float:left;margin-left:54px;">
                                   
                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "/admin/invoices/create_the_payment", :update =>    'modal_space_answer',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>

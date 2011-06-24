@@ -21,21 +21,33 @@ class Admin::InvoicesController < Admin::ApplicationController
   
   
   def create_the_payment
-    
     payment = Payment.find(:first,:conditions=>["state = 'online_validated' and invoice_id = #{params[:invoiceid]}"])
+    invoice = Invoice.find(params[:invoiceid])
     if payment.blank?
+      
          payment=Payment.new
+         
          invoice=Invoice.find(params[:invoiceid])
          payment.invoice_id = params[:invoiceid]
          payment.user_id = invoice.client_id
          payment.amount_in_cents = (invoice.final_amount.to_i*100)
+        
+         
          if params[:invoicing_info][:payment_medium] == "online"
                 payment.common_wealth_bank_process((invoice.final_amount.to_i*100),params)
          end
          if params[:invoicing_info][:payment_medium] == "paypal"
-            
+            session[:paypal_amount] = invoice.final_amount.to_i*100
+            session[:invoice_id] = params[:invoiceid]
+            session[:payment_id] = payment.id
+            set_the_token
+            render :update do |page|
+                page["modal_space_answer"].hide                                     
+                page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>(session[:paypal_amount])}
+                page.call 'submit_my_form'
+              end
+            return
          end
-         
          if payment.state == "online_validated"
                 payment.save
                 invoice.state = "validated"
@@ -52,7 +64,69 @@ class Admin::InvoicesController < Admin::ApplicationController
   end
   
   
+   def set_the_token
+    username= "pathak_1259733727_biz_api1.gmail.com"
+    password = "1259733733"
+    signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+    paypal = Paypal.new(username, password, signature)
+    logger.info "there is problem in total"
+    logger.info session[:paypal_amount].to_i
+    logger.info session[:paypal_amount].to_i/100
+    response = paypal.do_set_express_checkout(
+      return_url="http://" + request.host_with_port + "/paypal_return_invoice",
+      cancel_url="http://" + request.host_with_port + "/paypal_cancel_invoice",
+      amount=session[:paypal_amount].to_i/100
+    )
+    logger.info response.to_s
+    logger.info "this is paypal response"
+    @token = (response.ack == 'Success') ? response['TOKEN'] : ''
+    session[:token] = @token
+  end 
   
+def  paypal_return_invoice
+  username= "pathak_1259733727_biz_api1.gmail.com"
+  password = "1259733733"
+  signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+  paypal = Paypal.new(username, password, signature)
+  response = paypal.do_get_express_checkout_details(session[:token])
+  logger.info response.to_s
+  logger.info "this is paypal response"
+  if response.ack == "Success"
+     response = paypal.do_express_checkout_payment(token=session[:token],
+     payment_action = 'Sale',
+     payer_id=response.payerid,
+     amount=session[:paypal_amount].to_i/100)#end of do express checkout method
+   
+   invoice=Invoice.find(session[:invoice_id])
+   payment=Payment.new
+   invoice=Invoice.find(session[:invoice_id])
+   payment.invoice_id = invoice.id
+   payment.user_id = invoice.client_id
+   payment.amount_in_cents = (invoice.final_amount.to_i*100)
+   payment.state = 'online_validated'
+   invoice.state = "validated"
+   invoice.payment_medium = "online"
+   invoice.purchasable_type = "Invoice"
+   payment.save
+   invoice.save
+   flash[:notice] = "your payment is done"
+  end    
+   session[:paypal_amount] = nil
+   session[:invoice_id] = nil
+   session[:payment_id] = nil
+  #redirect_to :action=>"index" 
+  render :text=>"your payment is done"
+end
+  
+  def paypal_cancel_invoice
+    flash[:notice] = "You have cancelled the payment"
+     session[:paypal_amount] = nil
+     session[:invoice_id] = nil
+     session[:payment_id] = nil
+    #redirect_to :action=>"index"
+    render :text=>"You have cancelled the payment"
+  end
+
   # GET /Invoices/1
   # GET /Invoices/1.xml
   def show
@@ -225,5 +299,9 @@ class Admin::InvoicesController < Admin::ApplicationController
 	end
 
 	
+ 
+  
+  
+  
 
 end
