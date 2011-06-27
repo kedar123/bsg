@@ -204,7 +204,7 @@ class CompetitionsUser < ActiveRecord::Base
 	
 	
 	def generate_invoice(user=nil, invoicing_info={})
-	   if (invoice = Invoice.find(:first,:conditions=>["client_id = ? and purchasable_id = ?",self.user_id,self.id]).blank?)
+	   if (invoice = Invoice.find(:first,:conditions=>["client_id = ? and purchasable_id = ? and purchasable_type = ?",self.user_id,self.id,"CompetitionsUser"]).blank?)
 	    		invoice = Invoice.new(
 		    		:purchasable_type => self.class.to_s,
 		    		:purchasable_id => self.id,
@@ -230,7 +230,7 @@ class CompetitionsUser < ActiveRecord::Base
 	end
 	
 	def generate_invoice_extra_entry(user=nil, invoicing_info={})
-	   invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",self.user_id,self.id])
+	   invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ? and purchasable_type = ?",self.user_id,self.id,"CompetitionsUser"])
 	     total_amount = 0
 		self.invoices.each {|x| total_amount = total_amount + x.final_amount}
 	   more_amount = self.find_price(self.competition_id)  - total_amount
@@ -278,7 +278,7 @@ class CompetitionsUser < ActiveRecord::Base
 	end
 	    	
 	def  generate_invoice_update(competitions_user_user_id,competitions_user_id)
-	        invoice = Invoice.find(:first,:conditions=>["client_id = ? and purchasable_id = ?",competitions_user_user_id,competitions_user_id])
+	        invoice = Invoice.find(:first,:conditions=>["client_id = ? and purchasable_id = ? and purchasable_type = ?",competitions_user_user_id,competitions_user_id,"CompetitionsUser"])
 	        if invoice
 	        invoice.original_amount = find_price(self.competition_id)
 			invoice.final_amount = find_price(self.competition_id)	

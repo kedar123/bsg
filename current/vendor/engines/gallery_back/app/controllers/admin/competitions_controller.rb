@@ -30,6 +30,22 @@ class Admin::CompetitionsController < Admin::ApplicationController
     @usernames.uniq!
     @emailsendarray.uniq!
     end
+    @competition = Competition.find(params[:id])
+    @frommail = Frommail.find(:all)
+    render :layout=>"gallery_promoting_mail"
+  end
+  
+  def send_winner_email
+    @artselected = ArtworksCompetition.find(params[:id])
+    @emailsendarray=[]
+    @usernames = []
+    
+    @emailsendarray << @artselected.competitions_user.user.profile.email_address
+    @usernames << @artselected.competitions_user.user.profile.first_name + " " + @artselected.competitions_user.user.profile.last_name
+    @usernames.uniq!
+    @emailsendarray.uniq!
+    
+    @competition = Competition.find(@artselected.competition_id)
     @frommail = Frommail.find(:all)
     render :layout=>"gallery_promoting_mail"
   end
@@ -172,11 +188,11 @@ after :update do
         end
         
 			if @current_object.state == 'results_publish'
-				@artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'"], :order => "mark DESC")
+				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null' and state = 'winner'"], :order => "mark DESC")
     	elsif @current_object.state == 'final_published'
-				@artworks_competitions = @current_object.artworks_competitions.all( :conditions => ["state =  'selected' and competitions_users_id != 'null' "])
+				 @artworks_competitions = @current_object.artworks_competitions.all( :conditions => ["state =  'selected' and competitions_users_id != 'null' "])
 			else
-				@artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'"])
+				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'"])
          		#@artworks_competitions =  CompetitionsUser.find(:all,  :conditions => { :competition_id =>  @current_object.id })
 			end
 			get_artworks_lists

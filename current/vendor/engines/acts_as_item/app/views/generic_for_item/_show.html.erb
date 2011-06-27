@@ -99,7 +99,12 @@
               <p>
                   <%=link_to "Maybe", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=maybe", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
               </p>
-        <%end%>  
+             <%if @current_object.state == "results_publish"%>
+                <p>
+                  <%=link_to "winner", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=winner", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+                </p>
+             <%end%>
+          <%end%>  
           
       <% if is_activated_rating_part && @current_object.has_permission_for?('rate', @current_user, @current_container) %>
         <%= item_rate(@current_object) %>

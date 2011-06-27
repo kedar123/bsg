@@ -101,7 +101,8 @@ class Invoice < ActiveRecord::Base
                 raise "Purchasable object and payment not done ..."
               end
 			else
-        
+        p self.purchasable_type
+        p "im checking here the purchasable type"
          if self.purchasable_type == 'Invoice'
          else 
            raise "samerelapute"

@@ -1,7 +1,7 @@
 class Admin::ArtworksCompetitionsController < Admin::ApplicationController
 
 	def update_state
-		@artworks_competition = ArtworksCompetition.find(params[:id])
+   	@artworks_competition = ArtworksCompetition.find(params[:id])
 		@artworks_competition.state = params[:state]
 		@artworks_competition.save
 		#redirect_to item_path(@artworks_competition.competition)

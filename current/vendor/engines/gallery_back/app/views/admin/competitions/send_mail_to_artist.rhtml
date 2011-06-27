@@ -79,6 +79,15 @@ function change_sign_1()
       return false;
   
 }
+
+function addselectedvaluetobody(){
+  var selIndex = document.getElementById('prize').selectedIndex;
+  var comboValue = document.getElementById('prize').options[selIndex].value;
+  var message = document.getElementById('message_body').value;
+  message = message + "\n" + "congrats you have won \n" + comboValue;
+  document.getElementById('message_body').value = message;
+}
+
 </script>
 
 
@@ -99,15 +108,33 @@ function change_sign_1()
     
   </p><br/>
 
-  <label class="labeloverride">Subject</label> 
   
+  <% if  @competition.state == "results_publish"%>
+  <p>
+  <label class="labeloverride">Subject</label> 
+  <%= f.text_field :subject ,:value=>"Winner Of " + @competition.title,:style=>"width:265px"%></p>
+  <%else%>
+  <p>
+  <label class="labeloverride">Subject</label> 
   <%= f.text_field :subject ,:style=>"width:265px"%></p>
+  <%end%>
+  
   <p>
   <label class="labeloverride">Body </label>
   
   <%= f.text_area :body ,:rows=>12%>
   </p>
   <br/>
+  <%ost=""%>
+   <% @competition.prizes_detail.each do |st| %>
+  	<%ost= ost+"<option value='#{st}'> #{st}</option>"%>
+   <%end%>
+  <% if  @competition.state == "results_publish"%>
+      <label class="labeloverride">Prize </label>
+      
+        <%=select_tag "prize", "<option value='select'> select</option>"+ost,:onchange=>"addselectedvaluetobody();"%>
+      <br/>
+  <%end%>    
  <label class="labeloverride">Signature </label>
 <textarea rows="2" cols="20" name="signature" id="signature" > 
 

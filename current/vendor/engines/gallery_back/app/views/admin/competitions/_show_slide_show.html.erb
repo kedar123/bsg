@@ -13,15 +13,17 @@
   ss = new slideshow("ss");
 <% if @current_user.has_system_role('admin') || @current_user.has_system_role('judge') || @current_object.state.include?('publish') || @current_user.login =="superadmin" %>
       <%if @artworks_competitions.first %>
-        <%p "im artwork competition"%>
-          <%p @artworks_competitions%>
+        
 	    <% @artworks_competitions.each do |a| %>
                  <%if  a.competitions_user!=nil%>
                       <%if  (a.competitions_user.send a.image_name) != nil %>  
-                        <%p "first here"%>
+                        
                            <%if  (a.competitions_user.send a.image_name).blank? == false%>
-                            <%p "second here"%>
-                              <%p "/uploaded_files/competition/artwork/#{a.id}/medium/#{a.avatar_file_name}"%>
+                                <%if a.competitions_user.competition.state == "final_published"%>
+                                  <%winnerselectlink = "<a onclick='sendwinnerrequest(#{a.id});return false;'  href='#'>Winner</a>"%>
+                                <%else%>
+                                  <%winnerselectlink = ""%>
+                                <%end%>  
                                 s = new slide();
                                 s.src =  '<%="/uploaded_files/competition/artwork/#{a.id}/medium/#{a.avatar_file_name}"%>';
                                 s.link = '<%="/uploaded_files/competition/artwork/#{a.id}/medium/#{a.avatar_file_name}"%>';
@@ -33,7 +35,9 @@
                                   "price  <%=a.competitions_user.send(price_array[image_array.index(a.image_name)]);%><br/>"+
                                   "<a onclick='sendselectrequest(<%=a.id%>);return false;' href='#'>select</a> | "+
                                   "<a onclick='maysendselectrequest(<%=a.id%>);return false;' href='#'>Maybe</a> | "+
-                                  "<a onclick='sendunselectrequest(<%=a.id%>);return false;'  href='#'>Unselect</a>"
+                                  "<a onclick='sendunselectrequest(<%=a.id%>);return false;'  href='#'>Unselect</a>"+
+                                  "|<%=winnerselectlink%>"
+                                
                                 ss.add_slide(s);
                           <%end%>       
 		      <%end%> 		
@@ -66,6 +70,16 @@ function sendunselectrequest(selectedid){
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=unselected'}); return false;
   return false;
 }
+
+function sendwinnerrequest(selectedid){
+  document.getElementById('changemystatebefore'+selectedid).innerHTML='state winner';
+  showhidediv(selectedid)
+  jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=winner'}); return false;
+  return false;
+}
+
+
+
 </script>
 
 
