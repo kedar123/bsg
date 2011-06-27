@@ -141,7 +141,7 @@ after :update do
       before :destroy do
 				
 		  @current_object.competitions_users.each do |cu|
-		    Invoice.delete_all("purchasable_id = #{cu.id}")
+		    Invoice.delete_all("purchasable_id = #{cu.id} and purchasable_type = 'CompetitionsUser'")
 		  end    
       
       end 

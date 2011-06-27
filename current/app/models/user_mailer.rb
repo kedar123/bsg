@@ -173,16 +173,25 @@ class UserMailer < ActionMailer::Base
         end
   end
   
-  def send_invoice_forchangenote(user,invoice)
+  def send_invoice_forchangenote(user,invoice,esignature,ebody,esubject)
     
         setup_email(user)
-        
+        subject esubject
+        content_type    "multipart/alternative"
+        part  "text/html" do |p|
+          p.body render_message("user_mailer/send_invoice_forchangenote.html.erb",:ebody=>ebody.to_s+esignature.to_s)
+          p.transfer_encoding "base64"
+        end
+        attachment "application/pdf" do |a|
+          a.body = File.read("#{RAILS_ROOT}/public/pdf_invoice/#{invoice.id}invoice.pdf")
+          a.filename = "invoice.pdf"
+        end
   end
-
+ 
 	def send_invoice_exhibition(tomial,subject,body,invoice, user)
 	    setup_email(user)
 	    subject "invoice#{invoice.number}"
-        content_type    "multipart/alternative"
+      content_type    "multipart/alternative"
         part  "text/html" do |p|
         p.body render_message("user_mailer/send_invoice_exhibition.html.erb",:invoice=>invoice)
         p.transfer_encoding "base64"

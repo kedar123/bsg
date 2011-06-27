@@ -105,12 +105,20 @@ class GroupshowsController < ApplicationController
   # DELETE /groupshows/1
   # DELETE /groupshows/1.xml
   def destroy
+     begin 
+     usergroupshow =  Usergroupshow.find(:all,:conditions=>["groupshow_id = ? ",params[:id]])
+     for ugs in usergroupshow
+       Invoice.delete_all("purchasable_type = 'Usergroupshow' and purchasable_id = #{ugs.id}") 
+     end
+     rescue
+     end
     @groupshow = Groupshow.find(params[:id])
     @groupshow.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to(groupshows_url) }
       format.xml  { head :ok }
     end
+  
   end
 end

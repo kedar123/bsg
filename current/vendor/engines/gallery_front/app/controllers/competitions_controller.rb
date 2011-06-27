@@ -26,16 +26,10 @@ class CompetitionsController < ApplicationController
     else
       if params[:competition_id]
         @competitionuser = CompetitionsUser.find_by_competition_id(params[:competition_id])
-        
-        
     	else
-   
         @competitionuser = CompetitionsUser.find_by_competition_id(@competition.id) if @competition
-   
     	end
     end  
-   
-    
     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@competition.id.to_s+"competition"])  if @competition
     @oldlabelvalue={}
     if columnnameandheader
@@ -366,6 +360,9 @@ class CompetitionsController < ApplicationController
       end
     elsif    @order.instance_of? CompetitionsUser
       if @order.invoices.last   
+        p "im checking the the competition user"
+        p @order
+        
         total_amount = 0
         @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
         if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 

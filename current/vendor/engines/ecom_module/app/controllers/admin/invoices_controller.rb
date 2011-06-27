@@ -143,6 +143,7 @@ end
   # GET /Invoices/new.xml
   def new
     @current_object = Invoice.new
+    
    # @profile = Profile.find(params[:id])
     
     respond_to do |format|
@@ -169,7 +170,7 @@ end
 		@current_object.state = 'created'
     @current_object.number = rand(123456789)
 		@current_object.creator_id = @current_user.id
-    
+    @current_object.purchasable_type = "Invoice"    
     
     respond_to do |format|
       if @current_object.save
@@ -235,53 +236,38 @@ end
   end
   
   def create_sent_mail
-    #the order work is remaining
-    p params
-    exit
-    
     invoice = Invoice.find(params[:invoiceid])
     invoice.note = params[:message][:note]
     invoice.save
-    if invoice.purchasable_type == 'invoice'
+    if invoice.purchasable_type == 'Invoice'
         create_pdf(invoice.id.to_s,invoice.number.to_s,invoice.created_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice ,invoice.client.profile.full_name ,invoice.title,invoice.final_amount,invoice.note,invoice.final_amount,paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
+        render :text=>"your pdf has been sent"
     end
-    
     if invoice.purchasable_type == 'CompetitionsUser'
-     create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i)
+      compuser = CompetitionsUser.find(invoice.purchasable_id)
+     create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,compuser.competition.title,invoice.final_amount.to_i,invoice.note,"",invoice.final_amount.to_i)
+    render :text=>"your pdf has been sent"
     end
-    
     if invoice.purchasable_type == 'ExhibitionsUser'
-     create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i)
-    end
-    
-    if invoice.purchasable_type == 'ExhibitionsUser'
-      countinvoice = Invoice.count(:conditions => "purchasable_id = #{invoice.purchasable_id} and purchasable_type = 'ExhibitionsUser' and client_id = #{invoice.client_id}")
-      exhibitionuser = ExhibitionsUser.find(invoice.purchasable_id)
-      if countinvoice == 2
-         create_pdf(invoice.id,invoice.number,exhibitionuser.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,exhibitionuser.exhibition.title,exhibitionuser.price.to_i,note,exhibitionuser.price - alreadypaidamt,alreadypaidamt,true,exhibitionuser.exhibition.timing.ending_date,"")
+      invoiceall = Invoice.find(:all,:conditions => "purchasable_id = #{invoice.purchasable_id} and purchasable_type = 'ExhibitionsUser' and client_id = #{invoice.client_id}")
+      exhuser = ExhibitionsUser.find(invoice.purchasable_id)
+      if invoiceall.first == invoice
+         alreadypaidamt = exhuser.price - invoiceall.last.final_amount
+         create_pdf(invoice.id,invoice.number,exhuser.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,exhuser.exhibition.title,exhuser.price.to_i,invoice.note,exhuser.price.to_i,0,true,exhuser.exhibition.timing.ending_date.strftime("%d %b %Y"),invoice.final_amount.to_i)
       else
-          create_pdf(invoice.id,invoice.number,exhibitionuser.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,exhibitionuser.exhibition.title,exhibitionuser.price.to_i,exhibitionuser.exhibition.timing.note,exhibitionuser.price.to_i,0,true,exhibitionuser.exhibition.timing.ending_date.strftime("%d %b %Y"),invoice.final_amount.to_i)
+         create_pdf(invoice.id,invoice.number,exhuser.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,exhuser.exhibition.title,exhuser.price.to_i,invoice.note,exhuser.price - alreadypaidamt,alreadypaidamt,true,exhuser.exhibition.timing.ending_date,"")
       end
+      render :text=>"your pdf has been sent"
     end
     
-    begin
-     email = UserMailer.create_send_invoice_forchangenote(invoice.client,invoice,params[:signature],params[:message][:body],params[:message][:subject])
-     UserMailer.deliver(email)
-    rescue
-    end
+    if invoice.purchasable_type == 'Order'
+        create_pdf(invoice.id.to_s,invoice.number.to_s,invoice.created_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice ,invoice.client.profile.full_name ,invoice.title,invoice.final_amount,invoice.note,invoice.final_amount,paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
+        render :text=>"your pdf has been sent"
+    end    
     
-    {"commit"=>"Send",
- "signature"=>"gdfgdfgdffg",
- "invoiceid"=>"803",
- "user"=>{"email"=>"pathakorama1@gmail.com"},
- "message"=>{"body"=>"fgdg",
- "subject"=>"dfd",
- "note"=>"dfgd"}}
-    
-    
-    
-    
-  end
+    email = UserMailer.create_send_invoice_forchangenote(invoice.client,invoice,params[:signature],params[:message][:body],params[:message][:subject])
+    UserMailer.deliver(email)
+ end
 
 	def invoicing
 	  if  params[:show_layout] == "true"
