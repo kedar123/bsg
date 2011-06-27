@@ -53,14 +53,25 @@ class CompetitionsController < ApplicationController
 			elsif @competition.state == 'results_publish'
 				#@artworks = @competition.artworks_competitions.all(:include => [:artwork], :conditions => { :state => 'selected' }).map{ |e| e.artwork }
         competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
+        
+        
         @competitionuser  = []
+        @winnerlist = []
+        
         competitionuser.each do |ac| 
           ac.artworks_competitions.each do |x|  
+              if x.state == "winner"
+              @winnerlist  << x
+            end
             if x.state == "selected"
               @competitionuser  << x.competitions_user
             end
           end 
         end
+     
+        
+        
+       
 			else
 				#@artworks = @competition.artworks
         @competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? ",@competition.id])

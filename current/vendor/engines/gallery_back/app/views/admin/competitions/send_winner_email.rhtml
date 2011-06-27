@@ -102,7 +102,7 @@ function addselectedvaluetobody(){
 <h2>Compose</h2>
 
 <% form_for :message, :url=>"/admin/compcreate_sent_mail_to_artist",:html=>{:style=>'padding-top:50px;height:450px;'} do |f| %>
-  
+  <input type="hidden" name="artworkcompetition" id="artworkcompetition" value="<%=@artselected.id%>">
   <p>
     <label class="labeloverride">To</label>  <%=text_field_with_auto_complete :profile, :email,{:value=>@emailsendarray.join(",")},{:tokens =>',',:frequency=>0.1 ,:style=>"width:150px;" }%>
     

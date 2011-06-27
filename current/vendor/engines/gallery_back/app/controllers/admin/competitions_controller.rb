@@ -51,6 +51,15 @@ class Admin::CompetitionsController < Admin::ApplicationController
   end
   
   def compcreate_sent_mail_to_artist
+    if !params[:artworkcompetition].blank?#this is for single winner for send_winner_email
+       artwcomp = ArtworksCompetition.find(params[:artworkcompetition])
+       if artwcomp.state == "winner"
+          artwcomp.prize_detail = "winner of "+artwcomp.competition.title.to_s + "  " +params[:prize]
+          artwcomp.save
+       end
+    end
+    
+    
     @message = current_user.sent_messages.build(params[:message])
     @message.prepare_copies(params[:profile][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"

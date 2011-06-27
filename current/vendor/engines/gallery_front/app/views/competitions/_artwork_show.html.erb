@@ -72,7 +72,7 @@
                          <%end%> 
                     <%end%>  
                  </div>
-                  <%if  object.artworks_competitions.find(:first,:conditions=>"state='selected' and image_name = '#{image_array[j]}'")%>
+                  <%if  object.artworks_competitions.find(:first,:conditions=>"state='selected'  and image_name = '#{image_array[j]}'")%>
                       <div id="iteam_image">  
                            <img src="/system/gallery/<%=object.send image_array[j]%>" alt="" height="352"  width="600">
                        </div>

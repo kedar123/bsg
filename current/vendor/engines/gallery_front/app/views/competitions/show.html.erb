@@ -255,10 +255,14 @@ function check_the_checkbox(){
         <div id="buylist">
           <div id="list">
             <%if logged_in?%>
-            
-            <% @competitionusers.each do |a| %>
-              <%= render :partial => 'competitions/artwork_show', :object => a %>
-          <% end %>
+                <%if !@winnerlist.blank?%>
+                      <%for win in @winnerlist%>
+                      <%=render :partial => 'competitions/artwork_showwin', :object => win %>
+                      <%end%>  
+                <%end%>
+                <% @competitionusers.each do |a| %>
+                    <%=  render :partial => 'competitions/artwork_show', :object => a %>
+                <% end %>
             <%else%>
             
           <% @competitionuser.each do |a| %>

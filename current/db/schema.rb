@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623093505) do
+ActiveRecord::Schema.define(:version => 20110627110516) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20110623093505) do
     t.string   "artworkurl_content_type"
     t.integer  "artworkurl_file_size"
     t.datetime "artworkurl_updated_at"
+    t.string   "prize_detail"
   end
 
   add_index "artworks_competitions", ["artwork_id"], :name => "index_artworks_competitions_on_artwork_id"
