@@ -199,7 +199,7 @@ after :update do
 			if @current_object.state == 'results_publish'
 				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null' and state = 'winner'"], :order => "mark DESC")
     	elsif @current_object.state == 'final_published'
-				 @artworks_competitions = @current_object.artworks_competitions.all( :conditions => ["state =  'selected' and competitions_users_id != 'null' "])
+				 @artworks_competitions = @current_object.artworks_competitions.all( :conditions => ["state =  'selected' or state = 'winner' and competitions_users_id != 'null' "])
 			else
 				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'"])
          		#@artworks_competitions =  CompetitionsUser.find(:all,  :conditions => { :competition_id =>  @current_object.id })

@@ -82,7 +82,6 @@ class Admin::ProfilesController < Admin::ApplicationController
   end
   
   def create_sent_mail
-    
     @message = current_user.sent_messages.build(params[:message])
     @message.prepare_copies(params[:user][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"

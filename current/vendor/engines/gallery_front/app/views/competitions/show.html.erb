@@ -264,7 +264,15 @@ function check_the_checkbox(){
                     <%=  render :partial => 'competitions/artwork_show', :object => a %>
                 <% end %>
             <%else%>
-            
+            <%p "im not logged in"%>
+            <%p @winnerlist%>
+          <%if !@winnerlist.blank?%>
+            <%p "im not logged in"%>
+            <%p @winnerlist%>
+                 <%for win in @winnerlist%>
+                   <%=render :partial => 'competitions/artwork_showwin', :object => win %>
+               <%end%>  
+          <%end%>  
           <% @competitionuser.each do |a| %>
               <%= render :partial => 'competitions/artwork_show', :object => a %>
           <% end %>

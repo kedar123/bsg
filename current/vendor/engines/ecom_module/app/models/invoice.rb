@@ -34,12 +34,20 @@ class Invoice < ActiveRecord::Base
   end
 
 	def sending_to_client
-		if QueuedMail.add('UserMailer', 'send_invoice', [self, self.client], 0, true)
+    adminuser = User.find_by_login("admin");
+    @message = adminuser.sent_messages.new
+    @message.subject = "Invoice " + self.number.to_s
+    @message.body = "Hello, Please find attached your invoice For Your Payment For "
+    @message.prepare_copies(self.client.email)
+    @message.save
+    
+    if QueuedMail.add('UserMailer', 'send_invoice', [self, self.client], 0, true)
 			self.sent_at = Time.now
 			self.save
 		else
 			raise "Invoice email not queued"
 		end
+    
 	end
 
     def  accept_cash_or_cheque_or_bank_payment(cashorchequeorbank)

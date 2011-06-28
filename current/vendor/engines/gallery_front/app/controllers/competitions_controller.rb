@@ -36,7 +36,9 @@ class CompetitionsController < ApplicationController
         columnnameandheader.each do |x|   
           @oldlabelvalue[x.column_name] = x.column_header
         end
-    end    
+    end   
+    p "from controller"
+    p @competition
 		if @competition
 			# TODO publish rules ...
 			if @competition.state == 'final_published'
@@ -53,6 +55,7 @@ class CompetitionsController < ApplicationController
 			elsif @competition.state == 'results_publish'
 				#@artworks = @competition.artworks_competitions.all(:include => [:artwork], :conditions => { :state => 'selected' }).map{ |e| e.artwork }
         competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
+        p "from controllerthe winner list is blank"
         
         
         @competitionuser  = []
@@ -69,7 +72,7 @@ class CompetitionsController < ApplicationController
           end 
         end
      
-        
+        p @winnerlist
         
        
 			else

@@ -259,17 +259,48 @@ end
       end
       render :text=>"your pdf has been sent"
     end
-    
     if invoice.purchasable_type == 'Order'
         create_pdf(invoice.id.to_s,invoice.number.to_s,invoice.created_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice ,invoice.client.profile.full_name ,invoice.title,invoice.final_amount,invoice.note,invoice.final_amount,paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
         render :text=>"your pdf has been sent"
     end    
     
+    @message = current_user.sent_messages.build(params[:message])
+    @message.prepare_copies(params[:user][:email])
+    @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
+    @message.save
     email = UserMailer.create_send_invoice_forchangenote(invoice.client,invoice,params[:signature],params[:message][:body],params[:message][:subject])
     UserMailer.deliver(email)
+    
  end
 
-	def invoicing
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+	
+  
+  
+  
+  
+  
+  
+  
+  
+  def invoicing
 	  if  params[:show_layout] == "true"
 	  layout =  true   
 	  else
