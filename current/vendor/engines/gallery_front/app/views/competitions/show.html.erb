@@ -56,8 +56,8 @@ function check_the_checkbox(){
         <div id="content" style="padding: 20px 5px 20px 20px">
             <h2><%= @competition.title %></h2>
                      <%if logged_in?%>
-                    <!-- Click <%=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork"}
-		  %> Here To Buy Images-->
+                     Click <%=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork"}
+		  %> Here To Buy Images
                <%end%>   
                   
             <br/>        
@@ -150,8 +150,8 @@ function check_the_checkbox(){
         <%#= link_to 'Click here', enter_admin_competitions_subscriptions_path %>
       </div><%#content div ended%>
     </div><%#description_competition ended%>
-    <div id="enterintocompetition" style="display:none;height:auto" > 
-            <div id="description_competition" style="border-right: 1px solid white">
+    <div id="enterintocompetition" style="display:none;height:auto;" > 
+            <div id="description_competition" style="border-right: 1px solid white;width:500px">
               <div id="content" style="padding-top:2px;">
                 <div id="enterintocompetitionfront">
                 </div>  
@@ -264,11 +264,9 @@ function check_the_checkbox(){
                     <%=  render :partial => 'competitions/artwork_show', :object => a %>
                 <% end %>
             <%else%>
-            <%p "im not logged in"%>
-            <%p @winnerlist%>
+           
           <%if !@winnerlist.blank?%>
-            <%p "im not logged in"%>
-            <%p @winnerlist%>
+           
                  <%for win in @winnerlist%>
                    <%=render :partial => 'competitions/artwork_showwin', :object => win %>
                <%end%>  

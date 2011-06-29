@@ -330,16 +330,20 @@ class CompetitionsController < ApplicationController
   end  
    
   def  create_the_payment
-    if ((params[:invoicing_info][:payment_medium] ==  "online") or (params[:invoicing_info][:payment_medium] ==  "paypal") )         
+    creditcardno = ""
+    if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card")  )         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
         credit_card = CreditCard.new(params[:credit_card])
       end
+      credit_card.number = params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
       credit_card.user_id = current_user.id
       credit_card.expiring_date = Date.civil(params[:credit_card]["expiring_date(1i)"].to_i,params[:credit_card]["expiring_date(2i)"].to_i,params[:credit_card]["expiring_date(3i)"].to_i).strftime("%y-%m-%d")       
       credit_card.save
+      creditcardno = credit_card.number
     else
     end 
+     
     #######################################this is im copying here is something from payment controller create method
     if params[:order_id]
       @order = CompetitionsUser.find(params[:order_id])
@@ -367,28 +371,27 @@ class CompetitionsController < ApplicationController
     session[:current_object] = @current_object
     @current_object.user = @current_user		#@current_object.invoice = @invoice
     if  @order.instance_of? ExhibitionsUser
-      if params[:invoicing_info][:payment_medium] ==  "online" 
+      if params[:invoicing_info][:payment_medium] ==  "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
         @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params)
-      elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or params[:invoicing_info][:payment_medium] ==  "bank"
+      elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or params[:invoicing_info][:payment_medium] ==  "direct deposit"
 	                       
       elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
         @current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
       end
     elsif    @order.instance_of? CompetitionsUser
       if @order.invoices.last   
-             
         total_amount = 0
         @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
         if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
           more_amount = (@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) -  total_amount
           @current_object.amount_in_cents = more_amount * 100
-          if params[:invoicing_info][:payment_medium] ==  "online" 
-            @current_object.common_wealth_bank_process((more_amount * 100),params)
+          if params[:invoicing_info][:payment_medium] ==  "visa" or params[:invoicing_info][:payment_medium] ==  "master card"  
+            @current_object.common_wealth_bank_process((more_amount * 100),params,creditcardno)
             if @current_object.state == "online_validated"
               @order.total_entry = params[:competitions_user][:total_entry]
               @order.save              
             end
-          elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==  "bank"
+          elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
             @order.total_entry = params[:competitions_user][:total_entry]
             @order.save              
           elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
@@ -409,14 +412,14 @@ class CompetitionsController < ApplicationController
           return
         end   
       else
-        if params[:invoicing_info][:payment_medium] ==  "online" 
-          @current_object.common_wealth_bank_process(((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100),params)#payment is done if invoice is not yet  created. for competition user
+        if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
+          @current_object.common_wealth_bank_process(((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100),params,creditcardno)#payment is done if invoice is not yet  created. for competition user
           if @current_object.state == "online_validated"
             @order.total_entry = params[:competitions_user][:total_entry]
             @order.save              
           end
                                            
-        elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "bank"
+        elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
           @order.total_entry = params[:competitions_user][:total_entry]
           @order.save              
         elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
@@ -468,7 +471,7 @@ class CompetitionsController < ApplicationController
         end
       end     
       if  @order.instance_of? ExhibitionsUser 
-        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "bank"
+        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==   "direct deposit"
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.   <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
         else
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
@@ -481,7 +484,7 @@ class CompetitionsController < ApplicationController
           render :text=>"Your Payment Is Done Now Upload And Then Select The Artworks  <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
         end            
       elsif  @order.instance_of? CompetitionsUser
-        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==  "bank"
+        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==   "direct deposit"
           #render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.  Please Make The Payment Before #{@order.submission_date} <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
 
           render :partial=> "cash_cheque_response",:locals=>{:competition_id=>@order.competition.id,:artwork_count=>0,:order_id=>@order.id,:total_entry=>@order.total_entry}
@@ -503,7 +506,7 @@ class CompetitionsController < ApplicationController
         end     	       
       end
     else
-      if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or params[:invoicing_info][:payment_medium] ==  "bank"
+      if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or params[:invoicing_info][:payment_medium] ==   "direct deposit"
         if  @order.instance_of? CompetitionsUser
           make_the_payment
         else
@@ -574,17 +577,28 @@ class CompetitionsController < ApplicationController
     end   
     if params[:invoicing_info][:payment_medium] ==  "cheque" 
       messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
-    end  
-    if params[:invoicing_info][:payment_medium] ==  "online" 
+    end
+    if params[:invoicing_info][:payment_medium] ==   "direct deposit"
+      messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
+    end
+    if params[:invoicing_info][:payment_medium] ==  "visa" or params[:invoicing_info][:payment_medium] ==  "master card"
       messageforimageuploaded="Your Payment Is Done Please Upload Artwok"
-    end  
+    end
+    
+    
+    
 
     render :update do |page|
       if @order.total_entry.to_i > i  
-        page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
-        page["enterintocompetitionfront"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
+       # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
+        page["add_the_artwork#{i}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
         page["pleaseaccepttermsandcondition"].hide
         page["pleaseaccepttccheckbox"].hide
+        page["show_ajax_request"].hide
+        page["list_show"].show
+        page["iteam_image#{i}"].show
+        page["add_the_artwork#{i}"].show
+        
       else  
         page.alert("Your Limit Is Over")
         page["messageforimageuploaded"].replace_html "Your Limit Is Over Can Not Save The Image"
@@ -683,12 +697,16 @@ class CompetitionsController < ApplicationController
       
       
     end 
+   # i=i+1#this is because the artwork will be shown in next "add_the_artwork#{i}"
     responds_to_parent do
       render :update do |page|
         if order.total_entry.to_i > i
-		      page["enterintocompetitionfront"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+		      page["add_the_artwork#{i+1}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
 		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
 		      #page["click_to_browse_images"].show
+          page["list_show"].show
+          page["iteam_image#{i+1}"].show
+          page["add_the_artwork#{i+1}"].show
         else  
           page.alert("Your Limit Is Over")
           page["messageforimageuploaded"].replace_html "Artwork Can Not Be Save "
@@ -750,9 +768,9 @@ class CompetitionsController < ApplicationController
     session[:purchasable] = nil
     @current_object.amount_in_cents =  @order.total_amount*100
     @invoice = @order.generate_invoice(@current_user, params[:invoicing_info]) 
-    if params[:invoicing_info][:payment_medium] ==  "online" 
+    if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
       @current_object.common_wealth_bank_process(@order.total_amount*100,params)
-    elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
+    elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
     elsif  params[:invoicing_info][:payment_medium] ==  "paypal"
       @current_object.make_paypal_payment(@order.total_amount.to_i,params) 
     end
@@ -767,7 +785,7 @@ class CompetitionsController < ApplicationController
       render :text=>"Your Payment Is Done . The Invoice Is Sent To You By Email.   <a href='/admin/profiles/#{current_user.id}'>Go Back </a>"
               
     else
-      if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
+      if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
         session[:cart] ={}
         @invoice.accept_cash_or_cheque_or_bank_payment(params[:invoicing_info][:payment_medium])                        
         render :text=>"After Your Payment Is Done Admin  Will Validate You. The Invoice Is Sent To You By Email.   "
@@ -790,7 +808,7 @@ class CompetitionsController < ApplicationController
   def  make_the_payment_exhibition
     session[:purchasable] = nil
     @invoice = Invoice.find(params[:invoice_id])
-    if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
+    if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       @invoice.accept_cash_or_cheque_or_bank_payment(params[:invoicing_info][:payment_medium]) 
     elsif params[:invoicing_info][:payment_medium] == "paypal"
       @invoice.validating("paypal")
@@ -807,7 +825,7 @@ class CompetitionsController < ApplicationController
     else
       @invoice = @order.generate_invoice(@current_user, params[:invoicing_info]) 
     end 	
-    if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "bank"
+    if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       @invoice.accept_cash_or_cheque_or_bank_payment(params[:invoicing_info][:payment_medium]) 
     elsif params[:invoicing_info][:payment_medium] == "paypal"
       @invoice.validating("paypal")
@@ -822,7 +840,7 @@ class CompetitionsController < ApplicationController
       note = @order.competition.timing.note if @order.competition.timing
       start_date = @order.competition.timing.starting_date.strftime("%d %b %Y")
       end_date = @order.competition.timing.ending_date.strftime("%d %b %Y")
-      if params[:invoicing_info][:payment_medium] ==  "cash" or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "bank"
+      if params[:invoicing_info][:payment_medium] ==  "cash" or   params[:invoicing_info][:payment_medium] ==  "cheque" or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
           create_pdf(invoice.id,invoice.number,start_date,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0,false,end_date)
       else
           create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
@@ -998,7 +1016,7 @@ class CompetitionsController < ApplicationController
 
   #this method is copy of above create_the_payment method this i have seperated for the sake of simplicity. actually the complete code is same but a minor difference
   def create_the_payment_exhibition
-    if ((params[:invoicing_info][:payment_medium] ==  "online") or (params[:invoicing_info][:payment_medium] ==  "paypal") )         
+    if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card"))         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
         credit_card = CreditCard.new(params[:credit_card])
@@ -1027,9 +1045,9 @@ class CompetitionsController < ApplicationController
     end
     @current_object.user = @current_user		#@current_object.invoice = @invoice
     if  @order.instance_of? ExhibitionsUser
-      if params[:invoicing_info][:payment_medium] ==  "online" 
+      if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
         @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params)
-      elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
+      elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
         #@current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
         session[:paypal_amount] = params[:invoice_amount].to_i*100
@@ -1052,9 +1070,9 @@ class CompetitionsController < ApplicationController
         if  total_amount  < @order.find_price(@order.competition.id) 
           more_amount = (@order.find_price(@order.competition.id) ) -  total_amount
           @current_object.amount_in_cents = more_amount * 100
-          if params[:invoicing_info][:payment_medium] ==  "online" 
+          if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
             @current_object.common_wealth_bank_process((more_amount * 100),params)
-          elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
+          elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
           elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
             @current_object.make_paypal_payment((more_amount * 100),params) 
           end
@@ -1063,9 +1081,9 @@ class CompetitionsController < ApplicationController
           return
         end   
       else
-        if params[:invoicing_info][:payment_medium] ==  "online" 
+        if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
           @current_object.common_wealth_bank_process(((@order.find_price(@order.competition.id) ) * 100),params)#payment is done if invoice is not yet  created. for competition user
-        elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"
+        elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
         elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
           @current_object.make_paypal_payment(((@order.find_price(@order.competition.id) ) * 100),params) 
         end 
@@ -1103,7 +1121,7 @@ class CompetitionsController < ApplicationController
         end
       end     
       if  @order.instance_of? ExhibitionsUser 
-        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==  "bank"
+        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.   <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
         else
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
@@ -1121,7 +1139,7 @@ class CompetitionsController < ApplicationController
 			              
         end            
       elsif  @order.instance_of? CompetitionsUser
-        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" 
+        if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
           #render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.  Please Make The Payment Before #{@order.submission_date} <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
           render :partial=> "cash_cheque_response",:locals=>{:competition_id=>@order.competition.id,:artwork_count=>0,:order_id=>@order.id,:total_entry=>@order.total_entry}
         else
@@ -1135,7 +1153,7 @@ class CompetitionsController < ApplicationController
         end     	       
       end
     else
-      if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or params[:invoicing_info][:payment_medium] ==  "bank"
+      if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
         if  @order.instance_of? CompetitionsUser
           make_the_payment
         else
@@ -1588,10 +1606,10 @@ class CompetitionsController < ApplicationController
     @payment = Payment.new
     current_user.profile.biography = params[:biography]
     current_user.profile.save
-    if ((params[:invoicing_info][:payment_medium] == "cash") or (params[:invoicing_info][:payment_medium] == "bank") or (params[:invoicing_info][:payment_medium] == "cheque"))
+    if ((params[:invoicing_info][:payment_medium] == "cash") or (params[:invoicing_info][:payment_medium] ==  "direct deposit") or (params[:invoicing_info][:payment_medium] == "cheque"))
          show_cash_response_groupshow
          return
-    elsif (params[:invoicing_info][:payment_medium] == "online")
+    elsif (params[:invoicing_info][:payment_medium] == "visa" or params[:invoicing_info][:payment_medium] ==  "master card" )
       @payment.common_wealth_bank_process((params[:price].to_i * 100),params)
     elsif  (params[:invoicing_info][:payment_medium] == "paypal") 
       session[:paypal_amount] = params[:price].to_i * 100

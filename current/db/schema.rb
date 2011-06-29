@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627110516) do
+ActiveRecord::Schema.define(:version => 20110629110744) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -443,7 +443,7 @@ ActiveRecord::Schema.define(:version => 20110627110516) do
     t.string   "type_of_card"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "number"
+    t.integer  "number",             :limit => 8
     t.date     "expiring_date"
     t.integer  "verification_value"
     t.datetime "created_at"
