@@ -24,7 +24,9 @@
     line-height: 13px;
     position: relative;
     width: auto;
-#iteam_image_uploaded{
+}
+
+ #iteam_image_uploaded {
       border: 1px solid;
     float: left;
     height: 352px;
@@ -32,7 +34,7 @@
     position: relative;
     width: auto;
 }    
-}
+
 </style>
 <div id="specific_menu" >
 <%if  @pramoting_stuff%>
@@ -277,9 +279,11 @@
             
     
             
-            <div id="iteam_image_uploaded">            
+            <div id="list">            
+              
             <%for  frontendpics in @useruploadedpics%>
-                 <div >
+                
+                 <div id="item_image" class="artwork_show">
                       <img src="/system/gallery/<%=frontendpics%>" alt="Not Found" height="352" width="600"/>
                  </div>
              <%end%>   

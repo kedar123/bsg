@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
 def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_address = " " ,invoice_user_fullname = " " ,invoice_competition_title="",invoice_full_amount="",note="",amount_due="",paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
 				
-				headers, body = nil, nil  
+				       headers, body = nil, nil  
                dir = File.expand_path(File.dirname(__FILE__))
                Prawn::Document.generate("#{RAILS_ROOT}/public/pdf_invoice/#{invoice_id}invoice.pdf", :page_layout => :landscape) do
                bsg = "#{RAILS_ROOT}/public/images/bsgpdf.png"  
@@ -76,8 +76,8 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                         ],
                       :position => :left,
                       :style => :bold,
-                      :headers => ['Description', 'Start Date', 'Finish Date', 'Price'],
-                      :column_widths => { 0 => 160, 1 => 210, 2 => 190, 3 => 50},
+                      :headers => ['Description', 'Start Date', 'End Date', 'Price'],
+                      :column_widths => { 0 => 330, 1 => 120, 2 => 120, 3 => 50},
                       :border=>:none,
                       :border_width       => 0,
                       :header_color => '0147FA',
@@ -87,24 +87,20 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                         ["","", "Deposit Required  $#{deposit_required}",""],],
                       :position => :left,
                       :style => :bold,
-                      :headers => ['Description', 'Start Date', 'Finish Date', 'Price'],
-                      :column_widths => { 0 => 160, 1 => 210, 2 => 190, 3 => 50},
+                      :headers => ['Description', 'Start Date', 'End Date', 'Price'],
+                      :column_widths => { 0 => 330, 1 => 120, 2 => 120, 3 => 50},
                       :border=>:none,
                       :border_width       => 0,
                       :header_color => '0147FA',
                       :header_text_color  => "ffffff"
                  end  
-                 
-                    
-      
-                    
-      
                else
-                 table [["#{invoice_date}", "#{invoice_user_fullname}", "#{invoice_competition_title}", "$#{invoice_full_amount}"],],
+                 
+                 table [["#{invoice_competition_title}","#{invoice_date}","#{finish_date}" ,"$#{invoice_full_amount}"],],
                       :position => :left,
                       :style => :bold,
-                      :headers => ['Start Date', 'Name', 'Description', 'Price'],
-                      :column_widths => { 0 => 160, 1 => 210, 2 => 190, 3 => 50},
+                      :headers => ['Description', 'Start Date', 'End Date', 'Price'],
+                      :column_widths => { 0 => 330, 1 => 120, 2 => 120, 3 => 50},
                       :border=>:none,
                       :border_width       => 0,
                       :header_color => '0147FA',
@@ -130,7 +126,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
             fill_color("000000")
             box.render
             fill_color("0147FA")
-            
+            stroke_color("0147FA")
             fill_and_stroke_rectangle([460,65],140,20)
             box = Prawn::Text::Box.new("TOTAL",:width => 50,:height=> 13,:overflow => :ellipses, :at => [462, 60],:align => :left, :document => self)
             fill_color("ffffff")
@@ -140,7 +136,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
             box.render
             fill_color("0147FA")
             fill_and_stroke_rectangle([460,40],140,20)
-            box = Prawn::Text::Box.new("GST(inc)",:width => 50,:height => 13, :overflow => :ellipses, :at => [462, 35], :align    => :left, :document => self)
+            box = Prawn::Text::Box.new("GST (inc)",:width => 80,:height => 13, :overflow => :ellipses, :at => [462, 35], :align    => :left, :document => self)
             fill_color("ffffff")
             box.render
             fill_color("0147FA")
@@ -148,7 +144,6 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
             fill_color("ffffff")
             box.render
             fill_color("0147FA")
-            
             fill_and_stroke_rectangle([460,15],140,20)
             box = Prawn::Text::Box.new("PAID", :width => 50,:height => 13, :overflow => :ellipses, :at => [462, 13], :align => :left, :document => self)
             fill_color("ffffff")

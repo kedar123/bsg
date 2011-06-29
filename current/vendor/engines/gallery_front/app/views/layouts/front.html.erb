@@ -158,6 +158,7 @@ function Checkfiles(formid,show_ajax_request,editionnumber,editionname)
 
 function Checkfilescomp(formid,show_ajax_request,editionnumber,editionname)
 {
+  
     var elem = document.getElementById(formid).elements;
     var myreturnvalue = true;
         for(var i = 0; i < elem.length; i++)
@@ -223,15 +224,17 @@ function Checkfilescomp(formid,show_ajax_request,editionnumber,editionname)
           var myeditionvalue = false;
           var ednm=document.getElementById(editionname).value;
           var ednu=document.getElementById(editionnumber).value;
-              if(  ((parseInt(ednm) < parseInt(ednu))   || (parseInt(ednm) == parseInt(ednu))) && ( parseInt(ednm)!=0 && parseInt(ednu) !=0 ))
+          
+          
+              if(((parseInt(ednm) < parseInt(ednu))   || (parseInt(ednm) == parseInt(ednu))) && ( parseInt(ednm)!=0 && parseInt(ednu) !=0 ))
                      { 
-                        var price=document.getElementById("artwork_price").value;
-                        if (parseInt(price) > 0 && parseInt(ednm) > 0 && parseInt(ednu) > 0) {
+                        //var price=document.getElementById("artwork_price").value;
+                        //if (parseInt(price) > 0 && parseInt(ednm) > 0 && parseInt(ednu) > 0) {
                          myeditionvalue = true;
-                        }
+                        //}
                      }
                   else{
-                   
+                  
                           if (parseInt(ednm) > 0){
                               alert("Please Enter edition from greater than edition number");
                               myeditionvalue = false;
@@ -258,20 +261,18 @@ function Checkfilescomp(formid,show_ajax_request,editionnumber,editionname)
           
           
           
-          
-          
+
           
           if(myeditionvalue){
+           
              showajaximage = document.getElementById(show_ajax_request);
                if (showajaximage)
                  {
                    document.getElementById(show_ajax_request).style.display='block'
                  }
-               else
-                 {
-
-                 }
+               
           }
+         
           
       return myeditionvalue;            
       

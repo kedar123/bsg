@@ -1053,7 +1053,7 @@
 																				                                                    <%= link_to 'Unselect', update_state_admin_artworks_competition_path(a.id, :state => 'unselected') %>
 																			                                                    </td>
 																		                                                    <% elsif @current_object.state == 'final_published' %>
-																			                                                    <td>Marks : <%= text_field_tag "marks_list[#{a.id}]", a.mark, :size => 5 %></td>
+																			                                                    <!--<td>Marks : <%= text_field_tag "marks_list[#{a.id}]", a.mark, :size => 5 %></td>-->
 																		                                                    <% elsif @current_object.state == 'results_publish' %>
 																			                                                     <td>   <%#=link_to  "Send winner Email","/admin/competitions/send_winner_email/#{a.id}"%>
                                                                                                                                                                                                              <%=link_to "Send winner Email", "/admin/competitions/send_winner_email/#{a.id}", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
@@ -1063,7 +1063,7 @@
 																	                                                    <% end %>
 																	                                                    
 																	                                                    <% if @current_object.state == 'results_publish' %>
-																			                                                    <td style="padding-left:10px"> <%= a.mark %></td>
+																			                                                   <!-- <td style="padding-left:10px"> <%= a.mark %></td>-->
 																			                                             <%end%>       
 															                                 </tr>
 															                                 <%end%>   

@@ -37,17 +37,22 @@ class CompetitionsController < ApplicationController
           @oldlabelvalue[x.column_name] = x.column_header
         end
     end   
-    p "from controller"
-    p @competition
+    
+    
 		if @competition
 			# TODO publish rules ...
 			if @competition.state == 'final_published'
+        @winnerlist = []
         competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
         @competitionuser  = []
         competitionuser.each do |ac| 
           ac.artworks_competitions.each do |x|  
+            
             if x.state == "selected"
               @competitionuser  << x.competitions_user
+            end
+              if x.state == "winner"
+              @winnerlist  << x
             end
           end 
         end
@@ -55,12 +60,9 @@ class CompetitionsController < ApplicationController
 			elsif @competition.state == 'results_publish'
 				#@artworks = @competition.artworks_competitions.all(:include => [:artwork], :conditions => { :state => 'selected' }).map{ |e| e.artwork }
         competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
-        p "from controllerthe winner list is blank"
-        
-        
+              
         @competitionuser  = []
         @winnerlist = []
-        
         competitionuser.each do |ac| 
           ac.artworks_competitions.each do |x|  
               if x.state == "winner"
@@ -71,10 +73,7 @@ class CompetitionsController < ApplicationController
             end
           end 
         end
-     
-        p @winnerlist
-        
-       
+            
 			else
 				#@artworks = @competition.artworks
         @competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? ",@competition.id])
@@ -84,6 +83,9 @@ class CompetitionsController < ApplicationController
 			@competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? and user_id     = ?",@competition.id,current_user.id]) if @competition
     end  
     @competitionuser.uniq! if @competitionuser
+ 
+  
+  
   end
 	def create_subscribe_competition
 		@competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:competion_id])
@@ -374,9 +376,7 @@ class CompetitionsController < ApplicationController
       end
     elsif    @order.instance_of? CompetitionsUser
       if @order.invoices.last   
-        p "im checking the the competition user"
-        p @order
-        
+             
         total_amount = 0
         @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
         if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
@@ -527,16 +527,8 @@ class CompetitionsController < ApplicationController
         end            	       
         return
       end
-	            
-      #flash[:error] = 'Error during the payment save  '+@current_object.state.to_s
-      p @current_object.state.to_s
-      p "this is error"
-      @current_object.errors.each do |x|
-        p x
-      end
-              
+	    #flash[:error] = 'Error during the payment save  '+@current_object.state.to_s
       render :text => 'Your payment has not been successful. Please check your details and try again '
-		        
     end
   end  
  
@@ -828,10 +820,12 @@ class CompetitionsController < ApplicationController
     if @order.instance_of? CompetitionsUser
       note = "no notes created"
       note = @order.competition.timing.note if @order.competition.timing
-      if params[:invoicing_info][:payment_medium] ==  "cash"
-          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0)
+      start_date = @order.competition.timing.starting_date.strftime("%d %b %Y")
+      end_date = @order.competition.timing.ending_date.strftime("%d %b %Y")
+      if params[:invoicing_info][:payment_medium] ==  "cash" or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "bank"
+          create_pdf(invoice.id,invoice.number,start_date,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0,false,end_date)
       else
-          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i)
+          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
       end
     elsif  @order.instance_of? ExhibitionsUser
       note = "no notes created"
@@ -1430,7 +1424,9 @@ class CompetitionsController < ApplicationController
           payment.save
           note = "no notes created"
           note = groupshowuser.groupshow.note if groupshowuser.groupshow
-          create_pdf(payment.invoice.id,payment.invoice.number,payment.invoice.sent_at.strftime("%d %b %Y"),payment.invoice.client.profile.full_address_for_invoice,payment.invoice.client.profile.full_name_for_invoice,groupshowuser.groupshow.title,payment.invoice.final_amount.to_i,note)
+          start_date = groupshowuser.groupshow.starting_date
+          end_date = groupshowuser.groupshow.ending_date
+          create_pdf(payment.invoice.id,payment.invoice.number,start_date,payment.invoice.client.profile.full_address_for_invoice,payment.invoice.client.profile.full_name_for_invoice,groupshowuser.groupshow.title,payment.invoice.final_amount.to_i,note,"","",false,end_date)
           begin
           email = UserMailer.create_send_invoice_groupshow(payment.invoice,current_user)
           UserMailer.deliver(email)
@@ -1549,7 +1545,10 @@ class CompetitionsController < ApplicationController
     if order.instance_of? CompetitionsUser
       note = "no note created"
       note = order.competition.timing.note if order.competition.timing 
-      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.competition.title,invoice.final_amount.to_i,note)
+      
+      start_date = order.competition.timing.starting_date.strftime("%d %b %Y")
+      end_date = order.competition.timing.ending_date.strftime("%d %b %Y")
+      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
     elsif  order.instance_of? ExhibitionsUser
       note = "no note created"
       note = order.exhibition.timing.note if order.exhibition.timing 
@@ -1633,8 +1632,11 @@ class CompetitionsController < ApplicationController
     @payment.save
     note = "no note created"
     note = @groupshowuser.groupshow.note  if @groupshowuser.groupshow
-    create_pdf(@payment.invoice.id,@payment.invoice.number,@payment.invoice.sent_at.strftime("%d %b %Y"),@payment.invoice.client.profile.full_address_for_invoice,@payment.invoice.client.profile.full_name_for_invoice,@groupshowuser.groupshow.title,@payment.invoice.final_amount.to_i,note)
+    start_date = @groupshowuser.groupshow.starting_date.strftime("%d %b %Y")
+    end_date = @groupshowuser.groupshow.ending_date.strftime("%d %b %Y")
+    create_pdf(@payment.invoice.id,@payment.invoice.number,start_date,@payment.invoice.client.profile.full_address_for_invoice,@payment.invoice.client.profile.full_name_for_invoice,@groupshowuser.groupshow.title,@payment.invoice.final_amount.to_i,note,"","",false,end_date)
     begin
+    
     email = UserMailer.create_send_invoice_groupshow(@payment.invoice,current_user)
     UserMailer.deliver(email)
     rescue
