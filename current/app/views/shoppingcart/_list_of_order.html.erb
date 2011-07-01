@@ -14,15 +14,21 @@ PAYMENTS LIST :
     
   </tr>
   <%i=0%>
+  <%totalprice=0%>
   <%for order in @order%>
     <% order.order_lines.each do |ol| %>
           <%orderable_type = ol.orderable_type;orderable_id = ol.orderable_id%>
               <%if   ol.orderable_type.to_s.include?("CompetitionsUser")%>  
               <tr id="order<%=i%>">
-                <th><%= order.invoice.number if order.invoice %></th>
+                
+                <th>
+                    <%= order.invoice.number if order.invoice %>
+                </th>
+                
                 <th><%= order.invoice.created_at.strftime("%d %b %y") if order.invoice %></th>
                 <th><%= ol.orderable.send title_array.fetch(image_array.index(ol.imagename)) if ol.orderable%></th>
                 <th><%= ol.orderable.send price_array.fetch(image_array.index(ol.imagename)) if ol.orderable%></th>
+                <%totalprice = totalprice + (ol.orderable.send price_array.fetch(image_array.index(ol.imagename))).to_i if ol.orderable%>
                 <th>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id.to_s+"_"+ol.imagename) if @current_object.new_record? %>
@@ -34,6 +40,7 @@ PAYMENTS LIST :
               <tr id="order<%=i%>">
                 <th><%= ol.orderable.title if ol.orderable%></th>
                 <th><%= ol.orderable.price if ol.orderable%></th>
+                <%totalprice = totalprice + ol.orderable.price if ol.orderable%>
                 <th>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id) if @current_object.new_record? %>
@@ -46,3 +53,6 @@ PAYMENTS LIST :
      <% end %>
   <%end%>            
 </table>
+<h3>
+  Total <%=totalprice%>
+</h3>

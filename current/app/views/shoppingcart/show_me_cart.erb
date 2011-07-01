@@ -29,7 +29,8 @@
       <table id="order_lines">
         <thead>
         <tr>
-          <th>Product</th>
+          <th>Item</th>
+          <th>Artist</th>
           <th>Unit price</th>
         </tr>
         </thead>
@@ -41,22 +42,24 @@
               <%if   ol.orderable_type.to_s.include?("CompetitionsUser")%>  
               <tr id="order<%=i%>">
                 <th><%= ol.orderable.send title_array.fetch(image_array.index(ol.imagename)) %></th>
+                <th><%= ol.orderable.user.profile.first_name + " " + ol.orderable.user.profile.last_name %></th>
                 <th><%= ol.orderable.send price_array.fetch(image_array.index(ol.imagename)) %></th>
                 <th>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id.to_s+"_"+ol.imagename) if @current_object.new_record? %>
-      <%=link_to_remote 'Remove', :update => "",
+      <%=link_to_remote 'Delete', :update => "",
 :url => {:controller=>"shoppingcart",:action=>"remove_from_cart",:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id.to_s,:i=>i,:imagename=>ol.imagename}%>
                 </th>
               </tr>
               <%else%>
               <tr id="order<%=i%>">
                 <th><%= ol.orderable.title %></th>
+                <th><%= ol.orderable.user.profile.first_name + " " + ol.orderable.user.profile.last_name %></th>
                 <th><%= ol.orderable.price %></th>
                 <th>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id) if @current_object.new_record? %>
-                 <%=link_to_remote 'Remove', :update => "",
+                 <%=link_to_remote 'Delete', :update => "",
 :url => {:controller=>"shoppingcart",:action=>"remove_from_cart",:orderable_type => orderable_type, :orderable_id => orderable_id,:i=>i}%>
                 </th>
               </tr>
@@ -81,7 +84,7 @@
      <%end%>
     <br/>
     <%##new purchase table is shown here%>
-    
+      <%if !@current_purchase.blank?%>  
      <table id="order_lines">
         <thead>
         <tr>
@@ -93,8 +96,9 @@
         </thead>
          <tbody>
           <%i=1%>
+          <%totalprice = 0%> 
           <%orderable_type="";orderable_id=""%>
-        <%if !@current_purchase.blank?%>   
+       
         <% @current_purchase.order_lines.each do |ol| %>
           <%orderable_type = ol.orderable_type;orderable_id = ol.orderable_id%>
               <%if   ol.orderable_type.to_s.include?("CompetitionsUser")%>  
@@ -104,6 +108,7 @@
                 <th><%= @current_purchase.invoice.created_at.strftime("%d %b %y") %></th>
                 <th><%= ol.orderable.send title_array.fetch(image_array.index(ol.imagename)) %></th>
                 <th><%= ol.orderable.send price_array.fetch(image_array.index(ol.imagename)) %></th>
+                <%totalprice = totalprice + (ol.orderable.send price_array.fetch(image_array.index(ol.imagename))).to_i %> 
                 <th>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id.to_s+"_"+ol.imagename) if @current_object.new_record? %>
@@ -115,6 +120,7 @@
               <tr id="order<%=i%>">
                 <th><%= ol.orderable.title %></th>
                 <th><%= ol.orderable.price %></th>
+                <%totalprice = totalprice + ol.orderable.price%>
                 <th>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id) if @current_object.new_record? %>
@@ -128,15 +134,19 @@
       <%end%>        
     </tbody>
     </table>
+    <p>
+      Total <%=totalprice%>
+    </p>  
     <%########################new purchase table table ends here%>  
-    
+     <%if !@current_purchase.blank?%>   
     <br/>
     <h3>You  may collect your work anytime between 10am  and 6pm Tues to Friday at the gallery.
     <br/>
     322 Brunswick St, Fitzroy 3065
     </h3>
     <br/>
-<%=link_to_remote 'List Of My Order', :update => "",:url => {:controller=>"shoppingcart",:action=>"list_of_my_order"}%>
+    <%end%>
+<%=link_to_remote 'Order History', :update => "",:url => {:controller=>"shoppingcart",:action=>"list_of_my_order"}%>
         
     
     </div>
