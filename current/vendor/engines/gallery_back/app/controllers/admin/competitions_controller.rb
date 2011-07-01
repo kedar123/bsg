@@ -201,8 +201,11 @@ after :update do
     	elsif @current_object.state == 'final_published'
 				 @artworks_competitions = @current_object.artworks_competitions.all( :conditions => ["state =  'selected' or state = 'winner' or  state = 'unselected' and competitions_users_id != 'null' "])
 			else
-				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'"])
-         		#@artworks_competitions =  CompetitionsUser.find(:all,  :conditions => { :competition_id =>  @current_object.id })
+				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'  "])
+         
+         p "i got the artwork competitions"
+         p @artworks_competitions.size
+         #@artworks_competitions =  CompetitionsUser.find(:all,  :conditions => { :competition_id =>  @current_object.id })
 			end
 			get_artworks_lists
 			@my_subscription = CompetitionsUser.find(:first,  :conditions => { :user_id => @current_user.id, :competition_id => @current_object.id })

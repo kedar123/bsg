@@ -2,8 +2,8 @@ class Order < ActiveRecord::Base
 
 	belongs_to :client, :class_name => 'User'
 	belongs_to :creator, :class_name => 'User'
-	has_many :invoices, :as => :purchasable
-	#has_one :invoice, :as => :purchasable
+	#has_many :invoices, :as => :purchasable
+	has_one :invoice, :as => :purchasable
 	has_many :order_lines, :dependent => :destroy
    
 	before_create :generate_number

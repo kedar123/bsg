@@ -20,14 +20,19 @@
  </div>
  
 <%if i == total_entry%>
-<br/><br/><br/><h2>
-You Have Uploaded The Images Upto Your Limit </h2>
+<h2> Biography
+ </h2>
 <br/>
+    <form action="upload_the_biography" method="post"    id="add_the_artwork_to_competition_biography"  >  
+     <textarea rows="2" cols="20" name="biography">
+        please write your biography
+     </textarea>
+      <%=hidden_field_tag "total_entry",total_entry%>    
+       <%= submit_to_remote 'create_btn', 'Proceed', :url => { :action => 'upload_the_biography' } %>
+   </form>  
+
 <script>
-  
   calleditbrowseimage('<%=com_id%>','<%=order_id%>');
-  
-  
 </script>  
  
 <%else%>
@@ -68,14 +73,6 @@ You Have Uploaded The Images Upto Your Limit </h2>
                            <input  name="competitions_user[workprice]" id="field-a94ac5a259d7675" style="width: 92px;height: 14px;" value="" type="text"/>
                            <input  name="competitions_user[editionname]" id="competitions_user_editionname" size="40" value="" type="text" style="width: 92px;height: 14px;margin-left:10px;"/>
    <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="competitions_user_editionnumber" size="40" value="" type="text" style="width: 82px;height: 14px;"/>
-
-                           
-                           
-                           
-                           
-                           
-                           
-                           
                         <div class="changecolorgray">    
                         	 Image 
                     	 </div>

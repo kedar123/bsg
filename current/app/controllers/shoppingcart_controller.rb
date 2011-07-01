@@ -43,6 +43,16 @@ class ShoppingcartController < ApplicationController
     @current_object = Order.new_from_cart(session[:cart], @current_user)
     @paymentdone  = params[:payment_message]
     
+    if !session[:current_purchase].blank?
+    
+      
+       @current_purchase =  session[:current_purchase]#= Order.new_from_cart(session[:current_purchase], @current_user)
+       
+       #session[:current_purchase] = {}
+    
+     
+    end
+    
   end
 
   def show_payment_form
@@ -53,18 +63,19 @@ class ShoppingcartController < ApplicationController
   end
   
   def shopping_cart_payment
-    if params[:invoicing_info][:payment_medium] == "online"
-      makeshoppingcartpayment
+    if params[:invoicing_info][:payment_medium] == "visa" or params[:invoicing_info][:payment_medium] == "master card"
+       makeshoppingcartpayment
       return
     end
     if params[:invoicing_info][:payment_medium] == "paypal"
-      makeshoppingcartpaypalpayment
+       makeshoppingcartpaypalpayment
       
     end
   end
   
   def list_of_my_order
-      @payment = Payment.find(:all,:conditions=>["user_id = ?",current_user.id])
+      #@payment = Payment.find(:all,:conditions=>["user_id = ?",current_user.id])
+      @order = Order.find(:all,:conditions=>["client_id = ?",current_user.id])
       render :update do |page|
         page["add_the_artwork0"].replace_html :partial=>"list_of_order"
         page["iteam_image0"].show
@@ -77,11 +88,11 @@ class ShoppingcartController < ApplicationController
     editionnamearray = ['fworkedname=','sworkedname=','tworkedname=','foworkedname=','fiworkedname=','siworkedname=','seworkedname=','eiworkedname=','niworkedname=','teworkedname=']
     editionnamearrayv = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
     editionnumberarrayv = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
-
-    	@current_object = Order.new_from_cart(session[:cart], @current_user)
+   	@current_object = Order.new_from_cart(session[:cart], @current_user)
       payment = Payment.new()
       order = Order.complete_from_cart(session[:cart], @current_user)
-      payment.common_wealth_bank_process(@current_object.total_amount*100,params)
+      crnumber =  params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
+      payment.common_wealth_bank_process(@current_object.total_amount*100,params,crnumber)
       if  payment.state == "online_validated"
           order = Order.complete_from_cart(session[:cart], @current_user)
           payment.invoice = order.generate_invoice(current_user, params[:invoicing_info])
@@ -119,7 +130,10 @@ class ShoppingcartController < ApplicationController
                 end
             end    
           end 
-          session[:cart] = {}
+          
+          session[:current_purchase] = order
+          session[:cart] = {}  
+          
           render :update do |page|
               page["modal_space_answer"].hide
               page.redirect_to :action=>"show_me_cart",:payment_message=>"Your Payment Is Done"

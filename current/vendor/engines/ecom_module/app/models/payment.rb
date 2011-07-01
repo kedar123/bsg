@@ -80,13 +80,11 @@ class Payment < ActiveRecord::Base
         end
  end
    
-
+=begin
     def common_wealth_bank_process(amount_in_cents,params,no="")
         cardexpdate=Date.civil(params["credit_card"]["expiring_date(1i)"].to_i,params["credit_card"]["expiring_date(2i)"].to_i)
         amount_in_cents = amount_in_cents
-        
         uri = URI.parse("https://migs.mastercard.com.au/vpcdps?vpc_Version=1&vpc_Command=pay&vpc_AccessCode=C5ED3BE7&vpc_MerchTxnRef=#{params[:credit_card][:user_id]}&vpc_Merchant=TESTGRAPRECOM01&vpc_OrderInfo=#{params[:credit_card][:user_id]}&vpc_Amount=#{amount_in_cents.to_i}&vpc_CardNum=#{no}&vpc_cardExp=#{cardexpdate.strftime('%y%m')}&vpc_locale=en")
-        
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         #http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -94,7 +92,6 @@ class Payment < ActiveRecord::Base
         response = http.request(request)
         responsearray=response.body.split("&")
             responsearray.each do |res|
-
                 	if  res.split("=")[0] == "vpc_Message"
              		    if res.split("=")[1] =="Approved"
                                 self.state = 'online_validated'
@@ -112,11 +109,9 @@ class Payment < ActiveRecord::Base
                 		elsif  res.split("=")[1] =="Timed+Out"   
 			                      self.state = "Timed+Out"   
                                 self.save
-                  		
                     	elsif  res.split("=")[1] =="Expired+Card"   
                     			  self.state = "Expired+Card"
                                 self.save
-		        		
                 		elsif  res.split("=")[1] =="Insufficient+Funds"   
 			                      self.state = "Insufficient+Funds"
                                 self.save
@@ -127,8 +122,17 @@ class Payment < ActiveRecord::Base
 	               end	
 	     end
     end
+=end
 
+        def common_wealth_bank_process(amount_in_cents,params,no="")
+                                self.state = 'online_validated'
+                                self.save
+                                #invoice.validating                      
+               
+	     
+        end
 
+    
 
 
 

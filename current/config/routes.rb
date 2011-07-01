@@ -62,6 +62,11 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect "/upload_the_artwork_to_competition/:id",:controller=>"competitions",:action=>"upload_the_artwork_to_competition"
 
+  map.connect "/upload_the_biography/:id",:controller=>"competitions",:action=>"upload_the_biography" 
+  
+  map.connect "/competitions/upload_the_biography/:id",:controller=>"competitions",:action=>"upload_the_biography"
+ 
+  
   map.connect "/test_delete/:id" ,:controller=>"competitions",:action=>"test_delete"
   map.connect "/test_anything/:id" ,:controller=>"competitions",:action=>"test_anything"
   
