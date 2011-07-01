@@ -1251,6 +1251,8 @@ class CompetitionsController < ApplicationController
   end  
 
 
+  
+  
 
 
 
@@ -1507,10 +1509,13 @@ class CompetitionsController < ApplicationController
   end  
  
   def test_anything
-    @timingperiod = Timing.find(:all)
-    @array=[]
-    @timingperiod.each do |x| @array<<x.objectable_id.to_s+x.objectable_type.to_s end
-    render :text=>@array.to_s
+    #@timingperiod = Timing.find(:all)
+    #@array=[]
+    #@timingperiod.each do |x| @array<<x.objectable_id.to_s+x.objectable_type.to_s end
+    @compeitionuser = CompetitionsUser.find(:all,:conditions=>"competition_id = 30")
+    @idlist = []
+    @compeitionuser.each do |x|@idlist << x.user.profile.first_name+ " " end
+    render :text=>@idlist.to_s
   end
 
   def make_the_invoice
