@@ -382,6 +382,7 @@ class CompetitionsController < ApplicationController
       if @order.invoices.last   
         total_amount = 0
         @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
+     
         if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
           more_amount = (@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) -  total_amount
           @current_object.amount_in_cents = more_amount * 100
@@ -408,7 +409,10 @@ class CompetitionsController < ApplicationController
             #@current_object.make_paypal_payment((more_amount * 100),params) 
           end
         else
-          render :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "
+           render :update do |page|
+             page["modal_space_answer"].replace_html  :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "                                     
+             page["show_ajax_request"].hide
+          end
           return
         end   
       else
@@ -598,6 +602,7 @@ class CompetitionsController < ApplicationController
         page["list_show"].show
         page["iteam_image#{i}"].show
         page["add_the_artwork#{i}"].show
+        page["modal_space_answer"].hide
         
       else  
         page.alert("Your Limit Is Over")
@@ -670,7 +675,8 @@ class CompetitionsController < ApplicationController
     price_array = ['fworkprice=','sworkprice=','tworkprice=','foworkprice=','fiworkprice=','siworkprice=','seworkprice=','eworkprice=','nworkprice=','teworkprice=']
     editionnamearray=['fworkedname=','sworkedname=','tworkedname=','foworkedname=','fiworkedname=','siworkedname=','seworkedname=','eiworkedname=','niworkedname=','teworkedname=']
     editionnumberarray=['fworkednumber=','sworkednumber=','tworkednumber=','foworkednumber=','fiworkednumber=','siworkednumber=','seworkednumber=','eiworkednumber=','niworkednumber=','teworkednumber=']
-    
+    title_message_array = ['First Work','Second Work',' Third Work','Fourth Work','Fifth Work','Sixth Work','Seventh Work','Eight Work','Ninth Work','Tenth Work']
+
     order = CompetitionsUser.find(params[:order_id])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
@@ -701,12 +707,14 @@ class CompetitionsController < ApplicationController
     responds_to_parent do
       render :update do |page|
         if order.total_entry.to_i > i
-		      page["add_the_artwork#{i+1}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+		      page["add_the_artwork#{i+1}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+          
 		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
 		      #page["click_to_browse_images"].show
           page["list_show"].show
           page["iteam_image#{i+1}"].show
           page["add_the_artwork#{i+1}"].show
+          page["show_ajax_request#{i}"].hide
         else  
           page.alert("Your Limit Is Over")
           page["messageforimageuploaded"].replace_html "Artwork Can Not Be Save "
@@ -726,6 +734,7 @@ class CompetitionsController < ApplicationController
         page["list_show"].show
         page["iteam_image#{params[:total_entry].to_i+1}"].show
         page["add_the_artwork#{params[:total_entry].to_i+1}"].show
+        page["show_ajax_request#{params[:total_entry].to_i}"].hide
     end
   end
    
@@ -962,6 +971,10 @@ class CompetitionsController < ApplicationController
           i=i+1
           break if @competitions_user.total_entry.to_i == i
         end
+        #currently im hiding here the biography and thanku notes if they are shown but this need to be tested. and need to create some extra  add_the_artwork div
+        #after the flow is approved for salving the error
+        page["iteam_image"+(@competitions_user.total_entry.to_i).to_s].hide
+        page["iteam_image"+(@competitions_user.total_entry.to_i+1).to_s].hide
       end                    
     end 
   end  

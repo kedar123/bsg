@@ -4,6 +4,24 @@
         line-height: 15px;
   }
 </style>
+<script>
+  function checkthebiographyfield(i){
+   /*  alert('m not get called here');
+    if(document.getElementById("biography").value.length == 0 )
+      {
+        alert("please enter biography");
+        return false;
+      }
+      else{
+       
+        return true;
+      }
+     */ 
+     document.getElementById("show_ajax_request"+i).style.display='block'
+  }
+  
+  
+</script>  
 <%title_message_array = ['First Work','Second Work',' Third Work','Fourth Work','Fifth Work','Sixth Work','Seventh Work','Eight Work','Ninth Work','Tenth Work']%>
 <!--
   <div class="changecolorgray">
@@ -17,6 +35,7 @@
 <%if !messageforimageuploaded.blank?%>
   <%=messageforimageuploaded%>
 <%end%>
+   
  </div>
  
 <%if i == total_entry%>
@@ -24,13 +43,15 @@
  </h2>
 <br/>
     <form action="upload_the_biography" method="post"    id="add_the_artwork_to_competition_biography"  >  
-     <textarea rows="2" cols="20" name="biography">
+     <textarea rows="2" cols="20" name="biography" id="biography">
         please write your biography
      </textarea>
       <%=hidden_field_tag "total_entry",total_entry%>    
-       <%= submit_to_remote 'create_btn', 'Proceed', :url => { :action => 'upload_the_biography' } %>
+       <%= submit_to_remote 'create_btn', 'Proceed', :url => { :action => 'upload_the_biography' },:before=>"checkthebiographyfield(#{i})" %>
    </form>  
-
+ <div style="display: none;padding-top:2px;" id="show_ajax_request<%=i%>">
+                                   <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
+                       </div>
 <script>
   calleditbrowseimage('<%=com_id%>','<%=order_id%>');
 </script>  

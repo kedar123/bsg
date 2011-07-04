@@ -79,7 +79,12 @@ class Payment < ActiveRecord::Base
         else
         end
  end
+ def common_wealth_bank_process(amount_in_cents,params,no="")
+                                self.state = 'online_validated'
+                                self.save
    
+ end
+=begin   
     def common_wealth_bank_process(amount_in_cents,params,no="")
         cardexpdate=Date.civil(params["credit_card"]["expiring_date(1i)"].to_i,params["credit_card"]["expiring_date(2i)"].to_i)
         amount_in_cents = amount_in_cents
@@ -121,7 +126,7 @@ class Payment < ActiveRecord::Base
 	               end	
 	     end
     end
-
+=end
     
 
 
