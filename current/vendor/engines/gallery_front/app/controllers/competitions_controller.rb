@@ -382,7 +382,9 @@ class CompetitionsController < ApplicationController
       if @order.invoices.last   
         total_amount = 0
         @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
-     
+        
+        
+        
         if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
           more_amount = (@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) -  total_amount
           @current_object.amount_in_cents = more_amount * 100
@@ -409,9 +411,11 @@ class CompetitionsController < ApplicationController
             #@current_object.make_paypal_payment((more_amount * 100),params) 
           end
         else
+        
            render :update do |page|
              page["modal_space_answer"].replace_html  :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "                                     
              page["show_ajax_request"].hide
+             page["modal_space_answer"].show
           end
           return
         end   
@@ -535,7 +539,12 @@ class CompetitionsController < ApplicationController
         return
       end
 	    #flash[:error] = 'Error during the payment save  '+@current_object.state.to_s
-      render :text => 'Your payment has not been successful. Please check your details and try again '
+        render :update do |page|
+             page["modal_space_answer"].replace_html  :text=>'Your payment has not been successful. Please check your details and try again '                                     
+             page["show_ajax_request"].hide
+             page["modal_space_answer"].show
+          end
+       
     end
   end  
  
@@ -1491,7 +1500,7 @@ class CompetitionsController < ApplicationController
            flash[:notice] = "Your Payment Is Done Please Upload The Images"
            redirect_to "/" 
     else  
-      flash[:notice] = "Your Payment Is Done.Please Click On Browse Image To Upload  The Artwork"
+      flash[:notice] = "Your Payment Is Done.Please Click On Brows Image To Upload  The Artwork"
       redirect_to "/competitions/#{ comid }"                  
     end 
         
