@@ -1646,13 +1646,15 @@ class CompetitionsController < ApplicationController
   
   def show_group_payment
     @payment = Payment.new
+    
     current_user.profile.biography = params[:biography]
     current_user.profile.save
+    creditcardno =  params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
     if ((params[:invoicing_info][:payment_medium] == "cash") or (params[:invoicing_info][:payment_medium] ==  "direct deposit") or (params[:invoicing_info][:payment_medium] == "cheque"))
          show_cash_response_groupshow
          return
     elsif (params[:invoicing_info][:payment_medium] == "visa" or params[:invoicing_info][:payment_medium] ==  "master card" )
-      @payment.common_wealth_bank_process((params[:price].to_i * 100),params)
+      @payment.common_wealth_bank_process((params[:price].to_i * 100),params,creditcardno)
     elsif  (params[:invoicing_info][:payment_medium] == "paypal") 
       session[:paypal_amount] = params[:price].to_i * 100
       set_the_token
@@ -1720,6 +1722,7 @@ class CompetitionsController < ApplicationController
       page["add_the_artwork0"].show
       page["iteam_image0"].show
       page["iteam_image_uploaded"].hide
+      page["useruploadedpic"].hide
       for k in 1..9
         page["iteam_image#{k}"].hide
       end
