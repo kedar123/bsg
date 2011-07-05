@@ -80,8 +80,17 @@ class Payment < ActiveRecord::Base
         end
  end
 
+  
+ def common_wealth_bank_process(amount_in_cents,params,no="")
+      p "im here to make the payment"
+      self.state = 'online_validated'
+      self.save
+ end 
  
-    def common_wealth_bank_process(amount_in_cents,params,no="")
+    
+ 
+=begin 
+  def common_wealth_bank_process(amount_in_cents,params,no="")
         cardexpdate=Date.civil(params["credit_card"]["expiring_date(1i)"].to_i,params["credit_card"]["expiring_date(2i)"].to_i)
         amount_in_cents = amount_in_cents
         uri = URI.parse("https://migs.mastercard.com.au/vpcdps?vpc_Version=1&vpc_Command=pay&vpc_AccessCode=C5ED3BE7&vpc_MerchTxnRef=#{params[:credit_card][:user_id]}&vpc_Merchant=TESTGRAPRECOM01&vpc_OrderInfo=#{params[:credit_card][:user_id]}&vpc_Amount=#{amount_in_cents.to_i}&vpc_CardNum=#{no}&vpc_cardExp=#{cardexpdate.strftime('%y%m')}&vpc_locale=en")
@@ -122,7 +131,7 @@ class Payment < ActiveRecord::Base
 	               end	
 	     end
     end
-
+=end
     
 
 

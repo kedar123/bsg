@@ -1051,16 +1051,18 @@ class CompetitionsController < ApplicationController
 
   #this method is copy of above create_the_payment method this i have seperated for the sake of simplicity. actually the complete code is same but a minor difference
   def create_the_payment_exhibition
-    if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card"))         
+    if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master_card"))         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
         credit_card = CreditCard.new(params[:credit_card])
       end
+      credit_card.number = params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
       credit_card.user_id = current_user.id
       credit_card.expiring_date = Date.civil(params[:credit_card]["expiring_date(1i)"].to_i,params[:credit_card]["expiring_date(2i)"].to_i,params[:credit_card]["expiring_date(3i)"].to_i).strftime("%y-%m-%d")       
       credit_card.save
     else
     end 
+    creditcardnumber = params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
     #######################################this is im copying here is something from payment controller create method
     @order = session[:purchasable]  
     if @order.blank?
@@ -1081,7 +1083,7 @@ class CompetitionsController < ApplicationController
     @current_object.user = @current_user		#@current_object.invoice = @invoice
     if  @order.instance_of? ExhibitionsUser
       if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
-        @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params)
+        @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params,creditcardnumber)
       elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
         #@current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 

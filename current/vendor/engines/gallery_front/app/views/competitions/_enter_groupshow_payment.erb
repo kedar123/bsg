@@ -70,7 +70,11 @@
                             <% fields_for credit_card do |ff| %>
                             <%= ff.hidden_field :user_id, :value => @current_user.id %>
             
-                            <%= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
+                            <%= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card'],['Cash','cash'],['Cheque','cheque'],['Paypal','paypal'],['Direct Deposit','direct deposit']], :label => 'Type',:style=>"float:left" %>
+                              <div id="changethelineinfo" style="margin-top:1px;clear:both;width:250px;">
+                              </div>
+                            <%#= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Cash','cash'],['Cheque','cheque'],['Paypal','paypal'],['Bank Deposit','bank']], {},:style=>"float:left",:onchange=>"changetheline()"%>
+                              
                              <div class="changecolorgray">
                                       <span >First Name</span> <span style="margin-left:75px;">Last Name</span>
                              </div>   
@@ -94,8 +98,7 @@
                                  <div class="changecolorgray" style="clear:both;margin:5px;">
                                         
                                   </div>    
-                                  <%= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Cash','cash'],['Cheque','cheque'],['Paypal','paypal'],['Bank Deposit','bank']], {},:style=>"float:left",:onchange=>"changetheline()"%>
-                                  <div style="float:left;margin-left:54px;">
+                                    <div style="float:left;margin-left:54px;">
                                   
                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "show_group_payment", :update =>    'modal_space_answer',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
                                   

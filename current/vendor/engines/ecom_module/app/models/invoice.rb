@@ -75,7 +75,8 @@ class Invoice < ActiveRecord::Base
 		    inv.save
 		    end
 		end
-		
+		p "i saved here myself as validated"
+    p self
 		if self.save
 			if self.purchasable_type == 'ExhibitionsUser' || self.purchasable_type == 'CompetitionsUser' || self.purchasable_type == 'Order'
 
