@@ -1,4 +1,5 @@
 class AppHomesController < ApplicationController
+  #testing the things
  layout "gallery_promoting"  
   def index
     @app_home = AppHome.find(:all,:limit=>1,:order=>"created_at desc")
