@@ -12,8 +12,10 @@ class Admin::TimingsController < Admin::ApplicationController
 
 	def index
 		if params[:event]
-			@timings = Timing.all(:conditions => { :objectable_type => params[:event] })
-		else
+			@timings = Timing.all(:conditions =>"objectable_type = '#{params[:event]}' and objectable_id is not null")
+      p "this is timing" 
+      p @timings
+   	else
 			@timings = Timing.all
 		end
 		respond_to do |format|

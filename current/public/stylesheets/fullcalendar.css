@@ -258,6 +258,7 @@ table.fc-header {
 	 
 .fc-event {
 	text-align: left;
+        width:100px !important;
 	}
 	
 .fc-event a {
