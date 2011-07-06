@@ -4,7 +4,7 @@ require 'tmail'
 class Admin::MailController < ApplicationController
   layout "gallery_promoting_mail"
   auto_complete_for :user, :email
-  before_filter :check_the_email ,:only=>"index"
+  #before_filter :check_the_email ,:only=>"index"
   
   def check_the_email
      begin
@@ -61,10 +61,11 @@ class Admin::MailController < ApplicationController
    end    
   end
 
+  
+  
   def show
     @folder ||= current_user.mailfolders.find(params[:id])
     @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 10, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
-    
   end
   
 
@@ -141,7 +142,7 @@ class Admin::MailController < ApplicationController
    end    
   end  
   
-    def delete_temprary_email
+  def delete_temprary_email
      params.to_hash.each do |key,value|
        if key.include? "delete_message"
          @unknown_message = Tempraryinbox.find(value)
@@ -184,17 +185,14 @@ class Admin::MailController < ApplicationController
           :include => :message, :order => "messages.created_at DESC"
     @messages_sent_delete = Message.find(:all,:conditions => ["(author_id = ?) and (deletedm IS NOT NULL OR deletedm = ? ) and (deletedmt IS NULL OR deletedmt = ?)",current_user.id, true,false],:order => "created_at DESC",:limit=>2)      
   @messages << @messages_sent_delete
-  if request.xhr?
-    render :update do |page|
-        page["table_structer_of_email"].replace_html(:partial =>'trash_mail_detail', :object =>@messages,:locals=>{:messages_sent_delete => @messages_sent_delete})
-        page["show_details"].replace_html ""
-        page["ajax_spinner"].visual_effect :hide
-        page["selectlabel"].visual_effect :hide
-    end   
- end    
-
-    
-       
+    if request.xhr?
+      render :update do |page|
+          page["table_structer_of_email"].replace_html(:partial =>'trash_mail_detail', :object =>@messages,:locals=>{:messages_sent_delete => @messages_sent_delete})
+          page["show_details"].replace_html ""
+          page["ajax_spinner"].visual_effect :hide
+          page["selectlabel"].visual_effect :hide
+      end   
+   end    
   end
 
   

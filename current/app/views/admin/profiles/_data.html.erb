@@ -112,6 +112,21 @@
 
 
 <script language="javascript"> 
+  
+  function showhidesentinbox(divid){
+    if (divid == "inbox")
+      {
+        document.getElementById("sent").style.display = "none";
+        document.getElementById("inbox").style.display = "block";
+      }
+    if (divid == "sent")
+      {
+        document.getElementById("inbox").style.display = "none";
+        document.getElementById("sent").style.display = "block";
+      }  
+  }
+  
+  
   function ntoggle() {
 	var ele = document.getElementById("noticeToggle");
 	var text = document.getElementById("displayText");
@@ -250,10 +265,81 @@
   <div id="fragment-5">
     <div style="float:right;">
     	<%#= link_to_remote 'Inbox', :url => list_all_messages_admin_emails_path(:profile_id => @current_object.id), :update => 'emails_list', :method => :get %>
-    	<%= link_to 'Inbox',        inbox_admin_emails_path(:profile_id => @current_object.id) %>
-    	<%= link_to 'Compose Mail', compose_mail_admin_emails_path %>
-    	<%= link_to  'Sent',        sent_mail_admin_emails_path(:profile_id => @current_object.id) %>
-    </div><br />
+    	<%#= link_to 'Inbox',        inbox_admin_emails_path(:profile_id => @current_object.id) %>
+    	<%#= link_to 'Compose Mail', compose_mail_admin_emails_path %>
+    	<%#= link_to  'Sent',        sent_mail_admin_emails_path(:profile_id => @current_object.id) %>
+      
+       <div class="contentList filtered sixH">  
+         <span  onclick="showhidesentinbox('inbox')" style="float:right;margin-left:10px">Inbox</span>
+      <span onclick="showhidesentinbox('sent')" style="float:right">Sent</span>
+      <div id="inbox" style="display:none">
+         <div id="main-middle">
+    <table class="mailbox-table">
+        	<tbody><tr>
+           	  
+                <td align="left" valign="top" nowrap="nowrap">
+       <div class="bsg-right">
+          <ul>
+        <%for message in @messages%>
+             <ul class="mm-field">					
+                <li class="field-checkbox fc">    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>
+	          <li class="field-from"><%=h message.author.email %></li>
+                    <li class="field-subject">
+                      <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show", :id => message.id }%>
+                                                                                                       <%#action is show messsage%>         
+                    </li>
+
+                      <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
+              </ul>
+        <%end%> 
+            </ul>
+                                   </div>
+                                  </td> 
+		                           </tr>
+                            </table>
+    </div>
+    </div>
+    <div id="sent" style="display:none">
+         <div id="main-middle">
+    <table class="mailbox-table">
+        	<tbody><tr>
+           	  
+                <td align="left" valign="top" nowrap="nowrap">
+       <div class="bsg-right">
+          <ul>
+        <%for message in @message_recd%>
+             <ul class="mm-field">					
+                <li class="field-checkbox fc">    <%=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>
+	          <li class="field-from"><%=h message.author.email %></li>
+                    <li class="field-subject">
+                      <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show", :id => message.id }%>
+                                                                                                       <%#action is show messsage%>         
+                    </li>
+
+                      <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
+              </ul>
+        <%end%> 
+            </ul>
+                                   </div>
+                                  </td> 
+		                           </tr>
+                            </table>
+    </div>
+    </div>   
+    
+    <div id = "show_message_details" >
+        
+    </div>  
+    
+    
+      
+      
+      
+      
+    </div>  
+      
+    </div>
+    <br />
     <div id="emails_list">
     </div>
   </div><%#fragment 5%>

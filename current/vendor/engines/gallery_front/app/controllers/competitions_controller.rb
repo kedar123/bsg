@@ -1034,6 +1034,7 @@ class CompetitionsController < ApplicationController
           i=i+1
         end  
         page["iteam_image_uploaded"].hide  
+        page["useruploadedpic"].hide
       end
     end      
   end  

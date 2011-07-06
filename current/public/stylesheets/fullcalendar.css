@@ -589,3 +589,6 @@ table.fc-header {
     border-color: blue;     /* border color */
     color: white;           /* text color */
     }
+    .competition{
+        width:100px;
+    }
