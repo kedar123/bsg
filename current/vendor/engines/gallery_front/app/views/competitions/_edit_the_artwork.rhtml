@@ -1,81 +1,88 @@
 <div id="editartwork<%=updateimagearray[7] %>" >
-<style>
-  .changecolorgray{
-    color: #444444;
-    line-height: 15px;
-  }
-</style>
-<div class="inputfont">
+  <style>
+    .changecolorgray{
+      color: #444444;
+      line-height: 15px;
+    }
+  </style>
+  <div class="inputfont">
 
     <div id="messageforimageuploaded">
-    <%if !messageforimageuploaded.blank?%>
-    <%=messageforimageuploaded%>
-    <%end%>
+      <%if !messageforimageuploaded.blank?%>
+        <%=messageforimageuploaded%>
+      <%end%>
     </div>
 
-      <form action="edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[7]%>','show_ajax_request<%=updateimagearray[7]%>','competitions_user_editionnumber<%=updateimagearray[7]%>','competitions_user_editionname<%=updateimagearray[7]%>')"  id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>" >  
-      
-      
-<div class="changecolorgray">   
-  Title 
-</div>  
-  <input  name="competitions_user[worktitle]" id="field-28b2641aed510f0" style="width:310px; height: 14px;" value="<%=updateimagearray[0]%>" type="text"  >
-<div class="changecolorgray">     
-  Medium
-</div>  
-  <input  name="competitions_user[workmedium]" id="field-35aefdde6159fe0"  value="<%=updateimagearray[1]%>" type="text" style="width:310px;height: 14px;">
-<div class="changecolorgray">     
-<span style="font-size: 10px;">Size (width (cm) x height (cm)  x depth (cm - 3d work only)</span>
-</div>	
-<font style="color: #444444">
-	<%updateimagearray[2] = "" if updateimagearray[2] == nil %>
-	<input  name="competitions_user[worksize1]" id="field-c65f89902a9847f"  value="<%=updateimagearray[2].split('x')[0]%>" type="text" style="width: 92px;height: 14px;">
-          x
-  <input  name="competitions_user[worksize2]" id="field-c65f89902a9847g"  value="<%=updateimagearray[2].split('x')[1]%>" type="text" style="width: 92px;height: 14px;">
-          x
-   <input  name="competitions_user[worksize3]" id="field-c65f89902a9847h"  value="<%=updateimagearray[2].split('x')[2]%>" type="text" style="width: 92px;height: 14px;">
-</font>
-<div class="changecolorgray" >      
-  
-  <span style="padding-right:100px">
-   Price
-  </span> 
-  <span style="padding-right:40px;">
-     Edition From
-  </span> 
-  <span >
-     Edition To
-  </span> 
-  
-  
-</div>  
-   <input  name="competitions_user[workprice]" id="artwork_price<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[4]%>" type="text" style="width: 92px;height: 14px;">
-   <input  name="competitions_user[editionname]" id="competitions_user_editionname<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[5]%>" type="text" style="width: 92px;height: 14px;">
-   <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="competitions_user_editionnumber<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[6]%>" type="text" style="width: 92px;height: 14px;">
-   
-   
-<div class="changecolorgray">         
+    <form action="edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=updateimagearray[7]%>','show_ajax_request<%=updateimagearray[7]%>','competitions_user_editionnumber<%=updateimagearray[7]%>','competitions_user_editionname<%=updateimagearray[7]%>')"  id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>" >  
+
+
+      <div class="changecolorgray">   
+        Title 
+      </div>  
+      <input  name="competitions_user[worktitle]" id="field-28b2641aed510f0" style="width:375px; height: 14px;" value="<%=updateimagearray[0]%>" type="text"  >
+      <div class="changecolorgray">     
+        Medium
+      </div>  
+      <input  name="competitions_user[workmedium]" id="field-35aefdde6159fe0"  value="<%=updateimagearray[1]%>" type="text" style="width:375px;height: 14px;">
+      <div class="changecolorgray">     
+        <span style="font-size: 10px;margin-right:85px;">width (cm)  </span>
+
+        <span style="font-size: 10px;margin-right:75px;">  height (cm)   </span>
+
+        <span style="font-size: 10px;">  depth (cm) - if 3d work </span>
+
+
+
+      </div>	
+      <font style="color: #444444">
+      <%updateimagearray[2] = "" if updateimagearray[2] == nil %>
+      <input  name="competitions_user[worksize1]" id="field-c65f89902a9847f"  value="<%=updateimagearray[2].split('x')[0]%>" type="text" style="width: 113px;height: 14px;">
+      x
+      <input  name="competitions_user[worksize2]" id="field-c65f89902a9847g"  value="<%=updateimagearray[2].split('x')[1]%>" type="text" style="width: 113px;height: 14px;">
+      x
+      <input  name="competitions_user[worksize3]" id="field-c65f89902a9847h"  value="<%=updateimagearray[2].split('x')[2]%>" type="text" style="width: 113px;height: 14px;">
+      </font>
+      <div class="changecolorgray" >      
+
+        <span style="padding-right:100px">
+          Price
+        </span> 
+        <span style="padding-right:75px;padding-left:8px;">
+          Edition From
+        </span> 
+        <span >
+          Edition To
+        </span> 
+
+
+      </div>  
+      <input  name="competitions_user[workprice]" id="artwork_price<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[4]%>" type="text" style="width: 113px;height: 14px;">
+      <input  name="competitions_user[editionname]" id="competitions_user_editionname<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[5]%>" type="text" style="width: 105px;height: 14px;margin-left:10px;">
+      <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="competitions_user_editionnumber<%=updateimagearray[7]%>" size="40" value="<%=updateimagearray[6]%>" type="text" style="width: 113px;height: 14px;">
+
+
+      <div class="changecolorgray">         
 	 Image
-</div>
-	 <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" style="height: 28px;">
-	 <%=hidden_field_tag "competitionuserid",competitionuser%>
-	 <%=hidden_field_tag "titleforupdate",updateimagearray[7] %>
-
-         
-    <div style="float:left">
-         <%= submit_tag 'Upload'%>
-    </div>  
-
-         
-<br/>
-      <div style="clear:both;float:left;padding-right:5px;">
-	 <img src="/system/gallery/<%=updateimagearray[3]%>" width="90px" height="90px"/>   
       </div>
-    <div style="display: none;padding-top:2px;" id="show_ajax_request<%=updateimagearray[7]%>">
-               <img height="20" src="/images/ajax-spinner.gif" alt="loading">
-    </div>
+      <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" style="height: 28px;">
+      <%=hidden_field_tag "competitionuserid",competitionuser%>
+      <%=hidden_field_tag "titleforupdate",updateimagearray[7] %>
 
-</div>
+
+      <div style="float:left">
+        <%= submit_tag 'Upload'%>
+      </div>  
+
+
+      <br/>
+      <div style="clear:both;float:left;padding-right:5px;">
+        <img src="/system/gallery/<%=updateimagearray[3]%>" width="90px" height="90px"/>   
+      </div>
+      <div style="display: none;padding-top:2px;" id="show_ajax_request<%=updateimagearray[7]%>">
+        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+      </div>
+
+  </div>
 </form>
 </div>
 <iframe id="'upload_frame<%=updateimagearray[7]%>"   name="upload_frame<%=updateimagearray[7]%>" style="width:1px;height:1px;display:none"></iframe>

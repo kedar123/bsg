@@ -357,7 +357,12 @@ class CompetitionsController < ApplicationController
     #@order.total_entry = params[:competitions_user][:total_entry]
     #@order.save
     if  params[:competitions_user][:total_entry] == "0"
-      render :text=>"Please Select The Entry" 
+      render :update do |page|
+              page["modal_space_answer"].replace_html "Please Select The Entry"  
+              page["modal_space_answer"].show
+              page["show_ajax_request"].hide
+      end        
+      
       return
     end  
     @current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		
