@@ -49,7 +49,11 @@
            
            
 </script>
-
+<style>
+  .formElement{
+    line-height:25px;
+  }
+  </style>
 <div>
 <% form_for 'payment',
   :url => new_admin_payment_url,
@@ -63,16 +67,22 @@
     </div>
 -->
 
-    <div class="formElement"  style="font-size:10px;margin-top:3px;">
-      The total amount to pay is  <%= order.price %> $.
+    <div class="formElement"  style="font-size:10px;margin-top:0px;">
+      <h3 style="color:#000000">
+        The total amount to pay is  <%= order.price %> $.
+       </h3> 
     </div>
     <%if  !alreadypaidamt.blank?%>
-   <div style="float:left;margin-right:15px;margin-top:3px;">
-        Already Paid    <%=alreadypaidamt%>$
-   </div>
+       <div style="float:left;margin-right:15px;margin-top:-10px;">
+         <h3 style="color:#000000">
+            Already Paid    <%=alreadypaidamt%>$
+          </h3> 
+        </div>
    <%end%>
-    <div class="formElement"  style="font-size:10px;margin-top:3px;">
-      Deposit Required  <%= invoice.final_amount %> $.
+    <div class="formElement"  style="font-size:10px;margin-top:-10px;">
+         <h3 style="color:#000000">
+            Deposit Required  <%= invoice.final_amount %> $.
+          </h3> 
     </div>
 
 
@@ -155,12 +165,13 @@
 </div>
          
               
-              <div style="clear:both;float:left;margin-top:5px">
+                  <div style="clear:both;float:left;margin-top:10px">
                 <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment_exhibition", :update =>  'modal_space_answer',:complete=>"document.getElementById('show_ajax_request').style.display='none'" ,:before=>"document.getElementById('show_ajax_request').style.display='block'"}%>
-              </div>  
-              <div id="show_ajax_request" style="display:none;margin-left:5px;margin-top:5px;">
-                    <img alt="loading" src="/images/ajax-spinner.gif" height=18>
+               <div style="margin-left: 10px;padding-top:5px;float:right;display:none" id="show_ajax_request">    
+                <img alt="loading" src="/images/ajax-spinner.gif" height=18  />
               </div>
+              </div>  
+            
          </div>     
              
 <div id="modal_space_answer" style="padding-top:30px;">

@@ -1,4 +1,4 @@
-class CompetitionsController < ApplicationController
+ class CompetitionsController < ApplicationController
 	layout "front"
   require "prawn"
   require "fastercsv" 
@@ -1645,6 +1645,7 @@ class CompetitionsController < ApplicationController
         :credit_card=>@credit_card,:alreadypaidamt=>alreadypaidamt}
       page["description_competition_ex_py"].show
       page["iteam_image_uploaded"].hide
+      page["useruploadedpic"].hide
       for k in 0..9
         page["iteam_image#{k}"].hide
       end

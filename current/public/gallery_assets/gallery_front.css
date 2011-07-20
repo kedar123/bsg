@@ -504,6 +504,7 @@ white-space: nowrap;
   float: right;
   width: 150px;
   padding-top:10px;
+  height:20px;
 }
 
 #changethelineinfoexh{
@@ -511,5 +512,6 @@ white-space: nowrap;
   float: right;
   padding-top: 3px;
   width: 330px;
+  height:20px;
 }
 

@@ -118,8 +118,8 @@
                               <%end%>			
          </select>  
 	      		    <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"",:onchange=>"changetheline()"%>
-                <span id="changethelineinfo">
-                </span>  
+                <div id="changethelineinfo" style="height:20px;">
+                </div>  
                 
                 <script>
 	      	document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>
@@ -154,16 +154,19 @@
                                  <%= ff.text_field :number15, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number15')"%>
                                    <div class="changecolorgray">       
                                       <span> Expiry Date</span><span style="margin-left:124px;">Verification code (3 digits)</span>
-                                    </div>    
+                                    </div> 
+                                    <div>  
                                     <%= ff.date_select :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year => 2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"text-align: center"%>
                                     
-                                    <%= ff.text_field :verification_value, :label => 'Verification code (3 digits)' ,:value=>"123" ,:style=>"width:50px;height:16px;text-align:center"%>
-                                              <div style="padding-top:20px;">
+                                    <%= ff.text_field :verification_value, :label => 'Verification code (3 digits)' ,:value=>"123" ,:style=>"width:50px;height:16px;text-align:center;clear:both"%>
+                                    </div>  
+                                              <div style="clear:both;float:left;padding-top:20px;">
                                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
-                                           </div>  
-                                            <div id="show_ajax_request" style="display:none;height:25px;width:20px;position:absolute;margin:5px;">
+                                               <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
                                                       <img alt="loading" src="/images/ajax-spinner.gif" height=20>
-                                            </div>
+                                            </div> 
+                                              </div>  
+                                            
                                           </div><%#blank div ends%>
                                                
                                     <b>
