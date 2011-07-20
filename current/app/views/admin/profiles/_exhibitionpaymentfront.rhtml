@@ -69,24 +69,21 @@
 
     <div class="formElement"  style="font-size:10px;margin-top:0px;">
       <h3 style="color:#000000">
-        The total amount to pay is  <%= order.price %> $.
+        The total amount to pay is  <%= order.price.to_i %> $.
        </h3> 
     </div>
-    <%if  !alreadypaidamt.blank?%>
-       <div style="float:left;margin-right:15px;margin-top:-10px;">
-         <h3 style="color:#000000">
-            Already Paid    <%=alreadypaidamt%>$
-          </h3> 
-        </div>
-   <%end%>
-    <div class="formElement"  style="font-size:10px;margin-top:-10px;">
-         <h3 style="color:#000000">
-            Deposit Required  <%= invoice.final_amount %> $.
-          </h3> 
+
+ <div style="float:left;margin-right:15px;margin-top:-10px;">
+   <h3 style="color:#000000;float:left">
+        <%if  !alreadypaidamt.blank?%>
+            Already Paid    <%=alreadypaidamt.to_i%>$.
+        <%end%>
+           <span style="margin-left:5px;"> Deposit Required  <%= invoice.final_amount.to_i %> $.</span>
+       </h3> 
     </div>
+   
 
-
-<div>
+<div style="clear:both">
     <% fields_for credit_card do |ff| %>
       <%= ff.hidden_field :user_id, :value => @current_user.id %>
           

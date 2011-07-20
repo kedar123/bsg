@@ -1058,6 +1058,7 @@
 
   #this method is copy of above create_the_payment method this i have seperated for the sake of simplicity. actually the complete code is same but a minor difference
   def create_the_payment_exhibition
+   
     if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master_card"))         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
@@ -1089,7 +1090,7 @@
     end
     @current_object.user = @current_user		#@current_object.invoice = @invoice
     if  @order.instance_of? ExhibitionsUser
-      if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master card" 
+      if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master_card" 
         @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params,creditcardnumber)
       elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
@@ -1169,6 +1170,7 @@
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.   <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
         else
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
+          
           if  invoice.state == "created"
             alreadypaidamt = @order.price - invoice.final_amount
             note = "no notes created"
@@ -1274,7 +1276,9 @@
       page["iteam_image_uploaded"].hide
       eu=@order
    if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) 
+   p "but wrongly im in if"
    else
+     p p "but wrongly im in elsee"
         page["payonlineexhibition"].hide
    end 
       
@@ -1378,6 +1382,8 @@
     render :update do |page|
       page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil}
       page["description_competition_ex_py"].show
+      page["useruploadedpic"].hide
+      
       for k in 0..9
         page["iteam_image#{k}"].hide
       end
