@@ -1,3 +1,8 @@
+
+
+ 
+
+
 <style>
     .changecolorgray{
         color: #444444;
@@ -43,7 +48,7 @@
  </h2>
 <br/>
     <form action="upload_the_biography" method="post"    id="add_the_artwork_to_competition_biography"  >  
-     <textarea rows="2" cols="20" name="biography" id="biography">
+     <textarea rows="13" cols="46" name="biography" id="biography">
         please write your biography
      </textarea>
       <%=hidden_field_tag "total_entry",total_entry%>    
@@ -118,6 +123,14 @@
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>
 <%end%>
 
-
-
-
+ 
+  
+<script>
+scrollStep=500;
+timerLeft="";
+timerRight="";
+  function scrollDivRight(id){
+  document.getElementById(id).scrollLeft+=scrollStep;
+  }
+ scrollDivRight('container');
+</script>  

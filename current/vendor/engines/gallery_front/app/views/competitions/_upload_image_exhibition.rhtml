@@ -21,40 +21,53 @@
           <div class="changecolorgray">
 					<label>Title </label>
 					</div>
-							<input type="text"  id="artwork_title"  name="artwork[title]" style="width:310px;" >
-<div class="changecolorgray">
-							<label>Image</label>
-</div>
-							<input type="file" class="file" id="artwork_image" name="artwork[image]" size="22" >
+							<input type="text"  id="artwork_title"  name="artwork[title]" style="width:375px;" >
 			<div class="changecolorgray">
                    
 					<label>Medium </label>
 				</div>
-						<input type="text" ajax="true" id="artwork_medium" itemclass="Artwork" name="artwork[medium]" style="width:310px;" >
+						<input type="text" ajax="true" id="artwork_medium" itemclass="Artwork" name="artwork[medium]" style="width:375px;" >
 				<div class="changecolorgray">		
 					<label>
-						Size <span style="font-size: 10px;">width (cm) x height (cm)  x depth (cm - 3d work only)</span>
-					</label>
+                                          	<span style="font-size: 10px;margin-right:85px;">width (cm)  </span>
+                                                <span style="font-size: 10px;margin-right:75px;">height (cm)</span>
+                                                <span style="font-size: 10px;"> depth (cm) - if 3d work</span>
+                                                
+                                        </label>
 				</div>
+                         
+                     
 					<font style="color:#444444">
-					<input type="text" id="artwork_width" name="artwork[width]" style="width: 92px;"> x <input type="text" id="artwork_height" name="artwork[height]" style="width: 92px;"> x <input type="text" id="artwork_depth" name="artwork[depth]" style="width: 92px;"> 
-<div class="changecolorgray">
-					        <label>
-					Edition from<span style="font-size: 10px;margin-left:70px;">Edition Number</span>
-				</label>
-</div>
-					<input type="text" id="artwork_edition_name" name="artwork[edition_name]" style="width: 100px;"> of <input type="text" id="artwork_edition_number" name="artwork[edition_number]" style="width: 100px;">
-			    </font>
-      <div class="changecolorgray">         
-				<label>Price </label>
-			</div>
+					<input type="text" id="artwork_width" name="artwork[width]" style="width: 113px;height:14px;"> x <input type="text" id="artwork_height" name="artwork[height]" style="width: 113px;height:14px;"> x <input type="text" id="artwork_depth" name="artwork[depth]" style="width: 113px;height:14px;"> 
 
-				<input type="text"  id="artwork_price"  name="artwork[price]"   style="clear:both;width: 100px;">
-                                <br/>
+                                        
+                                        
+                                     <div class="changecolorgray"> 
+                          <span style="padding-right:100px">
+                               Price
+                           </span> 
+                          <span style="padding-right:75px;padding-left:8px;">
+                               Edition From
+                          </span> 
+                        <span>
+                               Edition Number
+                          </span> 
+                        
+                      </div> 
+                                         <input type="text"  id="artwork_price"  name="artwork[price]"   style="width: 113px;height: 14px;">
+                
+                                     
+					<input type="text" id="artwork_edition_name" name="artwork[edition_name]" style="width: 105px;height: 14px;margin-left:10px;"> of <input type="text" id="artwork_edition_number" name="artwork[edition_number]" style="width: 113px;height: 14px;">
+			    </font>
+                                  
                                   
 				<input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
-				
-				<div class="changecolorgray" style="padding-top:5px;margin-top:5px;float:left">
+				<div class="changecolorgray">
+							<label>Image</label>
+</div>
+							<input type="file" class="file" id="artwork_image" name="artwork[image]" size="22" >
+
+				<div class="changecolorgray" style="padding-right:80px;float:right">
 		   	
 				 <%#= submit_to_remote 'update_btn', 'Upload', :url => { :action => 'upload_exhibition_artwork' },
     :update => { :success => "" },:multipart=>true%>

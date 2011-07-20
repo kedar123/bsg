@@ -616,6 +616,7 @@ class CompetitionsController < ApplicationController
         page["list_show"].show
         page["iteam_image#{i}"].show
         page["add_the_artwork#{i}"].show
+        page["add_the_artwork#{i}"].focus
         page["modal_space_answer"].hide
         
       else  

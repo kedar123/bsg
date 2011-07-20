@@ -31,6 +31,16 @@ function check_the_checkbox(){
     document.getElementById('click_to_browse_images').innerHTML = "Click<a onclick=\"jQuery.ajax({data:'', success:function(request){jQuery('#').html(request);}, type:'post', url:'/competitions/edit_images_front?id="+comid+"&amp;order_id="+orderid+"'}); return false;\" href=\"#\"> Here</a>  to Browse Images."
     document.getElementById('click_to_browse_images').style.display='block';
   }
+
+  
+ function pageScroll() {
+    	document.getElementById("description_competition").scrollBy(500,0); // horizontal and vertical scroll increments
+    	//scrolldelay = setTimeout('pageScroll()',100); // scrolls every 100 milliseconds
+        var objDiv = document.getElementById("description_competition");
+        objDiv.scrollTop = objDiv.scrollHeight;
+
+}
+
 </script>
 <div id="specific_menu">
   <% if @competitions.first %>
@@ -147,7 +157,7 @@ function check_the_checkbox(){
             <h4><%=@oldlabelvalue["message_for_subscribers"]%></h4>
 		      <%=@competition.message_for_subscribers%><br/>          
             <br/>
-            
+           
      
 		     
         <%#= link_to 'Click here', enter_admin_competitions_subscriptions_path %>
