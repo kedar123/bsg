@@ -174,6 +174,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/profiles/compose_user_mail/:id",:controller=>"admin/profiles",:action=>"compose_user_mail"
   map.connect "/admin/profiles/create_sent_mail",:controller=>"admin/profiles",:action=>"create_sent_mail"
   map.connect "/admin/profiles/show_columns/:id",:controller=>"admin/profiles",:action=>"show_columns"
+  map.connect "/show_message_sent/:id",:controller=>"admin/profiles",:action=>"show_message_sent"
+  map.connect "/show_message_recd/:id",:controller=>"admin/profiles",:action=>"show_message_recd"
   
   
   

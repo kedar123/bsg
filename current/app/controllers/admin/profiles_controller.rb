@@ -69,10 +69,18 @@ class Admin::ProfilesController < Admin::ApplicationController
 		#@my_subscription = CompetitionsUser.find(:last);
     @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",@current_user.id,@current_object.id])
     #@folder = @current_object.user.inbox
-    @messages = @current_object.user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 10, :page => params[:page], :order => "created_at DESC"
+    @messages = @current_object.user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 500, :page => params[:page], :order => "created_at DESC"
+    
+   
+    #@messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null ",false], :per_page => 500, :page => params[:page], :order => "created_at DESC"
+
+    
+    
+    
+    
     @message_recd = []
     #above are the recd message and below are the sent message
-    adminuser = User.find_by_login("admin")
+    #adminuser = User.find_by_login("admin")
     @current_object.user.received_messages.each do |mc|
       @message_recd << mc.message
     end
@@ -246,5 +254,27 @@ class Admin::ProfilesController < Admin::ApplicationController
 			flash[:notice] = "Profile Is Updated"
 			redirect_to :back		
 	end
+  
+  def show_message_sent
+    
+    @message = Message.find(params[:id])
+       render :update do |page|
+        page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+        page["ajax_spinner"].visual_effect :hide
+      end
+  end
 
+  
+  
+  def show_message_recd
+    
+  
+  @message = current_user.sent_messages.find(params[:id])
+       render :update do |page|
+        page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+        page["ajax_spinner"].visual_effect :hide
+      end
+  end
+  
+  
 end

@@ -263,7 +263,7 @@
       <% end %>
     </div>
     <div id="fragment-5">
-      <div >
+      <div>
 <%#= link_to_remote 'Inbox', :url => list_all_messages_admin_emails_path(:profile_id => @current_object.id), :update => 'emails_list', :method => :get %>
 <%#= link_to 'Inbox',        inbox_admin_emails_path(:profile_id => @current_object.id) %>
 <%#= link_to 'Compose Mail', compose_mail_admin_emails_path %>
@@ -286,7 +286,7 @@
                               <!--<li class="field-checkbox fc">    <%#=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>-->
                               <li class="field-from-email"><%=h message.author.email %></li>
                               <li class="field-subject-email">
-                                <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show", :id => message.id }%>
+                                <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message_sent", :id => message.id }%>
   <%#action is show messsage%>         
                               </li>
 
@@ -313,7 +313,7 @@
                              <!-- <li class="field-checkbox fc">    <%#=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>-->
                               <li class="field-from-email"><%=h message.author.email %></li>
                               <li class="field-subject-email">
-                                <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show", :id => message.id }%>
+                                <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message_recd", :id => message.id }%>
   <%#action is show messsage%>         
                               </li>
 
