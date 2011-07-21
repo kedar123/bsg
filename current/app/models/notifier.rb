@@ -46,7 +46,7 @@ end
 
   def setup_email(user)
       recipients user.email
-      from "kedar.pathak@pragtech.co.in"
+      from "test@pragtech.co.in"
       sent_on Time.now
     end
 end

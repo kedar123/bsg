@@ -129,7 +129,7 @@
       <%= ff.text_field :number8, :label => 'Number',:value=>"2",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number8')"%>
       <%= ff.text_field :number9, :label => 'Number',:value=>"1",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number9')"%>
       <%= ff.text_field :number10, :label => 'Number',:value=>"0",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number10')"%>
-      <%= ff.text_field :number11, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;margin-right:20px;",:onblur=>"checkcreditcardno('credit_card_number11')"%>
+      <%= ff.text_field :number11, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;margin-right:20px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number11')"%>
       <%= ff.text_field :number12, :label => 'Number',:value=>"8",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number12')"%>
       <%= ff.text_field :number13, :label => 'Number',:value=>"7",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number13')"%>
       <%= ff.text_field :number14, :label => 'Number',:value=>"6",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number14')"%>
@@ -147,7 +147,7 @@
       </label>
      </div>
      <div class="formElement" style="font-size:10px;margin-top:1px;float:left;margin-right:10px;">
-      <%= ff.date_select :expiring_date, :order => [:year, :month], :label => 'Expiring date' ,:default => { :year => 2013,:month=>05 }%>
+      <%= ff.date_select :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year => 2013,:month=>05 }},:style=>"text-align:center"%>
      </div>
      
      

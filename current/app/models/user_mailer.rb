@@ -196,6 +196,8 @@ class UserMailer < ActionMailer::Base
         p.body render_message("user_mailer/send_invoice_exhibition.html.erb",:invoice=>invoice)
         p.transfer_encoding "base64"
        end
+       logger.info "im sending the email this is from email method"
+       logger.info "#{RAILS_ROOT}/public/pdf_invoice/#{invoice.id}invoice.pdf"
        attachment "application/pdf" do |a|
         a.body = File.read("#{RAILS_ROOT}/public/pdf_invoice/#{invoice.id}invoice.pdf")
         a.filename = "invoice.pdf"

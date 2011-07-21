@@ -182,6 +182,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
            # fill_color("0147FA")
            # fill_and_stroke_rectangle([490,26],120,13)
           end#do end
+          logger.info "the pdf is get generated #{invoice_id}"
 end	#method end
 
 

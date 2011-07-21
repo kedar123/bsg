@@ -1712,9 +1712,8 @@
     end_date = @groupshowuser.groupshow.ending_date.strftime("%d %b %Y")
     create_pdf(@payment.invoice.id,@payment.invoice.number,start_date,@payment.invoice.client.profile.full_address_for_invoice,@payment.invoice.client.profile.full_name_for_invoice,@groupshowuser.groupshow.title,@payment.invoice.final_amount.to_i,note,"","",false,end_date)
     begin
-    
-    email = UserMailer.create_send_invoice_groupshow(@payment.invoice,current_user)
-    UserMailer.deliver(email)
+      email = UserMailer.create_send_invoice_groupshow(@payment.invoice,current_user)
+      UserMailer.deliver(email)
     rescue
     end
     render :update do |page|
@@ -1724,7 +1723,7 @@
       page["add_the_artwork0"].show
       page["iteam_image0"].show
       page["iteam_image_uploaded"].hide
-      page["paymentlink#{@groupshowuser.id}"].replace_html "online paid"
+      #page["paymentlink#{@groupshowuser.id}"].replace_html "online paid"
     end
   end
   

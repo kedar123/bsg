@@ -68,11 +68,15 @@
                 <font size="5" color="white"><b>
                   <%=current_user.profile.first_name + "  " + current_user.profile.last_name%></b></font>
                   <br/><br/><br/>
-                  <div>
-                  <font size="3" color="white"><b>
-                    Competitions Entered
-                  </b></font>
-                  </div>
+                   <%if !@competitionuserenteredlist.blank?%>
+                      <div>
+                        <font size="3" color="white"><b>
+                          Competitions Entered
+                            </b>
+                        </font>
+                      </div>
+                  <%end%>
+                  
                  <div style="margin:5px"> 
                   <font  color="white">
                       <%if @competitionuserenteredlist%>
@@ -84,11 +88,15 @@
                   </font>
                   </div>
                   <br/><br/><br/>
-                  <div>
-                  <font size="3" color="white"><b>
-                    Exhibitions Entered
-                  </b></font>
-                  </div>
+                  <%if !@exhibitionuserlist.blank?%>
+                    <div>
+                      <font size="3" color="white"><b>
+                          Exhibitions Entered
+                      </b></font>
+                    </div>
+                  <%end%>
+                  
+                  
            <div style="margin:5px"> 
                <font  color="white">
                      <%if !@exhibitionuserlist.blank?%>

@@ -1262,6 +1262,21 @@ margin:0px 10px 0px 0px;
 .mm-field{
 	padding:0px;
 }
+.mm-field-email{
+	padding-left:20px;
+}
+
+.mm-field-email li{
+   border-bottom: 1px solid #CCCCCC;
+    float: left;
+    height: 20px;
+    list-style-type: none;
+    padding-top: 5px;
+
+/*	background:#ffe7ca;  */
+
+}
+
 #mail-head li{
  font-weight: bold;
    padding-left: 0;
@@ -1314,9 +1329,17 @@ margin:0px 10px 0px 0px;
 .field-from{
 	min-width:230px;
 	}
+.field-from-email{
+	width:200px;
+        overflow: hidden;
+	}        
 	
 .field-subject{
 	min-width:275px;
+}
+
+.field-subject-email{
+	width:245px;
 }
 
 .head-subject{
