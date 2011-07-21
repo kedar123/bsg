@@ -1,0 +1,13 @@
+log/*.log
+tmp/*
+tmp/**/*
+doc/api
+doc/app
+db/*.sqlite3
+public/pdf_invoice/*
+public/uploaded_files/*
+public/system/*
+*.swp
+*~
+.DS_Store
+
