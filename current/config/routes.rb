@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/edit_upload_the_artwork_to_groupshow/:id",:controller=>"competitions",:action=>"edit_upload_the_artwork_to_groupshow"
   
   
+  
   map.connect "/create_subscribe_competition_front",:controller=>"competitions",:action=>"create_subscribe_competition_front"
   map.connect "/create_subscribe_competition_front_edit",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
   
@@ -122,6 +123,15 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect "/admin/exhibitions/submit_exhibition_artwork/:id",:controller=>"admin/exhibitions",:action=>"submit_exhibition_artwork"
   map.connect "/admin/exhibitions/unselect_exhibition_artwork/:id",:controller=>"admin/exhibitions",:action=>"unselect_exhibition_artwork"
+  
+  map.connect "/admin/exhibitions/send_email_to_selected_user/:id",:controller=>"admin/exhibitions",:action=>"send_email_to_selected_user"
+  
+  map.connect "/admin/exhibitions/send_email_to_publish_user/:id",:controller=>"admin/exhibitions",:action=>"send_email_to_publish_user"
+  
+  
+  map.connect "/admin/exhibition_selected_user_email/:id",:controller=>"admin/exhibitions",:action=>"exhibition_selected_user_email"
+  
+  
   
  
   map.connect "/admin/invoices/new/:id",:controller=>"admin/invoices",:action=>"new"
@@ -234,7 +244,7 @@ ActionController::Routing::Routes.draw do |map|
     map.connect "/admin/competitions_users/destroy/:id",:controller=>"competitions_users",:action=>"destroy"
     map.resources :competitions_users  , :path_prefix => 'admin'
     map.resources :competitions_artworks  , :path_prefix => 'admin'
-
+    
   
   map.namespace :admin do |admin|
     admin.connect "/competitions/open/:id",:controller=>"competitions",:action=>"open"
@@ -246,6 +256,7 @@ ActionController::Routing::Routes.draw do |map|
     
     admin.connect "/compcreate_sent_mail_to_artist/:id",:controller=>"competitions",:action=>"compcreate_sent_mail_to_artist"
     admin.connect "/competitions/auto_complete_for_profile_email",:controller=>"competitions",:action=>"auto_complete_for_profile_email"
+    
     admin.connect "/compfind_signature_label",:controller=>"competitions",:action=>"compfind_signature_label"
     admin.connect "/compfind_signature",:controller=>"competitions",:action=>"compfind_signature"
     

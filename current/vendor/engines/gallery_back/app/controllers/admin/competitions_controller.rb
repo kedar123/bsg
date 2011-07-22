@@ -4,7 +4,7 @@
 # so see the documentation of that module for further informations.
 #
 class Admin::CompetitionsController < Admin::ApplicationController
-  auto_complete_for :profile, :email
+  
    before_filter :workspace_id
 
     def  workspace_id
@@ -58,12 +58,10 @@ class Admin::CompetitionsController < Admin::ApplicationController
           artwcomp.save
        end
     end
-    
-    
     @message = current_user.sent_messages.build(params[:message])
-    @message.prepare_copies(params[:profile][:email])
+    @message.prepare_copies(params[:message][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
-    all_the_recipient = params[:profile][:email].split(',')
+    all_the_recipient = params[:message][:email].split(',')
     EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
     if @message.save
       flash[:notice] = "Message sent."

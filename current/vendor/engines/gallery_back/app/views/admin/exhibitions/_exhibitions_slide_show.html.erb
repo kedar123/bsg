@@ -1,5 +1,6 @@
 <script>
   ss = new slideshow("ss");
+    <%if @all_artworks%>
       <%if @all_artworks.first %>
 	    <% @all_artworks.each do |a| %>
                               <%siz=a.height.to_s + " x " + a.width.to_s%>
@@ -19,7 +20,7 @@
                                 
 	  <%end%> 		
       <%end%>
-      
+    <%end%>  
              
     
 for (var i=0; i < ss.slides.length; i++) {
@@ -95,6 +96,7 @@ document.write('<TEXTAREA ID="ss_textarea" NAME="ss_textarea" ROWS="6" COLS="40"
 ss.textarea = document.ss_form.ss_textarea;
 </SCRIPT>
 </DIV>
+    <%if @all_artworks%>
       <%if @all_artworks.first %>
 	    <% @all_artworks.each do |a| %>
                               <p id='changemystatebefore<%=a.id%>' style="display:none;text-align:center">State 
@@ -106,6 +108,7 @@ ss.textarea = document.ss_form.ss_textarea;
                               </p>
             <%end%>                  
       <%end%>                        
+    <%end%>                          
 
 </FORM>
 

@@ -4,6 +4,7 @@
 # so see the documentation of that module for further informations.
 #
 class Admin::ExhibitionsController < Admin::ApplicationController
+  
 before_filter :workspace_id
 
 def  workspace_id
@@ -180,6 +181,20 @@ end
     render :nothing=>true
   end
   
+  def send_email_to_publish_user
+    exhibitionuserlist = ExhibitionsUser.find(:all,:conditions=>"exhibition_id = #{params[:id]} and state = 'published'")
+    @emailsendarray=[]
+    @usernames = []
+    exhibitionuserlist.each do |exhuser|
+      @emailsendarray << exhuser.user.profile.email_address
+      @usernames << exhuser.user.profile.first_name + " " + exhuser.user.profile.last_name
+    end
+    @usernames.uniq!
+    @emailsendarray.uniq!
+    @frommail = Frommail.find(:all)
+    @exhibition = Exhibition.find(params[:id])
+    render :layout=>"gallery_promoting_mail"
+  end
 
   
   def  create_group_show
@@ -206,8 +221,35 @@ end
     redirect_to "/admin/groupshows/#{groupshow.id}"
   end
   
+  def send_email_to_selected_user
+    exhibitionuserlist = ExhibitionsUser.find(:all,:conditions=>"exhibition_id = #{params[:id]}")
+    @emailsendarray=[]
+    @usernames = []
+    exhibitionuserlist.each do |exhuser|
+      @emailsendarray << exhuser.user.profile.email_address
+      @usernames << exhuser.user.profile.first_name + " " + exhuser.user.profile.last_name
+    end
+    @usernames.uniq!
+    @emailsendarray.uniq!
+    @frommail = Frommail.find(:all)
+    @exhibition = Exhibition.find(params[:id])
+    render :layout=>"gallery_promoting_mail"
+  end
   
-   
+  def exhibition_selected_user_email
+    @message = current_user.sent_messages.build(params[:message])
+    @message.prepare_copies(params[:message][:email])
+    @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
+    all_the_recipient = params[:message][:email].split(',')
+    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+    if @message.save
+      flash[:notice] = "Message sent."
+      redirect_to :back
+    else
+      render :action => "send_mail_to_artist"
+    end
+  end
+  
 	protected
 	def get_artworks_lists
 		if @current_user.has_system_role('admin')
@@ -223,7 +265,7 @@ end
   	
     end
 	end
-end
+  end
 
 
 module Resourceful
