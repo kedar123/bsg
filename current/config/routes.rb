@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  
+
   map.resources :newsletters
   map.resources :frommails
   map.resources :signatures
@@ -210,7 +212,21 @@ ActionController::Routing::Routes.draw do |map|
 	end
     map.connect "/admin/promoting_stuffs/update/:id",:controller=>"promoting_stuffs",:action=>"update"
     map.resources :promoting_stuffs  , :path_prefix => 'admin'
+  
+    map.resources :mailing_lists  , :path_prefix => 'admin'
+    
+    map.connect "/admin/show_studio_mail",:controller=>"mailing_lists",:action=>"show_studio_mail"
+    
+    map.connect "/admin/send_studio_email",:controller=>"mailing_lists",:action=>"send_studio_email"
+    
+    map.connect "/admin/send_mailing_email",:controller=>"mailing_lists",:action=>"send_mailing_email"
+    
+    map.connect "/admin/show_mailing_mail",:controller=>"mailing_lists",:action=>"show_mailing_mail"
+  
+      
+  
     map.connect "/admin/booksshops/update/:id",:controller=>"booksshops",:action=>"update"
+    
     map.resources :booksshops  , :path_prefix => 'admin'
     map.connect "/booksshops",:controller=>"booksshops",:action=>"index",:id=>"front"
     

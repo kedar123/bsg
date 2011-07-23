@@ -257,14 +257,14 @@ class UserMailer < ActionMailer::Base
 		@fromwhomeemailaddress = fromwhomeemailaddress
 	end
   
-    def website_role_change(useremail,fullname ,rolename,exhibitiontitle)
-        recipients "kedar.pathak@pragtech.co.in"
+  def website_role_change(useremail,fullname ,rolename,exhibitiontitle)
+        recipients "test@pragtech.co.in"
     	from "mark@bsgart.com.au"
       	sent_on Time.now
 		subject "Please Accept The Invitation For Artist"
 		@fromwhomename = "BSG Admin"
                 @exhibitiontitle = exhibitiontitle
-    end
+  end
 
   protected
 	# Method setting some default value for emails
