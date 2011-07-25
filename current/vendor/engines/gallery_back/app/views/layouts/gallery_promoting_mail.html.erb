@@ -200,8 +200,10 @@
                               <ul>
                               <% if a=Workspace.find(:first, :conditions => { :state => 'public'}) %>
                                        <li><%= link_to 'All competitions', container_path(a, :item_type => 'competitions') %></li>
-                                        <li><%= link_to 'All exhibitions', container_path(a, :item_type => 'exhibitions') %></li>
+                                       <li><%= link_to 'All exhibitions', container_path(a, :item_type => 'exhibitions') %></li>
                                        <li><%= link_to 'All galleries', container_path(a, :item_type => 'galleries') %></li>
+                                       <li><%= link_to 'Studio ', "/admin/show_studio_mail" %></li>
+                                       <li><%= link_to 'Mailing List', "/admin/show_mailing_mail" %></li>
                                        <!--<li><%= link_to 'All group show', container_path(a, :item_type => 'groupshow') %></li>-->
                           <% end %>
                         </ul>

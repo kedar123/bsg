@@ -202,8 +202,10 @@
                               <ul>
                               <% if a=Workspace.find(:first, :conditions => { :state => 'public'}) %>
                                        <li><%= link_to 'All competitions', container_path(a, :item_type => 'competitions') %></li>
-                                        <li><%= link_to 'All exhibitions', container_path(a, :item_type => 'exhibitions') %></li>
+                                       <li><%= link_to 'All exhibitions', container_path(a, :item_type => 'exhibitions') %></li>
                                        <li><%= link_to 'All galleries', container_path(a, :item_type => 'galleries') %></li>
+                                       <li><%= link_to 'Studio ', "/admin/show_studio_mail" %></li>
+                                       <li><%= link_to 'Mailing List', "/admin/show_mailing_mail" %></li>
                                       <!-- <li><%= link_to 'All group show', container_path(a, :item_type => 'groupshow') %></li>-->
                           <% end %>
                         </ul>
@@ -372,7 +374,17 @@
                                             <%= "Workspace" %>
                                           </div><div class="blockCornerRight"></div>
                                           <div class="blockElementBody">
-                                              <%= current_container ? "Dear #{@current_user.profile.full_name}, you are inside '#{current_container.title}' workspace, click #{ link_to 'here', '/admin' } to leave that workspace." : "Dear #{@current_user.profile.full_name}, you are actually at the root of the back end of the application, <br/>What can I do? #{ link_to('Back to BSG website', '/')} " %>
+                                              <%= current_container ? "Dear #{@current_user.profile.full_name}, you are inside '#{current_container.title}' workspace, click #{ link_to 'here', '/admin' } to leave that workspace." : "Dear #{@current_user.profile.full_name}, you are actually at the root of the back end of the application, <br/>What can I do? <br/>#{ link_to('Back to BSG website', '/')} " %>
+                                          <br/>
+                                          
+                                          <%if params[:controller] == 'app_homes' and params[:action] == 'index'%>
+                                              <%=link_to "Edit", "/admin/app_homes/#{@app_home[0].id}/edit"%>  
+                                              <br/>
+                                              <%=link_to "Delete", "/admin/app_homes/#{@app_home[0].id}" ,:method=>"delete" ,:confirm=>"Are You Sure"%>
+                                              <br/>
+                                              <%=link_to "Show", "/admin/app_homes/#{@app_home[0].id}"%>
+                                          <%end%>
+                                          
                                           </div>
                                         </div>
                         </div> 

@@ -739,10 +739,12 @@
   end  
    
   def upload_the_biography
+
     current_user.profile.biography = params[:biography]
     current_user.profile.save
+    order = CompetitionsUser.find(params[:order_id])
     render :update do |page|
-        page["add_the_artwork#{params[:total_entry].to_i+1}"].replace_html "Thanku notes"
+        page["add_the_artwork#{params[:total_entry].to_i+1}"].replace_html order.competition.notes
         page["pleaseaccepttermsandcondition"].hide
         page["pleaseaccepttccheckbox"].hide
         page["show_ajax_request"].hide

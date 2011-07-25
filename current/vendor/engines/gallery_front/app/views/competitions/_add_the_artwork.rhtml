@@ -52,6 +52,7 @@
         please write your biography
      </textarea>
       <%=hidden_field_tag "total_entry",total_entry%>    
+      <%=hidden_field_tag "order_id",order_id%>  
        <%= submit_to_remote 'create_btn', 'Proceed', :url => { :action => 'upload_the_biography' },:before=>"checkthebiographyfield(#{i})" %>
    </form>  
  <div style="display: none;padding-top:2px;" id="show_ajax_request<%=i%>">

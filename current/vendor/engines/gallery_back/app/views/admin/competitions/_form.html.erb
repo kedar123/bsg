@@ -270,8 +270,8 @@
     
     </table>
 <br/>
-   <table> 
-    
+
+<table> 
     <tr align="left">
 <div style="margin-top: 28px;">
      <td valign="top">
@@ -287,6 +287,26 @@
       </td>
     </tr>  
 </table>
+
+
+
+<table> 
+    <tr align="left">
+<div style="margin-top: 28px;">
+     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:50px;">
+       Notes
+      </td> 
+</div>   
+     <td valign="top">
+            <%= f.text_field :notes, :label => '',:style=>"width:430px;",:value=>"#{@current_object.notes}" %>
+      </td>
+    </tr>  
+</table>
+
+
+
+
+
 <label>Exhibition Runs</label><br />
   <div style="margin-left:22px;">
   <% f.fields_for :timing do |ff| %>

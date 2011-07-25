@@ -30,8 +30,8 @@
     <%if !@artworkexhibition.blank?%> 
       <%for artwork in @artworkexhibition%>
           s1 = new slide();
-          s1.src =  '<%="/uploaded_files/production/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
-          s1.link = '<%="/uploaded_files/production/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+          s1.src =  '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+          s1.link = '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
           s1.slideshowid = '<%=eu.exhibition.id%>';
           s1.title = "<%=artwork.title%>";
         <%size = ""%>

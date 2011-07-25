@@ -61,7 +61,7 @@ class VisitorsController < ApplicationController
 		@profile = Profile.new
 	end
      
-     def adding_profile
+  def adding_profile
 	  @profile = Profile.new
 	  @studiosndmailinglist = StudioAndMailingList.new(params[:profile])
 		if !params[:profile][:studio].blank?
@@ -90,8 +90,7 @@ class VisitorsController < ApplicationController
 	   	else
      	render :action => 'studios'
 	   	end 		     
-      
-	end
+  end
      
      
 	
