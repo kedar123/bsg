@@ -31,7 +31,7 @@ end
 			sr = Role.find_by_name('artist')
 			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
 			session[:user_ids] = @current_object.user_ids
-			if  !params[:workspace_id].blank?
+    	if  !params[:workspace_id].blank?
 				@workspace = Workspace.find(params[:workspace_id])
 			end
     end
@@ -52,6 +52,10 @@ end
 			sr = Role.find_by_name('artist')
 			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
 			session[:user_ids] = @current_object.user_ids
+      session[:oldexhibitionusers] = @current_object.exhibitions_users
+      p "im from edit"
+      p session[:oldexhibitionusers]
+      p "i stored the old users"
 			if  !params[:workspace_id].blank?
 				@workspace = Workspace.find(params[:workspace_id])
 			end
@@ -97,7 +101,7 @@ end
 		 	      if  @current_object.user_ids.blank?
 		            newuserid = []
 		        else
-		            newuserid =  @current_object.user_ids
+                newuserid =  @current_object.user_ids
 		        end
 		        if  session[:user_ids].blank?
 		            olduserid = []
@@ -105,10 +109,15 @@ end
 		             olduserid = session[:user_ids]
 		        end
 		        new_user_id = newuserid - olduserid
-            
-		        session[:user_ids]  = nil
-				    user = User.find(new_user_id)
-				    user.each do |u|
+            session[:user_ids]  = nil
+    #here im re submitting the old exhibition user data
+            session[:oldexhibitionusers].each do |exhu|
+            exnu=ExhibitionsUser.new(:user_id=>exhu.user_id,:exhibition_id=>exhu.exhibition_id,:state=>exhu.state,:price=>exhu.price,:invited_at=>exhu.invited_at,:created_at=>exhu.created_at,:updated_at=>exhu.updated_at)
+            exnu.save
+            end
+            session[:oldexhibitionusers] = nil
+            user = User.find(new_user_id)
+            user.each do |u|
 				        if !u.blank?
 				            exhibitionuser = ExhibitionsUser.find(:first,:conditions=>["user_id= #{u.id} and exhibition_id=#{@current_object.id}"])
 				            exhibitionuser.init
@@ -117,7 +126,8 @@ end
 	                  # QueuedMail.send_emails
 	              end
             end
-            #here i need update all the user 
+            
+            
    	end
 
    #     after :update do
