@@ -33,7 +33,12 @@ class Admin::ExhibitionsUsersController < Admin::ApplicationController
     artwork.each do |art|
     ArtworksExhibition.delete_all("artwork_id = #{art.id}")
     end
+    Invoice.delete_all("purchasable_type = 'ExhibitionsUser' and purchasable_id = #{exus.id}") 
     ExhibitionsUser.delete_all(params[:id])
+    
+     
+    
+    
     flash[:notice] = "Exhibition User is Deleted"
     redirect_to :back
   end

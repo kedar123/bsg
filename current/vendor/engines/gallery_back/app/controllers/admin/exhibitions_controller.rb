@@ -37,7 +37,7 @@ end
     end
     
   before :edit do
-		       if !params[:workspace_id].blank?
+           if !params[:workspace_id].blank?
 		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
 		    
 		       end
