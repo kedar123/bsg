@@ -29,6 +29,9 @@
     </td>
     <% if ue.state == 'created' || ue.state == 'invitation_sent' %>
       <td><%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %></td>
+    <% elsif ue.state == 'invited'%>  
+    <%#here i need the blank d for alignment%>  
+    <td> </td> 
       
     <% elsif ue.state == 'published' %>
       <td><%= link_to 'Unpublish', update_state_admin_exhibitions_user_path(ue.id, :state => 'unpublished') %></td>
@@ -38,7 +41,7 @@
      <%end%>
     <td><%= text_field_tag "prices_list[#{ue.id}]", ue.price, :disabled => (['accepted', 'validated', 'published'].include?(ue.state)), :size => 8,:style=>"display:none" %></td>
   
-      <td><%= link_to 'Delete', delete_user_admin_exhibitions_user_path(ue.id) ,:method=>'post',:confirm=>"Are You Sure To Delete This User From #{@current_object.title}"%></td>
+    <td><%= link_to 'Delete', delete_user_admin_exhibitions_user_path(ue.id) ,:method=>'post',:confirm=>"Are You Sure To Delete This User From #{@current_object.title}"%></td>
   
   
   </tr>
