@@ -1060,8 +1060,7 @@
 
   #this method is copy of above create_the_payment method this i have seperated for the sake of simplicity. actually the complete code is same but a minor difference
   def create_the_payment_exhibition
-   
-    if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master_card"))         
+    if((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master_card"))         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
         credit_card = CreditCard.new(params[:credit_card])
@@ -1277,11 +1276,10 @@
       page["iteam_image0"].show
       page["iteam_image_uploaded"].hide
       eu=@order
-   if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) 
-   p "but wrongly im in if"
+   if    !eu.user.invoices.blank?  and((eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) 
    else
-     p p "but wrongly im in elsee"
-        page["payonlineexhibition"].hide
+        
+        page["payonlineexhibition#{eu.id}"].replace_html "online paid"
    end 
       
     end
@@ -1662,7 +1660,6 @@
   
   def show_group_payment
     @payment = Payment.new
-    
     current_user.profile.biography = params[:biography]
     current_user.profile.save
     creditcardno =  params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
@@ -1725,7 +1722,7 @@
       page["add_the_artwork0"].show
       page["iteam_image0"].show
       page["iteam_image_uploaded"].hide
-      #page["paymentlink#{@groupshowuser.id}"].replace_html "online paid"
+      page["paymentlink#{@groupshowuser.id}"].replace_html "online paid"
     end
   end
   

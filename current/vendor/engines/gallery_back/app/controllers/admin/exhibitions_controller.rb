@@ -53,9 +53,7 @@ end
 			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
 			session[:user_ids] = @current_object.user_ids
       session[:oldexhibitionusers] = @current_object.exhibitions_users
-      p "im from edit"
-      p session[:oldexhibitionusers]
-      p "i stored the old users"
+      
 			if  !params[:workspace_id].blank?
 				@workspace = Workspace.find(params[:workspace_id])
 			end
@@ -110,11 +108,18 @@ end
 		        end
 		        new_user_id = newuserid - olduserid
             session[:user_ids]  = nil
-    #here im re submitting the old exhibition user data
+            #here im re submitting the old exhibition user data
             session[:oldexhibitionusers].each do |exhu|
             exnu=ExhibitionsUser.new(:user_id=>exhu.user_id,:exhibition_id=>exhu.exhibition_id,:state=>exhu.state,:price=>exhu.price,:invited_at=>exhu.invited_at,:created_at=>exhu.created_at,:updated_at=>exhu.updated_at)
             exnu.save
+             #here i need to update the invoices also because the exhibition user id changed so invoice need to be changed
+            inv = Invoice.find(:all,:conditions=>"purchasable_type = 'ExhibitionsUser' and purchasable_id = #{exhu.id}")
+            inv.each do |invc|
+              invc.purchasable_id = exnu.id
+              invc.save
             end
+            end
+           
             session[:oldexhibitionusers] = nil
             user = User.find(new_user_id)
             user.each do |u|

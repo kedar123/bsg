@@ -31,6 +31,8 @@ class GroupshowsController < ApplicationController
                 usergroupshow.state = "created"
                 usergroupshow.save
                 flash[:notice] = "User Is Added To GroupShows"
+          else
+            flash[:notice] = "User Is Already Get Added To Groupshow"
           end  
          end
        
