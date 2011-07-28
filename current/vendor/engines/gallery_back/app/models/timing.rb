@@ -16,16 +16,31 @@ class Timing < ActiveRecord::Base
 	
 	validates_presence_of :starting_date, :ending_date
 
-	def to_calendar_format
+	def to_calendar_format_start
 		# JSON powa
+    
 		return {
 				:title => self.objectable ? self.objectable.title : "problem with timing #{self.id}",
 				:start => self.starting_date,
-				:end => self.ending_date,
+				#:end => self.ending_date,
 				:url => self.objectable ? "/admin/#{self.objectable_type.downcase.pluralize}/#{self.objectable_id}" : '#',
 				:className => [ self.objectable_type.downcase ]
 			}
 	end
+  
+  def to_calendar_format_end
+		# JSON powa
+    
+		return {
+				:title => self.objectable ? self.objectable.title : "problem with timing #{self.id}",
+				:start => self.ending_date,
+				#:end => self.ending_date,
+				:url => self.objectable ? "/admin/#{self.objectable_type.downcase.pluralize}/#{self.objectable_id}" : '#',
+				:className => [ self.objectable_type.downcase ]
+			}
+	end
+  
+  
 
 	def gallery_ids= param
 		self.places_id = param.join(',')

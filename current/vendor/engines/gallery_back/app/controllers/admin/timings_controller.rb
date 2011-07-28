@@ -13,15 +13,17 @@ class Admin::TimingsController < Admin::ApplicationController
 	def index
 		if params[:event]
 			@timings = Timing.all(:conditions =>"objectable_type = '#{params[:event]}' and objectable_id is not null")
-
-   	else
+    else
 			@timings = Timing.all
 		end
-		respond_to do |format|
+    mystartexhibition = @timings.map{ |e| e.to_calendar_format_start }
+    @timings.map{ |e| mystartexhibition.push(e.to_calendar_format_end) }
+    respond_to do |format|
 			format.html
-			format.json { render :json => @timings.map{ |e| e.to_calendar_format } }
+     	format.json { render :json => mystartexhibition }
 		end
-	end
+    
+  end
 
 	def create
 		@timing = Timing.new(params[:timing].merge(:state => 'request'))
