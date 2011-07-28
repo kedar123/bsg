@@ -16,34 +16,34 @@
     <td><%=h ue.user.profile.full_name %></td>
     <td><%=h ue.user.email %></td>
     <td>
-      <%if ue.state == "validated" || ue.state == 'published' || ue.state == 'unpublished'%>  
+      <%if ue.state != "validated" %>  
+        <%=" unpaid " %>
+      <%else%> 
         <%=" paid " %>
       <%end%> 
-      <%if ue.state == 'created' || ue.state == 'accepted' || ue.state == 'invitation_sent' ||ue.state == 'invited'%>  
-        <%=" unpaid " %>
-      <%end%> 
-     
     </td>
     <td><%#= link_to 'Show', admin_profile_path(ue.user.profile.id) %>
-    
     </td>
-    <% if ue.state == 'created' || ue.state == 'invitation_sent' %>
-      <td><%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %></td>
-    <% elsif ue.state == 'invited'%>  
-    <%#here i need the blank d for alignment%>  
-    <td> </td> 
-      
-    <% elsif ue.state == 'published' %>
-      <td><%= link_to 'Unpublish', update_state_admin_exhibitions_user_path(ue.id, :state => 'unpublished') %></td>
+    <td>
+      <% if ue.invited_at.blank? %>
+        <%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
+      <% elsif !ue.invited_at.blank?%>  
+          <%#here i need the blank d for alignment%>  
+          <%= link_to "Resend Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
+     <%end%> 
+      </td>
+    <% if ue.state == 'published' %>
+    <td>
+      <%#here atually i need to add a column that will check weather the email is sent or not if it is sent then resend %>
+      <%= link_to 'Unpublish', update_state_admin_exhibitions_user_path(ue.id, :state => 'unpublished') %>
+      <%else%>
     <% end %>
-     <%if ue.state != 'published'%> 
-      <td><%= link_to 'Publish', update_state_admin_exhibitions_user_path(ue.id, :state => 'published') %></td>
-     <%end%>
+      </td>
+      <%if ue.state != 'published'%> 
+       <td><%= link_to 'Publish', update_state_admin_exhibitions_user_path(ue.id, :state => 'published') %></td>
+      <%end%>
     <td><%= text_field_tag "prices_list[#{ue.id}]", ue.price, :disabled => (['accepted', 'validated', 'published'].include?(ue.state)), :size => 8,:style=>"display:none" %></td>
-  
     <td><%= link_to 'Delete', delete_user_admin_exhibitions_user_path(ue.id) ,:method=>'post',:confirm=>"Are You Sure To Delete This User From #{@current_object.title}"%></td>
-  
-  
   </tr>
 <% end %>
   </tbody>
