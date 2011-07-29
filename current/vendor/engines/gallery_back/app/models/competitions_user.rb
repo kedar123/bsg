@@ -148,7 +148,7 @@ class CompetitionsUser < ActiveRecord::Base
                              	 ac=ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i].to_s,self.id])
                              	 ac.state="unselected"
                              	 ac.mark=0
-                             	 ac.save                       
+                             	 ac.save  
                              end
                            
 	else
@@ -264,9 +264,6 @@ class CompetitionsUser < ActiveRecord::Base
  	       for totalentry in 0...self.total_entry.to_i
 	            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[totalentry],self.id]).blank?)
                   if !(self.send image_array[totalentry]).blank?
-                    p "while creating the artwork competition checking what is the avatar  name is get written"
-                    p competitionuser["workimage"]
-                    p competitionuser["workimage"].original_filename
                     ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[totalentry],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"])
                   end
               else#here i need to update the image

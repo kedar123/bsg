@@ -85,10 +85,13 @@ end
     before :destroy do
      begin 
      exhibitionuser =  ExhibitionsUser.find(:all,:conditions=>["exhibition_id = #{@current_object.id}"])
+     
      for exhu in exhibitionuser
        Invoice.delete_all("purchasable_type = 'ExhibitionsUser' and purchasable_id = #{exhu.id}") 
      end
+     Artwork.delete_all("exhibition_id = #{exhu.exhibition.id}") 
      rescue
+       logger.info "some database is not get deleted"
      end
     end  
   

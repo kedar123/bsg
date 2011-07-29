@@ -713,7 +713,7 @@
       totalsize = params[:competitions_user]["worksize1"].to_s+"x"+params[:competitions_user]["worksize2"].to_s+"x"+params[:competitions_user]["worksize3"].to_s
       order.send(size_array[i],totalsize)
       order.save_image(params[:competitions_user],i)
-      order.submit_artwork(params[:competitions_user])
+      order.submit_artwork(params[:competitions_user],i)
       order.save
       
       
@@ -1023,6 +1023,8 @@
         page["add_the_artwork0"].show
         page["iteam_image0"].show   
         page["iteam_image_uploaded"].hide   
+        page["description_competition_ex_py1"].hide  
+        page["description_competition_ex_py"].hide  
       end
     else 
       render :update do |page|
@@ -1294,8 +1296,6 @@
 
   def create_exhibition_artwork
     i=1
-    p params
-    p "this all is my params"
     params[:artwork].each do   
       if !params[:artwork_id].blank?
         @artwork = ExhiArtwork.find(params[:artwork_id])
@@ -1310,9 +1310,6 @@
         @artwork.edition_number = params[:artwork]["edition_number"+@artwork.id.to_s]
         @artwork.price = params[:artwork]["price"+@artwork.id.to_s]
         @artwork.is_purchasable = params[:artwork]["is_purchasable"+@artwork.id.to_s]  
-        p "just checking here is purchasable"
-        p @artwork.is_purchasable
-        p params[:artwork]["is_purchasable"+@artwork.id.to_s]
         @artwork.save
       else  
         @artwork = ExhiArtwork.new()

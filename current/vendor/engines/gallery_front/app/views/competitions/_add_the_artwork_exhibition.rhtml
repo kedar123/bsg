@@ -1,70 +1,79 @@
 
 <style>
-.changecolorgray{
-  color: #444444;
-  line-height: 15px;
-}
-   
+  .changecolorgray{
+    color: #444444;
+    line-height: 15px;
+  }
+
 </style>
- <div id="messageforimageuploaded">
+<div id="messageforimageuploaded">
 
-<%if !messageforimageuploaded.blank?%>
-  <%=messageforimageuploaded%>
-<%end%>
- </div>
+  <%if !messageforimageuploaded.blank?%>
+    <%=messageforimageuploaded%>
+  <%end%>
+</div>
 <div  class="inputfont">
-<form action="/competitions/create_exhibition_artwork_insamediv" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition" method="post" onsubmit="return Checkfiles('add_the_artwork_to_competition','show_ajax_request','artwork_edition_number','artwork_edition_name')" target="upload_frame">
+  <form action="/competitions/create_exhibition_artwork_insamediv" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition" method="post" onsubmit="return Checkfiles('add_the_artwork_to_competition','show_ajax_request_exhi','artwork_edition_number','artwork_edition_name')" target="upload_frame">
     <%=hidden_field_tag "exhibition_id",exhibition_id%>
-          <div class="changecolorgray">
-					<label>Title </label>
-					</div>
+    <div class="changecolorgray">
+      <label>Title </label>
+    </div>
 
-							<input type="text" ajax="true" hint="Title of Item" id="artwork_title" itemclass="Artwork" name="artwork[title]" style="width:310px;" url="/admin/artworks/validate" validate="title">
-<div class="changecolorgray">
-							<label>Image</label>
-</div>
-							<input type="file" class="file" id="artwork_image" name="artwork[image]" size="27" value="/images/original/missing.png">
-			<div class="changecolorgray">
-                   
-					<label>Medium </label>
-				</div>
-						
-						<input type="text" ajax="true" id="artwork_medium" itemclass="Artwork" name="artwork[medium]" style="width:310px;" url="/admin/artworks/validate" validate="medium">
-					
-				<div class="changecolorgray">		
+    <input type="text" ajax="true" hint="Title of Item" id="artwork_title" itemclass="Artwork" name="artwork[title]" style="width:375px;" url="/admin/artworks/validate" validate="title">
+       <div class="changecolorgray">
+
+      <label>Medium </label>
+    </div>
+
+    <input type="text" ajax="true" id="artwork_medium" itemclass="Artwork" name="artwork[medium]" style="width:375px;" url="/admin/artworks/validate" validate="medium">
+
+    <div class="changecolorgray">		
 					<label>
-						Size <span style="font-size: 10px;">width (cm) x height (cm)  x depth (cm - 3d work only)</span>
-					</label>
-				</div>
-					<font style="color:#444444">
-					<input type="text" id="artwork_width" name="artwork[width]" style="width: 92px;"> x <input type="text" id="artwork_height" name="artwork[height]" style="width: 92px;"> x <input type="text" id="artwork_depth" name="artwork[depth]" style="width: 92px;"> 
-<div class="changecolorgray">
-					        <label>
-					Edition <span style="font-size: 10px;">(if applicable)</span>
-				</label>
-</div>
-					<input type="text" id="artwork_edition_name" name="artwork[edition_name]" style="width: 100px;"> of <input type="text" id="artwork_edition_number" name="artwork[edition_number]" style="width: 100px;">
-			    </font>
-      <div class="changecolorgray">         
-				<label>Price </label>
-			</div>
+                                          	<span style="font-size: 10px;margin-right:85px;">width (cm)  </span>
+                                                <span style="font-size: 10px;margin-right:75px;">height (cm)</span>
+                                                <span style="font-size: 10px;"> depth (cm) - if 3d work</span>
+                                                
+                                        </label>
+    </div>
+    <font style="color:#444444">
+    <input type="text" id="artwork_width" name="artwork[width]" style="width: 113px;height:14px;"> x <input type="text" id="artwork_height" name="artwork[height]" style="width: 113px;height:14px;"> x <input type="text" id="artwork_depth" name="artwork[depth]" style="width: 113px;height:14px;"> 
+    <div class="changecolorgray"> 
+                          <span style="padding-right:100px">
+                               Price
+                           </span> 
+                          <span style="padding-right:75px;padding-left:8px;">
+                               Edition From
+                          </span> 
+                        <span>
+                               Edition Number
+                          </span> 
+                        
+    </div>
+    <input type="text" ajax="true" id="artwork_price" itemclass="Artwork" name="artwork[price]"  url="/admin/artworks/validate" validate="price" style="width: 113px;height: 14px;">
+    
+    <input type="text" id="artwork_edition_name" name="artwork[edition_name]" style="width: 105px;height: 14px;margin-left:10px;"> of <input type="text" id="artwork_edition_number" name="artwork[edition_number]" style="width: 113px;height: 14px;">
+    </font>
+    
 
-				<input type="text" ajax="true" id="artwork_price" itemclass="Artwork" name="artwork[price]"  url="/admin/artworks/validate" validate="price" style="width: 100px;">
-                                  <br/>
-				<div class="changecolorgray" style="margin-top:5px;padding-top:5px;float:left">
-				     <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
-			            <button class="submitButton" type="submit" onclick="">
-                                      <span>Upload</span>
-                                    </button>
-                                </div>
-                                <div style="display: none;padding-top:12px;" id="show_ajax_request">
-                                        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
-                                </div>
-                                <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
-</form>
+    
+     <div class="changecolorgray">
+      <label>Image</label>
+    </div>
+    <input type="file" class="file" id="artwork_image" name="artwork[image]" size="22" value="/images/original/missing.png"/>
+
+   <div style="padding-right:80px;float:right" class="changecolorgray">
+		   	
+				 
+    <input type="submit" value="Upload" name="commit">
+        </div>
+    <div style="display: none;padding-top:12px;" id="show_ajax_request_exhi">
+      <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+    </div>
+    <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
+  </form>
 </div>
 <%#=link_to_remote "Add More", :update => "",
-    :url => {:action => "add_exhibition_artwork",:exhibition_user_id => exhibition_user_id,:artwork_count=>artwork_count }
+:url => {:action => "add_exhibition_artwork",:exhibition_user_id => exhibition_user_id,:artwork_count=>artwork_count }
 %>
 <%=hidden_field_tag "exhibition_user_id",exhibition_user_id%>
 
