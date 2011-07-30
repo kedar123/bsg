@@ -11,6 +11,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
        if  params["competition"] && params["competition"]["workspace_ids"].blank?
         params["competition"]["workspace_ids"]=Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id.to_s
        end
+       
     end
 
 	def  send_winner_email
@@ -137,7 +138,8 @@ after :update do
                       columnnameandheader.idoffieldwithtablename = (@current_object.id.to_s+"competition")
                       columnnameandheader.save
                    end 
-               end      
+               end 
+        p "im afre the update"      
       end  
 
 
@@ -172,7 +174,7 @@ after :update do
       		
 		
 		before :show do
-       
+       p "i got redirected after update"
         
         @total_artist = CompetitionsUser.count(:conditions => "competition_id = #{@current_object.id}")
         @total_entry = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id}")

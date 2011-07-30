@@ -36,11 +36,11 @@
 
           function checkcreditcardno(ckechnumberid){
              var x=document.getElementById(ckechnumberid).value;
-             var anum=/(^\d+$)|(^\d+\.\d+$)/
+             var anum=/(^\d+$)|(^\d+\.\d+$)/;
              if (anum.test(x))
-                testresult=true
+                testresult=true;
              else{
-                alert("Please input a valid number!")
+                alert("Please input a valid number!");
                 }
            }                                     
 					
@@ -179,6 +179,6 @@
 <div class="formElement">
  </div>   
   <% end %>
-</div>
+
 <div id="paypal_form">
 </div>

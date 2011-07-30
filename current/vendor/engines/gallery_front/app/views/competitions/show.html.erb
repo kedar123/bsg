@@ -68,6 +68,13 @@ function check_the_checkbox(){
             
             
             
+        
+       <%if logged_in?%>     
+       <%else%>     
+        Please  <a href="/login/<%=@competition.id%>"><b>Login</b></a>  To Enter Into Competition &nbsp;&nbsp;or &nbsp;&nbsp;
+       <a href="/subscribe/<%=@competition.id%>" > Register </a>   
+       <%end%>     
+        
             
         <%if logged_in?%>  
             <%if !@competitionuser.blank?%>

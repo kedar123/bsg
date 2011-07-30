@@ -11,6 +11,13 @@ class ShoppingcartController < ApplicationController
     else
       objekt = { "#{params[:orderable_type]}_#{params[:orderable_id]}" => params[:number]}
     end  
+    p "i need to add the object kit"
+    p objekt
+    p session[:cart]
+    p "the session of cart is nil"
+    if session[:cart].blank?
+       session[:cart]={}
+    end
 		if session[:cart].merge!(objekt)
   		msg = "Product added to the cart"
 		else

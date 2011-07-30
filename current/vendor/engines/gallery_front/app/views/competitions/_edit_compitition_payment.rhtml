@@ -42,11 +42,11 @@
 
 						function change_entry_fee_value()
 						{
-						   changed_value = 0
+						   changed_value = 0;
 						for (myvalue=0;myvalue<=document.getElementById('field-5da43579005846d').selectedIndex;myvalue++)
 						{
-						   changed_value = changed_value + parseInt(document.getElementById('mychangevalue'+myvalue).value)
-				    }
+						   changed_value = changed_value + parseInt(document.getElementById('mychangevalue'+myvalue).value);
+                                                }
 						   document.getElementById("change_entry_fee").value=changed_value;
 						}
 						function change_the_required_field_value(entry_fee_value_for_calculation){
@@ -72,7 +72,8 @@
                <input type="hidden" id="mychangevalue0" value="0">
     			     <%i=1%>
       		   	 <%competition.entry_fees.each  do |x|%>
-      								  <input type="hidden" id="mychangevalue<%=i%>" value="<%=x.split('$')[1]%>">
+                            
+                            <input type="hidden" id="mychangevalue<%=i%>" value="<%=x.split('$')[1].to_i%>"/>
         							  <%i=i+1%>
       				 <%end%>			
                <div class="changecolorgray">
@@ -84,7 +85,7 @@
                         </h3>
                       <%end%>
           		        <script>
-                      			document.getElementById("rupees_paid").innerHTML= change_the_required_field_value(<%=order.total_entry%>)
+                      			document.getElementById("rupees_paid").innerHTML= change_the_required_field_value(<%=order.total_entry%>);
                   		</script>
                </div>
 	            <!--<div>
@@ -122,7 +123,7 @@
                 </div>  
                 
                 <script>
-	      	document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>
+	      	document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>;
 	      </script>
             <div>
                       <% fields_for credit_card do |ff| %>
