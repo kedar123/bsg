@@ -162,7 +162,7 @@
 </div>
          
               
-                  <div style="clear:both;float:left;margin-top:10px">
+              <div style="clear:both;float:left;margin-top:10px">
                 <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment_exhibition", :update =>  'modal_space_answer',:complete=>"document.getElementById('show_ajax_request').style.display='none'" ,:before=>"document.getElementById('show_ajax_request').style.display='block'"}%>
                <div style="margin-left: 10px;padding-top:5px;float:right;display:none" id="show_ajax_request">    
                 <img alt="loading" src="/images/ajax-spinner.gif" height=18  />

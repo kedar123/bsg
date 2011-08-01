@@ -65,17 +65,15 @@
 				<div class="changecolorgray">
 							<label>Image</label>
 </div>
-							<input type="file" class="file" id="artwork_image" name="artwork[image]" size="22" >
-
-				<div class="changecolorgray" style="padding-right:80px;float:right">
-		   	
+  <input type="file" class="file" id="artwork_image" name="artwork[image]" size="22" style="float:left"/>
+    <div class="changecolorgray" style="float:left;margin-left:2px;">
 				 <%#= submit_to_remote 'update_btn', 'Upload', :url => { :action => 'upload_exhibition_artwork' },
     :update => { :success => "" },:multipart=>true%>
-    <%=submit_tag "Upload"%>
-        </div>
-                                <div style="display: none;padding-top:12px;" id="show_ajax_request<%=exhibition_id%>">
-                                            <img height="20" src="/images/ajax-spinner.gif" alt="loading">
-                                </div>
+      <%=submit_tag "Upload"%>
+    </div>
+    <div style="display: none;padding-left:2px;" id="show_ajax_request<%=exhibition_id%>">
+                          <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
+    </div>
 </form>
 </div>
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>

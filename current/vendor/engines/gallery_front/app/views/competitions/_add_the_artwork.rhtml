@@ -43,19 +43,21 @@
 </h3>   
  </div>
  
+
 <%if i == total_entry%>
 <h2> Biography
  </h2>
 <br/>
     <form action="upload_the_biography" method="post"    id="add_the_artwork_to_competition_biography"  >  
-     <textarea rows="13" cols="46" name="biography" id="biography">
-        please write your biography
+     <textarea rows="11" cols="46" name="biography" id="biography">
+        
      </textarea>
+      <br/>
       <%=hidden_field_tag "total_entry",total_entry%>    
       <%=hidden_field_tag "order_id",order_id%>  
-       <%= submit_to_remote 'create_btn', 'Proceed', :url => { :action => 'upload_the_biography' },:before=>"checkthebiographyfield(#{i})" %>
+       <%= submit_to_remote 'create_btn', 'Proceed', {:url => { :action => 'upload_the_biography' },:before=>"checkthebiographyfield(#{i})",:html=>{:style=>"float: left;margin-right:5px"} }%>
    </form>  
- <div style="display: none;padding-top:2px;" id="show_ajax_request<%=i%>">
+ <div style="padding-top: 2px; display: none;" id="show_ajax_request<%=i%>">
                                    <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
                        </div>
 <script>
@@ -65,7 +67,7 @@
 <%else%>
    
 <div  class="inputfont">
-      <form action="upload_the_artwork_to_competition" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition','show_ajax_request<%=i%>','competitions_user_editionnumber','competitions_user_editionname')" id="add_the_artwork_to_competition" target="upload_frame" >  
+      <form action="upload_the_artwork_to_competition" method="post"  enctype = "multipart/form-data" onsubmit="return  Checkfilescomp('add_the_artwork_to_competition<%=title_message_array[i]%>','show_ajax_request<%=i%>','competitions_user_editionnumber','competitions_user_editionname')" id="add_the_artwork_to_competition<%=title_message_array[i]%>" target="upload_frame" >  
               <%=hidden_field_tag "order_id",order_id%>    
                  <div class="changecolorgray">
                       Title (<%=title_message_array[i]%>)
@@ -105,11 +107,11 @@
                         <div class="changecolorgray">    
                         	 Image 
                     	 </div>
-                      	 <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" size="26"/>
-                       <div style="float:right;padding-right:80px;">  
+                      	 <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" size="26" style="float:left"/>
+                       <div style="float:left;margin-left:30px;">  
                          <%= submit_tag 'Upload'%>
                        </div> 
-                       <div style="display: none;padding-top:2px;" id="show_ajax_request<%=i%>">
+                       <div style="display: none;padding-top:2px;float:left;margin-left:11px;" id="show_ajax_request<%=i%>">
                                    <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
                        </div>  
                          

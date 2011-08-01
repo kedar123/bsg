@@ -701,6 +701,9 @@
       end  
       i=i+1    
     end  
+    p "the i and total entry"
+    p i
+    p order.total_entry.to_i
     if order.total_entry.to_i > i
       
       
@@ -719,9 +722,12 @@
       
     end 
    # i=i+1#this is because the artwork will be shown in next "add_the_artwork#{i}"
+   p "add_the_artwork#{i+1}"
     responds_to_parent do
       render :update do |page|
         if order.total_entry.to_i > i
+          
+          
 		      page["add_the_artwork#{i+1}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
           
 		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
@@ -731,6 +737,7 @@
           page["add_the_artwork#{i+1}"].show
           page["show_ajax_request#{i}"].hide
         else  
+          page["show_ajax_request#{i-1}"].hide  
           page.alert("Your Limit Is Over")
           page["messageforimageuploaded"].replace_html "Artwork Can Not Be Save "
         end  

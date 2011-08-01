@@ -64,23 +64,23 @@
       <div class="changecolorgray">         
 	 Image
       </div>
-      <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" style="height: 28px;">
+      <input  name="competitions_user[workimage]" id="field-7a24db800403e5f" type="file" style="height: 28px;float:left">
       <%=hidden_field_tag "competitionuserid",competitionuser%>
       <%=hidden_field_tag "titleforupdate",updateimagearray[7] %>
 
 
-      <div style="float:right;padding-right:80px;">
+      <div style="float:left;padding-left:2px;">
         <%= submit_tag 'Upload'%>
       </div>  
-
+      <div style="display: none;padding-top:0px;" id="show_ajax_request<%=updateimagearray[7]%>">
+        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+      </div>
 
       <br/>
       <div style="clear:both;float:left;padding-right:5px;padding-top:5px;">
         <img src="/system/gallery/<%=updateimagearray[3]%>" width="90px" height="90px"/>   
       </div>
-      <div style="display: none;padding-top:2px;" id="show_ajax_request<%=updateimagearray[7]%>">
-        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
-      </div>
+     
 
   </div>
 </form>

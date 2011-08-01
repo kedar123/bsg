@@ -48,23 +48,24 @@
       <div class="changecolorgray">
         <label>Image</label>
       </div>
-      <input type="file" class="file" id="artwork_image" name="artwork[image<%=updateimage.id%>]" size="26" value="/images/original/missing.png">
+      <input type="file" class="file" id="artwork_image" name="artwork[image<%=updateimage.id%>]" size="26" value="/images/original/missing.png" style="float:left"/>
 
-      <div style="padding-right:80px;float:right" class="changecolorgray">
+      <div style="padding-left:2px;float:left" class="changecolorgray">
 		   	
 				 
-    <input type="submit" value="Upload" name="commit">
+    <input type="submit" value="Upload" name="commit"/>
       </div>
       
       <input type="radio"  name="artwork[is_purchasable<%=updateimage.id%>]" value='1' checked="checked"  style="display:none">
     </form>
   </div>
+  <div style="display: none;padding-top:2px;padding-left:2px;" id="show_ajax_request<%=updateimage.id%>">
+        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+  </div>               
   <div style="clear:both;padding-top:10px;float:left">  
     <img src="/uploaded_files/development/artwork/<%=updateimage.id%>/thumb/<%=updateimage.image_file_name%>" />
   </div>
-  <div style="display: none;padding-top:10px;padding-left:325px;" id="show_ajax_request<%=updateimage.id%>">
-        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
-  </div>               
+  
 </div>
 <iframe id="'upload_frame<%=updateimage.id%>" name="upload_frame<%=updateimage.id%>" style="width:1px;height:1px;display:none"></iframe>
 

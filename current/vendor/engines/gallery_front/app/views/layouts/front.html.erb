@@ -89,6 +89,12 @@ function Checkfiles(formid,show_ajax_request,editionnumber,editionname)
                     // myreturnvalue = true
                     // }
                     
+                    showajaximage = document.getElementById(show_ajax_request);
+                 if (showajaximage)
+                   {
+                     document.getElementById(show_ajax_request).style.display='block';
+                   }
+                    
                   } 
                 else
                   {
@@ -140,15 +146,13 @@ function Checkfiles(formid,show_ajax_request,editionnumber,editionname)
                        return false;
                       } 
           
-              
+             
                if (myeditionvalue)   
                {
                   
                  showajaximage = document.getElementById(show_ajax_request);
-                 
                  if (showajaximage)
                    {
-                     
                      document.getElementById(show_ajax_request).style.display='block';
                    }
                  else

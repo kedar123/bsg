@@ -139,7 +139,7 @@ after :update do
                       columnnameandheader.save
                    end 
                end 
-        p "im afre the update"      
+      
       end  
 
 
@@ -174,7 +174,7 @@ after :update do
       		
 		
 		before :show do
-       p "i got redirected after update"
+       
         
         @total_artist = CompetitionsUser.count(:conditions => "competition_id = #{@current_object.id}")
         @total_entry = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id}")
@@ -203,8 +203,7 @@ after :update do
 			else
 				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'  "])
          
-         p "i got the artwork competitions"
-         p @artworks_competitions.size
+      
          #@artworks_competitions =  CompetitionsUser.find(:all,  :conditions => { :competition_id =>  @current_object.id })
 			end
 			get_artworks_lists

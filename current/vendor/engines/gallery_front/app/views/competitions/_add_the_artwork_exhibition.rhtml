@@ -59,17 +59,17 @@
      <div class="changecolorgray">
       <label>Image</label>
     </div>
-    <input type="file" class="file" id="artwork_image" name="artwork[image]" size="22" value="/images/original/missing.png"/>
+    <input type="file" class="file" id="artwork_image" name="artwork[image]" size="22" value="/images/original/missing.png" style="float:left"/>
 
-   <div style="padding-right:80px;float:right" class="changecolorgray">
+   <div style="padding-left:2px;float:left" class="changecolorgray">
 		   	
 				 
     <input type="submit" value="Upload" name="commit">
         </div>
-    <div style="display: none;padding-top:12px;" id="show_ajax_request_exhi">
-      <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+    <div style="display: none;padding-left:2px;" id="show_ajax_request_exhi">
+      <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
     </div>
-    <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none">
+    <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none"/>
   </form>
 </div>
 <%#=link_to_remote "Add More", :update => "",
