@@ -34,7 +34,8 @@
     <td width="50px"><%=h invoice.number %></td>
     <td width="90px"><%=h invoice.client.profile.full_name %></td>
     <td width="120px"><%=h invoice.title %></td>
-    <td width="50px"><%=h invoice.deadline.strftime("%d %b %Y") if  invoice.deadline%></td>
+    <td width="50px"><%=h invoice.deadline.strftime("%d %b %Y") if  invoice.deadline%>
+    </td>
     <td width="50px"><%=h '$' + invoice.final_amount.to_i.to_s  %></td>
     
     <td width="50px">

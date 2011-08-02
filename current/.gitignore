@@ -5,8 +5,10 @@ doc/api
 doc/app
 db/*.sqlite3
 public/pdf_invoice/*
+public/pdf_invoice/*.pdf
 public/uploaded_files/*
 public/system/*
+public/uploaded_files/development/artwork/*
 nbproject/*
 *.swp
 *~

@@ -3,7 +3,7 @@ sa_ws_types: []
 
 sa_mandatory_user_activation: "true"
 sa_logo_url: /config_files/logo.jpg
-sa_contact_email: mark@bsgart.com.au
+sa_contact_email: test@pragtech.co.in
 sa_application_name: BSG Web Application
 sa_layouts: []
 

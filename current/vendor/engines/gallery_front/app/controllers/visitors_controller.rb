@@ -37,7 +37,7 @@ class VisitorsController < ApplicationController
 	end
 	
 	def login
-    #self.current_user = User.find_by_email("contact@test.com")
+    #self.current_user = User.find_by_email("kedar.pathak@pragtech.co.in")
     #p "im logged in"
     #p logged_in?  
     #this is for entering into a competition

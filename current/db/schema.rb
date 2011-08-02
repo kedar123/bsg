@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629110744) do
+ActiveRecord::Schema.define(:version => 20110723104337) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -292,6 +292,7 @@ ActiveRecord::Schema.define(:version => 20110629110744) do
     t.string   "exhibition_date"
     t.string   "cjudges"
     t.text     "how_did_you_here"
+    t.text     "notes"
   end
 
   add_index "competitions", ["user_id"], :name => "index_competitions_on_user_id"

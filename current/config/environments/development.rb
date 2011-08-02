@@ -14,7 +14,7 @@ config.whiny_nils = true
 config.action_controller.consider_all_requests_local = false
 config.action_view.debug_rjs                         = true
 config.action_controller.perform_caching             = false
-config.action_mailer.delivery_method = :test
+config.action_mailer.delivery_method = :smtp
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = true
 
@@ -41,3 +41,13 @@ ActiveSupport::Deprecation.silenced = true
 #ActiveSupport::Dependencies.explicitly_unloadable_constants << "ActsAsContainer"
 
 #ActiveSupport::Dependencies.load_once_paths.delete(File.expand_path(File.dirname(__FILE__))+'/lib')
+
+ActionMailer::Base.smtp_settings = {
+ :address => "smtp.gmail.com",
+  :port => "587",
+  :domain => "pragtech.co.in",
+  :authentication => :plain,
+  :user_name => "test@pragtech.co.in",
+  :password => "test123",
+  :enable_starttls_auto => true,
+}

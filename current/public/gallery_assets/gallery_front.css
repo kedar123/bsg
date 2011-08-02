@@ -260,7 +260,10 @@ position:relative;
 }
 
 #details{
-background-color: rgba(21, 21, 21, .5);
+
+color: #FFFFFF; 
+background: transparent url("/images/cont-back.png") repeat-x 0px 0px; position: relative; 
+z-index: 1;
 height:auto;
 left:1px;
 right:1px;
@@ -271,6 +274,10 @@ position:absolute;
 visibility:visible;
 width:-moz-available;
 z-index:7;
+}
+
+#details img{
+    border: none;
 }
 
 #form{

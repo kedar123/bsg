@@ -865,6 +865,7 @@
 
   #actual payment is done in above method onlyhere the invoice processing is done
   def  make_the_payment
+    p "i paid by paypal and now updating the invoice"
     session[:purchasable] = nil
     if  @order and @order.invoices.last
       @invoice = @order.generate_invoice_extra_entry(@current_user, params[:invoicing_info])
@@ -1072,10 +1073,12 @@
     if((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master_card"))         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
-        credit_card = CreditCard.new(params[:credit_card])
+        credit_card = CreditCard.new()
       end
       credit_card.number = params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
       credit_card.user_id = current_user.id
+      credit_card.first_name = params[:credit_card][:first_name]
+      credit_card.last_name = params[:credit_card][:last_name]
       credit_card.expiring_date = Date.civil(params[:credit_card]["expiring_date(1i)"].to_i,params[:credit_card]["expiring_date(2i)"].to_i,params[:credit_card]["expiring_date(3i)"].to_i).strftime("%y-%m-%d")       
       credit_card.save
     else
@@ -1508,8 +1511,13 @@
           end
       end
     end 
+    p "im blank here"
+    p session[:competition_id]
     comid = session[:competition_id]
+    
     session[:competition_id] = nil
+    p comid
+    p "im blank here"
     session[:total_entry] = nil
     if comid.blank?
       flash[:notice] = "Your Payment Is Done"
@@ -1585,23 +1593,10 @@
   end
 
   def make_the_payment_comp_paypal
-    if   session[:order]  and session[:order].invoices.last
-      total_amount = 0
-      session[:order].invoices.each {|x| total_amount = total_amount + x.final_amount}
-      if  total_amount  < session[:order].find_price(session[:order].competition.id) 
-        make_the_payment_paypal
-        #flash[:notice] = "Your Extra Selected Entry Payment Is Done <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
-        #render :partial=>"extra_payment_done",:locals=>{:competition=>@order.competition,:order=>@order} 
-        #add_the_artwork_intopaymentdiv
-        return        
-      else
-        #                  flash[:error] = "Your Payment Is Already Done Please Go To Home Page  <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
-      end
-      #    render :text => @template.blank_main_div(:title => 'System error', :hsize => 'sixH', :modal => true), :layout => false
-      #		                              return
-    else   
+   
+      
       make_the_payment_paypal
-    end
+    
   
   end 
 
@@ -1636,7 +1631,9 @@
     begin
     email= UserMailer.create_send_invoice(invoice,@current_user)
     UserMailer.deliver(email)
-    rescue
+    rescue => e
+      logger.info "there is error while sending the email"
+      logger.info e
     end
   end
 
@@ -1792,7 +1789,15 @@
           page["iteam_image"+i.to_s].hide
           i=i+1
         end  
+        if @groupshowuser.blank?
+          page["add_the_artwork0"].replace_html :partial=>"create_groupshow_artwork",:locals=>{:groupshow_id => params[:id],:messageforimageuploaded=>"Please Upload The Image"}
+          page["add_the_artwork0"].show
+          page["iteam_image0"].show
+        else
+        end
         page["iteam_image_uploaded"].hide  
+        page["useruploadedpic"].hide
+        
     end
   end
   

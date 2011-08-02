@@ -120,11 +120,12 @@ Rails::Initializer.run do |config|
 	#require 'hodel_3000_compliant_logger'
 	#config.logger = Hodel3000CompliantLogger.new(config.log_path)
 	#config.action_view.field_error_proc = proc {|html, instance| html }
-   config.action_mailer.raise_delivery_errors = true
+     config.action_mailer.raise_delivery_errors = true
    config.action_mailer.perform_deliveries = true
-   config.action_mailer.delivery_method = :test
+   config.action_mailer.delivery_method = :smtp
 
 end
+
 
 ActionMailer::Base.smtp_settings = {
  :address => "smtp.gmail.com",
@@ -135,8 +136,3 @@ ActionMailer::Base.smtp_settings = {
   :password => "test123",
   :enable_starttls_auto => true,
 }
-
-#trick to remove the <div class='fieldWithErrors'> that embeding automatically the
-#input field that not pass validation. It gives pain after with JQuery to retreive the input and
-#detect on focus to display hint
-#ActionView::Base.field_error_proc = Proc.new { |html_tag, instance|  "#{html_tag}" }
