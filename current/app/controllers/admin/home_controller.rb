@@ -4,8 +4,11 @@ class Admin::HomeController < Admin::ApplicationController
   #
   # Root page ('/')
   #
+  
   def index
-    
+  if current_user.login != "admin"  
+    redirect_to "/"
+  end
 #    @latest_items = GenericItem.consultable_by(current_user.id).latest
     @latest_users = get_objects_list_with_search('user', 'created_at-desc', 5)
 #    @latest_feeds = current_user.feed_items.latest

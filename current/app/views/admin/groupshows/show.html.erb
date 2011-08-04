@@ -32,7 +32,11 @@ for (var i=0; i < ss.slides.length; i++) {
 <title>Group Show  <%=@groupshow.title%></title><div class="objectList small">
 				<div class="blockCornerLeft"></div>
 				<div class="blockElementHeader sixH">
-					<span id="item_count">Group Show <%=@groupshow.title%></span>
+					<span id="item_count">Group Show 
+                                          
+              <%=truncate(@groupshow.title,80)%>
+                                        
+                                        </span>
 				</div>
 				<div class="blockCornerRight"></div>
 				<div class="contentList filtered sixH">

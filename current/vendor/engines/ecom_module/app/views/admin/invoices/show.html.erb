@@ -2,27 +2,47 @@
 <% #render :partial => 'invoice_show', :locals => { :current_object =>@current_object, :is_modal => false } %>
 
 
-<% blank_main_div(:title => @current_object.title, :size => 'sixH', :modal => false) do %>
+<% blank_main_div(:title => truncate(@current_object.title,80), :size => 'sixH', :modal => false) do %>
+    
+   <table>
+<tr><td><b>Client name </b></td>
+	<td> <%=h @current_object.client.profile.full_name %></td>
+</tr>
+<tr><td> <b>Title </b></td>
+	<td> <%=h@current_object.title%></td>
+</tr>
+<tr><td><b>Description </b></td>
+	<td> <%=h@current_object.description%></td>
+</tr>
+<tr><td> <b>Deadline </b></td>
+	<td> <%=h @current_object.deadline %></td>
+</tr>
+<tr><td> <b>Medium </b></td>
+	<td><%=h @current_object.payment_medium %></td>
+</tr>
+<tr><td><b>Amount </b></td>
+	<td>  <%=h @current_object.final_amount %></td>
+</tr>
+<tr><td> <b>State </b></td>
+	<%if @current_object.state == "validated"%>
 
-    <b>Client name :</b>
-    <%=h @current_object.client.profile.full_name %><br />
-    <b>Deadline :</b>
-    <%=h @current_object.deadline %><br />
-    <b>Medium :</b>
-    <%=h @current_object.payment_medium %><br />
-    <b>Amount :</b>
-    <%=h @current_object.final_amount %><br />
-    <b>State :</b>
-    <%if @current_object.state == "validated"%>
-      <%="paid" %>
+<td><%="paid" %></td>
     <%end%>
-    <br />
-    <b>Sent at :</b>
-    <%=h @current_object.sent_at %><br />
-    <b>Validated at :</b>
-    <%=h @current_object.validated_at %><br />
+    </tr>
+<tr><td>
+    <b>Sent at </b></td>
+<td>    <%=h @current_object.sent_at %></td>
+</tr>
+<tr><td>
+    <b>Validated at </b></td>
+<td>    <%=h @current_object.validated_at %></td>
+</tr>
+</table>
+
+
 
     <br /><br />
+    
 
     <% if false %>
       <% if !current_object.validated_at && current_object.payment_medium=='online' %>

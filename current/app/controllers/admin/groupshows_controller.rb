@@ -127,10 +127,15 @@ class Admin::GroupshowsController < ApplicationController
   # DELETE /groupshows/1.xml
   def destroy
     @groupshow = Groupshow.find(params[:id])
-    @groupshow.destroy
-    respond_to do |format|
-      format.html { redirect_to :back}
-      format.xml  { head :ok }
+    a=Workspace.find(:first, :conditions => { :state => 'public'})
+    @groupshow.usergroupshow.each do |ugs|
+      Invoice.delete_all("purchasable_type = 'Usergroupshow' and purchasable_id = #{ugs.id}") 
     end
+    @groupshow.destroy
+    redirect_to container_path(a, :item_type => 'exhibitions')
+    #respond_to do |format|
+     # format.html { redirect_to :back}
+      #format.xml  { head :ok }
+    #end
   end
 end

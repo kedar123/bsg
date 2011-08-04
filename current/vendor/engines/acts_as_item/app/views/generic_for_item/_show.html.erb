@@ -3,7 +3,7 @@
 <%else%>
   <%dynamictitle = "#{object.class.to_s}  #{object.title}"%>
 <%end%>
-<% blank_main_div(:title => dynamictitle ) do %>
+<% blank_main_div(:title => truncate(dynamictitle,80) ) do %>
     <%= keywords_links_list_for(@current_object) %>
     <%= capture(&block) %>
     <% if is_activated_comment_part && @current_object.has_permission_for?('comment', @current_user, @current_container) %>
