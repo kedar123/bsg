@@ -185,7 +185,7 @@ function Checkfiles(formid,show_ajax_request,editionnumber,editionname)
 }
 
 //function Checkfiles_simple(formid,show_ajax_request,editionnumber,editionname,dynamicId)
-function Checkfiles_simple(dynamicId)
+function Checkfiles_simple(dynamicId,edit)
 
 {
     try{
@@ -193,6 +193,7 @@ function Checkfiles_simple(dynamicId)
     var medium ='artwork_medium'+dynamicId;
     var width = 'artwork_width'+dynamicId;
     var height = 'artwork_height'+dynamicId;
+    var depth  = 'artwork_depth'+dynamicId;
     var price = 'artwork_price'+dynamicId;
     var editionname = 'artwork_edition_name'+dynamicId;
     var editionnumber = 'artwork_edition_number'+dynamicId;
@@ -210,14 +211,28 @@ function Checkfiles_simple(dynamicId)
       }  
     if (!isNumber(document.getElementById(width).value))
       {
-        alert("Please Enter Width");
+        alert("Please Enter Valid Width");
         return false;
       }
+   
       if (!isNumber(document.getElementById(height).value))
       {
-        alert("Please Enter Height");
+        alert("Please Enter Valid Height");
         return false;
       }
+   
+      if (document.getElementById(depth).value.charAt(0) != ''){
+        
+          if (!isNumber(document.getElementById(depth).value))
+        {
+          alert("Please Enter Valid Depth");
+          return false;
+        }
+        
+      }
+      
+   
+      
       if (!isNumber(document.getElementById(price).value))
       {
         alert("Please Enter Price");
@@ -239,7 +254,31 @@ function Checkfiles_simple(dynamicId)
           alert("Please Enter Edition Number Greater Than Edition From");
           return false;
         }
+   
       
+      if(edit)
+      {
+   
+        var fileName = document.getElementById(artworkimage).value;
+        var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+   
+        if(ext != '')
+          {
+          if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ||  ext ==  "PNG" || ext == "png")
+            {
+              alert("wrong image");
+            }
+        else{
+          alert("Please Enter Image File");
+          return false;
+          }
+          }
+        
+      }
+      else
+        {
+          
+   
       var fileName = document.getElementById(artworkimage).value
       var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
       if(ext == "gif" || ext == "GIF" || ext == "JPEG" || ext == "jpeg" || ext == "jpg" || ext == "JPG" ||  ext ==  "PNG" || ext == "png")
@@ -249,7 +288,7 @@ function Checkfiles_simple(dynamicId)
         alert("Please Enter Image File");
         return false;
       }
-      
+        }
       document.getElementById('show_ajax_request'+dynamicId).style.display='block';
       return true;
       
@@ -386,6 +425,7 @@ function Checkfilescomp(formid,show_ajax_request,editionnumber,editionname)
    // alert(e);
   }
 }
+
 
 
 

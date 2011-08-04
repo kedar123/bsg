@@ -110,7 +110,7 @@
                   <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? and purchasable_type = ?",eu.id,'ExhibitionsUser']) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? and purchasable_type = ?",eu.id,'ExhibitionsUser']).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? and purchasable_type = ?",eu.id,'ExhibitionsUser']) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? and purchasable_type = ?",eu.id,'ExhibitionsUser']).state != "validated")) %>
                     <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
                    <%if eu.state != "created"%>
-                         <span id="payonlineexhibition<%=eu.id%>">                            
+                        <span id="payonlineexhibition">                           
                             <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment_front/#{eu.id}",:update => 'modal_space', :method => :get%>
                         </span>                           
                    <%end%>     
@@ -275,101 +275,12 @@
                   </div>
                 </div>  
        </div>           
-      <div id="iteam_image10" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork10" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image11" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork11" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image12" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork12" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image13" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork13" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image14" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork14" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image15" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork15" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image16" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork16" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image17" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork17" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image18" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork18" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image19" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork19" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
-        <div id="iteam_image20" style="display:none" class="artwork_show">  
-                <div id="description_competition">
-                  <div id="content" style="padding-top:5px;">
-                       <div id="add_the_artwork20" style="display:none"> 
-                       </div>
-                  </div>
-                </div>  
-       </div>           
       </div>
-
 
             
     
             
-            <div id="list" >            
+            <div id="list">            
               <div id="useruploadedpic">
             <%for  frontendpics in @useruploadedpics%>
                 
@@ -383,11 +294,9 @@
        
     <%else%> 
               <%for  frontendpics in @front_image%>
-                
                 <div id="iteam_image">
                 <img src="/system/front_end_pics/<%=frontendpics.id%>/large/<%=frontendpics.front_end_pics_file_name%>" alt="Not Found" height="352" width="600"/>
                 </div>
-                
              <%end%> 
             </div>
       </div>

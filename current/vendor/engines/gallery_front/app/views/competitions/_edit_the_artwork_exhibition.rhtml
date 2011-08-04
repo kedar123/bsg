@@ -9,7 +9,7 @@
     <%=messageforimageuploaded%>
   <%end%>
   <div  class="inputfont">
-    <form action="/competitions/create_exhibition_artwork" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition<%=updateimage.id%>" method="post" onsubmit="return Checkfiles_simple(<%=updateimage.id%>)" target="upload_frame<%=updateimage.id%>">
+    <form action="/competitions/create_exhibition_artwork" class="new_artwork" enctype="multipart/form-data" id="add_the_artwork_to_competition<%=updateimage.id%>" method="post" onsubmit="return Checkfiles_simple('<%=updateimage.id%>',true)" target="upload_frame<%=updateimage.id%>">
       <%=hidden_field_tag "artwork_id",updateimage.id%>
       <div class="changecolorgray">
         <label>Title </label>

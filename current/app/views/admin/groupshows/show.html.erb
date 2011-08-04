@@ -40,6 +40,8 @@ for (var i=0; i < ss.slides.length; i++) {
 
 
 <%#this all upto end for slideshow%>
+<%if @groupshow%>
+<%if !@groupshow.groupshowartworks.blank?%>
 <DIV ID="slideshow" style="background-color:#E5E5E5;">
 <FORM ID="ss_form" NAME="ss_form" ACTION="" METHOD="GET">
 <DIV ID="ss_controls">
@@ -70,6 +72,9 @@ ss.textarea = document.ss_form.ss_textarea;
 </DIV>
 </FORM>
 </DIV>
+<%end%>
+<%end%>
+
 <table>
   <tr>
     <td>

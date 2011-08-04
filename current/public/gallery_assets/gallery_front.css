@@ -220,12 +220,8 @@ width:auto;
 }
 
 #list{
-
-	float: left;
+    float: left;
     margin-right: -999em;
-
-
- 
 }
 
 
@@ -464,7 +460,7 @@ height:392px;
 	border:1px solid #777;
 	width:375px;
 	}
-	#list{
+#list{
 padding:0px;
 float:left;
 margin:0px
@@ -522,3 +518,9 @@ white-space: nowrap;
   height:20px;
 }
 
+#list-holder{
+    float: left;
+    margin-right: -999em;
+    display:inline-block;
+
+}

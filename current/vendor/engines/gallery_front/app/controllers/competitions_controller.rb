@@ -1311,7 +1311,9 @@
         @artwork = ExhiArtwork.find(params[:artwork_id])
         @artwork.title=params[:artwork]["title"+@artwork.id.to_s]                                                                                                                                 
         @artwork.user_id=current_user.id
-        @artwork.image = params[:artwork]["image"+@artwork.id.to_s]
+        if !params[:artwork]["image"+@artwork.id.to_s].blank?
+           @artwork.image = params[:artwork]["image"+@artwork.id.to_s]
+        end
         @artwork.medium = params[:artwork]["medium"+@artwork.id.to_s]
         @artwork.width = params[:artwork]["width"+@artwork.id.to_s]
         @artwork.height = params[:artwork]["height"+@artwork.id.to_s]

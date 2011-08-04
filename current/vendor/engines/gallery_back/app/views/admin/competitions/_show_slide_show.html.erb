@@ -85,7 +85,7 @@ function sendwinnerrequest(selectedid){
 
 
 
-
+ <%if !@artworks_competitions.blank?%>
 
 <DIV ID="slideshow" style="padding:10px;background-color:#E5E5E5;">
 
@@ -128,10 +128,12 @@ ALT="Slideshow image" style="display:block"></A>
 </DIV>
 
 <DIV ID="ss_text" style="text-align:center">
+  
 <SCRIPT type="text/javascript">
 document.write('<TEXTAREA ID="ss_textarea" NAME="ss_textarea" ROWS="6" COLS="40" WRAP="virtual"><\/TEXTAREA>\n');
 ss.textarea = document.ss_form.ss_textarea;
 </SCRIPT>
+
 </DIV>
 <% if @current_user.has_system_role('admin') || @current_user.has_system_role('judge') || @current_object.state.include?('publish') || @current_user.login =="superadmin" %>
       <%if @artworks_competitions.first %>
@@ -149,7 +151,7 @@ ss.textarea = document.ss_form.ss_textarea;
 </FORM>
 
 </DIV>
-
+<%end%>
 <SCRIPT TYPE="text/javascript">
 
 
