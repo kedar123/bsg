@@ -3,8 +3,8 @@ class CreditCard < ActiveRecord::Base
 	has_many :payments
 	belongs_to :user
 
-	validates_presence_of :number, :first_name, :last_name, :expiring_date, :verification_value
-
+	#validates_presence_of :number, :first_name, :last_name, :expiring_date, :verification_value
+  validates_presence_of :number,  :expiring_date, :verification_value
 	#validates_length_of :number, :is => 12
 	#validates_format_of :number, :with => /(#{NUM})/
 

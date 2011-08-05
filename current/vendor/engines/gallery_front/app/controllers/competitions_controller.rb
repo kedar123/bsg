@@ -334,12 +334,19 @@
     if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card")  )         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
-        credit_card = CreditCard.new(params[:credit_card])
+        credit_card = CreditCard.new()
       end
       credit_card.number = params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
       credit_card.user_id = current_user.id
       credit_card.expiring_date = Date.civil(params[:credit_card]["expiring_date(1i)"].to_i,params[:credit_card]["expiring_date(2i)"].to_i,params[:credit_card]["expiring_date(3i)"].to_i).strftime("%y-%m-%d")       
-      credit_card.save
+      credit_card.first_name = params[:credit_card][:first_name]
+      credit_card.last_name = params[:credit_card][:last_name]
+      credit_card.verification_value = params[:credit_card][:verification_value]
+      p credit_card
+      credit_card.save!
+      
+      p "i have created the credit card"
+      p credit_card
       creditcardno = credit_card.number
     else
     end 
@@ -387,14 +394,14 @@
       if @order.invoices.last   
         total_amount = 0
         @order.invoices.each {|x| total_amount = total_amount + x.final_amount}
-        
-        
-        
         if  total_amount  < @order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) 
           more_amount = (@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) -  total_amount
           @current_object.amount_in_cents = more_amount * 100
           if params[:invoicing_info][:payment_medium] ==  "visa" or params[:invoicing_info][:payment_medium] ==  "master card"  
             @current_object.common_wealth_bank_process((more_amount * 100),params,creditcardno)
+            p "the payment is created"
+            p @current_object
+              
             if @current_object.state == "online_validated"
               @order.total_entry = params[:competitions_user][:total_entry]
               @order.save              
@@ -619,6 +626,10 @@
         page["add_the_artwork#{i}"].focus
         page["modal_space_answer"].hide
         
+        for j in i+1..20
+          page["iteam_image#{j}"].hide
+        end
+        
       else  
         page.alert("Your Limit Is Over")
         page["messageforimageuploaded"].replace_html "Your Limit Is Over Can Not Save The Image"
@@ -738,7 +749,7 @@
           page["show_ajax_request#{i}"].hide
         else  
           page["show_ajax_request#{i-1}"].hide  
-          page.alert("Your Limit Is Over")
+          page.alert("Your Limit Is Over.Click Browse Image For Updating The Image");
           page["messageforimageuploaded"].replace_html "Artwork Can Not Be Save "
         end  
       end
@@ -872,6 +883,7 @@
     else
       @invoice = @order.generate_invoice(@current_user, params[:invoicing_info]) 
     end 	
+    p "imvoice is get generate"
     if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       @invoice.accept_cash_or_cheque_or_bank_payment(params[:invoicing_info][:payment_medium]) 
     elsif params[:invoicing_info][:payment_medium] == "paypal"
@@ -1005,11 +1017,32 @@
   end  
 
  def show_buy_competition_artwork
-    render :update do |page|
-      page["list_show"].hide
-      page["enterintocompetition"].hide
-      page["buylist"].show
-    end
+      competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",params[:id]])
+      @competitionuser  = []
+      @winnerlist = []
+      competitionuser.each do |ac| 
+          ac.artworks_competitions.each do |x|  
+              if x.state == "winner"
+                @competitionuser  << x
+              end
+              if x.state == "selected"
+                @competitionuser  << x.competitions_user
+              end
+          end 
+      end  
+  
+   render :update do |page|
+      if(@competitionuser.blank?)   
+        page.alert("No Artworks Available To Buy For This Competition");
+      else
+        page["list_show"].hide
+        page["enterintocompetition"].hide
+        page["buylist"].show
+      end
+      
+        
+      end
+    
  end
 
 

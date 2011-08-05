@@ -70,6 +70,8 @@ class Admin::UsersController < Admin::ApplicationController
      def destroy
      user = User.find(params[:id])
      Artwork.delete_all(:user_id=>user.id)
+     CreditCard.delete_all(:user_id=>user.id)
+       
      user.destroy
      flash[:notice] = "User Has Been Destroyed"
      redirect_to :back

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110723104337) do
+ActiveRecord::Schema.define(:version => 20110804061850) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -698,7 +698,7 @@ ActiveRecord::Schema.define(:version => 20110723104337) do
     t.text     "description",   :null => false
     t.date     "starting_date"
     t.date     "ending_date"
-    t.string   "note"
+    t.text     "note"
     t.string   "gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"

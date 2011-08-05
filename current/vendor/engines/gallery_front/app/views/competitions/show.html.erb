@@ -97,7 +97,7 @@ function check_the_checkbox(){
             <%end%>      
         <%end%>    
          <%if logged_in?%>
-               Click <%=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork"}
+               Click <%=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork",:id=>@competition.id}
                       %> To Buy Images
          <%end%>               
            

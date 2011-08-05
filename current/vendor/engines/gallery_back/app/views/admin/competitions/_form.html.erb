@@ -104,7 +104,12 @@
           
         </td>    
         <td valign="bottom">
-            <%= f.text_area :entry_fees, :label => 'Entry Fee Format:-'+'<br/>'+' 1 works $50 '+'<br/>'+' 2 works $60'+'<br/> And Also no Empty Line',:style=>"width:430px;"  %>
+          <label style="width:400px;">
+            This Field Should Not Contain Empty Line.Used For Fees At Front End.And Format Is As Follows
+            <br/> 1 works $50 <br/> 2 works $60
+          </label>  
+            
+            <%= f.text_area :entry_fees, :label => '',:style=>"width:430px;"  %>
          </td>
     </tr>
     </table>
@@ -255,7 +260,10 @@
             
       </td>    
       <td valign="bottom">
-  <%= f.text_area :prizes_detail, :label => 'Prize Details. Please Enter On New Line Each Prize. 1st prize $40'+'<br/>'+'2nd  prize $80', :hint => 'Please pass a line between each price',:style=>"width:430px;" %>
+        <label style="width:400px">
+          Prize Details. Please Enter On New Line Each Prize. 1st prize $40<br/>2nd  prize $80
+          </label>
+  <%= f.text_area :prizes_detail, :label => '', :hint => 'Please pass a line between each price',:style=>"width:430px;" %>
       </td>
     </tr>  
     
@@ -341,6 +349,14 @@
 	});
 	
 	}
+        $(function() {
+		$( "#competition_submission_deadline" ).datepicker({
+			showOn: "button",
+			buttonImage: "/images/calendar.gif",
+			buttonImageOnly: true,
+            dateFormat: 'yy-mm-dd' 
+		});
+	});
 	</script>
 
 	

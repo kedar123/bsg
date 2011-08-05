@@ -260,6 +260,8 @@ class CompetitionsUser < ActiveRecord::Base
 	#whenever user changes his total entry this will automatically get changed. so if user maked down the entry like from 
 	#5-2 then this will also get changed
 	def  submit_artwork(competitionuser = "",i=0)
+    
+    if !competitionuser["workimage"].blank?
 		image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
  	       for totalentry in 0...self.total_entry.to_i
 	            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[totalentry],self.id]).blank?)
@@ -275,6 +277,8 @@ class CompetitionsUser < ActiveRecord::Base
                  end   
               end
          end
+    end     
+    
 	end
 	    	
 	def  generate_invoice_update(competitions_user_user_id,competitions_user_id)
