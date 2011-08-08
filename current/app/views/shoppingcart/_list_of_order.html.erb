@@ -5,8 +5,8 @@
  
 PAYMENTS LIST :
 
-<table>
-  <tr>
+<table style="text-align: left;" cellspacing="6">
+  <tr style="font-size: 13px;">
     <th>Invoice</th>
     <th>Date</th>
     <th>Item</th>
@@ -21,32 +21,32 @@ PAYMENTS LIST :
               <%if   ol.orderable_type.to_s.include?("CompetitionsUser")%>  
               <tr id="order<%=i%>">
                 
-                <th>
+                <td>
                     <%= order.invoice.number if order.invoice %>
-                </th>
+                </td>
                 
-                <th><%= order.invoice.created_at.strftime("%d %b %y") if order.invoice %></th>
-                <th><%= ol.orderable.send title_array.fetch(image_array.index(ol.imagename)) if ol.orderable%></th>
-                <th><%= ol.orderable.send price_array.fetch(image_array.index(ol.imagename)) if ol.orderable%></th>
+                <td><%= order.invoice.created_at.strftime("%d %b %y") if order.invoice %></td>
+                <td><%= ol.orderable.send title_array.fetch(image_array.index(ol.imagename)) if ol.orderable%></td>
+                <td><%= ol.orderable.send price_array.fetch(image_array.index(ol.imagename)) if ol.orderable%></td>
                 <%totalprice = totalprice + (ol.orderable.send price_array.fetch(image_array.index(ol.imagename))).to_i if ol.orderable%>
-                <th>
+                <td>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id.to_s+"_"+ol.imagename) if @current_object.new_record? %>
       <%#=link_to_remote 'Remove', :update => "",
 :url => {:controller=>"shoppingcart",:action=>"remove_from_cart",:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id.to_s,:i=>i,:imagename=>ol.imagename}%>
-                </th>
+                </td>
               </tr>
               <%else%>
               <tr id="order<%=i%>">
-                <th><%= ol.orderable.title if ol.orderable%></th>
-                <th><%= ol.orderable.price if ol.orderable%></th>
+                <td><%= ol.orderable.title if ol.orderable%></td>
+                <td><%= ol.orderable.price if ol.orderable%></td>
                 <%totalprice = totalprice + ol.orderable.price if ol.orderable%>
-                <th>
+                <td>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
                   <%#= link_to 'Remove', remove_from_cart_admin_orders_url(:orderable_type => ol.orderable_type, :orderable_id => ol.orderable_id) if @current_object.new_record? %>
                  <%#=link_to_remote 'Remove', :update => "",
 :url => {:controller=>"shoppingcart",:action=>"remove_from_cart",:orderable_type => orderable_type, :orderable_id => orderable_id,:i=>i}%>
-                </th>
+                </td>
               </tr>
               <%end%>
               <%i=i+1%>

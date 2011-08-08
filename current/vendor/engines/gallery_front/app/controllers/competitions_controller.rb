@@ -1128,6 +1128,8 @@
       current_user.profile.save
     end
     @current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		
+    p "first the payment is get created"
+    p @current_object
     if     @order.instance_of? ExhibitionsUser
       @current_object.amount_in_cents =params[:invoice_amount].to_i*100
     elsif  @order.instance_of? CompetitionsUser
@@ -1138,6 +1140,8 @@
     if  @order.instance_of? ExhibitionsUser
       if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master_card" 
         @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params,creditcardnumber)
+        p "i paid online" 
+        p @current_object
       elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
         #@current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
@@ -1212,6 +1216,15 @@
         end
       end     
       if  @order.instance_of? ExhibitionsUser 
+        p "i came here because of exhibition"
+        p @current_object
+        p @current_object.save
+        p "this is the error saved"
+        @current_object.errors.each do |x,y|
+          p x 
+          p y
+        end
+        
         if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.   <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
         else
@@ -1224,9 +1237,10 @@
             create_pdf(invoice.id,invoice.number,@order.exhibition.timing.starting_date.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,@order.price.to_i,note,@order.price - alreadypaidamt,alreadypaidamt,true,@order.exhibition.timing.ending_date,"")
             QueuedMail.add('UserMailer','send_invoice_exhibition',[@current_object.user.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in") 
           end    
+          
           #render :text=>"Your Payment Is Done Now Upload And Then Select The Artworks  <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
           #render :partial => "online_response_exhibition_payment",:locals=>{:exhibition_user_id=>@order.id,:artwork_count=>0}
-					            
+					 p "im going towards adding the div"           
           add_exhibition_artwork_insamediv
 			              
         end            

@@ -264,7 +264,15 @@ after :update do
 			@selected_artworks = @current_object.new_record? ? [] : @current_object.artworks
 			
 
-			@remaining_artworks = @current_object.competitions_users.map{ |e| e.user }.delete_if{ |e|;!e.private_workspace }.map{ |e| e.private_workspace.artworks }.flatten - @selected_artworks
+			@remaining_artworks = @current_object.competitions_users.map{ |e| e.user }.delete_if{ |e|;
+        if e 
+          !e.private_workspace 
+        end
+      }.map{ |e| 
+      if e
+        e.private_workspace.artworks 
+      end
+      }.flatten - @selected_artworks
 		elsif CompetitionsUser.exists?(:user_id => @current_user.id, :competition_id => @current_object.id)
 			
 			@selected_artworks = @current_object.new_record? ? [] : @current_object.artworks & @current_user.private_workspace.artworks

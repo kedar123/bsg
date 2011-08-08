@@ -62,6 +62,8 @@ end
   
 
 		after :create_fails, :update_fails do
+       @current_object.errors.each do |x,y|
+       end
 			@current_object.build_timing if @current_object.timing.nil?
 			@places = Gallery.all
 			sr = Role.find_by_name('artist')
@@ -272,7 +274,9 @@ end
 	def get_artworks_lists
 		if @current_user.has_system_role('admin')
 			@selected_artworks = @current_object.new_record? ? [] : @current_object.artworks
-			@remaining_artworks = @current_object.exhibitions_users.all(:conditions => { :state => ['validated', 'published', 'unpublished']}).map{ |e| e.user }.delete_if{ |e| !e.private_workspace }.map{ |e| e.private_workspace.artworks.find(:all,:conditions=>["exhibition_id = #{@current_object.id}"]) }.flatten - @selected_artworks
+			#@remaining_artworks = @current_object.exhibitions_users.all(:conditions => { :state => ['validated', 'published', 'unpublished']}).map{ |e| e.user }.delete_if{ |e| !e.private_workspace }.map{ |e| e.private_workspace.artworks.find(:all,:conditions=>["exhibition_id = #{@current_object.id}"]) }.flatten - @selected_artworks
+      @remaining_artworks = @current_object.exhibitions_users.all.map{ |e| e.user }.delete_if{ |e| !e.private_workspace }.map{ |e| e.private_workspace.artworks.find(:all,:conditions=>["exhibition_id = #{@current_object.id}"]) }.flatten - @selected_artworks
+      
       @all_artworks = @remaining_artworks + @selected_artworks
       
       

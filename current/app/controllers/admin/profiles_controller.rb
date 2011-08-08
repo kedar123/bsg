@@ -238,6 +238,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   # DELETE /profiles/1.xml
   def destroy
     @current_object = Profile.find(params[:id])
+    User.delete_all("id = #{@current_object.user_id}")
     @current_object.destroy
 
     respond_to do |format|

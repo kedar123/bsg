@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
 	validates_confirmation_of :password, :on => :create,:message=>"Please Enter Password And Confirm Password Correctly"
 	# Validation of the uniqueness of these attributes
   validates_uniqueness_of   :login,     :case_sensitive => false, :on => :create,:message=>"First Name Or Last Name Is Already Taken"
-	validates_uniqueness_of   :email,    :case_sensitive => false, :on => :create,:message=>"Please Enter Email"
+	validates_uniqueness_of   :email,    :case_sensitive => false, :on => :create,:message=>"Email Is Already Taken"
 	# Validation of the length of these attributes
   validates_length_of       :login,     :within => 3..40,:message=>"Enter Valid First Name Or Last Name"
 	validates_length_of       :email,    :within => 6..40,:message=>"Email Is Too Short"

@@ -63,7 +63,7 @@ class Invoice < ActiveRecord::Base
 
 
 
-	def validating(payment_mode="online")
+	def validating(payment_mode="online_validated")
 		self.state = 'validated'
 		self.validated_at = Time.now
 		self.payment_medium = payment_mode
@@ -97,7 +97,7 @@ class Invoice < ActiveRecord::Base
               if purc.save
                 # email
                     if !self.payment
-                        if payment = Payment.create(:invoice_id => self.id, :user_id => self.client_id, :amount_in_cents => self.final_amount * 100, :state => "validated_manually")
+                        if payment = Payment.create(:invoice_id => self.id, :user_id => self.client_id, :amount_in_cents => self.final_amount * 100, :state => payment_mode)
                                 else
                           raise "Error during payment creation : "+payment.errors.inspect
                         end

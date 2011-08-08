@@ -127,6 +127,7 @@ class Admin::UsersController < Admin::ApplicationController
                   mssg = ""
                   @current_object.errors.each do |attr,msg|
                    mssg << " " + msg 
+                  
                   end
         		flash[:error] = I18n.t('user.new.flash_error') + " " +mssg
 						if !@current_user

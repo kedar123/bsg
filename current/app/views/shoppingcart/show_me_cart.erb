@@ -23,12 +23,14 @@
       </div> 
       <div id="content">
       <b>Client name </b>
+      <%if !@current_object.blank?%>
       <%=h @current_object.client.profile.full_name %><br />
-      <%if @current_object.total_amount != 0%>
+      <%end%>
+      <%if @current_object && @current_object.total_amount != 0%>
       <b>Order details </b>
-      <table id="order_lines">
+      <table id="order_lines" cellspacing="4" cellpadding="3" style="text-align:left;">
         <thead>
-        <tr>
+        <tr  style="font-size:13px">
           <th>Item</th>
           <th>Artist</th>
           <th>Unit price</th>
@@ -42,7 +44,12 @@
               <%if   ol.orderable_type.to_s.include?("CompetitionsUser")%>  
               <tr id="order<%=i%>">
                 <th><%= ol.orderable.send title_array.fetch(image_array.index(ol.imagename)) %></th>
+                <%if !ol.orderable.user.blank?%>
                 <th><%= ol.orderable.user.profile.first_name + " " + ol.orderable.user.profile.last_name %></th>
+                
+                <%else%>
+                <th></th>
+                <%end%>
                 <th><%= ol.orderable.send price_array.fetch(image_array.index(ol.imagename)) %></th>
                 <th>
                   <%#= link_to 'Show', item_path(ol.orderable) %>
@@ -72,7 +79,9 @@
     <br />
     <b>Total amount </b>
     <div id="total_amount">
+      
        <%=h @current_object.total_amount %> AUD<br />
+       
     </div>
    
     <% if !@current_object.new_record? %>

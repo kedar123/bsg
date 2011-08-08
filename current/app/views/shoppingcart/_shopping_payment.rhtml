@@ -63,8 +63,11 @@
                             <div id="changethelineinfo" style="margin-top:1px;clear:both;width:250px;">
                               
                             </div>
+                            <div style="clear:both;"></div>
                             <div class="changecolorgray">
-                                      <span >First Name</span> <span style="margin-left:75px;">Last Name</span>
+                                      
+                                      <span>First Name</span>
+                                      <span style="margin-left:83px;">Last Name</span>
                             </div>   
                             <%= text_field  :credit_card,:first_name, :label => 'First name' ,:style=>"width:117px;height:16px;"%>
                             <%= text_field :credit_card, :last_name, :label => 'Last name' ,:style=>"width:117px;height:16px;"%>
@@ -74,26 +77,26 @@
                                         Number
                                 </div>
                                  <%#= text_field :credit_card, :number, :label => 'Number',:value=>"4987654321098769",:style=>"width:242px;height:16px;"%>
-                                 <%= text_field  :credit_card,:number0, :label => 'Number',:value=>"4",:style=>"width:15px;height:16px;" ,:onblur=>"checkcreditcardno('credit_card_number0')"%>
-                                 <%= text_field  :credit_card,:number1, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number1')"%>
-                                 <%= text_field  :credit_card,:number2, :label => 'Number',:value=>"8",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number2')"%>
-                                 <%= text_field  :credit_card,:number3, :label => 'Number',:value=>"7",:style=>"width:15px;height:16px;margin-right:20px;",:onblur=>"checkcreditcardno('credit_card_number3')"%>
-                                 <%= text_field  :credit_card,:number4, :label => 'Number',:value=>"6",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number4')"%>
-                                 <%= text_field  :credit_card,:number5, :label => 'Number',:value=>"5",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number5')"%>
-                                 <%= text_field  :credit_card,:number6, :label => 'Number',:value=>"4",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number6')"%>
-                                 <%= text_field  :credit_card,:number7, :label => 'Number',:value=>"3",:style=>"width:15px;height:16px;margin-right:20px;",:onblur=>"checkcreditcardno('credit_card_number7')"%>
-                                 <%= text_field  :credit_card,:number8, :label => 'Number',:value=>"2",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number8')"%>
-                                 <%= text_field  :credit_card,:number9, :label => 'Number',:value=>"1",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number9')"%>
-                                 <%= text_field  :credit_card,:number10, :label => 'Number',:value=>"0",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number10')"%>
-                                 <%= text_field  :credit_card,:number11, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;margin-right:20px;",:onblur=>"checkcreditcardno('credit_card_number11')"%>
-                                 <%= text_field  :credit_card,:number12, :label => 'Number',:value=>"8",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number12')"%>
-                                 <%= text_field  :credit_card,:number13, :label => 'Number',:value=>"7",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number13')"%>
-                                 <%= text_field  :credit_card,:number14, :label => 'Number',:value=>"6",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number14')"%>
-                                 <%= text_field  :credit_card,:number15, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;",:onblur=>"checkcreditcardno('credit_card_number15')"%>
+                                 <%= text_field  :credit_card,:number0, :label => 'Number',:value=>"4",:style=>"width:15px;height:16px;text-align: center;" ,:onblur=>"checkcreditcardno('credit_card_number0')"%>
+                                 <%= text_field  :credit_card,:number1, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;text-align: center;",:onblur=>"checkcreditcardno('credit_card_number1')"%>
+                                 <%= text_field  :credit_card,:number2, :label => 'Number',:value=>"8",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number2')"%>
+                                 <%= text_field  :credit_card,:number3, :label => 'Number',:value=>"7",:style=>"width:15px;height:16px; text-align: center;margin-right:20px;",:onblur=>"checkcreditcardno('credit_card_number3')"%>
+                                 <%= text_field  :credit_card,:number4, :label => 'Number',:value=>"6",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number4')"%>
+                                 <%= text_field  :credit_card,:number5, :label => 'Number',:value=>"5",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number5')"%>
+                                 <%= text_field  :credit_card,:number6, :label => 'Number',:value=>"4",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number6')"%>
+                                 <%= text_field  :credit_card,:number7, :label => 'Number',:value=>"3",:style=>"width:15px;height:16px; text-align: center; margin-right:20px;",:onblur=>"checkcreditcardno('credit_card_number7')"%>
+                                 <%= text_field  :credit_card,:number8, :label => 'Number',:value=>"2",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number8')"%>
+                                 <%= text_field  :credit_card,:number9, :label => 'Number',:value=>"1",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number9')"%>
+                                 <%= text_field  :credit_card,:number10, :label => 'Number',:value=>"0",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number10')"%>
+                                 <%= text_field  :credit_card,:number11, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px; text-align: center; margin-right:20px;",:onblur=>"checkcreditcardno('credit_card_number11')"%>
+                                 <%= text_field  :credit_card,:number12, :label => 'Number',:value=>"8",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number12')"%>
+                                 <%= text_field  :credit_card,:number13, :label => 'Number',:value=>"7",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number13')"%>
+                                 <%= text_field  :credit_card,:number14, :label => 'Number',:value=>"6",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number14')"%>
+                                 <%= text_field  :credit_card,:number15, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px; text-align: center;",:onblur=>"checkcreditcardno('credit_card_number15')"%>
  
                   
                                  <div class="changecolorgray">
-                                         <span> Expiry Date</span><span style="margin-left:112px;">Varification Value</span>
+                                         <span> Expiry Date</span><span style="margin-left:131px;">Verification code (3 digits)</span>
                                   </div>
                                     <%=date_select:credit_card, :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year =>   2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"float:left"%>
                                  <%= text_field :credit_card, :verification_value, :label => 'Verification value' ,:value=>"123" ,:style=>"width:76px;height:16px;"%>
@@ -101,7 +104,7 @@
                                         
                                   </div>    
                                   <%#= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Paypal','paypal']], {},:style=>"float:left",:onchange=>"changetheline()"%>
-                                  <div style="float:left;margin-left:90px;">
+                                  <div style="clear: both; float: left; padding-top: 20px;">
                                   
                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "shopping_cart_payment", :update =>    'modal_space_answer',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
                                    </div>  

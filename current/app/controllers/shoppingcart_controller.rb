@@ -47,12 +47,20 @@ class ShoppingcartController < ApplicationController
 	end
   
   def show_me_cart
+    
+    begin
     @current_object = Order.new_from_cart(session[:cart], @current_user)
     @paymentdone  = params[:payment_message]
     if !session[:current_purchase].blank?
        @current_purchase =  session[:current_purchase]#= Order.new_from_cart(session[:current_purchase], @current_user)
        session[:current_purchase] = {}
     end
+    rescue => e
+      session[:current_purchase] = {}
+      logger.info e
+      logger.info "there is some errors in shopping cart"
+    end
+    
   end
 
   def show_payment_form
