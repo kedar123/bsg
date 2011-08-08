@@ -15,7 +15,10 @@ class Admin::ExhibitionsUsersController < Admin::ApplicationController
        
     logger.info "created the invoice and sending same with email #{invoice.id}"
     
-		if QueuedMail.add('UserMailer','send_invoice_exhibition',[@current_object.user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Sent To Your Email. Please Make The Payment by Login To This Account.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in")
+		p "im sending the invoice"
+    p invoice
+    
+    if QueuedMail.add('UserMailer','send_invoice_exhibition',[@current_object.user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Sent To Your Email. Please Make The Payment by Login To This Account.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in")
 			flash[:notice] = "Invitation sent"
 		else
 			flash[:error] = "Error sending invitation"
