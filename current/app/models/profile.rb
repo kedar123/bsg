@@ -31,7 +31,7 @@ class Profile < ActiveRecord::Base
 	after_create :add_to_admin_contacts
 
 	named_scope :superadmin_filtered, {
-		:conditions => ["profiles.id > 1"]
+		:conditions => ["profiles.id > 0"]
 	}
 
 	named_scope :from_category, lambda{ |cat_id|

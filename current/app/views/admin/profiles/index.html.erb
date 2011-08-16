@@ -14,12 +14,17 @@
     <tbody>
       <% @current_objects.each do |profile| %>
         <tr>
-            <%if  profile.user.login != "admin"%>
+            <%if  profile.user.login != "admin" and  profile.user.login != "superadmin"%>
               <td><%=link_to profile.first_name , admin_profile_path(profile.id)%></td>
               <td><%=link_to profile.last_name , admin_profile_path(profile.id)%></td>
               <td><%=link_to profile.email_address, admin_profile_path(profile.id) %></td>
               <td><%=h profile.country_state %></td>
-             <%end%>
+             <%else%>
+              <td><%=link_to profile.first_name , '' %></td>
+              <td><%=link_to profile.last_name , ''%></td>
+              <td><%=link_to profile.email_address, '' %></td>
+              <td><%=h profile.country_state %></td>
+            <%end%>
 
 
   </tr>

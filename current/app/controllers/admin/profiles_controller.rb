@@ -64,21 +64,16 @@ class Admin::ProfilesController < Admin::ApplicationController
 
   # GET /profiles/1
   # GET /profiles/1.xml
-  def show
+ def show
+   if  current_user.login == "admin" || current_user.login == "superadmin"  
+    
     @current_object = Profile.find(params[:id])
 		#@my_subscription = CompetitionsUser.find(:last);
     @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",@current_user.id,@current_object.id])
     #@folder = @current_object.user.inbox
     @messages = @current_object.user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 500, :page => params[:page], :order => "created_at DESC"
-    
-   
     #@messages = current_user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null ",false], :per_page => 500, :page => params[:page], :order => "created_at DESC"
-
-    
-    
-    
-    
-    @message_recd = []
+     @message_recd = []
     #above are the recd message and below are the sent message
     #adminuser = User.find_by_login("admin")
     @current_object.user.received_messages.each do |mc|
@@ -89,6 +84,12 @@ class Admin::ProfilesController < Admin::ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @current_object }
     end
+   else
+      flash[:notice] = "Please Login As Admin to View All The Users List"
+      redirect_to "/admin"
+   end
+    
+    
   end
   
   def compose_user_mail

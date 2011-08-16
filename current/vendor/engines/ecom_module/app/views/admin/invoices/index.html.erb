@@ -14,7 +14,7 @@
 <% blank_main_div(:title =>"Invoices list", :hsize => 'sevenH') do %>
           
 <table  id="invoices"  >
-  <thead>
+  <thead >
   <tr>
     <th>Inv No</th>
     <th>Client</th>
@@ -41,7 +41,10 @@
     <td width="50px">
     <%if invoice.state == "validated"%>
       paid
-      <%end%>
+    <%else%>
+      Unpaid
+    <%end%>
+      
     </td>
     
     <td width="50px"><%=h invoice.sent_at.strftime("%d %b %Y") if invoice.sent_at%></td>
@@ -55,7 +58,11 @@
         <td width="50px">
          <%=link_to 'Send', open_update_state_admin_invoice_url(invoice.id, :state => 'sent'), :popup => ['dialog name','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes'] %>
         </td>
-        <td width="50px"><%= link_to 'Pay', update_state_admin_invoice_path(invoice.id, :state => 'validated') %></td>
+           <%if invoice.state == "validated"%>
+            <td></td>
+           <%else%>
+              <td width="50px"><%= link_to 'Pay', update_state_admin_invoice_path(invoice.id, :state => 'validated') %></td>
+           <%end%>   
       <% end %>
     <% end %>
   </tr>

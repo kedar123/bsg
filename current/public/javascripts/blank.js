@@ -255,6 +255,24 @@ $(document).ready(function () {
 		});
 		$('#number_of_item').html(count);
 	});
+        $('#filter5').keyup(function(){
+		var filter = $(this).val();
+		var count = 0;
+
+		$(".filtered:first tr").each(function () {
+			if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                            
+		 		$(this).addClass("hidden");
+                                
+			}else {
+				$(this).removeClass("hidden");
+		 		count++;
+		 	}
+		});
+		$('#number_of_item').html(count);
+	});
+
+
 
         $('#filter3').keyup(function(){
 		var filter = $(this).val();

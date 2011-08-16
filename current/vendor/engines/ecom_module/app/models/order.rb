@@ -36,9 +36,10 @@ class Order < ActiveRecord::Base
 		cart.each do |k, v|
 
 		    if  k.split('_')[0] == "CompetitionsUser"
-        			line = OrderLine.new(:orderable_type => k.split('_')[0], :orderable_id => k.split('_')[1].to_i, :number => v.to_i,:imagename=>k.split('_')[2])
-		        	order.order_lines << line
-		        	t_a += (line.orderable.send price_array.fetch(image_array.index(line.imagename))).to_i  * v.to_i
+             line = OrderLine.new(:orderable_type => k.split('_')[0], :orderable_id => k.split('_')[1].to_i, :number => v.to_i,:imagename=>k.split('_')[2])
+		         order.order_lines << line
+             t_a += (line.orderable.send price_array.fetch(image_array.index(line.imagename))).to_i  * v.to_i
+              
 		   else
 		                        line = OrderLine.new(:orderable_type => k.split('_').first, :orderable_id => k.split('_').last, :number => v.to_i)
 		                    	order.order_lines << line

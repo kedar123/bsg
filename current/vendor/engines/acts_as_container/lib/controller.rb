@@ -28,8 +28,6 @@ module ActsAsContainer
             current_container.class.to_s.underscore == "website" ? params[:item_type] = "pages" : params[:item_type] ||= get_allowed_item_types(@current_object).first.to_s.pluralize
             if !params[:item_type].blank?
               @paginated_objects = []
-              p params[:item_type].classify.constantize
-              p "this is what i have"
               @paginated_objects = params[:item_type].classify.constantize.get_da_objects_list(setting_searching_params(:from_params => params))
               if params[:item_type] == 'exhibitions'
                   @paginated_objects << Groupshow.find(:all,:order => "created_at DESC")

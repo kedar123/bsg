@@ -63,12 +63,10 @@ class QueuedMail < ActiveRecord::Base
       logger.info "the email is not get sent the method returns false"
 		end
 	rescue Exception => exc
-    p exc
     logger.info "this is exception for email sending"
     logger.info exc
     logger.info "this is exception for email sending"
-    p "im from rescue the email is not delivered"
-		self.sending_tries = self.sending_tries + 1
+  		self.sending_tries = self.sending_tries + 1
 		
 		if self.sending_tries > 5 || self.created_at > Time.now + 3.hours
 			self.destroy

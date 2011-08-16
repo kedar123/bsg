@@ -143,8 +143,8 @@ class MailingListsController < ApplicationController
     begin
       EmailSystem::deliver_email_notification(rec,params[:message][:subject],@messagebody)
     rescue => exc
-      p "i got this exc"
-      p exc
+    
+      logger.info exc
       someusersfailed = false
     end
     end

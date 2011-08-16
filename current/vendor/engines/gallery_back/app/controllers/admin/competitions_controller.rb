@@ -181,6 +181,7 @@ after :update do
         @total_selected = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id} and state = 'selected'")
         @total_unselected = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id} and state = 'unselected'")
         @total_maybe = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id} and state = 'maybe'")
+        @winner_selected = ArtworksCompetition.count(:conditions => "competition_id = #{@current_object.id} and state = 'winner'")
         @total_price = 0
         @total_artist_paid = CompetitionsUser.find(:all,:conditions => "competition_id = #{@current_object.id} ")
         @total_artist_paid_id = []
@@ -188,9 +189,10 @@ after :update do
         @total_artist_paid_id << tap.id    
         end
         if !@total_artist_paid_id.blank? 
-          @invoice = Invoice.find(:all,:conditions=>"purchasable_type = 'CompetitionsUser' and state = 'validated' and (payment_medium = 'paypal' or payment_medium = 'online') and purchasable_id in (#{@total_artist_paid_id.join(',')})")
+          @invoice = Invoice.find(:all,:conditions=>"purchasable_type = 'CompetitionsUser' and state = 'validated' and (payment_medium = 'paypal' or payment_medium = 'online' or payment_medium = 'online_validated') and purchasable_id in (#{@total_artist_paid_id.join(',')})")
         end
-        if !@invoice.blank?
+      
+      if !@invoice.blank?
           @invoice.each do |inv|
             @total_price = @total_price + inv.final_amount
           end
@@ -211,7 +213,11 @@ after :update do
 		end
 		
 	end
-
+  def change_state
+    @current_object = Competition.find(params[:competition_id])
+    @current_object.update_attributes(:state => params[:new_state])
+    redirect_to :back
+  end
 	def submit_artworks
 		@current_object = Competition.find(params[:id])
 		if @current_user.has_system_role('admin')

@@ -52,7 +52,7 @@
                       
                    <div id="shoppingcartlink<%=object.competitions_user.id%><%=object.competitions_user.class.to_s%><%=image_array[j].to_s%>">
                     
-                   <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.competitions_user.class.to_s+'_'+object.competitions_user.id.to_s) ||    object.competitions_user.user_id != @current_user.id ) %>
+                   <% if @current_user &&  (!session[:cart].blank? && !session[:cart].has_key?(object.competitions_user.class.to_s+'_'+object.competitions_user.id.to_s) ||    object.competitions_user.user_id != @current_user.id ) %>
                     <%#= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
                        
                         <%if (((object.competitions_user.send sold_array[j]) == nil) or ((object.competitions_user.send sold_array[j]) == false))%>  
@@ -65,7 +65,7 @@
                                 
                     <% end %>
                     </div>  
-                    <%if !session[:cart].blank?  &&  session[:cart].has_key?(object.competitions_user.class.to_s+'_'+object.competitions_user.id.to_s) %>
+                    <%if !session.blank? && !session[:cart].blank?  &&  session[:cart].has_key?(object.competitions_user.class.to_s+'_'+object.competitions_user.id.to_s) %>
                               <%= "already in the cart !!"  %>
                     <%end%>     
                     <%if current_user.blank?%>

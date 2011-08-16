@@ -129,9 +129,15 @@ end
 
   # GET /Invoices/1
   # GET /Invoices/1.xml
+  #here i need to check if the invoice is of exhibition type then i need to find both invoices and need to show there details.
   def show
     @current_object = Invoice.find(params[:id])
-
+    @firstinv = nil
+    @secinv = nil
+    if @current_object.purchasable_type == 'ExhibitionsUser'
+       @firstinv =   Invoice.find(:first,:conditions=>["purchasable_id = ? and purchasable_type = ?  and client_id = ?",@current_object.purchasable_id,'ExhibitionsUser',@current_object.client_id] )
+       @secinv =   Invoice.find(:last,:conditions=>["purchasable_id = ? and purchasable_type = ?  and client_id = ?",@current_object.purchasable_id,'ExhibitionsUser',@current_object.client_id] )
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @current_object }
@@ -220,12 +226,14 @@ end
 	def update_state
 		@current_object = Invoice.find(params[:id])
 		if params[:state] == 'sent'
-			@current_object.sending_to_client
+			#@current_object.sending_to_client
 		end
 		if params[:state] == 'validated' && @current_user.has_system_role('admin')
-			@current_object.validating
+			#@current_object.validating
 		end
-		redirect_to admin_invoice_url(@current_object)
+    
+		#redirect_to admin_invoice_url(@current_object)
+     redirect_to :back
 	end
   
   

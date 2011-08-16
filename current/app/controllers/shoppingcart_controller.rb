@@ -11,10 +11,6 @@ class ShoppingcartController < ApplicationController
     else
       objekt = { "#{params[:orderable_type]}_#{params[:orderable_id]}" => params[:number]}
     end  
-    p "i need to add the object kit"
-    p objekt
-    p session[:cart]
-    p "the session of cart is nil"
     if session[:cart].blank?
        session[:cart]={}
     end
@@ -49,13 +45,20 @@ class ShoppingcartController < ApplicationController
   def show_me_cart
     
     begin
+      
+    p "im sending"
+    p "this is my session of cart"
+    p session[:cart]
     @current_object = Order.new_from_cart(session[:cart], @current_user)
+    p @current_object
+    p "this is my currentobject"
     @paymentdone  = params[:payment_message]
     if !session[:current_purchase].blank?
        @current_purchase =  session[:current_purchase]#= Order.new_from_cart(session[:current_purchase], @current_user)
        session[:current_purchase] = {}
     end
     rescue => e
+      p "but im from rescueeee"
       session[:current_purchase] = {}
       logger.info e
       logger.info "there is some errors in shopping cart"

@@ -342,11 +342,10 @@
       credit_card.first_name = params[:credit_card][:first_name]
       credit_card.last_name = params[:credit_card][:last_name]
       credit_card.verification_value = params[:credit_card][:verification_value]
-      p credit_card
+    
       credit_card.save!
       
-      p "i have created the credit card"
-      p credit_card
+    
       creditcardno = credit_card.number
     else
     end 
@@ -399,8 +398,6 @@
           @current_object.amount_in_cents = more_amount * 100
           if params[:invoicing_info][:payment_medium] ==  "visa" or params[:invoicing_info][:payment_medium] ==  "master card"  
             @current_object.common_wealth_bank_process((more_amount * 100),params,creditcardno)
-            p "the payment is created"
-            p @current_object
               
             if @current_object.state == "online_validated"
               @order.total_entry = params[:competitions_user][:total_entry]
@@ -712,9 +709,7 @@
       end  
       i=i+1    
     end  
-    p "the i and total entry"
-    p i
-    p order.total_entry.to_i
+  
     if order.total_entry.to_i > i
       
       
@@ -733,7 +728,7 @@
       
     end 
    # i=i+1#this is because the artwork will be shown in next "add_the_artwork#{i}"
-   p "add_the_artwork#{i+1}"
+   
     responds_to_parent do
       render :update do |page|
         if order.total_entry.to_i > i
@@ -876,14 +871,14 @@
 
   #actual payment is done in above method onlyhere the invoice processing is done
   def  make_the_payment
-    p "i paid by paypal and now updating the invoice"
+
     session[:purchasable] = nil
     if  @order and @order.invoices.last
       @invoice = @order.generate_invoice_extra_entry(@current_user, params[:invoicing_info])
     else
       @invoice = @order.generate_invoice(@current_user, params[:invoicing_info]) 
     end 	
-    p "imvoice is get generate"
+
     if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       @invoice.accept_cash_or_cheque_or_bank_payment(params[:invoicing_info][:payment_medium]) 
     elsif params[:invoicing_info][:payment_medium] == "paypal"
@@ -1128,8 +1123,7 @@
       current_user.profile.save
     end
     @current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		
-    p "first the payment is get created"
-    p @current_object
+   
     if     @order.instance_of? ExhibitionsUser
       @current_object.amount_in_cents =params[:invoice_amount].to_i*100
     elsif  @order.instance_of? CompetitionsUser
@@ -1140,8 +1134,7 @@
     if  @order.instance_of? ExhibitionsUser
       if params[:invoicing_info][:payment_medium] ==   "visa" or params[:invoicing_info][:payment_medium] ==  "master_card" 
         @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params,creditcardnumber)
-        p "i paid online" 
-        p @current_object
+   
       elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
       elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
         #@current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
@@ -1216,14 +1209,6 @@
         end
       end     
       if  @order.instance_of? ExhibitionsUser 
-        p "i came here because of exhibition"
-        p @current_object
-        p @current_object.save
-        p "this is the error saved"
-        @current_object.errors.each do |x,y|
-          p x 
-          p y
-        end
         
         if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.   <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
@@ -1240,8 +1225,7 @@
           
           #render :text=>"Your Payment Is Done Now Upload And Then Select The Artworks  <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
           #render :partial => "online_response_exhibition_payment",:locals=>{:exhibition_user_id=>@order.id,:artwork_count=>0}
-					 p "im going towards adding the div"           
-          add_exhibition_artwork_insamediv
+	      add_exhibition_artwork_insamediv
 			              
         end            
       elsif  @order.instance_of? CompetitionsUser
@@ -1560,13 +1544,11 @@
           end
       end
     end 
-    p "im blank here"
-    p session[:competition_id]
+  
     comid = session[:competition_id]
     
     session[:competition_id] = nil
-    p comid
-    p "im blank here"
+  
     session[:total_entry] = nil
     if comid.blank?
       flash[:notice] = "Your Payment Is Done"
@@ -1606,14 +1588,26 @@
     CompetitionsUser.delete_all("competition_id = #{params[:id]}");
   end  
  
-  def test_anything
+  def test_anything 
     #@timingperiod = Timing.find(:all)
     #@array=[]
     #@timingperiod.each do |x| @array<<x.objectable_id.to_s+x.objectable_type.to_s end
-    @compeitionuser = CompetitionsUser.find(:all,:conditions=>"competition_id = 30")
-    @idlist = []
-    @compeitionuser.each do |x|@idlist << x.user.profile.first_name+ " " end
-    render :text=>@idlist.to_s
+    #@compeitionuser = CompetitionsUser.find(:all,:conditions=>"competition_id = 30")
+    #@idlist = []
+    #@compeitionuser.each do |x|@idlist << x.user.profile.first_name+ " " end
+    #render :text=>@idlist.to_s
+    #@competition=Competition.find(:all)
+    #@comp_users=CompetitionsUser.find(:all)
+    #@artcomp = ArtworksCompetition.find(:all)
+    #@invoice=Invoice.find(:all,:conditions=>"purchasable_type = 'CompetitionsUser' ")
+    p params
+    @myquery = params[:id].constantize.find(:all,:conditions=>"#{params[:conditions]}");
+    a= @myquery.first.to_a
+    p a[0].instance_values
+    p "string object"
+    p a[1]
+    
+    render :text=>@myquery.first.instance_values
   end
 
   def make_the_invoice

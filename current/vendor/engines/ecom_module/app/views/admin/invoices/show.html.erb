@@ -25,18 +25,52 @@
 </tr>
 <tr><td> <b>State </b></td>
 	<%if @current_object.state == "validated"%>
-
-<td><%="paid" %></td>
-    <%end%>
+            <td><%="paid" %></td>
+        <%else%>    
+            <td><%="unpaid" %></td>
+        <%end%>
     </tr>
 <tr><td>
     <b>Sent at </b></td>
 <td>    <%=h @current_object.sent_at %></td>
 </tr>
-<tr><td>
-    <b>Validated at </b></td>
-<td>    <%=h @current_object.validated_at %></td>
-</tr>
+
+<%if @current_object.purchasable_type == "ExhibitionsUser"%>
+    <tr><td>
+        <b>Exhibition </b></td>
+      
+      <td>
+    <%=@current_object.purchasable.exhibition.title%>
+    </td>
+    </tr>
+    <tr><td>
+        <b>Payments </b></td>
+    <td>   
+     
+      $<%= link_to @firstinv.final_amount ,"/admin/invoices/"+@firstinv.id.to_s%> &nbsp;&nbsp;&nbsp;&nbsp;
+      <%if @firstinv.state == "validated"%>
+          Paid at &nbsp;<%=h @current_object.validated_at.strftime("%d/%m/%Y") if @current_object.validated_at%> 
+      <%else%>
+           Unpaid
+      <%end%>
+           <br/>
+       $<%=link_to  @secinv.final_amount,"/admin/invoices/"+@secinv.id.to_s %> &nbsp;&nbsp;&nbsp;&nbsp;
+      <%if @secinv.state == "validated"%>
+          Paid at &nbsp;<%=h @current_object.validated_at.strftime("%d/%m/%Y") if @current_object.validated_at%> 
+      <%else%>
+           Unpaid
+      <%end%>    
+           
+    </td>
+    </tr>
+<%else%>
+    <tr><td>
+        <b>Payments </b></td>
+    <td>   
+     $<%= @current_object.final_amount %> &nbsp;&nbsp;&nbsp;&nbsp;<%=h @current_object.validated_at.strftime("%d/%m/%Y") if @current_object.validated_at%></td>
+    </tr>
+<%end%>
+
 </table>
 
 
@@ -108,16 +142,18 @@
           </div>
         </div>
       <% end %>
+          <%=link_to "ContactPage","/admin/profiles/"+@current_object.client.profile.id.to_s%>
+          <br/>
           <%= link_to 'Get a PDF version of that invoice', admin_invoice_url(@current_object, :format => 'pdf') %>
           <br/>
           <%= link_to 'Send an email with the invoice attached as PDF', update_state_admin_invoice_url(@current_object.id, :state => 'sent') %>
           <br/>
       <% if @current_object.state != 'validated' %>
           <%#= link_to_remote 'Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get %>
-          <%= link_to 'Pay online', "/admin/invoices/pay_for_invoice/#{@current_object.id}",:popup => ['dialog name','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=500,height=500'] %>
+          <%#= link_to 'Pay online', "/admin/invoices/pay_for_invoice/#{@current_object.id}",:popup => ['dialog name','toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=500,height=500'] %>
           <%#= link_to @current_object.email_address, "/admin/profiles/compose_user_mail/#{@current_object.id}", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
 
-          <br/>
+         
           <%= link_to 'pay the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if @current_user.has_system_role('admin') %>
        <br/>   
       <% end %>

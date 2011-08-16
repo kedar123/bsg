@@ -60,17 +60,13 @@
                                       Payment
                             </div>   
                             <%= select 'invoicing_info', 'payment_medium', [['VISA', 'visa'], ['Master Card', 'master card'],['Paypal','paypal']], {},:style=>"float:left",:onchange=>"changetheline()"%>
-                            <div id="changethelineinfo" style="margin-top:1px;clear:both;width:250px;">
-                              
-                            </div>
+                            
                             <div style="clear:both;"></div>
                             <div class="changecolorgray">
-                                      
-                                      <span>First Name</span>
-                                      <span style="margin-left:83px;">Last Name</span>
-                            </div>   
-                            <%= text_field  :credit_card,:first_name, :label => 'First name' ,:style=>"width:117px;height:16px;"%>
-                            <%= text_field :credit_card, :last_name, :label => 'Last name' ,:style=>"width:117px;height:16px;"%>
+                                      <span >First Name</span> <span style="margin-left:131px;">Last Name</span>
+                             </div>   
+                            <%= text_field  :credit_card,:first_name, :label => 'First name' ,:style=>"width:165px;height:16px;float:left"%>
+                            <%= text_field :credit_card, :last_name, :label => 'Last name' ,:style=>"width:254px;height:16px;margin-left:12px;"%>
                             <%= hidden_field :credit_card, :user_id,:value=>current_user.id%>
                   
                                <div class="changecolorgray">
@@ -96,10 +92,10 @@
  
                   
                                  <div class="changecolorgray">
-                                         <span> Expiry Date</span><span style="margin-left:131px;">Verification code (3 digits)</span>
+                                         <span> Expiry Date</span><span style="margin-left:124px;">Verification code (3 digits)</span>
                                   </div>
-                                    <%=date_select:credit_card, :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year =>   2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"float:left"%>
-                                 <%= text_field :credit_card, :verification_value, :label => 'Verification value' ,:value=>"123" ,:style=>"width:76px;height:16px;"%>
+                                    <%=date_select:credit_card, :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year =>   2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"text-align: center"%>
+                                 <%= text_field :credit_card, :verification_value, :label => 'Verification value' ,:value=>"123" ,:style=>"width:76px;height:16px;text-align: center"%>
                                  <div class="changecolorgray" style="clear:both;margin:5px;">
                                         
                                   </div>    
@@ -107,12 +103,15 @@
                                   <div style="clear: both; float: left; padding-top: 20px;">
                                   
                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "shopping_cart_payment", :update =>    'modal_space_answer',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
-                                   </div>  
-                                   <div id="show_ajax_request" style="display:none">
+                                  
+                                    
+                                    <div id="show_ajax_request" style="display:none;height:25px;width:20px;margin-left:10px;float:right">
                                               <img height="18" src="/images/ajax-spinner.gif" alt="loading" >
-                                  </div>
-                </div><%#the blank div ends%>
-                
+                                   </div>
+                                    
+                                  </div>  
+                                   
+                </div>
                 <b>
                 <div id="modal_space_answer" style="margin-top:1px;clear:both" >
                 </div>

@@ -40,7 +40,7 @@
       
 <%#=object.is_purchasable%> 
       	 <div id="shoppingcartlink<%=object.id%><%=object.class.to_s%>">
-      <% if @current_user && (session[:cart] && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id)  %>
+      <% if @current_user &&  (!session[:cart].blank? && !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) ||    object.user_id != @current_user.id)  %>
         <%#= link_to '<font color="white">add to the cart</font>', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1) %>
         <%#=link_to "<font color='white'>add to cart</font>" ,{:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1}%>
            
@@ -58,7 +58,7 @@
            
            
         </div>   
-      <%= "already in the cart !!" if  @current_object &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>
+      <%= "already in the cart !!" if  @current_object && !session[:cart].blank? &&  session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s) %>
       <%if current_user.blank?%>
           <a href="/login/?msg=buyartwork-<%=params[:action]%>" method='post' ><img src="/images/buy.jpeg"/> </a>
       <%end%>

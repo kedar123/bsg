@@ -10,6 +10,7 @@
     background-position: bottom right;
     background-repeat: no-repeat;
   }
+  
 </style>
 <%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']%>
 <%size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
@@ -30,8 +31,8 @@
     <%if !@artworkexhibition.blank?%> 
       <%for artwork in @artworkexhibition%>
           s1 = new slide();
-          s1.src =  '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
-          s1.link = '<%="/uploaded_files/development/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+          s1.src =  '<%="/uploaded_files/production/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
+          s1.link = '<%="/uploaded_files/production/artwork/#{artwork.id}/original/#{artwork.image_file_name}"%>';
           s1.slideshowid = '<%=eu.exhibition.id%>';
           s1.title = "<%=artwork.title%>";
         <%size = ""%>
@@ -221,13 +222,13 @@
           <%if  cu.state.blank?%>
             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state unpaid") do %>
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-                        <!--<a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
+                                                <!--<a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
               <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
             <% end %>
           <%elsif   cu.state == "accepted"%>
             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state unpaid") do %>
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-                       <!-- <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
+                                               <!-- <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
               <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>  
             <% end %>
           <%else%>     
@@ -239,7 +240,7 @@
         <% end %>
         <br /><br />
       <% else %>
-                                  No subscriptions to competitions for that user.
+        No subscriptions to competitions for that user.
       <% end %>
       <br/>   
 
@@ -247,20 +248,52 @@
     <div id="fragment-4">
       <div style="float:right;">
         <%if current_user.login=="admin" || current_user.login=="superadmin"%>
-          <%= link_to "add an invoice for that contact", new_admin_invoice_path + "/#{@current_object.id}" %>
-        <%end%>
-      </div><br />
-      <% if !(invoices=@current_object.user.invoices).empty? %>
-        <% invoices.each do |i| %>
-          <% blank_list_element(:date => i.created_at, :title => link_to(i.title, admin_invoice_path(i.id))+" with state '#{i.state}'") do %>
-      <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
+        Filter the list with text 
+        <br/>
+          <input id="filter5"/><br />
+          <%= link_to "add an invoice for this contact", new_admin_invoice_path + "/#{@current_object.id}" %>
 
-      <%#= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if (i.state != 'validated') && @current_user.has_system_role('admin') %>
+        <%end%>
+
+      </div><br />
+      
+      <% if !(invoices=@current_object.user.invoices.find(:all,:order=>"created_at DESC")).empty? %>
+        <table  id="invoicess"  >
+         
+          <tbody style="color:#666666;">
+
+            <% invoices.each do |i| %>
+              <%invoicestate = "unpaid" %>
+              <%invoicestate = "paid" if i.state == "validated"%>
+              <tr> 
+                <td style="width:60px">
+                  <%=i.created_at%>
+                </td>
+                <td>
+                  <%=link_to(i.title, admin_invoice_path(i.id))+" with state #{invoicestate}"%>
+              </td>
+            </tr>
+
+  <%# blank_list_element(:date => i.created_at, :title => link_to(i.title, admin_invoice_path(i.id))+" with state '#{invoicestate}'") do %>
+
+  <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
+
+  <%#= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if (i.state != 'validated') && @current_user.has_system_role('admin') %>
+  <%# end %>
           <% end %>
-        <% end %>
-      <% else %>
-                          No invoices linked to that user.
-      <% end %>
+        </tbody>
+        <tfoot>
+          <tr style="display:none;">
+            <td colspan="5">
+	            No rows match the filter...
+            </td>
+          </tr>
+        </tfoot>
+
+      </table>
+    <% else %>
+      No invoices linked to that user.
+    <% end %>
     </div>
     <div id="fragment-5">
       <div>
@@ -281,18 +314,18 @@
                     <td align="left" valign="top" nowrap="nowrap">
                       <div class="bsg-right">
                         <ul>
-                          <%for message in @messages%>
-                            <ul class="mm-field-email">					
-                              <!--<li class="field-checkbox fc">    <%#=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>-->
-                              <li class="field-from-email"><%=h message.author.email %></li>
-                              <li class="field-subject-email">
-                                <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message_sent", :id => message.id }%>
-  <%#action is show messsage%>         
-                              </li>
+                        <%for message in @messages%>
+                          <ul class="mm-field-email">					
+                            <!--<li class="field-checkbox fc">    <%#=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>-->
+                            <li class="field-from-email"><%=h message.author.email %></li>
+                            <li class="field-subject-email">
+                              <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message_sent", :id => message.id }%>
+<%#action is show messsage%>         
+                            </li>
 
-                              <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
-                            </ul>
-                          <%end%> 
+                            <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
+                          </ul>
+                        <%end%> 
                         </ul>
                       </div>
                     </td> 
@@ -308,18 +341,18 @@
                     <td align="left" valign="top" nowrap="nowrap">
                       <div class="bsg-right">
                         <ul>
-                          <%for message in @message_recd%>
-                            <ul class="mm-field-email">					
-                             <!-- <li class="field-checkbox fc">    <%#=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>-->
-                              <li class="field-from-email"><%=h message.author.email %></li>
-                              <li class="field-subject-email">
-                                <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message_recd", :id => message.id }%>
-  <%#action is show messsage%>         
-                              </li>
+                        <%for message in @message_recd%>
+                          <ul class="mm-field-email">					
+                           <!-- <li class="field-checkbox fc">    <%#=check_box_tag "delete_message"+message.id.to_s  ,message.id ,false,:class=>"mm-cb"%></li>-->
+                            <li class="field-from-email"><%=h message.author.email %></li>
+                            <li class="field-subject-email">
+                              <%= link_to_remote truncate(message.subject,40) ,:update => "",:url => { :action => "show_message_recd", :id => message.id }%>
+<%#action is show messsage%>         
+                            </li>
 
-                              <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
-                            </ul>
-                          <%end%> 
+                            <li class="field-date"><%=message.created_at.strftime("%Y-%m-%d")%></li>
+                          </ul>
+                        <%end%> 
                         </ul>
                       </div>
                     </td> 
@@ -354,17 +387,17 @@
 
     <div id="fragment-7">
 
-      <%if !@current_object.notices.blank? %>	<br/>	
-        <a id="displayText" href="javascript:ntoggle();">
-          <b>Update Notice</b></a>
+    <%if !@current_object.notices.blank? %>	<br/>	
+      <a id="displayText" href="javascript:ntoggle();">
+        <b>Update Notice</b></a>
 
 
-        <br />				
-        <font size=2pt>    <%=h @current_object.notices %></font>
-      <%else%>
-                                  No Notices for <%=h @current_object.first_name %>.<br/>
-        <a id="displayText" href="javascript:ntoggle();"><b>Change Notice</b></a><br />				
-      <%end%>
+      <br />				
+      <font size=2pt>    <%=h @current_object.notices %></font>
+    <%else%>
+      No Notices for <%=h @current_object.first_name %>.<br/>
+      <a id="displayText" href="javascript:ntoggle();"><b>Change Notice</b></a><br />				
+    <%end%>
       <div id="notice_add">
 
       </div>	
@@ -373,11 +406,11 @@
       <div id="noticeToggle" style="display: none">
 
         <font size=1pt>    <%#=h @current_object.biography %></font>
-        <% form_tag(update_notices_admin_profile_path, :method => "put") do %>
-          <%= label_tag(:q, "Notice:") %> 
-          <%= text_area_tag(:notice,@current_object.notices,:cols=>40) %> <br/>
-          <%= submit_tag("Submit",:style=>"width:150px;margin-left:140px;") %> 
-        <% end %>
+      <% form_tag(update_notices_admin_profile_path, :method => "put") do %>
+        <%= label_tag(:q, "Notice:") %> 
+        <%= text_area_tag(:notice,@current_object.notices,:cols=>40) %> <br/>
+        <%= submit_tag("Submit",:style=>"width:150px;margin-left:140px;") %> 
+      <% end %>
 
       </div>		
 
@@ -396,3 +429,10 @@
 <%#*</script>%>
 
 
+<script>
+  $(document).ready(function()
+    {
+      $("#invoicess").tablesorter();
+    }
+);
+</script>

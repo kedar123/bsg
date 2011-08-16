@@ -54,7 +54,7 @@
       <% if is_activated_rating_part && @current_object.has_permission_for?('rate', @current_user, @current_container) %>
         <%= item_rate(@current_object) %>
       <% end %>
-	<%if session[:cart]%>
+	<%if !session.blank? && !session[:cart].blank?%>
       <% if (tt=!session[:cart].has_key?(@current_object.class.to_s+'_'+@current_object.id.to_s) || @current_object.user_id != @current_user.id) && (@current_object.class.to_s=='Artwork' && @current_object.is_purchasable) %>
       <%end%>
         <%#= link_to 'Add to the cart', add_to_cart_admin_orders_path(:orderable_type => @current_object.class.to_s, :orderable_id => @current_object.id, :number => 1) %>

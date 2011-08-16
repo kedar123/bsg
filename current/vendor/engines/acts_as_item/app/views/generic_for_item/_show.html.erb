@@ -104,17 +104,54 @@
               <p>
                   <%=link_to "Maybe", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=maybe", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
               </p>
-             <%if @current_object.state == "results_publish"%>
+             
+              <%if @current_object.state == "results_publish"%>
                 <p>
                   <%=link_to "winner", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=winner", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
                 </p>
              <%end%>
+                
+                  <p>
+                <b>Current State</b> <br/>
+                
+                
+                  <%if (object.state == "open") %>
+                    open
+                  <%elsif(object.state == "final_published")%>
+                    publish the final artworks list
+                  <%else%>
+                    publish the results of the competition
+                  <%end%>
+                
+              </p>
+              
+              <p>
+                
+                <% form_for(object, :url => "/admin/competitions/change_state/#{object.id} ") do |f| %>
+                <select name="new_state" id="new_state_change" onChange="document.getElementById('competition_submit').click();" style="width:120px">
+                      <option value="0"> Change State</option>
+                      <option value="open">open</option>
+                      <option value="final_published">publish the final artworks list</option>
+                      <option value="results_publish">publish the results of the competition</option>
+                  </select> 
+                 <%=f.submit 'submit', :style=>"visibility:hidden"%>
+                <% end%>
+               
+              </p>
+              
+                
+                
+                
+                
+                
+                
+                
           <%end%>  
           
       <% if is_activated_rating_part && @current_object.has_permission_for?('rate', @current_user, @current_container) %>
         <%= item_rate(@current_object) %>
       <% end %>
-	<%if session[:cart]%>
+	<%if !session.blank? && !session[:cart].blank?%>
       <% if (tt=!session[:cart].has_key?(@current_object.class.to_s+'_'+@current_object.id.to_s) || @current_object.user_id != @current_user.id) && (@current_object.class.to_s=='Artwork' && @current_object.is_purchasable) %>
       <%end%>
         <%#comented by kedar%>
@@ -125,13 +162,13 @@
         <% if cu=CompetitionsUser.find(:first, :conditions => {:competition_id => @current_object.id, :user_id => @current_user.id}) %>
 		  <% if inv=Invoice.find(:last, :conditions => { :purchasable_type => 'CompetitionsUser', :purchasable_id => cu.id, :client_id => @current_user.id }) %>
 					<% if inv.state != 'validated' %>
-						<%= link_to_remote 'Pay your invoice related to that competition', :url => new_admin_payment_url(:iid => inv.id), :update => 'modal_space', :method => :get %>
+						<!--<%= link_to_remote 'Pay your invoice related to that competition', :url => new_admin_payment_url(:iid => inv.id), :update => 'modal_space', :method => :get %>-->
 					<% end %>
 					<%#= link_to_remote 'Artworks submission wizard', :url => artworks_wizard_admin_competitions_user_path(cu), :update => 'modal_space', :method => :get %>
-		    		<a href="/admin/competitions/create_subscribe_competition/?competion_id=<%=@current_object.id%>">Show My Entry</a>
+		    		<!--<a href="/admin/competitions/create_subscribe_competition/?competion_id=<%=@current_object.id%>">Show My Entry</a>-->
 		  <% else %>
    		<%#= link_to_remote 'Generate invoice', :url => invoicing_admin_invoices_url(:purchasable_type => cu.class.to_s, :purchasable_id => cu.id), :update => 'modal_space', :method => :get %>
-		   <a href="/admin/competitions/create_subscribe_competition/?competion_id=<%=@current_object.id%>">Show My Entry</a>   
+		  <!-- <a href="/admin/competitions/create_subscribe_competition/?competion_id=<%=@current_object.id%>">Show My Entry</a>   -->
 		  <% end %>
         <% else %>
           <%#= link_to_remote 'Select a subscription to that competition', :url => select_admin_competitions_subscriptions_url(:competition_id => @current_object.id), :update => 'modal_space', :method => :get %>
