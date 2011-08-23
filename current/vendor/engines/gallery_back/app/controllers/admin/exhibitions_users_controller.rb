@@ -46,8 +46,7 @@ class Admin::ExhibitionsUsersController < Admin::ApplicationController
   
   
 	def update_state
-    p "im here for changing the state"
-		@current_object = ExhibitionsUser.find(params[:id])
+       	@current_object = ExhibitionsUser.find(params[:id])
 		if params[:state] == 'accepted'
 			@current_object.state = params[:state]
 			@current_object.setting_the_price

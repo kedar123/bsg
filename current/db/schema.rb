@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804061850) do
+ActiveRecord::Schema.define(:version => 20110810074151) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -1204,6 +1204,11 @@ ActiveRecord::Schema.define(:version => 20110804061850) do
     t.integer "user_id"
     t.integer "groupshow_id"
     t.string  "state"
+  end
+
+  create_table "usernamefortests", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

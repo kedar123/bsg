@@ -328,6 +328,34 @@
       page["buylist"].hide
     end
   end  
+  
+  #this will render the login page when click here all other things will be hidden and whereever the hidden is written i will add this there
+  #the form will contain the login form and redirect after login is done on the same page else show the error
+  #i have created the partial to show the login page.the errors will be shown on the top of form.when the competition show is get displayed ]]
+  #without a login at that time only the pictures are shown. the login form will be same as sessions /login
+  def create_subscribe_competition_front_login
+    
+   session[:compredirecid] = params[:id]
+    render :update do |page|
+      page["buylist"].hide
+      page["loginform"].replace_html :partial=>"create_subscribe_competition_front_login"
+      page["iteam_imagelogin"].show
+    end
+  end
+ 
+   #this will render the registration page. this will open the registratin form which need to be in same size and errors will be shown in one 
+   #more div 
+  def create_subscribe_competition_front_register
+    		@current_object = User.new
+		@current_object.build_profile if @current_object.profile.nil?
+     session[:compredirecid] = params[:id]
+    render :update do |page|
+      page["buylist"].hide
+      page["registerform"].replace_html :partial=>"create_subscribe_competition_front_register"
+      page["iteam_imageregister"].show
+    end
+  end  
+  
    
   def  create_the_payment
     creditcardno = ""
@@ -936,7 +964,8 @@
     end   
   end  
 
-
+   #according to the status of the competition the alert message will be shown to user. if it is open then the message will be shown.if it is 
+   #if it is final published then different message is shown and if it is result publich then different message is shown
   def edit_images_front
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle'] 

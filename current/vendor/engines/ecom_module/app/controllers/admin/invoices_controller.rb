@@ -226,10 +226,10 @@ end
 	def update_state
 		@current_object = Invoice.find(params[:id])
 		if params[:state] == 'sent'
-			#@current_object.sending_to_client
+			@current_object.sending_to_client
 		end
 		if params[:state] == 'validated' && @current_user.has_system_role('admin')
-			#@current_object.validating
+			@current_object.validating
 		end
     
 		#redirect_to admin_invoice_url(@current_object)

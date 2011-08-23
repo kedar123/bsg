@@ -38,6 +38,10 @@ ActionController::Routing::Routes.draw do |map|
   
   
   map.connect "/create_subscribe_competition_front",:controller=>"competitions",:action=>"create_subscribe_competition_front"
+  map.connect "/create_subscribe_competition_front_login",:controller=>"competitions",:action=>"create_subscribe_competition_front_login"
+  map.connect "/create_subscribe_competition_front_register",:controller=>"competitions",:action=>"create_subscribe_competition_front_register"
+  
+  
   map.connect "/create_subscribe_competition_front_edit",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
   
   

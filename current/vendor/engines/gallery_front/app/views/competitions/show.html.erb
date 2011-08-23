@@ -71,8 +71,11 @@ function check_the_checkbox(){
         
        <%if logged_in?%>     
        <%else%>     
-        Please  <a href="/login/<%=@competition.id%>"><b>Login</b></a>  To Enter Into Competition &nbsp;&nbsp;or &nbsp;&nbsp;
-       <a href="/subscribe/<%=@competition.id%>" > Register </a>   
+        <!--Please  <a href="/login/<%=@competition.id%>"><b>Login</b></a>  To Enter Into Competition &nbsp;&nbsp;or &nbsp;&nbsp;
+       <a href="/subscribe/<%=@competition.id%>" > Register </a>  -->
+            
+      <%=link_to_remote "To Enter Competition cick here", :update => "",:url => { :action => "create_subscribe_competition_front_login", :id => @competition.id}%> 
+       
        <%end%>     
         
             
@@ -91,8 +94,8 @@ function check_the_checkbox(){
                    Click <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
                           %>  To Edit your entry 
                   <br/>    
-                  Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
-                       %> to Browse Images
+                 Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                       %>  to browse all works
                  <br/>          
             <%end%>      
         <%end%>    
@@ -170,6 +173,7 @@ function check_the_checkbox(){
         <%#= link_to 'Click here', enter_admin_competitions_subscriptions_path %>
       </div><%#content div ended%>
     </div><%#description_competition ended%>
+  
     <div id="enterintocompetition" style="display:none;height:auto;" > 
             <div id="description_competition" style="border-right: 1px solid white;width:500px">
               <div id="content" style="padding-top:2px;">
@@ -178,6 +182,34 @@ function check_the_checkbox(){
               </div>
             </div><%#description_competition ended%>
     </div>
+    <div id="list" style="line-height: 7px;"> 
+      <div id="list_show">
+        <div id="iteam_imagelogin" style="display:none" class="artwork_show">
+                            <div id="description_competition">
+                              <div id="content" style="padding-top:10px;">
+                                   <div id="loginform" style="display:block">  
+                                        
+                                   </div>
+                              </div>
+                            </div>    
+          </div>          
+        <div id="iteam_imageregister" style="display:none" class="artwork_show">
+                            <div id="description_competition">
+                              <div id="content" style="padding-top:0px;">
+                                   <div id="registerform" style="display:block">  
+                                        
+                                   </div>
+                              </div>
+                            </div>    
+          </div>          
+      </div>
+      
+    </div>
+  
+  
+  
+  
+  
     <div id="list" style="line-height: 7px;"> 
         <div id="list_show">
                   <div id="iteam_image0" style="display:none" class="artwork_show">

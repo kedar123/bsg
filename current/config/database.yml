@@ -14,7 +14,7 @@ development:
   <<: *DEFAULTS
 
 test:
-  database: gallery
+  database: gallery_test
   <<: *DEFAULTS
 
 production:

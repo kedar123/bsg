@@ -103,7 +103,7 @@ class Admin::UsersController < Admin::ApplicationController
 						   flash[:notice]="User Has Been Successfully created"
 						   self.current_user = admin_logged_in
                 email= UserMailer.create_admin_register_user(@current_object)
-               # UserMailer.deliver(email)
+                UserMailer.deliver(email)
                 Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
                 Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
                redirect_to admin_profiles_path
