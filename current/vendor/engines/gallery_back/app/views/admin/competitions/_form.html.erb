@@ -311,13 +311,43 @@
     </tr>  
 </table>
 
+<table> 
+    <tr align="left">
+<div style="margin-top: 28px;">
+     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+       Open State Message
+      </td> 
+</div>   
+     <td valign="top">
+            <%= f.text_field :openstatemsg, :label => '',:style=>"width:430px;",:value=>"#{@current_object.openstatemsg}" %>
+      </td>
+    </tr>  
+</table>
+
+<table> 
+    <tr align="left">
+<div style="margin-top: 28px;">
+     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+       Publish Final Artwork
+      </td> 
+</div>   
+     <td valign="top">
+            <%= f.text_field :publishfinalmsg, :label => '',:style=>"width:430px;",:value=>"#{@current_object.publishfinalmsg}" %>
+      </td>
+    </tr>  
+</table>
 
 
 
 
-<label>Exhibition Runs</label><br />
+
+
+
+<label>Exhibition Runs </label><br />
   <div style="margin-left:22px;">
   <% f.fields_for :timing do |ff| %>
+    
+    
     <%= add_timing_fields(:form => ff, :places_list => @places, :period_used => false, :one_day => false, :time_used => false,:period_id=>@oldtimingperiodid) %>
   <% end %>
   </div>
