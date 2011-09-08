@@ -975,6 +975,7 @@
 
    #according to the status of the competition the alert message will be shown to user. if it is open then the message will be shown.if it is 
    #if it is final published then different message is shown and if it is result publich then different message is shown
+  
   def edit_images_front
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle'] 
@@ -987,20 +988,37 @@
     @competitions_user = CompetitionsUser.find(params[:order_id])
     @image_array = []
     i=0;
+<<<<<<< HEAD
      alertmessage = ""
 
     if @competition.state == "open"
        alertmessage = @competition.openstatemsg
+=======
+    
+    alertmessage = ""
+    
+    if @competition.state == "open" 
+       alertmessage = @competition.openstatemsg  
+>>>>>>> 6b8df46dc78d6f014bbae07d66c352a5360297c7
        if alertmessage.blank?
          alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
        end
     end
+<<<<<<< HEAD
     if @competition.state == "final_published"
       alertmessage = @competition.publishfinalmsg
+=======
+    if @competition.state == "final_published" 
+      alertmessage = @competition.publishfinalmsg  
+>>>>>>> 6b8df46dc78d6f014bbae07d66c352a5360297c7
       if alertmessage.blank?
          alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
        end
     end
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 6b8df46dc78d6f014bbae07d66c352a5360297c7
     add_art_cnt = 0
     counttodisplayviwform=0
     for eachimage in image_array
@@ -1061,6 +1079,7 @@
         page["iteam_image"+(@competitions_user.total_entry.to_i+1).to_s].hide
         page.alert(alertmessage)
       end                    
+      
     end 
   end  
 
