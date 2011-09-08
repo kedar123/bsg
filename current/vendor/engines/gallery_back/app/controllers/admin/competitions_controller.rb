@@ -22,6 +22,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
   end
 
   def send_mail_to_artist
+
     @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
     @emailsendarray=[]
     @usernames = []
@@ -31,7 +32,13 @@ class Admin::CompetitionsController < Admin::ApplicationController
     @usernames.uniq!
     @emailsendarray.uniq!
     end
+
+    puts "********************************8"
     @competition = Competition.find(params[:id])
+    puts @competition.id
+    @artwork= ArtworksCompetition.find(:first,:conditions => ["competition_id=?",@competition.id])
+    puts @artwork.inspect
+    puts "***********************************8"
     @frommail = Frommail.find(:all)
     render :layout=>"gallery_promoting_mail"
   end
@@ -188,6 +195,8 @@ after :update do
         @total_artist_paid.each do |tap|
         @total_artist_paid_id << tap.id    
         end
+
+     
         if !@total_artist_paid_id.blank? 
           @invoice = Invoice.find(:all,:conditions=>"purchasable_type = 'CompetitionsUser' and state = 'validated' and (payment_medium = 'paypal' or payment_medium = 'online' or payment_medium = 'online_validated') and purchasable_id in (#{@total_artist_paid_id.join(',')})")
         end
@@ -202,8 +211,11 @@ after :update do
 				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null' and state = 'winner' or state =  'selected' or  state = 'unselected' "], :order => "mark DESC")
     	elsif @current_object.state == 'final_published'
 				 @artworks_competitions = @current_object.artworks_competitions.all( :conditions => ["state =  'selected' or state = 'winner' or  state = 'unselected' and competitions_users_id != 'null' "])
+      
 			else
 				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'  "])
+         puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+         puts @artworks_competitions.inspect
          
       
          #@artworks_competitions =  CompetitionsUser.find(:all,  :conditions => { :competition_id =>  @current_object.id })
@@ -287,5 +299,11 @@ after :update do
 		end
 		
 	end
+
+def group_selection
+  @filter_selection=ArtworksCompetition.find(:all)
+  puts "$$$$$$$$$$$$$$$$4"
+  puts @filter_selection.inspect
+end
 
 end

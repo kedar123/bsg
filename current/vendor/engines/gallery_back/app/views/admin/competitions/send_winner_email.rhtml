@@ -107,7 +107,7 @@ function addselectedvaluetobody(){
     <label class="labeloverride">To</label>  <%=text_field_with_auto_complete :profile, :email,{:value=>@emailsendarray.join(",")},{:tokens =>',',:frequency=>0.1 ,:style=>"width:150px;" }%>
     
   </p><br/>
-
+  <p>
   <label class="labeloverride">Subject</label> 
   
   <%= f.text_field :subject ,:value=>"Winner Of #{@competition.title}",:style=>"width:265px"%></p>

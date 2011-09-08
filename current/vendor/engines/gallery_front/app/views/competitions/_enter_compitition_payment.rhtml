@@ -11,6 +11,19 @@
 }
 </style>
 <script type="text/javascript">
+
+  function show_div(){
+     cmbv = document.getElementById("invoicing_info_payment_medium").value;
+     //alert("im here");
+      if(cmbv == "master card" || cmbv == "visa"  )
+                   {
+                      document.getElementById("credit_card_fields").style.display='block';
+                   }
+       else{
+              document.getElementById("credit_card_fields").style.display='none';
+           }
+
+  }
            function changetheline(){
                    cmbv = document.getElementById("invoicing_info_payment_medium").value;
                    if  (cmbv == "cash")
@@ -37,6 +50,8 @@
                    {
                       document.getElementById("changethelineinfo").innerHTML = "";
                    }
+
+                   show_div();
           }
 
 						/*function change_entry_fee_value()
@@ -115,7 +130,7 @@
                            <%totalvalue = 0%>
                               <%competition.entry_fees.each  do |x|%>
                                   <%totalvalue = totalvalue + x.split('$')[1].to_i%>
-                                  <option value="<%=totalvalue%>"><%=totalvalue%></option>  
+                                  <option value="<%=totalvalue%>">$<%=totalvalue%></option>
                               <%end%>			
                          </select>  
                  <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"",:onchange=>"changetheline()"%>
@@ -125,7 +140,7 @@
                 <script>
 	      	document.getElementById("change_entry_fee").selectedIndex=change_the_required_field_value(<%=order.total_entry%>)
 	      </script>
-                <div>
+                <div id="credit_card_fields" style="display: block">
                             <% fields_for credit_card do |ff| %>
                             <%= ff.hidden_field :user_id, :value => @current_user.id %>
                             <%#= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
@@ -167,7 +182,8 @@
                                  <%= ff.text_field :verification_value, :label => 'Verification value' ,:value=>"123" ,:style=>"width:76px;height:16px;text-align: center"%>
                                  <div class="changecolorgray" style="clear:both;margin:5px;">
                                         
-                                  </div>    
+                                  </div>
+                </div>
                                   <%#= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Cash','cash'],['Cheque','cheque'],['Paypal','paypal'],['Bank Deposit','bank']], {},:style=>"float:left",:onchange=>"changetheline()"%>
                                   <div style="clear:both;padding-top:20px;float:left">
                                   

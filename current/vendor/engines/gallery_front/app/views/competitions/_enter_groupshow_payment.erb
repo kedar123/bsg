@@ -7,6 +7,19 @@
 }
 </style>
 <script type="text/javascript">
+
+   function show_div(){
+     cmbv = document.getElementById("invoicing_info_payment_medium").value;
+     alert("im here");
+      if(cmbv == "master card" || cmbv == "visa"  )
+                   {
+                      document.getElementById("credit_card_fields").style.display='block';
+                   }
+       else{
+              document.getElementById("credit_card_fields").style.display='none';
+           }
+
+  }
            function changetheline(){
                   
                    cmbv = document.getElementById("invoicing_info_payment_medium").value;
@@ -36,6 +49,8 @@
                    {
                       document.getElementById("changethelineinfoexh").innerHTML = "";
                    }
+
+                    show_div();
 
            }
 
@@ -83,7 +98,7 @@
                               <div id="changethelineinfoexh" >
                               </div>
                             <%#= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Cash','cash'],['Cheque','cheque'],['Paypal','paypal'],['Bank Deposit','bank']], {},:style=>"float:left",:onchange=>"changetheline()"%>
-                              
+                            <div id="credit_card_fields" style="display: block" >
                              <div class="changecolorgray" style="height: 20px;">
                                       <span >First Name</span> <span style="margin-left:131px;">Last Name</span>
                              </div>   
@@ -125,7 +140,8 @@
                                  <%= ff.text_field :verification_value, :label => 'Verification value' ,:value=>"123" ,:style=>"width:76px;height:16px;text-align: center;margin-left:15px;"%>
                                  <div class="changecolorgray" style="clear:both;margin:5px;">
                                         
-                                  </div>    
+                                  </div>
+                            </div>
                                     <div style="float:left;margin-left:0px;margin-top:10px;">
                                   
                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "show_group_payment", :update =>'modal_space_answer',:complete=>"document.getElementById('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>

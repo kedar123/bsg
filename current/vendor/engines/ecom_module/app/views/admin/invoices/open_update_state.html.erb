@@ -102,7 +102,7 @@ function set_the_signature(signature)
     <input type="hidden" name="invoiceid" value="<%=@invoice.id%>" />
   <p>
     <label class="labeloverride">To</label>  <%=text_field_tag "user[email]", @sendusermail.email,:disabled=>true%>
-    <input type="hidden" name="user[email]" value="<%=@sendusermail.email%>">
+    <input type="hidden" name="user[email]" value="<%=@sendusermail.email%>" >
   </p>
   <p>
   <label class="labeloverride">Subject</label> 

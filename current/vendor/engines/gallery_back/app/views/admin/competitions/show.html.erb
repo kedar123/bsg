@@ -1079,7 +1079,7 @@
 														                     <%#j=j+1%>	 
 													                     <%#end%>	
 												    <% end %><tr><td>
-											<%= submit_tag if (@current_user.has_system_role('judge') || @current_user.has_system_role('admin')) && @current_object.state != 'results_publish' %>	    
+											<%#= submit_tag if (@current_user.has_system_role('judge') || @current_user.has_system_role('admin')) && @current_object.state != 'results_publish' %>
 											</td></tr>
 										   </tbody>
 								    <% end %><%#form end%>

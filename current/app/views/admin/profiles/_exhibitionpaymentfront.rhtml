@@ -1,4 +1,17 @@
 <script>
+
+   function show_div(){
+     cmbv = document.getElementById("invoicing_info_payment_medium").value;
+     alert("im here");
+      if(cmbv == "master_card" || cmbv == "visa"  )
+                   {
+                      document.getElementById("credit_card_fields").style.display='block';
+                   }
+       else{
+              document.getElementById("credit_card_fields").style.display='none';
+           }
+
+  }
      function changetheline(){
                    cmbv = document.getElementById("invoicing_info_payment_medium").value;
                    if  (cmbv == "cash")
@@ -31,6 +44,8 @@
                    {
                       document.getElementById("changethelineinfoexh").innerHTML = "";
                    }
+
+                    show_div();
            }
 
 
@@ -94,7 +109,7 @@
   
     <div id="changethelineinfoexh" >
     </div>
-  
+   <div id="credit_card_fields" style="display: block" >
     <div style="margin-top:3px;clear:both;">
            <span> 
                <label style="margin-left:5px;color:#444444">First Name</label>
@@ -160,7 +175,7 @@
   <span style="margin-left:20px;">
    </span>
 </div>
-         
+   </div>
               
               <div style="clear:both;float:left;margin-top:10px">
                 <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment_exhibition", :update =>  'modal_space_answer',:complete=>"document.getElementById('show_ajax_request').style.display='none'" ,:before=>"document.getElementById('show_ajax_request').style.display='block'"}%>

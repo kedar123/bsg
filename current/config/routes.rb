@@ -458,6 +458,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.connect '/competitions', :controller => :competitions, :action => 'show'
 	map.connect '/competitions/:competition_id', :controller => :competitions, :action => 'show'
   map.connect '/admin/competitions/change_state/:competition_id', :controller => 'admin/competitions', :action => 'change_state'
+  map.connect '/admin/competitions/group_selection/:competition_id', :controller => 'admin/competitions', :action => 'group_selection'
 	map.connect '/subscribe/:id', :controller => :visitors, :action => 'new'
 	map.connect '/mailing_list', :controller => :visitors, :action => 'mailing_list'
 	map.connect '/adding_profile', :controller => :visitors, :action => 'adding_profile'

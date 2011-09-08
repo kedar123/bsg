@@ -64,7 +64,7 @@
 		<%= link_to I18n.t('general.link.edit'), edit_item_path(object)%>
            </p>
 	<%end%>
-          
+           <p>
         <% if @current_object.has_permission_for?('destroy', @current_user, @current_container) %>
               <%= link_to I18n.t('general.link.delete'), "javascript:;",
                    :class => "deleteLink",
@@ -78,7 +78,28 @@
                   </div>
                 </div>
         <% end %>
-        
+     </p>
+     <%if object.class == ArtworksCompetition%>
+        <%dynamictitle = "#{object.title}"%>
+     <%else%>
+        <%dynamictitle = "#{object.class.to_s}  #{object.title}"%>
+     <%end%>
+     <p>
+     <% if @current_object.has_permission_for?('destroy', @current_user, @current_container) %>
+              <%= link_to I18n.t('general.link.delete'), "javascript:;",
+                   :class => "deleteLink",
+                   :modal_id => "#modalDelete_#{object.id.to_s}"
+               %>
+                <div style="display:none">
+                  <div id="modalDelete_<%=object.id.to_s%>" class="modalDelete">
+                    <p><%= I18n.t('item.destroy.delete_conform')%></p>
+                       <%= link_to I18n.t('general.common_word.yes1'), item_path(object), :method => :delete%> |
+                       <%= link_to I18n.t('general.common_word.no1'), "javascript:;", :class => "deleteClose" %>
+                  </div>
+                </div>
+        <% end %>
+     </p>
+    
              
         <%if params[:controller] == "admin/exhibitions" and params[:action] == "show"%>
               <p>
@@ -126,19 +147,44 @@
               </p>
               
               <p>
-                
-                <% form_for(object, :url => "/admin/competitions/change_state/#{object.id} ") do |f| %>
-                <select name="new_state" id="new_state_change" onChange="document.getElementById('competition_submit').click();" style="width:120px">
+                 
+                  <% form_for(object, :url => "/admin/competitions/change_state/#{object.id} ") do |f| %>
+                    <select name="new_state" id="new_state_change" onChange="document.getElementById('competition_submit').click();" style="width:120px">
                       <option value="0"> Change State</option>
                       <option value="open">open</option>
                       <option value="final_published">publish the final artworks list</option>
                       <option value="results_publish">publish the results of the competition</option>
-                  </select> 
-                 <%=f.submit 'submit', :style=>"visibility:hidden"%>
-                <% end%>
+                    </select>
+                   <%=f.submit 'submit', :style=>"visibility:hidden"%>
+                   <% end%>
                
               </p>
+
+
+                <p>
               
+                   <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
+                     <option value="0">Group Selection</option>
+                     <option value="/admin/competitions/group_selection">Selected</option>
+                     <option value="unselected">Unselected</option>
+                     <option value="maybe">Maybe</option>
+                     <option value="notpaid">Not Paid</option>
+                  </select>
+                 
+                </p>
+
+              
+
+                  <script type="text/javascript">
+
+  function changetheline(){
+     cmbv = document.getElementById("new_state_change1").value;
+     alert(cmbv);
+  }
+                    </script>
+               
+
+                            
                 
                 
                 

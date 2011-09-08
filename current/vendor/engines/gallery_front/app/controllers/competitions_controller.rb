@@ -358,6 +358,9 @@
   
    
   def  create_the_payment
+    puts "***********************"
+    puts @selected=params[:invoicing_info][:payment_medium]
+    puts "***********************"
     creditcardno = ""
     if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card")  )         
       credit_card = CreditCard.find_by_user_id(current_user.id)
@@ -623,13 +626,13 @@
     end 
   
     if params[:invoicing_info][:payment_medium] ==  "cash"  
-      messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
+      messageforimageuploaded  = "We will email you a invoice/receipt after your payment is received"
     end   
     if params[:invoicing_info][:payment_medium] ==  "cheque" 
-      messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
+      messageforimageuploaded  = "We will email you a invoice/receipt after your payment is received"
     end
     if params[:invoicing_info][:payment_medium] ==   "direct deposit"
-      messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
+      messageforimageuploaded  = "We will email you a invoice/receipt after your payment is received"
     end
     if params[:invoicing_info][:payment_medium] ==  "visa" or params[:invoicing_info][:payment_medium] ==  "master card"
       messageforimageuploaded="Your Payment Is Done Please Upload Artwok"
@@ -667,6 +670,7 @@
 
 
   def  add_the_artwork_to_competition
+    
     size_array = ['fworksize=','sworksize=','tworksize=','foworksize=','fiworksize=','siworksize=','seworksize=','eworksize=','nworksize=','teworksize=']
     title_array = ['fworktitle=','sworktitle=','tworktitle=','foworktitle=','fiworktitle=','siworktitle=','seworktitle=','eworktitle=','nworktitle=','teworktitle=']
     medium_array = ['fworkmedium=','sworkmedium=','tworkmedium=','foworkmedium=','fiworkmedium=','siworkmedium=','seworkmedium=','eworkmedium=','nworkmedium=','teworkmedium=']
@@ -720,6 +724,7 @@
 
 
   def upload_the_artwork_to_competition
+    puts "____________________++++++++++++++___________"
     size_array = ['fworksize=','sworksize=','tworksize=','foworksize=','fiworksize=','siworksize=','seworksize=','eworksize=','nworksize=','teworksize=']
     title_array_send = ['fworktitle=','sworktitle=','tworktitle=','foworktitle=','fiworktitle=','siworktitle=','seworktitle=','eworktitle=','nworktitle=','teworktitle=']
     medium_array = ['fworkmedium=','sworkmedium=','tworkmedium=','foworkmedium=','fiworkmedium=','siworkmedium=','seworkmedium=','eworkmedium=','nworkmedium=','teworkmedium=']
@@ -729,6 +734,8 @@
     title_message_array = ['First Work','Second Work',' Third Work','Fourth Work','Fifth Work','Sixth Work','Seventh Work','Eight Work','Ninth Work','Tenth Work']
 
     order = CompetitionsUser.find(params[:order_id])
+    puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    puts order.inspect
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     for title in title_array
@@ -813,7 +820,9 @@
     order = CompetitionsUser.find(params[:competitionuserid])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
-    i = title_array.index params[:titleforupdate]
+    puts "((((((((((((((()))))))))))))))))))))))))))"
+     i = title_array.index params[:titleforupdate]
+     puts i
     order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
     order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"]) 
     order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"]) 
@@ -978,6 +987,20 @@
     @competitions_user = CompetitionsUser.find(params[:order_id])
     @image_array = []
     i=0;
+     alertmessage = ""
+
+    if @competition.state == "open"
+       alertmessage = @competition.openstatemsg
+       if alertmessage.blank?
+         alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
+       end
+    end
+    if @competition.state == "final_published"
+      alertmessage = @competition.publishfinalmsg
+      if alertmessage.blank?
+         alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
+       end
+    end
     add_art_cnt = 0
     counttodisplayviwform=0
     for eachimage in image_array
@@ -1036,6 +1059,7 @@
         #after the flow is approved for salving the error
         page["iteam_image"+(@competitions_user.total_entry.to_i).to_s].hide
         page["iteam_image"+(@competitions_user.total_entry.to_i+1).to_s].hide
+        page.alert(alertmessage)
       end                    
     end 
   end  
