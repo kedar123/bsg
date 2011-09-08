@@ -293,6 +293,8 @@ ActiveRecord::Schema.define(:version => 20110818131339) do
     t.string   "cjudges"
     t.text     "how_did_you_here"
     t.text     "notes"
+    t.text     "openstatemsg"
+    t.text     "publishfinalmsg"
   end
 
   add_index "competitions", ["user_id"], :name => "index_competitions_on_user_id"
