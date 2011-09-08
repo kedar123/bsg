@@ -46,7 +46,7 @@ end
 			    end
 		       end       
       @oldtimingperiodid =  @current_object.timing.period_id    if !@current_object.timing.blank?
-		
+      
       #@current_object.build_timing 
 			@places = Gallery.all
 			sr = Role.find_by_name('artist')
