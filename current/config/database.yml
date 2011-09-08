@@ -1,4 +1,5 @@
 DEFAULTS: &DEFAULTS
+  development:
   adapter: mysql
   encoding: utf8
 #  host: mysql.pragtech.co.in
@@ -6,8 +7,7 @@ DEFAULTS: &DEFAULTS
 #  password: global786
   host: localhost
   username: root
-  password:  
-  socket: /var/run/mysqld/mysqld.sock
+  password: global
 
 development:
   database: gallery

@@ -39115,3 +39115,1420 @@ ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:
   bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
 
 Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (221.5ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (344.7ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (18.7ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsersTable (1)
+  [4;36;1mSQL (114.8ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(40) NOT NULL, `email` varchar(50) NOT NULL, `avatar_file_name` varchar(100), `avatar_content_type` varchar(50), `avatar_file_size` int(11), `avatar_updated_at` datetime, `last_connected_at` datetime, `state` varchar(15), `u_layout` varchar(30), `u_per_page` int(11), `u_language` varchar(10), `crypted_password` varchar(40), `salt` varchar(40), `activated_at` datetime, `activation_code` varchar(40), `password_reset_code` varchar(40), `system_role_id` int(11), `remember_token` varchar(40), `remember_token_expires_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (211.1ms)[0m   [0;1mCREATE UNIQUE INDEX `index_users_on_login` ON `users` (`login`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (233.3ms)[0m   [0;1mCREATE INDEX `index_users_on_system_role_id` ON `users` (`system_role_id`)[0m
+  [4;35;1mSQL (55.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('1')[0m
+Migrating to CreateWorkspacesTable (2)
+  [4;36;1mSQL (115.0ms)[0m   [0;1mCREATE TABLE `workspaces` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `creator_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `available_items` varchar(255), `logo_file_name` varchar(100), `logo_content_type` varchar(50), `logo_file_size` int(11), `available_types` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (110.5ms)[0m   [0mCREATE TABLE `items_workspaces` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `workspace_id` int(11) NOT NULL, `itemable_id` int(11) NOT NULL, `itemable_type` varchar(255) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (133.2ms)[0m   [0;1mCREATE TABLE `contacts_workspaces` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `workspace_id` int(11), `contactable_id` int(11), `contactable_type` varchar(50), `state` varchar(15), `sha1_id` varchar(40), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `workspaces`[0m
+  [4;36;1mSQL (266.9ms)[0m   [0;1mCREATE INDEX `index_workspaces_on_creator_id` ON `workspaces` (`creator_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `items_workspaces`[0m
+  [4;36;1mSQL (257.1ms)[0m   [0;1mCREATE INDEX `index_items_workspaces_on_workspace_id` ON `items_workspaces` (`workspace_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `items_workspaces`[0m
+  [4;36;1mSQL (233.3ms)[0m   [0;1mCREATE INDEX `index_items_workspaces_on_itemable_id` ON `items_workspaces` (`itemable_id`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `items_workspaces`[0m
+  [4;36;1mSQL (222.2ms)[0m   [0;1mCREATE INDEX `index_items_workspaces_on_itemable_type` ON `items_workspaces` (`itemable_type`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `contacts_workspaces`[0m
+  [4;36;1mSQL (211.3ms)[0m   [0;1mCREATE INDEX `index_contacts_workspaces_on_workspace_id` ON `contacts_workspaces` (`workspace_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `contacts_workspaces`[0m
+  [4;36;1mSQL (255.7ms)[0m   [0;1mCREATE INDEX `index_contacts_workspaces_on_contactable_id` ON `contacts_workspaces` (`contactable_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `contacts_workspaces`[0m
+  [4;36;1mSQL (266.8ms)[0m   [0;1mCREATE INDEX `index_contacts_workspaces_on_contactable_type` ON `contacts_workspaces` (`contactable_type`)[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('2')[0m
+Migrating to CreateArticlesTable (3)
+  [4;36;1mSQL (137.3ms)[0m   [0;1mCREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `body` text, `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `articles`[0m
+  [4;36;1mSQL (235.1ms)[0m   [0;1mCREATE INDEX `index_articles_on_user_id` ON `articles` (`user_id`)[0m
+  [4;35;1mSQL (121.2ms)[0m   [0mCREATE TABLE `article_files` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `articlefile_file_name` varchar(100), `articlefile_content_type` varchar(20), `articlefile_file_size` int(11), `articlefile_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `article_files`[0m
+  [4;35;1mSQL (200.2ms)[0m   [0mCREATE INDEX `index_article_files_on_article_id` ON `article_files` (`article_id`)[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('3')[0m
+Migrating to CreateAudiosTable (4)
+  [4;35;1mSQL (115.7ms)[0m   [0mCREATE TABLE `audios` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `audio_file_name` varchar(100), `audio_content_type` varchar(20), `audio_file_size` int(11), `audio_updated_at` datetime, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `audios`[0m
+  [4;35;1mSQL (244.7ms)[0m   [0mCREATE INDEX `index_audios_on_user_id` ON `audios` (`user_id`)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('4')[0m
+Migrating to CreateBookmarksTable (5)
+  [4;35;1mSQL (125.5ms)[0m   [0mCREATE TABLE `bookmarks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `feed_source_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `link` varchar(1024), `enclosures` varchar(255), `authors` varchar(255), `copyright` varchar(10), `categories` varchar(255), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `date_published` datetime, `last_updated` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `bookmarks`[0m
+  [4;35;1mSQL (255.8ms)[0m   [0mCREATE INDEX `index_bookmarks_on_user_id` ON `bookmarks` (`user_id`)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `bookmarks`[0m
+  [4;35;1mSQL (235.0ms)[0m   [0mCREATE INDEX `index_bookmarks_on_feed_source_id` ON `bookmarks` (`feed_source_id`)[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('5')[0m
+Migrating to CreateCmsfilesTable (6)
+  [4;35;1mSQL (114.9ms)[0m   [0mCREATE TABLE `cms_files` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `cmsfile_file_name` varchar(100), `cmsfile_content_type` varchar(20), `cmsfile_file_size` int(11), `cmsfile_updated_at` datetime, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `cms_files`[0m
+  [4;35;1mSQL (211.4ms)[0m   [0mCREATE INDEX `index_cms_files_on_user_id` ON `cms_files` (`user_id`)[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('6')[0m
+Migrating to CreateFeedsourcesTable (7)
+  [4;35;1mSQL (124.6ms)[0m   [0mCREATE TABLE `feed_sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `etag` varchar(255), `version` varchar(20), `encoding` varchar(20), `language` varchar(50), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(10), `url` varchar(1024), `link` varchar(1024), `authors` varchar(255), `categories` varchar(255), `copyright` varchar(10), `ttl` integer, `image` varchar(255), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `last_updated` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `feed_sources`[0m
+  [4;35;1mSQL (244.6ms)[0m   [0mCREATE INDEX `index_feed_sources_on_user_id` ON `feed_sources` (`user_id`)[0m
+  [4;36;1mSQL (109.5ms)[0m   [0;1mCREATE TABLE `feed_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `feed_source_id` int(11), `guid` varchar(50), `title` varchar(255), `description` text, `authors` varchar(255), `enclosures` varchar(255), `link` varchar(1024), `categories` varchar(255), `copyright` varchar(10), `date_published` datetime, `last_updated` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `feed_items`[0m
+  [4;36;1mSQL (244.7ms)[0m   [0;1mCREATE INDEX `index_feed_items_on_feed_source_id` ON `feed_items` (`feed_source_id`)[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('7')[0m
+Migrating to CreateImagesTable (8)
+  [4;36;1mSQL (127.7ms)[0m   [0;1mCREATE TABLE `images` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `image_file_name` varchar(100), `image_content_type` varchar(20), `image_file_size` int(11), `image_updated_at` datetime, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `images`[0m
+  [4;36;1mSQL (224.1ms)[0m   [0;1mCREATE INDEX `index_images_on_user_id` ON `images` (`user_id`)[0m
+  [4;35;1mSQL (32.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('8')[0m
+Migrating to CreateNewslettersTable (9)
+  [4;36;1mSQL (114.9ms)[0m   [0;1mCREATE TABLE `newsletters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `subject` varchar(255), `from_email` varchar(50), `state` varchar(10), `body` text, `viewed_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `newsletters`[0m
+  [4;36;1mSQL (200.2ms)[0m   [0;1mCREATE INDEX `index_newsletters_on_user_id` ON `newsletters` (`user_id`)[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('9')[0m
+Migrating to CreateVideosTable (10)
+  [4;36;1mSQL (126.4ms)[0m   [0;1mCREATE TABLE `videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `video_file_name` varchar(100), `video_content_type` varchar(20), `video_file_size` int(11), `video_updated_at` datetime, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `videos`[0m
+  [4;36;1mSQL (244.6ms)[0m   [0;1mCREATE INDEX `index_videos_on_user_id` ON `videos` (`user_id`)[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('10')[0m
+Migrating to CreateKeywordsTable (11)
+  [4;36;1mSQL (126.7ms)[0m   [0;1mCREATE TABLE `keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `name` varchar(40), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `keywords`[0m
+  [4;36;1mSQL (233.6ms)[0m   [0;1mCREATE INDEX `index_keywords_on_user_id` ON `keywords` (`user_id`)[0m
+  [4;35;1mSQL (121.6ms)[0m   [0mCREATE TABLE `keywordings` (`keywordable_id` int(11), `keywordable_type` varchar(40), `keyword_id` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `keywordings`[0m
+  [4;35;1mSQL (246.4ms)[0m   [0mCREATE INDEX `index_keywordings_on_keyword_id` ON `keywordings` (`keyword_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `keywordings`[0m
+  [4;35;1mSQL (233.6ms)[0m   [0mCREATE INDEX `index_keywordings_on_keywordable_id` ON `keywordings` (`keywordable_id`)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `keywordings`[0m
+  [4;35;1mSQL (244.4ms)[0m   [0mCREATE INDEX `index_keywordings_on_keywordable_type` ON `keywordings` (`keywordable_type`)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `keywordings`[0m
+  [4;35;1mSQL (244.4ms)[0m   [0mCREATE INDEX `index_keywordings_on_user_id` ON `keywordings` (`user_id`)[0m
+  [4;36;1mSQL (44.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('11')[0m
+Migrating to CreateRatingsTable (12)
+  [4;35;1mSQL (126.8ms)[0m   [0mCREATE TABLE `ratings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `rating` int(11), `user_id` int(11), `rateable_id` int(11), `rateable_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `ratings`[0m
+  [4;35;1mSQL (222.5ms)[0m   [0mCREATE INDEX `index_ratings_on_user_id` ON `ratings` (`user_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `ratings`[0m
+  [4;35;1mSQL (211.3ms)[0m   [0mCREATE INDEX `index_ratings_on_rateable_id` ON `ratings` (`rateable_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `ratings`[0m
+  [4;35;1mSQL (272.2ms)[0m   [0mCREATE INDEX `index_ratings_on_rateable_type` ON `ratings` (`rateable_type`)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('12')[0m
+Migrating to CreateCommentsTable (13)
+  [4;35;1mSQL (126.6ms)[0m   [0mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `text` text NOT NULL, `state` varchar(15), `parent_id` int(11), `user_id` int(11), `commentable_id` int(11), `commentable_type` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (366.8ms)[0m   [0mCREATE INDEX `index_comments_on_user_id` ON `comments` (`user_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (333.9ms)[0m   [0mCREATE INDEX `index_comments_on_commentable_id` ON `comments` (`commentable_id`)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (211.3ms)[0m   [0mCREATE INDEX `index_comments_on_commentable_type` ON `comments` (`commentable_type`)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('13')[0m
+Migrating to CreateGroupsTable (14)
+  [4;35;1mSQL (126.3ms)[0m   [0mCREATE TABLE `groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255), `description` text, `state` varchar(15), `workspace_id` int(11), `comments_number` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `groups`[0m
+  [4;35;1mSQL (246.2ms)[0m   [0mCREATE INDEX `index_groups_on_user_id` ON `groups` (`user_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `groups`[0m
+  [4;35;1mSQL (244.5ms)[0m   [0mCREATE INDEX `index_groups_on_workspace_id` ON `groups` (`workspace_id`)[0m
+  [4;36;1mSQL (110.2ms)[0m   [0;1mCREATE TABLE `groupings` (`group_id` int(11), `groupable_id` int(11), `groupable_type` varchar(255), `user_id` int(11), `contacts_workspace_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `groupings`[0m
+  [4;36;1mSQL (211.1ms)[0m   [0;1mCREATE INDEX `index_groupings_on_group_id` ON `groupings` (`group_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `groupings`[0m
+  [4;36;1mSQL (211.2ms)[0m   [0;1mCREATE INDEX `index_groupings_on_groupable_id` ON `groupings` (`groupable_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `groupings`[0m
+  [4;36;1mSQL (233.4ms)[0m   [0;1mCREATE INDEX `index_groupings_on_groupable_type` ON `groupings` (`groupable_type`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `groupings`[0m
+  [4;36;1mSQL (244.3ms)[0m   [0;1mCREATE INDEX `index_groupings_on_user_id` ON `groupings` (`user_id`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `groupings`[0m
+  [4;36;1mSQL (257.1ms)[0m   [0;1mCREATE INDEX `index_groupings_on_contacts_workspace_id` ON `groupings` (`contacts_workspace_id`)[0m
+  [4;35;1mSQL (110.4ms)[0m   [0mCREATE TABLE `groups_newsletters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `newsletter_id` int(11), `group_id` int(11), `sent_on` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `groups_newsletters`[0m
+  [4;35;1mSQL (211.3ms)[0m   [0mCREATE INDEX `index_groups_newsletters_on_newsletter_id` ON `groups_newsletters` (`newsletter_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `groups_newsletters`[0m
+  [4;35;1mSQL (211.2ms)[0m   [0mCREATE INDEX `index_groups_newsletters_on_group_id` ON `groups_newsletters` (`group_id`)[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('14')[0m
+Migrating to CreatePeopleTable (15)
+  [4;35;1mSQL (113.4ms)[0m   [0mCREATE TABLE `people` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(40), `last_name` varchar(40), `web_page` varchar(100), `gender` varchar(6), `notes` text, `email` varchar(50) NOT NULL, `primary_phone` varchar(25), `mobile_phone` varchar(25), `fax` varchar(25), `street` varchar(40), `city` varchar(40), `postal_code` varchar(10), `country` varchar(50), `company` varchar(40), `job_title` varchar(40), `user_id` int(11), `newsletter` tinyint(1), `salutation` varchar(5), `origin` varchar(10), `date_of_birth` date, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `people`[0m
+  [4;35;1mSQL (233.4ms)[0m   [0mCREATE INDEX `index_people_on_user_id` ON `people` (`user_id`)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('15')[0m
+Migrating to CreatePermissionsRolesTable (16)
+  [4;35;1mSQL (137.7ms)[0m   [0mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `type_role` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (255.7ms)[0m   [0mCREATE INDEX `index_roles_on_name` ON `roles` (`name`)[0m
+  [4;36;1mSQL (121.4ms)[0m   [0;1mCREATE TABLE `permissions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `type_permission` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `permissions`[0m
+  [4;36;1mSQL (223.7ms)[0m   [0;1mCREATE INDEX `index_permissions_on_name` ON `permissions` (`name`)[0m
+  [4;35;1mSQL (110.7ms)[0m   [0mCREATE TABLE `permissions_roles` (`permission_id` int(11), `role_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `permissions_roles`[0m
+  [4;35;1mSQL (211.3ms)[0m   [0mCREATE INDEX `index_permissions_roles_on_permission_id` ON `permissions_roles` (`permission_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `permissions_roles`[0m
+  [4;35;1mSQL (199.9ms)[0m   [0mCREATE INDEX `index_permissions_roles_on_role_id` ON `permissions_roles` (`role_id`)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('16')[0m
+Migrating to CreateElementsTable (17)
+  [4;35;1mSQL (190.0ms)[0m   [0mCREATE TABLE `elements` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(50), `bgcolor` varchar(10), `template` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('17')[0m
+Migrating to CreateQueuedMailsTable (18)
+  [4;35;1mSQL (137.5ms)[0m   [0mCREATE TABLE `queued_mails` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `mailer` varchar(255), `mailer_method` varchar(255), `args` text, `priority` int(11) DEFAULT 0, `sending_tries` int(11) DEFAULT 0, `created_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('18')[0m
+Migrating to CreateDelayedJobsTable (19)
+  [4;35;1mSQL (136.8ms)[0m   [0mCREATE TABLE `delayed_jobs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `priority` int(11) DEFAULT 0, `attempts` int(11) DEFAULT 0, `handler` text, `last_error` text, `run_at` datetime, `locked_at` datetime, `failed_at` datetime, `locked_by` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('19')[0m
+Migrating to CreateActsAsXapianJobsTable (20)
+  [4;35;1mSQL (137.7ms)[0m   [0mCREATE TABLE `acts_as_xapian_jobs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `model` varchar(255) NOT NULL, `model_id` int(11) NOT NULL, `action` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `acts_as_xapian_jobs`[0m
+  [4;35;1mSQL (244.4ms)[0m   [0mCREATE UNIQUE INDEX `index_acts_as_xapian_jobs_on_model_and_model_id` ON `acts_as_xapian_jobs` (`model`, `model_id`)[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20')[0m
+Migrating to CreateSessionsTable (21)
+  [4;35;1mSQL (116.7ms)[0m   [0mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (211.3ms)[0m   [0mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (233.3ms)[0m   [0mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('21')[0m
+Migrating to ChangeWsContactsStateValue (20091023095237)
+  [4;35;1mContactsWorkspace Load (21.3ms)[0m   [0mSELECT * FROM `contacts_workspaces` [0m
+  [4;36;1mSQL (43.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091023095237')[0m
+Migrating to GroupBackToItem (20091027095299)
+  [4;35;1mSQL (262.0ms)[0m   [0mALTER TABLE `groups` ADD `rates_average` int(11) DEFAULT 0[0m
+  [4;36;1mSQL (256.4ms)[0m   [0;1mALTER TABLE `groups` ADD `viewed_number` int(11) DEFAULT 0[0m
+  [4;35;1mGroup Load (0.4ms)[0m   [0mSELECT * FROM `groups` [0m
+  [4;36;1mSQL (54.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091027095299')[0m
+Migrating to AddAuditTable (20091210083425)
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (113.1ms)[0m   [0;1mCREATE TABLE `audits` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `auditable_id` int(11), `auditable_type` varchar(255), `user_id` int(11), `user_type` varchar(255), `username` varchar(255), `action` varchar(255), `changes` text, `version` int(11) DEFAULT 0, `created_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `audits`[0m
+  [4;36;1mSQL (324.0ms)[0m   [0;1mCREATE INDEX `auditable_index` ON `audits` (`auditable_id`, `auditable_type`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `audits`[0m
+  [4;36;1mSQL (211.2ms)[0m   [0;1mCREATE INDEX `user_index` ON `audits` (`user_id`, `user_type`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `audits`[0m
+  [4;36;1mSQL (222.1ms)[0m   [0;1mCREATE INDEX `index_audits_on_created_at` ON `audits` (`created_at`)[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091210083425')[0m
+Migrating to CreateNotificationSubscriptions (20091210090309)
+  [4;36;1mSQL (149.2ms)[0m   [0;1mCREATE TABLE `notification_subscriptions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `notification_filter_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091210090309')[0m
+Migrating to CreateNotificationFilters (20091210090438)
+  [4;36;1mSQL (149.1ms)[0m   [0;1mCREATE TABLE `notification_filters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `group` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mNotificationFilter Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `notification_filters`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.2ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('article', 'model', '2011-08-23 06:44:38', '2011-08-23 06:44:38')[0m
+  [4;35;1mSQL (62.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('image', 'model', '2011-08-23 06:44:38', '2011-08-23 06:44:38')[0m
+  [4;35;1mSQL (38.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('cms_file', 'model', '2011-08-23 06:44:38', '2011-08-23 06:44:38')[0m
+  [4;35;1mSQL (50.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.2ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('video', 'model', '2011-08-23 06:44:38', '2011-08-23 06:44:38')[0m
+  [4;35;1mSQL (50.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('audio', 'model', '2011-08-23 06:44:39', '2011-08-23 06:44:39')[0m
+  [4;35;1mSQL (50.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('bookmark', 'model', '2011-08-23 06:44:39', '2011-08-23 06:44:39')[0m
+  [4;35;1mSQL (39.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('newsletter', 'model', '2011-08-23 06:44:39', '2011-08-23 06:44:39')[0m
+  [4;35;1mSQL (50.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('group', 'model', '2011-08-23 06:44:39', '2011-08-23 06:44:39')[0m
+  [4;35;1mSQL (50.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mNotificationFilter Create (0.2ms)[0m   [0mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('destroy', 'action', '2011-08-23 06:44:39', '2011-08-23 06:44:39')[0m
+  [4;36;1mSQL (53.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('create', 'action', '2011-08-23 06:44:39', '2011-08-23 06:44:39')[0m
+  [4;35;1mSQL (51.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mNotificationFilter Create (0.3ms)[0m   [0mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('update', 'action', '2011-08-23 06:44:39', '2011-08-23 06:44:39')[0m
+  [4;36;1mSQL (41.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (44.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091210090438')[0m
+Migrating to CreateWebsites (20091222063424)
+  [4;36;1mSQL (125.9ms)[0m   [0;1mCREATE TABLE `websites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `creator_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `available_items` varchar(255), `logo_file_name` varchar(100), `logo_content_type` varchar(50), `logo_file_size` int(11), `available_types` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (99.3ms)[0m   [0mCREATE TABLE `items_websites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `website_id` int(11) NOT NULL, `itemable_id` int(11) NOT NULL, `itemable_type` varchar(255) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `websites`[0m
+  [4;35;1mSQL (213.1ms)[0m   [0mCREATE INDEX `index_websites_on_creator_id` ON `websites` (`creator_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `items_websites`[0m
+  [4;35;1mSQL (222.3ms)[0m   [0mCREATE INDEX `index_items_websites_on_website_id` ON `items_websites` (`website_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `items_websites`[0m
+  [4;35;1mSQL (266.7ms)[0m   [0mCREATE INDEX `index_items_websites_on_itemable_id` ON `items_websites` (`itemable_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `items_websites`[0m
+  [4;35;1mSQL (366.8ms)[0m   [0mCREATE INDEX `index_items_websites_on_itemable_type` ON `items_websites` (`itemable_type`)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091222063424')[0m
+Migrating to CreateFolders (20091222071728)
+  [4;35;1mSQL (133.1ms)[0m   [0mCREATE TABLE `folders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `creator_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `available_items` varchar(255), `logo_file_name` varchar(100), `logo_content_type` varchar(50), `logo_file_size` int(11), `available_types` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (117.3ms)[0m   [0;1mCREATE TABLE `items_folders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `folder_id` int(11) NOT NULL, `itemable_id` int(11) NOT NULL, `itemable_type` varchar(255) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `folders`[0m
+  [4;36;1mSQL (211.3ms)[0m   [0;1mCREATE INDEX `index_folders_on_creator_id` ON `folders` (`creator_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `items_folders`[0m
+  [4;36;1mSQL (212.8ms)[0m   [0;1mCREATE INDEX `index_items_folders_on_folder_id` ON `items_folders` (`folder_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `items_folders`[0m
+  [4;36;1mSQL (266.7ms)[0m   [0;1mCREATE INDEX `index_items_folders_on_itemable_id` ON `items_folders` (`itemable_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `items_folders`[0m
+  [4;36;1mSQL (244.3ms)[0m   [0;1mCREATE INDEX `index_items_folders_on_itemable_type` ON `items_folders` (`itemable_type`)[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091222071728')[0m
+Migrating to CreateUsersContainers (20091222100626)
+  [4;36;1mSQL (126.4ms)[0m   [0;1mCREATE TABLE `users_containers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `containerable_id` int(11) NOT NULL, `containerable_type` varchar(255) NOT NULL, `role_id` int(11) NOT NULL, `user_id` int(11) NOT NULL, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091222100626')[0m
+Migrating to AddNewWebsiteColumns (20100105102431)
+  [4;36;1mSQL (261.4ms)[0m   [0;1mALTER TABLE `websites` ADD `contact_email` varchar(255)[0m
+  [4;35;1mSQL (200.9ms)[0m   [0mALTER TABLE `websites` ADD `home_page_id` int(11)[0m
+  [4;36;1mSQL (212.0ms)[0m   [0;1mALTER TABLE `websites` ADD `mail_page_id` int(11)[0m
+  [4;35;1mSQL (269.1ms)[0m   [0mALTER TABLE `websites` ADD `gallery_page_id` int(11)[0m
+  [4;36;1mSQL (256.4ms)[0m   [0;1mALTER TABLE `websites` ADD `intro_page_id` int(11)[0m
+  [4;35;1mSQL (245.3ms)[0m   [0mALTER TABLE `websites` ADD `favicon_file_name` varchar(255)[0m
+  [4;36;1mSQL (278.6ms)[0m   [0;1mALTER TABLE `websites` ADD `favicon_content_type` varchar(255)[0m
+  [4;35;1mSQL (212.2ms)[0m   [0mALTER TABLE `websites` ADD `favicon_file_size` varchar(255)[0m
+  [4;36;1mSQL (201.0ms)[0m   [0;1mALTER TABLE `websites` ADD `layout_file_name` varchar(255)[0m
+  [4;35;1mSQL (235.7ms)[0m   [0mALTER TABLE `websites` ADD `layout_content_type` varchar(255)[0m
+  [4;36;1mSQL (256.5ms)[0m   [0;1mALTER TABLE `websites` ADD `layout_file_size` varchar(255)[0m
+  [4;35;1mSQL (256.4ms)[0m   [0mALTER TABLE `websites` ADD `sitemap_file_name` varchar(255)[0m
+  [4;36;1mSQL (301.8ms)[0m   [0;1mALTER TABLE `websites` ADD `sitemap_content_type` varchar(255)[0m
+  [4;35;1mSQL (200.8ms)[0m   [0mALTER TABLE `websites` ADD `sitemap_file_size` varchar(255)[0m
+  [4;36;1mSQL (212.0ms)[0m   [0;1mALTER TABLE `websites` ADD `body_size` varchar(255)[0m
+  [4;35;1mSQL (246.8ms)[0m   [0mALTER TABLE `websites` ADD `website_state` varchar(255) DEFAULT 'under_construction'[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100105102431')[0m
+Migrating to AddWebsiteUrlTable (20100105111359)
+  [4;35;1mSQL (138.1ms)[0m   [0mCREATE TABLE `website_urls` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `website_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100105111359')[0m
+Migrating to CreatePagesTable (20100105113331)
+  [4;35;1mSQL (147.3ms)[0m   [0mCREATE TABLE `pages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `body` text, `page_title` varchar(255), `page_type` varchar(50), `menu_title` varchar(50), `title_sanitized` varchar(255), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100105113331')[0m
+Migrating to ChangeDefaultItemStateToUnpublished (20100107112426)
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (281.7ms)[0m   [0;1mALTER TABLE `articles` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (454.2ms)[0m   [0;1mALTER TABLE `images` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (209.8ms)[0m   [0;1mALTER TABLE `cms_files` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (209.8ms)[0m   [0;1mALTER TABLE `videos` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (267.0ms)[0m   [0;1mALTER TABLE `audios` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (542.9ms)[0m   [0;1mALTER TABLE `bookmarks` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (243.0ms)[0m   [0;1mALTER TABLE `newsletters` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (209.8ms)[0m   [0;1mALTER TABLE `groups` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (209.5ms)[0m   [0;1mALTER TABLE `pages` ADD `published` tinyint(1) DEFAULT 0[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (34.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100107112426')[0m
+Migrating to CreateMenusTable (20100108135406)
+  [4;35;1mSQL (116.8ms)[0m   [0mCREATE TABLE `menus` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `url` varchar(255), `parent_id` varchar(255), `website_id` int(11), `position` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100108135406')[0m
+Migrating to AddBodyFieldOnWorkspace (20100111103136)
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW FIELDS FROM `websites`[0m
+  [4;36;1mSQL (501.6ms)[0m   [0;1mALTER TABLE `websites` CHANGE `description` `description` varchar(255) DEFAULT '' NOT NULL[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `folders`[0m
+  [4;36;1mSQL (244.7ms)[0m   [0;1mALTER TABLE `folders` CHANGE `description` `description` varchar(255) DEFAULT '' NOT NULL[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `workspaces`[0m
+  [4;36;1mSQL (209.9ms)[0m   [0;1mALTER TABLE `workspaces` CHANGE `description` `description` varchar(255) DEFAULT '' NOT NULL[0m
+  [4;35;1mSQL (212.1ms)[0m   [0mALTER TABLE `workspaces` ADD `body` text[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100111103136')[0m
+Migrating to AddIndexOnForeignKeys (20100112110753)
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users_containers`[0m
+  [4;36;1mSQL (783.5ms)[0m   [0;1mCREATE INDEX `index_users_containers_on_containerable_id` ON `users_containers` (`containerable_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `users_containers`[0m
+  [4;36;1mSQL (344.5ms)[0m   [0;1mCREATE INDEX `index_users_containers_on_containerable_type` ON `users_containers` (`containerable_type`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `users_containers`[0m
+  [4;36;1mSQL (501.5ms)[0m   [0;1mCREATE INDEX `index_users_containers_on_user_id` ON `users_containers` (`user_id`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `users_containers`[0m
+  [4;36;1mSQL (255.5ms)[0m   [0;1mCREATE INDEX `index_users_containers_on_role_id` ON `users_containers` (`role_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `workspaces`[0m
+  [4;36;1mSQL (211.2ms)[0m   [0;1mCREATE INDEX `index_workspaces_on_state` ON `workspaces` (`state`)[0m
+  [4;35;1mSQL (32.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100112110753')[0m
+Migrating to AddNewColumnSourceForAllItems (20100125102330)
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (206.9ms)[0m   [0mALTER TABLE `articles` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (443.2ms)[0m   [0mALTER TABLE `images` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (254.1ms)[0m   [0mALTER TABLE `cms_files` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (256.1ms)[0m   [0mALTER TABLE `videos` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (209.4ms)[0m   [0mALTER TABLE `audios` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (209.8ms)[0m   [0mALTER TABLE `bookmarks` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (443.1ms)[0m   [0mALTER TABLE `newsletters` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (221.2ms)[0m   [0mALTER TABLE `groups` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (243.1ms)[0m   [0mALTER TABLE `pages` ADD `source` varchar(255) DEFAULT 'form'[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (45.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100125102330')[0m
+Migrating to CreateDataPeople (20100203100544)
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (114.5ms)[0m   [0mCREATE TABLE `data_people` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `person_id` int(11), `workspace_id` int(11), `origin` varchar(255), `type_data` varchar(255), `data` text, `state` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100203100544')[0m
+Migrating to AddTemplateToWebsite (20100205060247)
+  [4;35;1mSQL (463.0ms)[0m   [0mALTER TABLE `websites` ADD `template` varchar(255) DEFAULT 'default'[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100205060247')[0m
+Migrating to CreateSavedSearchesTable (20100208093159)
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `saved_searches` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` varchar(255), `q` varchar(255), `field` varchar(255), `order` varchar(255), `containers` text, `items` varchar(255), `limit` int(11), `created_at_after` datetime, `created_at_before` datetime, `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `saved_searches`[0m
+  [4;35;1mSQL (189.1ms)[0m   [0mCREATE INDEX `index_saved_searches_on_user_id` ON `saved_searches` (`user_id`)[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100208093159')[0m
+Migrating to CreateArtworksTable (20100323111111)
+  [4;35;1mSQL (90.9ms)[0m   [0mCREATE TABLE `artworks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `medium` varchar(255), `height` int(11), `width` int(11), `depth` int(11), `edition_name` varchar(255), `edition_number` int(11), `price` int(11), `is_purchasable` tinyint(1), `image_file_name` varchar(100), `image_content_type` varchar(20), `image_file_size` int(11), `image_updated_at` datetime, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `published` int(11) DEFAULT 0, `source` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mNotificationFilter Create (0.3ms)[0m   [0mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('artwork', 'model', '2011-08-23 06:44:56', '2011-08-23 06:44:56')[0m
+  [4;36;1mSQL (40.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `artworks`[0m
+  [4;36;1mSQL (244.6ms)[0m   [0;1mCREATE INDEX `index_artworks_on_user_id` ON `artworks` (`user_id`)[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100323111111')[0m
+Migrating to CreateExhibitionsTable (20100323222222)
+  [4;36;1mSQL (108.6ms)[0m   [0;1mCREATE TABLE `exhibitions_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `exhibition_id` int(11), `invited_at` datetime, `state` varchar(255), `price` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `exhibitions_users`[0m
+  [4;36;1mSQL (477.8ms)[0m   [0;1mCREATE INDEX `index_exhibitions_users_on_user_id` ON `exhibitions_users` (`user_id`)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `exhibitions_users`[0m
+  [4;36;1mSQL (244.3ms)[0m   [0;1mCREATE INDEX `index_exhibitions_users_on_exhibition_id` ON `exhibitions_users` (`exhibition_id`)[0m
+  [4;35;1mSQL (87.0ms)[0m   [0mCREATE TABLE `artworks_exhibitions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `artwork_id` int(11), `exhibition_id` int(11), `exhibitions_users` int(11), `position` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `artworks_exhibitions`[0m
+  [4;35;1mSQL (189.0ms)[0m   [0mCREATE INDEX `index_artworks_exhibitions_on_artwork_id` ON `artworks_exhibitions` (`artwork_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `artworks_exhibitions`[0m
+  [4;35;1mSQL (189.0ms)[0m   [0mCREATE INDEX `index_artworks_exhibitions_on_exhibition_id` ON `artworks_exhibitions` (`exhibition_id`)[0m
+  [4;36;1mSQL (364.9ms)[0m   [0;1mCREATE TABLE `exhibitions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `published` int(11) DEFAULT 0, `source` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `exhibitions`[0m
+  [4;36;1mSQL (244.6ms)[0m   [0;1mCREATE INDEX `index_exhibitions_on_user_id` ON `exhibitions` (`user_id`)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('exhibition', 'model', '2011-08-23 06:44:58', '2011-08-23 06:44:58')[0m
+  [4;35;1mSQL (40.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (44.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100323222222')[0m
+Migrating to CreateCompetitionsTable (20100323333333)
+  [4;35;1mSQL (113.1ms)[0m   [0mCREATE TABLE `competitions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `timing_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `type` varchar(255), `submission_deadline` date, `prizes_total_amount` int(11), `prizes_detail` text, `judge_id` int(11), `commission` varchar(255), `limit_size` varchar(255), `auction_activated` tinyint(1), `message_for_subscribers` text, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `published` int(11) DEFAULT 0, `source` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `competitions`[0m
+  [4;35;1mSQL (244.6ms)[0m   [0mCREATE INDEX `index_competitions_on_user_id` ON `competitions` (`user_id`)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mNotificationFilter Create (0.3ms)[0m   [0mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('competition', 'model', '2011-08-23 06:44:59', '2011-08-23 06:44:59')[0m
+  [4;36;1mSQL (40.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (99.9ms)[0m   [0mCREATE TABLE `competitions_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `competitions_subscription_id` int(11), `competition_id` int(11), `state` varchar(255), `price` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `competitions_users`[0m
+  [4;35;1mSQL (424.0ms)[0m   [0mCREATE INDEX `index_competitions_users_on_user_id` ON `competitions_users` (`user_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `competitions_users`[0m
+  [4;35;1mSQL (188.9ms)[0m   [0mCREATE INDEX `index_competitions_users_on_competition_id` ON `competitions_users` (`competition_id`)[0m
+  [4;36;1mSQL (88.0ms)[0m   [0;1mCREATE TABLE `competitions_subscriptions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `competition_id` int(11), `maximum_works_number` int(11), `description` varchar(255), `price` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `competitions_subscriptions`[0m
+  [4;36;1mSQL (467.1ms)[0m   [0;1mCREATE INDEX `index_competitions_subscriptions_on_competition_id` ON `competitions_subscriptions` (`competition_id`)[0m
+  [4;35;1mSQL (121.2ms)[0m   [0mCREATE TABLE `artworks_competitions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `artwork_id` int(11), `competition_id` int(11), `state` varchar(255), `mark` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `artworks_competitions`[0m
+  [4;35;1mSQL (488.9ms)[0m   [0mCREATE INDEX `index_artworks_competitions_on_competition_id` ON `artworks_competitions` (`competition_id`)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `artworks_competitions`[0m
+  [4;35;1mSQL (256.2ms)[0m   [0mCREATE INDEX `index_artworks_competitions_on_artwork_id` ON `artworks_competitions` (`artwork_id`)[0m
+  [4;36;1mSQL (54.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100323333333')[0m
+Migrating to CreateGalleriesTable (20100323555555)
+  [4;35;1mSQL (114.7ms)[0m   [0mCREATE TABLE `galleries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `price` int(11), `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `published` int(11) DEFAULT 0, `source` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mNotificationFilter Create (0.3ms)[0m   [0mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('gallery', 'model', '2011-08-23 06:45:01', '2011-08-23 06:45:01')[0m
+  [4;36;1mSQL (51.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `galleries`[0m
+  [4;36;1mSQL (202.0ms)[0m   [0;1mCREATE INDEX `index_galleries_on_user_id` ON `galleries` (`user_id`)[0m
+  [4;35;1mSQL (43.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100323555555')[0m
+Migrating to CreateTimingsTable (20100324111111)
+  [4;36;1mSQL (492.4ms)[0m   [0;1mCREATE TABLE `timings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `objectable_type` varchar(255), `objectable_id` int(11), `note` varchar(255), `period_id` int(11), `starting_date` date, `ending_date` date, `starting_time` time, `ending_time` time, `places_id` varchar(255), `state` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (121.5ms)[0m   [0mCREATE TABLE `timings_places` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `objekt_type` varchar(255), `objekt_id` int(11), `timing_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (55.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100324111111')[0m
+Migrating to CreateProfilesCategoriesTable (20100410111111)
+  [4;35;1mSQL (126.7ms)[0m   [0mCREATE TABLE `profiles_categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `profile_id` int(11), `category_id` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `profiles_categories`[0m
+  [4;35;1mSQL (255.8ms)[0m   [0mCREATE INDEX `index_profiles_categories_on_profile_id` ON `profiles_categories` (`profile_id`)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `profiles_categories`[0m
+  [4;35;1mSQL (477.7ms)[0m   [0mCREATE INDEX `index_profiles_categories_on_category_id` ON `profiles_categories` (`category_id`)[0m
+  [4;36;1mSQL (88.2ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `state` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (32.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100410111111')[0m
+Migrating to CreateProfiles (20100410264219)
+  [4;36;1mSQL (93.1ms)[0m   [0;1mCREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `salutation` varchar(5), `first_name` varchar(50) NOT NULL, `middle_name` varchar(50), `last_name` varchar(50) NOT NULL, `gender` varchar(6), `birth_date` date, `nationality` varchar(50), `getting_newsletter` tinyint(1) DEFAULT 0, `state` varchar(255), `email_address` varchar(100), `address` varchar(255), `suburb` varchar(70), `zip_code` varchar(10), `city` varchar(50), `country_state` varchar(50), `country` varchar(50), `phone_number` varchar(25), `website` varchar(255), `biography` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `profiles`[0m
+  [4;36;1mSQL (190.8ms)[0m   [0;1mCREATE INDEX `index_profiles_on_user_id` ON `profiles` (`user_id`)[0m
+  [4;35;1mSQL (87.9ms)[0m   [0mCREATE TABLE `profiles_containers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `profile_id` int(11), `container_type` varchar(255), `container_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100410264219')[0m
+Migrating to CreatePeriods (20100421080119)
+  [4;35;1mSQL (104.3ms)[0m   [0mCREATE TABLE `periods` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `starting_date` date, `ending_date` date, `state` varchar(15), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100421080119')[0m
+Migrating to CreateInvoices (20100422080119)
+  [4;35;1mSQL (102.8ms)[0m   [0mCREATE TABLE `invoices` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `creator_id` int(11), `client_id` int(11), `purchasable_type` varchar(255), `purchasable_id` int(11), `number` varchar(255), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `payment_medium` varchar(255), `billing_address` varchar(255), `shipping_address` varchar(255), `deadline` date, `original_amount` float, `final_amount` float, `sent_at` datetime, `validated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `invoices`[0m
+  [4;35;1mSQL (489.0ms)[0m   [0mCREATE INDEX `index_invoices_on_client_id` ON `invoices` (`client_id`)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mNotificationFilter Create (0.2ms)[0m   [0mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('invoice', 'model', '2011-08-23 06:45:04', '2011-08-23 06:45:04')[0m
+  [4;36;1mSQL (40.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (44.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100422080119')[0m
+Migrating to CreateUserGroups (20100427080119)
+  [4;36;1mSQL (103.7ms)[0m   [0;1mCREATE TABLE `user_groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `state` varchar(15), `viewed_number` int(11) DEFAULT 0, `comments_number` int(11) DEFAULT 0, `rates_average` int(11) DEFAULT 0, `published` int(11) DEFAULT 0, `source` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `user_groups`[0m
+  [4;36;1mSQL (233.5ms)[0m   [0;1mCREATE INDEX `index_user_groups_on_user_id` ON `user_groups` (`user_id`)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('user_groups', 'model', '2011-08-23 06:45:05', '2011-08-23 06:45:05')[0m
+  [4;35;1mSQL (29.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (99.6ms)[0m   [0;1mCREATE TABLE `user_groups_users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_group_id` int(11), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (32.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100427080119')[0m
+Migrating to CreatePayments (20100501080119)
+  [4;36;1mSQL (92.7ms)[0m   [0;1mCREATE TABLE `payments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `invoice_id` int(11), `credit_card_id` int(11), `state` varchar(255), `note` varchar(255), `amount_in_cents` int(11), `currency` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `payments`[0m
+  [4;36;1mSQL (446.3ms)[0m   [0;1mCREATE INDEX `index_payments_on_user_id` ON `payments` (`user_id`)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.3ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('payments', 'model', '2011-08-23 06:45:05', '2011-08-23 06:45:05')[0m
+  [4;35;1mSQL (40.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (99.0ms)[0m   [0;1mCREATE TABLE `credit_cards` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `type_of_card` varchar(255), `first_name` varchar(255), `last_name` varchar(255), `number` int(11), `expiring_date` date, `verification_value` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `credit_cards`[0m
+  [4;36;1mSQL (233.6ms)[0m   [0;1mCREATE INDEX `index_credit_cards_on_user_id` ON `credit_cards` (`user_id`)[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100501080119')[0m
+Migrating to CreateOrders (20100519080119)
+  [4;36;1mSQL (104.0ms)[0m   [0;1mCREATE TABLE `orders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `creator_id` int(11), `client_id` int(11), `number` varchar(255), `title` varchar(255), `total_amount` float, `state` varchar(15), `completed_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `orders`[0m
+  [4;36;1mSQL (244.6ms)[0m   [0;1mCREATE INDEX `index_orders_on_client_id` ON `orders` (`client_id`)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mNotificationFilter Create (0.4ms)[0m   [0;1mINSERT INTO `notification_filters` (`name`, `group`, `created_at`, `updated_at`) VALUES('order', 'model', '2011-08-23 06:45:06', '2011-08-23 06:45:06')[0m
+  [4;35;1mSQL (29.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (99.3ms)[0m   [0;1mCREATE TABLE `order_lines` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `order_id` int(11), `orderable_type` varchar(255), `orderable_id` int(11), `number` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `order_lines`[0m
+  [4;36;1mSQL (233.6ms)[0m   [0;1mCREATE INDEX `index_order_lines_on_order_id` ON `order_lines` (`order_id`)[0m
+  [4;35;1mSQL (32.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100519080119')[0m
+Migrating to AddCompetition (20100928045807)
+  [4;36;1mSQL (195.3ms)[0m   [0;1mALTER TABLE `competitions` ADD `location` varchar(255)[0m
+  [4;35;1mSQL (235.9ms)[0m   [0mALTER TABLE `competitions` ADD `no_of_entry` int(11)[0m
+  [4;36;1mSQL (234.3ms)[0m   [0;1mALTER TABLE `competitions` ADD `framing` varchar(255)[0m
+  [4;35;1mSQL (245.5ms)[0m   [0mALTER TABLE `competitions` ADD `entry_fees` varchar(255)[0m
+  [4;36;1mSQL (201.0ms)[0m   [0;1mALTER TABLE `competitions` ADD `format` varchar(255)[0m
+  [4;35;1mSQL (189.9ms)[0m   [0mALTER TABLE `competitions` ADD `delivery` varchar(255)[0m
+  [4;36;1mSQL (189.9ms)[0m   [0;1mALTER TABLE `competitions` ADD `collection` varchar(255)[0m
+  [4;35;1mSQL (202.6ms)[0m   [0mALTER TABLE `competitions` ADD `insurance` varchar(255)[0m
+  [4;36;1mSQL (245.5ms)[0m   [0;1mALTER TABLE `competitions` ADD `return_of_artwork` text[0m
+  [4;35;1mSQL (43.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100928045807')[0m
+Migrating to AddCompetitionUser (20100928052006)
+  [4;36;1mSQL (239.0ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `name` varchar(255)[0m
+  [4;35;1mSQL (278.7ms)[0m   [0mALTER TABLE `competitions_users` ADD `email` varchar(255)[0m
+  [4;36;1mSQL (190.0ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `suburb` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `post_code` int(11)[0m
+  [4;36;1mSQL (191.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `here_prize` varchar(255)[0m
+  [4;35;1mSQL (245.3ms)[0m   [0mALTER TABLE `competitions_users` ADD `others` varchar(255)[0m
+  [4;36;1mSQL (245.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `total_entry` varchar(255)[0m
+  [4;35;1mSQL (245.4ms)[0m   [0mALTER TABLE `competitions_users` ADD `payment_type` varchar(255)[0m
+  [4;36;1mSQL (189.8ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `card_name` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `card_number` varchar(255)[0m
+  [4;36;1mSQL (189.7ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `exp_date` varchar(255)[0m
+  [4;35;1mSQL (313.6ms)[0m   [0mALTER TABLE `competitions_users` ADD `biography` text[0m
+  [4;36;1mSQL (245.3ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `return_of_artwork` varchar(255)[0m
+  [4;35;1mSQL (245.4ms)[0m   [0mALTER TABLE `competitions_users` ADD `bank_account` varchar(255)[0m
+  [4;36;1mSQL (200.9ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fworktitle` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `fworkmedium` varchar(255)[0m
+  [4;36;1mSQL (189.8ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fworksize` varchar(255)[0m
+  [4;35;1mSQL (367.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `fworkprice` varchar(255)[0m
+  [4;36;1mSQL (302.6ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fworkimage` varchar(255)[0m
+  [4;35;1mSQL (367.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `sworktitle` varchar(255)[0m
+  [4;36;1mSQL (200.8ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `sworkmedium` varchar(255)[0m
+  [4;35;1mSQL (189.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `sworksize` varchar(255)[0m
+  [4;36;1mSQL (189.8ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `sworkprice` varchar(255)[0m
+  [4;35;1mSQL (200.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `sworkimage` varchar(255)[0m
+  [4;36;1mSQL (235.9ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `tworktitle` varchar(255)[0m
+  [4;35;1mSQL (245.4ms)[0m   [0mALTER TABLE `competitions_users` ADD `tworkmedium` varchar(255)[0m
+  [4;36;1mSQL (234.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `tworksize` varchar(255)[0m
+  [4;35;1mSQL (212.0ms)[0m   [0mALTER TABLE `competitions_users` ADD `tworkprice` varchar(255)[0m
+  [4;36;1mSQL (201.0ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `tworkimage` varchar(255)[0m
+  [4;35;1mSQL (489.6ms)[0m   [0mALTER TABLE `competitions_users` ADD `foworktitle` varchar(255)[0m
+  [4;36;1mSQL (235.8ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `foworkmedium` varchar(255)[0m
+  [4;35;1mSQL (234.3ms)[0m   [0mALTER TABLE `competitions_users` ADD `foworksize` varchar(255)[0m
+  [4;36;1mSQL (201.0ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `foworkprice` varchar(255)[0m
+  [4;35;1mSQL (200.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `foworkimage` varchar(255)[0m
+  [4;36;1mSQL (445.2ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fiworktitle` varchar(255)[0m
+  [4;35;1mSQL (212.1ms)[0m   [0mALTER TABLE `competitions_users` ADD `fiworkmedium` varchar(255)[0m
+  [4;36;1mSQL (245.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fiworksize` varchar(255)[0m
+  [4;35;1mSQL (235.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `fiworkprice` varchar(255)[0m
+  [4;36;1mSQL (456.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fiworkimage` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `siworktitle` varchar(255)[0m
+  [4;36;1mSQL (200.9ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `siworkmedium` varchar(255)[0m
+  [4;35;1mSQL (200.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `siworksize` varchar(255)[0m
+  [4;36;1mSQL (245.3ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `siworkprice` varchar(255)[0m
+  [4;35;1mSQL (478.6ms)[0m   [0mALTER TABLE `competitions_users` ADD `siworkimage` varchar(255)[0m
+  [4;36;1mSQL (247.0ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `seworktitle` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `seworkmedium` varchar(255)[0m
+  [4;36;1mSQL (189.8ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `seworksize` varchar(255)[0m
+  [4;35;1mSQL (189.7ms)[0m   [0mALTER TABLE `competitions_users` ADD `seworkprice` varchar(255)[0m
+  [4;36;1mSQL (456.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `seworkimage` varchar(255)[0m
+  [4;35;1mSQL (234.3ms)[0m   [0mALTER TABLE `competitions_users` ADD `eworktitle` varchar(255)[0m
+  [4;36;1mSQL (247.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `eworkmedium` varchar(255)[0m
+  [4;35;1mSQL (200.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `eworksize` varchar(255)[0m
+  [4;36;1mSQL (434.3ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `eworkprice` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `eworkimage` varchar(255)[0m
+  [4;36;1mSQL (212.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `nworktitle` varchar(255)[0m
+  [4;35;1mSQL (234.2ms)[0m   [0mALTER TABLE `competitions_users` ADD `nworkmedium` varchar(255)[0m
+  [4;36;1mSQL (234.2ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `nworksize` varchar(255)[0m
+  [4;35;1mSQL (491.2ms)[0m   [0mALTER TABLE `competitions_users` ADD `nworkprice` varchar(255)[0m
+  [4;36;1mSQL (189.9ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `nworkimage` varchar(255)[0m
+  [4;35;1mSQL (301.0ms)[0m   [0mALTER TABLE `competitions_users` ADD `teworktitle` varchar(255)[0m
+  [4;36;1mSQL (578.9ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `teworkmedium` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `teworksize` varchar(255)[0m
+  [4;36;1mSQL (223.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `teworkprice` varchar(255)[0m
+  [4;35;1mSQL (235.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `teworkimage` varchar(255)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100928052006')[0m
+Migrating to AddComUsrStreet (20100928142843)
+  [4;35;1mSQL (228.5ms)[0m   [0mALTER TABLE `competitions_users` ADD `street` varchar(255)[0m
+  [4;36;1mSQL (277.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100928142843')[0m
+Migrating to AddCompetitionuserEndshow (20100929052103)
+  [4;35;1mSQL (228.5ms)[0m   [0mALTER TABLE `competitions_users` ADD `bsb_no` varchar(255)[0m
+  [4;36;1mSQL (32.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100929052103')[0m
+Migrating to ChangeSubmissionDate (20100929061948)
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `competitions`[0m
+  [4;36;1mSQL (202.4ms)[0m   [0;1mALTER TABLE `competitions` CHANGE `submission_deadline` `submission_deadline` varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (32.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100929061948')[0m
+Migrating to Addexhibitiondate (20100929062746)
+  [4;36;1mSQL (194.8ms)[0m   [0;1mALTER TABLE `competitions` ADD `exhibition_date` varchar(255)[0m
+  [4;35;1mSQL (32.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100929062746')[0m
+Migrating to AtEndWork (20100929135834)
+  [4;36;1mSQL (563.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `at_end_work` varchar(255)[0m
+  [4;35;1mSQL (45.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100929135834')[0m
+Migrating to CreatePromotingStuffs (20100930073709)
+  [4;36;1mSQL (93.4ms)[0m   [0;1mCREATE TABLE `promoting_stuffs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100930073709')[0m
+Migrating to Addlink (20101005102945)
+  [4;36;1mSQL (322.0ms)[0m   [0;1mALTER TABLE `promoting_stuffs` ADD `link` varchar(255)[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101005102945')[0m
+Migrating to Changeframing (20101006153032)
+  [4;36;1mSQL (194.9ms)[0m   [0;1mALTER TABLE `competitions` ADD `cjudges` varchar(255)[0m
+  [4;35;1mSQL (288.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101006153032')[0m
+Migrating to Changeentryfee (20101007081219)
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW FIELDS FROM `competitions`[0m
+  [4;35;1mSQL (201.6ms)[0m   [0mALTER TABLE `competitions` CHANGE `entry_fees` `entry_fees` text DEFAULT NULL[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101007081219')[0m
+Migrating to CreateComptartworks (20101007110624)
+  [4;35;1mSQL (85.2ms)[0m   [0mCREATE TABLE `comptartworks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101007110624')[0m
+Migrating to CreateAppHomes (20101008064307)
+  [4;35;1mSQL (105.1ms)[0m   [0mCREATE TABLE `app_homes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `houres` varchar(255), `openings` text, `staff` text, `costs` text, `gallery_planlink` varchar(255), `bookings` text, `bsgproposallink` varchar(255), `opening_night` text, `staffed` varchar(255), `mailing_list_number` int(11), `mailing_list_desc` varchar(255), `invitation` varchar(255), `advertising` text, `sales` text, `your_obligations` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101008064307')[0m
+Migrating to CreateBooksshops (20101013135402)
+  [4;35;1mSQL (105.1ms)[0m   [0mCREATE TABLE `booksshops` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bookshopdetails` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101013135402')[0m
+Migrating to Addstudios (20101014071257)
+  [4;35;1mSQL (241.0ms)[0m   [0mALTER TABLE `profiles` ADD `studios` tinyint(1)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101014071257')[0m
+Migrating to Drawing (20101014074309)
+  [4;35;1mSQL (126.2ms)[0m   [0mCREATE TABLE `drawings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `drawingdetails` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101014074309')[0m
+Migrating to CreateLinks (20101014121406)
+  [4;35;1mSQL (92.0ms)[0m   [0mCREATE TABLE `links` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `link_name` varchar(255), `link_src` varchar(255), `approve` tinyint(1), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101014121406')[0m
+Migrating to Addcompetitionconfirm (20101021071034)
+  [4;35;1mSQL (194.5ms)[0m   [0mALTER TABLE `competitions_users` ADD `confirm` tinyint(1)[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101021071034')[0m
+Migrating to CreateFrontendpics (20101023052928)
+  [4;35;1mSQL (96.0ms)[0m   [0mCREATE TABLE `frontendpics` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (300.8ms)[0m   [0;1mALTER TABLE `frontendpics` ADD `front_end_pics_file_name` varchar(255)[0m
+  [4;35;1mSQL (267.6ms)[0m   [0mALTER TABLE `frontendpics` ADD `front_end_pics_content_type` varchar(255)[0m
+  [4;36;1mSQL (269.3ms)[0m   [0;1mALTER TABLE `frontendpics` ADD `front_end_pics_file_size` int(11)[0m
+  [4;35;1mSQL (234.2ms)[0m   [0mALTER TABLE `frontendpics` ADD `front_end_pics_updated_at` datetime[0m
+  [4;36;1mSQL (54.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101023052928')[0m
+Migrating to CreateStudioAndMailingLists (20101030075900)
+  [4;35;1mSQL (413.5ms)[0m   [0mCREATE TABLE `studio_and_mailing_lists` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(50) NOT NULL, `last_name` varchar(50) NOT NULL, `email_address` varchar(100), `address` varchar(255), `suburb` varchar(70), `zip_code` varchar(10), `phone_number` varchar(25), `studio` tinyint(1), `mailing_list` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (55.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101030075900')[0m
+Migrating to AddMarksandstate (20101112115530)
+  [4;35;1mSQL (239.1ms)[0m   [0mALTER TABLE `artworks_competitions` ADD `image_name` varchar(255)[0m
+  [4;36;1mSQL (245.5ms)[0m   [0;1mALTER TABLE `artworks_competitions` ADD `competitions_users_id` int(11)[0m
+  [4;35;1mSQL (55.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101112115530')[0m
+Migrating to AddHowdidyouhereaboutprizes (20101115131027)
+  [4;36;1mSQL (272.9ms)[0m   [0;1mALTER TABLE `competitions` ADD `how_did_you_here` text[0m
+  [4;35;1mSQL (54.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101115131027')[0m
+Migrating to Changeusercompstreettoaddress (20101116052902)
+  [4;36;1mSQL (3.7ms)[0m   [0;1mSHOW FIELDS FROM `competitions_users`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW COLUMNS FROM `competitions_users` LIKE 'street'[0m
+  [4;36;1mSQL (339.1ms)[0m   [0;1mALTER TABLE `competitions_users` CHANGE `street` `address` varchar(255) DEFAULT NULL[0m
+  [4;35;1mSQL (54.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101116052902')[0m
+Migrating to Addvarificationcode (20101116064819)
+  [4;36;1mSQL (251.7ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `varification_code` varchar(255)[0m
+  [4;35;1mSQL (54.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101116064819')[0m
+Migrating to Changesubmissiondeadline (20101118134921)
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `competitions`[0m
+  [4;35;1mSQL (234.7ms)[0m   [0mALTER TABLE `competitions` CHANGE `submission_deadline` `submission_deadline` date DEFAULT NULL[0m
+  [4;36;1mSQL (43.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101118134921')[0m
+Migrating to Addorderimagename (20101206082413)
+  [4;35;1mSQL (217.2ms)[0m   [0mALTER TABLE `order_lines` ADD `imagename` varchar(255)[0m
+  [4;36;1mSQL (299.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101206082413')[0m
+Migrating to Addquidmail (20101210134344)
+  [4;35;1mSQL (272.6ms)[0m   [0mALTER TABLE `queued_mails` ADD `frommail` varchar(255)[0m
+  [4;36;1mSQL (267.6ms)[0m   [0;1mALTER TABLE `queued_mails` ADD `tomail` varchar(255)[0m
+  [4;35;1mSQL (54.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101210134344')[0m
+Migrating to Addreplayto (20101211112122)
+  [4;36;1mSQL (695.5ms)[0m   [0;1mALTER TABLE `queued_mails` ADD `replayto` int(11)[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101211112122')[0m
+Migrating to Adddeletemail (20101214130503)
+  [4;36;1mSQL (372.6ms)[0m   [0;1mALTER TABLE `queued_mails` ADD `deletefrom` tinyint(1)[0m
+  [4;35;1mSQL (212.0ms)[0m   [0mALTER TABLE `queued_mails` ADD `deleteto` tinyint(1)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101214130503')[0m
+Migrating to Addreadunread (20101215102728)
+  [4;35;1mSQL (283.7ms)[0m   [0mALTER TABLE `queued_mails` ADD `read` tinyint(1)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101215102728')[0m
+Migrating to Alterqueudmail (20101215133926)
+  [4;35;1mSQL (261.6ms)[0m   [0mALTER TABLE `queued_mails` ADD `fromread` tinyint(1)[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `queued_mails`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW COLUMNS FROM `queued_mails` LIKE 'read'[0m
+  [4;36;1mSQL (63.8ms)[0m   [0;1mALTER TABLE `queued_mails` CHANGE `read` `toread` tinyint(1) DEFAULT NULL[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101215133926')[0m
+Migrating to Messages (20110408114252)
+  [4;36;1mSQL (116.0ms)[0m   [0;1mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `author_id` int(11), `subject` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (32.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110408114252')[0m
+Migrating to MessageCopies (20110408114314)
+  [4;36;1mSQL (114.8ms)[0m   [0;1mCREATE TABLE `message_copies` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `recipient_id` int(11), `message_id` int(11), `mailfolder_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (32.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110408114314')[0m
+Migrating to Folders (20110408114326)
+  [4;36;1mSQL (103.4ms)[0m   [0;1mCREATE TABLE `mailfolders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `parent_id` int(11), `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (32.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110408114326')[0m
+Migrating to AddDeletedColumns (20110408114346)
+  [4;36;1mSQL (216.6ms)[0m   [0;1mALTER TABLE `message_copies` ADD `deleted` tinyint(1)[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110408114346')[0m
+Migrating to CreateEmaillabels (20110410055837)
+  [4;36;1mSQL (115.6ms)[0m   [0;1mCREATE TABLE `emaillabels` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `labelname` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110410055837')[0m
+Migrating to Addlabeltomsgcopy (20110410060847)
+  [4;36;1mSQL (261.1ms)[0m   [0;1mALTER TABLE `message_copies` ADD `emaillabel_id` int(11)[0m
+  [4;35;1mSQL (245.4ms)[0m   [0mALTER TABLE `message_copies` ADD `labeled` tinyint(1)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110410060847')[0m
+Migrating to CreateSignatures (20110410094232)
+  [4;35;1mSQL (115.0ms)[0m   [0mCREATE TABLE `signatures` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `frommail_id` int(11), `signlabel` varchar(255), `signature` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110410094232')[0m
+Migrating to CreateFrommails (20110410094301)
+  [4;35;1mSQL (116.7ms)[0m   [0mCREATE TABLE `frommails` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `frommail` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110410094301')[0m
+Migrating to Addflagtomsgcopy (20110411080407)
+  [4;35;1mSQL (198.3ms)[0m   [0mALTER TABLE `message_copies` ADD `flag` tinyint(1)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110411080407')[0m
+Migrating to Addflagtomessage (20110411104812)
+  [4;35;1mSQL (239.3ms)[0m   [0mALTER TABLE `messages` ADD `flag` tinyint(1)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110411104812')[0m
+Migrating to Adddeletetomessage (20110411110726)
+  [4;35;1mSQL (250.4ms)[0m   [0mALTER TABLE `messages` ADD `deletedm` tinyint(1)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110411110726')[0m
+Migrating to AddNoteToProfile (20110413102651)
+  [4;35;1mSQL (239.2ms)[0m   [0mALTER TABLE `profiles` ADD `notices` varchar(255)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110413102651')[0m
+Migrating to Addtrashdeletetomessage (20110414151551)
+  [4;35;1mSQL (194.9ms)[0m   [0mALTER TABLE `messages` ADD `deletedmt` tinyint(1)[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110414151551')[0m
+Migrating to CreateTemporaryInbox (20110415152734)
+  [4;35;1mSQL (94.4ms)[0m   [0mCREATE TABLE `tempraryinboxes` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `fromemail` varchar(255), `subject` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110415152734')[0m
+Migrating to Addcolumnsto (20110418100721)
+  [4;35;1mSQL (209.2ms)[0m   [0mALTER TABLE `messages` ADD `deletefrom` varchar(255)[0m
+  [4;36;1mSQL (245.4ms)[0m   [0;1mALTER TABLE `messages` ADD `deleteto` varchar(255)[0m
+  [4;35;1mSQL (245.4ms)[0m   [0mALTER TABLE `messages` ADD `deletefromt` varchar(255)[0m
+  [4;36;1mSQL (234.1ms)[0m   [0;1mALTER TABLE `messages` ADD `deletetot` varchar(255)[0m
+  [4;35;1mSQL (44.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110418100721')[0m
+Migrating to Columnnameandheader (20110420095003)
+  [4;36;1mSQL (37.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110420095003')[0m
+Migrating to CreateColumnnameandheaders (20110420095055)
+  [4;35;1mSQL (92.7ms)[0m   [0mCREATE TABLE `columnnameandheaders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `column_header` varchar(255), `column_name` varchar(255), `idoffieldwithtablename` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110420095055')[0m
+Migrating to CreateExhiArtworks (20110428075203)
+  [4;35;1mSQL (92.8ms)[0m   [0mCREATE TABLE `exhi_artworks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110428075203')[0m
+Migrating to Addexhibitionidtoarwork (20110428100037)
+  [4;35;1mSQL (197.1ms)[0m   [0mALTER TABLE `artworks` ADD `exhibition_id` int(11)[0m
+  [4;36;1mSQL (43.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110428100037')[0m
+Migrating to CreateGroupshows (20110512134637)
+  [4;35;1mSQL (105.8ms)[0m   [0mCREATE TABLE `groupshows` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255) NOT NULL, `description` text NOT NULL, `starting_date` date, `ending_date` date, `note` varchar(255), `gallery_id` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `groupshows`[0m
+  [4;35;1mSQL (244.7ms)[0m   [0mCREATE INDEX `index_groupshows_on_user_id` ON `groupshows` (`user_id`)[0m
+  [4;36;1mSQL (43.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110512134637')[0m
+Migrating to UserGroupshows (20110513152410)
+  [4;35;1mSQL (104.3ms)[0m   [0mCREATE TABLE `usergroupshows` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `groupshow_id` int(11), `state` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110513152410')[0m
+Migrating to CreateGroupshowartworks (20110516115141)
+  [4;35;1mSQL (103.2ms)[0m   [0mCREATE TABLE `groupshowartworks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `groupshow_id` int(11), `user_id` int(11), `artworkurl` varchar(255), `title` varchar(255), `medium` varchar(255), `size1` int(11), `size2` int(11), `size3` int(11), `price` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110516115141')[0m
+Migrating to CreateAdminNewsletters (20110525071738)
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (63.6ms)[0m   [0;1mDROP TABLE `newsletters`[0m
+  [4;35;1mSQL (84.0ms)[0m   [0mCREATE TABLE `newsletters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `news_letter_content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110525071738')[0m
+Migrating to CreateNewsletteremails (20110525104454)
+  [4;35;1mSQL (93.6ms)[0m   [0mCREATE TABLE `newsletteremails` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11), `newsletter_id` int(11), `emailsend` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110525104454')[0m
+Migrating to CreateBottomlines (20110530130534)
+  [4;35;1mSQL (92.8ms)[0m   [0mCREATE TABLE `bottomlines` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `bottomline` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110530130534')[0m
+Migrating to Selectfrontendpic (20110531080404)
+  [4;35;1mSQL (194.7ms)[0m   [0mALTER TABLE `frontendpics` ADD `selectpic` tinyint(1)[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110531080404')[0m
+Migrating to Addcompetitiondescription (20110602095554)
+  [4;35;1mSQL (38.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110602095554')[0m
+Migrating to Artworkcompetitionsell (20110607102647)
+  [4;36;1mSQL (243.8ms)[0m   [0;1mALTER TABLE `artworks_competitions` ADD `sold` tinyint(1)[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110607102647')[0m
+Migrating to Addsoldtocompetitionartwork (20110607105235)
+  [4;36;1mSQL (238.8ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fsold` tinyint(1)[0m
+  [4;35;1mSQL (234.4ms)[0m   [0mALTER TABLE `competitions_users` ADD `ssold` tinyint(1)[0m
+  [4;36;1mSQL (189.9ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `tsold` tinyint(1)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `fosold` tinyint(1)[0m
+  [4;36;1mSQL (212.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `fisold` tinyint(1)[0m
+  [4;35;1mSQL (247.1ms)[0m   [0mALTER TABLE `competitions_users` ADD `sisold` tinyint(1)[0m
+  [4;36;1mSQL (245.3ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `sesold` tinyint(1)[0m
+  [4;35;1mSQL (267.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `eisold` tinyint(1)[0m
+  [4;36;1mSQL (201.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `nsold` tinyint(1)[0m
+  [4;35;1mSQL (201.0ms)[0m   [0mALTER TABLE `competitions_users` ADD `tesold` tinyint(1)[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110607105235')[0m
+Migrating to Addsoldtoartworks (20110607120719)
+  [4;35;1mSQL (194.9ms)[0m   [0mALTER TABLE `artworks` ADD `sold` tinyint(1)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110607120719')[0m
+Migrating to Addsoldtogroupshow (20110607123353)
+  [4;35;1mSQL (452.0ms)[0m   [0mALTER TABLE `groupshowartworks` ADD `sold` tinyint(1)[0m
+  [4;36;1mSQL (43.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110607123353')[0m
+Migrating to Addapplication (20110611092448)
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `app_homes`[0m
+  [4;36;1mSQL (336.6ms)[0m   [0;1mALTER TABLE `app_homes` CHANGE `mailing_list_number` `mailing_list_number` text DEFAULT NULL[0m
+  [4;35;1mSQL (43.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110611092448')[0m
+Migrating to Artworksoldnumber (20110613081055)
+  [4;36;1mSQL (239.1ms)[0m   [0;1mALTER TABLE `artworks` ADD `sold_number` int(11)[0m
+  [4;35;1mSQL (43.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110613081055')[0m
+Migrating to Addimagecolumntocompart (20110613154122)
+  [4;36;1mSQL (196.4ms)[0m   [0;1mALTER TABLE `artworks_competitions` ADD `avatar_file_name` varchar(255)[0m
+  [4;35;1mSQL (189.8ms)[0m   [0mALTER TABLE `artworks_competitions` ADD `avatar_content_type` varchar(255)[0m
+  [4;36;1mSQL (191.5ms)[0m   [0;1mALTER TABLE `artworks_competitions` ADD `avatar_file_size` int(11)[0m
+  [4;35;1mSQL (234.2ms)[0m   [0mALTER TABLE `artworks_competitions` ADD `avatar_updated_at` datetime[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110613154122')[0m
+Migrating to Addeditionnumberandnametocomp (20110616070828)
+  [4;35;1mSQL (240.0ms)[0m   [0mALTER TABLE `competitions_users` ADD `fworkedname` int(11)[0m
+  [4;36;1mSQL (245.6ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `sworkedname` int(11)[0m
+  [4;35;1mSQL (200.8ms)[0m   [0mALTER TABLE `competitions_users` ADD `tworkedname` int(11)[0m
+  [4;36;1mSQL (201.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `foworkedname` int(11)[0m
+  [4;35;1mSQL (323.2ms)[0m   [0mALTER TABLE `competitions_users` ADD `fiworkedname` int(11)[0m
+  [4;36;1mSQL (191.7ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `siworkedname` int(11)[0m
+  [4;35;1mSQL (189.9ms)[0m   [0mALTER TABLE `competitions_users` ADD `seworkedname` int(11)[0m
+  [4;36;1mSQL (212.0ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `eiworkedname` int(11)[0m
+  [4;35;1mSQL (223.3ms)[0m   [0mALTER TABLE `competitions_users` ADD `niworkedname` int(11)[0m
+  [4;36;1mSQL (245.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `teworkedname` int(11)[0m
+  [4;35;1mSQL (245.5ms)[0m   [0mALTER TABLE `competitions_users` ADD `fworkednumber` int(11)[0m
+  [4;36;1mSQL (202.7ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `sworkednumber` int(11)[0m
+  [4;35;1mSQL (201.0ms)[0m   [0mALTER TABLE `competitions_users` ADD `tworkednumber` int(11)[0m
+  [4;36;1mSQL (212.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `foworkednumber` int(11)[0m
+  [4;35;1mSQL (223.2ms)[0m   [0mALTER TABLE `competitions_users` ADD `fiworkednumber` int(11)[0m
+  [4;36;1mSQL (245.4ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `siworkednumber` int(11)[0m
+  [4;35;1mSQL (243.6ms)[0m   [0mALTER TABLE `competitions_users` ADD `seworkednumber` int(11)[0m
+  [4;36;1mSQL (247.1ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `eiworkednumber` int(11)[0m
+  [4;35;1mSQL (234.4ms)[0m   [0mALTER TABLE `competitions_users` ADD `niworkednumber` int(11)[0m
+  [4;36;1mSQL (201.0ms)[0m   [0;1mALTER TABLE `competitions_users` ADD `teworkednumber` int(11)[0m
+  [4;35;1mSQL (32.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110616070828')[0m
+Migrating to Addgroupshoweditionameandnumber (20110616101039)
+  [4;36;1mSQL (197.9ms)[0m   [0;1mALTER TABLE `groupshowartworks` ADD `editionname` int(11)[0m
+  [4;35;1mSQL (186.1ms)[0m   [0mALTER TABLE `groupshowartworks` ADD `editionumber` int(11)[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110616101039')[0m
+Migrating to Groupshowartworkimage (20110621134449)
+  [4;35;1mSQL (244.6ms)[0m   [0mALTER TABLE `groupshowartworks` ADD `artworkurl_file_name` varchar(255)[0m
+  [4;36;1mSQL (236.0ms)[0m   [0;1mALTER TABLE `groupshowartworks` ADD `artworkurl_content_type` varchar(255)[0m
+  [4;35;1mSQL (201.1ms)[0m   [0mALTER TABLE `groupshowartworks` ADD `artworkurl_file_size` int(11)[0m
+  [4;36;1mSQL (201.0ms)[0m   [0;1mALTER TABLE `groupshowartworks` ADD `artworkurl_updated_at` datetime[0m
+  [4;35;1mSQL (32.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110621134449')[0m
+Migrating to Addimagecroptocomp (20110622093304)
+  [4;36;1mSQL (184.5ms)[0m   [0;1mALTER TABLE `artworks_competitions` ADD `artworkurl_file_name` varchar(255)[0m
+  [4;35;1mSQL (223.1ms)[0m   [0mALTER TABLE `artworks_competitions` ADD `artworkurl_content_type` varchar(255)[0m
+  [4;36;1mSQL (245.4ms)[0m   [0;1mALTER TABLE `artworks_competitions` ADD `artworkurl_file_size` int(11)[0m
+  [4;35;1mSQL (235.8ms)[0m   [0mALTER TABLE `artworks_competitions` ADD `artworkurl_updated_at` datetime[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110622093304')[0m
+Migrating to Addnotetoinvoice (20110623093505)
+  [4;35;1mSQL (197.0ms)[0m   [0mALTER TABLE `invoices` ADD `note` varchar(255)[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110623093505')[0m
+Migrating to Addtooltipingraybox (20110627110516)
+  [4;35;1mSQL (194.0ms)[0m   [0mALTER TABLE `artworks_competitions` ADD `prize_detail` varchar(255)[0m
+  [4;36;1mSQL (32.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110627110516')[0m
+Migrating to Addbiginttocreditcard (20110629110744)
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `credit_cards`[0m
+  [4;36;1mSQL (195.9ms)[0m   [0;1mALTER TABLE `credit_cards` CHANGE `number` `number` bigint DEFAULT NULL[0m
+  [4;35;1mSQL (43.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110629110744')[0m
+Migrating to Addnotedtocompetition (20110723104337)
+  [4;36;1mSQL (238.6ms)[0m   [0;1mALTER TABLE `competitions` ADD `notes` text[0m
+  [4;35;1mSQL (43.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110723104337')[0m
+Migrating to Changegroupshownote (20110804061850)
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `groupshows`[0m
+  [4;35;1mSQL (238.6ms)[0m   [0mALTER TABLE `groupshows` CHANGE `note` `note` text DEFAULT NULL[0m
+  [4;36;1mSQL (43.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110804061850')[0m
+Migrating to CreateUsernamefortests (20110810074151)
+  [4;35;1mSQL (94.3ms)[0m   [0mCREATE TABLE `usernamefortests` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (32.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110810074151')[0m
+Migrating to Addcompetitionfield (20110818131339)
+  [4;35;1mSQL (38.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20110818131339')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `acts_as_xapian_jobs`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `acts_as_xapian_jobs`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `acts_as_xapian_jobs`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FIELDS FROM `app_homes`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `app_homes`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `app_homes`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW FIELDS FROM `article_files`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mdescribe `article_files`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `article_files`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FIELDS FROM `articles`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `articles`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `articles`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `artworks`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `artworks`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `artworks`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FIELDS FROM `artworks_competitions`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `artworks_competitions`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `artworks_competitions`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW FIELDS FROM `artworks_exhibitions`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mdescribe `artworks_exhibitions`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `artworks_exhibitions`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FIELDS FROM `audios`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `audios`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `audios`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW FIELDS FROM `audits`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `audits`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `audits`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `bookmarks`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `bookmarks`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `bookmarks`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW FIELDS FROM `booksshops`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `booksshops`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `booksshops`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FIELDS FROM `bottomlines`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mdescribe `bottomlines`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `bottomlines`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `cms_files`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `cms_files`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `cms_files`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `columnnameandheaders`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `columnnameandheaders`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `columnnameandheaders`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `competitions`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `competitions`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `competitions`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `competitions_subscriptions`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `competitions_subscriptions`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `competitions_subscriptions`[0m
+  [4;35;1mSQL (4.8ms)[0m   [0mSHOW FIELDS FROM `competitions_users`[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mdescribe `competitions_users`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `competitions_users`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `comptartworks`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `comptartworks`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `comptartworks`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `contacts_workspaces`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `contacts_workspaces`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `contacts_workspaces`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `credit_cards`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `credit_cards`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `credit_cards`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `data_people`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `data_people`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `data_people`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `delayed_jobs`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `delayed_jobs`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `delayed_jobs`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `drawings`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `drawings`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `drawings`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `elements`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `elements`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `elements`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `emaillabels`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `emaillabels`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `emaillabels`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `exhi_artworks`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `exhi_artworks`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `exhi_artworks`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `exhibitions`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `exhibitions`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `exhibitions`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `exhibitions_users`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `exhibitions_users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `exhibitions_users`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `feed_items`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `feed_items`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `feed_items`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `feed_sources`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `feed_sources`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `feed_sources`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `folders`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `folders`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `folders`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `frommails`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `frommails`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `frommails`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `frontendpics`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `frontendpics`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `frontendpics`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `galleries`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `galleries`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `galleries`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `groupings`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `groupings`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `groupings`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `groups`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `groups`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `groups`[0m
+  [4;35;1mSQL (90.7ms)[0m   [0mSHOW FIELDS FROM `groups_newsletters`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `groups_newsletters`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `groups_newsletters`[0m
+  [4;36;1mSQL (8.7ms)[0m   [0;1mSHOW FIELDS FROM `groupshowartworks`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `groupshowartworks`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `groupshowartworks`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `groupshows`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `groupshows`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `groupshows`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `images`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `images`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `invoices`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `invoices`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `invoices`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `items_folders`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `items_folders`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `items_folders`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `items_websites`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `items_websites`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `items_websites`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `items_workspaces`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `items_workspaces`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `items_workspaces`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `keywordings`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `keywordings`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `keywordings`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `keywords`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `keywords`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `keywords`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `links`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `links`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `links`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `mailfolders`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `mailfolders`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `mailfolders`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `menus`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `menus`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `menus`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `message_copies`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `message_copies`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `message_copies`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `messages`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `messages`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `newsletteremails`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `newsletteremails`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `newsletteremails`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `newsletters`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `newsletters`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `newsletters`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW FIELDS FROM `notification_filters`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `notification_filters`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `notification_filters`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `notification_subscriptions`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `notification_subscriptions`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `notification_subscriptions`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `order_lines`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `order_lines`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `order_lines`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `orders`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `orders`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `orders`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `payments`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `payments`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `payments`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `people`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `people`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `people`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `periods`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `periods`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `periods`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `permissions`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `permissions`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `permissions`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW FIELDS FROM `permissions_roles`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `permissions_roles`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `permissions_roles`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `profiles`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `profiles`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `profiles_categories`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `profiles_categories`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `profiles_categories`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `profiles_containers`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `profiles_containers`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `profiles_containers`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `promoting_stuffs`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `promoting_stuffs`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `promoting_stuffs`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `queued_mails`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `queued_mails`[0m
+  [4;36;1mSQL (61.1ms)[0m   [0;1mSHOW KEYS FROM `queued_mails`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `ratings`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `ratings`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `ratings`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mdescribe `roles`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `roles`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW FIELDS FROM `saved_searches`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `saved_searches`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `saved_searches`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `sessions`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `sessions`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `sessions`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `signatures`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `signatures`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `signatures`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `studio_and_mailing_lists`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `studio_and_mailing_lists`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `studio_and_mailing_lists`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `tempraryinboxes`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `tempraryinboxes`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `tempraryinboxes`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `timings`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `timings`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `timings`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `timings_places`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `timings_places`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `timings_places`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `user_groups`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `user_groups`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `user_groups`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `user_groups_users`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `user_groups_users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `user_groups_users`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW FIELDS FROM `usergroupshows`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `usergroupshows`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `usergroupshows`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `usernamefortests`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `usernamefortests`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `usernamefortests`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `users_containers`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `users_containers`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `users_containers`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `videos`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mdescribe `videos`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `videos`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW FIELDS FROM `website_urls`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `website_urls`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `website_urls`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `websites`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `websites`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `websites`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `workspaces`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mdescribe `workspaces`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `workspaces`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#home_page (for 127.0.0.1 at 2011-08-23 12:19:50) [GET]
+  [4;36;1mPromotingStuff Load (0.4ms)[0m   [0;1mSELECT * FROM `promoting_stuffs` ORDER BY created_at desc LIMIT 3[0m
+  [4;35;1mFrontendpic Load (0.3ms)[0m   [0mSELECT * FROM `frontendpics` WHERE ( selectpic = 1 ) ORDER BY created_at desc[0m
+Rendering template within layouts/front
+Rendering visitors/home_page
+  [4;36;1mBottomline Load (0.3ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 257ms (View: 172, DB: 16) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-08-23 12:19:51) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-08-23 12:19:54) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+  bullet (2.0.1) lib/bullet/rack.rb:11:in `call'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#login (for 127.0.0.1 at 2011-08-23 12:20:11) [GET]
+Rendering template within layouts/front
+Rendering visitors/login
+  [4;35;1mBottomline Load (0.1ms)[0m   [0mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 225ms (View: 209, DB: 1) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#new (for 127.0.0.1 at 2011-08-23 12:20:18) [GET]
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mProfile Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+Rendering template within layouts/front
+Rendering visitors/new
+Rendered visitors/_form (41.5ms)
+  [4;36;1mBottomline Load (0.1ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 112ms (View: 75, DB: 3) | 200 OK [http://localhost/subscribe]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CompetitionsController#show (for 127.0.0.1 at 2011-08-23 12:20:23) [GET]
+  [4;35;1mCompetition Load (0.4ms)[0m   [0mSELECT * FROM `competitions` [0m
+Rendering template within layouts/front
+Rendering competitions/show
+  [4;36;1mBottomline Load (0.1ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 135ms (View: 56, DB: 1) | 200 OK [http://localhost/competitions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing DrawingsController#index (for 127.0.0.1 at 2011-08-23 12:20:26) [GET]
+  Parameters: {"id"=>"front"}
+  [4;35;1mDrawing Load (0.3ms)[0m   [0mSELECT * FROM `drawings` ORDER BY created_at desc LIMIT 1[0m
+Rendering template within layouts/front
+Rendering drawings/forntindex
+  [4;36;1mBottomline Load (0.1ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 198ms (View: 177, DB: 1) | 200 OK [http://localhost/drawings]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#studios (for 127.0.0.1 at 2011-08-23 12:20:29) [GET]
+  [4;35;1mProfile Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+Rendering template within layouts/front
+Rendering visitors/studios
+  [4;36;1mBottomline Load (0.1ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 76ms (View: 45, DB: 1) | 200 OK [http://localhost/studios]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#home_page (for 127.0.0.1 at 2011-08-23 13:57:09) [GET]
+  [4;36;1mPromotingStuff Load (0.5ms)[0m   [0;1mSELECT * FROM `promoting_stuffs` ORDER BY created_at desc LIMIT 3[0m
+  [4;35;1mPromotingStuff Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `promoting_stuffs`[0m
+  [4;36;1mFrontendpic Load (0.6ms)[0m   [0;1mSELECT * FROM `frontendpics` WHERE ( selectpic = 1 ) ORDER BY created_at desc[0m
+  [4;35;1mFrontendpic Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `frontendpics`[0m
+Rendering template within layouts/front
+Rendering visitors/home_page
+  [4;36;1mBottomline Load (0.5ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+  [4;35;1mBottomline Columns (0.4ms)[0m   [0mSHOW FIELDS FROM `bottomlines`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 252ms (View: 187, DB: 16) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#home_page (for 127.0.0.1 at 2011-08-25 01:12:25) [GET]
+  [4;36;1mPromotingStuff Load (0.7ms)[0m   [0;1mSELECT * FROM `promoting_stuffs` ORDER BY created_at desc LIMIT 3[0m
+  [4;35;1mPromotingStuff Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `promoting_stuffs`[0m
+  [4;36;1mFrontendpic Load (0.7ms)[0m   [0;1mSELECT * FROM `frontendpics` WHERE ( selectpic = 1 ) ORDER BY created_at desc[0m
+  [4;35;1mFrontendpic Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `frontendpics`[0m
+Rendering template within layouts/front
+Rendering visitors/home_page
+  [4;36;1mBottomline Load (0.4ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+  [4;35;1mBottomline Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `bottomlines`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 471ms (View: 294, DB: 27) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#login (for 127.0.0.1 at 2011-08-25 01:12:30) [GET]
+Rendering template within layouts/front
+Rendering visitors/login
+  [4;35;1mBottomline Load (0.1ms)[0m   [0mSELECT * FROM `bottomlines` LIMIT 1[0m
+  [4;36;1mBottomline Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `bottomlines`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 266ms (View: 139, DB: 1) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing Admin::SessionsController#create (for 127.0.0.1 at 2011-08-25 01:13:10) [POST]
+  Parameters: {"submit"=>"", "action"=>"create", "controller"=>"admin/sessions", "password"=>"[FILTERED]", "email"=>"pathakorama1@gmail.com"}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'pathakorama1@gmail.com') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 31ms (DB: 3) | 302 Found [http://localhost/admin/session]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing VisitorsController#home_page (for 127.0.0.1 at 2011-08-25 01:13:10) [GET]
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 41) LIMIT 1[0m
+  [4;36;1mPromotingStuff Load (0.1ms)[0m   [0;1mSELECT * FROM `promoting_stuffs` ORDER BY created_at desc LIMIT 3[0m
+  [4;35;1mPromotingStuff Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `promoting_stuffs`[0m
+  [4;36;1mFrontendpic Load (0.1ms)[0m   [0;1mSELECT * FROM `frontendpics` WHERE ( selectpic = 1 ) ORDER BY created_at desc[0m
+  [4;35;1mFrontendpic Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `frontendpics`[0m
+  [4;36;1mCompetitionsUser Load (1.1ms)[0m   [0;1mSELECT * FROM `competitions_users` WHERE (user_id = 41 ) [0m
+  [4;35;1mExhibitionsUser Load (0.8ms)[0m   [0mSELECT * FROM `exhibitions_users` WHERE (`exhibitions_users`.user_id = 41) ORDER BY created_at DESC[0m
+  [4;36;1mExhibitionsUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `exhibitions_users`[0m
+  [4;35;1mExhibition Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `exhibitions`[0m
+  [4;36;1mExhibition Load (0.3ms)[0m   [0;1mSELECT * FROM `exhibitions` WHERE (`exhibitions`.`id` = 20) [0m
+  [4;35;1mArtwork Load (0.8ms)[0m   [0mSELECT * FROM `artworks` WHERE (user_id = 41 and exhibition_id = 20) LIMIT 1[0m
+  [4;36;1mUsergroupshow Load (0.5ms)[0m   [0;1mSELECT * FROM `usergroupshows` WHERE ( user_id = 41 ) [0m
+  [4;35;1mUsergroupshow Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `usergroupshows`[0m
+Rendering template within layouts/front
+Rendering visitors/home_page
+  [4;36;1mProfile Load (0.5ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.user_id = 41) LIMIT 1[0m
+  [4;35;1mProfile Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 41) [0m
+  [4;35;1mInvoice Load (0.6ms)[0m   [0mSELECT * FROM `invoices` WHERE (`invoices`.client_id = 41) [0m
+  [4;36;1mInvoice Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `invoices`[0m
+  [4;35;1mInvoice Load (0.6ms)[0m   [0mSELECT * FROM `invoices` WHERE (`invoices`.client_id = 41 AND (purchasable_id = 43 and purchasable_type = 'ExhibitionsUser')) LIMIT 1[0m
+  [4;36;1mInvoice Load (0.5ms)[0m   [0;1mSELECT * FROM `invoices` WHERE (`invoices`.client_id = 41 AND (purchasable_id = 43 and purchasable_type = 'ExhibitionsUser')) ORDER BY invoices.id DESC LIMIT 1[0m
+  [4;35;1mGroupshow Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `groupshows`[0m
+  [4;36;1mGroupshow Load (0.2ms)[0m   [0;1mSELECT * FROM `groupshows` WHERE (`groupshows`.`id` = 2) [0m
+  [4;35;1mGroupshow Load (0.5ms)[0m   [0mSELECT * FROM `groupshows` WHERE (`groupshows`.`id` = 1) [0m
+  [4;36;1mBottomline Load (0.1ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+  [4;35;1mBottomline Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `bottomlines`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 664ms (View: 273, DB: 16) | 200 OK [http://localhost/]
+N+1 Query detected
+  Usergroupshow => [:groupshow]
+  Add to your finder: :include => [:groupshow]
+N+1 Query method call stack
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CompetitionsController#show (for 127.0.0.1 at 2011-08-25 01:13:17) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 41) LIMIT 1[0m
+  [4;35;1mCompetition Load (0.7ms)[0m   [0mSELECT * FROM `competitions` [0m
+  [4;36;1mCompetition Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `competitions`[0m
+  [4;35;1mCompetitionsUser Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `competitions_users`[0m
+  [4;36;1mCompetitionsUser Load (0.8ms)[0m   [0;1mSELECT * FROM `competitions_users` WHERE (`competitions_users`.`user_id` = 41 AND `competitions_users`.`competition_id` = 57) LIMIT 1[0m
+  [4;35;1mCompetitionsUser Load (0.6ms)[0m   [0mSELECT * FROM `competitions_users` WHERE (`competitions_users`.`competition_id` = 57) [0m
+  [4;36;1mColumnnameandheader Load (1.9ms)[0m   [0;1mSELECT * FROM `columnnameandheaders` WHERE (idoffieldwithtablename = '57competition') [0m
+  [4;35;1mColumnnameandheader Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `columnnameandheaders`[0m
+  [4;36;1mCompetitionsUser Load (0.8ms)[0m   [0;1mSELECT * FROM `competitions_users` WHERE (competition_id = 57 ) [0m
+  [4;35;1mCompetitionsUser Load (0.6ms)[0m   [0mSELECT * FROM `competitions_users` WHERE (competition_id = 57 and user_id = 41) [0m
+Rendering template within layouts/front
+Rendering competitions/show
+  [4;36;1mTiming Load (0.5ms)[0m   [0;1mSELECT * FROM `timings` WHERE (`timings`.objectable_id = 57 AND `timings`.objectable_type = 'Competition') LIMIT 1[0m
+  [4;35;1mTiming Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `timings`[0m
+  [4;36;1mArtworksCompetition Load (0.8ms)[0m   [0;1mSELECT * FROM `artworks_competitions` WHERE (`artworks_competitions`.competitions_users_id = 40 AND (state='selected' and image_name = 'fworkimage')) LIMIT 1[0m
+Rendered competitions/_artwork_show (162.8ms)
+Rendered competitions/_artwork_show (0.4ms)
+Rendered competitions/_artwork_show (0.2ms)
+  [4;35;1mProfile Load (0.2ms)[0m   [0mSELECT * FROM `profiles` WHERE (`profiles`.user_id = 41) LIMIT 1[0m
+  [4;36;1mProfile Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `profiles`[0m
+  [4;35;1mBottomline Load (0.2ms)[0m   [0mSELECT * FROM `bottomlines` LIMIT 1[0m
+  [4;36;1mBottomline Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `bottomlines`[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 562ms (View: 268, DB: 14) | 200 OK [http://localhost/competitions]
+N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CompetitionsController#create_subscribe_competition_front (for 127.0.0.1 at 2011-08-25 01:13:23) [POST]
+  Parameters: {"id"=>"57"}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 41) LIMIT 1[0m
+  [4;36;1mCompetitionsUser Columns (2.1ms)[0m   [0;1mSHOW FIELDS FROM `competitions_users`[0m
+  [4;35;1mCompetitionsUser Load (1.0ms)[0m   [0mSELECT * FROM `competitions_users` WHERE (`competitions_users`.`user_id` = 41 AND `competitions_users`.`competition_id` = '57') LIMIT 1[0m
+  [4;36;1mCompetition Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `competitions`[0m
+  [4;35;1mCompetition Load (0.3ms)[0m   [0mSELECT * FROM `competitions` WHERE (`competitions`.`id` = 57) [0m
+  [4;36;1mProfile Load (0.1ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.user_id = 41) LIMIT 1[0m
+  [4;35;1mProfile Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCompetitionsUser Create (0.9ms)[0m   [0mINSERT INTO `competitions_users` (`siworksize`, `siworkednumber`, `user_id`, `foworksize`, `post_code`, `nworkmedium`, `created_at`, `fiworkimage`, `bank_account`, `siworktitle`, `nworkimage`, `teworkimage`, `here_prize`, `tworkedname`, `sworkednumber`, `sworkprice`, `fiworkmedium`, `siworkprice`, `seworkprice`, `others`, `seworktitle`, `eworkmedium`, `payment_type`, `fosold`, `exp_date`, `sworkmedium`, `nworktitle`, `foworkmedium`, `nworksize`, `nworkprice`, `eiworkednumber`, `eisold`, `tworkimage`, `price`, `email`, `bsb_no`, `eworkprice`, `teworkedname`, `sworkimage`, `teworkednumber`, `total_entry`, `eiworkedname`, `fworksize`, `tworkprice`, `fisold`, `suburb`, `eworktitle`, `at_end_work`, `niworkedname`, `tworktitle`, `sisold`, `eworksize`, `confirm`, `varification_code`, `ssold`, `seworkimage`, `niworkednumber`, `biography`, `siworkmedium`, `sworkedname`, `fworkedname`, `updated_at`, `teworkmedium`, `name`, `fworktitle`, `return_of_artwork`, `fsold`, `fiworksize`, `tworkmedium`, `tworkednumber`, `fiworkednumber`, `fiworkprice`, `fiworktitle`, `eworkimage`, `competitions_subscription_id`, `teworksize`, `foworkedname`, `fworkprice`, `competition_id`, `seworksize`, `teworktitle`, `seworkedname`, `fworkednumber`, `fworkmedium`, `tworksize`, `teworkprice`, `tesold`, `card_name`, `tsold`, `sesold`, `foworkimage`, `sworksize`, `fiworkedname`, `seworkmedium`, `card_number`, `fworkimage`, `sworktitle`, `foworktitle`, `address`, `nsold`, `foworkednumber`, `seworkednumber`, `foworkprice`, `siworkimage`, `state`, `siworkedname`) VALUES(NULL, NULL, 41, NULL, 411038, NULL, '2011-08-24 19:43:23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0.0, 'pathakorama1@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'suburb', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2011-08-24 19:43:23', NULL, 'kedarp kedarp', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 57, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '3891 Hagenes Crossroad', NULL, NULL, NULL, NULL, NULL, 'accepted', NULL)[0m
+  [4;36;1mSQL (39.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCompetitionsUser Update (0.4ms)[0m   [0;1mUPDATE `competitions_users` SET `updated_at` = '2011-08-24 19:43:23', `confirm` = 1 WHERE `id` = 46[0m
+  [4;35;1mSQL (41.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mCreditCard Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `credit_cards`[0m
+  [4;35;1mCreditCard Load (0.4ms)[0m   [0mSELECT * FROM `credit_cards` WHERE (`credit_cards`.`user_id` = 41) LIMIT 1[0m
+Rendered competitions/_enter_compitition_payment (30.6ms)
+Completed in 417ms (View: 43, DB: 91) | 200 OK [http://localhost/create_subscribe_competition_front?id=57]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CompetitionsController#show (for 127.0.0.1 at 2011-08-25 01:13:35) [GET]
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 41) LIMIT 1[0m
+  [4;36;1mCompetition Load (0.2ms)[0m   [0;1mSELECT * FROM `competitions` [0m
+  [4;35;1mCompetition Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `competitions`[0m
+  [4;36;1mCompetitionsUser Columns (3.8ms)[0m   [0;1mSHOW FIELDS FROM `competitions_users`[0m
+  [4;35;1mCompetitionsUser Load (0.6ms)[0m   [0mSELECT * FROM `competitions_users` WHERE (`competitions_users`.`user_id` = 41 AND `competitions_users`.`competition_id` = 57) LIMIT 1[0m
+  [4;36;1mCompetitionsUser Load (0.7ms)[0m   [0;1mSELECT * FROM `competitions_users` WHERE (`competitions_users`.`competition_id` = 57) [0m
+  [4;35;1mColumnnameandheader Load (0.1ms)[0m   [0mSELECT * FROM `columnnameandheaders` WHERE (idoffieldwithtablename = '57competition') [0m
+  [4;36;1mColumnnameandheader Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `columnnameandheaders`[0m
+  [4;35;1mCompetitionsUser Load (0.5ms)[0m   [0mSELECT * FROM `competitions_users` WHERE (competition_id = 57 ) [0m
+  [4;36;1mCompetitionsUser Load (0.4ms)[0m   [0;1mSELECT * FROM `competitions_users` WHERE (competition_id = 57 and user_id = 41) [0m
+Rendering template within layouts/front
+Rendering competitions/show
+  [4;35;1mTiming Load (0.1ms)[0m   [0mSELECT * FROM `timings` WHERE (`timings`.objectable_id = 57 AND `timings`.objectable_type = 'Competition') LIMIT 1[0m
+  [4;36;1mTiming Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `timings`[0m
+  [4;35;1mArtworksCompetition Load (0.1ms)[0m   [0mSELECT * FROM `artworks_competitions` WHERE (`artworks_competitions`.competitions_users_id = 40 AND (state='selected' and image_name = 'fworkimage')) LIMIT 1[0m
+Rendered competitions/_artwork_show (8.8ms)
+Rendered competitions/_artwork_show (0.2ms)
+Rendered competitions/_artwork_show (0.1ms)
+Rendered competitions/_artwork_show (0.1ms)
+  [4;36;1mProfile Load (0.3ms)[0m   [0;1mSELECT * FROM `profiles` WHERE (`profiles`.user_id = 41) LIMIT 1[0m
+  [4;35;1mProfile Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `profiles`[0m
+  [4;36;1mBottomline Load (0.1ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+  [4;35;1mBottomline Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `bottomlines`[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `bottomlines` LIMIT 1[0m
+Completed in 460ms (View: 190, DB: 13) | 200 OK [http://localhost/competitions]
+N+1 Query detected
+  Competition => [:timing]
+  Add to your finder: :include => [:timing]
+N+1 Query method call stack
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CompetitionsController#create_subscribe_competition_front_edit (for 127.0.0.1 at 2011-08-25 01:13:39) [POST]
+  Parameters: {"order_id"=>"46", "id"=>"57"}
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 41) LIMIT 1[0m
+  [4;35;1mCreditCard Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `credit_cards`[0m
+  [4;36;1mCreditCard Load (0.1ms)[0m   [0;1mSELECT * FROM `credit_cards` WHERE (`credit_cards`.`user_id` = 41) LIMIT 1[0m
+  [4;35;1mCompetition Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `competitions`[0m
+  [4;36;1mCompetition Load (0.1ms)[0m   [0;1mSELECT * FROM `competitions` WHERE (`competitions`.`id` = 57) [0m
+  [4;35;1mCompetitionsUser Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `competitions_users`[0m
+  [4;36;1mCompetitionsUser Load (0.5ms)[0m   [0;1mSELECT * FROM `competitions_users` WHERE (`competitions_users`.`id` = 46) [0m
+Rendered competitions/_edit_compitition_payment (33.0ms)
+Completed in 298ms (View: 45, DB: 7) | 200 OK [http://localhost/create_subscribe_competition_front_edit?id=57&order_id=46]

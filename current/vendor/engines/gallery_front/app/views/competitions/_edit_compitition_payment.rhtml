@@ -8,6 +8,20 @@
 
 </style>
 <script type="text/javascript">
+
+  function show_div(){
+     cmbv = document.getElementById("invoicing_info_payment_medium").value;
+     alert("im here");
+      if(cmbv == "master card" || cmbv == "visa"  )
+                   {
+                      document.getElementById("credit_card_fields").style.display='block';
+                   }
+       else{
+              document.getElementById("credit_card_fields").style.display='none';
+           }
+
+  }
+  //adding the function to show and hide the div for credit card details for cash and cheque purpose
   function changetheline(){
 
                    cmbv = document.getElementById("invoicing_info_payment_medium").value;
@@ -15,6 +29,7 @@
                    if  (cmbv == "cash")
                    {
                       document.getElementById("changethelineinfo").innerHTML = "You will need to come into the gallery at 322 Brunswick St, Fitzroy to make your payment";
+                     
                    }
                    if(cmbv == "cheque")
                    {
@@ -37,7 +52,7 @@
                    {
                       document.getElementById("changethelineinfo").innerHTML = "";
                    }
-
+ show_div();
            }
 
 						function change_entry_fee_value()
@@ -115,7 +130,7 @@
                            <%totalvalue = 0%>
                               <%competition.entry_fees.each  do |x|%>
                                   <%totalvalue = totalvalue + x.split('$')[1].to_i%>
-                                  <option value="<%=totalvalue%>"><%=totalvalue%></option>  
+                                  <option value="<%=totalvalue%>">$<%=totalvalue%></option>
                               <%end%>			
          </select>  
 	      		    <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"",:onchange=>"changetheline()"%>
@@ -125,7 +140,7 @@
                 <script>
 	      	document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>;
 	      </script>
-            <div>
+            <div id="credit_card_fields" style="display: block" >
                       <% fields_for credit_card do |ff| %>
                               <%= ff.hidden_field :user_id, :value => @current_user.id %>
                               <%#= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
@@ -160,7 +175,8 @@
                                     <%= ff.date_select :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year => 2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"text-align: center"%>
                                     
                                     <%= ff.text_field :verification_value, :label => 'Verification code (3 digits)' ,:value=>"123" ,:style=>"width:50px;height:16px;text-align:center;clear:both"%>
-                                    </div>  
+                                    </div>
+            </div>
                                               <div style="clear:both;float:left;padding-top:20px;">
                                                   <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
                                                <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">

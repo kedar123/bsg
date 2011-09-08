@@ -358,6 +358,9 @@
   
    
   def  create_the_payment
+    puts "***********************"
+    puts @selected=params[:invoicing_info][:payment_medium]
+    puts "***********************"
     creditcardno = ""
     if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card")  )         
       credit_card = CreditCard.find_by_user_id(current_user.id)
@@ -623,13 +626,13 @@
     end 
   
     if params[:invoicing_info][:payment_medium] ==  "cash"  
-      messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
+      messageforimageuploaded  = "We will email you a invoice/receipt after your payment is received"
     end   
     if params[:invoicing_info][:payment_medium] ==  "cheque" 
-      messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
+      messageforimageuploaded  = "We will email you a invoice/receipt after your payment is received"
     end
     if params[:invoicing_info][:payment_medium] ==   "direct deposit"
-      messageforimageuploaded  = "After Your Payment Is Done Admin Will Validate You"
+      messageforimageuploaded  = "We will email you a invoice/receipt after your payment is received"
     end
     if params[:invoicing_info][:payment_medium] ==  "visa" or params[:invoicing_info][:payment_medium] ==  "master card"
       messageforimageuploaded="Your Payment Is Done Please Upload Artwok"
@@ -813,7 +816,9 @@
     order = CompetitionsUser.find(params[:competitionuserid])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
-    i = title_array.index params[:titleforupdate]
+    puts "((((((((((((((()))))))))))))))))))))))))))"
+     i = title_array.index params[:titleforupdate]
+     puts i
     order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
     order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"]) 
     order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"]) 

@@ -133,7 +133,7 @@ class CompetitionsUser < ActiveRecord::Base
 				self.save
 				dataname=self.id.to_s+competitions_user["workimage"].original_filename
 				name=dataname.split(".")[1]
-				isitimage=name =~ /jpg|jpeg|gif|png|JPG|JPEG|GIF|PNG/
+				isitimage=name =~ /jpg|jpeg|gif|png|JPG|JPEG|GIF|PNG|tiff/
 					if  isitimage
 						self.send(image_array[i],dataname)
 					end
