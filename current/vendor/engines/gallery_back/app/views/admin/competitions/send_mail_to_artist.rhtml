@@ -123,13 +123,13 @@ function addselectedvaluetobody(){
    <p>
   <label class="labeloverride">Artwork </label>
 
-  <%= f.text_field :artwork,:value=>"" ,:style=>"width:350px"%>
+  <%= f.text_field :artwork,:value=>@artworkarray.join(",") ,:style=>"width:350px"%>
   </p>
   
   <p>
   <label class="labeloverride">Body </label>
   
-  <%= f.text_area :body ,:rows=>12,:cols=>45%>
+  <%= f.text_area :body ,:rows=>12,:cols=>45, :value=>@emailsendarray.join(",") + "is being selected for" + @artworkarray.join(",") + ""%>
   </p>
   <br/>
   <%ost=""%>
