@@ -1,0 +1,25 @@
+DEFAULTS: &DEFAULTS
+  adapter: mysql
+  encoding: utf8
+#  host: mysql.pragtech.co.in
+#  username: pragmatic_paco
+#  password: global786
+  host: localhost
+  username: root
+  password: root
+  # JRuby doesn't support socket:
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  database: gallery
+  <<: *DEFAULTS
+
+test:
+  database: gallery_test
+  <<: *DEFAULTS
+
+production:
+  database: gallery
+  <<: *DEFAULTS
+
+

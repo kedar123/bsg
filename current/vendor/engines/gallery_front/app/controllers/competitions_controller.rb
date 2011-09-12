@@ -991,11 +991,11 @@
   
      alertmessage = ""
 
-    if @competition.state == "open"
-       alertmessage = @competition.openstatemsg
+   # if @competition.state == "open"
+      # alertmessage = @competition.openstatemsg
 
     
-    alertmessage = ""
+    #alertmessage = ""
     
     if @competition.state == "open" 
        alertmessage = @competition.openstatemsg  
@@ -1005,8 +1005,8 @@
        end
     end
 
-    if @competition.state == "final_published"
-      alertmessage = @competition.publishfinalmsg
+   # if @competition.state == "final_published"
+      #alertmessage = @competition.publishfinalmsg
 
     if @competition.state == "final_published" 
       alertmessage = @competition.publishfinalmsg  
@@ -1939,4 +1939,3 @@
   end
   
 end
-

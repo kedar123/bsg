@@ -206,7 +206,7 @@ after :update do
             @total_price = @total_price + inv.final_amount
           end
         end
-        
+      	
 			if @current_object.state == 'results_publish'
 				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null' and state = 'winner' or state =  'selected' or  state = 'unselected' "], :order => "mark DESC")
     	elsif @current_object.state == 'final_published'
@@ -274,7 +274,11 @@ after :update do
    	@competitionuser.uniq!
 	end
 	
-	
+	def group_selection
+  puts "$$$$$$$$$$$$$$$$4"
+   @artworks_competitions =ArtworksCompetition .find(:all)
+   puts @artworks_competitions.inspect
+ end
 	private
 
 	def get_artworks_lists
@@ -300,10 +304,6 @@ after :update do
 		
 	end
 
-def group_selection
-  @filter_selection=ArtworksCompetition.find(:all)
-  puts "$$$$$$$$$$$$$$$$4"
-  puts @filter_selection.inspect
-end
+ 
 
 end

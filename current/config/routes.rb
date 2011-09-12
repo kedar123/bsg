@@ -226,6 +226,7 @@ ActionController::Routing::Routes.draw do |map|
     map.connect "/admin/send_mailing_email",:controller=>"mailing_lists",:action=>"send_mailing_email"
     
     map.connect "/admin/show_mailing_mail",:controller=>"mailing_lists",:action=>"show_mailing_mail"
+    
   
       
   
@@ -273,6 +274,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.connect "/competitions/send_winner_email/:id",:controller=>"competitions",:action=>"send_winner_email"
     admin.connect "/competitions/send_mail_to_artist/:id",:controller=>"competitions",:action=>"send_mail_to_artist"
     admin.connect "/competitions/send_winner_email/:id",:controller=>"competitions",:action=>"send_winner_email"
+   
     
     admin.connect "/compcreate_sent_mail_to_artist/:id",:controller=>"competitions",:action=>"compcreate_sent_mail_to_artist"
     admin.connect "/competitions/auto_complete_for_profile_email",:controller=>"competitions",:action=>"auto_complete_for_profile_email"
@@ -321,7 +323,7 @@ ActionController::Routing::Routes.draw do |map|
     # Route for HomePage
     admin.resources :home, :only => [:index], :collection => { :autocomplete_on => :any }
     # Routes for Comments
-    admin.resources :comments, :only => [:index, :edit, :update, :destroy], :member => { :change_state => :any, :add_reply => :any}, :collection => {:validate => :post}
+    admin.resources :comments, :only => [:index, :edit, :update, :destroy], :member => { :change_state => :any,:group_selection=> :any,  :add_reply => :any}, :collection => {:validate => :post}
     # Routes for ratings
     admin.resources :ratings, :only => [:index]
     # Route for HomePage
@@ -410,7 +412,7 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :competitions_subscriptions, :only => :none, :collection => { :validate => :post, :select => :get, :subscribe => :post , :enter => :get, :submit=> :post}
 		#admin.resources :competitions_subscriptions, :only => :none, :collection => { :validate => :post, :select => :get, :subscribe => :post }
 		admin.resources :competitions_users, :only => :none, :member => { :update_state => :get, :submit_artworks => :post, :artworks_wizard => :get }
-		admin.resources :artworks_competitions, :only => :none, :member => { :update_state => :get }, :collection => { :set_marks => :post }
+		admin.resources :artworks_competitions, :only => :none, :member => { :update_state => :get, :group_selection => :get }, :collection => { :set_marks => :post }
     # Search related routes
     admin.resources :searches, :collection => { :print_advanced => :any, :validate => :post }
     admin.resources :saved_searches, :only => [:create, :index, :destroy], :member => {:results => :get}, :collection => { :validate => :post }
@@ -458,7 +460,8 @@ ActionController::Routing::Routes.draw do |map|
 	map.connect '/competitions', :controller => :competitions, :action => 'show'
 	map.connect '/competitions/:competition_id', :controller => :competitions, :action => 'show'
   map.connect '/admin/competitions/change_state/:competition_id', :controller => 'admin/competitions', :action => 'change_state'
-  map.connect '/admin/competitions/group_selection/:competition_id', :controller => 'admin/competitions', :action => 'group_selection'
+   map.connect '/admin/competitions/group_selection/:competition_id', :controller => 'admin/competitions', :action => 'group_selection'
+ 
 	map.connect '/subscribe/:id', :controller => :visitors, :action => 'new'
 	map.connect '/mailing_list', :controller => :visitors, :action => 'mailing_list'
 	map.connect '/adding_profile', :controller => :visitors, :action => 'adding_profile'

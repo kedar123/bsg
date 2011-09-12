@@ -1,3 +1,8 @@
+<style type="text/css">
+  #groupselection{
+    width:20px;
+}
+</style>
 <%if object.class == Competition%>
   <%dynamictitle = "#{object.title}"%>
 <%else%>
@@ -79,26 +84,7 @@
                 </div>
         <% end %>
      </p>
-     <%if object.class == ArtworksCompetition%>
-        <%dynamictitle = "#{object.title}"%>
-     <%else%>
-        <%dynamictitle = "#{object.class.to_s}  #{object.title}"%>
-     <%end%>
-     <p>
-     <% if @current_object.has_permission_for?('destroy', @current_user, @current_container) %>
-              <%= link_to I18n.t('general.link.delete'), "javascript:;",
-                   :class => "deleteLink",
-                   :modal_id => "#modalDelete_#{object.id.to_s}"
-               %>
-                <div style="display:none">
-                  <div id="modalDelete_<%=object.id.to_s%>" class="modalDelete">
-                    <p><%= I18n.t('item.destroy.delete_conform')%></p>
-                       <%= link_to I18n.t('general.common_word.yes1'), item_path(object), :method => :delete%> |
-                       <%= link_to I18n.t('general.common_word.no1'), "javascript:;", :class => "deleteClose" %>
-                  </div>
-                </div>
-        <% end %>
-     </p>
+    
     
              
         <%if params[:controller] == "admin/exhibitions" and params[:action] == "show"%>
@@ -125,6 +111,23 @@
               <p>
                   <%=link_to "Maybe", "/admin/competitions/send_mail_to_artist/#{@current_object.id}?msg=maybe", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
               </p>
+
+               <!--<p>
+                  <%# form_for(object, :url => "/admin/competitions/group_selection/#{@current_object.id} ") do |f| %>
+                   <select name="new_state1" id="new_state_change1"  style="width:135px">
+                     <option value="0">Group Selection</option>
+                     <option value="/admin/competitions/group_selection/#{@current_object.id} ">Selected</option>
+                     <option value="/admin/competitions/group_selection/#{@current_object.id} ">Unselected</option>
+                     <option value="/admin/competitions/group_selection/#{@current_object.id} ">Maybe</option>
+                     <option value="/admin/competitions/group_selection/#{@current_object.id} ">Not Paid</option>
+                  </select>
+                 <%#=f.submit 'submit', :style=>"visibility:hidden"%>
+                   <%# end%>
+                </p>-->
+              <%#=link_to "Group Selection", "/admin/competitions/group_selection/#{@current_object.id}" %>
+             <div id="groupselection"><%= button_to "Group Selection", "/admin/competitions/group_selection/#{@current_object.id}",{:style=>"width:135px;font-size:14px"} %></div>
+
+
              
               <%if @current_object.state == "results_publish"%>
                 <p>
@@ -161,18 +164,7 @@
               </p>
 
 
-                <p>
-              
-                   <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
-                     <option value="0">Group Selection</option>
-                     <option value="/admin/competitions/group_selection">Selected</option>
-                     <option value="unselected">Unselected</option>
-                     <option value="maybe">Maybe</option>
-                     <option value="notpaid">Not Paid</option>
-                  </select>
-                 
-                </p>
-
+               
               
 
                   <script type="text/javascript">

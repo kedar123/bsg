@@ -1,0 +1,64 @@
+	<div class="itemShowRightBlockinvoice">
+	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoHinv">
+			Actions
+		</div><div class="blockCornerRight"></div>
+	    <div class="blockElementBodyinv">
+              <% if @current_user.has_system_role('admin') %>
+	        <%#= link_to 'Add a new invoice', new_admin_invoice_path %><br /><br />
+              <% end %>
+			Filter the list with text <br />
+			<input id="filter2"/><br /><br />
+	    </div>
+	</div>
+
+<% blank_main_div(:title =>"Groupselected list", :hsize => 'sevenH') do %>
+<table id="gropselected">
+
+  <thead >
+  <tr>
+    <th>Id</th>
+    <th>Artwork_id</th>
+    <th>Competition_id</th>
+    <th>State</th>
+    <th>Image_Name</th>
+    <th>Competitions_Users_id</th>
+    <th>Sold</th>
+    <th>Avatar_File_Name</th>
+    <th>Avatar_Content_Type</th>
+  </tr>
+  </thead>
+  <tbody style="color:#666666;">
+<%  @artworks_competitions.each do |awc| %>
+  <tr>
+    <td width="50px"><%=h awc.id %></td>
+    <td width="90px"><%=h awc.artwork_id %></td>
+    <td width="120px"><%=h awc.competition_id %></td>
+    <td width="50px"><%=h awc.state%>
+    </td>
+    <td width="50px"><%=h awc.image_name  %></td>
+
+    <td width="50px"><%=h awc.competitions_users_id%></td>
+
+    <td width="50px"><%=h awc.sold%></td>
+    <td width="50px"><%=h awc.avatar_file_name%></td>
+    <td width="100px"><%=h awc.avatar_content_type%></td>
+    
+  </tr>
+<% end %>
+  </tbody>
+    <tfoot>
+    <tr style="display:none;">
+      <td colspan="5">
+	            No rows match the filter...
+      </td>
+    </tr>
+  </tfoot>
+</table>
+<%end%>
+<script>
+  $(document).ready(function()
+    {
+      $("#gropselected").tablesorter();
+    }
+);
+</script>

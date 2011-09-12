@@ -1,6 +1,7 @@
 class Admin::ArtworksCompetitionsController < Admin::ApplicationController
 
 	def update_state
+    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
    	@artworks_competition = ArtworksCompetition.find(params[:id])
 		@artworks_competition.state = params[:state]
     if params[:state] == "winner"
@@ -27,5 +28,7 @@ class Admin::ArtworksCompetitionsController < Admin::ApplicationController
 		end
 		redirect_to item_path(ac.competition)
 	end
+
+
 
 end
