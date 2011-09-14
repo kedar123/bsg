@@ -125,6 +125,13 @@ function addselectedvaluetobody(){
 
   <%= f.text_field :artwork,:value=>@artworkarray.join(",") ,:style=>"width:350px"%>
   </p>
+  <div class="changecolorgray">
+                        	 Image
+                    	 </div>
+  
+                      	<!-- <input  name="competitions_user[workimage]" id="artwork_image<%#=i%>" type="file" size="26" style="float:left"/>-->
+  <img src="/system/gallery/<%=@artworkarray[0]%>" width="90px" height="90px" />
+        
   
   <p>
   <label class="labeloverride">Body </label>

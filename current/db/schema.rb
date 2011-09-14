@@ -684,6 +684,10 @@ ActiveRecord::Schema.define(:version => 20110818131339) do
     t.boolean  "sold"
     t.integer  "editionname"
     t.integer  "editionumber"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.string   "artworkurl_file_name"
     t.string   "artworkurl_content_type"
     t.integer  "artworkurl_file_size"
@@ -859,6 +863,7 @@ ActiveRecord::Schema.define(:version => 20110818131339) do
     t.string   "deleteto"
     t.string   "deletefromt"
     t.string   "deletetot"
+    t.string   "attachment"
   end
 
   create_table "newsletteremails", :force => true do |t|

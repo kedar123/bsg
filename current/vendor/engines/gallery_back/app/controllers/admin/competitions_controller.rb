@@ -24,11 +24,16 @@ class Admin::CompetitionsController < Admin::ApplicationController
   def send_mail_to_artist
 
     @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
+    puts "^&^&^&^&^^&^^^^^^^&&&&&&&&&&&&&&&&&&&&&&"
+    puts @total_selected.inspect
+    puts "*************((((((((((((()))))))))))))))))))"
     @emailsendarray=[]
     @usernames = []
+    @artworkarray=[]
     @total_selected.each do |arc|
-    @emailsendarray << arc.competitions_user.user.profile.email_address
+    puts @emailsendarray << arc.competitions_user.user.profile.email_address
     @usernames << arc.competitions_user.user.profile.first_name + " " + arc.competitions_user.user.profile.last_name
+    puts @artworkarray << arc.avatar_file_name
     @usernames.uniq!
     @emailsendarray.uniq!
     end
@@ -40,6 +45,8 @@ class Admin::CompetitionsController < Admin::ApplicationController
     puts @artwork.inspect
     puts "***********************************8"
     @frommail = Frommail.find(:all)
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts @frommail.inspect
     render :layout=>"gallery_promoting_mail"
   end
   
@@ -67,9 +74,14 @@ class Admin::CompetitionsController < Admin::ApplicationController
        end
     end
     @message = current_user.sent_messages.build(params[:message])
+    puts "!!!!!!!!!!!$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&&7"
+    puts @message.inspect
+    puts "!!!!!!!!!!!$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&&7"
     @message.prepare_copies(params[:message][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
     all_the_recipient = params[:message][:email].split(',')
+     attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
+
     EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
     if @message.save
       flash[:notice] = "Message sent."
