@@ -46,8 +46,7 @@ class EmailSystem
 			:to => email.to.join(', '),
 			:subject => email.subject,
 			:body => email.body,
-			attachment :content_type => "image/jpeg",
-        :body => File.read("an-image.jpg")
+			attachment :content_type => "image/jpeg"
 
         
 

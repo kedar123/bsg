@@ -89,6 +89,7 @@
   end
 	def create_subscribe_competition
 		@competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:competion_id])
+   
 		if  @competitionuser.blank?
       size_array_send = ['fworksize=','sworksize=','tworksize=','foworksize=','fiworksize=','siworksize=','seworksize=','eworksize=','nworksize=','teworksize=']
       size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']
@@ -293,6 +294,7 @@
 	# the following method get called so i need the card detail 
   def create_subscribe_competition_front
     @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:id])
+    
     @competition = Competition.find(params[:id])
     if  @competitionuser.blank?
       #this array might be used later

@@ -74,13 +74,16 @@ class Admin::CompetitionsController < Admin::ApplicationController
        end
     end
     @message = current_user.sent_messages.build(params[:message])
+    puts "{##############^^^^^^^^^^^^^^^^^***********}"
+    puts params[:message]
+      puts "{##############^^^^^^^^^^^^^^^^^***********}"
     puts "!!!!!!!!!!!$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&&7"
     puts @message.inspect
     puts "!!!!!!!!!!!$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&&7"
     @message.prepare_copies(params[:message][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
-    all_the_recipient = params[:message][:email].split(',')
-     attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
+     all_the_recipient = params[:message][:email].split(',')
+     #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
 
     EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
     if @message.save
