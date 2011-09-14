@@ -1,5 +1,5 @@
 class CompetitionsArtworksController < ApplicationController
-#ok
+#ok this is artwork controller
 	layout "gallery_promoting"  
 	 def index
 	 end
