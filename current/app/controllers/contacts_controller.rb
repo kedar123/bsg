@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  
+  #contact
   def new  
     
   end
