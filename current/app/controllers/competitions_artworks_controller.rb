@@ -21,3 +21,4 @@ class CompetitionsArtworksController < ApplicationController
 		
 	end	
 end
+
