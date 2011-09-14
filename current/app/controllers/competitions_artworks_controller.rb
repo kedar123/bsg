@@ -1,4 +1,5 @@
 class CompetitionsArtworksController < ApplicationController
+#ok
 	layout "gallery_promoting"  
 	 def index
 	 end
