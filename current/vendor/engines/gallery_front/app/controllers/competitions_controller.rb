@@ -1547,6 +1547,7 @@
     username= "pathak_1259733727_biz_api1.gmail.com"
     password = "1259733733"
     signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+    #currency_code= "AUD"
     paypal = Paypal.new(username, password, signature)
     logger.info "there is problem in total"
     logger.info session[:paypal_amount].to_i
@@ -1554,8 +1555,8 @@
     response = paypal.do_set_express_checkout(
       return_url="http://" + request.host_with_port + "/paypal_return",
       cancel_url="http://" + request.host_with_port + "/paypal_cancel",
-      amount=session[:paypal_amount].to_i/100
-    )
+      amount=session[:paypal_amount].to_i/100)
+     
     logger.info response.to_s
     logger.info "this is paypal response"
     @token = (response.ack == 'Success') ? response['TOKEN'] : ''
@@ -1566,6 +1567,7 @@
     username= "pathak_1259733727_biz_api1.gmail.com"
     password = "1259733733"
     signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+   #currency_code= "AUD"
     paypal = Paypal.new(username, password, signature)
     response = paypal.do_get_express_checkout_details(session[:token])
     logger.info response.to_s
@@ -1575,6 +1577,9 @@
         payment_action='Sale',
         payer_id=response.payerid,
         amount=session[:paypal_amount].to_i/100)#end of do express checkout method
+      response = paypal.do_create_recurring_payments_profile(token=session[:token],
+			amount=session[:paypal_amount].to_i/100),
+      currency='AUD')
       if !session[:total_entry].blank?   
         if !session[:competition_id].blank?
             cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
