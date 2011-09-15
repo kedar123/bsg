@@ -1547,6 +1547,7 @@
     username= "pathak_1259733727_biz_api1.gmail.com"
     password = "1259733733"
     signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+    
     paypal = Paypal.new(username, password, signature)
     logger.info "there is problem in total"
     logger.info session[:paypal_amount].to_i
@@ -1557,11 +1558,12 @@
       cancel_url="http://" + request.host_with_port + "/paypal_cancel",
       amount=session[:paypal_amount].to_i/100,
       'CURRENCYCODE' => 'AUD'
-      
+      )
       
        
-    )
-    logger.info response.to_s
+     
+ 
+    logger.info response.to_sde
     logger.info "this is paypal response"
     p "this is the response from paypal"
     p response
@@ -1574,6 +1576,7 @@
     username= "pathak_1259733727_biz_api1.gmail.com"
     password = "1259733733"
     signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
+   
     paypal = Paypal.new(username, password, signature)
     response = paypal.do_get_express_checkout_details(session[:token])
     logger.info response.to_s
