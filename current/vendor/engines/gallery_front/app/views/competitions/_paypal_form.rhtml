@@ -1,14 +1,32 @@
      <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="myformpaypal">
+<<<<<<< HEAD
         <input type="hidden" name="cmd" id="cmd" value="_express-checkout">
         <input type="hidden" name="token" value="<%=token%>">
         <input type="hidden" name="currency_code" value="AUD">
         <input type="hidden" name="useraction" value="commit">
          <<input type="image" name="submit" border="0"  src="https://www.paypal.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online" style="display:none" />
+=======
+       <input type="hidden" name="currency_code" value="INR"></input>
+      
+       
+       
+        <input type="hidden" name="cmd" id="cmd" value="_express-checkout"/>
+        <input type="hidden" name="token" value="<%=token%>"/>
+         
+        <input type="hidden" name="useraction" value="commit"/>
+       
+        
+        
+        
+         <input type="image" name="submit" border="0"  src="https://www.paypal.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - The safer, easier way to pay online" style="display:none" />
+>>>>>>> 32ae2927f8705733a72abdcb85e55d7ff0c9f619
      </form>
         
         
         <script>
         function submit_my_form(){
+          
+        //alert("im ttt");
         document.forms["myformpaypal"].submit();
         }
         </script>
