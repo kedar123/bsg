@@ -1563,7 +1563,7 @@
        
      
  
-    logger.info response.to_s
+    logger.info response.to_sde
     logger.info "this is paypal response"
     p "this is the response from paypal"
     p response
@@ -1587,15 +1587,11 @@
       response = paypal.do_express_checkout_payment(token=session[:token],
         payment_action='Sale',
         payer_id=response.payerid,
-<<<<<<< HEAD
+
         amount=session[:paypal_amount].to_i/100)#end of do express checkout method
-      response = paypal.do_create_recurring_payments_profile(token=session[:token],
-			amount=session[:paypal_amount].to_i/100),
-      currency='AUD')
-=======
-        amount=session[:paypal_amount].to_i/100,
-       :currency_code=>"aud")#end of do express checkout method
->>>>>>> 32ae2927f8705733a72abdcb85e55d7ff0c9f619
+     
+ 
+
       if !session[:total_entry].blank?   
         if !session[:competition_id].blank?
             cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
