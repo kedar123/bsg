@@ -384,6 +384,8 @@
     end 
      
     #######################################this is im copying here is something from payment controller create method
+    puts "U r checking for params[:order_id]"
+    puts params[:order_id]
     if params[:order_id]
       @order = CompetitionsUser.find(params[:order_id])
       current_user.profile.biography = params[:biography]

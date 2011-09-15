@@ -10,7 +10,7 @@
 
    function show_div(){
      cmbv = document.getElementById("invoicing_info_payment_medium").value;
-     alert("im here");
+     //alert("im here");
       if(cmbv == "master card" || cmbv == "visa"  )
                    {
                       document.getElementById("credit_card_fields").style.display='block';
@@ -34,7 +34,7 @@
                    }
                    if  (cmbv == "direct deposit")
                    {
-                      document.getElementById("changethelineinfoexh").innerHTML = "Please pay to BSG, BSB 063212, Account No  1017 2051, CBA with your name on the transaction";
+                      document.getElementById("changethelineinfoexh").innerHTML = "Bank Account, Brunswick Street Gallery, CBA, bsb 063212, AC 1017 2051 with your name on the transaction";
                    }
                    if  (cmbv == "visa")
                    {
