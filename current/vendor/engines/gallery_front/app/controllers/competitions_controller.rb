@@ -1556,17 +1556,13 @@
     response = paypal.do_set_express_checkout(
       return_url="http://" + request.host_with_port + "/paypal_return",
       cancel_url="http://" + request.host_with_port + "/paypal_cancel",
-<<<<<<< HEAD
-      amount=session[:paypal_amount].to_i/100)
-     
-=======
       amount=session[:paypal_amount].to_i/100,
       'CURRENCYCODE' => 'AUD'
-      
+      )
       
        
-    )
->>>>>>> 32ae2927f8705733a72abdcb85e55d7ff0c9f619
+     
+ 
     logger.info response.to_s
     logger.info "this is paypal response"
     p "this is the response from paypal"
