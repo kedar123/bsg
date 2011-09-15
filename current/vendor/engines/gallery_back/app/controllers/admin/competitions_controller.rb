@@ -291,7 +291,10 @@ after :update do
 	
 	def group_selection
   puts "$$$$$$$$$$$$$$$$4"
-   @artworks_competitions =ArtworksCompetition .find(:all)
+  @current_object = Competition.find(params[:competition_id])
+  puts @current_object.inspect
+  puts @current_object.id
+   @artworks_competitions =ArtworksCompetition .find(:all,:conditions=>["competition_id = ?   ",@current_object.id])
    puts @artworks_competitions.inspect
  end
 	private
