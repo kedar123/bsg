@@ -1576,16 +1576,14 @@
     signature= "A.gsseBoaG2XQonqoXpE4WUr4VafArVDPTPSg6gSo7rEoyqCTsE-yxWp"
     paypal = Paypal.new(username, password, signature)
     response = paypal.do_get_express_checkout_details(session[:token])
-    p "after return im getting the express checkout details"
-    p response
     logger.info response.to_s
     logger.info "this is paypal response"
     if response.ack == "Success"
       response = paypal.do_express_checkout_payment(token=session[:token],
         payment_action='Sale',
         payer_id=response.payerid,
-        amount=session[:paypal_amount].to_i/100,
-       :currency_code=>"aud")#end of do express checkout method
+        amount=session[:paypal_amount].to_i/100
+        )#end of do express checkout method
       if !session[:total_entry].blank?   
         if !session[:competition_id].blank?
             cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
