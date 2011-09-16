@@ -20,6 +20,7 @@
                         
                            <%if  (a.competitions_user.send a.image_name).blank? == false%>
                                 <%if a.competitions_user.competition.state == "final_published"%>
+                                 
                                   <%winnerselectlink = "<a onclick='sendwinnerrequest(#{a.id});return false;'  href='#'>Winner</a>"%>
                                 <%else%>
                                   <%winnerselectlink = ""%>
@@ -60,18 +61,21 @@ for (var i=0; i < ss.slides.length; i++) {
 }
 function sendselectrequest(selectedid){
   document.getElementById('changemystatebefore'+selectedid).innerHTML='state selected';
+  document.getElementById('winnertext').style.display='none';
   showhidediv(selectedid)
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=selected'}); return false;
   return false;
 }
 function maysendselectrequest(selectedid){
   document.getElementById('changemystatebefore'+selectedid).innerHTML='state maybe';
+  document.getElementById('winnertext').style.display='none';
   showhidediv(selectedid)
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=maybe'}); return false;
   return false;
 }
 function sendunselectrequest(selectedid){
   document.getElementById('changemystatebefore'+selectedid).innerHTML='state unselect';
+  document.getElementById('winnertext').style.display='none';
   showhidediv(selectedid)
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=unselected'}); return false;
   return false;
@@ -79,6 +83,7 @@ function sendunselectrequest(selectedid){
 
 function sendwinnerrequest(selectedid){
   document.getElementById('changemystatebefore'+selectedid).innerHTML='state winner';
+  document.getElementById('winnertext').style.display='block';
   showhidediv(selectedid)
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=winner'}); return false;
   return false;
@@ -86,6 +91,7 @@ function sendwinnerrequest(selectedid){
 
 function senddeleterequest(selectedid){
   document.getElementById('changemystatebefore'+selectedid).innerHTML='state delete';
+  document.getElementById('winnertext').style.display='none';
   showhidediv(selectedid)
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=delete'}); return false;
   return false;
@@ -161,7 +167,8 @@ ss.textarea = document.ss_form.ss_textarea;
                       <%end%>        
                  <%end%>             
             <%end%>                  
-      <%end%>                        
+      <%end%>
+                              Winner Description:<input id="winnertext" type="text" name="" width="10px" style="display:none" />
 <%end%>                              
 </FORM>
 
