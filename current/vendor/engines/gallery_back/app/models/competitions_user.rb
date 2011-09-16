@@ -264,16 +264,21 @@ class CompetitionsUser < ActiveRecord::Base
     if !competitionuser["workimage"].blank?
 		image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
  	       for totalentry in 0...self.total_entry.to_i
-	            if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[totalentry],self.id]).blank?)
+	            
+              onlinepaid = self.paidentry.split(",").include?((totalentry+1).to_s)
+              
+              if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[totalentry],self.id]).blank?)
                   if !(self.send image_array[totalentry]).blank?
-                    ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[totalentry],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"])
+                    ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[totalentry],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"],:paid=>onlinepaid)
                   end
               else#here i need to update the image
                  artc = ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[i],self.id])
                  if !artc.blank?
                     artc.update_attribute('avatar',competitionuser["workimage"]);
+                    artc.update_attribute('paid',onlinepaid);
+                    
                  else#in else it will come when first time enter into compe user select 10 entry but enter 2 entry so artwork compeition is not created so here it gets created
-                    ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[i],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"])     
+                    ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[i],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"],:paid=>onlinepaid)     
                  end   
               end
          end

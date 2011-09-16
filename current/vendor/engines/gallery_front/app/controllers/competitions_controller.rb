@@ -435,8 +435,16 @@
             @current_object.common_wealth_bank_process((more_amount * 100),params,creditcardno)
               
             if @current_object.state == "online_validated"
-              @order.total_entry = params[:competitions_user][:total_entry]
-              @order.save              
+              
+              p "i will save the value from here for paid objects"
+               paidentrystring = ""
+              for i in @order.total_entry.to_i..params[:competitions_user][:total_entry].to_i
+              paidentrystring << i.to_s + ","
+              end
+            @order.paidentry =  paidentrystring  
+             
+            @order.total_entry = params[:competitions_user][:total_entry]
+            @order.save              
             end
           elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
             @order.total_entry = params[:competitions_user][:total_entry]
@@ -468,6 +476,12 @@
           @current_object.common_wealth_bank_process(((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100),params,creditcardno)#payment is done if invoice is not yet  created. for competition user
           if @current_object.state == "online_validated"
             @order.total_entry = params[:competitions_user][:total_entry]
+            p "im saving here paid entry object"
+            paidentrystring = ""
+              for i in 1..2
+                paidentrystring << i.to_s + ","
+              end 
+            @order.paidentry =  paidentrystring
             @order.save              
           end
                                            
@@ -1590,8 +1604,19 @@
       if !session[:total_entry].blank?   
         if !session[:competition_id].blank?
             cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
+            
+              p "i will save the value from here for paid objects"
+               paidentrystring = ""
+              for i in cu.total_entry.to_i..session[:total_entry].to_i
+              paidentrystring << i.to_s + ","
+              end
+              cu.paidentry =  paidentrystring  
+          
+           
             cu.total_entry = session[:total_entry].to_i
             cu.save
+            
+          
         end
       end
       if (!session[:current_object_id].blank?)
