@@ -68,11 +68,15 @@ class Admin::CompetitionsController < Admin::ApplicationController
   def compcreate_sent_mail_to_artist
     if !params[:artworkcompetition].blank?#this is for single winner for send_winner_email
        artwcomp = ArtworksCompetition.find(params[:artworkcompetition])
+      
        if artwcomp.state == "winner"
           artwcomp.prize_detail = "winner of "+artwcomp.competition.title.to_s + "  " +params[:prize]
           artwcomp.save
        end
     end
+     puts "U R checking artwcomp !!!!!!!!!!!!******************(((((((((((((((()))))))))"
+      @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id != 'null' and state = 'winner' or state =  'selected' or  state = 'unselected' "], :order => "mark DESC")
+       puts  @artworks_competitions.inspect
     @message = current_user.sent_messages.build(params[:message])
     puts "{##############^^^^^^^^^^^^^^^^^***********}"
     puts params[:message]
@@ -83,9 +87,11 @@ class Admin::CompetitionsController < Admin::ApplicationController
     @message.prepare_copies(params[:message][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
      all_the_recipient = params[:message][:email].split(',')
+     puts image=params[:message][:avatar_file_name]
      #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
 
-    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body,image)
+    
     if @message.save
       flash[:notice] = "Message sent."
       redirect_to :back
