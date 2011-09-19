@@ -19,6 +19,18 @@ class Admin::ArtworksCompetitionsController < Admin::ApplicationController
     end
 	end
 
+  def artworks_competitions_winner_message 
+    	@artworks_competition = ArtworksCompetition.find(params[:id])
+      @artworks_competition.message=params[:message]
+      @artworks_competition.save
+   	if request.xhr?
+      render :nothing=>true
+    else
+      redirect_to :back
+    end
+  end
+  
+  
 	def set_marks
 		ac = nil
 		params[:marks_list].delete_if{ |k,v| v.nil? }.each do |k, v|

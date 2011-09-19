@@ -94,7 +94,7 @@ function sendwinnerrequest(selectedid){
   showhidediv(selectedid)
   winnerselectedid = document.getElementById('winnermessage'+selectedid).value;
   jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions/'+selectedid+'/update_state?state=winner'});  
-  jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/artworks_competitions_winner_message/'+winnerselectedid});  
+  jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'post', url:'/admin/artworks_competitions/artworks_competitions_winner_message/'+selectedid+'/message/'+winnerselectedid});  
   
   return false;
 }
