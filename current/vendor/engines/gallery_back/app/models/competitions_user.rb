@@ -264,8 +264,8 @@ class CompetitionsUser < ActiveRecord::Base
     if !competitionuser["workimage"].blank?
 		image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
  	       for totalentry in 0...self.total_entry.to_i
-	            
-              onlinepaid = self.paidentry.split(",").include?((totalentry+1).to_s)
+	            onlinepaid = false
+              onlinepaid = self.paidentry.split(",").include?((totalentry+1).to_s) if self.paidentry
               
               if (ArtworksCompetition.find(:first,:conditions=>["competition_id = ? and image_name = ? and  competitions_users_id = ?",self.competition_id,image_array[totalentry],self.id]).blank?)
                   if !(self.send image_array[totalentry]).blank?

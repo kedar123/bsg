@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818131339) do
+ActiveRecord::Schema.define(:version => 20110916062510) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20110818131339) do
     t.integer  "artworkurl_file_size"
     t.datetime "artworkurl_updated_at"
     t.string   "prize_detail"
+    t.boolean  "paid"
   end
 
   add_index "artworks_competitions", ["artwork_id"], :name => "index_artworks_competitions_on_artwork_id"
@@ -417,6 +418,7 @@ ActiveRecord::Schema.define(:version => 20110818131339) do
     t.integer  "eiworkednumber"
     t.integer  "niworkednumber"
     t.integer  "teworkednumber"
+    t.string   "paidentry"
   end
 
   add_index "competitions_users", ["competition_id"], :name => "index_competitions_users_on_competition_id"
@@ -863,7 +865,6 @@ ActiveRecord::Schema.define(:version => 20110818131339) do
     t.string   "deleteto"
     t.string   "deletefromt"
     t.string   "deletetot"
-    t.string   "attachment"
   end
 
   create_table "newsletteremails", :force => true do |t|
