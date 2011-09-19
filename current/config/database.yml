@@ -6,9 +6,12 @@ DEFAULTS: &DEFAULTS
 #  password: global786
   host: localhost
   username: root
-  password: root
+  password: global
+  # JRuby doesn't support # JRuby doesn't support socket:
+                          #socket:
   # JRuby doesn't support socket:
-  socket: /var/run/mysqld/mysqld.sock
+  #host: 127.0.0.1
+  #socket: /var/run/mysqld/mysqld.sock
 
 development:
   database: gallery

@@ -128,7 +128,7 @@ function addselectedvaluetobody(){
   <div class="changecolorgray">
                         	 Image
                     	 </div>
-  
+  <%#=image_tag "/uploaded_files/competition/artwork/#{@artwork.id}/thumb/#{@artwork.avatar_file_name}"%>
                       	 <!--<input  name="competitions_user[workimage]" id="artwork_image<%#=i%>" type="file" size="26" style="float:left"/>-->
  <!-- <img src="/system/gallery/<%=@artworkarray[0]%>" width="90px" height="90px" />-->
   <!--<%#= link_to(image_tag("/system/gallery/#{@artworks_competitions.artwork_image}", :class => "image_preview",:width=>50,:height=>50)	, "#")%>-->
