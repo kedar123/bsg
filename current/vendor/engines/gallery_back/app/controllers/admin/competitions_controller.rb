@@ -75,11 +75,12 @@ class Admin::CompetitionsController < Admin::ApplicationController
        end
     end
      puts "U R checking artwcomp !!!!!!!!!!!!******************(((((((((((((((()))))))))"
-      @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id != 'null' and state = 'winner' or state =  'selected' or  state = 'unselected' "], :order => "mark DESC")
+      @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
        puts  @artworks_competitions.inspect
     @message = current_user.sent_messages.build(params[:message])
     puts "{##############^^^^^^^^^^^^^^^^^***********}"
     puts params[:message]
+    puts params[:message][:email]
       puts "{##############^^^^^^^^^^^^^^^^^***********}"
     puts "!!!!!!!!!!!$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&&7"
     puts @message.inspect
@@ -91,7 +92,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
      #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
 
     EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body,image)
-    
+
     if @message.save
       flash[:notice] = "Message sent."
       redirect_to :back
