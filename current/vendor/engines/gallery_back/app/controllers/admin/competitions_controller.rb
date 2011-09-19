@@ -25,6 +25,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
 
     @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
     puts "^&^&^&^&^^&^^^^^^^&&&&&&&&&&&&&&&&&&&&&&"
+    puts ArtworksCompetition.id
     puts @total_selected.inspect
     puts "*************((((((((((((()))))))))))))))))))"
     @emailsendarray=[]
@@ -37,6 +38,11 @@ class Admin::CompetitionsController < Admin::ApplicationController
     @usernames.uniq!
     @emailsendarray.uniq!
     end
+puts "CHECKING LOOP FOR ARRAY_____________-------------++++++++++"
+     @total_selected.each do |x|
+      puts @imageavatar= x.avatar_file_name
+    end
+    puts "CHECKING LOOP FOR ARRAY_____________-------------++++++++++"
 
     puts "********************************8"
     @competition = Competition.find(params[:id])
@@ -68,16 +74,15 @@ class Admin::CompetitionsController < Admin::ApplicationController
   def compcreate_sent_mail_to_artist
     if !params[:artworkcompetition].blank?#this is for single winner for send_winner_email
        artwcomp = ArtworksCompetition.find(params[:artworkcompetition])
-      
+      puts "CHECKING ARTWORKCOMP{{{{{}}}}}}}}}}}}}}}}}}}}}}}}"
+      puts artwcomp.inspect
        if artwcomp.state == "winner"
           artwcomp.prize_detail = "winner of "+artwcomp.competition.title.to_s + "  " +params[:prize]
           artwcomp.save
        end
     end
      puts "U R checking artwcomp !!!!!!!!!!!!******************(((((((((((((((()))))))))"
-      @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
-       puts  @artworks_competitions.inspect
-    @message = current_user.sent_messages.build(params[:message])
+     @message = current_user.sent_messages.build(params[:message])
     puts "{##############^^^^^^^^^^^^^^^^^***********}"
     puts params[:message]
     puts params[:message][:email]
@@ -87,12 +92,17 @@ class Admin::CompetitionsController < Admin::ApplicationController
     puts "!!!!!!!!!!!$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&&7"
     @message.prepare_copies(params[:message][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
-     all_the_recipient = params[:message][:email].split(',')
-     puts image=params[:message][:avatar_file_name]
-     #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
-
-    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body,image)
-
+    puts all_the_recipient = params[:message][:email].split(',')
+    #puts image=params[:message][:avatar_file_name]
+p params
+p "checking the patrams"
+    selected_all_artwork=ArtworksCompetition.find(:all,:conditions => "competition_id = '#{params[:id]}' and state = '#{params[:msg]}'")
+p "im comingg hererer"
+p selected_all_artwork 
+ for selected_artwork in selected_all_artwork
+  p "before sending the email"
+    EmailSystem::deliver_email_notification_selected_artwork(selected_artwork.competitions_user.email,@message.subject,@message.body,selected_artwork)
+ end
     if @message.save
       flash[:notice] = "Message sent."
       redirect_to :back
