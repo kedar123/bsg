@@ -167,6 +167,7 @@
     <item url="app/models/tempraryinbox.rb" uploadstatus="1" />
     <item url="app/models/usergroupshow.rb" uploadstatus="1" />
     <item url="app/models/user_mailer.rb" uploadstatus="1" />
+    <item url="app/models/usernamefortest.rb" uploadstatus="1" />
     <item url="app/models/user_observer.rb" uploadstatus="1" />
     <item url="app/models/user.rb" uploadstatus="1" />
     <item url="app/models/users_container.rb" uploadstatus="1" />
@@ -482,6 +483,7 @@
     <item url="app/views/shoppingcart/_paypal_form.rhtml" uploadstatus="1" />
     <item url="app/views/shoppingcart/_shopping_payment.rhtml" uploadstatus="1" />
     <item url="app/views/shoppingcart/show_me_cart.erb" uploadstatus="1" />
+    <item url="app/views/shoppingcart/testnew_view.rhtml" uploadstatus="1" />
     <item url="app/views/show_user_type/" uploadstatus="1" />
     <item url="app/views/show_user_type/index.rhtml" uploadstatus="1" />
     <item url="app/views/signatures/" uploadstatus="1" />
@@ -705,6 +707,9 @@
     <item url="db/migrate/20110627110516_addtooltipingraybox.rb" uploadstatus="1" />
     <item url="db/migrate/20110629110744_addbiginttocreditcard.rb" uploadstatus="1" />
     <item url="db/migrate/20110723104337_addnotedtocompetition.rb" uploadstatus="1" />
+    <item url="db/migrate/20110804061850_changegroupshownote.rb" uploadstatus="1" />
+    <item url="db/migrate/20110810074151_create_usernamefortests.rb" uploadstatus="1" />
+    <item url="db/migrate/20110818131339_addcompetitionfield.rb" uploadstatus="1" />
     <item url="db/migrate/b20110408114252_messages.rb" uploadstatus="1" />
     <item url="db/migrate/database.yml" uploadstatus="1" />
     <item url="db/development_data.sql" uploadstatus="1" />
@@ -742,7 +747,6 @@
     <item url="nbproject/private/" uploadstatus="1" />
     <item url="nbproject/private/private.properties" uploadstatus="1" />
     <item url="nbproject/private/private.xml" uploadstatus="1" />
-    <item url="nbproject/private/rake-d.txt" uploadstatus="1" />
     <item url="nbproject/project.properties" uploadstatus="1" />
     <item url="nbproject/project.xml" uploadstatus="1" />
     <item url="public/" uploadstatus="1" />
@@ -3226,161 +3230,12 @@
     <item url="public/javascripts/slideshow.js" uploadstatus="1" />
     <item url="public/javascripts/websites.js" uploadstatus="1" />
     <item url="public/pdf_invoice/" uploadstatus="1" />
-    <item url="public/pdf_invoice/1001invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1003invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1005invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1007invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1009invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1011invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1012invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1013invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1014invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1015invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1016invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1017invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1018invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1019invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1021invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1022invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1023invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1024invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1025invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1026invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1027invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1029invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1030invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1031invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1032invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1033invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1036invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1038invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1039invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1040invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1042invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1044invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1045invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1046invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1047invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1048invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1049invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1050invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1051invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1052invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1053invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1054invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1055invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1056invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1057invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1058invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1059invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1060invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1061invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1062invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1063invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1064invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1065invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1066invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1067invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1068invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1069invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1070invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1071invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1072invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1073invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1074invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1076invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1077invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1078invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1079invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1080invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1081invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1082invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1083invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1084invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1085invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1086invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1087invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1088invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1089invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1090invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1091invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1092invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1093invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1094invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1095invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1096invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1097invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1099invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1100invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1101invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1102invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1103invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1104invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1105invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1106invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1107invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1108invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1109invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1110invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1111invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1112invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1113invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1114invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1115invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1116invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1117invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1118invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1119invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1120invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1121invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1122invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1123invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1124invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1125invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1126invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1127invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1128invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1129invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1130invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1131invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1132invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1133invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1134invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1135invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1136invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/1137invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/954invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/956invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/958invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/960invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/962invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/964invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/966invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/968invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/969invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/970invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/971invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/972invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/973invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/974invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/975invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/976invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/978invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/979invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/980invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/981invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/982invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/983invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/984invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/985invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/986invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/987invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/989invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/991invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/993invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/995invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/997invoice.pdf" uploadstatus="1" />
-    <item url="public/pdf_invoice/999invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/1172invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/1173invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/1174invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/1175invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/1176invoice.pdf" uploadstatus="1" />
+    <item url="public/pdf_invoice/1177invoice.pdf" uploadstatus="1" />
     <item url="public/players/" uploadstatus="1" />
     <item url="public/players/audioplayer.swf" uploadstatus="1" />
     <item url="public/players/swfobject.js" uploadstatus="1" />
@@ -3663,9 +3518,6 @@
     <item url="public/system/gallery/109black1.jpg" uploadstatus="1" />
     <item url="public/system/gallery/109car.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/10demo1.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/10demo26.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/10demo31.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/10demo36.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/10demo39.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/110black1.jpg" uploadstatus="1" />
     <item url="public/system/gallery/113accounting.png" uploadstatus="1" />
@@ -3683,12 +3535,6 @@
     <item url="public/system/gallery/13648899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/137accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/138car.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/13demo31.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/13demo35.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/13demo38.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/13demo40.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/13idea_03.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/13idea_05.jpg" uploadstatus="1" />
     <item url="public/system/gallery/140accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/14148899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/142accounting.png" uploadstatus="1" />
@@ -3698,15 +3544,8 @@
     <item url="public/system/gallery/14748899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/148899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/14948899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/14demo30.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/14demo37.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/14demo38.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/14demo39.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/15548899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/158accounting.png" uploadstatus="1" />
-    <item url="public/system/gallery/15idea_00.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/15idea_03.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/15idea_05.jpg" uploadstatus="1" />
     <item url="public/system/gallery/160black1.jpg" uploadstatus="1" />
     <item url="public/system/gallery/16748899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/16848899_1074997208_1258_n.jpg" uploadstatus="1" />
@@ -3720,8 +3559,6 @@
     <item url="public/system/gallery/174bzr-document.png" uploadstatus="1" />
     <item url="public/system/gallery/174document.png" uploadstatus="1" />
     <item url="public/system/gallery/17bsg.png" uploadstatus="1" />
-    <item url="public/system/gallery/17demo40.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/17demo7.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/17logo.png" uploadstatus="1" />
     <item url="public/system/gallery/17titaniumfacebook.png" uploadstatus="1" />
     <item url="public/system/gallery/18548899_1074997208_1258_n.jpg" uploadstatus="1" />
@@ -3733,7 +3570,6 @@
     <item url="public/system/gallery/186image_thumb_02.jpg" uploadstatus="1" />
     <item url="public/system/gallery/186image_thumb_05.jpg" uploadstatus="1" />
     <item url="public/system/gallery/18bsg.png" uploadstatus="1" />
-    <item url="public/system/gallery/18demo21.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/18logo.png" uploadstatus="1" />
     <item url="public/system/gallery/18ravicompose.png" uploadstatus="1" />
     <item url="public/system/gallery/18titaniumfacebook.png" uploadstatus="1" />
@@ -3755,7 +3591,6 @@
     <item url="public/system/gallery/1demo20.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/1demo21.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/1demo26.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/1mg3553.jpg" uploadstatus="1" />
     <item url="public/system/gallery/20048899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/200accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/200administration.png" uploadstatus="1" />
@@ -3772,69 +3607,36 @@
     <item url="public/system/gallery/207accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/20848899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/20948899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/20demo45.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/20logo.png" uploadstatus="1" />
     <item url="public/system/gallery/20ravicompose.png" uploadstatus="1" />
     <item url="public/system/gallery/210accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/21148899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/21demo28.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/21logo.png" uploadstatus="1" />
     <item url="public/system/gallery/21titaniumfacebook.png" uploadstatus="1" />
     <item url="public/system/gallery/228accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/22competition creation.png" uploadstatus="1" />
-    <item url="public/system/gallery/22demo12.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/22demo17.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/22logo.png" uploadstatus="1" />
     <item url="public/system/gallery/22titaniumfacebook.png" uploadstatus="1" />
     <item url="public/system/gallery/230car.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/231bsg.png" uploadstatus="1" />
     <item url="public/system/gallery/23competition creation.png" uploadstatus="1" />
-    <item url="public/system/gallery/23demo14.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/23demo22.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/23demo37.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/23idea_03.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/23idea_04.jpg" uploadstatus="1" />
     <item url="public/system/gallery/23logo.png" uploadstatus="1" />
-    <item url="public/system/gallery/24demo27.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/24demo35.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/24demo36.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/24demo37.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/24demo38.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/24demo39.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/24demo40.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/24logo.png" uploadstatus="1" />
     <item url="public/system/gallery/25competition creation.png" uploadstatus="1" />
-    <item url="public/system/gallery/25demo12.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/25demo13.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/25demo14.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/25demo16.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/25demo19.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/25demo20.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/25demo22.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/25demo9.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/25mallmap.png" uploadstatus="1" />
     <item url="public/system/gallery/25ravicompose.png" uploadstatus="1" />
-    <item url="public/system/gallery/26demo10.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/26demo12.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/26demo14.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/26demo19.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/26demo1.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/26demo2.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/27demo10.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/27demo17.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/27demo19.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/27demo1.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/27demo26.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/27demo27.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/27demo28.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/27demo2.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/27demo3.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/27demo47.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/27demo4.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/27demo5.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/280image_thumb_02.jpg" uploadstatus="1" />
     <item url="public/system/gallery/28add_128.png" uploadstatus="1" />
-    <item url="public/system/gallery/28demo1.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/28demo21.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/28demo22.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/28demo31.jpeg" uploadstatus="1" />
@@ -3867,15 +3669,6 @@
     <item url="public/system/gallery/29demo4.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/2demo21.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/2demo30.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo11.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo12.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo13.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo14.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo16.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo21.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo37.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo49.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/30demo50.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/30demo9.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/315demo21.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/315demo22.jpeg" uploadstatus="1" />
@@ -3888,15 +3681,6 @@
     <item url="public/system/gallery/319image_thumb_04.jpg" uploadstatus="1" />
     <item url="public/system/gallery/319image_thumb_05.jpg" uploadstatus="1" />
     <item url="public/system/gallery/319sa1.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo10.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo13.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo14.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo16.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo19.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo20.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo21.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo26.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/31demo45.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/322image_thumb_03.jpg" uploadstatus="1" />
     <item url="public/system/gallery/322image_thumb_04.jpg" uploadstatus="1" />
     <item url="public/system/gallery/32348899_1074997208_1258_n.jpg" uploadstatus="1" />
@@ -3910,20 +3694,10 @@
     <item url="public/system/gallery/328demo35.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/328demo36.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/329demo9.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo11.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo14.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo1.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo22.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo26.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo2.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo3.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo50.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/32demo7.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/330demo1.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/330demo2.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/330demo3.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/330demo5.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/3315538806_1.jpg" uploadstatus="1" />
     <item url="public/system/gallery/332demo12.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/332demo29.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/332demo4.jpeg" uploadstatus="1" />
@@ -3935,7 +3709,6 @@
     <item url="public/system/gallery/336demo15.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/337demo9.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/338demo1.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/33Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
     <item url="public/system/gallery/341demo8.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/341mg3623.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/342demo28.jpeg" uploadstatus="1" />
@@ -3977,7 +3750,6 @@
     <item url="public/system/gallery/38demo21.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/3demo29.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/3demo43.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/3mg3553.jpg" uploadstatus="1" />
     <item url="public/system/gallery/3titaniumfacebook.png" uploadstatus="1" />
     <item url="public/system/gallery/40demo13.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/40demo18.jpeg" uploadstatus="1" />
@@ -4001,13 +3773,13 @@
     <item url="public/system/gallery/46white-feather-1280-800-677.jpg" uploadstatus="1" />
     <item url="public/system/gallery/47demo12.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/47Halloween.jpg" uploadstatus="1" />
+    <item url="public/system/gallery/47justtesttiff.tif" uploadstatus="1" />
+    <item url="public/system/gallery/47justtesttiff.tiff" uploadstatus="1" />
     <item url="public/system/gallery/47Mindgamesandpaperplanes.jpg" uploadstatus="1" />
     <item url="public/system/gallery/48demo12.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/48white-feather-1280-800-677.jpg" uploadstatus="1" />
     <item url="public/system/gallery/49demo9.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/49sds.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/4mg3553.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/4mg3600.jpg" uploadstatus="1" />
     <item url="public/system/gallery/50demo13.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/50demo17.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/50nikon.jpeg" uploadstatus="1" />
@@ -4043,68 +3815,35 @@
     <item url="public/system/gallery/58tree.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/5bsg.png" uploadstatus="1" />
     <item url="public/system/gallery/5logo.png" uploadstatus="1" />
-    <item url="public/system/gallery/5mg3553.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/5mg3588.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/61mallmap.png" uploadstatus="1" />
     <item url="public/system/gallery/61sds.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/65white-feather-1280-800-677.jpg" uploadstatus="1" />
     <item url="public/system/gallery/66kasemake.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/66ravicompose.png" uploadstatus="1" />
     <item url="public/system/gallery/66tree.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/66white-feather-1280-800-677.jpg" uploadstatus="1" />
     <item url="public/system/gallery/67Deviant_ID_by_artsangel.jpg" uploadstatus="1" />
     <item url="public/system/gallery/67images1.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/68bsg.png" uploadstatus="1" />
     <item url="public/system/gallery/68budha.jpg" uploadstatus="1" />
     <item url="public/system/gallery/68children.jpg" uploadstatus="1" />
     <item url="public/system/gallery/69Blue hills.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/69logo.png" uploadstatus="1" />
-    <item url="public/system/gallery/6mg3597.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/6mg3600.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/70competitionwinner.png" uploadstatus="1" />
-    <item url="public/system/gallery/70demo27.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/71101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/71101PLAY DEAD flyer09.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/7199without7.jpg" uploadstatus="1" />
     <item url="public/system/gallery/71administration.png" uploadstatus="1" />
-    <item url="public/system/gallery/71Amy.jpg" uploadstatus="1" />
     <item url="public/system/gallery/71budha.jpg" uploadstatus="1" />
     <item url="public/system/gallery/71camera.jpg" uploadstatus="1" />
     <item url="public/system/gallery/71car.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/71cartoon.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/71demo11.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/71demo17.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/72accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/72budha.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/72logo.png" uploadstatus="1" />
     <item url="public/system/gallery/73accounting.png" uploadstatus="1" />
     <item url="public/system/gallery/73car.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/73competition creation.png" uploadstatus="1" />
-    <item url="public/system/gallery/73ravicompose.png" uploadstatus="1" />
     <item url="public/system/gallery/7448899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/74Screenshot.png" uploadstatus="1" />
     <item url="public/system/gallery/7548899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/75budha.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/76101IMG_2581.jpg" uploadstatus="1" />
     <item url="public/system/gallery/76budha.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/76demo35.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/76demo50.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/77101PLAY DEAD flyer09.jpg" uploadstatus="1" />
     <item url="public/system/gallery/7748899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/77black1.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/77bsg.png" uploadstatus="1" />
     <item url="public/system/gallery/77budha.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/77demo10.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/77demo16.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/77demo29.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/77demo49.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/78black1.jpg" uploadstatus="1" />
     <item url="public/system/gallery/78budha.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/78demo5.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/7948899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/gallery/79budha.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/7mg3553.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/7mg3588.jpg" uploadstatus="1" />
     <item url="public/system/gallery/8101PLAY DEAD flyer09.jpg" uploadstatus="1" />
     <item url="public/system/gallery/8demo10.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/8demo11.jpeg" uploadstatus="1" />
@@ -4122,11 +3861,6 @@
     <item url="public/system/gallery/8demo40.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/8demo42.jpeg" uploadstatus="1" />
     <item url="public/system/gallery/8demo43.jpeg" uploadstatus="1" />
-    <item url="public/system/gallery/8mg3553.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/8mg3588.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/9mg3553.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/9mg3588.jpg" uploadstatus="1" />
-    <item url="public/system/gallery/9mg3600.jpg" uploadstatus="1" />
     <item url="public/system/groupshow/" uploadstatus="1" />
     <item url="public/system/groupshow/1048899_1074997208_1258_n.jpg" uploadstatus="1" />
     <item url="public/system/groupshow/1148899_1074997208_1258_n.jpg" uploadstatus="1" />
@@ -4300,392 +4034,302 @@
     <item url="public/uploaded_files/competition/artwork/10/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/medium/demo39.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/10/medium/idea_05.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/original/demo39.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/10/original/idea_05.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/thumb/demo39.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/10/thumb/idea_05.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/10/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/medium/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/11/medium/idea_05.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/original/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/11/original/idea_05.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/thumb/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/11/thumb/idea_05.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/11/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/medium/demo19.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/12/medium/idea_03.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/original/demo19.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/12/original/idea_03.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/thumb/demo19.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/12/thumb/idea_03.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/12/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/medium/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/13/medium/demo7.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/original/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/13/original/demo7.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/thumb/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/13/thumb/demo7.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/13/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/medium/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/14/medium/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/medium/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/original/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/14/original/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/original/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/thumb/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/14/thumb/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/14/thumb/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/15/medium/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/medium/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/15/original/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/original/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/15/thumb/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/thumb/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/15/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/16/medium/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/medium/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/16/original/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/original/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/16/thumb/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/thumb/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/16/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/medium/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/17/medium/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/original/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/17/original/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/thumb/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/17/thumb/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/17/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/medium/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/18/medium/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/medium/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/original/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/18/original/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/original/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/thumb/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/18/thumb/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/18/thumb/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/19/medium/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/medium/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/19/original/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/original/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/19/thumb/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/thumb/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/19/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/medium/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/medium/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/2/medium/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/original/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/original/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/2/original/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/thumb/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/2/thumb/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/2/thumb/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/20/medium/demo17.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/medium/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/20/original/demo17.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/original/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/20/thumb/demo17.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/thumb/demo28.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/20/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/medium/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/21/medium/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/medium/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/original/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/21/original/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/original/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/thumb/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/21/thumb/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/21/thumb/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/medium/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/22/medium/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/medium/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/original/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/22/original/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/original/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/thumb/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/22/thumb/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/22/thumb/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/medium/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/23/medium/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/original/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/23/original/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/thumb/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/23/thumb/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/23/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/medium/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/24/medium/demo35.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/original/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/24/original/demo35.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/thumb/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/24/thumb/demo35.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/24/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/medium/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/25/medium/demo35.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/original/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/25/original/demo35.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/thumb/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/25/thumb/demo35.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/25/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/26/medium/demo27.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/medium/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/26/original/demo27.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/original/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/26/thumb/demo27.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/thumb/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/26/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/27/medium/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/medium/demo48.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/27/original/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/original/demo48.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/27/thumb/demo36.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/thumb/demo48.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/27/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/28/medium/demo27.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/medium/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/28/original/demo27.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/original/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/28/thumb/demo27.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/28/thumb/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/medium/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/29/medium/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/original/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/29/original/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/thumb/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/29/thumb/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/29/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/medium/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/medium/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/3/medium/idea_03.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/original/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/original/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/3/original/idea_03.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/thumb/demo21.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/3/thumb/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/3/thumb/idea_03.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/30/medium/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/30/original/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/30/thumb/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/30/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/medium/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/31/medium/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/original/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/31/original/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/thumb/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/31/thumb/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/31/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/medium/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/32/medium/demo39.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/original/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/32/original/demo39.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/thumb/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/32/thumb/demo39.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/32/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/33/medium/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/33/original/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/33/thumb/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/33/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/34/medium/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/34/original/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/34/thumb/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/34/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/medium/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/35/medium/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/original/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/35/original/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/thumb/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/35/thumb/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/35/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/medium/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/36/medium/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/original/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/36/original/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/thumb/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/36/thumb/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/36/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/medium/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/37/medium/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/original/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/37/original/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/thumb/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/37/thumb/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/37/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/38/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/38/medium/" uploadstatus="1" />
@@ -4700,92 +4344,71 @@
     <item url="public/uploaded_files/competition/artwork/39/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/medium/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/39/medium/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/original/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/39/original/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/thumb/demo12.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/39/thumb/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/39/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/medium/demo30.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/4/medium/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/medium/demo43.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/original/demo30.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/4/original/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/original/demo43.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/thumb/demo30.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/4/thumb/demo40.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/4/thumb/demo43.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/40/medium/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/medium/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/40/original/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/original/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/40/thumb/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/thumb/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/40/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/medium/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/41/medium/demo2.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/original/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/41/original/demo2.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/thumb/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/41/thumb/demo2.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/41/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/42/medium/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/medium/demo17.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/42/original/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/original/demo17.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/42/thumb/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/thumb/demo17.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/42/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/43/medium/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/medium/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/43/original/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/original/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/43/thumb/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/thumb/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/43/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/44/medium/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/medium/demo42.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/44/original/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/original/demo42.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/44/thumb/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/thumb/demo42.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/44/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/45/" uploadstatus="1" />
@@ -4811,546 +4434,285 @@
     <item url="public/uploaded_files/competition/artwork/47/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/medium/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/47/medium/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/original/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/47/original/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/thumb/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/47/thumb/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/47/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/medium/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/48/medium/demo2.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/medium/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/original/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/48/original/demo2.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/original/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/thumb/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/48/thumb/demo2.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/48/thumb/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/medium/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/49/medium/demo3.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/original/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/49/original/demo3.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/thumb/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/49/thumb/demo3.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/49/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/medium/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/5/medium/demo31.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/medium/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/original/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/5/original/demo31.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/original/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/thumb/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/5/thumb/demo31.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/5/thumb/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/medium/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/50/medium/demo4.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/original/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/50/original/demo4.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/thumb/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/50/thumb/demo4.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/50/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/medium/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/51/medium/demo5.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/original/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/51/original/demo5.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/thumb/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/51/thumb/demo5.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/51/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/52/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/52/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/52/medium/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/52/medium/logo.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/52/medium/mallmap.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/52/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/52/original/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/52/original/logo.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/52/original/mallmap.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/52/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/52/thumb/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/52/thumb/logo.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/52/thumb/mallmap.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/53/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/53/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/53/medium/logo.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/53/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/53/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/53/original/logo.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/53/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/53/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/53/thumb/logo.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/53/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/54/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/54/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/54/medium/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/54/medium/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/54/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/54/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/54/original/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/54/original/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/54/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/54/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/54/thumb/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/54/thumb/demo1.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/54/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/55/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/55/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/55/medium/demo13.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/55/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/55/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/55/original/demo13.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/55/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/55/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/55/thumb/demo13.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/55/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/56/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/56/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/56/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/56/medium/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/56/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/56/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/56/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/56/original/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/56/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/56/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/56/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/56/thumb/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/56/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/57/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/57/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/57/medium/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/57/medium/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/57/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/57/original/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/57/original/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/57/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/57/thumb/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/57/thumb/demo14.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/58/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/58/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/58/medium/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/58/medium/demo11.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/58/medium/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/58/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/58/original/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/58/original/demo11.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/58/original/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/58/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/58/thumb/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/58/thumb/demo11.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/58/thumb/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/59/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/59/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/59/medium/demo13.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/59/medium/demo47.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/59/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/59/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/59/original/demo13.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/59/original/demo47.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/59/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/59/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/59/thumb/demo13.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/59/thumb/demo47.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/59/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/medium/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/6/medium/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/medium/demo42.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/original/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/6/original/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/original/demo42.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/thumb/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/6/thumb/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/6/thumb/demo42.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/60/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/60/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/medium/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/medium/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/60/medium/demo28.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/medium/mg3553.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/60/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/original/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/original/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/60/original/demo28.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/original/mg3553.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/60/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/thumb/competitionwinner.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/thumb/demo12.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/60/thumb/demo28.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/60/thumb/mg3553.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/61/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/61/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/61/medium/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/medium/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/medium/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/61/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/61/original/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/original/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/original/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/61/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/61/thumb/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/thumb/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/thumb/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/61/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/62/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/62/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/medium/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/62/medium/demo27.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/medium/mg3600.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/medium/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/62/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/original/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/62/original/demo27.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/original/mg3600.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/original/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/62/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/thumb/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/62/thumb/demo27.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/thumb/mg3600.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/62/thumb/ravicompose.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/63/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/63/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/63/medium/demo26.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/medium/demo49.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/medium/mg3600.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/medium/Screenshot.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/63/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/63/original/demo26.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/original/demo49.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/original/mg3600.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/original/Screenshot.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/63/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/63/thumb/demo26.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/thumb/demo49.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/thumb/mg3600.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/63/thumb/Screenshot.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/64/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/64/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/medium/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/64/medium/documents_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/medium/mg3553.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/64/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/original/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/64/original/documents_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/original/mg3553.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/64/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/thumb/demo37.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/64/thumb/documents_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/64/thumb/mg3553.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/65/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/65/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/65/medium/demo31.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/medium/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/medium/demo50.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/medium/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/65/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/65/original/demo31.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/original/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/original/demo50.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/original/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/65/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/65/thumb/demo31.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/thumb/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/thumb/demo50.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/65/thumb/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/66/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/66/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/medium/black1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/medium/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/66/medium/demo37.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/medium/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/66/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/original/black1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/original/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/66/original/demo37.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/original/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/66/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/thumb/black1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/thumb/demo10.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/66/thumb/demo37.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/66/thumb/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/67/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/67/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/medium/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/medium/demo29.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/67/medium/demo46.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/medium/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/67/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/original/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/original/demo29.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/67/original/demo46.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/original/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/67/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/thumb/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/thumb/demo29.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/67/thumb/demo46.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/67/thumb/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/68/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/68/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/68/medium/add_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/medium/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/medium/demo49.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/medium/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/68/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/68/original/add_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/original/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/original/demo49.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/original/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/68/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/68/thumb/add_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/thumb/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/thumb/demo49.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/68/thumb/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/69/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/69/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/medium/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/medium/demo20.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/69/medium/documents_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/medium/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/69/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/original/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/original/demo20.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/69/original/documents_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/original/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/69/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/thumb/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/thumb/demo20.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/69/thumb/documents_128.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/69/thumb/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/medium/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/7/medium/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/original/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/7/original/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/thumb/101PLAY_DEAD_flyer09.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/7/thumb/demo38.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/7/thumb/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/70/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/70/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/medium/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/70/medium/demo4.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/medium/demo5.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/medium/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/70/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/original/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/70/original/demo4.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/original/demo5.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/original/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/70/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/thumb/demo45.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/70/thumb/demo4.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/thumb/demo5.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/70/thumb/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/71/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/71/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/medium/black1.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/71/medium/demo20.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/medium/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/medium/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/71/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/original/black1.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/71/original/demo20.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/original/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/original/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/71/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/thumb/black1.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/71/thumb/demo20.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/thumb/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/71/thumb/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/72/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/72/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/medium/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/medium/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/72/medium/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/medium/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/72/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/original/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/original/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/72/original/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/original/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/72/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/thumb/bsg.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/thumb/demo26.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/72/thumb/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/72/thumb/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/73/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/73/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/73/medium/demo13.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/73/medium/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/73/medium/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/73/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/73/original/demo13.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/73/original/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/73/original/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/73/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/73/thumb/demo13.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/73/thumb/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/73/thumb/mg3600.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/74/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/74/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/74/medium/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/74/medium/demo4.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/74/medium/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/74/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/74/original/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/74/original/demo4.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/74/original/mg3588.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/74/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/74/thumb/demo16.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/74/thumb/demo4.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/74/thumb/mg3588.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/75/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/75/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/75/medium/demo19.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/75/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/75/original/demo19.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/75/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/75/thumb/demo19.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/76/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/76/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/76/medium/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/76/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/76/original/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/76/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/76/thumb/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/77/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/77/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/77/medium/demo2.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/77/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/77/original/demo2.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/77/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/77/thumb/demo2.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/78/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/78/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/78/medium/demo3.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/78/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/78/original/demo3.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/78/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/78/thumb/demo3.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/79/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/79/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/79/medium/demo7.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/79/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/79/original/demo7.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/79/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/79/thumb/demo7.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/8/medium/demo30.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/8/original/demo30.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/8/thumb/demo30.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/8/thumb/logo.png" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/80/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/80/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/80/medium/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/80/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/80/original/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/80/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/80/thumb/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/81/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/81/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/81/medium/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/81/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/81/original/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/81/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/81/thumb/demo14.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/82/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/82/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/82/medium/demo26.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/82/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/82/original/demo26.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/82/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/82/thumb/demo26.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/83/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/83/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/83/medium/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/83/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/83/original/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/83/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/83/thumb/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/84/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/84/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/84/medium/demo50.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/84/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/84/original/demo50.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/84/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/84/thumb/demo50.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/85/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/85/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/85/medium/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/85/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/85/original/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/85/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/85/thumb/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/86/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/86/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/86/medium/15538806_1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/86/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/86/original/15538806_1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/86/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/86/thumb/15538806_1.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/medium/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/9/medium/demo39.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/medium/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/original/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/original/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/9/original/demo39.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/original/logo.png" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/thumb/demo1.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/competition/artwork/9/thumb/demo39.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/competition/artwork/9/thumb/logo.png" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/95/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/95/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/95/medium/justtesttiff.tiff" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/95/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/95/original/justtesttiff.tiff" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/95/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/95/thumb/justtesttiff.tiff" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/96/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/96/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/96/medium/justtesttiff.tif" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/96/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/96/original/justtesttiff.tif" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/96/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/96/thumb/justtesttiff.tif" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/97/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/97/medium/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/97/medium/justtesttiff.tiff" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/97/original/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/97/original/justtesttiff.tiff" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/97/thumb/" uploadstatus="1" />
+    <item url="public/uploaded_files/competition/artwork/97/thumb/justtesttiff.tiff" uploadstatus="1" />
     <item url="public/uploaded_files/development/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/1/" uploadstatus="1" />
@@ -6175,13 +5537,6 @@
     <item url="public/uploaded_files/development/artwork/26/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/26/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/26/medium/ephemera04.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/260/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/260/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/260/medium/135073.2.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/260/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/260/original/135073.2.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/260/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/260/thumb/135073.2.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/261/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/261/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/261/medium/demo28.jpeg" uploadstatus="1" />
@@ -6630,364 +5985,21 @@
     <item url="public/uploaded_files/development/artwork/321/original/demo9.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/321/thumb/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/321/thumb/demo9.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/322/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/322/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/322/medium/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/322/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/322/original/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/322/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/322/thumb/demo10.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/323/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/323/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/323/medium/demo27.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/323/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/323/original/demo27.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/323/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/323/thumb/demo27.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/324/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/324/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/324/medium/ravicompose.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/324/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/324/original/ravicompose.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/324/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/324/thumb/ravicompose.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/325/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/325/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/325/medium/accounting.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/325/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/325/original/accounting.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/325/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/325/thumb/accounting.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/326/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/326/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/326/medium/administration.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/326/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/326/original/administration.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/326/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/326/thumb/administration.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/328/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/328/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/328/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/328/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/328/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/328/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/328/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/329/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/329/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/329/medium/Nabil.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/329/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/329/original/Nabil.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/329/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/329/thumb/Nabil.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/33/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/33/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/33/medium/ephemera04.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/330/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/330/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/330/medium/accounting.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/330/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/330/original/accounting.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/330/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/330/thumb/accounting.png" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/331/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/331/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/331/medium/48899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/331/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/331/original/48899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/331/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/331/thumb/48899_1074997208_1258_n.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/332/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/332/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/332/medium/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/332/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/332/original/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/332/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/332/thumb/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/333/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/333/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/333/medium/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/333/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/333/original/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/333/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/333/thumb/mg3553.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/334/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/334/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/334/medium/Elizabeth_Edwards_-_Dream_Desire.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/334/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/334/original/Elizabeth_Edwards_-_Dream_Desire.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/334/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/334/thumb/Elizabeth_Edwards_-_Dream_Desire.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/335/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/335/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/335/medium/demo41.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/335/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/335/original/demo41.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/335/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/335/thumb/demo41.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/336/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/336/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/336/medium/demo9.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/336/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/336/original/demo9.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/336/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/336/thumb/demo9.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/337/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/337/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/337/medium/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/337/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/337/original/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/337/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/337/thumb/101IMG_2581.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/338/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/338/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/338/medium/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/338/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/338/original/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/338/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/338/thumb/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/339/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/339/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/339/medium/demo13.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/339/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/339/original/demo13.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/339/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/339/thumb/demo13.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/34/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/34/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/34/medium/dsc0251.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/340/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/340/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/340/medium/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/340/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/340/original/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/340/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/340/thumb/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/341/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/341/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/341/medium/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/341/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/341/original/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/341/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/341/thumb/demo11.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/342/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/342/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/342/medium/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/342/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/342/original/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/342/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/342/thumb/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/343/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/343/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/343/medium/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/343/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/343/original/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/343/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/343/thumb/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/344/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/344/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/344/medium/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/344/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/344/original/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/344/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/344/thumb/demo35.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/345/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/345/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/345/medium/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/345/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/345/original/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/345/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/345/thumb/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/346/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/346/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/346/medium/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/346/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/346/original/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/346/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/346/thumb/demo21.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/347/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/347/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/347/medium/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/347/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/347/original/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/347/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/347/thumb/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/348/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/348/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/348/medium/demo41.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/348/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/348/original/demo41.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/348/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/348/thumb/demo41.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/349/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/349/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/349/medium/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/349/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/349/original/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/349/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/349/thumb/demo44.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/35/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/35/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/35/medium/invisicsinvite.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/350/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/350/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/350/medium/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/350/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/350/original/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/350/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/350/thumb/demo22.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/351/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/351/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/351/medium/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/351/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/351/original/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/351/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/351/thumb/demo15.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/352/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/352/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/352/medium/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/352/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/352/original/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/352/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/352/thumb/demo36.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/353/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/353/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/353/medium/demo31.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/353/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/353/original/demo31.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/353/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/353/thumb/demo31.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/354/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/354/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/354/medium/demo45.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/354/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/354/original/demo45.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/354/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/354/thumb/demo45.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/355/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/355/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/355/medium/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/355/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/355/original/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/355/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/355/thumb/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/356/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/356/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/356/medium/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/356/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/356/original/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/356/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/356/thumb/demo18.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/357/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/357/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/357/medium/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/357/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/357/original/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/357/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/357/thumb/demo29.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/358/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/358/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/358/medium/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/358/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/358/original/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/358/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/358/thumb/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/359/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/359/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/359/medium/demo39.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/359/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/359/original/demo39.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/359/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/359/thumb/demo39.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/36/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/36/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/36/medium/ephemera04.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/360/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/360/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/360/medium/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/360/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/360/original/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/360/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/360/thumb/demo40.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/361/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/361/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/361/medium/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/361/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/361/original/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/361/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/361/thumb/demo44.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/362/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/362/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/362/medium/demo43.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/362/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/362/original/demo43.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/362/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/362/thumb/demo43.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/363/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/363/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/363/medium/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/363/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/363/original/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/363/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/363/thumb/demo17.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/364/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/364/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/364/medium/demo45.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/364/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/364/original/demo45.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/364/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/364/thumb/demo45.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/365/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/365/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/365/medium/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/365/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/365/original/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/365/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/365/thumb/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/366/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/366/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/366/medium/15538806_1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/366/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/366/original/15538806_1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/366/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/366/thumb/15538806_1.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/367/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/367/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/367/medium/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/367/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/367/original/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/367/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/367/thumb/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/368/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/368/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/368/medium/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/368/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/368/original/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/368/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/368/thumb/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/369/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/369/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/369/medium/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/369/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/369/original/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/369/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/369/thumb/Royal-Enfield-Bullet-Electra-350-Review-4.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/37/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/37/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/37/medium/faithengine.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/370/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/370/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/370/medium/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/370/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/370/original/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/370/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/370/thumb/idea_03.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/371/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/371/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/371/medium/idea_06.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/371/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/371/original/idea_06.jpg" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/371/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/development/artwork/371/thumb/idea_06.jpg" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/38/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/38/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/development/artwork/38/medium/dsc0251.jpeg" uploadstatus="1" />
@@ -7196,20 +6208,14 @@
     <item url="public/uploaded_files/groupshow/artwork/" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/medium/" uploadstatus="1" />
-    <item url="public/uploaded_files/groupshow/artwork/12/medium/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/medium/demo8.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/medium/demo9.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/groupshow/artwork/12/medium/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/original/" uploadstatus="1" />
-    <item url="public/uploaded_files/groupshow/artwork/12/original/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/original/demo8.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/original/demo9.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/groupshow/artwork/12/original/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/thumb/" uploadstatus="1" />
-    <item url="public/uploaded_files/groupshow/artwork/12/thumb/demo19.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/thumb/demo8.jpeg" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/12/thumb/demo9.jpeg" uploadstatus="1" />
-    <item url="public/uploaded_files/groupshow/artwork/12/thumb/titaniumfacebook.png" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/13/" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/13/medium/" uploadstatus="1" />
     <item url="public/uploaded_files/groupshow/artwork/13/medium/demo11313:.jpeg" uploadstatus="1" />
@@ -8025,6 +7031,15 @@
     <item url="public/mixcopy.rb" uploadstatus="1" />
     <item url="public/robots.txt" uploadstatus="1" />
     <item url="public/under_construction.html" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/lib/" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/lib/ruby-paypal/" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/lib/ruby-paypal/credit_card_checks.rb" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/lib/ruby-paypal/paypal.rb" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/lib/ruby-paypal.rb" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/test/" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/test/ts_ruby-paypal.rb" uploadstatus="1" />
+    <item url="ruby-paypal-0.0.5/README" uploadstatus="1" />
     <item url="script/" uploadstatus="1" />
     <item url="script/performance/" uploadstatus="1" />
     <item url="script/performance/benchmarker" uploadstatus="1" />
@@ -8088,6 +7103,7 @@
     <item url="spec/fixtures/permissions_roles.yml" uploadstatus="1" />
     <item url="spec/fixtures/permissions.yml" uploadstatus="1" />
     <item url="spec/fixtures/roles.yml" uploadstatus="1" />
+    <item url="spec/fixtures/usernamefortests.yml" uploadstatus="1" />
     <item url="spec/fixtures/users_containers.yml" uploadstatus="1" />
     <item url="spec/fixtures/users.yml" uploadstatus="1" />
     <item url="spec/fixtures/websites.yml" uploadstatus="1" />
@@ -8117,6 +7133,7 @@
     <item url="spec/models/person_spec.rb" uploadstatus="1" />
     <item url="spec/models/role_spec.rb" uploadstatus="1" />
     <item url="spec/models/user_mailer_spec.rb" uploadstatus="1" />
+    <item url="spec/models/usernamefortest_spec.rb" uploadstatus="1" />
     <item url="spec/models/users_containers_spec.rb" uploadstatus="1" />
     <item url="spec/models/user_spec.rb" uploadstatus="1" />
     <item url="spec/models/video_spec.rb" uploadstatus="1" />
@@ -8485,6 +7502,7 @@
     <item url="vendor/engines/gallery_back/app/models/artworks_exhibition.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/models/competition.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/models/competitions_subscription.rb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_back/app/models/competitions_user1.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/models/competitions_user.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/models/exhibition.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/models/exhibitions_user.rb" uploadstatus="1" />
@@ -8505,7 +7523,9 @@
     <item url="vendor/engines/gallery_back/app/views/admin/competitions/_competitions_users_show.html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/admin/competitions/finalist.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/admin/competitions/_find_signature_label.rhtml" uploadstatus="1" />
+    <item url="vendor/engines/gallery_back/app/views/admin/competitions/_form1.html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/admin/competitions/_form.html.erb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_back/app/views/admin/competitions/group_selection.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/admin/competitions/index.atom.builder" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/admin/competitions/open.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_back/app/views/admin/competitions/_preview.html.erb" uploadstatus="1" />
@@ -8568,7 +7588,9 @@
     <item url="vendor/engines/gallery_front/app/" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/controllers/" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/controllers/artists_controller.rb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_front/app/controllers/competitions_controller1.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/controllers/competitions_controller.rb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_front/app/controllers/competitions_controller.rb.orig" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/controllers/exhibitions_controller.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/controllers/visitors_controller.rb" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/" uploadstatus="1" />
@@ -8593,6 +7615,8 @@
     <item url="vendor/engines/gallery_front/app/views/competitions/_click_to_browse_images.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/confirm_competition_subscription_details.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/_create_groupshow_artwork.rhtml" uploadstatus="1" />
+    <item url="vendor/engines/gallery_front/app/views/competitions/_create_subscribe_competition_front_login.html.erb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_front/app/views/competitions/_create_subscribe_competition_front_register.html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/create_subscribe_competition.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/_edit_artwork_exhibition_response.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/_editcompartwork.rhtml" uploadstatus="1" />
@@ -8609,6 +7633,7 @@
     <item url="vendor/engines/gallery_front/app/views/competitions/_paypal_form.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/show (copy).html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/show.html.erb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_front/app/views/competitions/test_anything.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/testcopy.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/competitions/_upload_image_exhibition.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/exhibitions/" uploadstatus="1" />
@@ -8631,6 +7656,7 @@
     <item url="vendor/engines/gallery_front/app/views/visitors/new.html.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/visitors/new_view.erb" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/app/views/visitors/studios.html.erb" uploadstatus="1" />
+    <item url="vendor/engines/gallery_front/app/views/visitors/testmyfile.rhtml" uploadstatus="1" />
     <item url="vendor/engines/gallery_front/init.rb" uploadstatus="1" />
     <item url="vendor/plugins/" uploadstatus="1" />
     <item url="vendor/plugins/acts_as_audited/" uploadstatus="1" />
@@ -11458,11 +10484,14 @@
     <item url="accounts.sql" uploadstatus="1" />
     <item url="bsg.session" uploadstatus="1" />
     <item url="bsg.webprj" uploadstatus="1" />
+    <item url="commit-3a72875" uploadstatus="1" />
     <item url="g" uploadstatus="1" />
     <item url="message.sql" uploadstatus="1" />
     <item url="my-prvkey.pem" uploadstatus="1" />
     <item url="my-pubcert.pem" uploadstatus="1" />
     <item url="paypal_cert.pem" uploadstatus="1" />
+    <item url="production (copy).log" uploadstatus="1" />
+    <item url="public.zip" uploadstatus="1" />
     <item url="Rakefile" uploadstatus="1" />
     <item url="Rakefile.compiled.rbc" uploadstatus="1" />
     <item url="self.objectable" uploadstatus="1" />
@@ -11472,5 +10501,6 @@
     <item url="" uploadstatus="1" />
     <templates>templates/</templates>
     <toolbars>toolbars/</toolbars>
+    <annotations/>
   </project>
 </webproject>
