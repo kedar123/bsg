@@ -866,6 +866,7 @@ ActiveRecord::Schema.define(:version => 20110919070533) do
     t.string   "deleteto"
     t.string   "deletefromt"
     t.string   "deletetot"
+    t.string   "attachment"
   end
 
   create_table "newsletteremails", :force => true do |t|
