@@ -4,7 +4,7 @@ class Messages < ActiveRecord::Migration
       t.integer :author_id
       t.string :subject
       t.text :body
-       t.string :attachment
+      
 
       t.timestamps
     end

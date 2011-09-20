@@ -51,9 +51,7 @@ end
 			@places = Gallery.all
 			sr = Role.find_by_name('artist')
 			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
-			p "before edit im user ids"
-      p @current_object.user_ids
-      session[:user_ids] = @current_object.user_ids
+       session[:user_ids] = @current_object.user_ids
       session[:oldexhibitionusers] = @current_object.exhibitions_users
       
 			if  !params[:workspace_id].blank?

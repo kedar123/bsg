@@ -24,32 +24,25 @@ class Admin::CompetitionsController < Admin::ApplicationController
   def send_mail_to_artist
 
     @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
-    puts "^&^&^&^&^^&^^^^^^^&&&&&&&&&&&&&&&&&&&&&&"
-    puts ArtworksCompetition.id
-    puts @total_selected.inspect
-    puts "*************((((((((((((()))))))))))))))))))"
+ 
     @emailsendarray=[]
     @usernames = []
     @artworkarray=[]
+    
+    
     @total_selected.each do |arc|
-    puts @emailsendarray << arc.competitions_user.user.profile.email_address
-    @usernames << arc.competitions_user.user.profile.first_name + " " + arc.competitions_user.user.profile.last_name
-    puts @artworkarray << arc.avatar_file_name
+       @usernames << arc.competitions_user.user.profile.first_name + " " + arc.competitions_user.user.profile.last_name
+       @emailsendarray << arc.competitions_user.user.profile.email_address
+    end
+    
     @usernames.uniq!
     @emailsendarray.uniq!
-    end
-
-
-    puts "********************************8"
-    @competition = Competition.find(params[:id])
-    puts @competition.id
-    @artwork= ArtworksCompetition.find(:first,:conditions => ["competition_id=?",@competition.id])
-    puts @artwork.inspect
-    puts "***********************************8"
-    @frommail = Frommail.find(:all)
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts @frommail.inspect
-    render :layout=>"gallery_promoting_mail"
+    
+    
+     @competition = Competition.find(params[:id])
+      @artwork= ArtworksCompetition.find(:first,:conditions => ["competition_id=?",@competition.id])
+       @frommail = Frommail.find(:all)
+       render :layout=>"gallery_promoting_mail"
   end
   
   def send_winner_email
@@ -71,33 +64,21 @@ class Admin::CompetitionsController < Admin::ApplicationController
     if !params[:artworkcompetition].blank?#this is for single winner for send_winner_email
        artwcomp = ArtworksCompetition.find(params[:artworkcompetition])
       
-      puts artwcomp.inspect
+ 
        if artwcomp.state == "winner"
           artwcomp.prize_detail = "winner of "+artwcomp.competition.title.to_s + "  " +params[:prize]
           artwcomp.save
        end
     end
-    
+        @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
      @message = current_user.sent_messages.build(params[:message])
-   
-    puts params[:message]
-    puts params[:message][:email]
-      
-    puts @message.inspect
-    puts "!!!!!!!!!!!$$$$$$$$$$$$$$$$$$&&&&&&&&&&&&&&&&&&7"
-    @message.prepare_copies(params[:message][:email])
+       @message.prepare_copies(params[:message][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
-    puts all_the_recipient = params[:message][:email].split(',')
-    #puts image=params[:message][:avatar_file_name]
-p params
-p "checking the patrams"
-    selected_all_artwork=ArtworksCompetition.find(:all,:conditions => ["competition_id =?",56 ])
-p "im comingg hererer"
-p selected_all_artwork 
- for selected_artwork in selected_all_artwork
-  p "before sending the email"
-    EmailSystem::deliver_email_notification_selected_artwork(selected_artwork.competitions_user.email,@message.subject,@message.body,selected_artwork)
- end
+     all_the_recipient = params[:message][:email].split(',')
+       #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
+
+        EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body,image)
+
     if @message.save
       flash[:notice] = "Message sent."
       redirect_to :back
@@ -106,6 +87,49 @@ p selected_all_artwork
     end
   end
   
+#this method is copy of above method "compcreate_sent_mail_to_artist" this is because i wnt to attach the images to each email
+
+    def compcreate_selected_sent_mail_to_artist
+   
+    
+    if !params[:artworkcompetition].blank?#this is for single winner for send_winner_email
+       artwcomp = ArtworksCompetition.find(params[:artworkcompetition])
+      
+       if artwcomp.state == "winner"
+          artwcomp.prize_detail = "winner of "+artwcomp.competition.title.to_s + "  " +params[:prize]
+          artwcomp.save
+       end
+    end
+     @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
+     @message = current_user.sent_messages.build(params[:message])
+     @message.prepare_copies(params[:message][:email])
+     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
+     all_the_recipient = params[:message][:email].split(',')
+       #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
+       
+      all_the_recipient.each do |to_address|  
+        user = User.find_by_email(to_address)
+        competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
+        all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
+        for selected_artwork in all_selected_artworks
+        EmailSystem::deliver_email_notification_selected(to_address,@message.subject,@message.body,selected_artwork)
+        end
+      end
+    if @message.save
+      flash[:notice] = "Message sent."
+      redirect_to :back
+    else
+      render :action => "send_mail_to_artist"
+    end
+  end
+
+  
+  
+  
+  
+  
+
+
   
   def compfind_signature_label
      signature = Signature.find(:all,:conditions=>["frommail_id = ?",params[:fromemail]])  
@@ -241,9 +265,7 @@ after :update do
       
 			else
 				 @artworks_competitions = @current_object.artworks_competitions.all(:conditions=>["competitions_users_id != 'null'  "])
-         puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-         puts @artworks_competitions.inspect
-         
+            
       
          #@artworks_competitions =  CompetitionsUser.find(:all,  :conditions => { :competition_id =>  @current_object.id })
 			end
@@ -302,13 +324,9 @@ after :update do
 	end
 	
 	def group_selection
-  puts "$$$$$$$$$$$$$$$$4"
-  @current_object = Competition.find(params[:competition_id])
-  puts @current_object.inspect
-  puts @current_object.id
-   @artworks_competitions =ArtworksCompetition .find(:all,:conditions=>["competition_id = ?   ",@current_object.id])
-   puts @artworks_competitions.inspect
- end
+   @current_object = Competition.find(params[:competition_id])
+      @artworks_competitions =ArtworksCompetition .find(:all,:conditions=>["competition_id = ?   ",@current_object.id])
+  end
 	private
 
 	def get_artworks_lists

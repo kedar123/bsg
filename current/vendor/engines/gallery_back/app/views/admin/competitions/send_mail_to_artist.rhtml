@@ -102,7 +102,7 @@ function addselectedvaluetobody(){
 -->
 <h2>Compose</h2>
 
-<% form_for :message, :url=>"/admin/compcreate_sent_mail_to_artist",:html=>{:style=>'padding-top:50px;height:480px;'} do |f| %>
+<% form_for :message, :url=>"/admin/compcreate_selected_sent_mail_to_artist",:html=>{:style=>'padding-top:50px;height:480px;'} do |f| %>
   
   <p>
     <label class="labeloverride">To</label>  <%=f.text_field :email,{:value=>@emailsendarray.join(","),:style=>"width:350px;" }%>
@@ -120,26 +120,9 @@ function addselectedvaluetobody(){
   <%= f.text_field :subject ,:style=>"width:350px"%></p>
   <%end%>
 
-   <p>
-  <label class="labeloverride">Artwork </label>
-
-  <%= f.text_field :artwork,:value=>@artworkarray.join(",") ,:style=>"width:350px"%>
-  </p>
-  <div class="changecolorgray">
-                        	 Image
-                    	 </div>
-  
-  <%#=image_tag "/uploaded_files/competition/artwork/#{@artwork.id}/thumb/#{@artwork.avatar_file_name}"%>
-                 	 <!--<input  name="competitions_user[workimage]" id="artwork_image<%#=i%>" type="file" size="26" style="float:left"/>-->
- <!-- <img src="/system/gallery/<%=@artworkarray[0]%>" width="90px" height="90px" />-->
-  <!--<%#= link_to(image_tag("/system/gallery/#{@artworks_competitions.artwork_image}", :class => "image_preview",:width=>50,:height=>50)	, "#")%>-->
-  <%#=image_tag "/uploaded_files/competition/artwork/#{@artwork.id}/thumb/#{@artwork.avatar_file_name}"%>
-
-  <%@total_selected.each do |x|%>
-<%=image_tag "/uploaded_files/competition/artwork/#{x.id}/thumb/#{x.avatar_file_name}"%>
-  <%end%>
-  
-        
+   <input type="hidden" name="competitionid" value="<%=params[:id]%>">
+     <input type="hidden" name="msg" value="<%=params[:msg]%>">
+         
   
   <p>
   <label class="labeloverride">Body </label>

@@ -13,7 +13,7 @@
                <div id ="details" style="display:none;">
                    <%if  !object.competitions_user.artworks_competitions.find(:first,:conditions=>"state = 'winner' and image_name = '#{image_array[j]}'").blank?%>
                    <p style="margin-bottom: 0.2em; white-space: normal;">
-                       <font size=2px><%=object.competitions_user.artworks_competitions.find(:first,:conditions=>"state = 'winner' and image_name = '#{image_array[j]}'").prize_detail %></font>
+                       <font size=2px><%=object.competitions_user.artworks_competitions.find(:first,:conditions=>"state = 'winner' and image_name = '#{image_array[j]}'").message %></font>
                    </p>
                    <%end%>
                    <p style="margin-bottom: 0.2em; white-space: normal;">

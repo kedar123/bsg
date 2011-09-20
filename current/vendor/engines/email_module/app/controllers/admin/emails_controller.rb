@@ -14,7 +14,7 @@ class Admin::EmailsController < Admin::ApplicationController
 		emails = EmailSystem.all_in_one(profile.email_address)
 		if emails.is_a?(Array)
 			render :text => emails.each{ |msg|
-				@template.blank_list_element(:date => msg[:date], :title => "From : #{msg[:from]} To : #{msg[:to]}<br />Subject : #{msg[:subject]}<br />Attachment :#{msg[:attachment]}") {
+				@template.blank_list_element(:date => msg[:date], :title => "From : #{msg[:from]} To : #{msg[:to]}<br />Subject : #{msg[:subject]}") {
 					@template.link_to_remote 'Open the message', :url => @template.display_full_message_admin_emails_path(:uid => msg[:uid]), :update => 'modal_space', :method => :get
 				}
 			}.join('')
@@ -42,7 +42,7 @@ class Admin::EmailsController < Admin::ApplicationController
 	def compose_email
 			   tomail = params[:email][:tomail].split(",")
 	   		QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'friend_email', :args => [tomail,params[:email][:subject],params[:email][:body]], :priority => 0,:tomail=>params[:email][:tomail],:frommail=>current_user.profile.email_address)
-        				email= UserMailer.create_friend_email(tomail,params[:email][:subject],current_user.profile.email_address,params[:email][:body],params[:email][:attachment])
+        				email= UserMailer.create_friend_email(tomail,params[:email][:subject],current_user.profile.email_address,params[:email][:body])
 				UserMailer.deliver(email)
       		flash[:notice]="Email Has Been Sent"
       		redirect_to "/admin/emails/inbox"

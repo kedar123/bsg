@@ -45,11 +45,7 @@ class EmailSystem
 			:from => email.from,
 			:to => email.to.join(', '),
 			:subject => email.subject,
-			:body => email.body,
-			attachment :content_type => "image/jpeg"
-
-        
-
+			:body => email.body
 		}
 	end
 

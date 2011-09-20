@@ -360,10 +360,7 @@
   
    
   def  create_the_payment
-    puts "***********************"
-    puts @selected=params[:invoicing_info][:payment_medium]
-    puts "***********************"
-    creditcardno = ""
+        creditcardno = ""
     if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card")  )         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
@@ -384,8 +381,7 @@
     end 
      
     #######################################this is im copying here is something from payment controller create method
-    puts "U r checking for params[:order_id]"
-    puts params[:order_id]
+    
     if params[:order_id]
       @order = CompetitionsUser.find(params[:order_id])
       current_user.profile.biography = params[:biography]
@@ -435,9 +431,7 @@
             @current_object.common_wealth_bank_process((more_amount * 100),params,creditcardno)
               
             if @current_object.state == "online_validated"
-              
-              p "i will save the value from here for paid objects"
-               paidentrystring = ""
+                paidentrystring = ""
               for i in @order.total_entry.to_i..params[:competitions_user][:total_entry].to_i
               paidentrystring << i.to_s + ","
               end
@@ -476,8 +470,7 @@
           @current_object.common_wealth_bank_process(((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100),params,creditcardno)#payment is done if invoice is not yet  created. for competition user
           if @current_object.state == "online_validated"
             @order.total_entry = params[:competitions_user][:total_entry]
-            p "im saving here paid entry object"
-            paidentrystring = ""
+             paidentrystring = ""
               for i in 1..2
                 paidentrystring << i.to_s + ","
               end 
@@ -752,9 +745,7 @@
     title_message_array = ['First Work','Second Work',' Third Work','Fourth Work','Fifth Work','Sixth Work','Seventh Work','Eight Work','Ninth Work','Tenth Work']
 
     order = CompetitionsUser.find(params[:order_id])
-    puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
-    puts order.inspect
-    i=0
+        i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     for title in title_array
       if (order.send (title_array[i].to_sym)).blank?
@@ -838,10 +829,8 @@
     order = CompetitionsUser.find(params[:competitionuserid])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
-    puts "((((((((((((((()))))))))))))))))))))))))))"
-     i = title_array.index params[:titleforupdate]
-     puts i
-    order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
+        i = title_array.index params[:titleforupdate]
+       order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
     order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"]) 
     order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"]) 
     order.send(editionnamearray[i].to_sym,params[:competitions_user]["editionname"]) 
@@ -1566,8 +1555,7 @@
     logger.info "there is problem in total"
     logger.info session[:paypal_amount].to_i
     logger.info session[:paypal_amount].to_i/100
-    p "calling the do set express checkout"
-    response = paypal.do_set_express_checkout(
+       response = paypal.do_set_express_checkout(
       return_url="http://" + request.host_with_port + "/paypal_return",
       cancel_url="http://" + request.host_with_port + "/paypal_cancel",
       amount=session[:paypal_amount].to_i/100,
@@ -1579,10 +1567,7 @@
  
     logger.info response.to_sde
     logger.info "this is paypal response"
-    p "this is the response from paypal"
-    p response
-    
-    @token = (response.ack == 'Success') ? response['TOKEN'] : ''
+       @token = (response.ack == 'Success') ? response['TOKEN'] : ''
     session[:token] = @token
   end  
 
@@ -1712,13 +1697,9 @@
     #@comp_users=CompetitionsUser.find(:all)
     #@artcomp = ArtworksCompetition.find(:all)
     #@invoice=Invoice.find(:all,:conditions=>"purchasable_type = 'CompetitionsUser' ")
-    p params
-    @myquery = params[:id].constantize.find(:all,:conditions=>"#{params[:conditions]}");
+       @myquery = params[:id].constantize.find(:all,:conditions=>"#{params[:conditions]}");
     a= @myquery.first.to_a
-    p a[0].instance_values
-    p "string object"
-    p a[1]
-    
+       
     render :text=>@myquery.first.instance_values
   end
 

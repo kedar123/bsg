@@ -1,35 +1,37 @@
 
 class EmailSystem < ActionMailer::Base
 
-  def email_notification( toaddress , subjectofmail , dodyofmail, image )
-   
+  def email_notification( toaddress , subjectofmail , dodyofmail )
+    
      recipients   toaddress
      from         "test@pragtech.co.in"
      subject      subjectofmail
      body         "theemail" => dodyofmail
      content_type "text/html"
-   #attachment "image" #do |a|
+    #attachment "image" do |a|
     #a.body = File.read("public/images/bsg.png")
     #a.filename = "bsg.png"
-    #a.body = File.read("/uploaded_files/competition/artwork/@emailsendarray/thumb/ @artworkarray")
+    #a.body = File.read("/uploaded_files/competition/artwork/#{a.id}/medium/#{a.avatar_file_name}")
   #end
 
      
   end
-
-  def email_notification_selected_artwork( toaddress , subjectofmail , dodyofmail,selected_artwork )
-   p "im from email notificationb"
+  
+  
+  def email_notification_selected( toaddress , subjectofmail , dodyofmail,artwork_selected )
+    
      recipients   toaddress
      from         "test@pragtech.co.in"
      subject      subjectofmail
      body         "theemail" => dodyofmail
      content_type "text/html"
-     attachment "image/png" do |a|
-        a.body = File.read("/uploaded_files/competition/artwork/#{selected_artwork.id}/thumb/#{selected_artwork.avatar_file_name}")
-        a.filename = "#{selected_artwork.avatar_file_name}"
-        end
+    attachment "image/jpeg" do |a|
+    a.body = File.read("public/images/bsg.png")
+    a.filename = "bsg.png"
+    a.body = File.read("#{RAILS_ROOT}/public/uploaded_files/competition/artwork/#{artwork_selected.id}/medium/#{artwork_selected.avatar_file_name}")
+  end
 
-
+     
   end
   
 
@@ -39,8 +41,7 @@ class EmailSystem < ActionMailer::Base
      subject      subjectofmail
      body         "theemail" => dodyofmail
      content_type "text/html" 
-   
-
+     
   end
     
         
