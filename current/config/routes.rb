@@ -175,8 +175,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/auto_complete_for_user_email",:controller=>"admin/mail",:action=>"auto_complete_for_user_email"
   map.connect "/admin/show_unknown_message",:controller=>"admin/mail",:action=>"show_unknown_message"
   map.connect "/admin/replay_message_to_unknown",:controller=>"admin/mail",:action=>"replay_message_to_unknown"
+  map.connect "/admin/artworks_competitions/artworks_competitions_winner_message/:id/message/:message",:controller=>"admin/artworks_competitions",:action=>"artworks_competitions_winner_message"
   
-
+ 
   
   map.connect "/admin/forward_email" ,:controller=>"admin/mail",:action=>"forward_email"
   map.connect "/admin/sent_mail" ,:controller=>"admin/mail",:action=>"sent_mail"
@@ -277,6 +278,8 @@ ActionController::Routing::Routes.draw do |map|
    
     
     admin.connect "/compcreate_sent_mail_to_artist/:id",:controller=>"competitions",:action=>"compcreate_sent_mail_to_artist"
+    admin.connect "/compcreate_selected_sent_mail_to_artist/:id",:controller=>"competitions",:action=>"compcreate_selected_sent_mail_to_artist"
+    
     admin.connect "/competitions/auto_complete_for_profile_email",:controller=>"competitions",:action=>"auto_complete_for_profile_email"
     
     admin.connect "/compfind_signature_label",:controller=>"competitions",:action=>"compfind_signature_label"
@@ -412,7 +415,8 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :competitions_subscriptions, :only => :none, :collection => { :validate => :post, :select => :get, :subscribe => :post , :enter => :get, :submit=> :post}
 		#admin.resources :competitions_subscriptions, :only => :none, :collection => { :validate => :post, :select => :get, :subscribe => :post }
 		admin.resources :competitions_users, :only => :none, :member => { :update_state => :get, :submit_artworks => :post, :artworks_wizard => :get }
-		admin.resources :artworks_competitions, :only => :none, :member => { :update_state => :get, :group_selection => :get }, :collection => { :set_marks => :post }
+		admin.resources :artworks_competitions, :only => :none, :member => { :update_state => :get, :group_selection => :get  }, :collection => { :set_marks => :post  }
+    
     # Search related routes
     admin.resources :searches, :collection => { :print_advanced => :any, :validate => :post }
     admin.resources :saved_searches, :only => [:create, :index, :destroy], :member => {:results => :get}, :collection => { :validate => :post }

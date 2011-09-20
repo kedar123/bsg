@@ -1,8 +1,7 @@
 class Admin::ArtworksCompetitionsController < Admin::ApplicationController
 
 	def update_state
-    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-   	@artworks_competition = ArtworksCompetition.find(params[:id])
+    @artworks_competition = ArtworksCompetition.find(params[:id])
 		@artworks_competition.state = params[:state]
     if params[:state] == "winner"
       @artworks_competition.prize_detail = "winner of #{@artworks_competition.competition.title}"

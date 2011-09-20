@@ -52,12 +52,17 @@
                     <%#= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
                        
                         <%if (((object.send sold_array[j]) == nil) or ((object.send sold_array[j]) == false))%>  
-                           <%if !session[:cart].blank? &&  !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s+'_'+image) %>   
+                           
+                           <%if session[:cart].blank?    %>   
+                           
                             <%=link_to_remote '<img src="/images/buy.jpeg"/>', :update => "",
                                 :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1,:eachimage=>image}%>
-                          <%else%>  
-                          
-                          <%end%>    
+                            <%elsif !session[:cart].has_key?(object.class.to_s+'_'+object.id.to_s+'_'+image)%>  
+                               <%=link_to_remote '<img src="/images/buy.jpeg"/>', :update => "",
+                                :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.class.to_s, :orderable_id => object.id, :number => 1,:eachimage=>image}%>
+                          <%else%>
+                             
+                           <%end%>    
                      
                         <%else%>          
                                 already sold
