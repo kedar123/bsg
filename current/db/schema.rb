@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916062510) do
+ActiveRecord::Schema.define(:version => 20110919070533) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20110916062510) do
     t.datetime "artworkurl_updated_at"
     t.string   "prize_detail"
     t.boolean  "paid"
+    t.string   "message"
   end
 
   add_index "artworks_competitions", ["artwork_id"], :name => "index_artworks_competitions_on_artwork_id"
