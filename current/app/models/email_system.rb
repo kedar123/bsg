@@ -35,6 +35,23 @@ class EmailSystem < ActionMailer::Base
   end
   
 
+
+
+  def deliver_email_notification_unpaid(toaddress , subjectofmail , dodyofmail,invoicefile)
+     recipients   toaddress
+     from         "test@pragtech.co.in"
+     subject      subjectofmail
+     body         "theemail" => dodyofmail
+    content_type    "multipart/alternative"
+        part  "text/html" do |p|
+          p.body render_message("email_system/deliver_email_notification_unpaid.erb",:ebody=>ebody.to_s+esignature.to_s)
+          p.transfer_encoding "base64"
+        end
+    attachment "application/pdf" do |a|
+        a.body = File.read("#{RAILS_ROOT}/public/unpaid_invoice/#{invoicefile.id}invoicefile.pdf")
+        a.filename = "invoicefile.pdf"
+        end
+  end
   def send_selected_exhibiion_user_email(toaddress , subjectofmail , dodyofmail)
     recipients   toaddress
      from         "test@pragtech.co.in"
