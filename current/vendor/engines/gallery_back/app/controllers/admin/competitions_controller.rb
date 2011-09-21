@@ -118,40 +118,23 @@ class Admin::CompetitionsController < Admin::ApplicationController
          all_the_recipient.each do |to_address|
             user = User.find_by_email(to_address)
             competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
-            current_object = Invoice.find(:all, :conditions =>["purchasable_type=? and client_id=?",'CompetitionsUser',user.id] )
-            puts current_object.inspect
+            current_object_invoice = Invoice.find(:all, :conditions =>["purchasable_type = ? and client_id = ? and purchasable_id = ? and payment_medium = 'cash' or payment_medium = 'cheque' or payment_medium = 'direct deposit'",'CompetitionsUser',user.id,params[:competitionid]])
+             
             #create_pdf(current_object.id,current_object.number,current_object.sent_at.strftime("%d %b %Y"),current_object.client.profile.full_address_for_invoice,current_object.client.profile.full_name_for_invoice,current_object.final_amount.to_i,current_object.note,"",current_object.final_amount.to_i)
        # EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,invoicefile)
-       
-          current_object.each do |current_object|
-          if current_object.payment_medium=="cash" || current_object.payment_medium=="cheque"
-          compuser = CompetitionsUser.find_by_id(59)#(current_object.purchasable_id)
-          create_pdf(current_object.id,current_object.number,current_object.sent_at.strftime("%d %b %Y"),current_object.client.profile.full_address_for_invoice,current_object.client.profile.full_name_for_invoice,compuser.competition.title,current_object.final_amount.to_i,current_object.note,"",current_object.final_amount.to_i,"/{RAILS_ROOT}/public/unpaid_invoice/#{current_object.id}current_object.pdf")
-
-          EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,current_object)
+       total_unpaid_amount = 0
+          current_object_invoice.each do |current_objectinv|
+              total_unpaid_amount = total_unpaid_amount + current_objectinv.final_amount.to_i
           end
-          end
+          
+          create_pdf(rand(100000).to_s, rand(100000).to_s,     Time.now.strftime("%d %b %Y"),user.profile.full_address_for_invoice,user.profile.full_name_for_invoice,"Total UnPaid Amount",       total_unpaid_amount, "Please Pay The Amount before","",        total_unpaid_amount,false,Time.now.strftime("%d %b %Y"),"","#{RAILS_ROOT}/public/unpaid_invoice/#{user.id}-#{params[:competitionid]}unpaid.pdf")
+#def create_pdf      (invoice_id="",invoice_number="",invoice_date="",              invoice_full_address = " " ,          invoice_user_fullname = " " ,      invoice_competition_title="",invoice_full_amount="",note="",                  amount_due="",paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="",pdf_path="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
 
+          EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,"#{user.id}-#{params[:competitionid]}unpaid.pdf")
+         
          
        end
-=begin        #@current_object.each do |invoice|
-      if invoice.purchasablepurchas_type == 'CompetitionsUser'
-        compuser = CompetitionsUser.find(invoice.purchasable_id)
-        create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,compuser.competition.title,invoice.final_amount.to_i,invoice.note,"",invoice.final_amount.to_i)
-        #render :text=>"your pdf has been sent"
-      end
-     
-      end
-=end
-=begin        all_the_recipient.each do |to_address|
-        user = User.find_by_email(to_address)
-        competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
-        all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
-        for selected_artwork in all_selected_artworks
-        EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,invoicefile)
-        end
-      end
-=end
+ 
         
        else
          all_the_recipient.each do |to_address|  

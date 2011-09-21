@@ -37,7 +37,7 @@ class EmailSystem < ActionMailer::Base
 
 
 
-  def email_notification_unpaid(toaddress , subjectofmail , dodyofmail,current_object)
+  def email_notification_unpaid(toaddress , subjectofmail , dodyofmail,pdffilename)
      recipients   toaddress
      from         "test@pragtech.co.in"
      subject      subjectofmail
@@ -45,8 +45,8 @@ class EmailSystem < ActionMailer::Base
     content_type   "text/html"
        
     attachment "application/pdf" do |a|
-        a.body = File.read("#{RAILS_ROOT}/public/unpaid_invoice/#{current_object.id}current_object.pdf")
-        a.filename = "#{current_object}.pdf"
+        a.body = File.read("#{RAILS_ROOT}/public/unpaid_invoice/#{pdffilename}")
+        a.filename = "#{pdffilename}.pdf"
         end
   end
   def send_selected_exhibiion_user_email(toaddress , subjectofmail , dodyofmail)
