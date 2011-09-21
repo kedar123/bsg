@@ -276,6 +276,7 @@ class CompetitionsUser < ActiveRecord::Base
                  if !artc.blank?
                     artc.update_attribute('avatar',competitionuser["workimage"]);
                     artc.update_attribute('paid',onlinepaid);
+                    artc.update_attribute('state','unselected');
                     
                  else#in else it will come when first time enter into compe user select 10 entry but enter 2 entry so artwork compeition is not created so here it gets created
                     ArtworksCompetition.create(:competition_id=>self.competition_id,:image_name=>image_array[i],:competitions_users_id =>self.id,:avatar=>competitionuser["workimage"],:paid=>onlinepaid)     

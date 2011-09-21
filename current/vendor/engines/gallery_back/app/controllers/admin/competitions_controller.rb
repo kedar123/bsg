@@ -22,17 +22,20 @@ class Admin::CompetitionsController < Admin::ApplicationController
   end
 
   def send_mail_to_artist
-
-    @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
- 
+    if params[:msg] == "unpaid"
+    @total_selected = ArtworksCompetition.find(:all,:conditions => ["competition_id = ?  and paid = ? or paid = ?",params[:id],false,0])
+    
+    else 
+        @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
+  
+    end
     @emailsendarray=[]
     @usernames = []
     @artworkarray=[]
-    
-    
+  
     @total_selected.each do |arc|
-       @usernames << arc.competitions_user.user.profile.first_name + " " + arc.competitions_user.user.profile.last_name
-       @emailsendarray << arc.competitions_user.user.profile.email_address
+       @usernames << arc.competitions_user.user.profile.first_name + " " + arc.competitions_user.user.profile.last_name if arc.competitions_user
+       @emailsendarray << arc.competitions_user.user.profile.email_address if arc.competitions_user
     end
     
     @usernames.uniq!
@@ -100,14 +103,30 @@ class Admin::CompetitionsController < Admin::ApplicationController
           artwcomp.save
        end
     end
-     @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
+    if params[:msg] == "unpaid"
+        @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and paid =?",params[:artworkcompetition], false ])
+      
+    else 
+        @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
+    end 
      @message = current_user.sent_messages.build(params[:message])
      @message.prepare_copies(params[:message][:email])
      @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
      all_the_recipient = params[:message][:email].split(',')
        #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
-       
-      all_the_recipient.each do |to_address|  
+       if params[:msg] == "unpaid"#here i need to attach the pdf files for users unpaid value.may be i need to create it here
+        all_the_recipient.each do |to_address|  
+        user = User.find_by_email(to_address)
+        competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
+        all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
+        for selected_artwork in all_selected_artworks
+        EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,invoicefile)
+        end
+      end
+        
+        
+       else
+         all_the_recipient.each do |to_address|  
         user = User.find_by_email(to_address)
         competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
         all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
@@ -115,6 +134,10 @@ class Admin::CompetitionsController < Admin::ApplicationController
         EmailSystem::deliver_email_notification_selected(to_address,@message.subject,@message.body,selected_artwork)
         end
       end
+       end 
+      
+      
+      
     if @message.save
       flash[:notice] = "Message sent."
       redirect_to :back
