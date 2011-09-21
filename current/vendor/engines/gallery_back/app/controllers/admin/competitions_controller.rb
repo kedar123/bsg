@@ -105,8 +105,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
     end
     if params[:msg] == "unpaid"
         @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and paid =?",params[:artworkcompetition], false ])
-        puts "I am checking invoices^^^^^^^^^^^^^^^^"
-      puts @artworks_competitions.inspect
+      
     else 
         @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
     end 
@@ -116,16 +115,35 @@ class Admin::CompetitionsController < Admin::ApplicationController
      all_the_recipient = params[:message][:email].split(',')
        #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
        if params[:msg] == "unpaid"#here i need to attach the pdf files for users unpaid value.may be i need to create it here
-       @current_object = Invoice.find(:all, :conditions => { :client_id => 69 })
-       puts "I am checking invoices^^^^^^^^^^^^^^^^^"
-       @current_object.each do |invoice|
-       if invoice.purchasable_type == 'CompetitionsUser'
+         all_the_recipient.each do |to_address|
+            user = User.find_by_email(to_address)
+            competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
+            current_object = Invoice.find(:all, :conditions =>["purchasable_type=? and client_id=?",'CompetitionsUser',user.id] )
+            puts current_object.inspect
+            #create_pdf(current_object.id,current_object.number,current_object.sent_at.strftime("%d %b %Y"),current_object.client.profile.full_address_for_invoice,current_object.client.profile.full_name_for_invoice,current_object.final_amount.to_i,current_object.note,"",current_object.final_amount.to_i)
+       # EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,invoicefile)
+       
+          current_object.each do |current_object|
+          if current_object.payment_medium=="cash" || current_object.payment_medium=="cheque"
+          compuser = CompetitionsUser.find_by_id(59)#(current_object.purchasable_id)
+          create_pdf(current_object.id,current_object.number,current_object.sent_at.strftime("%d %b %Y"),current_object.client.profile.full_address_for_invoice,current_object.client.profile.full_name_for_invoice,compuser.competition.title,current_object.final_amount.to_i,current_object.note,"",current_object.final_amount.to_i,"/{RAILS_ROOT}/public/unpaid_invoice/#{current_object.id}current_object.pdf")
+
+          EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,current_object)
+          end
+          end
+
+         
+       end
+=begin        #@current_object.each do |invoice|
+      if invoice.purchasablepurchas_type == 'CompetitionsUser'
         compuser = CompetitionsUser.find(invoice.purchasable_id)
         create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,compuser.competition.title,invoice.final_amount.to_i,invoice.note,"",invoice.final_amount.to_i)
         #render :text=>"your pdf has been sent"
       end
+     
       end
-        all_the_recipient.each do |to_address|  
+=end
+=begin        all_the_recipient.each do |to_address|
         user = User.find_by_email(to_address)
         competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
         all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
@@ -133,7 +151,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
         EmailSystem::deliver_email_notification_unpaid(to_address,@message.subject,@message.body,invoicefile)
         end
       end
-        
+=end
         
        else
          all_the_recipient.each do |to_address|  

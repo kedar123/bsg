@@ -21,11 +21,16 @@ class ApplicationController < ActionController::Base
 
 
 
-def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_address = " " ,invoice_user_fullname = " " ,invoice_competition_title="",invoice_full_amount="",note="",amount_due="",paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
+def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_address = " " ,invoice_user_fullname = " " ,invoice_competition_title="",invoice_full_amount="",note="",amount_due="",paid="",exhibitionpdf=false,finish_date=Time.now.strftime("%d %b %Y"),deposit_required="",pdf_path="")#{invoice.sent_at.strftime("%d %b %Y")}   #{invoice.user.profile.full_address}
 				
 				       headers, body = nil, nil  
                dir = File.expand_path(File.dirname(__FILE__))
-               Prawn::Document.generate("#{RAILS_ROOT}/public/pdf_invoice/#{invoice_id}invoice.pdf", :page_layout => :landscape) do
+               pdfpath =  pdf_path
+               if pdfpath.blank?
+                 pdfpath = "#{RAILS_ROOT}/public/pdf_invoice/#{invoice_id}invoice.pdf"
+               end
+                 
+               Prawn::Document.generate("#{pdfpath}", :page_layout => :landscape) do
                bsg = "#{RAILS_ROOT}/public/images/bsgpdf.png"  
                image bsg, :at => [10,540] ,:width=>100,:height=>100
                invoice = "#{RAILS_ROOT}/public/images/invoice.png"  
