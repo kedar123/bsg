@@ -23,7 +23,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
 
   def send_mail_to_artist
     if params[:msg] == "unpaid"
-    @total_selected = ArtworksCompetition.find(:all,:conditions => ["competition_id = ?  and paid = ? or paid = ?",params[:id],false,0])
+    @total_selected = ArtworksCompetition.find(:all,:conditions => ["competition_id = ?  and paid = ? ",params[:id],false])
     
     else 
         @total_selected = ArtworksCompetition.find(:all,:conditions => "competition_id = #{params[:id]} and state = '#{params[:msg]}'")
@@ -52,9 +52,11 @@ class Admin::CompetitionsController < Admin::ApplicationController
     @artselected = ArtworksCompetition.find(params[:id])
     @emailsendarray=[]
     @usernames = []
-    
+    #@artselectedunpaid=ArtworksCompetition.find(:all,:conditions=>["paid=?",false])
+    #@emailsendarray1=[]
     @emailsendarray << @artselected.competitions_user.user.profile.email_address
     @usernames << @artselected.competitions_user.user.profile.first_name + " " + @artselected.competitions_user.user.profile.last_name
+    #@emailsendarray1 << @artselectedunpaid.competitions_user.user.profile.email_address
     @usernames.uniq!
     @emailsendarray.uniq!
     
@@ -104,7 +106,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
        end
     end
     if params[:msg] == "unpaid"
-        @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and paid =?",params[:artworkcompetition], false ])
+        @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and paid =? ",params[:artworkcompetition], false ])
       
     else 
         @artworks_competitions =ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",'!null', params[:msg] ])
