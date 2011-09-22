@@ -91,18 +91,25 @@ function check_the_checkbox(){
         <%end%>              
         <%if logged_in?%>  
             <%if !@competitionuser.blank?%>
-                   Click <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
-                          %>  To Edit your entry 
+                   <!--Click <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                          %>  To Edit your entry<br />-->
+                    Click <%=link_to_remote "Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                          %>  To Edit your entry
                   <br/>    
-                 Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
                        %>  to browse all works
-                 <br/>          
+                   <!--Click<%#=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                       %>  to browse all works-->
+                 <br/>
+                 Click<%=link_to_remote " Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                       %>  to enter more artworks
+                 <br/>
             <%end%>      
         <%end%>    
-         <%if logged_in?%>
-               Click <%=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork",:id=>@competition.id}
-                      %> To Buy Images
-         <%end%>               
+         <%#if logged_in?%>
+               <!--Click <%#=link_to_remote " Here", :update => "",:url => { :action => "show_buy_competition_artwork",:id=>@competition.id}
+                      %> To Buy Images-->
+         <%#end%>
            
        
           <div id="click_to_browse_images" style="display:none">

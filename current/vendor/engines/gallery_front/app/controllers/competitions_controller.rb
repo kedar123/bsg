@@ -983,7 +983,7 @@
    #according to the status of the competition the alert message will be shown to user. if it is open then the message will be shown.if it is 
    #if it is final published then different message is shown and if it is result publich then different message is shown
   
-  def edit_images_front
+=begin  def edit_images_front
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle'] 
     medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
@@ -1088,6 +1088,117 @@
       
     end 
   end  
+=end
+
+
+
+   def edit_images_front
+    image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+    title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
+    medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
+    size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']
+    price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
+    editionnamearray = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarray = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
+    @competition = Competition.find(params[:id])
+    @competitions_user = CompetitionsUser.find(params[:order_id])
+    @image_array = []
+    i=0;
+
+     alertmessage = ""
+
+   # if @competition.state == "open"
+      # alertmessage = @competition.openstatemsg
+
+
+    #alertmessage = ""
+
+    if @competition.state == "open"
+       alertmessage = @competition.openstatemsg
+
+       if alertmessage.blank?
+         alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
+       end
+    end
+
+   # if @competition.state == "final_published"
+      #alertmessage = @competition.publishfinalmsg
+
+    if @competition.state == "final_published"
+      alertmessage = @competition.publishfinalmsg
+
+      if alertmessage.blank?
+         alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
+       end
+    end
+
+
+
+    add_art_cnt = 0
+    counttodisplayviwform=0
+    for eachimage in image_array
+      #first i will append the title
+      if  !@competitions_user.send(eachimage.to_sym).blank?
+        image_arrayi=[]
+        image_arrayi << @competitions_user.send(title_array[i].to_sym)
+        image_arrayi << @competitions_user.send(medium_array[i].to_sym)
+        image_arrayi << @competitions_user.send(size_array[i].to_sym)
+        image_arrayi << @competitions_user.send(eachimage.to_sym)
+        #if !@competitions_user.send(eachimage.to_sym).blank?
+        #    add_art_cnt = add_art_cnt +1
+        #end
+        image_arrayi << @competitions_user.send(price_array[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
+        image_arrayi << title_array[i]
+        @image_array << image_arrayi
+        counttodisplayviwform = counttodisplayviwform + 1
+      else
+        image_arrayi=[]
+        image_arrayi << @competitions_user.send(title_array[i].to_sym)
+        image_arrayi << @competitions_user.send(medium_array[i].to_sym)
+        image_arrayi << @competitions_user.send(size_array[i].to_sym)
+        image_arrayi << @competitions_user.send(eachimage.to_sym)
+        image_arrayi << @competitions_user.send(price_array[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
+        image_arrayi << title_array[i]
+        @image_array << image_arrayi
+      end
+      i=i+1
+    end
+    i=0
+
+    render :update do |page|
+      if ((@competitions_user.total_entry == nil) or (@competitions_user.total_entry == 0))
+        page.alert("Please Pay For One Entry")
+      else
+        for updateimage in @image_array
+          if @image_array[counttodisplayviwform] == updateimage
+            page["add_the_artwork"+((@image_array.index  updateimage)  ).to_s].replace_html  :partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +  1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>true,:messageforimageuploaded=>nil}
+          else
+            page["add_the_artwork"+((@image_array.index updateimage) ).to_s].replace_html 	:partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +   1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>false,:messageforimageuploaded=>nil}
+          end
+          page["enterartworkcompetition"].show
+          page["enterintocompetition"].hide
+          page["buylist"].hide
+          page["list_show"].show
+          page["add_the_artwork"+((@image_array.index updateimage) ).to_s].show
+          page["iteam_image"+((@image_array.index updateimage) ).to_s].show
+          i=i+1
+          break if @competitions_user.total_entry.to_i == i
+        end
+        #currently im hiding here the biography and thanku notes if they are shown but this need to be tested. and need to create some extra  add_the_artwork div
+        #after the flow is approved for salving the error
+        page["iteam_image"+(@competitions_user.total_entry.to_i).to_s].hide
+        page["iteam_image"+(@competitions_user.total_entry.to_i+1).to_s].hide
+        #page.alert(alertmessage)
+      end
+
+    end
+  end
+
+
 
  def show_buy_competition_artwork
       competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",params[:id]])
