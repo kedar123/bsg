@@ -656,10 +656,12 @@
       if @order.total_entry.to_i > i  
        # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
         page["add_the_artwork#{i}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
+        page["enterintocompetition"].hide
         page["pleaseaccepttermsandcondition"].hide
         page["pleaseaccepttccheckbox"].hide
         page["show_ajax_request"].hide
         page["list_show"].show
+        
         page["iteam_image#{i}"].show
         page["add_the_artwork#{i}"].show
         page["add_the_artwork#{i}"].focus
@@ -773,16 +775,18 @@
     end 
    # i=i+1#this is because the artwork will be shown in next "add_the_artwork#{i}"
    
-    responds_to_parent do
+=begin    responds_to_parent do
       render :update do |page|
         if order.total_entry.to_i > i
           
           
 		      page["add_the_artwork#{i+1}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
-          
+          #page["enterintocompetition"].hide
+          page["add_the_artwork#{i}"].hide
 		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
 		      #page["click_to_browse_images"].show
           page["list_show"].show
+          
           page["iteam_image#{i+1}"].show
           page["add_the_artwork#{i+1}"].show
           page["show_ajax_request#{i}"].hide
@@ -792,7 +796,32 @@
           page["messageforimageuploaded"].replace_html "Artwork Can Not Be Save "
         end  
       end
-    end      
+    end
+=end
+
+    responds_to_parent do
+      render :update do |page|
+        if order.total_entry.to_i > i
+
+
+		      page["add_the_artwork#{i}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+          #page["enterintocompetition"].hide
+          #page["add_the_artwork#{i}"].hide
+		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
+		      #page["click_to_browse_images"].show
+          page["list_show"].show
+          #page["add_the_artwork_to_competition_biography"].hide
+          page["iteam_image#{i}"].show
+          page["add_the_artwork#{i}"].show
+          page["show_ajax_request#{i}"].hide
+
+        else
+          page["show_ajax_request#{i-1}"].hide
+          page.alert("Your Limit Is Over.Click Browse Image For Updating The Image");
+          page["messageforimageuploaded"].replace_html "Artwork Can Not Be Save "
+        end
+      end
+    end
   end  
    
   def upload_the_biography
@@ -1198,6 +1227,123 @@
     end
   end
 
+   
+  #This is for browsing images....
+  
+   def edit_images_frontbrowse
+    image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+    title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
+    medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
+    size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']
+    price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
+    editionnamearray = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarray = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
+    @competition = Competition.find(params[:id])
+    @competitions_user = CompetitionsUser.find(params[:order_id])
+    @image_array = []
+    i=0;
+
+     alertmessage = ""
+
+   # if @competition.state == "open"
+      # alertmessage = @competition.openstatemsg
+
+
+    #alertmessage = ""
+
+    if @competition.state == "open"
+       alertmessage = @competition.openstatemsg
+
+       if alertmessage.blank?
+         alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
+       end
+    end
+
+   # if @competition.state == "final_published"
+      #alertmessage = @competition.publishfinalmsg
+
+    if @competition.state == "final_published"
+      alertmessage = @competition.publishfinalmsg
+
+      if alertmessage.blank?
+         alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
+       end
+    end
+
+
+
+=begin    add_art_cnt = 0
+    counttodisplayviwform=0
+    for eachimage in image_array
+      #first i will append the title
+      if  !@competitions_user.send(eachimage.to_sym).blank?
+        image_arrayi=[]
+        image_arrayi << @competitions_user.send(title_array[i].to_sym)
+        image_arrayi << @competitions_user.send(medium_array[i].to_sym)
+        image_arrayi << @competitions_user.send(size_array[i].to_sym)
+        image_arrayi << @competitions_user.send(eachimage.to_sym)
+        #if !@competitions_user.send(eachimage.to_sym).blank?
+        #    add_art_cnt = add_art_cnt +1
+        #end
+        image_arrayi << @competitions_user.send(price_array[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
+        image_arrayi << title_array[i]
+        @image_array << image_arrayi
+        counttodisplayviwform = counttodisplayviwform + 1
+      else
+        image_arrayi=[]
+        image_arrayi << @competitions_user.send(title_array[i].to_sym)
+        image_arrayi << @competitions_user.send(medium_array[i].to_sym)
+        image_arrayi << @competitions_user.send(size_array[i].to_sym)
+        image_arrayi << @competitions_user.send(eachimage.to_sym)
+        image_arrayi << @competitions_user.send(price_array[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
+        image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
+        image_arrayi << title_array[i]
+        @image_array << image_arrayi
+      end
+      i=i+1
+    end
+    i=0
+
+    render :update do |page|
+      if ((@competitions_user.total_entry == nil) or (@competitions_user.total_entry == 0))
+        page.alert("Please Pay For One Entry")
+      else
+        for updateimage in @image_array
+          if @image_array[counttodisplayviwform] == updateimage
+            page["add_the_artwork"+((@image_array.index  updateimage)  ).to_s].replace_html  :partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +  1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>true,:messageforimageuploaded=>nil}
+          else
+            page["add_the_artwork"+((@image_array.index updateimage) ).to_s].replace_html 	:partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +   1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>false,:messageforimageuploaded=>nil}
+          end
+          page["enterartworkcompetition"].show
+          page["enterintocompetition"].hide
+          page["buylist"].hide
+          page["list_show"].show
+          page["add_the_artwork"+((@image_array.index updateimage) ).to_s].show
+          page["iteam_image"+((@image_array.index updateimage) ).to_s].show
+          i=i+1
+          break if @competitions_user.total_entry.to_i == i
+        end
+        #currently im hiding here the biography and thanku notes if they are shown but this need to be tested. and need to create some extra  add_the_artwork div
+        #after the flow is approved for salving the error
+        page["iteam_image"+(@competitions_user.total_entry.to_i).to_s].hide
+        page["iteam_image"+page.ale(@competitions_user.total_entry.to_i+1).to_s].hide
+        #page.alert(alertmessage)
+      end
+
+    end
+=end 
+     
+     render :update do |page|
+        page.alert(alertmessage)
+     end
+  end
+
+   
+   
+   
 
 
  def show_buy_competition_artwork

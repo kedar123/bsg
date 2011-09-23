@@ -123,6 +123,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/add_the_artwork_to_competition",:controller=>"competitions",:action=>"add_the_artwork_to_competition"
   map.connect "/competitions/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
   map.connect "/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
+   map.connect "/competitions/edit_images_frontbrowse",:controller=>"competitions",:action=>"edit_images_frontbrowse"
+  map.connect "/edit_images_frontbrowse",:controller=>"competitions",:action=>"edit_images_frontbrowse"
+
   map.connect "/competitions/add_the_artwork_link",:controller=>"competitions",:action=>"add_the_artwork_link"
   map.connect "/add_the_artwork_link",:controller=>"competitions",:action=>"add_the_artwork_link"
   map.connect "/competitions/delete_old_competitionuserdata",:controller=>"competitions",:action=>"delete_old_competitionuserdata"

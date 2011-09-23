@@ -96,10 +96,10 @@ function check_the_checkbox(){
                     Click <%=link_to_remote "Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
                           %>  To Edit your entry
                   <br/>    
-                Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
-                       %>  to browse all works
-                   <!--Click<%#=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                 <!--Click<%#=link_to_remote " Here", :update => "",:url => { :action => "edit_images_front", :id => @competition.id,:order_id=>@competitionuser[0].id }
                        %>  to browse all works-->
+                  Click<%=link_to_remote " Here", :update => "",:url => { :action => "edit_images_frontbrowse", :id => @competition.id,:order_id=>@competitionuser[0].id }
+                       %>  to browse all works
                  <br/>
                  Click<%=link_to_remote " Here", :update => "",:url => { :action => "create_subscribe_competition_front_edit", :id => @competition.id,:order_id=>@competitionuser[0].id }
                        %>  to enter more artworks
