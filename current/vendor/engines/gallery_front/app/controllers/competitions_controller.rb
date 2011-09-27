@@ -804,14 +804,13 @@
         if order.total_entry.to_i > i
 
 
-		      page["add_the_artwork#{i}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
-          #page["enterintocompetition"].hide
-          #page["add_the_artwork#{i}"].hide
-		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
-		      #page["click_to_browse_images"].show
+		      page["item_image0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
           page["list_show"].show
-          #page["add_the_artwork_to_competition_biography"].hide
-          page["iteam_image#{i}"].show
+          page.alert("u r in artwork")
+          page.alert("replace the itmm 0 with");
+          page["item_image0"].show
+          page["add_the_artwork_to_competition_biography"].hide
+          page["item_image0"].show
           page["add_the_artwork#{i}"].show
           page["show_ajax_request#{i}"].hide
 

@@ -40,7 +40,7 @@
                                   "<!--Size--> <%=a.competitions_user.send(size_array[image_array.index(a.image_name)])%><br/>" +
                                   "<%=a.competitions_user.send(medium_array[image_array.index(a.image_name)])%> <br/>" +
                                    "<%if a.paid==true%>paid<%else%>unpaid<%end%><br />"+
-                                  "<!--price-->  <%=a.competitions_user.send(price_array[image_array.index(a.image_name)]);%><br/>"+
+                                  "<!--price-->  $<%=a.competitions_user.send(price_array[image_array.index(a.image_name)]);%><br/>"+
                                     
                                   "<a onclick='sendselectrequest(<%=a.id%>);return false;' href='#'>select</a> | "+
                                   "<a onclick='maysendselectrequest(<%=a.id%>);return false;' href='#'>Maybe</a> | "+

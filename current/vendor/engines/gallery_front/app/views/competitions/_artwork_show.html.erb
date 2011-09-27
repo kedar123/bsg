@@ -12,6 +12,9 @@
    <%if (object.send title_array[j]) != nil  && !(object.send image_array[j]).blank? %>
            <div id="iteam" class="iteam">
                <div id ="details" style="display:none;">
+                 <p style="margin-bottom: 0.2em; white-space: normal;">
+                       <font size=2px><%=(object.user.profile.first_name) %> <%=(object.user.profile.last_name) %></font>
+                   </p>
                    <p style="margin-bottom: 0.2em; white-space: normal;">
                        <font size=2px><%=(object.send title_array[j]).capitalize if  (object.send title_array[j]) != nil %></font>
                    </p>

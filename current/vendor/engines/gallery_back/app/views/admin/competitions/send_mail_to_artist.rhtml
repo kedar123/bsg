@@ -128,19 +128,20 @@ function addselectedvaluetobody(){
   <p>
   <label class="labeloverride">Body </label>
   
-  <%= f.text_area :body ,:rows=>12,:cols=>45, :value=>@emailsendarray.join(",") + "is being selected for" + @artworkarray.join(",") + ""%>
+  <%#= f.text_area :body ,:rows=>12,:cols=>45, :value=>@emailsendarray.join(",") + "is being selected for" + @artworkarray.join(",") + ""%>
+  <%= f.text_area :body ,:rows=>12,:cols=>45%>
   </p>
   <br/>
   <%ost=""%>
    <% @competition.prizes_detail.each do |st| %>
   	<%ost= ost+"<option value='#{st}'> #{st}</option>"%>
    <%end%>
-  <% if  @competition.state == "results_publish"%>
-      <label class="labeloverride">Prize </label>
+  <%# if  @competition.state == "results_publish"%>
+      <!--<label class="labeloverride">Prize </label>-->
       
-        <%=select_tag "prize", "<option value='select'> select</option>"+ost,:onchange=>"addselectedvaluetobody();"%>
-      <br/>
-  <%end%>    
+        <%#=select_tag "prize", "<option value='select'> select</option>"+ost,:onchange=>"addselectedvaluetobody();"%>
+      <!--<br/>-->
+  <%#end%>
  <label class="labeloverride">Signature </label>
 <textarea rows="2" cols="20" name="signature" id="signature" > 
 

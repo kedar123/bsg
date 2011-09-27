@@ -19,62 +19,62 @@
                    <p style="margin-bottom: 0.2em; white-space: normal;">
                        <font size=2px><%=(object.competitions_user.send title_array[j]).capitalize if  (object.competitions_user.send title_array[j]) != nil %></font>
                    </p>
-                   <p style="white-space: normal;">                  
+                   <p style="white-space: normal;">
                         <%= (object.competitions_user.send medium_array[j]).capitalize  %>
-                   </p> 
-                   <p style="white-space: normal;">                  
+                   </p>
+                   <p style="white-space: normal;">
  <%= object.competitions_user.send(size_array[j].to_sym).split('x').each{|m|m.capitalize!}.join(' x ')  %> cm
                 </p>
                    </p>
-                   <%if (object.competitions_user.send sold_array[j]) == true%>               
-                    <%else%> 
+                   <%if (object.competitions_user.send sold_array[j]) == true%>
+                    <%else%>
                     <% if object.competitions_user.price %>
-                      <p style="white-space: normal;">                  
+                      <p style="white-space: normal;">
                           <% if ( !(object.competitions_user.send price_array[j]).blank?   )%>
                                   <%= '$' + (object.competitions_user.send price_array[j]).to_s %>
                           <% end %>
-                      </p>  
+                      </p>
                     <% end %>
-                      
-                    
-                    <%if ( !(object.competitions_user.send(editionnamearray[j])).blank?)%>  
+
+
+                    <%if ( !(object.competitions_user.send(editionnamearray[j])).blank?)%>
                          <p>
                            <%=object.competitions_user.send(editionnamearray[j])%>
-                           <%if ( !(object.competitions_user.send(editionnumberarray[j])).blank?)%>  
-                           
+                           <%if ( !(object.competitions_user.send(editionnumberarray[j])).blank?)%>
+
                             of <%=object.competitions_user.send(editionnumberarray[j])%>
                            <%end%>
-                         </p>  
+                         </p>
                     <%end%>
-                    <%end%>     
-                         
-                      
-                      
+                    <%end%>
+
+
+
                    <div id="shoppingcartlink<%=object.competitions_user.id%><%=object.competitions_user.class.to_s%><%=image_array[j].to_s%>">
-                    
+
                    <% if @current_user &&  (!session[:cart].blank? && !session[:cart].has_key?(object.competitions_user.class.to_s+'_'+object.competitions_user.id.to_s) ||    object.competitions_user.user_id != @current_user.id ) %>
-                    <%#= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
-                       
-                        <%if (((object.competitions_user.send sold_array[j]) == nil) or ((object.competitions_user.send sold_array[j]) == false))%>  
+                    <%= link_to 'add to the cart', add_to_cart_admin_orders_path(:orderable_type => object.class.to_s, :orderable_id => object.id.to_s+"_"+image_array[j].to_s, :number => 1) %>
+
+                        <%if (((object.competitions_user.send sold_array[j]) == nil) or ((object.competitions_user.send sold_array[j]) == false))%>
                             <%=link_to_remote '<img src="/images/buy.jpeg"/>', :update => "",
                                 :url => {:controller=>"shoppingcart",:action=>"add_to_cart",:orderable_type => object.competitions_user.class.to_s, :orderable_id => object.competitions_user.id, :number => 1,:eachimage=>image_array[j].to_s}%>
-                        <%else%>          
+                        <%else%>
                                 already sold
                         <%end%>
                   <%else%>
-                                
+
                     <% end %>
-                    </div>  
+                    </div>
                     <%if !session.blank? && !session[:cart].blank?  &&  session[:cart].has_key?(object.competitions_user.class.to_s+'_'+object.competitions_user.id.to_s) %>
                               <%= "already in the cart !!"  %>
-                    <%end%>     
+                    <%end%>
                     <%if current_user.blank?%>
-                        <%if (object.competitions_user.send sold_array[j]) == true%>               
+                        <%if (object.competitions_user.send sold_array[j]) == true%>
                           already sold
                          <%else%>
                           <a href="/login/?comp=competition-<%=params[:competition_id]%>" method='post' ><img src="/images/buy.jpeg"/> </a>
-                         <%end%> 
-                    <%end%>  
+                         <%end%>
+                    <%end%>
                  </div>
                   <%if  object.competitions_user.artworks_competitions.find(:first,:conditions=>"state='selected' or state='winner' and image_name = '#{image_array[j]}'")%>
                       <div id="iteam_image">  
