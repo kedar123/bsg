@@ -655,21 +655,23 @@
     render :update do |page|
       if @order.total_entry.to_i > i  
        # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
-        page["add_the_artwork#{i}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
+        page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
         page["enterintocompetition"].hide
         page["pleaseaccepttermsandcondition"].hide
         page["pleaseaccepttccheckbox"].hide
         page["show_ajax_request"].hide
         page["list_show"].show
         
-        page["iteam_image#{i}"].show
-        page["add_the_artwork#{i}"].show
-        page["add_the_artwork#{i}"].focus
-        page["modal_space_answer"].hide
+        page["add_the_artwork0"].show
+        page["iteam_image0"].show
         
-        for j in i+1..20
-          page["iteam_image#{j}"].hide
-        end
+        #page["add_the_artwork#{i}"].show
+        #page["add_the_artwork#{i}"].focus
+        #page["modal_space_answer"].hide
+        
+        #for j in i+1..20
+         # page["iteam_image#{j}"].hide
+        #end
         
       else  
         page.alert("Your Limit Is Over")
@@ -804,16 +806,16 @@
         if order.total_entry.to_i > i
 
 
-		      page["add_the_artwork#{i}"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+		      page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
           #page["enterintocompetition"].hide
           #page["add_the_artwork#{i}"].hide
 		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
 		      #page["click_to_browse_images"].show
           page["list_show"].show
           #page["add_the_artwork_to_competition_biography"].hide
-          page["iteam_image#{i}"].show
-          page["add_the_artwork#{i}"].show
-          page["show_ajax_request#{i}"].hide
+          page["iteam_image0"].show
+          page["add_the_artwork0"].show
+          page["show_ajax_request0"].hide
 
         else
           page["show_ajax_request#{i-1}"].hide
@@ -830,14 +832,14 @@
     current_user.profile.save
     order = CompetitionsUser.find(params[:order_id])
     render :update do |page|
-        page["add_the_artwork#{params[:total_entry].to_i+1}"].replace_html order.competition.notes
+        page["add_the_artwork0"].replace_html order.competition.notes
         page["pleaseaccepttermsandcondition"].hide
         page["pleaseaccepttccheckbox"].hide
         page["show_ajax_request"].hide
         page["list_show"].show
-        page["iteam_image#{params[:total_entry].to_i+1}"].show
-        page["add_the_artwork#{params[:total_entry].to_i+1}"].show
-        page["show_ajax_request#{params[:total_entry].to_i}"].hide
+        page["iteam_image0"].show
+        page["add_the_artwork0"].show
+        page["show_ajax_request0"].hide
     end
   end
    
