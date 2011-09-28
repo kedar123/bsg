@@ -24,7 +24,7 @@
                                  
                                  
                                   <%winnerselectlink = "<a onclick='sendwinnerrequest(#{a.id});return false;'  href='#'>Winner</a>"%>
- <%winnerselectlink = winnerselectlink + "<br/>"+"<input  type='text' name='winnermessage' id='winnermessage#{a.id}' />"%>
+ <%winnerselectlink = winnerselectlink + "<br/>"+"<input  type='text' name='winnermessage' id='winnermessage#{a.id}' value='#{a.message}' />"%>
                                     
                                 <%else%>
                                   <%winnerselectlink = ""%>

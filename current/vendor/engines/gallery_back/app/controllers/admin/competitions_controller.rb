@@ -140,7 +140,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
  
         
        else
-         p "im nil"
+         #p "im nil"
          p all_the_recipient
          p "mmm"
          all_the_recipient.each do |to_address|  
@@ -150,11 +150,11 @@ class Admin::CompetitionsController < Admin::ApplicationController
         p "sometimes above is nil"
         all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
         p all_selected_artworks
-        p "selected artwork is nil"
+       # p "selected artwork is nil"
         for selected_artwork in all_selected_artworks
           
         
-        EmailSystem::deliver_email_notification_selected(to_address.to_s,@message.subject.to_s,@message.body.to_s,selected_artwork)
+        EmailSystem::deliver_email_notification_selected(to_address,@message.subject,@message.body,selected_artwork)
         
         end
       end

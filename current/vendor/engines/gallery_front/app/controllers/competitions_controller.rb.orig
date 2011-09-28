@@ -10,8 +10,6 @@
     
   def show
     @competitions = Competition.all.sort {|x,y| x.title <=> y.title }
-    p "im in competition show method!!!!!!!!!!!!!!!!!!!!!!!1"
-    p @competitions
 		if params[:competition_id]
 			@competition = Competition.find(params[:competition_id])
 	 	else
@@ -28,12 +26,8 @@
     else
       if params[:competition_id]
         @competitionuser = CompetitionsUser.find_by_competition_id(params[:competition_id])
-        p "im checking not logged in status@@@@@@@@@@@@@@@@@@@@@@"
-        p @competitionuser
     	else
         @competitionuser = CompetitionsUser.find_by_competition_id(@competition.id) if @competition
-        p "im checking not logged in status$$$$$$$$$$$$$$$$$$$$$$$44$$$$4"
-        p @competitionuser
     	end
     end  
     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@competition.id.to_s+"competition"])  if @competition
@@ -812,6 +806,17 @@
         if order.total_entry.to_i > i
 
 
+<<<<<<< HEAD
+		      page["item_image0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+          page["list_show"].show
+          page.alert("u r in artwork")
+          page.alert("replace the itmm 0 with");
+          page["item_image0"].show
+          page["add_the_artwork_to_competition_biography"].hide
+          page["item_image0"].show
+          page["add_the_artwork#{i}"].show
+          page["show_ajax_request#{i}"].hide
+=======
 		      page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
           #page["enterintocompetition"].hide
           #page["add_the_artwork#{i}"].hide
@@ -822,6 +827,7 @@
           page["iteam_image0"].show
           page["add_the_artwork0"].show
           page["show_ajax_request0"].hide
+>>>>>>> 970c6a3ca8e8f9b88aa1d4d12a5fb84d3721cc44
 
         else
           page["show_ajax_request#{i-1}"].hide
@@ -1272,15 +1278,6 @@
 
     if @competition.state == "final_published"
       alertmessage = @competition.publishfinalmsg
-
-      if alertmessage.blank?
-         alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
-       end
-    end
-
-
-     if @competition.state == "results_publish"
-      alertmessage = @competition.resultmsg
 
       if alertmessage.blank?
          alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"

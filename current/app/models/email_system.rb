@@ -26,10 +26,16 @@ class EmailSystem < ActionMailer::Base
      body         :theemail => dodyofmail
      content_type "text/html"
   
-      attachment :content_type => 'image/jpeg', :filename =>  "#{RAILS_ROOT}/public/uploaded_files/competition/artwork/#{artwork_selected.id}/medium/#{artwork_selected.avatar_file_name}"
+      #attachment :content_type => 'image/jpeg', :filename =>  "#{RAILS_ROOT}/public/uploaded_files/competition/artwork/#{artwork_selected.id}/medium/#{artwork_selected.avatar_file_name}"
  
 
-    part :content_type => "text/html", :body => dodyofmail
+    #part :content_type => "text/html", :body => dodyofmail
+
+    attachment "image/jpeg" do |a|
+    a.body = File.read("public/images/bsg.png")
+    a.filename = "bsg.png"
+    a.body = File.read("#{RAILS_ROOT}/public/uploaded_files/competition/artwork/#{artwork_selected.id}/medium/#{artwork_selected.avatar_file_name}")
+  end
     
   
      

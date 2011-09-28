@@ -5,6 +5,8 @@ class VisitorsController < ApplicationController
 	def home_page
 		@pramoting_stuff = PromotingStuff.find(:all,:limit=>3,:order=>"created_at desc")
 		@front_image = Frontendpic.find(:all,:conditions =>[" selectpic = ? ",1],:order=>"created_at desc")
+    p "checking images on front page 44444444444$$$$$$$$$$$$$$$$$"
+    p @front_image
     if logged_in?
       @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",current_user.id])
        image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
