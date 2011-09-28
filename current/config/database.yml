@@ -6,7 +6,7 @@ DEFAULTS: &DEFAULTS
 #  password: global786
   host: localhost
   username: root
-  password: root
+  password: global
   # JRuby doesn't support # JRuby doesn't support socket:
                           #socket:
   # JRuby doesn't support socket:

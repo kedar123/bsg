@@ -29,9 +29,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                if pdfpath.blank?
                  pdfpath = "#{RAILS_ROOT}/public/pdf_invoice/#{invoice_id}invoice.pdf"
                end
-                p pdfpath
-                p pdf_path
-                p "this is pdfpath"
+               
                Prawn::Document.generate("#{pdfpath}", :page_layout => :landscape) do
                bsg = "#{RAILS_ROOT}/public/images/bsgpdf.png"  
                image bsg, :at => [10,540] ,:width=>100,:height=>100

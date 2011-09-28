@@ -114,7 +114,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
      @message = current_user.sent_messages.build(params[:message])
      @message.prepare_copies(params[:message][:email])
      @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
-     
+    
      all_the_recipient = params[:message][:email].split(',')
        #attachments.inline['@artworkarray'] = File.read("/system/gallery/<%=@artworkarray[0]%>")
        if params[:msg] == "unpaid"#here i need to attach the pdf files for users unpaid value.may be i need to create it here
@@ -140,15 +140,22 @@ class Admin::CompetitionsController < Admin::ApplicationController
  
         
        else
+         p "im nil"
+         p all_the_recipient
+         p "mmm"
          all_the_recipient.each do |to_address|  
         user = User.find_by_email(to_address)
         competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
-        @a=params[:competitionid]
+        p competition_user_id
+        p "sometimes above is nil"
         all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
-        puts "&&&((()))))))%%%%%%%%%%$$$$$$$$$$$$$$"
-        puts all_selected_artworks.inspect
+        p all_selected_artworks
+        p "selected artwork is nil"
         for selected_artwork in all_selected_artworks
-        EmailSystem::deliver_email_notification_selected(to_address,@message.subject,@message.body,selected_artwork)
+          
+        
+        EmailSystem::deliver_email_notification_selected(to_address.to_s,@message.subject.to_s,@message.body.to_s,selected_artwork)
+        
         end
       end
        end 

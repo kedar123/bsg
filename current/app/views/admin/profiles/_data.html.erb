@@ -85,13 +85,13 @@
             s = new slide();
             s.src = "/uploaded_files/competition/artwork/<%=a.id%>/thumb/<%=a.avatar_file_name%>";
              
-            s.link = "/uploaded_files/competition/artwork/<%=a.id%>/thumb/<%=a.avatar_file_name%>";
+            s.link = "/uploaded_files/competition/artwork/<%=a.id%>/original/<%=a.avatar_file_name%>";
             s.slideshowid = '<%=a.id%>';
             s.title = "<%=a.competitions_user.send(title_array[image_array.index(a.image_name)])%>";
             s.text = "<%#=a.competitions_user.user.profile.first_name%><%#=a.competitions_user.user.profile.last_name%><%=a.competitions_user.send(title_array[image_array.index(a.image_name)])%>      \n"+
-              "Size <%=a.competitions_user.send(size_array[image_array.index(a.image_name)])%>    \n" + 
+              "  <%=a.competitions_user.send(size_array[image_array.index(a.image_name)])%>    \n" + 
               "<%=a.competitions_user.send(medium_array[image_array.index(a.image_name)])%>  \n" + 
-              "price  $<%=a.competitions_user.send(price_array[image_array.index(a.image_name)]);%>";
+              "   $<%=a.competitions_user.send(price_array[image_array.index(a.image_name)]);%>";
             ss<%=cu.competition_id%>.add_slide(s);
         <%end%>       
       <%end%> 		

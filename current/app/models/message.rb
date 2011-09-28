@@ -19,8 +19,8 @@ class Message < ActiveRecord::Base
     if emailid.blank?
     else  
         emailid.split(',').each do |recipient|
-          recipient = User.find_by_email(recipient)
-          message_copies.build(:recipient_id => recipient.id, :mailfolder_id => recipient.inbox.id)
+          recipientf = User.find_by_email(recipient)
+           message_copies.build(:recipient_id => recipientf.id, :mailfolder_id => recipientf.inbox.id)
         end
     end  
   end
