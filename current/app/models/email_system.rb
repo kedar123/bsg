@@ -44,19 +44,20 @@ class EmailSystem < ActionMailer::Base
 
 
 
-  def email_notification_unpaid(toaddress , subjectofmail , dodyofmail,pdffilename)
+def email_notification_unpaid(toaddress , subjectofmail , dodyofmail,pdffilename)
      recipients   toaddress
      from         "test@pragtech.co.in"
      subject      subjectofmail
      body         "theemail" => dodyofmail
     content_type   "text/html"
-       
+
     attachment "application/pdf" do |a|
         a.body = File.read("#{RAILS_ROOT}/public/unpaid_invoice/#{pdffilename}")
         a.filename = "#{pdffilename}.pdf"
         end
-  end
-  def send_selected_exhibiion_user_email(toaddress , subjectofmail , dodyofmail)
+ end
+  
+def send_selected_exhibiion_user_email(toaddress , subjectofmail , dodyofmail)
     recipients   toaddress
      from         "test@pragtech.co.in"
      subject      subjectofmail
