@@ -137,9 +137,12 @@
                 <span id="changethelineinfo" style="padding-top:0px;">
                 </span>  
                 
-                <script>
+                <!--<script>
 	      	document.getElementById("change_entry_fee").selectedIndex=change_the_required_field_value(<%=order.total_entry%>)
-	      </script>
+	      </script>-->
+              <script>
+                     document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>;
+             </script>
                 <div id="credit_card_fields" style="display: block">
                             <% fields_for credit_card do |ff| %>
                             <%= ff.hidden_field :user_id, :value => @current_user.id %>
