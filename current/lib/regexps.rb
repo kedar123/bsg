@@ -6,7 +6,7 @@
 ALPHA_AND_EXTENDED = /[a-zA-Z\'éèêëôöàäùüç]/
 SPECIAL = /[\'\ \-\.,]/
 NUM = '[0-9]'
-URL = /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/
+URL = /^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/
 
 RE_EMAIL_NAME   = '[\w\.%\+\-]+'                          # what you actually see in practice
 #RE_EMAIL_NAME   = '0-9A-Z!#\$%\&\'\*\+_/=\?^\-`\{|\}~\.' # technically allowed by RFC-2822
