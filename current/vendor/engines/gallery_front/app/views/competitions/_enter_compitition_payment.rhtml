@@ -71,7 +71,7 @@
                                                 
                                                 
                                                 
-								function change_the_required_field_value(entry_fee_value_for_calculation){
+					function change_the_required_field_value(entry_fee_value_for_calculation){
 						  changed_value = 0
 						    for (myvalue=0;myvalue<=entry_fee_value_for_calculation;myvalue++)
 						    {
@@ -101,7 +101,7 @@
 								  <input type="hidden" id="mychangevalue<%#=i%>" value="<%#=x.split('$')[1]%>">
 								  <%#i=i+1%>
 								<%#end%>			
-                                                          -->        
+                                                            -->      
 								<!--
                 <div>
                   		  <%#=link_to_remote "Edit Artworks", :update => "",:url => { :action => "edit_images_front", :id => competition.id,:order_id=>order.id }%>
@@ -124,6 +124,7 @@
                 </select>
             		<div style="float:left">
                     		<input type="hidden" id="order_id" name="order_id" value="<%=order_id%>"/>		
+                                 
                         </div> 
                         <select id ="change_entry_fee" style="width:65px;height:25px;margin-right:25px;text-align: center" disabled="disabled">
                           <option value="0">0</option>  
@@ -138,7 +139,7 @@
                 </span>  
                 
                 <script>
-	      	document.getElementById("change_entry_fee").selectedIndex=change_the_required_field_value(<%=order.total_entry%>)
+	      	document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>;
 	      </script>
                 <div id="credit_card_fields" style="display: block">
                             <% fields_for credit_card do |ff| %>
