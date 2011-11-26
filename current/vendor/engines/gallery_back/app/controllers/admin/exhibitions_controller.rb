@@ -227,7 +227,14 @@ end
   def  create_group_show
     groupshow = Groupshow.new
     groupshow.title = params[:exhibition][:title]
-    groupshow.gallery_id = params[:exhibition][:timing_attributes][:gallery_ids].join(",")
+    #to fix the error i have to redirect from here saying the message that at least select one gallery
+    if params[:exhibition][:timing_attributes][:gallery_ids].blank?
+      flash[:notice] = "Please Select At Least One Gallery"
+      redirect_to :back  and return
+    else
+      groupshow.gallery_id = params[:exhibition][:timing_attributes][:gallery_ids].join(",")
+    end
+    
     groupshow.description = params[:exhibition][:description]
     groupshow.note = params[:exhibition][:timing_attributes][:note]
     period = Period.find(params[:exhibition][:timing_attributes][:period_id])
