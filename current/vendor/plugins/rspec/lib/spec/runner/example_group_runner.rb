@@ -12,7 +12,7 @@ module Spec
         # the one using DRb may choose *not* to load files, but instead tell
         # someone else to do it over the wire.
         files.each do |file|
-         # load file
+          load file
         end
       end
 

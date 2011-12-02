@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe UserMailer do
   fixtures(:users)
   include ActionMailer::Quoting
-  include Configuration
+ # include Configuration
 
   def object
     UserMailer.new
