@@ -38,7 +38,9 @@
           {:label => 'Published:', :hint => 'Required for the resource to be published to the website'} %>
       <% end -%>
       <%= capture(f, &block) %>
-      <%= blank_form_submit_button(:object => current_object) %>
+      
+      <%= blank_form_submit_button(:object => current_object,:remote=>remote,:url=>url) %>
+
 <% end %>
 
   <div class="rightBlocks">
@@ -50,6 +52,7 @@
         <%= I18n.t('general.field.updated_at')+' '+I18n.l(current_object.updated_at, :format => :verb) %>
       <% end %>
     </div>
+<!--
     <div class="itemShowRightBlock">
       <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
         <%= "Creator" %>
@@ -63,6 +66,8 @@
         <% end %>
       </div>
     </div>
+-->
+
     <% if is_activated_keyword_part %>
     <div class="itemShowRightBlock">
       <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">

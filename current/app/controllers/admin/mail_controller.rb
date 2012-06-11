@@ -377,8 +377,10 @@ class Admin::MailController < ApplicationController
        @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
     end  
     all_the_recipient = params[:user][:email].split(',')
-   
+    begin   
     EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+    rescue
+    end
     if @message.save
       flash[:notice] = "Message sent."
       redirect_to :action => "index"
@@ -573,19 +575,21 @@ class Admin::MailController < ApplicationController
  
  
   def create_temporary_inbox
-    #a=User.find(:all)
-    #a.each do |x|
-    #  m=Mailfolder.new(:user_id=>x.id,:name=>"inbox")
-    #  m.save
-   # end
-#   if user = User.find_by_email('kedar.pathak@pragtech.co.ing')
-#       p "yes im in ifififi"  
-#       p user
-#   else  
-#       p "no i did not find the user"
-#       p user
-#       p "it is nil"
-#   end
+    a=User.find(:all)
+    a.each do |x|
+     if Mailfolder.find(:first,:conditions=>["user_id = ?",x.id]).blank?
+      m=Mailfolder.new(:user_id=>x.id,:name=>"inbox")
+      m.save
+     end 
+    end
+   if user = User.find_by_email('kedar.pathak@pragtech.co.ing')
+       p "yes im in ifififi"  
+       p user
+   else  
+       p "no i did not find the user"
+       p user
+       p "it is nil"
+   end
    
   end   
  

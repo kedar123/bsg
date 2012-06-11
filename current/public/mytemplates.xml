@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Templates imagesBasePath="/images/templates/">
+  <Template title="My Template 1" image="template1.gif">
+    <Description>Description of my template 1.</Description>
+    <Html>
+      <![CDATA[
+                <body>
+
+<div align="left" style="position:absolute;margin:-20px 0;width:100%;background-color:#ffffff;">
+<div style="width:600px;margin-top:10px;height:100%">
+<div style="width:100%;margin-top:10px;">
+<a href="http://www.bsgart.com.au/" target="_blank" title="BRUNSWICK STREET GALLERY"> <height="12px" alt="BRUNSWICK STREET GALLERY" hspace="1" vspace="3" /></a><br />
+</div>
+<div style="text-align:left;border:solid #777d85 1px;background-color:#ffffff">
+<table align="center" cellspacing="15" cellpadding="0">
+<tr valign="top">
+<td colspan=”4”>
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td width="20px" rowspan="12">
+<br />
+</td><td colspan=”1”>
+
+             <p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:24px; margin-top:0; margin-bottom:0px">NEW SHOWS AT BSG</p>
+<p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:14px; margin-top:0; margin-bottom:5px">Please come and join us for drinks with the artists at BSG this Friday 18 November at 6pm. All welcome</p>
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12px; margin-top:0; margin-bottom:0.1px">322 Brunswick Street, Fitzroy. Cnr Argyle St. Free event.</p>
+
+
+</td><td rowspan="8">
+
+
+
+<p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:14PX; margin-top:0; margin-bottom:0.1px"><span style="color:#000000">CALLING FOR ENTRIES<br/</p>
+            <p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12PX; margin-top:0; margin-bottom:0.1px"> $10,000 BSg 40x40 Prize & Exhibition. Be part of our last and biggest show for the year running from 21 Dec 2011 through to 16 Jan 2012. All entries exhibited in our 40x40x40cm show. Sculpture, Painting, Photography, Mixed Media, Printmaking, Drawing, Video - any medium welcome as long as it is no larger than 40x40x40cm. You can find more details and enter online at <a href="http:///www.bsgart.com.au”> www.bsgart.com.au</a></p><br />
+
+    <p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:14PX; margin-top:0; margin-bottom:0.1px"><span style="color:#000000">ART SALE - Most works $25</p>
+             <p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12PX; margin-top:0; margin-bottom:0.1px">Grab a bargain for Xmas at our annual clearance sale. Most works $25 or make an offer. Everything must sell. Ask at reception when you come into the gallery</p><br />
+
+   
+<p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:14PX; margin-top:0; margin-bottom:0.1px"><span style="color:#000000">STUDIOS FOR RENT</p>
+             <p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12PX; margin-top:0; margin-bottom:0.1px">Be quick to secure one of our 13 light-filled studios on the cnr of Brunswick and Johnston Sts in Fitzroy - just opposite the gallery. From $60 pw inc all outgoings and internet. Contact Tessa on 0419 390 478 or <a href="mailto:tessa@bsgart.com.au”> tessa@bsgart.com.au</a></p><br />
+
+ <p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:14PX; margin-top:0; margin-bottom:0.1px"><span style="color:#000000">LIFE DRAWING</p>
+             <p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12PX; margin-top:0; margin-bottom:0.1px">We are pleased to announce that Life Drawing is now up and running again. <br />Thursdays 6.30-8.30pm. Tutor Amanda Schunker of Roar Drawing.<br />The classes are relaxed and open to everyone with tuition for those who want it. For more information call Amanda on 0425 735 266 or <a href="http://www.roardrawing.com.au”>www.roardrawing.com.au</a></p><br />
+
+         <p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:14PX; margin-top:0; margin-bottom:0.1px"><span style="color:#000000">CALLING FOR VOLUNTEERS</p>
+             <p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12PX; margin-top:0; margin-bottom:0.1px">If you would like to gain experience working in a gallery installing exhibitions, dealing with clients, organising shows and a have a few hours to spare each week contact  <a href="mailto:tessa@bsgart.com.au”>tessa@bsgart.com.au</a></p><br />
+
+<p style="color:#000000; font-family:Arial,Helvetica,sans-serif; font-size:14PX; margin-top:0; margin-bottom:0.1px"><span style="color:#000000">JOINT SHOWS</p>
+
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12PX; margin-top:0; margin-bottom:0.1px">We recognise that it is difficult for many artists to afford putting on their own show so we are inviting artists who are interested in showing with one, two or three others to email samples of your work to <a href="mailto:tessa@bsgart.com.au”>tessa@bsgart.com.au</a> and we will pair you up with other appropriate artists to have a joint show. In this way you can have a show of your work for as little as $225 including invites, advertising and opening night expenses.</p><br />
+
+
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14PX; margin-top:0; margin-bottom:0.1px"><span style="color:#000000">FREE VIDEO SPACE</p>
+
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:12PX; margin-top:0; margin-bottom:0.1px">We are now accepting applications for our video space for 2011. The space is free. Send your work or a weblink to your work to apply.</p><br />
+
+
+
+
+
+</td>
+<td width="20px" rowspan="1">
+<br />
+</td>
+</tr>
+<tr valign="top">
+<td colspan=”1”>
+
+
+
+
+           <img src="http://bsgart.com.au/Resources/jane.jpg" border=0 width="363px" height="367px" alt="3"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">Nothing More Nothing Less, Jane Reynolds <p>
+
+                                      </td></tr><tr valign="top"><td>
+
+
+  <img src="http://bsgart.com.au/Resources/isaac.jpg" border=0 width="363px" height="545px" alt="1"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">From the Band Room, Isaac Panaretos</p>
+
+                                
+                                     </td></tr><tr valign="top"><td>
+
+
+  <img src="http://bsgart.com.au/Resources/joshua.jpg" border=0 width="363px" height="288px" alt="3"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">Joshua Hede Paintings, Joshua Hede</p>
+
+                                      </td></tr><tr valign="top"><td>
+
+            <img src="http://bsgart.com.au/Resources/lucinda.jpg" border=0 width="363px" height="242px" alt="1"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">Misery Loves Company, Lucinda Wolber</p>
+
+                                      </td></tr><tr valign="top"><td>
+
+
+  <img src="http://bsgart.com.au/Resources/shannon.jpg" border=0 width="363px" height="363px" alt="3"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">Between the Sky and the Ground, Shannon Johnson and Ganbold Lundaa</p>
+
+                                      </td></tr><tr valign="top"><td>
+
+
+
+  <img src="http://bsgart.com.au/Resources/colin.jpg" border=0 width="363px" height="497px" alt="3"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">Soul Moments, Colin Staples</p>
+
+ </td></tr><tr valign="top"><td>
+
+
+
+  <img src="http://bsgart.com.au/Resources/michelle.jpg" border=0 width="363px" height="535px" alt="3"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">On the Wall: Paintings and Lithographs, Michelle Molinari</p>
+
+ </td></tr><tr valign="top"><td>
+
+
+
+  <img src="http://bsgart.com.au/Resources/anne.jpg" border=0 width="363px" height="241px" alt="3"="2" /p><br />
+<p style="color:#777d85; font-family:Arial,Helvetica,sans-serif; font-size:14px">Alternate Spaces, An bao, Mehrzad Mosaleheh, Evelyn Vargas, Manickam Bala, Jenny Jones, Steve Forbes </p>
+
+
+    </td></tr>
+
+</table>
+</div>
+<div style="width:100%;height:100px;">
+
+<p style="color:#777d85; font-size:1PX; text-align:center">322 Brunswick St, Fitzroy 3065. (opp Bar Open) Ph 0419 390 478 Hours 10am to 10pm, Tue - Sun<br />mark@brunswickstreetgallery.com.au</p>
+
+<p style="color:#777d85; font-size:12PX; letter-spacing:0.8px; text-align:center;margin-bottom:0"><a href="mailto:subs@bsgart.com.au" title="Remove">Remove yourself from this mailing list here.</a></p>
+
+</div>
+</div>
+</div>
+</body>
+      ]]>
+    </Html>
+  </Template>
+  <Template title="My Template 2">
+    <Html>
+      <![CDATA[
+	<body>
+<div style="text-align: left; border: 1px solid rgb(119, 125, 133); background-color: rgb(255, 255, 255);">
+<table cellspacing="15" cellpadding="0" align="center">
+<tbody><tr valign="top">
+<td colspan="4">
+<br>
+</td>
+</tr>
+<tr valign="top">
+<td width="20px" rowspan="12">
+<br>
+</td><td colspan="1">
+
+
+<p style="color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 24px; margin-top: 0pt; margin-bottom: 0px;">NEW SHOWS AT BSG</p>
+<p style="color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 14px; margin-top: 0pt; margin-bottom: 5px;">Please come and join us for drinks with the artists at BSG this Friday 1 July at 6pm. All welcome</p>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 12px; margin-top: 0pt; margin-bottom: 0.1px;">322 Brunswick Street, Fitzroy. Cnr Argyle St. Free event.</p>
+
+</td><td rowspan="8">
+
+
+<p style="color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 14px; margin-top: 0pt; margin-bottom: 0.1px;"><span style="color: rgb(0, 0, 0);">$10,000 BSG ART PRIZE</span></p>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 11px; margin-top: 0pt; margin-bottom: 0.1px;">Entries are now open for the 2011 BSG Art Prize and Exhibition. Entries can be any medium, any theme, framed or unframed. 50 finalists selected. Deadline for entries Sun 31 July 2011. Show runs 12-25 Aug 2011. Details and enter online at <a target="_blank" href="http://www.bsgart.com.au/bsgap11details.html">www.bsgart.com.au</a></p><br>
+
+
+<p style="color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 14px; margin-top: 0pt; margin-bottom: 0.1px;"><span style="color: rgb(0, 0, 0);">LIFE DRAWING <br>ON AGAIN</span></p>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 11px; margin-top: 0pt; margin-bottom: 0.1px;">We are pleased to announce that Life Drawing is now up and running again. <br>Tuesdays 6.30-8.30pm Tutor Sean Smith.<br>Thursdays 6.30-8.30pm. Thursdays Class will be suspended from the 4-18 July while tutor Amanda Schunker of Roar Drawing is on holiday. Thursday classes will resume on the 21 July.<br>The classes are relaxed and open to everyone with tuition for those who want it. For more information call Sean on 0488 567 883 or Amanda on 0425 735 266 or <a target="_blank" href="http://www.roardrawing.com.au">www.roardrawing.com.au</a></p><br>
+
+<p style="color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 14px; margin-top: 0pt; margin-bottom: 0.1px;"><span style="color: rgb(0, 0, 0);">CALLING FOR ENTRIES</span></p>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 11px; margin-top: 0pt; margin-bottom: 0.1px;">Two new group shows curated by curatorial interns at BSG this year: Folk Art/Fine Art curated by Pan Gong will be an exhibition  of contemporary interpretations of traditional asian folk art. Fashion as Art, curated by Jasmin McNeill will explore the ways fashion can embody the essence of the artist through a variety of mediums including fashion photography, costume design, illustration and textiles. All mediums are welcome. For more information or to apply email  <a target="_blank" href="mailto:info@bsgart.com.au"> info@bsgart.com.au</a></p><br>
+
+<p style="color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 14px; margin-top: 0pt; margin-bottom: 0.1px;"><span style="color: rgb(0, 0, 0);">CALLING FOR VOLUNTEERS</span></p>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 11px; margin-top: 0pt; margin-bottom: 0.1px;">If you would like to gain experience working in a gallery installing exhibitions, dealing with clients, organising shows and a have a few hours to spare each week contact  <a target="_blank" href="mailto:tessa@bsgart.com.au">tessa@bsgart.com.au</a></p><br>
+
+<p style="color: rgb(0, 0, 0); font-family: Arial,Helvetica,sans-serif; font-size: 14px; margin-top: 0pt; margin-bottom: 0.1px;"><span style="color: rgb(0, 0, 0);">JOINT SHOWS</span></p>
+
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 11px; margin-top: 0pt; margin-bottom: 0.1px;">We recognise that it is difficult for many artists to afford putting on their own show so we are inviting artists who are interested in showing with one, two or three others to email samples of your work to <a target="_blank" href="mailto:tessa@bsgart.com.au">tessa@bsgart.com.au</a> and we will pair you up with other appropriate artists to have a joint show. In this way you can have a show of your work for as little as $225 including invites, advertising and opening night expenses.</p><br>
+
+
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px; margin-top: 0pt; margin-bottom: 0.1px;"><span style="color: rgb(0, 0, 0);">FREE VIDEO SPACE</span></p>
+
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 11px; margin-top: 0pt; margin-bottom: 0.1px;">We are now accepting applications for our video space for 2011. The space is free. Send your work or a weblink to your work to apply.</p><br>
+
+
+
+
+
+</td>
+<td width="20px" rowspan="1">
+<br>
+</td>
+</tr>
+<tr valign="top">
+<td colspan="1">
+
+
+
+
+<img border="0" width="363px" height="434px" alt="1" src="http://bsgart.com.au/Resources/sean.jpg"><br>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px;">Ritalin&reg;, Sean O'Carroll</p>
+
+
+</td></tr><tr valign="top"><td>
+
+<img border="0" width="363px" hspace="2" height="420px" style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px;" alt="2" src="http://bsgart.com.au/Resources/jess.jpg">Days of Zodiac, Jessica Andrews
+
+</td></tr><tr valign="top"><td>
+
+<img border="0" width="363px" height="424px" alt="3" src="http://bsgart.com.au/Resources/uta.jpg"><br>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px;">Beyond Text, Uta Mooney</p>
+
+
+</td></tr><tr valign="top"><td>
+
+<img border="0" width="363px" height="389px" alt="3" src="http://bsgart.com.au/Resources/amy.jpg"><br>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px;">In the Flesh - An Exhibition of the Female Form, Amy Herrmann	</p>
+
+</td></tr><tr valign="top"><td>
+
+<img border="0" width="363px" height="316px" alt="3" src="http://bsgart.com.au/Resources/jeremy.jpg"><br>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px;">{Bracketing Mao}, Jeremy McKenna</p>
+
+</td></tr><tr valign="top"><td>
+
+<img border="0" width="363px" height="500px" alt="3" src="http://bsgart.com.au/Resources/hannah.jpg"><br>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px;">Transform, Hannah Mueller</p>
+
+</td></tr><tr valign="top"><td>
+
+<img border="0" width="363px" height="499px" alt="3" src="http://bsgart.com.au/Resources/corban.jpg"><br>
+<p style="color: rgb(119, 125, 133); font-family: Arial,Helvetica,sans-serif; font-size: 14px;">What is and What Should Never Be, Corban Renouf</p>
+
+
+
+</td></tr>
+
+</tbody></table>
+</div>
+</body>
+      ]]>
+    </Html>
+  </Template>
+</Templates>
+

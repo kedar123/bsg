@@ -1,8 +1,8 @@
-require 'test_helper'
+#require 'test_helper'
 
-class ExhiArtworkTest < ActiveSupport::TestCase
+#class ExhiArtworkTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
-end
+#  test "the truth" do
+#    assert true
+#  end
+#end

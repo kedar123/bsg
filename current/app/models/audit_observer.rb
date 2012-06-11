@@ -29,7 +29,7 @@ class AuditObserver < ActiveRecord::Observer
         subscribers = User.subscribers_of(model_id,action_id)      
         for subscriber in subscribers
           args = [subscriber.email,subscriber.class.to_s.downcase,'vincent@thinkdry.com','Evolution du back office', audit.id,subscriber.id]
-          QueuedMail.add("UserMailer","send_back_office_updates", args, 1)
+         # QueuedMail.add("UserMailer","send_back_office_updates", args, 1)
         end
       end
    end

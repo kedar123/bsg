@@ -2,8 +2,8 @@
   ss = new slideshow("ss");
   <%for frontendpics in   @front_end_pics%>
                                 s = new slide();
-                                s.src =  "/system/front_end_pics/<%=frontendpics.id%>/thumb/<%=frontendpics.front_end_pics_file_name%>";
-                                s.link = "/system/front_end_pics/<%=frontendpics.id%>/thumb/<%=frontendpics.front_end_pics_file_name%>";
+                                s.src =  "/system/front_end_pics/<%=frontendpics.id%>/large/<%=frontendpics.front_end_pics_file_name%>";
+                                s.link = "/system/front_end_pics/<%=frontendpics.id%>/large/<%=frontendpics.front_end_pics_file_name%>";
                                 s.slideshowid = '<%=frontendpics.id%>';
                                 s.title = "";
                                 s.text = "<a onclick='sendselectrequest(<%=frontendpics.id%>);return false;' href='#'>select</a> | "+
@@ -120,7 +120,7 @@ ss.textarea = document.ss_form.ss_textarea;
         <%########################33333333all front end slide show end%>  
        	<%for frontendpics in   @front_end_pics%>
 			<p>
-			<img src="/system/front_end_pics/<%=frontendpics.id%>/thumb/<%=frontendpics.front_end_pics_file_name%>" alt="" height="100" width="100">
+			<img src="/system/front_end_pics/<%=frontendpics.id%>/large/<%=frontendpics.front_end_pics_file_name%>" alt="" height="100" width="100">
 			<%#=link_to "Edit", "/admin/promoting_stuffs/#{promotingstuff.id}/edit"%>  
 			<%=link_to "Delete", "/admin/front_end_pics/#{frontendpics.id}" ,:method=>"delete" ,:confirm=>"Are You Sure"%>
                         <span style="margin-left:20px;">

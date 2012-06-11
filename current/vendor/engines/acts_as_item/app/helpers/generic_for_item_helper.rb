@@ -92,8 +92,8 @@ module GenericForItemHelper
 	# Usage :
   # <tt>form_for_item article_object, title do |f| </tt>
   # <tt>end</tt>
-  def form_for_item(object, title = '', &block)
-		concat(render(:partial => "generic_for_item/form", :locals => { :block => block, :title => title }))
+  def form_for_item(object, title = '', ajaxsubmit=nil,url=nil,&block )
+		concat(render(:partial => "generic_for_item/form", :locals => { :block => block, :title => title,:remote=>ajaxsubmit,:url=>url }))
   end
 
 

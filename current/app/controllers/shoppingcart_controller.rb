@@ -44,21 +44,16 @@ class ShoppingcartController < ApplicationController
   
   def show_me_cart
     
-    begin
-      
-    p "im sending"
-    p "this is my session of cart"
-    p session[:cart]
+   begin
     @current_object = Order.new_from_cart(session[:cart], @current_user)
-    p @current_object
-    p "this is my currentobject"
+ 
     @paymentdone  = params[:payment_message]
     if !session[:current_purchase].blank?
        @current_purchase =  session[:current_purchase]#= Order.new_from_cart(session[:current_purchase], @current_user)
        session[:current_purchase] = {}
     end
     rescue => e
-      p "but im from rescueeee"
+      
       session[:current_purchase] = {}
       logger.info e
       logger.info "there is some errors in shopping cart"
@@ -103,7 +98,10 @@ class ShoppingcartController < ApplicationController
       payment = Payment.new()
       order = Order.complete_from_cart(session[:cart], @current_user)
       crnumber =  params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
+      #somehow i have to make sure that once an artwork is sold at last stage means at end . when there is no revision then
+      #this payment procedure should not be done.and a message should get displayed to user that already sold
       payment.common_wealth_bank_process(@current_object.total_amount*100,params,crnumber)
+      
       if  payment.state == "online_validated"
           order = Order.complete_from_cart(session[:cart], @current_user)
           payment.invoice = order.generate_invoice(current_user, params[:invoicing_info])

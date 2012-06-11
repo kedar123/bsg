@@ -215,7 +215,18 @@ class UserMailer < ActionMailer::Base
       content_type "text/html"
   end
 	
-  
+ def send_emailnewsletter_all(titlenewsletter,newsletterbody,user)
+      recipients user
+      from "mark@bsgart.com"
+      
+    	subject titlenewsletter
+
+      body :htmlbody => newsletterbody
+      sent_on Time.now
+      content_type "text/html" 
+
+
+ end
 	
 	
 	

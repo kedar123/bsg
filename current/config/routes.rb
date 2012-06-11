@@ -294,6 +294,11 @@ ActionController::Routing::Routes.draw do |map|
     admin.connect "/profiles/edit_password/:id",:controller=>"profiles",:action=>"edit_password"
     admin.connect "/profiles/change_password/:id",:controller=>"profiles",:action=>"change_password"
     admin.connect "/send_news_letter",:controller=>"newsletters",:action=>"send_news_letter"
+    admin.connect "/send_news_letter_of_all_email",:controller=>"newsletters",:action=>"send_news_letter_of_all_email"
+
+
+
+
    
      
     

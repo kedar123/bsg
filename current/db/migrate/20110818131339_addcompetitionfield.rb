@@ -10,3 +10,4 @@ class Addcompetitionfield < ActiveRecord::Migration
     add_column :competitions, :publishfinalmsg
     
 end
+end

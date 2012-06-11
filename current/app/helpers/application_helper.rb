@@ -68,6 +68,47 @@ module ApplicationHelper
 
 	end
 
+
+
+	def blank_main_big_div(params, &block)
+		params[:hsize] ||= 'sixH'
+		if params[:modal]
+			top_div = "<div id='modal_window' title='#{params[:title].to_s}'>"+flash_messages_manager(['notice', 'error'], 'modal', false)
+		else
+			old_top_div = "<div class='itemShowLeft'><div class='itemShowLeftBody'><h2>#{params[:title]}</h2>"
+			top_div = "<title>#{params[:title].to_s}</title><div class='objectList small'>
+				<div class='blockCornerLeft'></div>
+				<div class='blockElementHeader #{params[:hsize]}'>
+					
+					<span id='item_count'>#{params[:title]}</span>
+				</div>
+				<div class='blockCornerRight'></div>
+				<div class='contentList filtered #{params[:hsize]}'>"
+		end
+		bottom_div="</div></div>"
+		bottom_div+="<script>
+				$('.ui-dialog').remove();
+				$('#modal_window').dialog({
+                  modal: true,
+                  width: 600,
+                  height: 500
+            });
+				</script>" if params[:modal]
+		if block_given?
+			content = capture(&block)
+			#concat(top_div, block.binding)
+			concat(content, block.binding)
+			concat(bottom_div, block.binding)
+		else
+			top_div+bottom_div
+		end
+
+	end
+
+
+
+
+
 	def old_school_switching_lists(params)
         return "<div id='select_boxes'>
         	
@@ -205,6 +246,9 @@ module ApplicationHelper
 		
 	end
 	def flash_messages_manager(types=['notice', 'error', 'warning'], klass=nil, close=true)
+		
+		
+		
 		res = ''
 		types.each do |msg|
 			res += content_tag(:div, flash[msg.to_sym].to_s+(close ? "<a href='#' id='error_closing'>Close</a>" : ''), :class => klass ? klass+'_'+msg : msg, :id => msg, :style => "#{'display:none' unless flash[msg.to_sym]}")

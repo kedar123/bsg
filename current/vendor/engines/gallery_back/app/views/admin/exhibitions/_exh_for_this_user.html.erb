@@ -1,0 +1,26 @@
+
+  <% if !(exhibitions_users=ExhibitionsUser.find(:all,:conditions=>["user_id=?",session[:exh_display_list]],:include => [:exhibition], :order => 'created_at DESC')).empty? %>
+
+   <%p "sssssssssssssssssssssssqqqqqqqqqqqqqqqq"%>
+  <%p exhibitions_users%>
+        <% exhibitions_users.each do |eu| %>
+
+    <%# blank_list_element(:date => eu.created_at, :title => link_to(eu.exhibition.title, admin_exhibition_path(eu.exhibition_id))+" with state '#{eu.state}'") do %>
+    <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
+    <%# end %>
+          <% blank_list_element(:date => eu.exhibition.timing.starting_date, :title => link_to(eu.exhibition.title, admin_exhibition_path(eu.exhibition_id))) do %>
+      <%#=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
+            <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) %>
+        <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
+              <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",:update => 'modal_space', :method => :get%>
+
+
+            <%end%>  
+            <%#=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
+          <% end %>
+          <br />
+        <% end %>
+        <br /><br />
+      <% else %>
+        No exhibitions for that user.
+      <% end %>

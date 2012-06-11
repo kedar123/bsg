@@ -531,7 +531,6 @@ function autocomplete_on(array, div){
 
 
 function classify_bar(url) {
-      
     jQuery.ajax({
         type: 'GET',
         url: url,

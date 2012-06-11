@@ -78,7 +78,7 @@ class Admin::UsersController < Admin::ApplicationController
      end
   
 	def create
-	   admin_logged_in = false
+     admin_logged_in = false
      if logged_in?
  	    admin_logged_in=current_user
      end
@@ -103,10 +103,12 @@ class Admin::UsersController < Admin::ApplicationController
 						   flash[:notice]="User Has Been Successfully created"
 						   self.current_user = admin_logged_in
                 email= UserMailer.create_admin_register_user(@current_object)
+                begin
                 UserMailer.deliver(email)
+                rescue
+                end
                 Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
-                Tempraryinbox.delete_all("fromemail = '#{@current_object.email}'")
-               redirect_to admin_profiles_path
+                redirect_to admin_profiles_path
                            return
                         end
 						if session[:compredirecid].blank?

@@ -140,17 +140,10 @@ class Admin::CompetitionsController < Admin::ApplicationController
  
         
        else
-         #p "im nil"
-         p all_the_recipient
-         p "mmm"
          all_the_recipient.each do |to_address|  
         user = User.find_by_email(to_address)
         competition_user_id = CompetitionsUser.find_by_user_id_and_competition_id(user.id,params[:competitionid])
-        p competition_user_id
-        p "sometimes above is nil"
         all_selected_artworks = ArtworksCompetition.all(:conditions=>["competitions_users_id =? and state =?",competition_user_id.id, params[:msg] ])
-        p all_selected_artworks
-       # p "selected artwork is nil"
         for selected_artwork in all_selected_artworks
           
         
@@ -215,6 +208,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	     end
 	   end
 	   before :create do
+       p "im here for creating a competition"
              begin
              @current_object.submission_deadline = Date.civil(params[:competition][:submission_deadline].split("-")[0].to_i,params[:competition][:submission_deadline].split("-")[1].to_i,params[:competition][:submission_deadline].split("-")[2].to_i)
 	          rescue

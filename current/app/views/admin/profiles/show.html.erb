@@ -31,7 +31,7 @@ color: #9C9C9C;
 
   </style>
 
-<% blank_main_div(:title => @current_object.full_name, :hsize => 'sixH') do %>
+<% blank_main_big_div(:title => @current_object.full_name, :hsize => 'sevenH') do %>
 
   <div class="userDetails">
     <div id="allll">
@@ -65,7 +65,7 @@ color: #9C9C9C;
   </div>
 
 <% end %>
-
+<!--  
 <div class="rightBlocks">
 
 <!--  
@@ -73,12 +73,14 @@ color: #9C9C9C;
     <%#= I18n.t('general.field.created_at')+' '+I18n.l(@current_object.created_at, :format => :verb) %><br />
     <%#= I18n.t('general.field.updated_at')+' '+I18n.l(@current_object.updated_at, :format => :verb) %>
   </div>
--->
+#
 
   <div class="itemShowRightBlock">
-    <div class="blockCornerLeft"></div><div class="blockElementHeader threeH">User Information </div><div class="blockCornerRight"></div>
+    <div class="blockCornerLeft"></div>
+<div class="blockElementHeader threeH">User Information </div>
+<div class="blockCornerRight"></div>
     	<div class="blockElementBody u-info ">
-      	<!-- TODO TRANSLATE -->
+      	<!-- TODO TRANSLATE 
 <table>
 <tr align="left">
 <td valign="top">
@@ -188,7 +190,7 @@ color: #9C9C9C;
 </table>
     </div>
   </div>
-
+-->
   <!--<div class="itemShowRightBlock">
     <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">Categories</div><div class="blockCornerRight"></div>
     <div class="blockElementBody">

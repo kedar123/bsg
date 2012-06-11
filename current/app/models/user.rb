@@ -238,6 +238,7 @@ class User < ActiveRecord::Base
 	def private_workspace
 		
 		return Workspace.find(:first, :conditions => { :creator_id => self.id, :state => 'private'})
+    
 	end
 
 #  def self.subscribers_of(model_id,action_id)

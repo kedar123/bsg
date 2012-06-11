@@ -17,6 +17,7 @@ end
 	acts_as_item do
 		#Filter calling the encoder method of ConverterWorker with parameters
     before :new do
+      
 		       if !params[:workspace_id].blank?
 		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
 		    
@@ -36,6 +37,8 @@ end
 			end
     end
     
+ 
+
   before :edit do
            if !params[:workspace_id].blank?
 		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
@@ -155,8 +158,74 @@ end
 		before :show do
     	get_artworks_lists
   	end
+      
+ 
 
   end
+
+   
+   
+    
+
+
+
+
+
+
+def new
+
+	       if !params[:workspace_id].blank?
+		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
+		    
+		       end
+		        if  Workspace.find(params[:workspace_id]).creator_id != 2 and Workspace.find(params[:workspace_id]).creator_id != 1#admin and superadmin role should not be artist
+			        User.find(Workspace.find(params[:workspace_id]).creator_id).update_attribute("system_role_id",8 )
+			    end
+		       end       
+     @current_object = Exhibition.new
+      @oldtimingperiodid =  @current_object.timing.period_id    if !@current_object.timing.blank?
+			@current_object.build_timing 
+			@places = Gallery.all
+			sr = Role.find_by_name('artist')
+			@artists = Profile.with_conditions_on_user({ :conditions => "users.system_role_id=#{sr.id}"}).all(:order => 'first_name ASC')
+			session[:user_ids] = @current_object.user_ids
+    	if  !params[:workspace_id].blank?
+				@workspace = Workspace.find(params[:workspace_id])
+			end
+
+    if request.xhr?
+    render :update do |page|
+       page['fragment-2'].replace_html(:partial => 'form',:layout=>false) 
+      # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+      end
+    end
+end   
+
+
+  def create
+        exhibition = Exhibition.new(params[:exhibition])
+         exhibition.user = User.find(1)
+        exhibition.save
+        p "following errors will be teheeeee"
+         exhibition.errors.each do |s|
+         p s
+        end
+        #@current_object = exhibition        
+       	#@current_object.exhibitions_users.map{ |e| e.init }
+        p "redirecting to exhibition"
+        p @current_object
+        if request.xhr?
+		render :update do |page|
+       page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
+      # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+      end
+         
+        else
+        redirect_to :action=>"show",:id=>@current_object.id
+        end 
+  end
+  
+
 
 	def filtering_artworks
 		@current_object = !params[:exhibition_id].blank? ? Exhibition.find(params[:id]) : Exhibition.new

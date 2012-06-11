@@ -1,0 +1,109 @@
+ 
+<table>
+<tr align="left">
+<td valign="top">
+  <b>Full name </b>
+</td>
+<td valign="top">
+  <%=h @current_object.full_name %>
+</td>
+</tr>
+
+
+
+<tr align="left">
+<td valign="top">
+  <b>Email </b>
+</td>
+<td valign="top">
+  <div class="menuLabel">
+  <%=link_to @current_object.email_address, "/admin/profiles/compose_user_mail/#{@current_object.id}", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+ </div>
+</td>
+<tr>
+
+<tr align="left">
+<td valign="top">
+	<b>Phone number </b> 
+</td>
+<td valign="top">
+  <%=h @current_object.phone_number %>
+</td>
+</tr>
+
+<tr align="left">
+<td valign="top">
+	<b> Website </b>
+</td>
+<td valign="top">
+  <%#= link_to @current_object.website, @current_object.website, :target => "_blank" %>
+  <%=link_to @current_object.website, @current_object.website, :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+</td>
+</tr>
+
+<tr align="left">
+<td valign="top">
+  <b>Address </b>
+</td>
+<td valign="top">
+  <%=h @current_object.address %><br />
+</td>
+</tr>
+
+<tr align="left">
+<td valign="top">
+  <b>Suburb </b>
+</td>
+<td valign="top">
+  <%=h @current_object.suburb %><br />
+</td>
+</tr>
+
+<tr align="left">
+<td valign="top">
+  <b>Post code </b>
+</td>
+<td valign="top">
+  <%=h @current_object.zip_code %><br />
+</td>
+</tr>
+
+<tr align="left">
+<td valign="top">
+  <b>State </b>
+</td>
+<td valign="top">
+  <%=h @current_object.country_state %><br />
+</td>
+</tr>
+
+<tr align="left">
+<td valign="top">
+  <b>Country </b>
+</td>
+<td valign="top">
+  <%=h @current_object.country %><br />
+</td>
+</tr>
+
+<tr align="left">
+<td colspan=2>
+ <%= I18n.t('general.field.created_at')+' '+I18n.l(@current_object.created_at, :format => :verb) %><br />
+<td>
+</tr>
+
+<tr align="left">
+<td colspan=2>
+    <%= I18n.t('general.field.updated_at')+' '+I18n.l(@current_object.updated_at, :format => :verb) %>
+</td>
+
+</tr>
+
+<tr align="left">
+<td colspan=2>
+<%#= link_to I18n.t('general.link.edit'), edit_admin_profile_path(@current_object)%>
+</td>
+</tr>
+
+</table>
+    

@@ -1,6 +1,6 @@
 // CHANGE FOR APPS HOSTED IN SUBDIRECTORY
 FCKRelativePath = '';
-
+///////////////////////////////kkkkkkkkkkkkkkkkkkkkkk
 // DON'T CHANGE THESE
 FCKConfig.LinkBrowserURL = FCKConfig.BasePath + 'filemanager/browser/default/browser.html?Connector='+FCKRelativePath+'/fckeditor/command';
 FCKConfig.ImageBrowserURL = FCKConfig.BasePath + 'filemanager/browser/default/browser.html?Type=Image&Connector='+FCKRelativePath+'/fckeditor/command';
@@ -12,6 +12,9 @@ FCKConfig.FlashUploadURL = FCKRelativePath+'/fckeditor/upload?Type=Flash';
 FCKConfig.SpellerPagesServerScript = FCKRelativePath+'/fckeditor/check_spelling';
 FCKConfig.AllowQueryStringDebug = false;
 FCKConfig.SpellChecker = 'WSC' ;	// 'WSC' | 'SpellerPages' | 'ieSpell'
+
+ 
+FCKConfig.TemplatesXmlPath = '/mytemplates.xml' ;
 
 //FCKConfig.Plugins.Add( 'easyUpload', 'es' ) ;		// easyUpload translated to spanish
 FCKConfig.Plugins.Add( 'easyUpload', 'en' ) ;

@@ -1,10 +1,10 @@
-<% blank_main_div(:title => 'Contact creation', :hsize => 'sixH') do %>
+<%# blank_main_div(:title => 'Contact creation', :hsize => 'sixH') do %>
 
   <%= render :partial => 'admin/profiles/profile_fields', :locals => { :f => f } %>
-  <%= blank_form_submit_button(:object => @current_object) %>
-
-<% end %>
-
+  <%#= blank_form_submit_button(:object => @current_object) %>
+    <%= submit_to_remote 'update_btn', 'Update', :url => { :action => 'update' }%>
+<%# end %>
+<!--
 <div class="rightBlocks">
   <div class="itemShowRightBlock">
     <% if @current_object.new_record? %>
@@ -57,3 +57,4 @@
   </div>
 
 </div>
+-->

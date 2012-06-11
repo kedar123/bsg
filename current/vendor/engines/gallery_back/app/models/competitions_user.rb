@@ -229,7 +229,7 @@ class CompetitionsUser < ActiveRecord::Base
 	    end
 	end
 	
-	def generate_invoice_extra_entry(user=nil, invoicing_info={})
+    def generate_invoice_extra_entry(user=nil, invoicing_info={})
 	   invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ? and purchasable_type = ?",self.user_id,self.id,"CompetitionsUser"])
 	     total_amount = 0
 		self.invoices.each {|x| total_amount = total_amount + x.final_amount}

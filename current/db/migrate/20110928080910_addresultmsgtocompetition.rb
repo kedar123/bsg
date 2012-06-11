@@ -6,5 +6,5 @@ class Addresultmsgtocompetition < ActiveRecord::Migration
   def self.down
 	  add_column :competitions, :resultmsg
   end
-  end
+  
 end

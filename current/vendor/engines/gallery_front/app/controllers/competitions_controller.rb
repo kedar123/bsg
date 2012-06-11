@@ -1,4 +1,4 @@
- class CompetitionsController < ApplicationController
+class CompetitionsController < ApplicationController
 	layout "front"
   require "prawn"
   require "fastercsv" 
@@ -28,20 +28,18 @@
     else
       if params[:competition_id]
         @competitionuser = CompetitionsUser.find_by_competition_id(params[:competition_id])
-        p "im checking not logged in status@@@@@@@@@@@@@@@@@@@@@@"
-        p @competitionuser
+        
     	else
         @competitionuser = CompetitionsUser.find_by_competition_id(@competition.id) if @competition
-        p "im checking not logged in status$$$$$$$$$$$$$$$$$$$$$$$44$$$$4"
-        p @competitionuser
+        
     	end
     end  
     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@competition.id.to_s+"competition"])  if @competition
     @oldlabelvalue={}
     if columnnameandheader
-        columnnameandheader.each do |x|   
-          @oldlabelvalue[x.column_name] = x.column_header
-        end
+      columnnameandheader.each do |x|   
+        @oldlabelvalue[x.column_name] = x.column_header
+      end
     end   
     
     
@@ -57,7 +55,7 @@
             if x.state == "selected"
               @competitionuser  << x.competitions_user
             end
-              if x.state == "winner"
+            if x.state == "winner"
               @winnerlist  << x
             end
           end 
@@ -71,7 +69,7 @@
         @winnerlist = []
         competitionuser.each do |ac| 
           ac.artworks_competitions.each do |x|  
-              if x.state == "winner"
+            if x.state == "winner"
               @winnerlist  << x
             end
             if x.state == "selected"
@@ -343,7 +341,7 @@
   #without a login at that time only the pictures are shown. the login form will be same as sessions /login
   def create_subscribe_competition_front_login
     
-   session[:compredirecid] = params[:id]
+    session[:compredirecid] = params[:id]
     render :update do |page|
       page["buylist"].hide
       page["loginform"].replace_html :partial=>"create_subscribe_competition_front_login"
@@ -351,12 +349,12 @@
     end
   end
  
-   #this will render the registration page. this will open the registratin form which need to be in same size and errors will be shown in one 
-   #more div 
+  #this will render the registration page. this will open the registratin form which need to be in same size and errors will be shown in one 
+  #more div 
   def create_subscribe_competition_front_register
-    		@current_object = User.new
+    @current_object = User.new
 		@current_object.build_profile if @current_object.profile.nil?
-     session[:compredirecid] = params[:id]
+    session[:compredirecid] = params[:id]
     render :update do |page|
       page["buylist"].hide
       page["registerform"].replace_html :partial=>"create_subscribe_competition_front_register"
@@ -366,8 +364,8 @@
   
    
   def  create_the_payment
-        creditcardno = ""
-    if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card")  )         
+    creditcardno = ""
+    if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card"))         
       credit_card = CreditCard.find_by_user_id(current_user.id)
       if credit_card.blank?
         credit_card = CreditCard.new()
@@ -398,14 +396,13 @@
     session[:order] = @order
     session[:invoice_id] = params[:invoice_id]
     #@order.total_entry = params[:competitions_user][:total_entry]
-    #@order.save
+    #@ordecreate_the_paymentr.save
     if  params[:competitions_user][:total_entry] == "0"
       render :update do |page|
-              page["modal_space_answer"].replace_html "Please Select The Entry"  
-              page["modal_space_answer"].show
-              page["show_ajax_request"].hide
+        page["modal_space_answer"].replace_html "Please Select The Entry"  
+        page["modal_space_answer"].show
+        page["show_ajax_request"].hide
       end        
-      
       return
     end  
     @current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		
@@ -437,14 +434,14 @@
             @current_object.common_wealth_bank_process((more_amount * 100),params,creditcardno)
               
             if @current_object.state == "online_validated"
-                paidentrystring = ""
+              paidentrystring = ""
               for i in @order.total_entry.to_i..params[:competitions_user][:total_entry].to_i
-              paidentrystring << i.to_s + ","
+                paidentrystring << i.to_s + ","
               end
-            @order.paidentry =  paidentrystring  
+              @order.paidentry =  paidentrystring  
              
-            @order.total_entry = params[:competitions_user][:total_entry]
-            @order.save              
+              @order.total_entry = params[:competitions_user][:total_entry]
+              @order.save              
             end
           elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
             @order.total_entry = params[:competitions_user][:total_entry]
@@ -464,10 +461,10 @@
           end
         else
         
-           render :update do |page|
-             page["modal_space_answer"].replace_html  :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "                                     
-             page["show_ajax_request"].hide
-             page["modal_space_answer"].show
+          render :update do |page|
+            page["modal_space_answer"].replace_html  :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "                                     
+            page["show_ajax_request"].hide
+            page["modal_space_answer"].show
           end
           return
         end   
@@ -476,10 +473,10 @@
           @current_object.common_wealth_bank_process(((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100),params,creditcardno)#payment is done if invoice is not yet  created. for competition user
           if @current_object.state == "online_validated"
             @order.total_entry = params[:competitions_user][:total_entry]
-             paidentrystring = ""
-              for i in 1..2
-                paidentrystring << i.to_s + ","
-              end 
+            paidentrystring = ""
+            for i in 1..2
+              paidentrystring << i.to_s + ","
+            end 
             @order.paidentry =  paidentrystring
             @order.save              
           end
@@ -541,8 +538,8 @@
         else
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
           if  invoice.state == "created"
-              note = "no note created"
-              note = @order.exhibition.timing.note if @order.exhibition.timing
+            note = "no note created"
+            note = @order.exhibition.timing.note if @order.exhibition.timing
             create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,note)
             QueuedMail.add( 'UserMailer',  'send_invoice_exhibition', [@current_object.user.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, @current_object.user],0,true,@current_object.user.profile.email_address,"test@pragtech.co.in") 
           end    
@@ -596,11 +593,11 @@
         return
       end
 	    #flash[:error] = 'Error during the payment save  '+@current_object.state.to_s
-        render :update do |page|
-             page["modal_space_answer"].replace_html  :text=>'Your payment has not been successful. Please check your details and try again '                                     
-             page["show_ajax_request"].hide
-             page["modal_space_answer"].show
-          end
+      render :update do |page|
+        page["modal_space_answer"].replace_html  :text=>'Your payment has not been successful. Please check your details and try again '                                     
+        page["show_ajax_request"].hide
+        page["modal_space_answer"].show
+      end
        
     end
   end  
@@ -660,7 +657,7 @@
 
     render :update do |page|
       if @order.total_entry.to_i > i  
-       # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
+        # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
         page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
         page["enterintocompetition"].hide
         page["pleaseaccepttermsandcondition"].hide
@@ -676,7 +673,7 @@
         #page["modal_space_answer"].hide
         
         #for j in i+1..20
-         # page["iteam_image#{j}"].hide
+        # page["iteam_image#{j}"].hide
         #end
         
       else  
@@ -755,7 +752,7 @@
     title_message_array = ['First Work','Second Work',' Third Work','Fourth Work','Fifth Work','Sixth Work','Seventh Work','Eight Work','Ninth Work','Tenth Work']
 
     order = CompetitionsUser.find(params[:order_id])
-        i=0
+    i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     for title in title_array
       if (order.send (title_array[i].to_sym)).blank?
@@ -781,7 +778,7 @@
       
       
     end 
-   # i=i+1#this is because the artwork will be shown in next "add_the_artwork#{i}"
+    # i=i+1#this is because the artwork will be shown in next "add_the_artwork#{i}"
    
 =begin    responds_to_parent do
       render :update do |page|
@@ -838,14 +835,14 @@
     current_user.profile.save
     order = CompetitionsUser.find(params[:order_id])
     render :update do |page|
-        page["add_the_artwork0"].replace_html order.competition.notes
-        page["pleaseaccepttermsandcondition"].hide
-        page["pleaseaccepttccheckbox"].hide
-        page["show_ajax_request"].hide
-        page["list_show"].show
-        page["iteam_image0"].show
-        page["add_the_artwork0"].show
-        page["show_ajax_request0"].hide
+      page["add_the_artwork0"].replace_html order.competition.notes
+      page["pleaseaccepttermsandcondition"].hide
+      page["pleaseaccepttccheckbox"].hide
+      page["show_ajax_request"].hide
+      page["list_show"].show
+      page["iteam_image0"].show
+      page["add_the_artwork0"].show
+      page["show_ajax_request0"].hide
     end
   end
    
@@ -866,8 +863,8 @@
     order = CompetitionsUser.find(params[:competitionuserid])
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
-        i = title_array.index params[:titleforupdate]
-       order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
+    i = title_array.index params[:titleforupdate]
+    order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
     order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"]) 
     order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"]) 
     order.send(editionnamearray[i].to_sym,params[:competitions_user]["editionname"]) 
@@ -976,9 +973,9 @@
       start_date = @order.competition.timing.starting_date.strftime("%d %b %Y")
       end_date = @order.competition.timing.ending_date.strftime("%d %b %Y")
       if params[:invoicing_info][:payment_medium] ==  "cash" or   params[:invoicing_info][:payment_medium] ==  "cheque" or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
-          create_pdf(invoice.id,invoice.number,start_date,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0,false,end_date)
+        create_pdf(invoice.id,invoice.number,start_date,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0,false,end_date)
       else
-          create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
+        create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
       end
     elsif  @order.instance_of? ExhibitionsUser
       note = "no notes created"
@@ -988,8 +985,8 @@
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
     begin
-    email= UserMailer.create_send_invoice(invoice,@current_user)
-    UserMailer.deliver(email)
+      email= UserMailer.create_send_invoice(invoice,@current_user)
+      UserMailer.deliver(email)
     rescue
     end
     session[:total_entry] = nil                     
@@ -1017,8 +1014,8 @@
     end   
   end  
 
-   #according to the status of the competition the alert message will be shown to user. if it is open then the message will be shown.if it is 
-   #if it is final published then different message is shown and if it is result publich then different message is shown
+  #according to the status of the competition the alert message will be shown to user. if it is open then the message will be shown.if it is 
+  #if it is final published then different message is shown and if it is result publich then different message is shown
   
 =begin  def edit_images_front
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	
@@ -1129,7 +1126,7 @@
 
 
 
-   def edit_images_front
+  def edit_images_front
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
@@ -1142,31 +1139,31 @@
     @image_array = []
     i=0;
 
-     alertmessage = ""
+    alertmessage = ""
 
-   # if @competition.state == "open"
-      # alertmessage = @competition.openstatemsg
+    # if @competition.state == "open"
+    # alertmessage = @competition.openstatemsg
 
 
     #alertmessage = ""
 
     if @competition.state == "open"
-       alertmessage = @competition.openstatemsg
+      alertmessage = @competition.openstatemsg
 
-       if alertmessage.blank?
-         alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
-       end
+      if alertmessage.blank?
+        alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
+      end
     end
 
-   # if @competition.state == "final_published"
-      #alertmessage = @competition.publishfinalmsg
+    # if @competition.state == "final_published"
+    #alertmessage = @competition.publishfinalmsg
 
     if @competition.state == "final_published"
       alertmessage = @competition.publishfinalmsg
 
       if alertmessage.blank?
-         alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
-       end
+        alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
+      end
     end
 
 
@@ -1238,7 +1235,7 @@
    
   #This is for browsing images....
   
-   def edit_images_frontbrowse
+  def edit_images_frontbrowse
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
@@ -1251,40 +1248,40 @@
     @image_array = []
     i=0;
 
-     alertmessage = ""
+    alertmessage = ""
 
-   # if @competition.state == "open"
-      # alertmessage = @competition.openstatemsg
+    # if @competition.state == "open"
+    # alertmessage = @competition.openstatemsg
 
 
     #alertmessage = ""
 
     if @competition.state == "open"
-       alertmessage = @competition.openstatemsg
+      alertmessage = @competition.openstatemsg
 
-       if alertmessage.blank?
-         alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
-       end
+      if alertmessage.blank?
+        alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
+      end
     end
 
-   # if @competition.state == "final_published"
-      #alertmessage = @competition.publishfinalmsg
+    # if @competition.state == "final_published"
+    #alertmessage = @competition.publishfinalmsg
 
     if @competition.state == "final_published"
       alertmessage = @competition.publishfinalmsg
 
       if alertmessage.blank?
-         alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
-       end
+        alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
+      end
     end
 
 
-     if @competition.state == "results_publish"
+    if @competition.state == "results_publish"
       alertmessage = @competition.resultmsg
 
       if alertmessage.blank?
-         alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
-       end
+        alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
+      end
     end
 
 
@@ -1353,9 +1350,9 @@
     end
 =end 
      
-     render :update do |page|
-        page.alert(alertmessage)
-     end
+    render :update do |page|
+      page.alert(alertmessage)
+    end
   end
 
    
@@ -1363,22 +1360,22 @@
    
 
 
- def show_buy_competition_artwork
-      competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",params[:id]])
-      @competitionuser  = []
-      @winnerlist = []
-      competitionuser.each do |ac| 
-          ac.artworks_competitions.each do |x|  
-              if x.state == "winner"
-                @competitionuser  << x
-              end
-              if x.state == "selected"
-                @competitionuser  << x.competitions_user
-              end
-          end 
-      end  
+  def show_buy_competition_artwork
+    competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",params[:id]])
+    @competitionuser  = []
+    @winnerlist = []
+    competitionuser.each do |ac| 
+      ac.artworks_competitions.each do |x|  
+        if x.state == "winner"
+          @competitionuser  << x
+        end
+        if x.state == "selected"
+          @competitionuser  << x.competitions_user
+        end
+      end 
+    end  
   
-   render :update do |page|
+    render :update do |page|
       if(@competitionuser.blank?)   
         page.alert("No Artworks Available To Buy For This Competition");
       else
@@ -1388,9 +1385,9 @@
       end
       
         
-      end
+    end
     
- end
+  end
 
 
 
@@ -1477,9 +1474,9 @@
     @current_object = Payment.new(params[:payment])		#@invoice = session[:invoice]		
    
     if     @order.instance_of? ExhibitionsUser
-      @current_object.amount_in_cents =params[:invoice_amount].to_i*100
+           @current_object.amount_in_cents =params[:invoice_amount].to_i*100
     elsif  @order.instance_of? CompetitionsUser
-      @current_object.amount_in_cents = (@order.find_price(@order.competition.id) ) * 100
+           @current_object.amount_in_cents = (@order.find_price(@order.competition.id) ) * 100
     else 
     end
     @current_object.user = @current_user		#@current_object.invoice = @invoice
@@ -1577,7 +1574,7 @@
           
           #render :text=>"Your Payment Is Done Now Upload And Then Select The Artworks  <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
           #render :partial => "online_response_exhibition_payment",:locals=>{:exhibition_user_id=>@order.id,:artwork_count=>0}
-	      add_exhibition_artwork_insamediv
+          add_exhibition_artwork_insamediv
 			              
         end            
       elsif  @order.instance_of? CompetitionsUser
@@ -1671,11 +1668,11 @@
       page["iteam_image0"].show
       page["iteam_image_uploaded"].hide
       eu=@order
-   if    !eu.user.invoices.blank?  and((eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) 
-   else
+      if    !eu.user.invoices.blank?  and((eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) 
+      else
         
         page["payonlineexhibition#{eu.id}"].replace_html "online paid"
-   end 
+      end 
       
     end
   end  
@@ -1695,7 +1692,7 @@
         @artwork.title=params[:artwork]["title"+@artwork.id.to_s]                                                                                                                                 
         @artwork.user_id=current_user.id
         if !params[:artwork]["image"+@artwork.id.to_s].blank?
-           @artwork.image = params[:artwork]["image"+@artwork.id.to_s]
+          @artwork.image = params[:artwork]["image"+@artwork.id.to_s]
         end
         @artwork.medium = params[:artwork]["medium"+@artwork.id.to_s]
         @artwork.width = params[:artwork]["width"+@artwork.id.to_s]
@@ -1829,19 +1826,19 @@
     logger.info "there is problem in total"
     logger.info session[:paypal_amount].to_i
     logger.info session[:paypal_amount].to_i/100
-       response = paypal.do_set_express_checkout(
+    response = paypal.do_set_express_checkout(
       return_url="http://" + request.host_with_port + "/paypal_return",
       cancel_url="http://" + request.host_with_port + "/paypal_cancel",
       amount=session[:paypal_amount].to_i/100,
       'CURRENCYCODE' => 'AUD'
-      )
+    )
       
        
      
  
     logger.info response.to_sde
     logger.info "this is paypal response"
-       @token = (response.ack == 'Success') ? response['TOKEN'] : ''
+    @token = (response.ack == 'Success') ? response['TOKEN'] : ''
     session[:token] = @token
   end  
 
@@ -1859,21 +1856,21 @@
         payment_action='Sale',
         payer_id=response.payerid,
         amount=session[:paypal_amount].to_i/100
-        )#end of do express checkout method
+      )#end of do express checkout method
       if !session[:total_entry].blank?   
         if !session[:competition_id].blank?
-            cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
+          cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
             
-              p "i will save the value from here for paid objects"
-               paidentrystring = ""
-              for i in cu.total_entry.to_i..session[:total_entry].to_i
-              paidentrystring << i.to_s + ","
-              end
-              cu.paidentry =  paidentrystring  
+          p "i will save the value from here for paid objects"
+          paidentrystring = ""
+          for i in cu.total_entry.to_i..session[:total_entry].to_i
+            paidentrystring << i.to_s + ","
+          end
+          cu.paidentry =  paidentrystring  
           
            
-            cu.total_entry = session[:total_entry].to_i
-            cu.save
+          cu.total_entry = session[:total_entry].to_i
+          cu.save
             
           
         end
@@ -1896,23 +1893,23 @@
         session[:current_object_id] = nil
       end
       if !session[:groupsshowid].blank?
-          groupshowid = session[:groupsshowid].to_i
-          groupshowuser = Usergroupshow.find(:first,:conditions=>["user_id = ? and groupshow_id = ? ",current_user.id,groupshowid])
-          groupshowuser.state = "validated"
-          groupshowuser.save
-          payment = Payment.new
-          payment.invoice = groupshowuser.generate_invoice(current_user.id,{"payment_medium"=>"paypal"},amount)
-          payment.save
-          note = "no notes created"
-          note = groupshowuser.groupshow.note if groupshowuser.groupshow
-          start_date = groupshowuser.groupshow.starting_date
-          end_date = groupshowuser.groupshow.ending_date
-          create_pdf(payment.invoice.id,payment.invoice.number,start_date,payment.invoice.client.profile.full_address_for_invoice,payment.invoice.client.profile.full_name_for_invoice,groupshowuser.groupshow.title,payment.invoice.final_amount.to_i,note,"","",false,end_date)
-          begin
+        groupshowid = session[:groupsshowid].to_i
+        groupshowuser = Usergroupshow.find(:first,:conditions=>["user_id = ? and groupshow_id = ? ",current_user.id,groupshowid])
+        groupshowuser.state = "validated"
+        groupshowuser.save
+        payment = Payment.new
+        payment.invoice = groupshowuser.generate_invoice(current_user.id,{"payment_medium"=>"paypal"},amount)
+        payment.save
+        note = "no notes created"
+        note = groupshowuser.groupshow.note if groupshowuser.groupshow
+        start_date = groupshowuser.groupshow.starting_date
+        end_date = groupshowuser.groupshow.ending_date
+        create_pdf(payment.invoice.id,payment.invoice.number,start_date,payment.invoice.client.profile.full_address_for_invoice,payment.invoice.client.profile.full_name_for_invoice,groupshowuser.groupshow.title,payment.invoice.final_amount.to_i,note,"","",false,end_date)
+        begin
           email = UserMailer.create_send_invoice_groupshow(payment.invoice,current_user)
           UserMailer.deliver(email)
-          rescue
-          end
+        rescue
+        end
       end
     end 
   
@@ -1925,9 +1922,9 @@
       flash[:notice] = "Your Payment Is Done"
       redirect_to "/"   
     elsif !session[:groupshowid].blank? 
-           session[:groupshowid] = nil
-           flash[:notice] = "Your Payment Is Done Please Upload The Images"
-           redirect_to "/" 
+      session[:groupshowid] = nil
+      flash[:notice] = "Your Payment Is Done Please Upload The Images"
+      redirect_to "/" 
     else  
       flash[:notice] = "Your Payment Is Done.Please Click On Brows Image To Upload  The Artwork"
       redirect_to "/competitions/#{ comid }"                  
@@ -1971,7 +1968,7 @@
     #@comp_users=CompetitionsUser.find(:all)
     #@artcomp = ArtworksCompetition.find(:all)
     #@invoice=Invoice.find(:all,:conditions=>"purchasable_type = 'CompetitionsUser' ")
-       @myquery = params[:id].constantize.find(:all,:conditions=>"#{params[:conditions]}");
+    @myquery = params[:id].constantize.find(:all,:conditions=>"#{params[:conditions]}");
     a= @myquery.first.to_a
        
     render :text=>@myquery.first.instance_values
@@ -1989,8 +1986,8 @@
       #QueuedMail.add('UserMailer', 'send_invoice_exhibition', [invoice, invoice.client], 0, true)
       #send_invoice_exhibition(tomial,subject,body,invoice, user)
       begin
-      email= UserMailer.create_send_invoice_exhibition(invoice.client.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email",invoice, invoice.client)
-      UserMailer.deliver(email)
+        email= UserMailer.create_send_invoice_exhibition(invoice.client.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email",invoice, invoice.client)
+        UserMailer.deliver(email)
       rescue
       end
     end    
@@ -2005,7 +2002,7 @@
   def make_the_payment_comp_paypal
    
       
-      make_the_payment_paypal
+    make_the_payment_paypal
     
   
   end 
@@ -2039,8 +2036,8 @@
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
     begin
-    email= UserMailer.create_send_invoice(invoice,@current_user)
-    UserMailer.deliver(email)
+      email= UserMailer.create_send_invoice(invoice,@current_user)
+      UserMailer.deliver(email)
     rescue => e
       logger.info "there is error while sending the email"
       logger.info e
@@ -2075,8 +2072,8 @@
     current_user.profile.save
     creditcardno =  params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
     if ((params[:invoicing_info][:payment_medium] == "cash") or (params[:invoicing_info][:payment_medium] ==  "direct deposit") or (params[:invoicing_info][:payment_medium] == "cheque"))
-         show_cash_response_groupshow
-         return
+      show_cash_response_groupshow
+      return
     elsif (params[:invoicing_info][:payment_medium] == "visa" or params[:invoicing_info][:payment_medium] ==  "master card" )
       @payment.common_wealth_bank_process((params[:price].to_i * 100),params,creditcardno)
     elsif  (params[:invoicing_info][:payment_medium] == "paypal") 
@@ -2084,9 +2081,9 @@
       set_the_token
       session[:groupsshowid] = params[:groupshowid]
       render :update do |page|
-              page["modal_space_answer"].hide                                     
-              page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>( params[:price].to_i * 100)}
-              page.call 'submit_my_form'
+        page["modal_space_answer"].hide                                     
+        page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>( params[:price].to_i * 100)}
+        page.call 'submit_my_form'
               
       end
       return
@@ -2138,7 +2135,7 @@
   end
   
   def show_upload_groupform
-     render :update do |page|
+    render :update do |page|
       page["add_the_artwork0"].replace_html :partial=>"create_groupshow_artwork",:locals=>{:groupshow_id => params[:id],:messageforimageuploaded=>"Please Upload The Image"}
       page["description_competition_ex_py"].hide
       page["enterartworkcompetition"].show
@@ -2149,7 +2146,7 @@
       for k in 1..9
         page["iteam_image#{k}"].hide
       end
-     end
+    end
   end
   
   def upload_the_artwork_to_groupshow
@@ -2166,7 +2163,7 @@
     groupshowartwork.user_id = current_user.id
     groupshowartwork.groupshow_id = params[:groupshow_id]
     groupshowartwork.artworkurl = params[:groupshow_user][:image]
-   # groupshowartwork.save_image(params)
+    # groupshowartwork.save_image(params)
     groupshowartwork.save
     responds_to_parent do
       render :update do |page|
@@ -2184,29 +2181,29 @@
     i=0
     @groupshowuser   =  Groupshowartwork.find_all_by_groupshow_id_and_user_id(params[:id],current_user.id)  
     render :update do |page|
-        page["description_competition_ex_py1"].hide  
-        page["description_competition_ex_py"].hide  
-        for updateimage in @groupshowuser
-          page["add_the_artwork"+i.to_s].replace_html ""
-          page["add_the_artwork"+i.to_s].replace_html :partial=>"edit_the_artwork_groupshow",:locals=>{:groupshow_id => updateimage.groupshow.id,:messageforimageuploaded=>"",:updateimage=>updateimage}
-          page["enterartworkcompetition"].show
-          page["add_the_artwork"+i.to_s].show
-          page["iteam_image"+i.to_s].show
-          i=i+1
-        end  
-        while i < 10
-          page["add_the_artwork"+i.to_s].replace_html ""
-          page["iteam_image"+i.to_s].hide
-          i=i+1
-        end  
-        if @groupshowuser.blank?
-          page["add_the_artwork0"].replace_html :partial=>"create_groupshow_artwork",:locals=>{:groupshow_id => params[:id],:messageforimageuploaded=>"Please Upload The Image"}
-          page["add_the_artwork0"].show
-          page["iteam_image0"].show
-        else
-        end
-        page["iteam_image_uploaded"].hide  
-        page["useruploadedpic"].hide
+      page["description_competition_ex_py1"].hide  
+      page["description_competition_ex_py"].hide  
+      for updateimage in @groupshowuser
+        page["add_the_artwork"+i.to_s].replace_html ""
+        page["add_the_artwork"+i.to_s].replace_html :partial=>"edit_the_artwork_groupshow",:locals=>{:groupshow_id => updateimage.groupshow.id,:messageforimageuploaded=>"",:updateimage=>updateimage}
+        page["enterartworkcompetition"].show
+        page["add_the_artwork"+i.to_s].show
+        page["iteam_image"+i.to_s].show
+        i=i+1
+      end  
+      while i < 10
+        page["add_the_artwork"+i.to_s].replace_html ""
+        page["iteam_image"+i.to_s].hide
+        i=i+1
+      end  
+      if @groupshowuser.blank?
+        page["add_the_artwork0"].replace_html :partial=>"create_groupshow_artwork",:locals=>{:groupshow_id => params[:id],:messageforimageuploaded=>"Please Upload The Image"}
+        page["add_the_artwork0"].show
+        page["iteam_image0"].show
+      else
+      end
+      page["iteam_image_uploaded"].hide  
+      page["useruploadedpic"].hide
         
     end
   end
@@ -2227,9 +2224,9 @@
     #@groupshowuser.save_image(params)
     @groupshowuser.save
     responds_to_parent do
-       render :update do |page|
-          page["artworkchange#{@groupshowuser.id}"].replace_html :partial=>"edit_groupsshow_response",:locals=>{:messageforimageuploaded=>"Your Artwork Is Changed",:updateimage=>@groupshowuser}
-       end
+      render :update do |page|
+        page["artworkchange#{@groupshowuser.id}"].replace_html :partial=>"edit_groupsshow_response",:locals=>{:messageforimageuploaded=>"Your Artwork Is Changed",:updateimage=>@groupshowuser}
+      end
     end
     
   end

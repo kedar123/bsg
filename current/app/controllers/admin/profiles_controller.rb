@@ -68,7 +68,8 @@ class Admin::ProfilesController < Admin::ApplicationController
    if  current_user.login == "admin" || current_user.login == "superadmin"  
     
     @current_object = Profile.find(params[:id])
-		#@my_subscription = CompetitionsUser.find(:last);
+    session[:exh_display_list] = params[:id]
+    #@my_subscription = CompetitionsUser.find(:last);
     @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",@current_user.id,@current_object.id])
     #@folder = @current_object.user.inbox
     @messages = @current_object.user.sent_messages.paginate :conditions=>["deletedm = ? or deletedm is null",false], :per_page => 500, :page => params[:page], :order => "created_at DESC"
@@ -170,6 +171,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   def edit
     @current_object = Profile.find(params[:id])
     @role = Role.find(:all)
+    render :layout=>false;
   end
     
   def edit_password
@@ -214,26 +216,38 @@ class Admin::ProfilesController < Admin::ApplicationController
   # PUT /profiles/1
   # PUT /profiles/1.xml
   def update
+ p "updateeeeeeeeee"
     @role = Role.find(:all)
     @current_object = Profile.find(params[:id])
-    respond_to do |format|
+    #respond_to do |format|
       
-      if @current_object.update_attributes(params[:profile])
+      if @current_object.update_attributes!(params[:profile])
 				@current_object.create_profile_workspace if @current_object.profile_workspace.nil?
 				if user = @current_object.user
 					user.email = @current_object.email_address
 					user.system_role_id = params[:system_role_id]
 					user.save
 				end
-        flash[:notice] = 'Profile was successfully updated.'
-        format.html { redirect_to admin_profile_path(@current_object.id) }
-        format.xml  { head :ok }
-      else
-        flash[:notice] = "Problem in saving the profile "+@current_object.errors.first[1]
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @current_object.errors, :status => :unprocessable_entity }
-      end
+     #   flash[:notice] = 'Profile was successfully updated.'
+    #    if format.xhr?
+          
+    #    else
+    #    format.html {} #{ redirect_to admin_profile_path(@current_object.id) }
+    #    end
+     #   format.xml  { head :ok }
+    #    p "sssssssssssssssssss"
+    #  else
+     #  p "wwwwwwwwwwww"
+     #   flash[:notice] = "Problem in saving the profile "+@current_object.errors.first[1]
+     #   format.html { render :action => "edit" }
+     #  format.xml  { render :xml => @current_object.errors, :status => :unprocessable_entity }
+     # end
+     
     end
+      render :update do |page|
+       page['fragment-1'].replace_html(:partial => 'user_information') 
+      # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+      end
   end
   # DELETE /profiles/1
   # DELETE /profiles/1.xml
