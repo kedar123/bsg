@@ -91,7 +91,7 @@
            }                                     
 					
 </script>
-					<div  class="inputfont">
+		<div  class="inputfont">
                                 <h3>Payment For  <%=competition.title%> </h3>        
                                           
 <% form_for 'payment', :url => "create_the_payment", :builder => BlankFormBuilder,  :html => { :method => :post } do |f| %>
@@ -189,8 +189,10 @@
                 </div>
                                   <%#= select 'invoicing_info', 'payment_medium', [['Online', 'online'],['Cash','cash'],['Cheque','cheque'],['Paypal','paypal'],['Bank Deposit','bank']], {},:style=>"float:left",:onchange=>"changetheline()"%>
                                   <div style="clear:both;padding-top:20px;float:left">
-                                  
-                                  <%=  submit_to_remote 'da_btn', "Proceed",{:url => "create_the_payment", :update =>'',:complete=>"document.getElementById('show_ajax_request').style.display='none'" ,:before=>"document.getElementById('show_ajax_request').style.display='block';"}%>
+                                  <%if !params[:userid].blank?%>
+                                    <%=hidden_field_tag "userid" ,"carried"%>
+                                  <%end%>
+                                  <%=  submit_to_remote 'da_btn', "Proceed",{:url => "/create_the_payment", :update =>'',:complete=>"document.getElementById('show_ajax_request').style.display='none'" ,:before=>"document.getElementById('show_ajax_request').style.display='block';"}%>
                                   <div id="show_ajax_request" style="display:none;height:25px;width:20px;margin-left:10px;float:right">
                                               <img height="18" src="/images/ajax-spinner.gif" alt="loading" >
                                    </div>

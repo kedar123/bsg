@@ -201,7 +201,13 @@
 </span>
 <span id="current_competition" style="padding-left:100px;"> 
 
-<a href="/admin/competitions"><img width="15px" height="15px" src="/images/comp.jpeg"></img></a> 
+
+<%=link_to_remote  image_tag("/images/comp.jpeg", :height => '15', :width => '15'),  
+    :url => "/show_all_competition" , :method=>:get
+%>
+
+
+ 
 
 </span>
 
@@ -269,10 +275,14 @@
               <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
             <% end %>
           <%elsif   cu.state == "accepted"%>
+
+         <%if cu.competition%>
             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state unpaid") do %>
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
                                                <!-- <a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
-              <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>  
+              <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%> 
+         <%end%>
+
             <% end %>
           <%else%>     
             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state paid") do %>

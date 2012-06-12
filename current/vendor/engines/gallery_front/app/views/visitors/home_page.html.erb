@@ -81,7 +81,7 @@
                   <font  color="white">
                       <%if @competitionuserenteredlist%>
                       <%for competitionlist in @competitionuserenteredlist%>
-                          <a href="/competitions/<%=competitionlist.competition_id%>"><%=competitionlist.competition.title%></a>
+                          <a href="/competitions/<%=competitionlist.competition_id%>"><%=competitionlist.competition.title if competitionlist.competition%></a>
                           <br/>
                       <%end%>
                       <%end%>

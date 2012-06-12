@@ -297,18 +297,31 @@ class CompetitionsController < ApplicationController
 	#here after the user click on click here to competition the form will get opened. after the submission of that form
 	# the following method get called so i need the card detail 
   def create_subscribe_competition_front
+   
+       
+    if params[:competitionid].blank?
+
     @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:id])
-    
     @competition = Competition.find(params[:id])
+
+    else
+    @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(params[:userid],params[:competitionid])
+     @competition = Competition.find(params[:competitionid])
+    end
+    
+     if !params[:userid].blank?
+          @current_user = User.find(params[:userid])
+     end 
+
     if  @competitionuser.blank?
       #this array might be used later
       @competitionuser = CompetitionsUser.new()
-      @competitionuser.email = current_user.email
-      @competitionuser.name = current_user.profile.first_name + " " + current_user.profile.last_name
-      @competitionuser.suburb = current_user.profile.suburb
-      @competitionuser.address = current_user.profile.address
-      @competitionuser.post_code = current_user.profile.zip_code
-      @competitionuser.user_id = current_user.id
+      @competitionuser.email = @current_user.email
+      @competitionuser.name = @current_user.profile.first_name + " " + @current_user.profile.last_name
+      @competitionuser.suburb = @current_user.profile.suburb
+      @competitionuser.address = @current_user.profile.address
+      @competitionuser.post_code = @current_user.profile.zip_code
+      @competitionuser.user_id = @current_user.id
       @competitionuser.competition_id = params[:id]
       @competitionuser.price = 0
       @competitionuser.state =  "accepted" 
@@ -322,18 +335,29 @@ class CompetitionsController < ApplicationController
     @competitionuser.state = 'accepted'
     @competitionuser.save
     @order = @competitionuser
-    @credit_card = CreditCard.find_by_user_id(current_user.id)
+    @credit_card = CreditCard.find_by_user_id(@current_user.id)
     if @credit_card.blank?
       @credit_card = CreditCard.new	
     end
     session[:purchasable] = @competitionuser
+  
+    if params[:userid].blank?
+    
     render :update do |page|
       page["enterintocompetitionfront"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
       page["enterintocompetition"].show
       page["list_show"].hide
       page["buylist"].hide
     end
+   else
+        render :update do |page|
+      page["fragment-3"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
+        end
+    end
+   
+
   end  
+
   
   #this will render the login page when click here all other things will be hidden and whereever the hidden is written i will add this there
   #the form will contain the login form and redirect after login is done on the same page else show the error
@@ -364,6 +388,8 @@ class CompetitionsController < ApplicationController
   
    
   def  create_the_payment
+ 
+  
     creditcardno = ""
     if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card"))         
       credit_card = CreditCard.find_by_user_id(current_user.id)
@@ -409,6 +435,8 @@ class CompetitionsController < ApplicationController
     if     @order.instance_of? ExhibitionsUser
       @current_object.amount_in_cents =params[:invoice_amount].to_i*100
     elsif  @order.instance_of? CompetitionsUser
+    p "i am nil here"
+    p @order
       @current_object.amount_in_cents = (@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i) ) * 100
     else 
     end
@@ -550,9 +578,9 @@ class CompetitionsController < ApplicationController
           #render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.  Please Make The Payment Before #{@order.submission_date} <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
 
           render :partial=> "cash_cheque_response",:locals=>{:competition_id=>@order.competition.id,:artwork_count=>0,:order_id=>@order.id,:total_entry=>@order.total_entry}
-                                   
+          p "i am from here"                         
         else
-                                  
+                           p "i am not from here"       
           #session[:total_entry] = @order.total_entry
           #render :update do |page|
           # session[:store_for_submitting_the_artwork] = @order.id
@@ -571,6 +599,7 @@ class CompetitionsController < ApplicationController
       if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or params[:invoicing_info][:payment_medium] ==   "direct deposit"
         if  @order.instance_of? CompetitionsUser
           make_the_payment
+          p "bvhgbftrgfvbghgf"
         else
           make_the_payment_exhibition
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
@@ -585,7 +614,7 @@ class CompetitionsController < ApplicationController
           #  render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.  Please Make The Payment Before #{@order.competition.submission_deadline} <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
           # render :partial=> "cash_cheque_response",:locals=>{:competition_id=>@order.competition.id,:artwork_count=>0,:order=>@order,:total_entry=>@order.total_entry}
           add_the_artwork_intopaymentdiv
-         
+          p "hghgtfgrtfgfgf"
           return                  
         else
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.  <a href='admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
@@ -594,12 +623,17 @@ class CompetitionsController < ApplicationController
       end
 	    #flash[:error] = 'Error during the payment save  '+@current_object.state.to_s
       render :update do |page|
+      p "stllll its come hereeeeeeeee"
         page["modal_space_answer"].replace_html  :text=>'Your payment has not been successful. Please check your details and try again '                                     
         page["show_ajax_request"].hide
         page["modal_space_answer"].show
       end
-       
+       p "wwwwwwwwwsssssssssssss"
     end
+p "aaaaaaaaaaaaqqqqqqqqq"
+
+
+   
   end  
  
    
@@ -656,7 +690,8 @@ class CompetitionsController < ApplicationController
     
 
     render :update do |page|
-      if @order.total_entry.to_i > i  
+       if @order.total_entry.to_i > i  
+        if params[:userid].blank?
         # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
         page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
         page["enterintocompetition"].hide
@@ -675,13 +710,22 @@ class CompetitionsController < ApplicationController
         #for j in i+1..20
         # page["iteam_image#{j}"].hide
         #end
-        
+        else
+          if @order.instance_of? CompetitionsUser  
+                    page['fragment-3'].replace_html(:partial=>"admin/profiles/complist")
+             #render :partial=>"admin/profiles/complist"
+             p "i am gggggggggggggggggggggggggg"
+           end
+         end 
       else  
         page.alert("Your Limit Is Over")
         page["messageforimageuploaded"].replace_html "Your Limit Is Over Can Not Save The Image"
       end  
+
     end
-  end  
+end
+ 
+   
 
 
 
@@ -973,7 +1017,9 @@ class CompetitionsController < ApplicationController
       start_date = @order.competition.timing.starting_date.strftime("%d %b %Y")
       end_date = @order.competition.timing.ending_date.strftime("%d %b %Y")
       if params[:invoicing_info][:payment_medium] ==  "cash" or   params[:invoicing_info][:payment_medium] ==  "cheque" or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
+        if invoice
         create_pdf(invoice.id,invoice.number,start_date,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0,false,end_date)
+        end 
       else
         create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
       end

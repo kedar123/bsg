@@ -6,7 +6,8 @@
 <script>
 document.getElementById("userid").value = document.getElementById("exh_display_list").value
 </script>
-<%=  submit_to_remote 'da_btn', "Add This User To Exhibition",{ :url => "/admin/exhibitions/add_user_to_exh"} %>
+ 
+<%= submit_to_remote 'da_btn', "Add This User To Exhibition",{ :url => "/create_subscribe_competition_front"} %>
 
 </form>
-
+  

@@ -373,7 +373,7 @@ after :update do
       @competition = Competition.find(:all)
       if request.xhr?
          render :update do |page|
-            page['fragment-3'].replace_html(:partial=>"")
+            page['fragment-3'].replace_html(:partial=>"comp_list")
          end 
       end    
   end
