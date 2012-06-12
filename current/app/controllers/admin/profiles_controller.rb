@@ -169,9 +169,16 @@ class Admin::ProfilesController < Admin::ApplicationController
 
   # GET /profiles/1/edit
   def edit
+     
     @current_object = Profile.find(params[:id])
     @role = Role.find(:all)
+    if request.xhr?
+       render :update do |page|
+            page['fragment-1'].replace_html(:partial=>'profile_fields_back')
+       end 
+    else
     render :layout=>false;
+    end
   end
     
   def edit_password

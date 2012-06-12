@@ -175,7 +175,7 @@
     <li><a href="#fragment-6"><span>Mail</span></a></li>
 <span id="current_symbol" style="padding-left:25px;"> 
 
-<%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15'), :update => "fragment-1",
+<%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15'), :update => "",
     :url => { :controller=> "admin/profiles",:action => "edit", :id => @current_object.user.id },:method=>:get
 %>
  
