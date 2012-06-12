@@ -24,6 +24,10 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "admin/groupshows/update/:id",:controller=>"/admin/groupshows",:action=>"update"
   map.connect "admin/groupshows/delete/:id",:controller=>"/admin/groupshows",:action=>"destroy"
   
+  map.connect "/admin/exhibitions/all_exh_list",:controller=>"admin/exhibitions",:action=>"all_exh_list"
+  map.connect "/admin/exhibitions/add_user_to_exh",:controller=>"admin/exhibitions",:action=>"add_user_to_exh"
+  
+
   map.connect "/admin/competitions/confirm_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"confirm_competition_subscription_details"
   map.connect "/admin/competitions/edit_competition_subscription_details/:id"	,:controller=>"competitions",:action=>"edit_competition_subscription_details"
   map.connect "/admin/competitions/update_subscribe_competition/:id",:controller=>"competitions",:action=>"update_subscribe_competition"

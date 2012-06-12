@@ -175,7 +175,7 @@
     <li><a href="#fragment-6"><span>Mail</span></a></li>
 <span id="current_symbol" style="padding-left:25px;"> 
 
-<%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15'), :update => "#fragment-1",
+<%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15'), :update => "fragment-1",
     :url => { :controller=> "admin/profiles",:action => "edit", :id => @current_object.user.id },:method=>:get
 %>
  
@@ -190,11 +190,20 @@
     :url => new_admin_workspace_exhibition_path(profile_workspace.id) , :method=>:get
 %>
  
+<%=link_to_remote  image_tag("/images/exh.jpeg", :height => '15', :width => '15'),  
+    :url => "/admin/exhibitions/all_exh_list" , :method=>:get
+%>
+
+
          <%end%>
        
 
 </span>
-<span id="current_competition" style="padding-left:100px;"> <a href="/admin/competitions"><img width="15px" height="15px" src="/images/comp.jpeg"></img></a> </span>
+<span id="current_competition" style="padding-left:100px;"> 
+
+<a href="/admin/competitions"><img width="15px" height="15px" src="/images/comp.jpeg"></img></a> 
+
+</span>
 
 
 

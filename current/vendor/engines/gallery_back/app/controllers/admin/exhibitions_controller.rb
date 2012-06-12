@@ -165,8 +165,35 @@ end
 
    
    
-    
+   def add_user_to_exh
+                if(!ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",params[:userid],params[:exhibitionid]]).blank?)
+              
+            else
+            exh = Exhibition.find(params[:exhibitionid])
+            exnu=ExhibitionsUser.new(:user_id=>params[:userid],:exhibition_id=>exh.id,:state=>exh.state,:price=>nil,:invited_at=>Time.now,:created_at=>Time.now,:updated_at=>Time.now)
+            exnu.save
+            end
+        
+       session[:exh_display_list]=params[:userid]
+        if request.xhr?
+		render :update do |page|
+       page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
+      # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+      end
+      end
 
+        
+    end
+
+
+    
+  def all_exh_list
+      @exhibition = Exhibition.find(:all)
+      render :update do |page|
+       page['fragment-2'].replace_html(:partial => 'exh_list') 
+      # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+      end
+  end
 
 
 
@@ -214,6 +241,7 @@ end
        	#@current_object.exhibitions_users.map{ |e| e.init }
         p "redirecting to exhibition"
         p @current_object
+        session[:exh_display_list]=params[:thisuserid]
         if request.xhr?
 		render :update do |page|
        page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 

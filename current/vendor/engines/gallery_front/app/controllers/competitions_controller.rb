@@ -1356,7 +1356,7 @@ class CompetitionsController < ApplicationController
   end
 
    
-   
+    
    
 
 

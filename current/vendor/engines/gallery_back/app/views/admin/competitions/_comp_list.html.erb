@@ -1,0 +1,12 @@
+
+<%=form_tag('/add_user_to_competition')%>
+
+<%=select_tag "competitionid", options_from_collection_for_select(@competition, "id", "title")%>
+<%=hidden_field_tag "userid",""%>
+<script>
+document.getElementById("userid").value = document.getElementById("exh_display_list").value
+</script>
+<%=  submit_to_remote 'da_btn', "Add This User To Exhibition",{ :url => "/admin/exhibitions/add_user_to_exh"} %>
+
+</form>
+

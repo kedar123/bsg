@@ -1,4 +1,18 @@
 <!DOCTYPE webprojectsession>
 <webprojectsession>
-  <session usePreviewPrefix="0" previewPrefix="" />
+  <session usePreviewPrefix="0" previewPrefix="" >
+    <itemcursorpositions>
+      <item line="94" column="47" url="vendor/engines/acts_as_item/app/helpers/generic_for_item_helper.rb" />
+      <item line="41" column="86" url="vendor/engines/acts_as_item/app/views/generic_for_item/_form.html.erb" />
+      <item line="161" column="29" url="app/helpers/application_helper.rb" />
+    </itemcursorpositions>
+    <treestatus>
+      <openfolder url="vendor" />
+      <openfolder url="vendor/engines" />
+      <openfolder url="vendor/engines/acts_as_item" />
+      <openfolder url="vendor/engines/acts_as_item/app" />
+      <openfolder url="vendor/engines/acts_as_item/app/views" />
+      <openfolder url="vendor/engines/acts_as_item/app/views/generic_for_item" />
+    </treestatus>
+  </session>
 </webprojectsession>

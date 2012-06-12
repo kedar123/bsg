@@ -262,14 +262,14 @@ class Admin::ProfilesController < Admin::ApplicationController
     end
   end
 
-	def update_notices
+  def update_notices
 	    @current_object = Profile.find(params[:id])
 			#@current_oject.notices = @current_oject.notices
 			@current_object.notices = params[:notice]
       @current_object.save
 			flash[:notice] = "Profile Is Updated"
 			redirect_to :back		
-	end
+  end
   
   def show_message_sent
     

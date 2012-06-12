@@ -14,7 +14,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
        
     end
 
-	def  send_winner_email
+  def  send_winner_email
       @artworks_competition = ArtworksCompetition.find(params[:id])
 	    QueuedMail.add('UserMailer', 'send_winner_email',[@artworks_competition,@artworks_competition.competitions_user.user], 0, send_now=true)	
 	    flash[:notice]="The Email Is Sent To  #{@artworks_competition.competitions_user.user.profile.full_name}"
@@ -364,10 +364,22 @@ after :update do
    	@competitionuser.uniq!
 	end
 	
-	def group_selection
+  def group_selection
    @current_object = Competition.find(params[:competition_id])
       @artworks_competitions =ArtworksCompetition .find(:all,:conditions=>["competition_id = ?   ",@current_object.id])
   end
+
+  def show_all_competition
+      @competition = Competition.find(:all)
+      if request.xhr?
+         render :update do |page|
+            page['fragment-3'].replace_html(:partial=>"")
+         end 
+      end    
+  end
+ 
+
+
 	private
 
 	def get_artworks_lists

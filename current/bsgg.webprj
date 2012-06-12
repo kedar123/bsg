@@ -2,8 +2,8 @@
 <webproject>
   <project type="Local" name="bsgg" encoding="utf8" >
     <upload/>
-    <author></author>
-    <email></email>
+    <author/>
+    <email/>
     <defaultDTD>-//W3C//DTD HTML 4.01 Transitional//EN</defaultDTD>
     <item url="app/" uploadstatus="1" />
     <item url="app/controllers/" uploadstatus="1" />
@@ -10972,5 +10972,8 @@
     <item url="state" uploadstatus="1" />
     <item url="true" uploadstatus="1" />
     <item url="" uploadstatus="1" />
+    <templates>templates/</templates>
+    <toolbars>toolbars/</toolbars>
+    <annotations/>
   </project>
 </webproject>
