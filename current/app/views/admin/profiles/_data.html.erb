@@ -669,11 +669,7 @@ li.selected {background-position:0 0;}
   
   <div id="posts" class="show parent">
      <%=render :partial=>"user_information"%>
-     
-  </div>  
-  
-  <div id="comments" class="parent">
-      <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
+       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
         <% exhibitions_users.each do |eu| %>
 
      
@@ -684,35 +680,37 @@ li.selected {background-position:0 0;}
       <% else %>
         No exhibitions for that user.
       <% end %>
+  </div>  
+  
+  <div id="comments" class="parent">
+    <ul>
+      <li><a>jQuery Tabbed Navigation Menu. <span> - kevin</span></a></li>
+      <li><a>You can add links in here! <span> - kevin</span></a></li>
+      <li><a>It's easy to understand. Though it's not the best, but hell yeah it works. <span> - kevin</span></a></li>
+      <li><a>I hope you will like it. <span> - kevin</span></a></li>
+      <li><a>My next tutorial will be jQuery-based Accordion. <span> - kevin</span></a></li>
+      <li class="last"><a>And, I'm working on a free wordpress template as well : ) <span> - kevin</span></a></li>
+    </ul>
   </div>
   
   <div id="category" class="parent">
-  <div style="float:right;">
-        <%if current_user.login=="admin" || current_user.login=="superadmin"%>
-          <%= link_to "add an competition", new_admin_workspace_competition_path(profile_workspace.id) %>
-        <%end%>
-      </div><br />
-       <% if !(competitions_users=@current_object.user.competitions_users.all(:include => [:competition, :competitions_subscription])).empty? %>
-          <% competitions_users.each do |cu| %>
-            <%if  cu.state.blank?%>
-                                                 <!--<a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
-              <%#=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
-            <%elsif   cu.state == "accepted"%>
-
-              <%if cu.competition%>
-                    <%#=render :partial=>"compslideshow",:locals=>{:cu=>cu}%> 
-              <% end %>
-            <%else%>     
-                    <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-              <%#=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
-           <%end%>       
-        <% end %>
-        <br /><br />
-      <% else %>
-        No subscriptions to competitions for that user.
-      <% end %>
-      <br/>   
-
+    <ul>
+      <li><a href="http://www.queness.com/tag/ajax">ajax</a></li>
+      <li><a href="http://www.queness.com/tag/css-html">css-html</a></li>
+      <li><a href="http://www.queness.com/tag/freebies">freebies</a></li>
+      <li><a href="http://www.queness.com/tag/icon">icon</a></li>
+      <li><a href="http://www.queness.com/tag/inspiration">inspiration</a></li>
+      <li><a href="http://www.queness.com/tag/javascript">javascript</a></li>
+      <li><a href="http://www.queness.com/tag/logo">logo</a></li>
+      <li><a href="http://www.queness.com/tag/photography">photography</a></li>
+      <li><a href="http://www.queness.com/tag/photoshop">photoshop</a></li>
+      <li><a href="http://www.queness.com/tag/php">php</a></li>
+      <li><a href="http://www.queness.com/tag/seo">seo</a></li>
+      <li><a href="http://www.queness.com/tag/tutorial">tutorial</a></li>
+      <li><a href="http://www.queness.com/tag/usability">usability</a></li>
+      <li><a href="http://www.queness.com/tag/wallpaper">wallpaper</a></li>
+      <li class="last"><a href="http://www.queness.com/tag/wordpress">wordpress</a></li>
+    </ul>  
   </div>
   
   <div id="famous" class="parent">
