@@ -479,7 +479,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/admin/competitions/change_state/:competition_id', :controller => 'admin/competitions', :action => 'change_state'
    map.connect '/admin/competitions/group_selection/:competition_id', :controller => 'admin/competitions', :action => 'group_selection'
 
-   map.connect '/show_all_competition', :controller => 'admin/competitions', :action => 'show_all_competition'
+ map.connect '/show_all_competition', :controller => 'admin/competitions', :action => 'show_all_competition'
+ map.connect '/show_list_of_comp_exh', :controller => 'admin/competitions', :action => 'show_all_comp_exh'
 
  
 	map.connect '/subscribe/:id', :controller => :visitors, :action => 'new'

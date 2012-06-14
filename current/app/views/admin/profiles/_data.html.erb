@@ -173,6 +173,7 @@
     <li><a href="#fragment-4"><span>Artworks</span></a></li>
     <li><a href="#fragment-5"><span>Invoice</span></a></li>
     <li><a href="#fragment-6"><span>Mail</span></a></li>
+
 <span id="current_symbol" style="padding-left:25px;"> 
 
 <%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15'), :update => "",
@@ -206,6 +207,9 @@
     :url => "/show_all_competition" , :method=>:get
 %>
 
+<%=link_to_remote  image_tag("/images/button.png", :height => '15', :width => '15'),  
+    :url => "/show_list_of_comp_exh" , :method=>:get
+%>
 
  
 
@@ -224,7 +228,7 @@
     -->
 
 
-    <div id="fragment-1">
+    <div id="fragment-1" style="display:none">
       <%=render :partial=>"user_information"%>
     </div>
 
@@ -235,7 +239,7 @@
 
 
 
-    <div id="fragment-2">
+    <div id="fragment-2" style="display:none">
       
       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
         <% exhibitions_users.each do |eu| %>
@@ -260,7 +264,7 @@
         No exhibitions for that user.
       <% end %>
     </div>
-    <div id="fragment-3">
+    <div id="fragment-3" style="display:none">
       <div style="float:right;">
         <%if current_user.login=="admin" || current_user.login=="superadmin"%>
           <%= link_to "add an competition", new_admin_workspace_competition_path(profile_workspace.id) %>
@@ -298,7 +302,10 @@
       <br/>   
 
     </div>
-    <div id="fragment-4">
+
+
+
+    <div id="fragment-4" style="display:none">
       <div style="float:right;">
         <%if current_user.login=="admin" || current_user.login=="superadmin"%>
         Filter the list with text 
@@ -348,7 +355,63 @@
       No invoices linked to that user.
     <% end %>
     </div>
-    <div id="fragment-5">
+
+
+
+    <div id="fragment-5" style="display:none">
+      <div style="float:right;">
+        <%if current_user.login=="admin" || current_user.login=="superadmin"%>
+        Filter the list with text 
+        <br/>
+          <input id="filter5"/><br />
+          <%= link_to "add an invoice for this contact", new_admin_invoice_path + "/#{@current_object.id}" %>
+
+        <%end%>
+
+      </div><br />
+      
+      <% if !(invoices=@current_object.user.invoices.find(:all,:order=>"created_at DESC")).empty? %>
+        <table  id="invoicess"  >
+         
+          <tbody style="color:#666666;">
+
+            <% invoices.each do |i| %>
+              <%invoicestate = "unpaid" %>
+              <%invoicestate = "paid" if i.state == "validated"%>
+              <tr> 
+                <td style="width:60px">
+                  <%=i.created_at%>
+                </td>
+                <td>
+                  <%=link_to(i.title, admin_invoice_path(i.id))+" with state #{invoicestate}"%>
+              </td>
+            </tr>
+
+  <%# blank_list_element(:date => i.created_at, :title => link_to(i.title, admin_invoice_path(i.id))+" with state '#{invoicestate}'") do %>
+
+  <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
+
+  <%#= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if (i.state != 'validated') && @current_user.has_system_role('admin') %>
+  <%# end %>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr style="display:none;">
+            <td colspan="5">
+	            No rows match the filter...
+            </td>
+          </tr>
+        </tfoot>
+
+      </table>
+    <% else %>
+      No invoices linked to that user.
+    <% end %>
+    </div>
+
+
+
+    <div id="fragment-6" style="display:none">
       <div>
 <%#= link_to_remote 'Inbox', :url => list_all_messages_admin_emails_path(:profile_id => @current_object.id), :update => 'emails_list', :method => :get %>
 <%#= link_to 'Inbox',        inbox_admin_emails_path(:profile_id => @current_object.id) %>
@@ -440,7 +503,7 @@
 
 
 
-    <div id="fragment-6">
+    <div id="fragment-6" style="display:none">
 
       <font size=2pt>    <%=h @current_object.user.profile.biography %></font>
     </div>
@@ -495,4 +558,184 @@
       $("#invoicess").tablesorter();
     }
 );
+  
+  $(document).ready(function() {	
+
+
+  //Get all the LI from the #tabMenu UL
+  $('#tabMenu li').click(function(){
+    
+    //perform the actions when it's not selected
+    if (!$(this).hasClass('selected')) {    
+           
+	    //remove the selected class from all LI    
+	    $('#tabMenu li').removeClass('selected');
+	    
+	    //Reassign the LI
+	    $(this).addClass('selected');
+	    
+	    //Hide all the DIV in .boxBody
+	    $('.boxBody div.parent').slideUp('1500');
+	    
+	    //Look for the right DIV in boxBody according to the Navigation UL index, therefore, the arrangement is very important.
+	    $('.boxBody div.parent:eq(' + $('#tabMenu > li').index(this) + ')').slideDown('1500');
+	    
+	 }
+    
+  }).mouseover(function() {
+
+    //Add and remove class, Personally I dont think this is the right way to do it, anyone please suggest    
+    $(this).addClass('mouseover');
+    $(this).removeClass('mouseout');   
+    
+  }).mouseout(function() {
+    
+    //Add and remove class
+    $(this).addClass('mouseout');
+    $(this).removeClass('mouseover');    
+    
+  });
+
+	//Mouseover with animate Effect for Category menu list
+  $('.boxBody #category li').click(function(){
+
+    //Get the Anchor tag href under the LI
+    window.location = $(this).children().attr('href');
+  }).mouseover(function() {
+
+    //Change background color and animate the padding
+    $(this).css('backgroundColor','#888');
+    $(this).children().animate({paddingLeft:"20px"}, {queue:false, duration:300});
+  }).mouseout(function() {
+    
+    //Change background color and animate the padding
+    $(this).css('backgroundColor','');
+    $(this).children().animate({paddingLeft:"0"}, {queue:false, duration:300});
+  });  
+	
+	//Mouseover effect for Posts, Comments, Famous Posts and Random Posts menu list.
+  $('#.boxBody li').click(function(){
+    window.location = $(this).children().attr('href');
+  }).mouseover(function() {
+    $(this).css('backgroundColor','#888');
+  }).mouseout(function() {
+    $(this).css('backgroundColor','');
+  });  	
+	
+});
+
 </script>
+
+ <style>
+ 
+#tabMenu {margin:0;padding:0 0 0 15px;list-style:none;}
+#tabMenu li {float:left;height:32px;width:400px;cursor:pointer;cursor:hand}
+
+li.comments {background:url(/images/tabComment.png) no-repeat 0 -32px;}
+li.posts {background:url(/images/tabStar.png) no-repeat 0 -32px;}
+li.category {background:url(/images/tabFolder.png) no-repeat 0 -32px;}
+li.famous {background:url(/images/tabHeart.png) no-repeat 0 -32px;}
+li.random {background:url(/images/tabRandom.png) no-repeat 0 -32px;}
+
+li.mouseover {background-position:0 0;}
+li.mouseout {background-position:0 -32px;}
+li.selected {background-position:0 0;}
+
+.boxt {width:600px}
+.boxTop {background:url(/images/boxTop.png) no-repeat;height:11px;clear:both}
+.boxBody {background-color:#282828;}
+.boxBottom {background:url(/images/boxBottom.png) no-repeat;height:11px;}
+
+.boxBody div.parent {display:none;}
+.boxBody div.show {display:block;}
+
+.boxBody div ul {margin:0 10px 0 25px;padding:0;width:300px;list-style-image:url(/images/arrow.gif)}
+.boxBody div li {border-bottom:1px dotted #8e8e8e; padding:4px 0;cursor:hand;cursor:pointer}
+.boxBody div ul li.last {border-bottom:none}
+.boxBody div li span {font-size:8px;font-style:italic; color:#888;}
+</style>
+
+<div class="boxt">
+<ul id="tabMenu">
+  <li class="posts selected"></li>
+  <li class="comments"></li>
+  <li class="category"></li>
+  <li class="famous"></li>
+  <li class="random"></li>
+</ul>
+<div class="boxTop"></div>
+
+<div class="boxBody">
+  
+  <div id="posts" class="show parent">
+       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
+        <% exhibitions_users.each do |eu| %>
+
+     
+            <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
+          
+        <% end %>
+         
+      <% else %>
+        No exhibitions for that user.
+      <% end %>
+  </div>  
+  
+  <div id="comments" class="parent">
+    <ul>
+      <li><a>jQuery Tabbed Navigation Menu. <span> - kevin</span></a></li>
+      <li><a>You can add links in here! <span> - kevin</span></a></li>
+      <li><a>It's easy to understand. Though it's not the best, but hell yeah it works. <span> - kevin</span></a></li>
+      <li><a>I hope you will like it. <span> - kevin</span></a></li>
+      <li><a>My next tutorial will be jQuery-based Accordion. <span> - kevin</span></a></li>
+      <li class="last"><a>And, I'm working on a free wordpress template as well : ) <span> - kevin</span></a></li>
+    </ul>
+  </div>
+  
+  <div id="category" class="parent">
+    <ul>
+      <li><a href="http://www.queness.com/tag/ajax">ajax</a></li>
+      <li><a href="http://www.queness.com/tag/css-html">css-html</a></li>
+      <li><a href="http://www.queness.com/tag/freebies">freebies</a></li>
+      <li><a href="http://www.queness.com/tag/icon">icon</a></li>
+      <li><a href="http://www.queness.com/tag/inspiration">inspiration</a></li>
+      <li><a href="http://www.queness.com/tag/javascript">javascript</a></li>
+      <li><a href="http://www.queness.com/tag/logo">logo</a></li>
+      <li><a href="http://www.queness.com/tag/photography">photography</a></li>
+      <li><a href="http://www.queness.com/tag/photoshop">photoshop</a></li>
+      <li><a href="http://www.queness.com/tag/php">php</a></li>
+      <li><a href="http://www.queness.com/tag/seo">seo</a></li>
+      <li><a href="http://www.queness.com/tag/tutorial">tutorial</a></li>
+      <li><a href="http://www.queness.com/tag/usability">usability</a></li>
+      <li><a href="http://www.queness.com/tag/wallpaper">wallpaper</a></li>
+      <li class="last"><a href="http://www.queness.com/tag/wordpress">wordpress</a></li>
+    </ul>  
+  </div>
+  
+  <div id="famous" class="parent">
+    <ul>
+      <li>Simple JQuery Modal Window Tutorial.</li>
+      <li>Create a Simple CSS + Javascript Tooltip with jQuery.</li>
+      <li>Navigation List menu + Jquery Animate Effect Tutorial.</li>
+      <li class="last">Exclusive RSS Icons from Queness.</li>
+    </ul>  
+  </div>
+  
+  <div id="random" class="parent">
+    <ul>
+      <li>50 Monochromatic Website Designs.</li>
+      <li>Breadcrumbs In Web Design: Examples And Best Practices.</li>
+      <li>Simple JQuery Modal Window Tutorial.</li>
+      <li>Navigation List menu + Jquery Animate Effect Tutorial.</li>
+      <li>Create a Simple CSS + Javascript Tooltip with jQuery.</li>
+      <li>Exclusive RSS Icons from Queness.</li>
+      <li>New Smashing Freebies For Designers and Bloggers.</li>
+      <li class="last">Food Plates and Creative Dishware Designs.</li>
+    </ul>    
+  </div>        
+
+</div>
+</div>
+
+
+

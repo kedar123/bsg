@@ -378,6 +378,17 @@ after :update do
       end    
   end
  
+  def show_all_comp_exh
+      @competition = Competition.find(:all)
+      @exhibition = Exhibition.find(:all)
+      if request.xhr?
+         render :update do |page|
+            page['fragment-4'].replace_html(:partial=>"comp_exh_list")
+         end 
+      end    
+  end
+
+
 
 
 	private

@@ -396,7 +396,7 @@ $(document).ready(function () {
             $("#datepicker_start").datepicker('option', 'maxDate', $( "#datepicker_end" ).datepicker( "getDate" ));
         });
 
-        $("#tabass").tabs();
+       // $("#tabass").tabs();
 
 //        $("#modal_window").live('change', function(){
 //            $(".ui-dialog").remove();
