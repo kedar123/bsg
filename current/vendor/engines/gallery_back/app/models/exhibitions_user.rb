@@ -26,9 +26,18 @@ class ExhibitionsUser < ActiveRecord::Base
 	  	    if invoice != nil  then
 	    return
 	    end
-	  
-		amount1 = (self.price * 0.3).round(2)
-		amount2 = self.price - amount1
+	  p "hiiiiiii"
+    if self.price
+		amount1 = (self.price * 0.3).round(2) 
+    amount2 = self.price - amount1
+    else
+      amount1 = 0
+      amount2 = 0
+    end   
+    p "byyyyyyyyyy"
+    
+		
+    
 		invoice = Invoice.new(
 				:purchasable_type => self.class.to_s,
 				:purchasable_id => self.id,
