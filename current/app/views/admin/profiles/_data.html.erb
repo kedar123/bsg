@@ -320,7 +320,7 @@
       <% if !(invoices=@current_object.user.invoices.find(:all,:order=>"created_at DESC")).empty? %>
         <table  id="invoicess"  >
          
-          <tbody style="color:#666666;">
+          <tbody style="color:#666666;padding-left:30px;">
 
             <% invoices.each do |i| %>
               <%invoicestate = "unpaid" %>
@@ -641,7 +641,7 @@ li.mouseover {background-position:0 0;}
 li.mouseout {background-position:0 -32px;}
 li.selected {background-position:0 0;}
 
-.boxt {width:600px}
+.boxt {width:900px;padding-left:30px;}
 .boxTop {background:url(/images/boxTop.png) no-repeat;height:11px;clear:both}
 .boxBody {background-color:#282828;}
 .boxBottom {background:url(/images/boxBottom.png) no-repeat;height:11px;}
@@ -669,7 +669,11 @@ li.selected {background-position:0 0;}
   
   <div id="posts" class="show parent">
      <%=render :partial=>"user_information"%>
-       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
+      
+  </div>  
+  
+  <div id="comments" class="show parent">
+    <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
         <% exhibitions_users.each do |eu| %>
 
      
@@ -680,17 +684,6 @@ li.selected {background-position:0 0;}
       <% else %>
         No exhibitions for that user.
       <% end %>
-  </div>  
-  
-  <div id="comments" class="parent">
-    <ul>
-      <li><a>jQuery Tabbed Navigation Menu. <span> - kevin</span></a></li>
-      <li><a>You can add links in here! <span> - kevin</span></a></li>
-      <li><a>It's easy to understand. Though it's not the best, but hell yeah it works. <span> - kevin</span></a></li>
-      <li><a>I hope you will like it. <span> - kevin</span></a></li>
-      <li><a>My next tutorial will be jQuery-based Accordion. <span> - kevin</span></a></li>
-      <li class="last"><a>And, I'm working on a free wordpress template as well : ) <span> - kevin</span></a></li>
-    </ul>
   </div>
   
   <div id="category" class="parent">

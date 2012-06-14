@@ -50,6 +50,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'tiny_mce'
   config.gem 'builder', :version => '>=2.1.2', :lib => 'builder'
+
   # config.gem 'nokogiri', :version => '>=1.4.0', :lib => 'nokogiri'
 	#config.gem 'rmagick', :version => '>=2.9.1', :lib => 'RMagick'
 	config.gem 'rmagick', :version => '>=1.15.14', :lib => 'RMagick'

@@ -5,20 +5,20 @@ DEFAULTS: &DEFAULTS
 #  username: pragmatic_paco
 #  password: global786
   host: localhost
-  username: bsg_user
-  password: gallery
+  username: root
+  password: root
   #socket: /var/run/mysqld/mysqld.sock
 
 development:
-  database: graphica_gallery
+  database: gallery_development
   <<: *DEFAULTS
 
 test:
-  database: graphica_gallery
+  database: gallery_development
   <<: *DEFAULTS
 
 production:
-  database: graphica_gallery
+  database: gallery_development
   <<: *DEFAULTS
 
 
