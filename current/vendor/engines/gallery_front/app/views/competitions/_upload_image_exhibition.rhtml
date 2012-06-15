@@ -15,9 +15,18 @@
 </div>
 
 <div  class="inputfont">
+          <%if !user_id.blank?%>
+  
+<form target="upload_frame" method="post" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>"   id="add_the_artwork_to_competition">
+<%else%>
 <form target="upload_frame" method="post" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>" onsubmit="return  Checkfiles_simple(<%=exhibition_id%>)" id="add_the_artwork_to_competition">
-
+  
+  <%end%>
           <%=hidden_field_tag "exhibition_id",exhibition_id%>
+          <%if !user_id.blank?%>
+          <%=hidden_field_tag "user_id",user_id%>
+               
+          <%end%>
           <div class="changecolorgray">
 					<label>Title </label>
 					</div>
