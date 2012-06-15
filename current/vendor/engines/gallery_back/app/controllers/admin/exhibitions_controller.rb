@@ -239,13 +239,19 @@ end
         p @current_object
         session[:exh_display_list]=params[:thisuserid]
         if request.xhr?
+          
+         
 		render :update do |page|
+      if params[:generalpage]
+       page.redirect_to :action=>"show",:id=>exhibition.id       
+      else
        page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
-      # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+      end
+          # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
       end
          
         else
-        redirect_to :action=>"show",:id=>@current_object.id
+        redirect_to :action=>"show",:id=>exhibition.id
         end 
   end
   
