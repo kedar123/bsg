@@ -1814,22 +1814,37 @@ end
 
 
   def upload_exhibition_image
+   
     render :update do |page|
-      page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil}
+      if params[:user_id]
+      page["makemetemporary"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil,:user_id=>params[:user_id]}
+      else
+      page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil,:user_id=>nil}
       page["description_competition_ex_py"].show
       page["useruploadedpic"].hide
       
       for k in 0..9
         page["iteam_image#{k}"].hide
       end
+        
+      end
+      
+      
     end
   end  
 
 
   def upload_exhibition_artwork
+    
     artwork = ExhiArtwork.new()
     artwork.title=params[:artwork]["title"]
+    if params[:user_id]
+      artwork.user_id=params[:user_id]
+    else
+      artwork.user_id=current_user.id
+    end
     artwork.user_id=current_user.id
+    
     artwork.image = params[:artwork]["image"]
     artwork.medium = params[:artwork]["medium"]
     artwork.width = params[:artwork]["width"]
@@ -1841,20 +1856,34 @@ end
     artwork.is_purchasable = params[:artwork]["is_purchasable"]
     artwork.exhibition_id = params["exhibition_id"]
     if  artwork.save
-      wcp = Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id
-      itw=ItemsWorkspace.new(:workspace_id=>wcp,:itemable_type=>"Artwork",:itemable_id=>artwork.id)
+      
+     if params[:user_id]
+       wcp = Workspace.find(:first, :conditions => { :creator_id => params[:user_id]}).id
+     else
+       wcp = Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id
+     end  
+       itw=ItemsWorkspace.new(:workspace_id=>wcp,:itemable_type=>"Artwork",:itemable_id=>artwork.id)
       itw.save
       responds_to_parent do
         render :update do |page|
+         if params[:user_id] 
+            page.alert("artwork uploaded")
+         else  
           page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
           page["description_competition_ex_py"].show
+         end 
         end
       end          		     
     else
       responds_to_parent do
         render :update do |page|
+           if params[:user_id] 
+            page.alert("artwork is not uploaded")
+         else  
+        
           page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Artwork Is Not Uploaded Please Try Again"}
           page["description_competition_ex_py"].show
+           end
         end
       end  
     end

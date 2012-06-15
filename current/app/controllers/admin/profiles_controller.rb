@@ -294,7 +294,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   
   @message = current_user.sent_messages.find(params[:id])
        render :update do |page|
-        page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+        page["message"+@message.id.to_s].replace_html(:partial =>'message_sent_detail', :object =>@message)
         page["ajax_spinner"].visual_effect :hide
       end
   end
