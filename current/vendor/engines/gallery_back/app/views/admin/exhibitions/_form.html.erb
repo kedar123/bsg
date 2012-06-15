@@ -12,12 +12,14 @@
 
     <%selecteduser<<@workspace.creator_id%>
     <%=hidden_field "exhibition","workspace_ids",:value=>@workspace.id%>
+    
     <%=hidden_field_tag "thisuserid" ,"" %>
     <input type="hidden" id="thisuserid" value="">
     <script>
     document.getElementById('thisuserid').value = document.getElementById('exh_display_list').value
     </script> 
     <%end%>
+    <%=hidden_field_tag "generalpage" ,"" %>  
     <%= select_tag "exhibition[user_ids][]", options_from_collection_for_select(@artists, 'user_id', 'full_name', :selected =>selecteduser, :disabled => @current_object.user_ids), :multiple => true, :size => 9 %>
        <%#=link_to "Make Required User As Artist","/admin/profiles"%> 
     <%#= @current_object.users.map{ |e| "<input type='hidden' value='#{e.id}' name='exhibition[user_ids][]' id='exhibition_user_ids'>" }.join(' ') %>

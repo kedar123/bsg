@@ -17,7 +17,6 @@ end
 	acts_as_item do
 		#Filter calling the encoder method of ConverterWorker with parameters
     before :new do
-      
 		       if !params[:workspace_id].blank?
 		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
 		    
@@ -37,8 +36,6 @@ end
 			end
     end
     
- 
-
   before :edit do
            if !params[:workspace_id].blank?
 		       if  Workspace.find(params[:workspace_id]).creator_id != 2  and  Workspace.find(params[:workspace_id]).creator_id != 1
@@ -158,8 +155,6 @@ end
 		before :show do
     	get_artworks_lists
   	end
-      
- 
 
   end
 
@@ -208,7 +203,7 @@ def new
 		        if  Workspace.find(params[:workspace_id]).creator_id != 2 and Workspace.find(params[:workspace_id]).creator_id != 1#admin and superadmin role should not be artist
 			        User.find(Workspace.find(params[:workspace_id]).creator_id).update_attribute("system_role_id",8 )
 			    end
-		       end       
+		     end       
      @current_object = Exhibition.new
       @oldtimingperiodid =  @current_object.timing.period_id    if !@current_object.timing.blank?
 			@current_object.build_timing 
@@ -239,6 +234,7 @@ end
         end
         #@current_object = exhibition        
        	#@current_object.exhibitions_users.map{ |e| e.init }
+         exhibition.exhibitions_users.map{ |e| e.init } 
         p "redirecting to exhibition"
         p @current_object
         session[:exh_display_list]=params[:thisuserid]
@@ -401,31 +397,4 @@ end
   end
 
 
-module Resourceful
-  module Default
-    module Actions
-      def create
-       
-        
-        build_object
-        load_object
-        before :create
-        
-      if params[:group_show] == "0"
-         
-      else    
-        if current_object.save
-          save_succeeded!
-          after :create
-          response_for :create
-        else
-          save_failed!
-          after :create_fails
-          response_for :create_fails
-        end
-      end  
-      
-      end
-    end
-  end
-end
+ 
