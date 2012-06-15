@@ -1,10 +1,10 @@
- <%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']%>
+<%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']%>
 <%size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
 <%title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']%>
 <%medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
 <%price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
 <%imgname=[]%>       
-<%sizename=[]
+<%sizename=[]%>
 <%titlename=[]%>
 <%mediumname=[]%>
 <%pricename=[]%> 
@@ -40,7 +40,7 @@
   }
   function comptoggle(comid) {
     var ele = document.getElementById("comp"+comid);
-	
+
     if(ele.style.display == "block") {
       ele.style.display = "none";
     }
@@ -114,11 +114,6 @@
 
 </span>
 
- 
- 
-   
-</div>
-
 
 
   </ul>
@@ -134,87 +129,36 @@
 
     <div id="fragment-1"  >
       <%=render :partial=>"user_information"%>
+      
     </div>
 
 
 
 
 
-<<<<<<< HEAD
- <style>
- 
-#tabMenu {margin:0;padding:0 0 0 15px;list-style:none;}
-#tabMenu li {float:left;height:32px;width:400px;cursor:pointer;cursor:hand}
 
-li.comments {background:url(/images/tabComment.png) no-repeat 0 -32px;}
-li.posts {background:url(/images/tabStar.png) no-repeat 0 -32px;}
-li.category {background:url(/images/tabFolder.png) no-repeat 0 -32px;}
-li.famous {background:url(/images/tabHeart.png) no-repeat 0 -32px;}
-li.random {background:url(/images/tabRandom.png) no-repeat 0 -32px;}
-
-li.mouseover {background-position:0 0;}
-li.mouseout {background-position:0 -32px;}
-li.selected {background-position:0 0;}
-
-.boxt {width:900px;padding-left:30px;}
-.boxTop {background:url(/images/boxTop.png) no-repeat;height:11px;clear:both}
-.boxBody {background-color:#282828;}
-.boxBottom {background:url(/images/boxBottom.png) no-repeat;height:11px;}
-
-.boxBody div.parent {display:none;}
-.boxBody div.show {display:block;}
-
-.boxBody div ul {margin:0 10px 0 25px;padding:0;width:300px;list-style-image:url(/images/arrow.gif)}
-.boxBody div li {border-bottom:1px dotted #8e8e8e; padding:4px 0;cursor:hand;cursor:pointer}
-.boxBody div ul li.last {border-bottom:none}
-.boxBody div li span {font-size:8px;font-style:italic; color:#888;}
-</style>
-
-<div class="boxt">
-<ul id="tabMenu">
-  <li class="posts"></li>
-  <li class="comments"></li>
-  <li class="category"></li>
-  <li class="famous"></li>
-  <li class="random"></li>
-</ul>
-<div class="boxTop"></div>
-
-<div class="boxBody">
-  
-  <div id="posts" class="parent">
-     <%=render :partial=>"user_information"%>
-      
-  </div>  
-  
-  <div id="comments" class="show parent">
-     <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
- 
-  <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
- 
-        <% exhibitions_users.each do |eu| %>
 
 
     <div id="fragment-2"  >
-      eeeeeeeeeeeeeeeeeeeeeee
+      
       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
         <% exhibitions_users.each do |eu| %>
-qqqqqqqqqqqqq
+
     <%# blank_list_element(:date => eu.created_at, :title => link_to(eu.exhibition.title, admin_exhibition_path(eu.exhibition_id))+" with state '#{eu.state}'") do %>
     <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-    <%# end %>zzzzzzzzzzzz
+    <%# end %>
           <% blank_list_element(:date => eu.exhibition.timing.starting_date, :title => link_to(eu.exhibition.title, admin_exhibition_path(eu.exhibition_id))) do %>
-bbbbbbbbbbbbbbbbb 
+
 <%#=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
             <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) %>
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
               <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",:update => 'modal_space', :method => :get%>
-cccccccccccccccc
+
              &nbsp;&nbsp;<%=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}?user_id=#{eu.user_id}",:update => ''%>
        
             <%end%>  
             <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
-          <% end %>aaaaaaaaaaa
+          <% end %>
              <div id="makemetemporary">
                  
              </div>   
@@ -224,7 +168,6 @@ cccccccccccccccc
         <br /><br />
       <% else %>
         No exhibitions for that user.
-
       <% end %>
     </div>
     <div id="fragment-3"  >
@@ -527,4 +470,3 @@ cccccccccccccccc
  
 </script>
 
- 

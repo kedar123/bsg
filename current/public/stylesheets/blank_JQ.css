@@ -9,6 +9,8 @@ body {
 	background: #2B2D2C url('/images/backback.png');
 }
 
+
+
 ul {margin:0; padding:0;}
 a {text-decoration: none;color:#666;cursor:pointer;}
 
@@ -126,6 +128,12 @@ h4 {
 .ajax_hint_message p{
 	margin-top:0;
 }
+
+.inputspace{
+          padding-bottom:5px;
+          }
+
+
 
 .inputError{
 	border:1px solid red;
