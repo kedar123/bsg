@@ -5,7 +5,7 @@
 <%medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
 <%price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
 <%imgname=[]%>       
-<%sizename=[]%>
+<%sizename=[]
 <%titlename=[]%>
 <%mediumname=[]%>
 <%pricename=[]%> 
@@ -216,7 +216,7 @@ li.selected {background-position:0 0;}
 
 <div class="boxt">
 <ul id="tabMenu">
-  <li class="posts selected"></li>
+  <li class="posts"></li>
   <li class="comments"></li>
   <li class="category"></li>
   <li class="famous"></li>
@@ -226,7 +226,7 @@ li.selected {background-position:0 0;}
 
 <div class="boxBody">
   
-  <div id="posts" class="show parent">
+  <div id="posts" class="parent">
      <%=render :partial=>"user_information"%>
       
   </div>  
@@ -245,7 +245,7 @@ li.selected {background-position:0 0;}
          
       <% else %>
         No exhibitions for that user.
-      <% end %>
+<% end %><% end %>      
   </div>
   
   <div id="category" class="parent">
