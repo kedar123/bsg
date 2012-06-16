@@ -9,4 +9,11 @@
       <% elsif !eu.invited_at.blank?%>  
           <%#here i need the blank d for alignment%>  
           <%= link_to_remote "Resend Invoice", :url=>send_invitation_admin_exhibitions_user_path(eu.id), :method => :get %>
-     <%end%> 
+ <%end%>
+ <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) %>
+        <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
+              <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",
+                :update => 'modal_space', :method => :get%>
+                  
+
+            <%end%> 

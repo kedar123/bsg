@@ -1869,7 +1869,8 @@ end
          if params[:user_id] 
             page.alert("artwork uploaded")
          else  
-          page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
+            page.alert('not uploaded')
+          page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:user_id=>nil,:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
           page["description_competition_ex_py"].show
          end 
         end
@@ -1880,8 +1881,8 @@ end
            if params[:user_id] 
             page.alert("artwork is not uploaded")
          else  
-        
-          page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Artwork Is Not Uploaded Please Try Again"}
+          page.alert('not uploaded')
+          page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:user_id=>nil,:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Artwork Is Not Uploaded Please Try Again"}
           page["description_competition_ex_py"].show
            end
         end
