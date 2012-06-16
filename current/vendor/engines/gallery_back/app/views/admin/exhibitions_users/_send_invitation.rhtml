@@ -1,0 +1,12 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+ 
+ <% if eu.invited_at.blank? %>
+        <%= link_to_remote "Email Invoice", :url=>send_invitation_admin_exhibitions_user_path(eu.id), :method => :get %>
+      <% elsif !eu.invited_at.blank?%>  
+          <%#here i need the blank d for alignment%>  
+          <%= link_to_remote "Resend Invoice", :url=>send_invitation_admin_exhibitions_user_path(eu.id), :method => :get %>
+     <%end%> 
