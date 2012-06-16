@@ -99,9 +99,13 @@ class ExhibitionsUser < ActiveRecord::Base
     
     
 	def init
+    p "i am from init"
 		self.state = 'created'
 		self.setting_the_price
+    p "after set a price"
+    p self.price
 		self.save
+     self.errors.each do |x| p x end
 	end
 
 	def title

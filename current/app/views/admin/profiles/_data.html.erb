@@ -157,6 +157,12 @@
              &nbsp;&nbsp;<%=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}?user_id=#{eu.user_id}",:update => ''%>
        
             <%end%>  
+      <% if eu.invited_at.blank? %>
+        <%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(eu.id) %>
+      <% elsif !eu.invited_at.blank?%>  
+          <%#here i need the blank d for alignment%>  
+          <%= link_to "Resend Invoice", send_invitation_admin_exhibitions_user_path(eu.id) %>
+     <%end%> 
             <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
           <% end %>
              <div id="makemetemporary">

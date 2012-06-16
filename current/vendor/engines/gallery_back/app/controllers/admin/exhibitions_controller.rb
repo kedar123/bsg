@@ -165,8 +165,9 @@ end
               
             else
             exh = Exhibition.find(params[:exhibitionid])
-            exnu=ExhibitionsUser.new(:user_id=>params[:userid],:exhibition_id=>exh.id,:state=>exh.state,:price=>nil,:invited_at=>Time.now,:created_at=>Time.now,:updated_at=>Time.now)
+            exnu=ExhibitionsUser.new(:user_id=>params[:userid],:exhibition_id=>exh.id,:state=>exh.state,:price=>nil,:created_at=>Time.now,:updated_at=>Time.now)
             exnu.save
+            exnu.init
             end
         
        session[:exh_display_list]=params[:userid]
@@ -234,7 +235,14 @@ end
         end
         #@current_object = exhibition        
        	#@current_object.exhibitions_users.map{ |e| e.init }
-         exhibition.exhibitions_users.map{ |e| e.init } 
+         p "is there is a problem "
+         p exhibition
+         p exhibition.exhibitions_users
+           exhibition.exhibitions_users.each do |e|
+              p "call init"
+              e.init
+              p "after call init" 
+           end
         p "redirecting to exhibition"
         p @current_object
         session[:exh_display_list]=params[:thisuserid]
