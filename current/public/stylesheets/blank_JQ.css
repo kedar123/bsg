@@ -10,6 +10,26 @@ body {
 }
 
 
+.left {
+    float: left;
+    padding-left: 20px;
+    text-align: left;
+    width: 30%;
+}
+.right {
+    float: left;
+    margin-bottom: 2px;
+    margin-left: -151px;
+    width: 65%;
+}
+
+
+.submitright {
+    float: right;
+    padding-right: 609px;
+    }
+
+
 
 ul {margin:0; padding:0;}
 a {text-decoration: none;color:#666;cursor:pointer;}
