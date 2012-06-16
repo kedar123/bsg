@@ -88,10 +88,14 @@ class Payment < ActiveRecord::Base
         amount_in_cents = amount_in_cents
         uri = URI.parse("https://migs.mastercard.com.au/vpcdps?vpc_Version=1&vpc_Command=pay&vpc_AccessCode=C5ED3BE7&vpc_MerchTxnRef=#{params[:credit_card][:user_id]}&vpc_Merchant=TESTGRAPRECOM01&vpc_OrderInfo=#{params[:credit_card][:user_id]}&vpc_Amount=#{amount_in_cents.to_i}&vpc_CardNum=#{no}&vpc_cardExp=#{cardexpdate.strftime('%y%m')}&vpc_locale=en")
         http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = true
+        #http.use_ssl = true
+        p "qqqqqqqqqqqqqqqq"
         #http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        p "sssssssss"
         request = Net::HTTP::Post.new(uri.request_uri)
+        p "zzzzzzzzzzzzzzzzzzzzzzz"
         response = http.request(request)
+        p "kkkkkkkkkkkkkkkkkkkkkk"
         responsearray=response.body.split("&")
             responsearray.each do |res|
                 	if  res.split("=")[0] == "vpc_Message"
