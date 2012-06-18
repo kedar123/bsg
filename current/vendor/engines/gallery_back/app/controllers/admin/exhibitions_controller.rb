@@ -246,6 +246,7 @@ end
           
         p "for workspace"
          exhibition.save
+         if  params[:exhibition][:user_ids]    
           params[:exhibition][:user_ids].each do |exhu|
             
             if(!ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",exhu,exhibition.id]).blank?)
@@ -255,6 +256,8 @@ end
             exnu.save
             end
           end
+         end
+    
         p "following errors will be teheeeee"
          exhibition.errors.each do |s|
          p s

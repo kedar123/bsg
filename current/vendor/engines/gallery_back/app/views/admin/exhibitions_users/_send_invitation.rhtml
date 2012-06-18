@@ -19,7 +19,7 @@
  <%end%> 
  <%if eu.state != "created"%>                    
               <% if  !eu.user.invoices.blank?  and(eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil )%>
-                   &nbsp;&nbsp;<%=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}",:update => ''%>
+                   &nbsp;&nbsp;<%=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}?user_id=#{eu.user_id}",:update => 'modal_space'%>
               <%end%>             
  <%end%> 
  <% if eu.state == 'published' %>
