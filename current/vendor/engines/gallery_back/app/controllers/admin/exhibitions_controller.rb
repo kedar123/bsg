@@ -226,9 +226,35 @@ end
 
 
   def create
-        exhibition = Exhibition.new(params[:exhibition])
-         exhibition.user = User.find(1)
-        exhibition.save
+        exhibition = Exhibition.new()
+        exhibition.user = User.find(1)
+        exhibition.title = params[:exhibition][:title]
+        exhibition.description = params[:exhibition][:description]
+        #exhibition.user_ids = params[:exhibition][:user_ids]
+        #=> #<Timing id: nil, objectable_type: nil, objectable_id: nil, note: nil, period_id: nil, starting_date: nil, ending_date: nil, starting_time: nil, ending_time: nil, places_id: nil, state: nil, created_at: nil, updated_at: nil>
+    if     params[:exhibition][:timing_attributes][:gallery_ids]
+           
+    timing = Timing.new(:objectable_type=>'Exhibition',:period_id=>params[:exhibition][:timing_attributes][:period_id],:places_id=>params[:exhibition][:timing_attributes][:gallery_ids].join(',')) 
+    else
+    timing = Timing.new(:objectable_type=>'Exhibition',:period_id=>params[:exhibition][:timing_attributes][:period_id]) 
+   
+    end
+         timing.save
+        exhibition.timing = timing
+        exhibition.workspace_ids = params[:exhibition][:workspace_ids]
+        p params
+          
+        p "for workspace"
+         exhibition.save
+          params[:exhibition][:user_ids].each do |exhu|
+            
+            if(!ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",exhu,exhibition.id]).blank?)
+              
+            else
+            exnu=ExhibitionsUser.new(:user_id=>exhu,:exhibition_id=>exhibition.id,:state=>"created",:created_at=>Time.now)
+            exnu.save
+            end
+          end
         p "following errors will be teheeeee"
          exhibition.errors.each do |s|
          p s
@@ -250,9 +276,11 @@ end
           
          
 		render :update do |page|
-      if params[:generalpage]
+      if !params[:generalpage].blank?
+        p "wwwwwwwwwwwwwwwwwwwwwwwwwwwww"
        page.redirect_to :action=>"show",:id=>exhibition.id       
       else
+        p "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
        page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
       end
           # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)

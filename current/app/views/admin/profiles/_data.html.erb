@@ -152,7 +152,7 @@
 <%#=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
             <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) %>
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
-              <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",:update => 'modal_space', :method => :get%>
+              <%#=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",:update => 'modal_space', :method => :get%>
 
          
             <%end%>  
@@ -164,18 +164,33 @@
           <%#here i need the blank d for alignment%>  
           <%= link_to_remote "Resend Invoice", :url=>send_invitation_admin_exhibitions_user_path(eu.id), :method => :get %>
    <%end%> 
-       
-              <%if eu.state != "created"%>                    
+        <% if    !eu.user.invoices.blank?  and(  (eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated") or (eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]) != nil and   eu.user.invoices.find(:last ,:conditions=>["purchasable_id = ? ",eu.id]).state != "validated")) %>
+        <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)  %>
+              <%=link_to_remote "Pay Online", :url=>"/admin/profiles/exhibition_payment/#{eu.id}",
+                :update => 'modal_space', :method => :get%>
+                  
+
+ <%end%> 
+              <%if eu.state != "created" %>                    
               <% if  !eu.user.invoices.blank?  and(eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil )%>
-                   &nbsp;&nbsp;<%=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}",:update => ''%>
+                   &nbsp;&nbsp;<%=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}?user_id=#{eu.user_id}",:update => 'modal_space',:method=>:get%>
               <%end%>             
             <%end%> 
+                    <% if eu.state == 'published' %>
+    
+      <%#here atually i need to add a column that will check weather the email is sent or not if it is sent then resend %>
+      <%= link_to_remote 'Unpublish', :url=>update_state_admin_exhibitions_user_path(eu.id, :state => 'unpublished') ,:method=>:get%>
+      <%else%>
+    <% end %>
+      
+      <%if eu.state != 'published' and !eu.invited_at.blank? %> 
+       <%= link_to_remote 'Publish', :url=>update_state_admin_exhibitions_user_path(eu.id, :state => 'published') ,:method=>:get%>
+      <%end%>
+                   
      </span>               
             <%=render :partial=>"exhbslideshow",:locals=>{:exh_id=>eu.exhibition.id,:user_id=>@current_object.user.id,:eu=>eu}%>
           <% end %>
-             <div id="makemetemporary">
-                 
-             </div>   
+             
       
           <br/>
         <% end %>

@@ -14,6 +14,29 @@
  <%artexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",eu.user.id,eu.exhibition.id])%>
   <div>
     <%for artwork in artexhibition%>
+   <div style="float:left">  
     <img src="/uploaded_files/development/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>">
+     
+   <a onclick='sendselectrequest(<%=artwork.id%>);return false;' href='#'>select</a> | 
+   <a onclick='sendunselectrequest(<%=artwork.id%>);return false;'  href='#'>Unselect</a><br/>
+     <span id="changemystatebefore<%=artwork.id%>">
+     </span>   
+   </div>
      <%end%>
     </div>
+
+<script>
+function sendselectrequest(selectedid){
+  document.getElementById('changemystatebefore'+selectedid).innerHTML='state selected';
+  //showhidediv(selectedid)
+  jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/exhibitions/submit_exhibition_artwork/'+selectedid}); return false;
+  return false;
+}
+ 
+function sendunselectrequest(selectedid){
+  document.getElementById('changemystatebefore'+selectedid).innerHTML='state unselect';
+  //showhidediv(selectedid)
+  jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/exhibitions/unselect_exhibition_artwork/'+selectedid}); return false;
+  return false;
+}
+</script>

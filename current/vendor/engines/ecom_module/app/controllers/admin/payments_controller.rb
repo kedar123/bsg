@@ -184,7 +184,7 @@ class Admin::PaymentsController < Admin::ApplicationController
            	        elsif params[:invoicing_info][:payment_medium] == "paypal"
                                 @invoice.validating("paypal")
                     else
-                                   @invoice.validating
+                                @invoice.validating
                     end     	
   end
 

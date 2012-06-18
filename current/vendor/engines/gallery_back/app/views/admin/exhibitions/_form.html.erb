@@ -1,8 +1,14 @@
-  
- 
-<% form_for_item @current_object, "Exhibition Creation",true,'/admin/exhibitions' do |f| -%>
+ <% p params%>
+<%  p "sssssss"%>
+<%remoteme=false%>
+<%if !request.xhr?%> 
+<%remoteme=false%>
+  <%else%>
+<%remoteme=true%>
+<%end%>
+<% form_for_item @current_object, "Exhibition Creation",remoteme,'/admin/exhibitions' do |f| -%>
 
-  <label>Artists </label>
+<label>Artists </label>
       
     <div class="formElement">
     

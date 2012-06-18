@@ -73,7 +73,15 @@ class Admin::ExhibitionsUsersController < Admin::ApplicationController
 		if params[:state] == 'published' || params[:state] == 'unpublished'
 			@current_object.state = params[:state]
 			@current_object.save
-			redirect_to item_path(@current_object.exhibition)
+      if request.xhr?
+        render :update do |page|
+               page['update_invitation'+@current_object.id.to_s].replace_html(:partial=>'send_invitation',:locals=>{:eu=>@current_object})
+         end
+      else
+      redirect_to item_path(@current_object.exhibition)  
+      end
+			
+      
 		end
 		
 	end

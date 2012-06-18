@@ -6,7 +6,7 @@
  
  <% if eu.invited_at.blank? %>
         <%= link_to_remote "Email Invoice", :url=>send_invitation_admin_exhibitions_user_path(eu.id), :method => :get %>
-      <% elsif !eu.invited_at.blank?%>  
+ <% elsif !eu.invited_at.blank?%>  
           <%#here i need the blank d for alignment%>  
           <%= link_to_remote "Resend Invoice", :url=>send_invitation_admin_exhibitions_user_path(eu.id), :method => :get %>
  <%end%>
@@ -16,4 +16,19 @@
                 :update => 'modal_space', :method => :get%>
                   
 
-            <%end%> 
+ <%end%> 
+ <%if eu.state != "created"%>                    
+              <% if  !eu.user.invoices.blank?  and(eu.user.invoices.find(:first ,:conditions=>["purchasable_id = ? ",eu.id]) != nil )%>
+                   &nbsp;&nbsp;<%=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}",:update => ''%>
+              <%end%>             
+ <%end%> 
+ <% if eu.state == 'published' %>
+    
+      <%#here atually i need to add a column that will check weather the email is sent or not if it is sent then resend %>
+      <%= link_to_remote 'Unpublish', :url=>update_state_admin_exhibitions_user_path(eu.id, :state => 'unpublished') ,:method=>:get%>
+      <%else%>
+    <% end %>
+      
+      <%if eu.state != 'published'%> 
+       <%= link_to_remote 'Publish', :url=>update_state_admin_exhibitions_user_path(eu.id, :state => 'published') ,:method=>:get%>
+      <%end%>

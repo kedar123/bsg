@@ -1647,7 +1647,16 @@ end
           if  invoice.state == "created"
             note = "no notes created"
             note = @order.exhibition.timing.note if @order.exhibition.timing
-            create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,note)
+            senttime 
+            if invoice.sent_at
+              senttime = invoice.sent_at.strftime("%d %b %Y")
+            else
+              senttime = Time.now.strftime("%d %b %Y")
+            end
+            
+            
+            create_pdf(invoice.id,invoice.number,senttime,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.exhibition.title,invoice.final_amount.to_i,note)
+              
             QueuedMail.add('UserMailer', 'send_invoice_exhibition', [invoice, @order.user], 0, true)
           end       
         end      
@@ -1815,10 +1824,13 @@ end
 
   def upload_exhibition_image
    
-    render :update do |page|
+    
       if params[:user_id]
-      page["makemetemporary"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil,:user_id=>params[:user_id]}
+
+     #   page["modal_space"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil,:user_id=>params[:user_id]}
+        render :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil,:user_id=>params[:user_id]}
       else
+        render :update do |page|
       page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:exhibition_id=>params[:id],:messageforimageuploaded=>nil,:user_id=>nil}
       page["description_competition_ex_py"].show
       page["useruploadedpic"].hide
@@ -1826,11 +1838,11 @@ end
       for k in 0..9
         page["iteam_image#{k}"].hide
       end
-        
+        end
       end
       
       
-    end
+    
   end  
 
 
@@ -1843,7 +1855,7 @@ end
     else
       artwork.user_id=current_user.id
     end
-    artwork.user_id=current_user.id
+    #artwork.user_id=current_user.id
     
     artwork.image = params[:artwork]["image"]
     artwork.medium = params[:artwork]["medium"]
@@ -1867,7 +1879,8 @@ end
       responds_to_parent do
         render :update do |page|
          if params[:user_id] 
-            page.alert("artwork uploaded")
+            page.redirect_to "/admin/profiles/#{params[:user_id]}/#fragment-2"
+            
          else  
             page.alert('not uploaded')
           page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:user_id=>nil,:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
@@ -1902,7 +1915,9 @@ end
     logger.info "there is problem in total"
     logger.info session[:paypal_amount].to_i
     logger.info session[:paypal_amount].to_i/100
+    
     response = paypal.do_set_express_checkout(
+      
       return_url="http://" + request.host_with_port + "/paypal_return",
       cancel_url="http://" + request.host_with_port + "/paypal_cancel",
       amount=session[:paypal_amount].to_i/100,
@@ -1915,6 +1930,7 @@ end
     logger.info response.to_sde
     logger.info "this is paypal response"
     @token = (response.ack == 'Success') ? response['TOKEN'] : ''
+    p response.ack
     session[:token] = @token
   end  
 
@@ -1958,7 +1974,8 @@ end
         # i assume here that when session[:totalentry present then it is competition user payment so the procedure of online payment will be followed here, same to the case for exhibition user payment]
         if session[:competition_id].blank?
           params[:invoice_id] = session[:invoice_id] 
-          session[:invoice_id] = nil
+          session[:invoice_id] = nil 
+          p "i am calling here the exh payment"
           make_the_payment_exhibition_paypal#here the invoice in created and validated
           make_the_invoice #this method is extraction from above make exhibition payment . because this method is get called after the paypal returns. so in previous method the next procedure is get called which im putting it in this method  
         else
@@ -2056,7 +2073,13 @@ end
       alreadypaidamt = session[:order].price - invoice.final_amount
       note = "no note is created"
       note = session[:order].exhibition.timing.note if session[:order].exhibition.timing
-      create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,session[:order].exhibition.title,session[:order].price.to_i,note,session[:order].price - alreadypaidamt,alreadypaidamt)
+      sentatdata = ""
+      if invoice.sent_at
+        sentatdata = invoice.sent_at.strftime("%d %b %Y")
+      else
+        sentatdata = Time.now.strftime("%d %b %Y")
+      end
+      create_pdf(invoice.id,invoice.number,sentatdata,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,session[:order].exhibition.title,session[:order].price.to_i,note,session[:order].price - alreadypaidamt,alreadypaidamt)
       #QueuedMail.add( 'UserMailer',  'send_invoice_exhibition', [invoice.client.profile.email_address,"invoice#{invoice.id}","Your Exhibition Payment Is Done And An Invoice Is Sent to Your Email.",invoice, invoice.client],0,true,invoice.client.profile.email_address,"test@pragtech.co.in") 
       #p "from here im sending the email8888888888888888888888888888"
       #QueuedMail.add('UserMailer', 'send_invoice_exhibition', [invoice, invoice.client], 0, true)
@@ -2071,8 +2094,11 @@ end
   end
 
   def  make_the_payment_exhibition_paypal
+    
+    if params[:invoice_id]
     @invoice = Invoice.find(params[:invoice_id])
     @invoice.validating("paypal")
+    end
   end
 
   def make_the_payment_comp_paypal

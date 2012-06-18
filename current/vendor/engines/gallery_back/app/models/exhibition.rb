@@ -4,7 +4,7 @@ class Exhibition < ActiveRecord::Base
   acts_as_item
 
 	has_one :timing, :as => :objectable, :dependent => :delete
-	accepts_nested_attributes_for :timing, :allow_destroy => true #, :reject_if => lambda { |a| a[:starting_date].blank? }
+	accepts_nested_attributes_for :timing, :allow_destroy => true  #, :reject_if => lambda { |a| a[:starting_date].blank? }
 	#has_many :timings, :as => :objectable, :dependent => :destroy
 	#accepts_nested_attributes_for :timings, :reject_if => lambda { |a| a[:starting_date].blank? }, :allow_destroy => true
 
