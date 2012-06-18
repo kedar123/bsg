@@ -3,35 +3,38 @@
 
  <form action="">
   <div class="spacet">
-  <input type="text" size="30" placeholder="Full name">
+  <input type="text" size="30" placeholder="<%= @current_object.full_name()%>">
   </div> 
 
   <div class="spacet">
-  <input type="text" size="30" placeholder="Email">
+  <input type="text" size="30" placeholder="<%= @current_object.user.email%>">
   </div>
   
   <div class="spacet">
-  <input type="text" size="30" placeholder="Website">
+  <input type="text" size="30" placeholder="<%= @current_object.website%>">
   </div>
    
   <div class="spacet">
-  <input type="text" size="30" placeholder="Address">
+  <input type="text" size="30" placeholder="<%= @current_object.address%>">
   </div>
   
   <div class="spacet">
-  <input type="text" size="30" placeholder="Suburb">
+  <input type="text" size="30" placeholder="<%= @current_object.suburb%>">
   </div>
  
   <div class="spacet">
-  <input type="text" size="30" placeholder="Post code">
+  <input type="text" size="30" placeholder="<%= @current_object.zip_code%>">
   </div>
     
   <div class="spacet"> 
-  <input type="text" size="30" placeholder="Country">
+  <input type="text" size="30" placeholder="<%= @current_object.country%>">
   </div>
       
  <button class="sbutton" type="submit">
- <span>Submit</span>
+ <span>
+ 
+ <%= submit_to_remote 'update_btn', 'Submit', :url => { :action => 'update' }%>
+</span>
 </button>
  </div>
 
