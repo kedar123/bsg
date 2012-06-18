@@ -10,23 +10,37 @@ body {
 }
 
 
-.left {
-    float: left;
-    padding-left: 20px;
-    text-align: left;
-    width: 30%;
+
+
+.spacet {
+    
+    margin-bottom: 11px;
+    margin-left:6px;
+    margin-top: 16px;
 }
-.right {
-    float: left;
-    margin-bottom: 2px;
-    margin-left: -151px;
-    width: 65%;
 }
+
+.imgtest {
+    width:80px;
+    height:30px;
+} 
 
 
 .submitright {
-    float: right;
-    padding-right: 609px;
+
+
+	background:#fff url(/images/submit.png) no-repeat scroll right 1px;
+	clear:both;
+	border:0;
+	color:#fff;
+	font-weight:bold;
+	margin:20px 25px 20px 140px;
+	font-size:90%;
+	padding:0 10px 0 0;
+	float:left;
+	cursor:pointer;
+	overflow: visible;
+        width:auto;
     }
 
 
@@ -115,6 +129,31 @@ h4 {
 	position:fixed;left:0;top:0px;
 	width:100%;
 }
+
+
+.sbutton{
+   
+    background: url("/images/sbutton.gif") no-repeat scroll left center #FFFFFF;
+    border: 0 none;
+    color: #FFFFFF;
+    float: left;
+    font-weight: bold;
+    margin: 4px 25px 20px 364px;
+    padding: 9px 10px 8px;
+    position: relative;
+    white-space: nowrap;
+    width: 80px;
+       
+}
+blank_...9857527 (line 437)
+Inherited frombutton.submitButton
+.submitButton {
+    cursor: pointer;
+    font-size: 90%;
+    font-weight: bold;
+}
+}
+
 
 .error, .notice{
 	color: #FFF;
@@ -410,16 +449,7 @@ form input, .simulate{
 
 .submitButton{
 	background:#fff url(/images/rightSubmitButton.gif) no-repeat scroll right 1px;
-	clear:both;
-	border:0;
-	color:#fff;
-	font-weight:bold;
-	margin:20px 25px 20px 140px;
-	font-size:90%;
-	padding:0 10px 0 0;
-	float:left;
-	cursor:pointer;
-	overflow: visible;
+
         width:auto;
 }
 .submitButton span{
