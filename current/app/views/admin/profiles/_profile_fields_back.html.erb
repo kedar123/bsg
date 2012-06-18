@@ -1,44 +1,35 @@
+<form action="">
+ <div class="spacet">
+ <input type="text" size="30" name="profile_full_name" value="<%= @current_object.full_name()%>" >
+ </div> 
 
-
-
- <form action="">
-  <div class="spacet">
-  <input type="text" size="30" placeholder="<%= @current_object.full_name()%>">
-  </div> 
-
-  <div class="spacet">
-  <input type="text" size="30" placeholder="<%= @current_object.user.email%>">
-  </div>
-  
-  <div class="spacet">
-  <input type="text" size="30" placeholder="<%= @current_object.website%>">
-  </div>
-   
-  <div class="spacet">
-  <input type="text" size="30" placeholder="<%= @current_object.address%>">
-  </div>
-  
-  <div class="spacet">
-  <input type="text" size="30" placeholder="<%= @current_object.suburb%>">
-  </div>
+ <div class="spacet">
+ <input type="text" size="30" name="profile[email_address]" value="<%= @current_object.user.email%>">
+ </div>
  
-  <div class="spacet">
-  <input type="text" size="30" placeholder="<%= @current_object.zip_code%>">
-  </div>
-    
-  <div class="spacet"> 
-  <input type="text" size="30" placeholder="<%= @current_object.country%>">
-  </div>
-      
- <button class="sbutton" type="submit">
- <span>
+ <div class="spacet">
+ <input type="text" size="30" name="profile[website]" value="<%= @current_object.website%>">
+ </div>
+  
+ <div class="spacet">
+ <input type="text" size="30" name="profile[address]" value="<%= @current_object.address%>">
+ </div>
  
- <%= submit_to_remote 'update_btn', 'Submit', :url => { :action => 'update' }%>
-</span>
-</button>
+ <div class="spacet">
+ <input type="text" size="30" name="profile[suburb]" value="<%= @current_object.suburb%>">
  </div>
 
- </form> 
- 
+ <div class="spacet">
+ <input type="text" size="30" name="profile[zip_code]" value="<%= @current_object.zip_code%>">
+ </div>
+   
+ <div class="spacet"> 
+ <input type="text" size="30" name="profile[country]" value="<%= @current_object.country%>">
+ </div>
 
+<%= submit_to_remote 'update_btn', 'Submit', :url => { :action => 'update' }, :method=>'put'%>
+     
+</div>
+
+</form>
 

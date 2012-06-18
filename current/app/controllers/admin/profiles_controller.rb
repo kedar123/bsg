@@ -227,12 +227,15 @@ class Admin::ProfilesController < Admin::ApplicationController
     @role = Role.find(:all)
     @current_object = Profile.find(params[:id])
     #respond_to do |format|
+      @current_object.full_name_separation(params[:profile_full_name]) 
       
+      
+     
       if @current_object.update_attributes!(params[:profile])
 				@current_object.create_profile_workspace if @current_object.profile_workspace.nil?
 				if user = @current_object.user
 					user.email = @current_object.email_address
-					user.system_role_id = params[:system_role_id]
+					user.system_role_id = params[:system_role_id] if params[:system_role_id]
 					user.save
 				end
      #   flash[:notice] = 'Profile was successfully updated.'
@@ -253,8 +256,10 @@ class Admin::ProfilesController < Admin::ApplicationController
     end
       render :update do |page|
        page['fragment-1'].replace_html(:partial => 'user_information') 
-      # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
+       # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
       end
+      
+      
   end
   # DELETE /profiles/1
   # DELETE /profiles/1.xml
@@ -270,6 +275,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   end
 
   def update_notices
+  
 	    @current_object = Profile.find(params[:id])
 			#@current_oject.notices = @current_oject.notices
 			@current_object.notices = params[:notice]

@@ -27,7 +27,7 @@ class Profile < ActiveRecord::Base
   validates_length_of       :phone_number, :in => 7..20, :allow_blank => false,:message=>"Please Enter Valid Phone Number"
   validates_format_of       :phone_number, :with => /(#{PHONE})/, :allow_blank => true
   validates_format_of			:website, :with => /(#{URL})/, :allow_blank => true,:message=>"Please Enter Valid Website"
-
+ 
 	after_create :add_to_admin_contacts
 
 	named_scope :superadmin_filtered, {
@@ -75,6 +75,19 @@ class Profile < ActiveRecord::Base
 	def  full_name_for_invoice
 	return self.first_name.to_s + " " + self.last_name.to_s 
 	end
+	
+	def full_name_separation(fullname)
+	      str = fullname.split(" ")
+	      if str.length == 2 
+	       self.first_name = str[0]  
+	       self.last_name = str[1]
+              end
+              
+        end 
+                
+                
+                
+	
 	def add_to_admin_contacts
 		ws = User.find(:first, :conditions => { :system_role_id => Role.find_by_name('admin') }).private_workspace
 		ContactsWorkspace.create(:workspace_id => ws.id, :contactable_id => self.id, :contactable_type => self.class.to_s)
