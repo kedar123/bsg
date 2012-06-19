@@ -15,7 +15,7 @@
   <div>
     <%for artwork in artexhibition%>
    <div style="float:left">  
-    <img src="/uploaded_files/development/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>">
+    <img src="/uploaded_files/production/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>">
      
    <a onclick='sendselectrequest(<%=artwork.id%>);return false;' href='#'>select</a> | 
    <a onclick='sendunselectrequest(<%=artwork.id%>);return false;'  href='#'>Unselect</a><br/>

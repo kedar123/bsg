@@ -208,7 +208,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	     end
 	   end
 	   before :create do
-       p "im here for creating a competition"
+      
              begin
              @current_object.submission_deadline = Date.civil(params[:competition][:submission_deadline].split("-")[0].to_i,params[:competition][:submission_deadline].split("-")[1].to_i,params[:competition][:submission_deadline].split("-")[2].to_i)
 	          rescue

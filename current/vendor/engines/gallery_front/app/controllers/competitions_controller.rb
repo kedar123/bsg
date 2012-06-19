@@ -305,14 +305,15 @@ class CompetitionsController < ApplicationController
     @competition = Competition.find(params[:id])
 
     else
-    @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(params[:userid],params[:competitionid])
+    @competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(params[:useridc],params[:competitionid])
      @competition = Competition.find(params[:competitionid])
     end
     
-     if !params[:userid].blank?
-          @current_user = User.find(params[:userid])
+     if !params[:useridc].blank?
+          @current_user = User.find(params[:useridc])
      end 
-
+    p "i got the competition user"
+    p @competitionuser
     if  @competitionuser.blank?
       #this array might be used later
       @competitionuser = CompetitionsUser.new()
@@ -322,7 +323,12 @@ class CompetitionsController < ApplicationController
       @competitionuser.address = @current_user.profile.address
       @competitionuser.post_code = @current_user.profile.zip_code
       @competitionuser.user_id = @current_user.id
-      @competitionuser.competition_id = params[:id]
+      if params[:competitionid].blank?
+        @competitionuser.competition_id = params[:id]
+       else
+        @competitionuser.competition_id = params[:competitionid]
+        end
+      
       @competitionuser.price = 0
       @competitionuser.state =  "accepted" 
       @competitionuser.save
@@ -341,7 +347,7 @@ class CompetitionsController < ApplicationController
     end
     session[:purchasable] = @competitionuser
   
-    if params[:userid].blank?
+    if params[:useridc].blank?
     
     render :update do |page|
       page["enterintocompetitionfront"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
@@ -389,15 +395,29 @@ class CompetitionsController < ApplicationController
    
   def  create_the_payment
  
-  
+  p "hhhhhhhhhhhhh"
     creditcardno = ""
     if ((params[:invoicing_info][:payment_medium] ==  "visa") or (params[:invoicing_info][:payment_medium] ==  "paypal") or (params[:invoicing_info][:payment_medium] ==  "master card"))         
-      credit_card = CreditCard.find_by_user_id(current_user.id)
+      if params[:user_id].blank?
+        credit_card = CreditCard.find_by_user_id(current_user.id)
+       else
+        credit_card = CreditCard.find_by_user_id(params[:user_id])
+       end 
+      
       if credit_card.blank?
         credit_card = CreditCard.new()
       end
       credit_card.number = params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
-      credit_card.user_id = current_user.id
+      if params[:user_id].blank?
+        
+      credit_card.user_id = current_user.id  
+      
+      else
+      credit_card.user_id = params[:user_id]  
+
+      end   
+      
+
       credit_card.expiring_date = Date.civil(params[:credit_card]["expiring_date(1i)"].to_i,params[:credit_card]["expiring_date(2i)"].to_i,params[:credit_card]["expiring_date(3i)"].to_i).strftime("%y-%m-%d")       
       credit_card.first_name = params[:credit_card][:first_name]
       credit_card.last_name = params[:credit_card][:last_name]
@@ -414,8 +434,16 @@ class CompetitionsController < ApplicationController
     
     if params[:order_id]
       @order = CompetitionsUser.find(params[:order_id])
-      current_user.profile.biography = params[:biography]
-      current_user.profile.save
+      if params[:credit_card][:user_id]
+        
+      user = User.find(params[:credit_card][:user_id])
+      user.profile.biography = params[:biography]
+      user.profile.save
+
+      else
+      #current_user.profile.biography = params[:biography]
+      #current_user.profile.save
+      end
     else  
       @order = session[:purchasable]  
     end  
@@ -448,7 +476,8 @@ class CompetitionsController < ApplicationController
         @current_object.common_wealth_bank_process((params[:invoice_amount].to_i*100),params)
       elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or params[:invoicing_info][:payment_medium] ==  "direct deposit"
 	                       
-      elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
+      elsif  params[:invoicing_info][:payment_medium] ==  "paypal" 
+        p "i am redirecting from here"
         @current_object.make_paypal_payment((params[:invoice_amount].to_i),params) 
       end
     elsif    @order.instance_of? CompetitionsUser
@@ -474,10 +503,12 @@ class CompetitionsController < ApplicationController
           elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
             @order.total_entry = params[:competitions_user][:total_entry]
             @order.save              
+            p "wwwwwwwwwwwwwwww"
           elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
             session[:paypal_amount] = (more_amount * 100)
             set_the_token#from here i need to redirect him to paypal after getting the token
             session[:competition_id] = @order.competition.id
+             
             session[:current_object_id] = @current_object
             render :update do |page|
               page["modal_space_answer"].hide                                     
@@ -488,7 +519,7 @@ class CompetitionsController < ApplicationController
             #@current_object.make_paypal_payment((more_amount * 100),params) 
           end
         else
-        
+        p "aaaaaaaaaaaaaaaaaaa"
           render :update do |page|
             page["modal_space_answer"].replace_html  :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "                                     
             page["show_ajax_request"].hide
@@ -511,12 +542,19 @@ class CompetitionsController < ApplicationController
                                            
         elsif  params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==  "direct deposit"
           @order.total_entry = params[:competitions_user][:total_entry]
-          @order.save              
+          @order.save         
+          p "xxxxxxxxxxxxxxxxxxxx"
         elsif  params[:invoicing_info][:payment_medium] ==  "paypal"  
+        
+            
+       
           session[:paypal_amount]=((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i)) * 100)
           set_the_token#from here i need to redirect him to paypal after getting the token
           session[:competition_id] = @order.competition.id
           session[:current_object_id] = @current_object
+          session[:userid] = params[:credit_card][:user_id]
+          p "assigned a session"
+          p session[:userid]
           render :update do |page|
             page["modal_space_answer"].hide                                     
             page["paypal_form"].replace_html :partial=>"paypal_form",:locals=>{:token =>@token,:amt=>((@order.find_price_total_entry(@order.competition.id,params[:competitions_user][:total_entry].to_i)) * 100)}
@@ -545,6 +583,7 @@ class CompetitionsController < ApplicationController
             make_the_payment
             #flash[:notice] = "Your Extra Selected Entry Payment Is Done <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
             #render :partial=>"extra_payment_done",:locals=>{:competition=>@order.competition,:order=>@order} 
+             p "gggggggggggggggggggggggggg"
             add_the_artwork_intopaymentdiv
             return        
           else
@@ -562,6 +601,7 @@ class CompetitionsController < ApplicationController
       end     
       if  @order.instance_of? ExhibitionsUser 
         if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque" or  params[:invoicing_info][:payment_medium] ==   "direct deposit"
+          p "render texttttttttttttttttt"
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.   <a href='/admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
         else
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
@@ -576,7 +616,7 @@ class CompetitionsController < ApplicationController
       elsif  @order.instance_of? CompetitionsUser
         if   params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or  params[:invoicing_info][:payment_medium] ==   "direct deposit"
           #render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.  Please Make The Payment Before #{@order.submission_date} <a href='/admin/competitions/#{@order.competition.id}'>Go Back To see the competition</a>"
-
+          p "sssssssssssssssssssss"
           render :partial=> "cash_cheque_response",:locals=>{:competition_id=>@order.competition.id,:artwork_count=>0,:order_id=>@order.id,:total_entry=>@order.total_entry}
           p "i am from here"                         
         else
@@ -597,6 +637,7 @@ class CompetitionsController < ApplicationController
       end
     else
       if params[:invoicing_info][:payment_medium] ==  "cash"  or   params[:invoicing_info][:payment_medium] ==  "cheque"  or params[:invoicing_info][:payment_medium] ==   "direct deposit"
+         p "cccccccccccccccccccc"
         if  @order.instance_of? CompetitionsUser
           make_the_payment
           p "bvhgbftrgfvbghgf"
@@ -691,7 +732,7 @@ p "aaaaaaaaaaaaqqqqqqqqq"
 
     render :update do |page|
        if @order.total_entry.to_i > i  
-        if params[:userid].blank?
+        if params[:user_id].blank?
         # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
         page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
         page["enterintocompetition"].hide
@@ -712,7 +753,8 @@ p "aaaaaaaaaaaaqqqqqqqqq"
         #end
         else
           if @order.instance_of? CompetitionsUser  
-                    page['fragment-3'].replace_html(:partial=>"admin/profiles/complist")
+                    #page['fragment-3'].replace_html(:partial=>"admin/profiles/complist")
+                    page.redirect_to "/admin/profiles/#{params[:user_id]}#fragment-3" 
              #render :partial=>"admin/profiles/complist"
              p "i am gggggggggggggggggggggggggg"
            end
@@ -727,7 +769,20 @@ end
  
    
 
+  def add_the_artwork_for_comp
+    title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
+    i=0
+    @order = CompetitionsUser.find(params[:order_id])
+    for title in title_array
+      if (@order.send (title_array[i].to_sym)).blank?
+        break
+      end  
+      i=i+1    
+    end 
 
+    p "i am right here"
+    render  :partial=>"add_the_artwork_back_admin",:locals=>{:competition_id => params[:competition_id],:order_id=>params[:order_id],:messageforimageuploaded=>"messageforimageuploaded",:i=>i,:total_entry=>params[:total_entry]}
+  end
 
 
 
@@ -852,18 +907,22 @@ end
       render :update do |page|
         if order.total_entry.to_i > i
 
-
-		      page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
-          #page["enterintocompetition"].hide
-          #page["add_the_artwork#{i}"].hide
-		      #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
-		      #page["click_to_browse_images"].show
-          page["list_show"].show
-          #page["add_the_artwork_to_competition_biography"].hide
-          page["iteam_image0"].show
-          page["add_the_artwork0"].show
-          page["show_ajax_request0"].hide
-
+          if params[:user_id].blank?
+            p "asssssssssssssssss"
+		       page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+           #page["enterintocompetition"].hide
+           #page["add_the_artwork#{i}"].hide
+		       #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
+		       # page["click_to_browse_images"].show
+           page["list_show"].show
+           #page["add_the_artwork_to_competition_biography"].hide
+           page["iteam_image0"].show
+           page["add_the_artwork0"].show
+           page["show_ajax_request0"].hide
+          else
+            p "im from elseeeeeeee"
+              page.redirect_to "/admin/profiles/#{params[:user_id]}#fragment-3"
+          end   
         else
           page["show_ajax_request#{i-1}"].hide
           page.alert("Your Limit Is Over.Click Browse Image For Updating The Image");
@@ -1043,21 +1102,30 @@ end
     
 
   def create_subscribe_competition_front_edit
-    @credit_card = CreditCard.find_by_user_id(current_user.id)
-    #im writing this because some old people in database may not have credit card
+    if params[:user_id].blank?
+      @credit_card = CreditCard.find_by_user_id(current_user.id)
+    else
+    @credit_card = CreditCard.find_by_user_id(params[:user_id])
+    end
+     #im writing this because some old people in database may not have credit card
     if @credit_card.blank?
       @credit_card = CreditCard.new
     end		
     @competition = Competition.find(params[:id])
     @order = CompetitionsUser.find(params[:order_id])
     if request.xhr?
-      render :update do |page|
+     if params[:user_id].blank?
+       render :update do |page|
         page["enterintocompetitionfront"].replace_html :partial=>"edit_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
         page["enterintocompetition"].show
         page["list_show"].hide
         page["buylist"].hide
       end
-    end   
+     else
+         render :partial=>"edit_compitition_paymentp",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
+      end
+    else
+     end 
   end  
 
   #according to the status of the competition the alert message will be shown to user. if it is open then the message will be shown.if it is 
@@ -1951,9 +2019,20 @@ end
       )#end of do express checkout method
       if !session[:total_entry].blank?   
         if !session[:competition_id].blank?
-          cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
+          if session[:userid]
+            p "i have session user id "
+            p session[:userid]
+            
+             cu = CompetitionsUser.find_by_user_id_and_competition_id(session[:userid],session[:competition_id])
+             p cu
+           else
+             p "wrongly it is come here"
+             p session[:userid]
+           cu = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,session[:competition_id])
+          end
             
           p "i will save the value from here for paid objects"
+          p cu
           paidentrystring = ""
           for i in cu.total_entry.to_i..session[:total_entry].to_i
             paidentrystring << i.to_s + ","
@@ -2121,7 +2200,14 @@ end
     @invoice.validating("paypal")
     session[:current_object].invoice = @invoice
     session[:current_object].save
-    invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",@current_user.id,order.id])
+    p session[:userid]
+    if session[:userid].blank?
+      invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",@current_user.id,order.id])
+    
+    else
+      invoice = Invoice.find(:last,:conditions=>["client_id = ? and purchasable_id = ?",session[:userid],order.id])
+    
+    end
     
     if order.instance_of? CompetitionsUser
       note = "no note created"
@@ -2129,6 +2215,8 @@ end
       
       start_date = order.competition.timing.starting_date.strftime("%d %b %Y")
       end_date = order.competition.timing.ending_date.strftime("%d %b %Y")
+      p "the invoice is blank"
+      p invoice
       create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
     elsif  order.instance_of? ExhibitionsUser
       note = "no note created"

@@ -223,7 +223,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   # PUT /profiles/1
   # PUT /profiles/1.xml
   def update
- p "updateeeeeeeeee"
+ 
     @role = Role.find(:all)
     @current_object = Profile.find(params[:id])
     #respond_to do |format|
