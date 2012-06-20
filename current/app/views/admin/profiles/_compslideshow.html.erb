@@ -3,6 +3,8 @@
 
 <%for art in artcomp%>
 <div style="float:left">
-  <img src="/uploaded_files/competition/artwork/<%=art.id%>/thumb/<%=art.avatar_file_name%>">
+  <img src="/uploaded_files/competition/artwork/<%=art.id%>/thumb/<%=art.avatar_file_name%>"/>
   </div>
+ <%=link_to_remote "Edit Image",:url=>"/edit_comp_image_edit_com?art_comp=#{art.id}",:update => 'modal_space',:method=>:get%>
+    
 <%end%>

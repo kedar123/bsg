@@ -1,0 +1,97 @@
+<% blank_main_div(:title => 'Payment process', :hsize => 'sixH', :modal => true) do %>
+  
+
+<div id="editartwork<%=image_name %>" >
+  <style>
+    .changecolorgray{
+      color: #444444;
+      line-height: 15px;
+    }
+  </style>
+  <div class="inputfont">
+
+    <div id="messageforimageuploaded">
+      <%if !messageforimageuploaded.blank?%>
+        <%=messageforimageuploaded%>
+      <%end%>
+    </div>
+
+    <form action="/edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit=""  id="add_the_artwork_to_competition<%=image_name %>"  target="upload_frame<%=image_name %>" >  
+
+
+      <div class="changecolorgray">   
+        Title <br/>
+           
+      </div>  
+      <input  name="competitions_user[worktitle]" id="artwork_title<%=image_name %>" style="width:375px; height: 14px;" value="<%=title %>" type="text"  />
+      <div class="changecolorgray">     
+        Medium
+      </div>  
+      <input  name="competitions_user[workmedium]" id="artwork_medium<%=image_name %>"  value="<%=medium%>" type="text" style="width:375px;height: 14px;">
+      <div class="changecolorgray">     
+        <span style="font-size: 10px;margin-right:85px;">width (cm)  </span>
+
+        <span style="font-size: 10px;margin-right:75px;">  height (cm)   </span>
+
+        <span style="font-size: 10px;">  depth (cm) - if 3d work </span>
+
+
+
+      </div>	
+      <font style="color: #444444">
+      <%size = "" if size == nil %>
+      <input  name="competitions_user[worksize1]" id="artwork_width<%=image_name %>"  value="<%=size.split('x')[0]%>" type="text" style="width: 113px;height: 14px;">
+      x
+      <input  name="competitions_user[worksize2]" id="artwork_height<%=image_name %>"  value="<%=size.split('x')[1]%>" type="text" style="width: 113px;height: 14px;">
+      x
+      <input  name="competitions_user[worksize3]" id="artwork_depth<%=image_name %>"  value="<%=size.split('x')[2]%>" type="text" style="width: 113px;height: 14px;">
+      </font>
+      <div class="changecolorgray" >      
+
+        <span style="padding-right:100px">
+          Price
+        </span> 
+        <span style="padding-right:75px;padding-left:8px;">
+         Edition- if applicable
+        <!--</span>
+       <span >
+          Edition To-->
+        </span>
+
+
+      </div>  
+      <input  name="competitions_user[workprice]" id="artwork_price<%=image_name %>" size="40" value="<%=price%>" type="text" style="width: 113px;height: 14px;"/>
+      <input  name="competitions_user[editionname]" id="artwork_edition_name<%=image_name %>" size="40" value="<%=editionname%>" type="text" style="width: 105px;height: 14px;margin-left:10px;"/>
+      <span style="padding-right:3px;margin-left:3px;color:#444444">of</span><input  name="competitions_user[editionnumber]" id="artwork_edition_number<%=image_name %>" size="40" value="<%=editionnumb%>" type="text" style="width: 113px;height: 14px;"/>
+
+
+      <div class="changecolorgray">         
+	 Image
+      </div>
+      <input  name="competitions_user[workimage]" id="artwork_image<%=image_name %>" type="file" style="height: 28px;float:left"/>
+      <%=hidden_field_tag "competitionuserid",competitionuserid%>
+      <%=hidden_field_tag "titleforupdate",title_name  %>
+       <%=hidden_field_tag "user_id",user_id  %>
+     
+       
+
+      <div style="float:left;padding-left:2px;">
+        <%= submit_tag 'Upload'%>
+      </div>  
+      <div style="display: none;padding-top:0px;" id="show_ajax_request<%=image_name %>">
+        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+      </div>
+
+      <br/>
+      <div style="clear:both;float:left;padding-right:5px;padding-top:5px;">
+        
+        <img src="/uploaded_files/competition/artwork/<%=artcompid%>/thumb/<%=image_url%>" width="90px" height="90px" />   
+        
+      </div>
+     
+
+  </div>
+</form>
+</div>
+<iframe id="'upload_frame<%=image_name %>"   name="upload_frame<%=image_name %>" style="width:1px;height:1px;display:none"></iframe>
+<%end%>

@@ -921,7 +921,7 @@ end
            page["show_ajax_request0"].hide
           else
             p "im from elseeeeeeee"
-              page.redirect_to "/admin/profiles/#{params[:user_id]}#fragment-3"
+              page.redirect_to "/admin/profiles/#{params[:user_id]}"
           end   
         else
           page["show_ajax_request#{i-1}"].hide
@@ -967,6 +967,9 @@ end
     i=0
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     i = title_array.index params[:titleforupdate]
+    p params[:competitions_user]["worktitle"]
+    p "saaaaaaaaaaaaaa"
+    p i
     order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
     order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"]) 
     order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"]) 
@@ -988,7 +991,14 @@ end
     updateimagearray << title_array[i]
     responds_to_parent do
       render :update do |page|
-        page["editartwork"+params[:titleforupdate]].replace_html :partial=>"editcompartwork",:locals=>{:competitionuser => params[:competitionuserid],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Changed",:updateimagearray=>updateimagearray}
+        if params[:user_id]
+          
+           page.redirect_to "/admin/profiles/#{params[:user_id]}"
+        else
+          page["editartwork"+params[:titleforupdate]].replace_html :partial=>"editcompartwork",:locals=>{:competitionuser => params[:competitionuserid],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Changed",:updateimagearray=>updateimagearray}
+        
+        end        
+        
       end  
     end  
   end  
@@ -1238,9 +1248,39 @@ end
   end  
 =end
 
+  #here just get the details of that artwork 
+ def edit_comp_image_edit_com
+   p params
+   p "i am hererererer"
+    art_comp = ArtworksCompetition.find(params[:art_comp])
+    order = CompetitionsUser.find(art_comp.competitions_users_id)
+    image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+    title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
+    medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
+    size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']
+    price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
+    editionnamearray = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarray = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
+    i=0
+    i = image_array.index art_comp.image_name    
+    title = order.send(title_array[i].to_sym)
+    medium = order.send(medium_array[i].to_sym)
+    size =  order.send(size_array[i].to_sym)
+    price = order.send(price_array[i].to_sym)
+    editionname = order.send(editionnamearray[i].to_sym)
+    editionnumb = order.send(editionnumberarray[i].to_sym)
+    p editionnumb
+    p size
+    if request.xhr?
+        render :partial => "edit_comp_image" , :locals => {:title_name=>title_array[i],:title=>title,:medium=>medium,:size=>size,:price=>price,:editionname=>editionname,:editionnumb=>editionnumb,:image_name=>art_comp.image_name,:messageforimageuploaded=>nil,:image_url=>art_comp.avatar_file_name,:competitionuserid=>order.id,:artcompid=>art_comp.id,:user_id=>art_comp.competitions_user.user_id}
+        return;
+    else
+    end
+  
+ end
 
 
-  def edit_images_front
+ def edit_images_front
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
@@ -1947,7 +1987,7 @@ end
       responds_to_parent do
         render :update do |page|
          if params[:user_id] 
-            page.redirect_to "/admin/profiles/#{params[:user_id]}/#fragment-2"
+            page.redirect_to "/admin/profiles/#{params[:user_id]}"
             
          else  
             page.alert('not uploaded')
