@@ -9,7 +9,7 @@
 <%mediumname=[]%>
 <%pricename=[]%> 
  
-
+ <script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
 
 
 <script language="javascript"> 
@@ -201,6 +201,7 @@
     </div>
     <div id="fragment-3"  >
       <div style="float:right;">
+       
         <%if current_user.login=="admin" || current_user.login=="superadmin"%>
           <%= link_to "add an competition", new_admin_workspace_competition_path(profile_workspace.id) %>
         <%end%>
@@ -210,8 +211,9 @@
           <%if  cu.state.blank?%>
             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state unpaid") do %>
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)   %>
-           Click<%#=link_to_remote " Here", :update => "modal_space",:url => "/create_subscribe_competition_front_edit/id=#{cu.competition_id}",:order_id=>cu.id 
-                       %>  to pay
+                         Click<%=link_to_remote " Here", :update => "modal_space",:url =>"/create_subscribe_competition_front_edit?id=#{cu.competition_id}&order_id=#{cu.id}&user_id=#{cu.user_id}"
+                       %>  to pay             
+                       
                                                       <!--<a href='/admin/competitions/create_subscribe_competition/?competion_id=<%=cu.competition_id%>'> Confirm Competition</a>-->
               <%#=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
             <% end %>
@@ -222,8 +224,7 @@
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)   %>
               Click<%=link_to_remote " Here", :update => "modal_space",:url =>"/create_subscribe_competition_front_edit?id=#{cu.competition_id}&order_id=#{cu.id}&user_id=#{cu.user_id}"
                        %>  to pay
- Click<%#=link_to_remote "Here", :url =>"/add_the_artwork_back_admin?id=1",:update => "modal_space",:method=>:get%>  to upload image
-     Click<%=link_to_remote " Here", :update => "modal_space",:url =>"/add_the_artwork_for_comp?competition_id=#{cu.competition_id}&order_id=#{cu.id}&user_id=#{cu.user_id}&total_entry=#{cu.total_entry}"
+      Click<%=link_to_remote " Here", :update => "modal_space",:url =>"/add_the_artwork_for_comp?competition_id=#{cu.competition_id}&order_id=#{cu.id}&user_id=#{cu.user_id}&total_entry=#{cu.total_entry}"
                        %>  to upload image
        
 
@@ -238,8 +239,11 @@
             <% blank_list_element(:date => cu.created_at, :title => link_to(cu.competition.title, admin_competition_path(cu.competition_id))+" with state paid") do %>
         <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get)   %>
               <%#=render :partial=>"compslideshow",:locals=>{:cu=>cu}%>
-              Click<%#=link_to_remote " Here", :update => "modal_space",:url => { :action => "create_subscribe_competition_front_edit", :id => cu.competition_id,:order_id=>cu.id }
-                       %>  to pay
+               Click<%=link_to_remote " Here", :update => "modal_space",:url =>"/create_subscribe_competition_front_edit?id=#{cu.competition_id}&order_id=#{cu.id}&user_id=#{cu.user_id}"
+                       %>  to pay         
+              Click<%=link_to_remote " Here", :update => "modal_space",:url =>"/add_the_artwork_for_comp?competition_id=#{cu.competition_id}&order_id=#{cu.id}&user_id=#{cu.user_id}&total_entry=#{cu.total_entry}"
+                       %>  to upload image
+              <%=render :partial=>"compslideshow",:locals=>{:cu=>cu}%> 
                     
             <% end %>
           <%end%>       
@@ -509,7 +513,18 @@
      // $("#invoicess").tablesorter();
     }
 );
-  
- 
+  $(document).ready(function(){
+	
+	// All examples use the commit to function interface for ease of demonstration.
+	// If you want to try it against a server, just comment the callback: and 
+	// uncomment the url: lines.
+	
+	// The most basic form of using the inPlaceEditor
+	$("#phone_number").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+ });
 </script>
 

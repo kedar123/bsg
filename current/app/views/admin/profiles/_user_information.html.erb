@@ -5,7 +5,9 @@
   <b>Full name </b>
 </td>
 <td valign="top">
+   <p id ="full_name">          
   <%=h @current_object.full_name %>
+  </p>
 </td>
 </tr>
 
@@ -13,7 +15,9 @@
 
 <tr align="left">
 <td valign="top">
+  <p id="email">
   <b>Email </b>
+  </p>
 </td>
 <td valign="top">
   <div class="menuLabel">
@@ -24,10 +28,14 @@
 
 <tr align="left">
 <td valign="top">
+  
 	<b>Phone number </b> 
+        
 </td>
 <td valign="top">
+  <p id="phone_number">
   <%=h @current_object.phone_number %>
+  </p>  
 </td>
 </tr>
 

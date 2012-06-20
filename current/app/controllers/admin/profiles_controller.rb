@@ -18,6 +18,11 @@ class Admin::ProfilesController < Admin::ApplicationController
     render :text=>"imshow coluns"+@string
   end
   
+  def change_profile
+    p params
+    p "this are my params"
+    render :text=>"true"
+  end
   
   
   
