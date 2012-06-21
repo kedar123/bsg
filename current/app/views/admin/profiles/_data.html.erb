@@ -520,11 +520,65 @@
 	// uncomment the url: lines.
 	
 	// The most basic form of using the inPlaceEditor
+	
+	$("#full_name").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#email_address").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
 	$("#phone_number").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: '/change_profile/'+document.getElementById('exh_display_list').value
 		 
 	});
+	
+	$("#website").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#address").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#suburb").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#zip_code").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#country_state").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#country").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	
+	
+	
+	
  });
 </script>
 

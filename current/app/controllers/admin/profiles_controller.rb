@@ -19,9 +19,50 @@ class Admin::ProfilesController < Admin::ApplicationController
   end
   
   def change_profile
+  
     p params
     p "this are my params"
-    render :text=>"true"
+       
+    render :text=>params[:update_value]
+    
+    puts params[:update_value]
+    puts " Saving Data.......................................................>>>>>>>"
+    
+    
+    profile=Profile.find(params[:id])
+    
+    if params[:element_id] == "email_address"   
+       profile.update_attribute('email_address',params[:update_value])
+    end
+       
+      if params[:element_id] == "phone_number"   
+         profile.update_attribute('phone_number',params[:update_value])
+      end
+          
+       if params[:element_id] ==  "website"   
+          profile.update_attribute('website',params[:update_value])
+       end
+        
+         if params[:element_id] == "address"   
+              profile.update_attribute('address',params[:update_value])
+         end
+          
+             if params[:element_id] == "suburb"   
+                profile.update_attribute('suburb',params[:update_value])
+             end
+              
+               if params[:element_id] == "zip_code"   
+                  profile.update_attribute('zip_code',params[:update_value])
+               end
+                   
+                  if params[:element_id] == "country_state"   
+                     profile.update_attribute('country_state',params[:update_value])
+                  end
+                            
+                   if params[:element_id] == "country"   
+                      profile.update_attribute('country',params[:update_value])    
+                  end
+                
   end
   
   
@@ -214,7 +255,8 @@ class Admin::ProfilesController < Admin::ApplicationController
     @current_object = Profile.new(params[:profile])
     respond_to do |format|
       if @current_object.save
-		 @current_object.create_profile_workspace
+                
+        @current_object.create_profile_workspace
         flash[:notice] = 'Profile was successfully created.'
         format.html { redirect_to admin_profile_path(@current_object.id) }
         format.xml  { render :xml => @current_object, :status => :created, :location => @current_object }
