@@ -75,7 +75,7 @@
 
 <span id="current_symbol" style="padding-left:25px;"> 
 
-<%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15'), :update => "",
+<%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15',:title=>"User Edit"), :update => "",
     :url => { :controller=> "admin/profiles",:action => "edit", :id => @current_object.user.id },:method=>:get
 %>
  
@@ -86,11 +86,11 @@
          <%if current_user.login=="admin" || current_user.login=="superadmin"%>
 
             
-<%=link_to_remote  image_tag("/images/exh.jpeg", :height => '15', :width => '15'),  
+<%=link_to_remote  image_tag("/images/exh.jpeg", :height => '15', :width => '15',:title=>"Add To New Exhibition"),  
     :url => new_admin_workspace_exhibition_path(profile_workspace.id) , :method=>:get
 %>
  
-<%=link_to_remote  image_tag("/images/exh.jpeg", :height => '15', :width => '15'),  
+<%=link_to_remote  image_tag("/images/exh.jpeg", :height => '15', :width => '15',:title=>"Add To Existing Exhibition"),  
     :url => "/admin/exhibitions/all_exh_list" , :method=>:get
 %>
 
@@ -102,11 +102,11 @@
 <span id="current_competition" style="padding-left:100px;"> 
 
 
-<%=link_to_remote  image_tag("/images/comp.jpeg", :height => '15', :width => '15'),  
+<%=link_to_remote  image_tag("/images/comp.jpeg", :height => '15', :width => '15',:title=>"Add To Competition"),  
     :url => "/show_all_competition" , :method=>:get
 %>
 
-<%=link_to_remote  image_tag("/images/button.png", :height => '15', :width => '15'),  
+<%#=link_to_remote  image_tag("/images/button.png", :height => '15', :width => '15'),  
     :url => "/show_list_of_comp_exh" , :method=>:get
 %>
 
