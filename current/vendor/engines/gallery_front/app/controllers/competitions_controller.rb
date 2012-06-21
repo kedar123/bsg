@@ -1087,6 +1087,7 @@ end
       end_date = @order.competition.timing.ending_date.strftime("%d %b %Y")
       if params[:invoicing_info][:payment_medium] ==  "cash" or   params[:invoicing_info][:payment_medium] ==  "cheque" or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
         if invoice
+        p "fdfgffggfdgfgd"
         create_pdf(invoice.id,invoice.number,start_date,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0,false,end_date)
         end 
       else
@@ -1100,8 +1101,8 @@ end
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
     begin
-      email= UserMailer.create_send_invoice(invoice,@current_user)
-      UserMailer.deliver(email)
+  #    email= UserMailer.create_send_invoice(invoice,@current_user)
+  #    UserMailer.deliver(email)
     rescue
     end
     session[:total_entry] = nil                     

@@ -32,9 +32,9 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                
                Prawn::Document.generate("#{pdfpath}", :page_layout => :landscape) do
                bsg = "#{RAILS_ROOT}/public/images/bsgpdf.png"  
-               image bsg, :at => [10,540] ,:width=>100,:height=>100
+               image bsg, :at => [10,540] ,:width=>80,:height=>80
                invoice = "#{RAILS_ROOT}/public/images/invoice.png"  
-               image invoice, :at => [384,530] 
+               image invoice, :at => [450,530],:height=>30 
                box = Prawn::Text::Box.new("INVOICE NO:",:width=>80,:height=>20,:overflow=>:ellipses,:at=>[450, 490],:align=>:left,:document=>self,:style=>:bold)
                box.render
                number = invoice_number
@@ -44,32 +44,32 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                box.render
                box = Prawn::Text::Box.new("#{invoice_date}",    :width    => 80,:height   => 20, :overflow => :ellipses, :at => [525, 475], :align    => :left, :document => self)
                box.render
-               box = Prawn::Text::Box.new("Brunswick Street Gallery 322 Brunswick St,Fitzroy 0419 390 478 mark@bsgart.com.au www.bsgart.com.au ",    :width    => 140,:height   => 100, :overflow => :ellipses, :at => [10, 390], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("Brunswick Street Gallery 322 Brunswick St, Fitzroy 0419 390 478 mark@bsgart.com.au www.bsgart.com.au ",    :width    => 140,:height   => 100, :overflow => :ellipses, :at => [10, 390], :align    => :left, :document => self)
                box.render
                box = Prawn::Text::Box.new("ABN:  35 108 985 002",    :width    => 140,:height   => 20, :overflow => :ellipses, :at => [10, 315], :align    => :left, :document => self)
                box.render
-               box = Prawn::Text::Box.new("Bill To :-",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 380], :align    => :left,:style=>:bold, :document => self)
+               box = Prawn::Text::Box.new("Bill To :-",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 380], :align    => :right,:style=>:bold, :document => self)
                fill_color("80b2ff")
                box.render
                
-               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 365], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 365], :align    => :right, :document => self)
                fill_color("000000")
                box.render
                
-               box = Prawn::Text::Box.new("#{invoice_full_address}",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 350], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("#{invoice_full_address}",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [250, 350], :align    => :right, :document => self)
                fill_color("000000")
                box.render
                
-               box = Prawn::Text::Box.new("Ship To :-",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 380], :align    => :left,:style=>:bold ,:document => self)
+               box = Prawn::Text::Box.new("Ship To :-",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 380], :align    => :right,:style=>:bold ,:document => self)
                fill_color("80b2ff")
                box.render
                
                
-               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 366], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("#{invoice_user_fullname},",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 366], :align    => :right, :document => self)
                fill_color("000000")
                box.render
                
-               box = Prawn::Text::Box.new("#{invoice_full_address}",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 350], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("#{invoice_full_address}",    :width    => 130,:height   => 100, :overflow => :ellipses, :at => [400, 350], :align    => :right, :document => self)
                fill_color("000000")
                box.render
                
@@ -82,7 +82,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                       :position => :left,
                       :style => :bold,
                       :headers => ['Description', 'Start Date', 'End Date', 'Price'],
-                      :column_widths => { 0 => 330, 1 => 120, 2 => 120, 3 => 50},
+                      :column_widths => { 0 => 400, 1 => 120, 2 => 120, 3 => 50},
                       :border=>:none,
                       :border_width       => 0,
                       :header_color => '0147FA',
