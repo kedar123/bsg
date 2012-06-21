@@ -640,7 +640,7 @@ class CompetitionsController < ApplicationController
          p "cccccccccccccccccccc"
         if  @order.instance_of? CompetitionsUser
           make_the_payment
-          p "bvhgbftrgfvbghgf"
+          p "azzzzzzzzzzazazazazazaazaz"
         else
           make_the_payment_exhibition
           invoice = Invoice.find(:last,:conditions=>["purchasable_type = ? and  client_id = ? and purchasable_id = ?","ExhibitionsUser" , @order.user,@order.id])
@@ -658,6 +658,7 @@ class CompetitionsController < ApplicationController
           p "hghgtfgrtfgfgf"
           return                  
         else
+          p '[[[[[[[[[[[[[[[[[[[[[[[[[[[[[['
           render :text=>"After Your Payment Is Done Admin  Will Validate You. After That Your Artwork Will Be Selected.  <a href='admin/exhibitions/#{@order.exhibition.id}'>Select Artwork</a>"
         end            	       
         return
@@ -733,6 +734,8 @@ p "aaaaaaaaaaaaqqqqqqqqq"
     render :update do |page|
        if @order.total_entry.to_i > i  
         if params[:user_id].blank?
+          
+        p "yes user id is blank"
         # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
         page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
         page["enterintocompetition"].hide
@@ -754,7 +757,7 @@ p "aaaaaaaaaaaaqqqqqqqqq"
         else
           if @order.instance_of? CompetitionsUser  
                     #page['fragment-3'].replace_html(:partial=>"admin/profiles/complist")
-                    page.redirect_to "/admin/profiles/#{params[:user_id]}#fragment-3" 
+                    page.redirect_to "/admin/profiles/#{params[:user_id]}" 
              #render :partial=>"admin/profiles/complist"
              p "i am gggggggggggggggggggggggggg"
            end
@@ -1087,7 +1090,12 @@ end
       end_date = @order.competition.timing.ending_date.strftime("%d %b %Y")
       if params[:invoicing_info][:payment_medium] ==  "cash" or   params[:invoicing_info][:payment_medium] ==  "cheque" or    params[:invoicing_info][:payment_medium] ==  "direct deposit"
         if invoice
+
         p "fdfgffggfdgfgd"
+
+          
+        p "i got the invoice and creating pdf"
+
         create_pdf(invoice.id,invoice.number,start_date,invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,@order.competition.title,invoice.final_amount.to_i,note,invoice.final_amount.to_i,0,false,end_date)
         end 
       else
@@ -1101,8 +1109,14 @@ end
     #QueuedMail.add('UserMailer', 'send_invoice',[@invoice,@current_user], 0, send_now=true)	
     #QueuedMail.create(:mailer => 'UserMailer', :mailer_method => 'send_invoice',:args => [@current_user.profile.email_address,"invoice#{invoice.id}","An Invoice Is Send To Your Email For Your Payment"],:priority => 0,:tomail=>@current_user.profile.email_address,:frommail=>"test@pragtech.co.in")
     begin
+
   #    email= UserMailer.create_send_invoice(invoice,@current_user)
   #    UserMailer.deliver(email)
+
+      p "sending the emaillll"
+      email= UserMailer.create_send_invoice(invoice,@current_user)
+      UserMailer.deliver(email)
+
     rescue
     end
     session[:total_entry] = nil                     
@@ -2258,7 +2272,11 @@ end
       end_date = order.competition.timing.ending_date.strftime("%d %b %Y")
       p "the invoice is blank"
       p invoice
+      if invoice     
       create_pdf(invoice.id,invoice.number,invoice.sent_at.strftime("%d %b %Y"),invoice.client.profile.full_address_for_invoice,invoice.client.profile.full_name_for_invoice,order.competition.title,invoice.final_amount.to_i,note,"",invoice.final_amount.to_i,false,end_date)
+      else
+        p "i dont have invoice created"
+      end
     elsif  order.instance_of? ExhibitionsUser
       note = "no note created"
       note = order.exhibition.timing.note if order.exhibition.timing 

@@ -44,7 +44,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                box.render
                box = Prawn::Text::Box.new("#{invoice_date}",    :width    => 80,:height   => 20, :overflow => :ellipses, :at => [525, 475], :align    => :left, :document => self)
                box.render
-               box = Prawn::Text::Box.new("Brunswick Street Gallery 322 Brunswick St, Fitzroy 0419 390 478 mark@bsgart.com.au www.bsgart.com.au ",    :width    => 140,:height   => 100, :overflow => :ellipses, :at => [10, 390], :align    => :left, :document => self)
+               box = Prawn::Text::Box.new("Brunswick Street Gallery 322 brunswick st,fitzroy ,"3065"Brunswick St, Fitzroy 0419 390 478 mark@bsgart.com.au www.bsgart.com.au ",    :width    => 140,:height   => 100, :overflow => :ellipses, :at => [10, 390], :align    => :left, :document => self)
                box.render
                box = Prawn::Text::Box.new("ABN:  35 108 985 002",    :width    => 140,:height   => 20, :overflow => :ellipses, :at => [10, 315], :align    => :left, :document => self)
                box.render
