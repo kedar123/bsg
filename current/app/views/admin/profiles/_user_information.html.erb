@@ -15,16 +15,20 @@
 
 <tr align="left">
 <td valign="top">
-  <p id="email">
   <b>Email </b>
-  </p>
 </td>
 <td valign="top">
-  <div class="menuLabel">
+ <p id ="email_address"> 
+ <!-- Remove the <p> tag to get the original code.-->
+  <%=h @current_object.email_address %>
+  <!-- <div class="menuLabel">
   <%=link_to @current_object.email_address, "/admin/profiles/compose_user_mail/#{@current_object.id}", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
- </div>
+ </div>-->
+ </p>
 </td>
 <tr>
+
+
 
 <tr align="left">
 <td valign="top">
@@ -43,9 +47,13 @@
 <td valign="top">
 	<b> Website </b>
 </td>
-<td valign="top">
-  <%#= link_to @current_object.website, @current_object.website, :target => "_blank" %>
-  <%=link_to @current_object.website, @current_object.website, :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
+<td valign="top"><!-- Remove the <p> tag to get the original code.-->
+<!--  <%#= link_to @current_object.website, @current_object.website, :target => "_blank" %>
+  <%=link_to @current_object.website, @current_object.website, :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>-->
+  
+  <p id="website">
+  <%=h @current_object.website %>
+  </p>  
 </td>
 </tr>
 
@@ -54,10 +62,9 @@
   <b>Address </b>
 </td>
 <td valign="top">
-
-  <%=h @current_object.address %><br />
-   
-
+<p id="address">
+   <%=h @current_object.address %><br />
+</p>  
 </td>
 </tr>
 
@@ -66,7 +73,9 @@
   <b>Suburb </b>
 </td>
 <td valign="top">
+<p id="suburb">
   <%=h @current_object.suburb %><br />
+</p>  
 </td>
 </tr>
 
@@ -75,7 +84,9 @@
   <b>Post code </b>
 </td>
 <td valign="top">
+<p id="zip_code">
   <%=h @current_object.zip_code %><br />
+  </p>
 </td>
 </tr>
 
@@ -84,7 +95,9 @@
   <b>State </b>
 </td>
 <td valign="top">
+<p id="country_state">
   <%=h @current_object.country_state %><br />
+  </p>
 </td>
 </tr>
 
@@ -93,7 +106,9 @@
   <b>Country </b>
 </td>
 <td valign="top">
+<p id="country">
   <%=h @current_object.country %><br />
+ </p> 
 </td>
 </tr>
 

@@ -1,5 +1,7 @@
 class Profile < ActiveRecord::Base
 
+#attr_accessor :suburb,:email
+
 	belongs_to :user
 	has_many :profiles_containers, :dependent => :delete_all
 	# Relation N-1 getting Workspace objects through the 'users_workspaces' table
