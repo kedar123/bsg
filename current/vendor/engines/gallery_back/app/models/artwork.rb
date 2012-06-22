@@ -36,6 +36,7 @@ class Artwork < ActiveRecord::Base
 	has_many :artworks_competitions
 	has_many :exhibitions, :through => :artworks_competitions
   belongs_to :user
+  belongs_to :exhibition
   # Paperclip attachment definition
   has_attached_file :image,
                     :url =>    "/uploaded_files/#{RAILS_ENV}/artwork/:id/:style/:basename.:extension",

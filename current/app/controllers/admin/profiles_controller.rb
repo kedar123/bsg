@@ -33,6 +33,7 @@ class Admin::ProfilesController < Admin::ApplicationController
     
     if params[:element_id] == "email_address"   
        profile.update_attribute('email_address',params[:update_value])
+       profile.user.update_attribute('email',params[:update_value])
     end
        
       if params[:element_id] == "phone_number"   
