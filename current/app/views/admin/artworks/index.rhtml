@@ -9,12 +9,13 @@
 			Filter the list with text <br />
 			<input id="filter2"/><br /><br />
 	    </div>
+               
 	</div>
 
 <% blank_main_div(:title =>"Invoices list", :hsize => 'sevenH') do %>
           
 <table  id="artworks"  >
-  <thead style="font-size: 11px;">
+  <thead style="font-size: 5px;">
   <tr>
     <th>Artist Name</th>
     <th>Image</th>
@@ -47,10 +48,10 @@
     <tr>
       
       <td>
-        <%=artwork.user.profile.full_name%>
+        <%=artwork.user.profile.full_name if artwork.user%>
       </td>        
       <td>
-         <img src="/uploaded_files/development/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>">
+         <img src="/uploaded_files/production/artwork/<%=artwork.id%>/medium/<%=artwork.image_file_name%>" width="48" height="48">
       </td>
        
       <td>

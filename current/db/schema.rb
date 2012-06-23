@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120622065519) do
+ActiveRecord::Schema.define(:version => 20120623123626) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -754,6 +754,7 @@ ActiveRecord::Schema.define(:version => 20120622065519) do
     t.integer  "artist_id"
     t.integer  "artistcom"
     t.boolean  "artistcomcompaidnotpaid"
+    t.date     "paid_date"
   end
 
   add_index "invoices", ["client_id"], :name => "index_invoices_on_client_id"

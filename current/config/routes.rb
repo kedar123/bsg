@@ -268,7 +268,7 @@ ActionController::Routing::Routes.draw do |map|
     map.connect "/admin/signature",:controller=>"signatures",:action=>"index"
     map.connect "/add_frommail",:controller=>"signatures",:action=>"add_frommail"
     map.connect "/add_signature",:controller=>"signatures",:action=>"add_signature"
-
+    map.connect "/invoice/search",:controller=>"/admin/invoices",:action=>"search"
     
     
     map.resources :links  , :path_prefix => 'admin'

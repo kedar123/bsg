@@ -1,5 +1,9 @@
-a=0
+a="a,b,c,"
+p a[a.length-1,a.length]
 
-for x in 0..a
-	p x
-	end
+  if  a[a.length-1,a.length] == ","
+	  p "qqqqqqqqqqqqqqqqqq"
+	  a[a.length-1] = ''
+  end
+  
+  p a
