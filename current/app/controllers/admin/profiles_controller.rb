@@ -1,5 +1,5 @@
 class Admin::ProfilesController < Admin::ApplicationController
-  
+   
   def show_columns
     if params[:id]
       Timing.delete_all(" id = #{params[:id]}")
@@ -103,6 +103,8 @@ class Admin::ProfilesController < Admin::ApplicationController
 		@filters = params[:category_ids].map{ |e| e.to_i }
    
     @newsletter = Newsletter.find(:all)
+   
+    
 		respond_to do |format|
       format.html { render :template => 'admin/profiles/index.html.erb'}
       format.xml  { render :xml => @current_objects }
@@ -140,6 +142,34 @@ class Admin::ProfilesController < Admin::ApplicationController
     
   end
   
+ 
+ 
+  def compose_email_to_selected_people
+    @current_objects = []
+    @message = current_user.sent_messages.build
+    @frommail = Frommail.find(:all)
+   # cat_id = params[:cat_id] 
+   # cat_id
+   	params[:cat_id].each_char do |cat|
+				@current_objects += ProfilesCategory.find(:all, :conditions => { :category_id => cat.to_i }).map{ |e| e.profile }
+			end
+			@current_objects.uniq!
+      @emailstring = ""
+      @current_objects.each do |co|
+        @emailstring << co.email_address << ","
+      end
+      if !@emailstring.blank?
+        if @emailstring[@emailstring.length-1,@emailstring.length] == ","
+           @emailstring[@emailstring.length-1] = ''
+        end
+      end
+    p "from controller"
+    p @emailstring
+  end
+ 
+ 
+ 
+ 
   def compose_user_mail
      @message = current_user.sent_messages.build
      @frommail = Frommail.find(:all)

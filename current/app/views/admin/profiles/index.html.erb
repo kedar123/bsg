@@ -1,6 +1,13 @@
   
-<% blank_main_div(:title =>"Contacts list (#{@num} results)", :hsize => 'sixH') do %>
+<% blank_main_div(:title =>"Contacts list (#{@num} results)", :hsize => 'sevenH') do %>
+  <%if params[:action] == 'filter'%>
+<div id="makemeuprightcorner" style="padding-left:800px;margin-top:-25px;position:absolute;color:black;">
+  <a href="#" onclick="document.forms['submitnewsletter'].submit();" >News Letter</a>
   
+   &nbsp;&nbsp;<%=link_to_remote "Compose Email",:url=>"/compose_email_to_selected_people?cat_id=#{params[:category_ids]}",:update => 'modal_space',:method=>:get%>
+  </div>
+  <%end%>
+
   <table id="profiles">
     <thead>
         <tr>
@@ -41,7 +48,7 @@
 </table>
               <br/></br>  
                         <div>
-                          <form action="/admin/send_news_letter">
+                          <form action="/admin/send_news_letter" id="submitnewsletter" name="submitnewsletter">
                             <%if @newsletter%>
                               <select size="6" name="newsletter"  id="category_ids_" >
                                 <%for newsletter in @newsletter%>
@@ -50,14 +57,18 @@
                               </select>
                             <%=hidden_field_tag "categoryid",@filters * ","%>
                             
-                            <%=submit_tag "send newsletter", :style => "width:115px;"%>
+                            <%#=submit_tag "send newsletter", :style => "width:115px;"%>
                             <%end%>
                           </form>
                         </div>
             
 <% end %>
 
-
+               
+               
+              
+              
+<%if params[:action] != 'filter'%>
 <div class="rightBlocks">
 	<div class="itemShowRightBlock">
 	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
@@ -84,7 +95,7 @@
                 
 	</div>
 </div>
-
+<%end%>
 
 
 <script>
