@@ -4,12 +4,15 @@ require 'tmail'
 class Admin::MailController < ApplicationController
   layout "gallery_promoting_mail"
   auto_complete_for :user, :email
-  #before_filter :check_the_email ,:only=>"index"
+ # before_filter :check_the_email ,:only=>"index"
   
   def check_the_email
      begin
       imap = Net::IMAP.new('imap.gmail.com', 993, true)
-      imap.login("vishu.nick@gmail.com", "4friends")
+ 
+      imap.login("kedar.pathak@pragtech.co.in", "shriganesh123")
+ 
+ 
       imap.select('Inbox')
       imap.uid_search(["NOT", "SEEN"]).each do |uid|
         mail =  TMail::Mail.parse(imap.uid_fetch(uid, ['RFC822']).first.attr['RFC822'])
@@ -399,7 +402,7 @@ class Admin::MailController < ApplicationController
     @message.body = @message.body + ">><br/>" + @original.body
     if @message.save
       all_the_recipient = params[:user][:email].split(',')
-      EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+      #EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
       flash[:notice] = "Message sent."
       redirect_to :action => "index"
     else
