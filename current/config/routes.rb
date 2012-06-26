@@ -182,6 +182,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/delete_label",:controller=>"admin/mail",:action=>"delete_label"
   map.connect "/admin/unknown_email",:controller=>"admin/mail",:action=>"unknown_email"
   map.connect "/auto_complete_for_user_email",:controller=>"admin/mail",:action=>"auto_complete_for_user_email"
+    
+  
   map.connect "/admin/show_unknown_message",:controller=>"admin/mail",:action=>"show_unknown_message"
   map.connect "/admin/replay_message_to_unknown",:controller=>"admin/mail",:action=>"replay_message_to_unknown"
   map.connect "/admin/artworks_competitions/artworks_competitions_winner_message/:id/message/:message",:controller=>"admin/artworks_competitions",:action=>"artworks_competitions_winner_message"
@@ -202,7 +204,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/profiles/create_sent_mail",:controller=>"admin/profiles",:action=>"create_sent_mail"
   map.connect "/admin/profiles/show_columns/:id",:controller=>"admin/profiles",:action=>"show_columns"
   map.connect "/change_profile/:id",:controller=>"admin/profiles",:action=>"change_profile"
-  
+  map.connect "/compose_email_to_selected_people" ,:controller=>"admin/profiles",:action=>"compose_email_to_selected_people"
   map.connect "/show_message_sent/:id",:controller=>"admin/profiles",:action=>"show_message_sent"
   map.connect "/show_message_recd/:id",:controller=>"admin/profiles",:action=>"show_message_recd"
   
@@ -268,7 +270,7 @@ ActionController::Routing::Routes.draw do |map|
     map.connect "/admin/signature",:controller=>"signatures",:action=>"index"
     map.connect "/add_frommail",:controller=>"signatures",:action=>"add_frommail"
     map.connect "/add_signature",:controller=>"signatures",:action=>"add_signature"
-
+    map.connect "/invoice/search",:controller=>"/admin/invoices",:action=>"search"
     
     
     map.resources :links  , :path_prefix => 'admin'

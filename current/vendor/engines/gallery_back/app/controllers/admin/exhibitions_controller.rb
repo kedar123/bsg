@@ -9,6 +9,8 @@ before_filter :workspace_id
 
 def  workspace_id
    if params[:workspace_id].blank? and !params[:exhibition].blank?
+     p "because i changed current user"
+     p current_user
     params["exhibition"]["workspace_ids"]=Workspace.find(:first, :conditions => { :creator_id => current_user.id}).id.to_s
 end  
 end
@@ -146,6 +148,7 @@ end
             
             
    	end
+ 
 
    #     after :update do
    #     if params[:exhibitions] and params[:exhibitions][:publish] == "1"
@@ -192,6 +195,84 @@ end
   end
 
 
+  
+  def update
+     @current_object = Exhibition.find(params[:id])
+     p "before update"
+     p @current_object
+     p @current_object.exhibitions_users
+     
+     p @current_object.update_attributes(params[:exhibition])
+     p "after update"
+     p @current_object
+       @current_object.reload
+     p @current_object.exhibitions_users
+    p "sssssssssss"
+ 
+    
+    
+    ################this is copy of after update
+    	 	    
+ 
+       
+            
+      @invoices = []       
+       if params[:multipleuserinvoice] == "on"
+           p params[:exhibition][:user_id]
+           p @current_object
+           @current_object.single_entry_invoice = true
+           @current_object.single_entry_invoice_user_id = params[:exhibition][:user_id]
+           @current_object.save
+          	oneperson = ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",params[:exhibition][:user_id],@current_object.id])
+            p oneperson
+            p "i did not get the user here"
+            oneperson.generate_invoice(oneperson.user)
+            invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , oneperson.user,oneperson.id])
+            @invoices << invoice 
+            
+      else
+         @current_object.single_entry_invoice = false
+         @current_object.save
+          
+        p "aaaaaaaaaaaaaaaaaaaa"
+        
+                   params[:exhibition][:user_ids].each do |exhu|
+                    exihu = ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",exhu,@current_object.id])
+                    invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , exihu.user,exihu.id])
+          p "invoicesssssssssssssssssssssssssss"
+          p invoice
+                   if !invoice.blank?
+                   @invoices << invoice
+                   end
+                    if  invoice.blank?
+                         exihu.generate_invoice(exihu.user)
+                         invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , exihu.user,exihu.id])
+                         @invoices << invoice
+                    end             
+                    
+                     
+                     
+                   end       
+       end
+       p @invoices
+       p @invoices.length
+       p "this are the invoicesss"
+    
+    
+    if request.xhr?
+      render :update do |page|
+           
+         @invoices.each do |invo|
+           page['updatepopupww'].replace_html :partial=>"invoice",:locals=>{:inv=>invo}
+       
+         end
+         page['submitExhibition'].replace_html :partial=>"exhibitionshowbutton",:locals=>{:exh=>@current_object}
+         
+       end
+    
+    end
+  end
+  
 
 
 
@@ -224,22 +305,24 @@ def new
     end
 end   
 
+#the consept here is if one person is selected 
 
   def create
+    p params
+    p params[:multipleuserinvoice]
+    p params[:exhibition][:user_id]
         exhibition = Exhibition.new()
         exhibition.user = User.find(1)
         exhibition.title = params[:exhibition][:title]
         exhibition.description = params[:exhibition][:description]
         #exhibition.user_ids = params[:exhibition][:user_ids]
         #=> #<Timing id: nil, objectable_type: nil, objectable_id: nil, note: nil, period_id: nil, starting_date: nil, ending_date: nil, starting_time: nil, ending_time: nil, places_id: nil, state: nil, created_at: nil, updated_at: nil>
-    if     params[:exhibition][:timing_attributes][:gallery_ids]
-           
-    timing = Timing.new(:objectable_type=>'Exhibition',:period_id=>params[:exhibition][:timing_attributes][:period_id],:places_id=>params[:exhibition][:timing_attributes][:gallery_ids].join(',')) 
+    if  params[:exhibition][:timing_attributes][:gallery_ids]
+       timing = Timing.new(:objectable_type=>'Exhibition',:period_id=>params[:exhibition][:timing_attributes][:period_id],:places_id=>params[:exhibition][:timing_attributes][:gallery_ids].join(',')) 
     else
-    timing = Timing.new(:objectable_type=>'Exhibition',:period_id=>params[:exhibition][:timing_attributes][:period_id]) 
-   
+      timing = Timing.new(:objectable_type=>'Exhibition',:period_id=>params[:exhibition][:timing_attributes][:period_id]) 
     end
-         timing.save
+        timing.save
         exhibition.timing = timing
         exhibition.workspace_ids = params[:exhibition][:workspace_ids]
         p params
@@ -275,23 +358,78 @@ end
         p "redirecting to exhibition"
         p @current_object
         session[:exh_display_list]=params[:thisuserid]
-        if request.xhr?
-          
-         
-		render :update do |page|
-      if !params[:generalpage].blank?
-        p "wwwwwwwwwwwwwwwwwwwwwwwwwwwww"
-       page.redirect_to :action=>"show",:id=>exhibition.id       
+              # here more functionality is need to be added like after exh creation if its a single user invoice then create invoice here.
+      #if its multiple user invoice then create it here.and on the same page render one partial which will open all the pop up window.
+       @invoices = []       
+       if params[:multipleuserinvoice] == "on"
+           p params[:exhibition][:user_id]
+           p exhibition
+           exhibition.single_entry_invoice = true
+           exhibition.single_entry_invoice_user_id = params[:exhibition][:user_id]
+           exhibition.save
+          	oneperson = ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",params[:exhibition][:user_id],exhibition.id])
+            p oneperson
+            p "i did not get the user here"
+            oneperson.generate_invoice(oneperson.user)
+            invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , oneperson.user,oneperson.id])
+            @invoices << invoice 
+            
       else
-        p "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-       page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
-      end
+         exhibition.single_entry_invoice = false
+         exhibition.save
+          
+        p "aaaaaaaaaaaaaaaaaaaa"
+        
+                   params[:exhibition][:user_ids].each do |exhu|
+                    exihu = ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",exhu,exhibition.id])
+                    invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , exihu.user,exihu.id])
+          p "invoicesssssssssssssssssssssssssss"
+          p invoice
+                   if !invoice.blank?
+                   @invoices << invoice
+                   end
+                    if  invoice.blank?
+                         exihu.generate_invoice(exihu.user)
+                         invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , exihu.user,exihu.id])
+                         @invoices << invoice
+                    end             
+                    
+                     
+                     
+                   end       
+       end
+       p @invoices
+       p @invoices.length
+       p "this are the invoicesss"
+    if request.xhr?
+      render :update do |page|
+       
+         @invoices.each do |invo|
+           page['updatepopup'].replace_html :partial=>"invoice",:locals=>{:inv=>invo}
+         end
+         page['submitExhibition'].replace_html :partial=>"exhibitionshowbutton",:locals=>{:exh=>exhibition}
+        
+       end
+    
+    end
+
+ #       if request.xhr?
+          
+       
+#		render :update do |page|
+#      if !params[:generalpage].blank?
+#        p "wwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+#       page.redirect_to :action=>"show",:id=>exhibition.id       
+#      else
+#        p "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+#       page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
+#      end
           # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
-      end
+#      end
          
-        else
-        redirect_to :action=>"show",:id=>exhibition.id
-        end 
+#        else
+#        redirect_to :action=>"show",:id=>exhibition.id
+#        end 
   end
   
 

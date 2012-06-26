@@ -69,6 +69,51 @@ module ApplicationHelper
 	end
 
 
+	def blank_main_div_multi(params, &block)
+    top_div = "" 
+    top_div = top_div + "<script>$(#{params[:title]}).parent().remove();alert($('#{params[:title]}'));alert($('#{params[:title]}').parent());</script>"
+		params[:hsize] ||= 'sixH'
+		if params[:modal]
+			top_div = "<div id='#{params[:title].to_s}' class='modal_window_multiple' title='#{params[:title].to_s}'>"+flash_messages_manager(['notice', 'error'], 'modal', false)
+		else
+			old_top_div = "<div class='itemShowLeft'><div class='itemShowLeftBody'><h2>#{params[:title]}</h2>"
+			top_div = "<title>#{params[:title].to_s}</title><div class='objectList small'>
+				<div class='blockCornerLeft'></div>
+				<div class='blockElementHeader #{params[:hsize]}'>
+					
+					<span id='item_count'>#{params[:title]}</span>
+				</div>
+				<div class='blockCornerRight'></div>
+				<div class='contentList filtered #{params[:hsize]}'>"
+		end
+		bottom_div="</div></div>"
+		bottom_div+="<script>
+				$('.ui-dialog').remove();
+			
+ 				$('.modal_window_multiple').dialog({
+                  modal: true,
+                  width: 600,
+                  height: 500,
+                  close: function(ev, ui) { $(this).parent().remove();$(this).remove(); }
+            });
+				</script>" if params[:modal]
+		if block_given?
+			content = capture(&block)
+			concat(top_div, block.binding)
+			concat(content, block.binding)
+			concat(bottom_div, block.binding)
+		else
+			top_div+bottom_div
+		end
+
+	end
+
+
+
+
+
+
+
 
 	def blank_main_big_div(params, &block)
 		params[:hsize] ||= 'sixH'

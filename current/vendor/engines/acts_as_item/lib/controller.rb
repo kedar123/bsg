@@ -157,6 +157,8 @@ module ActsAsItem
 					# In the case of Article, Page or Newsletter, it is redirecting to the edition page
 					# in order to fill the 'body' field.
 					response_for :create, :update do |format|
+            p "this is responseeeeeeeeeeeeeeeeeeeeee"
+            p format.type
     						format.html { 
     						#if params[:exhibition_id].blank?
     						params[:continue] ? redirect_to(new_item_path(@current_object.class.to_s)) : redirect_to(item_path(@current_object)) 
@@ -166,6 +168,13 @@ module ActsAsItem
     						#redirect_to "/admin/exhibitions/"+params[:exhibition_id].split("value")[1]
     						#end
     						}
+               format.js{
+                 p "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyp"
+               }    
+               format.json{
+                 p "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyp"
+               }
+            
 					end
                   
 					response_for :new, :create_fails do |format|

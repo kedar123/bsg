@@ -98,7 +98,8 @@ class ShoppingcartController < ApplicationController
       payment = Payment.new()
       order = Order.complete_from_cart(session[:cart], @current_user)
       crnumber =  params[:credit_card][:number0]+params[:credit_card][:number1]+params[:credit_card][:number2]+params[:credit_card][:number3]+params[:credit_card][:number4]+params[:credit_card][:number5]+params[:credit_card][:number6]+params[:credit_card][:number7]+params[:credit_card][:number8]+params[:credit_card][:number9]+params[:credit_card][:number10]+params[:credit_card][:number11]+params[:credit_card][:number12]+params[:credit_card][:number13]+params[:credit_card][:number14]+params[:credit_card][:number15]
-      #somehow i have to make sure that once an artwork is sold at last stage means at end . when there is no revision then
+      #somehow i have to make sure that once an artwork is sold at last stage means at end . when there is no revision 
+      #then
       #this payment procedure should not be done.and a message should get displayed to user that already sold
       payment.common_wealth_bank_process(@current_object.total_amount*100,params,crnumber)
       
@@ -216,12 +217,26 @@ class ShoppingcartController < ApplicationController
                     cu.save
                 end
                 if  k.split('_')[0] == "Artwork"
+                  p "i should come hererererer"
                     art = Artwork.find(k.split('_')[1])      
+                    p "i did not find the artwork"
+                    p  art
                     art.edition_name = art.edition_name.to_i + 1
+                     p "changed the editioname"
+                     p art
                     if art.edition_name.to_i > art.edition_number.to_i
+                      p "im in iggggg"
                       art.sold = true 
+                    else
+                        p "elseeeeeeee"
                     end
+                    art.sold_number = art.sold_number.to_i + 1
                     art.save
+                    p "saving errors"
+                     art.errors.each do |s|
+                    p s
+                    p "wwwwwwwwwwwwwwwww"
+                    end
                 end
                  if  k.split('_')[0] == "Groupshowartwork"
                   art = Groupshowartwork.find(k.split('_')[1])      

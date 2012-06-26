@@ -9,6 +9,39 @@
 			Filter the list with text <br />
 			<input id="filter2"/><br /><br />
 	    </div>
+             <div class="blockElementBodyinv">   
+                <form action="/invoice/search">
+                  Inv No<input type="text" name="invno"/>
+                  <br/>
+                  Contact<input type="text" name="contact"/>
+                  <br/>
+                  Title<input type="text" name="title"/>
+                  <br/>
+                  From Due Date<input type="text" name="fromduedate"/>
+                  <br/>
+                  To Due Date<input type="text" name="toduedate"/>
+                  <br/>
+                  Less Than Total<input type="text" name="lesstotal"/>
+                  <br/>
+                  Greater Than Total <input type="text" name="greatertotal"/>
+                  
+                  paid<input type="checkbox" name="paid"/>
+                  <br/>
+                  From Sent on<input type="text" name="fromsenton"/>
+                  <br/>
+                  To Sent on<input type="text" name="tosenton"/>
+                  
+                  <br/>
+                  From Paid on<input type="text" name="frompaidon"/>
+                  <br/>
+                  
+                  To Paid on<input type="text" name="topaidon"/>
+                  <br/>
+                  Email <input type="text" name="email"/>
+                  <input type="submit" name="submit" value="submit"/>
+                  
+                  </form>
+             </div>
 	</div>
 
 <% blank_main_div(:title =>"Invoices list", :hsize => 'sevenH') do %>

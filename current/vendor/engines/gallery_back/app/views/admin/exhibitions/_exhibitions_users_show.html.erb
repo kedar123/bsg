@@ -25,12 +25,30 @@
     <td><%#= link_to 'Show', admin_profile_path(ue.user.profile.id) %>
     </td>
     <td>
-      <% if ue.invited_at.blank? %>
-        <%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
-      <% elsif !ue.invited_at.blank?%>  
-          <%#here i need the blank d for alignment%>  
-          <%= link_to "Resend Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
-     <%end%> 
+      <%p "checking here the status of sei"%>
+      <%p ue.exhibition.single_entry_invoice%>
+      <%p ue.exhibition.single_entry_invoice.class%>
+      
+      <%if ue.exhibition.single_entry_invoice == true%>
+           <%if ue.user_id == ue.exhibition.single_entry_invoice_user_id%>
+                <% if ue.invited_at.blank? %>
+                    <%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
+                <% elsif !ue.invited_at.blank?%>  
+                    <%#here i need the blank d for alignment%>  
+                    <%= link_to "Resend Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
+                <%end%>
+           <%end%>  
+      <%else%>
+      
+          <% if ue.invited_at.blank? %>
+            <%= link_to "Email Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
+          <% elsif !ue.invited_at.blank?%>  
+              <%#here i need the blank d for alignment%>  
+              <%= link_to "Resend Invoice", send_invitation_admin_exhibitions_user_path(ue.id) %>
+          <%end%> 
+      
+      <%end%>
+      
       </td>
     <% if ue.state == 'published' %>
     <td>

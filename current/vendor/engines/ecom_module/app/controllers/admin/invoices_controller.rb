@@ -19,6 +19,26 @@ class Admin::InvoicesController < Admin::ApplicationController
     render :partial => 'pay_for_invoice', :layout => false
   end
   
+  #here the search will be on the condition 
+  def search
+      search_conditions = ""
+      search_conditions = Invoice.search_condition(params)
+      
+      
+     p "this is search option "
+     p search_conditions
+    
+    @current_objects = Invoice.find(:all,:conditions=>search_conditions)  
+
+    render :action=>"index" 
+    
+    
+    
+  end
+  
+  
+  
+  
   
   def create_the_payment
     payment = Payment.find(:first,:conditions=>["state = 'online_validated' and invoice_id = #{params[:invoiceid]}"])

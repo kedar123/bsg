@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928083552) do
+ActiveRecord::Schema.define(:version => 20120626072219) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -510,16 +510,18 @@ ActiveRecord::Schema.define(:version => 20110928083552) do
 
   create_table "exhibitions", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",                                        :null => false
-    t.text     "description",                                  :null => false
-    t.string   "state",           :limit => 15
-    t.integer  "viewed_number",                 :default => 0
-    t.integer  "comments_number",               :default => 0
-    t.integer  "rates_average",                 :default => 0
-    t.integer  "published",                     :default => 0
+    t.string   "title",                                                     :null => false
+    t.text     "description",                                               :null => false
+    t.string   "state",                        :limit => 15
+    t.integer  "viewed_number",                              :default => 0
+    t.integer  "comments_number",                            :default => 0
+    t.integer  "rates_average",                              :default => 0
+    t.integer  "published",                                  :default => 0
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "single_entry_invoice"
+    t.integer  "single_entry_invoice_user_id"
   end
 
   add_index "exhibitions", ["user_id"], :name => "index_exhibitions_on_user_id"
@@ -734,9 +736,9 @@ ActiveRecord::Schema.define(:version => 20110928083552) do
     t.string   "purchasable_type"
     t.integer  "purchasable_id"
     t.string   "number"
-    t.string   "title",                          :null => false
-    t.text     "description",                    :null => false
-    t.string   "state",            :limit => 15
+    t.string   "title",                                   :null => false
+    t.text     "description",                             :null => false
+    t.string   "state",                     :limit => 15
     t.string   "payment_medium"
     t.string   "billing_address"
     t.string   "shipping_address"
@@ -748,6 +750,13 @@ ActiveRecord::Schema.define(:version => 20110928083552) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "note"
+    t.integer  "sales_person_id"
+    t.integer  "salespersoncom"
+    t.boolean  "salespersoncompaidnotpaid"
+    t.integer  "artist_id"
+    t.integer  "artistcom"
+    t.boolean  "artistcomcompaidnotpaid"
+    t.date     "paid_date"
   end
 
   add_index "invoices", ["client_id"], :name => "index_invoices_on_client_id"
