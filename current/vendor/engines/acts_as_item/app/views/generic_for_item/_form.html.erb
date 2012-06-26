@@ -38,8 +38,9 @@
           {:label => 'Published:', :hint => 'Required for the resource to be published to the website'} %>
       <% end -%>
       <%= capture(f, &block) %>
-      
+      <div id="submit<%=current_object.class%>">
       <%= blank_form_submit_button(:object => current_object,:remote=>remote,:url=>url) %>
+      <div>  
 
 <% end %>
 

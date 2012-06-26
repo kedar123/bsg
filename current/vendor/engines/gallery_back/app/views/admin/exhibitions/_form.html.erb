@@ -1,4 +1,9 @@
-    <script>
+<%#currently i am putting this div here this div is in %>
+<div id="updatepopupww">
+ 
+ </div> 
+   
+<script>
       function changetheinvoicedisplay(){
         if(document.getElementById('multipleuserinvoice').checked){
           
@@ -16,7 +21,7 @@
   <%else%>
 <%remoteme=true%>
 <%end%>
-<% form_for_item @current_object, "Exhibition Creation",remoteme,'/admin/exhibitions' do |f| -%>
+ <% form_for_item @current_object, "Exhibition Creation",remoteme,'/admin/exhibitions/'+@current_object.id.to_s do |f| -%>
 
 <label>Artists </label>
       
@@ -55,14 +60,27 @@
     </div>-->
     <div class="formElement" style="clear:both;padding-top:0px;">
       <label>Single User Invoice </label>
+        <%if @current_object.single_entry_invoice == true%>
+         <input type="checkbox" name="multipleuserinvoice" id="multipleuserinvoice" onclick="changetheinvoicedisplay()" checked="checked"/>
+        <%else%> 
          <input type="checkbox" name="multipleuserinvoice" id="multipleuserinvoice" onclick="changetheinvoicedisplay()"/>
+         <%end%>
     </div>
-    <div class="formElement" style="clear:both;padding-top:0px;display:none" id="selecttagformultiinv"  >
+    <%if @current_object.single_entry_invoice == true%> 
+      <div class="formElement" style="clear:both;padding-top:0px;display:block" id="selecttagformultiinv"  >
+  
+    <%else%> 
+          <div class="formElement" style="clear:both;padding-top:0px;display:none" id="selecttagformultiinv"  >
+  
+    <%end%>
       
         <label>Artists </label>
- 
-    <%= select_tag "exhibition[user_id]", options_from_collection_for_select(@artists, 'user_id', 'full_name', :selected =>selecteduser, :disabled => @current_object.user_ids), :multiple => false %>
-    
+    <%if @current_object.single_entry_invoice == true%> 
+    <%= select_tag "exhibition[user_id]", options_from_collection_for_select(@artists, 'user_id', 'full_name', :selected =>@current_object.single_entry_invoice_user_id), :multiple => false %>
+    <%else%>
+    <%= select_tag "exhibition[user_id]", options_from_collection_for_select(@artists, 'user_id', 'full_name'), :multiple => false %>
+        
+   <%end%>
     </div>
 
     
@@ -84,4 +102,6 @@
             No   <%#=radio_button("exhibitions", "publish", "0")%>
   </div>-->
 
+ 
+ 
 <% end -%>
