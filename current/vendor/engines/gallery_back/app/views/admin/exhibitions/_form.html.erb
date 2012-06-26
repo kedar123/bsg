@@ -1,7 +1,18 @@
- 
+    <script>
+      function changetheinvoicedisplay(){
+        if(document.getElementById('multipleuserinvoice').checked){
+          
+        document.getElementById('selecttagformultiinv').style.display='block';
+         
+        }
+        else{
+        document.getElementById('selecttagformultiinv').style.display='none';
+        }
+      }
+      </script> 
 <%remoteme=false%>
 <%if !request.xhr?%> 
-<%remoteme=false%>
+<%remoteme=true%>
   <%else%>
 <%remoteme=true%>
 <%end%>
@@ -19,27 +30,42 @@
     <%=hidden_field "exhibition","workspace_ids",:value=>@workspace.id%>
     
     <%=hidden_field_tag "thisuserid" ,"" %>
-    <input type="hidden" id="thisuserid" value="">
+    <input type="hidden" id="thisuserid"  >
     <script>
     document.getElementById('thisuserid').value = document.getElementById('exh_display_list').value
     </script> 
     <%end%>
     <%=hidden_field_tag "generalpage" ,"" %>  
     <%= select_tag "exhibition[user_ids][]", options_from_collection_for_select(@artists, 'user_id', 'full_name', :selected =>selecteduser, :disabled => @current_object.user_ids), :multiple => true, :size => 9 %>
-       <%#=link_to "Make Required User As Artist","/admin/profiles"%> 
+
+
+    <%#=link_to "Make Required User As Artist","/admin/profiles"%> 
     <%#= @current_object.users.map{ |e| "<input type='hidden' value='#{e.id}' name='exhibition[user_ids][]' id='exhibition_user_ids'>" }.join(' ') %>
     
 
 <!--    <input id="filter3" style="size:20px;">	 -->
     </div>  
-        <div class="formElement" style="clear:both;padding-top:0px;">
+    <!--    <div class="formElement" style="clear:both;padding-top:0px;">
  
     <%if params[:controller] == "admin/exhibitions" and params[:action] == "edit"%>      
     <%else%>
         <label >Group Show </label>  <%=check_box_tag "group_show",0,false,:style=>"width:20px;margin-top:15px;"%>
     <%end%>    
     
+    </div>-->
+    <div class="formElement" style="clear:both;padding-top:0px;">
+      <label>Single User Invoice </label>
+         <input type="checkbox" name="multipleuserinvoice" id="multipleuserinvoice" onclick="changetheinvoicedisplay()"/>
     </div>
+    <div class="formElement" style="clear:both;padding-top:0px;display:none" id="selecttagformultiinv"  >
+      
+        <label>Artists </label>
+ 
+    <%= select_tag "exhibition[user_id]", options_from_collection_for_select(@artists, 'user_id', 'full_name', :selected =>selecteduser, :disabled => @current_object.user_ids), :multiple => false %>
+    
+    </div>
+
+    
 <!--
 <br /><br />
 

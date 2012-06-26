@@ -226,6 +226,9 @@ end
 
 
   def create
+    p params
+    p params[:multipleuserinvoice]
+    p params[:exhibition][:user_id]
         exhibition = Exhibition.new()
         exhibition.user = User.find(1)
         exhibition.title = params[:exhibition][:title]
@@ -275,23 +278,69 @@ end
         p "redirecting to exhibition"
         p @current_object
         session[:exh_display_list]=params[:thisuserid]
-        if request.xhr?
-          
-         
-		render :update do |page|
-      if !params[:generalpage].blank?
-        p "wwwwwwwwwwwwwwwwwwwwwwwwwwwww"
-       page.redirect_to :action=>"show",:id=>exhibition.id       
+              # here more functionality is need to be added like after exh creation if its a single user invoice then create invoice here.
+      #if its multiple user invoice then create it here.and on the same page render one partial which will open all the pop up window.
+       @invoices = []       
+       if params[:multipleuserinvoice] == "on"
+           p params[:exhibition][:user_id]
+           p exhibition
+          	oneperson = ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",params[:exhibition][:user_id],exhibition.id])
+            p oneperson
+            p "i did not get the user here"
+            oneperson.generate_invoice(oneperson.user)
+            invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , oneperson.user,oneperson.id])
+            @invoices << invoice 
       else
-        p "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-       page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
-      end
+        p "aaaaaaaaaaaaaaaaaaaa"
+                   params[:exhibition][:user_ids].each do |exhu|
+                    exihu = ExhibitionsUser.find(:first,:conditions=>["user_id = ? and exhibition_id = ?",exhu,exhibition.id])
+                    invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , exihu.user,exihu.id])
+          p "invoicesssssssssssssssssssssssssss"
+          p invoice
+                   if !invoice.blank?
+                   @invoices << invoice
+                   end
+                    if  invoice.blank?
+                         exihu.generate_invoice(exihu.user)
+                         invoice = Invoice.find(:first,:conditions=>["purchasable_type = ? and  client_id = ?  and purchasable_id = ?","ExhibitionsUser" , exihu.user,exihu.id])
+                         @invoices << invoice
+                    end             
+                    
+                     
+                     
+                   end       
+       end
+       p @invoices
+       p @invoices.length
+       p "this are the invoicesss"
+    if request.xhr?
+      render :update do |page|
+       
+         @invoices.each do |invo|
+           page['updatepopup'].replace_html :partial=>"invoice",:locals=>{:inv=>invo}
+     
+        end
+       end
+    
+    end
+
+ #       if request.xhr?
+          
+       
+#		render :update do |page|
+#      if !params[:generalpage].blank?
+#        p "wwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+#       page.redirect_to :action=>"show",:id=>exhibition.id       
+#      else
+#        p "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+#       page['fragment-2'].replace_html(:partial => 'exh_for_this_user') 
+#      end
           # page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
-      end
+#      end
          
-        else
-        redirect_to :action=>"show",:id=>exhibition.id
-        end 
+#        else
+#        redirect_to :action=>"show",:id=>exhibition.id
+#        end 
   end
   
 
