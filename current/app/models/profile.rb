@@ -1,6 +1,6 @@
 class Profile < ActiveRecord::Base
 
-#attr_accessor :suburb,:email
+
 
 	belongs_to :user
 	has_many :profiles_containers, :dependent => :delete_all
@@ -83,6 +83,11 @@ class Profile < ActiveRecord::Base
 	      if str.length == 2 
 	       self.first_name = str[0]  
 	       self.last_name = str[1]
+	       else if str.length == 3
+	           self.first_name = str[0]
+	           self.middle_name = str[1]  
+	           self.last_name = str[2]
+	           end
               end
               
         end 

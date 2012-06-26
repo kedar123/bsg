@@ -134,6 +134,6 @@ ActionMailer::Base.smtp_settings = {
   :domain => "pragtech.co.in",
   :authentication => :plain,
   :user_name => "test@pragtech.co.in",
-  :password => "test123",
+  :password => "pragmatic123",
   :enable_starttls_auto => true,
 }
