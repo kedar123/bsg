@@ -9,10 +9,11 @@ class Admin::MailController < ApplicationController
   def check_the_email
      begin
       imap = Net::IMAP.new('imap.gmail.com', 993, true)
-      imap.login("kedar.pathak@pragtech.co.in", "kedar123")
+      imap.login("vishu.nick@gmail.com", "4friends")
       imap.select('Inbox')
       imap.uid_search(["NOT", "SEEN"]).each do |uid|
         mail =  TMail::Mail.parse(imap.uid_fetch(uid, ['RFC822']).first.attr['RFC822'])
+        p mail
         if user = User.find_by_email(mail.from.to_s)
             message = user.sent_messages.new
             message.subject = mail.subject.to_s

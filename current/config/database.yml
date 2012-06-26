@@ -27,7 +27,7 @@ DEFAULTS: &DEFAULTS
     #socket: /var/run/mysqld/mysqld.sock
 
 development:
-  database: gallery_development
+  database: gallery_dev
   <<: *DEFAULTS
 
 test:

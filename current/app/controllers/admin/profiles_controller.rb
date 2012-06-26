@@ -31,6 +31,17 @@ class Admin::ProfilesController < Admin::ApplicationController
     
     profile=Profile.find(params[:id])
     
+   # if params[:element_id] == "full_name" 
+    
+   #    name = profile.full_name_separation(params[:update_value])
+   #    profile.update_attribute('first_name',name[0])
+   #    profile.update_attribute('first_name',name[1])
+   #    profile.update_attribute('first_name',name[2])
+   # end
+    
+    
+    
+    
     if params[:element_id] == "email_address"   
        profile.update_attribute('email_address',params[:update_value])
     end
@@ -334,6 +345,8 @@ class Admin::ProfilesController < Admin::ApplicationController
   def show_message_sent
     
     @message = Message.find(params[:id])
+    
+   
        render :update do |page|
         page["show_message_details"].replace_html(:partial =>'message_sent_detail', :object =>@message)
         page["ajax_spinner"].visual_effect :hide
