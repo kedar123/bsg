@@ -91,7 +91,7 @@ module ApplicationHelper
 				$('.ui-dialog').remove();
 			
  				$('.modal_window_multiple').dialog({
-                  modal: true,
+                  modal: false,
                   width: 600,
                   height: 500,
                   close: function(ev, ui) { $(this).parent().remove();$(this).remove(); }
