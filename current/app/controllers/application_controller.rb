@@ -102,7 +102,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                else
                  
                  table [["#{invoice_competition_title}","#{invoice_date}","#{finish_date}" ,"$#{invoice_full_amount}"],],
-                      :position => :left,
+                      :position => 10,
                       :style => :bold,
                       :headers => ['Description', 'Start Date', 'End Date', 'Price'],
                       :column_widths => { 0 => 330, 1 => 120, 2 => 120, 3 => 50},
@@ -110,8 +110,9 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                       :border_width       => 0,
                       :header_color => '0147FA',
                       :header_text_color  => "ffffff"
+                     
                end
-               
+               p "im tryinggggggggggggggggggggggggggggg"
             fill_color("e6f0ff")
             #fill_and_stroke_rectangle([8,-11],440,21)
             #fill_and_stroke_rectangle([8,14],440,18)
