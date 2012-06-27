@@ -259,54 +259,177 @@
 
 
     <div id="fragment-4"  >
-      <div style="float:right;">
-        <%if current_user.login=="admin" || current_user.login=="superadmin"%>
-        Filter the list with text 
-        <br/>
-          <input id="filter5"/><br />
-          <%= link_to "add an invoice for this contact", new_admin_invoice_path + "/#{@current_object.id}" %>
-
-        <%end%>
-
-      </div><br />
+    <table  id="artworks"  >
+  <thead style="font-size: 5px;">
+  <tr>
+    <th>Artist Name</th>
+    <th>Image</th>
+    <th>In Date</th>
+    <th>Out Date</th>
+    <th>Event</th>
+    <th>Title</th>
+    <th>Medium</th>
+    <th>Size</th>
+    <th>price</th>
+    <th>Edition of</th>
+    <th>Edition to</th>
+    <th>Sold</th>
+    <th>artist commission</th>
+    <th>artcompaid</th>
+    <th>sales person</th>
+    <th>salespersoncom</th>
+    <th>salespersoncompaidnotpaid</th>
+    
+    
+    
+  </tr>
+  </thead>
+   <tbody style="color:#666666;">
+    <%@exhartwork.each do |artwork|%>
+      <%totaledition = artwork.edition_number.to_i - artwork.edition_name.to_i%>
+      <%soldcount = artwork.sold_number%>
+     <%for tn in 0..totaledition%>
+    <tr>
       
-      <% if !(invoices=@current_object.user.invoices.find(:all,:order=>"created_at DESC")).empty? %>
-        <table  id="invoicess"  >
-         
-          <tbody style="color:#666666;">
+      <td>
+        <%=artwork.user.profile.full_name if artwork.user%>
+      </td>        
+      <td>
+         <img src="/uploaded_files/development/artwork/<%=artwork.id%>/medium/<%=artwork.image_file_name%>" width="48" height="48">
+      </td>
+       
+      <td>
+         <%=artwork.exhibition.timing.starting_date if artwork.exhibition%>
+      </td>
+      <td>
+         <%=artwork.exhibition.timing.ending_date if artwork.exhibition%>
+      </td>
+      <td>
+         Exhibition
+      </td>
+      <td>
+         <%=artwork.title%>
+      </td>
+      <td>
+         <%=artwork.medium%>
+      </td>
+       <td>
+         <%=artwork.height%>*<%=artwork.width%>*<%=artwork.depth%>
+      </td>
+       <td>
+         <%=artwork.price%>
+       </td>
+        <td>
+         <%=artwork.edition_name%>
+       </td>
+        <td>
+         <%=artwork.edition_number%>
+       </td>
+        <td>
+          <%if soldcount.to_i == 0%>
+             <%="unsold"%>
+          <%else%>
+             <%="sold"%>
+          <%end%>
+          <%soldcount = soldcount.to_i-1%>
+       </td>
+        <td>
+         <%="artist comm"%>
+       </td>
+        <td>
+         <%="acpaid"%>
+       </td>
+        <td>
+         <%="salesp"%>
+        </td>
+        <td>
+         <%="salespc"%>
+       </td>
+        <td>
+         <%="salespcpaid"%>
+       </td>
+       
 
-            <% invoices.each do |i| %>
-              <%invoicestate = "unpaid" %>
-              <%invoicestate = "paid" if i.state == "validated"%>
-              <tr> 
-                <td style="width:60px">
-                  <%=i.created_at%>
-                </td>
-                <td>
-                  <%=link_to(i.title, admin_invoice_path(i.id))+" with state #{invoicestate}"%>
-              </td>
-            </tr>
-
-  <%# blank_list_element(:date => i.created_at, :title => link_to(i.title, admin_invoice_path(i.id))+" with state '#{invoicestate}'") do %>
-
-  <%#= link_to_remote('Pay online', :url => new_admin_payment_url(:iid => @current_object.id), :update => 'modal_space', :method => :get) if i.state != 'validated' %>
-
-  <%#= link_to 'Validate the payment', update_state_admin_invoice_path(@current_object.id, :state => 'validated') if (i.state != 'validated') && @current_user.has_system_role('admin') %>
-  <%# end %>
-          <% end %>
-        </tbody>
-        <tfoot>
-          <tr style="display:none;">
-            <td colspan="5">
+       
+      
+      </tr>
+      <%end%>
+    <%end%>
+     <%for artwork in @all_comp_art_work%> 
+       <tr>
+          <td> 
+              <%=artwork.competitions_user.user.profile.full_name if artwork.competitions_user%>
+          </td>
+          <td> 
+          <img src="/uploaded_files/competition/artwork/<%=artwork.id%>/thumb/<%=artwork.avatar_file_name%>" />
+          </td>
+          <td> 
+              <%=artwork.competition.created_at%> 
+          </td>
+           <td> 
+              <%=artwork.competition.submission_deadline%> 
+          </td>
+          <td> 
+              <%="Competition"%> 
+          </td>
+          <td> 
+               <% size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
+               <% medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
+               <%  price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
+               <%   sold_array = [ 'fsold','ssold','tsold','fosold','fisold','sisold','sesold','eisold','nsold','tesold']%>
+  
+               <%  title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']%>
+               <%  image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	%>
+               <%= artwork.competitions_user.send title_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user%> 
+          </td>
+          <td> 
+               <%= artwork.competitions_user.send medium_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user%> 
+          </td>
+          <td> 
+               <%= artwork.competitions_user.send size_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user%> 
+          </td>
+          <td> 
+               <%= artwork.competitions_user.send size_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user%> 
+          </td>
+              <td> 
+        0    </td>    <td> 
+       0     </td>
+              <td>
+               <%if (artwork.competitions_user.send sold_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user)%> 
+                 sold
+               <%else%>
+                   not sold
+               <%end%> 
+              </td>  
+               <td>
+         <%="artist comm"%>
+       </td>
+        <td>
+         <%="acpaid"%>
+       </td>
+        <td>
+         <%="salesp"%>
+        </td>
+        <td>
+         <%="salespc"%>
+       </td>
+        <td>
+         <%="salespcpaid"%>
+       </td>
+       </tr> 
+      <%end%>
+      
+      
+  </tbody>
+  <tfoot>
+    <tr style="display:none;">
+      <td colspan="5">
 	            No rows match the filter...
-            </td>
-          </tr>
-        </tfoot>
+      </td>
+    </tr>
+  </tfoot>
 
-      </table>
-    <% else %>
-      No invoices linked to that user.
-    <% end %>
+  </table>
     </div>
 
 
