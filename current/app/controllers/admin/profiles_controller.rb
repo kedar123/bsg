@@ -141,7 +141,19 @@ class Admin::ProfilesController < Admin::ApplicationController
       @message_recd << mc.message
     end
     @exhartwork = Artwork.find(:all,:conditions=>["user_id = ?",params[:id]])
-    @all_comp_art_work = ArtworksCompetition.find(:all,:conditions=>["competitions_users_id = ?",params[:id]])
+    comp_users = CompetitionsUser.find(:all,:conditions=>["user_id = ?",@current_object.id])
+    id_list = []
+    comp_users.each do |cu|
+      id_list << cu.id
+    end
+    p id_list
+    p "the total listtttt"
+    p id_list.join(',')
+  
+    p 
+    @all_comp_art_work = ArtworksCompetition.find(:all,:conditions=>["competitions_users_id in (#{id_list.join(',')})"])
+    p @all_comp_art_work.length
+   
     #@messages.flatten!
     respond_to do |format|
       format.html # show.html.erb
