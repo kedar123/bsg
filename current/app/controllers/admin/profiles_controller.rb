@@ -190,12 +190,30 @@ class Admin::ProfilesController < Admin::ApplicationController
      render :layout=> "gallery_promoting_mail"
   end
   
+  def compose_mail
+      @message = current_user.sent_messages.build
+      @frommail = Frommail.find(:all)
+      @sendusermail=User.find(params[:id])
+    p "Compose mail loading......................................................."
+    if request.xhr?
+       render :update do |page|
+            page['fragment-6'].replace_html(:partial=>'compose_mail')
+            page["ajax_spinner"].visual_effect :hide
+       end 
+    else
+    render :layout=>false;
+    end
+      
+  end
+  
+  
+  
   def create_sent_mail
     @message = current_user.sent_messages.build(params[:message])
     @message.prepare_copies(params[:user][:email])
     @message.body =  @message.body + "<br/><font color='#FF0080'>" + params[:signature].to_s+"</font>"
     all_the_recipient = params[:user][:email].split(',')
-    EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
+    #EmailSystem::deliver_email_notification(all_the_recipient,@message.subject,@message.body)
     if @message.save
       flash[:notice] = "Message sent."
       redirect_to :back

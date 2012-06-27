@@ -69,7 +69,7 @@ class Admin::MailController < ApplicationController
   
   def show
     @folder ||= current_user.mailfolders.find(params[:id])
-    @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 10, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
+    @messages = @folder.messages.paginate_not_deleted_and_not_labeled :all, :per_page => 100, :page => params[:page],:include => :message, :order => "messages.created_at DESC"
   end
   
 

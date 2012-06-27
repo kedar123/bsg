@@ -156,7 +156,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect "/payment_response" ,:controller=>"admin/payments",:action=>"create"
   map.connect "/admin/mail" ,:controller=>"admin/mail",:action=>"index"
-  
+    
   map.connect "/admin/delete_temprary_email" ,:controller=>"admin/mail",:action=>"delete_temprary_email"
   map.connect "/admin/delete_from_trash" ,:controller=>"admin/mail",:action=>"delete_from_trash"
   map.connect "/admin/flag_email" ,:controller=>"admin/mail",:action=>"flag_email"
@@ -201,6 +201,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/delete_sent_mail" ,:controller=>"admin/mail",:action=>"delete_sent_mail"
   map.connect "/admin/create_sent_mail_with_original_id/:id" ,:controller=>"admin/mail",:action=>"create_sent_mail_with_original_id"
   map.connect "/admin/profiles/compose_user_mail/:id",:controller=>"admin/profiles",:action=>"compose_user_mail"
+  map.connect "/admin/profiles/compose_mail/:id",:controller=>"admin/profiles",:action=>"compose_mail"
   map.connect "/admin/profiles/create_sent_mail",:controller=>"admin/profiles",:action=>"create_sent_mail"
   map.connect "/admin/profiles/show_columns/:id",:controller=>"admin/profiles",:action=>"show_columns"
   map.connect "/change_profile/:id",:controller=>"admin/profiles",:action=>"change_profile"
