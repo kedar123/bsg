@@ -140,6 +140,8 @@ class Admin::ProfilesController < Admin::ApplicationController
     @current_object.user.received_messages.each do |mc|
       @message_recd << mc.message
     end
+    @exhartwork = Artwork.find(:all,:conditions=>["user_id = ?",params[:id]])
+    @all_comp_art_work = ArtworksCompetition.find(:all,:conditions=>["competitions_users_id = ?",params[:id]])
     #@messages.flatten!
     respond_to do |format|
       format.html # show.html.erb
