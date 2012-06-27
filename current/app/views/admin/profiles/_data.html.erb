@@ -138,10 +138,6 @@
 
 
 
-
-
-
-
     <div id="fragment-2"  >
       
       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
