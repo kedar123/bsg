@@ -78,7 +78,10 @@
 <%=link_to_remote  image_tag("/images/editinfo.png", :height => '15', :width => '15',:title=>"User Edit"), :update => "",
     :url => { :controller=> "admin/profiles",:action => "edit", :id => @current_object.user.id },:method=>:get
 %>
- 
+<%=link_to_remote  image_tag("/images/composemail.gif", :height => '20', :width => '20',:title=>"Compose Mail"), :update => "",
+    :url => { :controller=> "admin/profiles",:action => "compose_mail", :id => @current_object.user.id },:method=>:get
+    
+%> 
 
 </span>
   <% profile_workspace = @current_object.profile_workspace || @current_object.user.private_workspace %>
@@ -372,8 +375,9 @@
 <%#= link_to  'Sent',        sent_mail_admin_emails_path(:profile_id => @current_object.id) %>
 
         <div class="contentList filtered sixH" style="width:620px;">  
-          <span  onclick="showhidesentinbox('inbox')" style="float:right;margin-left:10px">Inbox</span>
+          <span onclick="showhidesentinbox('inbox')" style="float:right;margin-left:10px">Inbox</span>
           <span onclick="showhidesentinbox('sent')" style="float:right">Sent</span>
+          
           <br/>
           <div id="inbox" style="display:none">
             <div id="main-middle">
