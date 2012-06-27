@@ -407,7 +407,7 @@ end
          @invoices.each do |invo|
            page['updatepopup'].replace_html :partial=>"invoice",:locals=>{:inv=>invo}
          end
-         page['submitExhibition'].replace_html :partial=>"exhibitionshowbutton",:locals=>{:exh=>exhibition}
+        # page['submitExhibition'].replace_html :partial=>"exhibitionshowbutton",:locals=>{:exh=>exhibition}
         
        end
     
