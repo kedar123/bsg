@@ -225,6 +225,13 @@
                        %>  to pay
       Click<%=link_to_remote " Here", :update => "modal_space",:url =>"/add_the_artwork_for_comp?competition_id=#{cu.competition_id}&order_id=#{cu.id}&user_id=#{cu.user_id}&total_entry=#{cu.total_entry}"
                        %>  to upload image
+                       <script>
+                         function openwindow()
+{
+window.open("http://localhost:3000/add_the_artwork_for_compp","mywindow","menubar=0,resizable=1,width=350,height=250");
+} 
+                         </script>
+   Click<a href="#" onclick="javascript: openwindow()">  to Slide Show
        
 
 <%#=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}?user_id=#{eu.user_id}",:update => 'modal_space',:method=>:get%>        

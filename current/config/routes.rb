@@ -49,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/create_subscribe_competition_front_edit",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
   map.connect "/edit_comp_image_edit_com" ,:controller=>"competitions",:action=>"edit_comp_image_edit_com"
   map.connect "/add_the_artwork_for_comp",:controller=>"competitions",:action=>"add_the_artwork_for_comp"
+  map.connect "/add_the_artwork_for_compp",:controller=>"competitions",:action=>"add_the_artwork_for_compp"
 
 
   map.connect "/competitions/upload_exhibition_artwork/:id",:controller=>"competitions",:action=>"upload_exhibition_artwork"
