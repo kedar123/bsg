@@ -99,6 +99,11 @@ class Admin::ProfilesController < Admin::ApplicationController
   end
 
 	def filter
+    
+    if params[:category_ids].class == String
+       params[:category_ids] = params[:category_ids].split(',')
+    end
+    
  		if params[:category_ids]
 			@current_objects = []
 			params[:category_ids].each do |cat|
