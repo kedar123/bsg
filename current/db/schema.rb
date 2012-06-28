@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120626072219) do
+ActiveRecord::Schema.define(:version => 20120628144141) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 20120626072219) do
 
   create_table "artworks", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title",                                            :null => false
-    t.text     "description",                                      :null => false
+    t.string   "title",                                                      :null => false
+    t.text     "description",                                                :null => false
     t.string   "medium"
     t.integer  "height"
     t.integer  "width"
@@ -80,21 +80,31 @@ ActiveRecord::Schema.define(:version => 20120626072219) do
     t.integer  "edition_number"
     t.integer  "price"
     t.boolean  "is_purchasable"
-    t.string   "image_file_name",    :limit => 100
-    t.string   "image_content_type", :limit => 20
+    t.string   "image_file_name",              :limit => 100
+    t.string   "image_content_type",           :limit => 20
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "state",              :limit => 15
-    t.integer  "viewed_number",                     :default => 0
-    t.integer  "comments_number",                   :default => 0
-    t.integer  "rates_average",                     :default => 0
-    t.integer  "published",                         :default => 0
+    t.string   "state",                        :limit => 15
+    t.integer  "viewed_number",                               :default => 0
+    t.integer  "comments_number",                             :default => 0
+    t.integer  "rates_average",                               :default => 0
+    t.integer  "published",                                   :default => 0
     t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "exhibition_id"
     t.boolean  "sold"
     t.integer  "sold_number"
+    t.integer  "artists_commission"
+    t.boolean  "artists_commission_paid"
+    t.string   "artists_sales_person"
+    t.integer  "sales_person_commission"
+    t.boolean  "sales_person_commission_paid"
+    t.integer  "artists_comm"
+    t.boolean  "artists_comm_paid"
+    t.string   "artists_sales_prsn"
+    t.integer  "sales_person_comm"
+    t.boolean  "sales_person_comm_paid"
   end
 
   add_index "artworks", ["user_id"], :name => "index_artworks_on_user_id"
@@ -583,6 +593,22 @@ ActiveRecord::Schema.define(:version => 20120626072219) do
 
   add_index "feed_sources", ["user_id"], :name => "index_feed_sources_on_user_id"
 
+  create_table "folders", :force => true do |t|
+    t.integer  "creator_id"
+    t.string   "title",                                            :null => false
+    t.string   "description",                      :default => "", :null => false
+    t.string   "state",             :limit => 15
+    t.string   "available_items"
+    t.string   "logo_file_name",    :limit => 100
+    t.string   "logo_content_type", :limit => 50
+    t.integer  "logo_file_size"
+    t.string   "available_types"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "folders", ["creator_id"], :name => "index_folders_on_creator_id"
+
   create_table "frommails", :force => true do |t|
     t.string   "frommail"
     t.datetime "created_at"
@@ -838,9 +864,9 @@ ActiveRecord::Schema.define(:version => 20120626072219) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "deleted"
-    t.boolean  "flag"
     t.integer  "emaillabel_id"
     t.boolean  "labeled"
+    t.boolean  "flag"
   end
 
   create_table "messages", :force => true do |t|
@@ -851,11 +877,11 @@ ActiveRecord::Schema.define(:version => 20120626072219) do
     t.datetime "updated_at"
     t.boolean  "flag"
     t.boolean  "deletedm"
+    t.boolean  "deletedmt"
     t.string   "deletefrom"
     t.string   "deleteto"
     t.string   "deletefromt"
     t.string   "deletetot"
-    t.boolean  "deletedmt"
   end
 
   create_table "newsletteremails", :force => true do |t|
