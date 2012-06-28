@@ -1,10 +1,16 @@
 
-         <%  artcomp = ArtworksCompetition.find(:all,:conditions=>["competition_id = ? and competitions_users_id = ?",cu.competition_id,cu.id]) %>
-
+      <script>
+        $(document).ready(function() {
+            $('.fancybox').fancybox();
+        });
+    </script>
+          <%  artcomp = ArtworksCompetition.find(:all,:conditions=>["competition_id = ? and competitions_users_id = ?",cu.competition_id,cu.id]) %>
+ <p>
 <%for art in artcomp%>
-<div >
-  <img src="/uploaded_files/competition/artwork/<%=art.id%>/thumb/<%=art.avatar_file_name%>"/>
-  </div>
+
  <%=link_to_remote "Edit Image",:url=>"/edit_comp_image_edit_com?art_comp=#{art.id}",:update => 'modal_space',:method=>:get%>
-    
+<a class="fancybox" href="/uploaded_files/competition/artwork/<%=art.id%>/thumb/<%=art.avatar_file_name%>" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="/uploaded_files/competition/artwork/<%=art.id%>/thumb/<%=art.avatar_file_name%>" alt="" /></a>
+	    
 <%end%>
+
+ </p>

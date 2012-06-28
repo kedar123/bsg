@@ -11,18 +11,23 @@
         background-repeat: no-repeat;
   }
 </style> 
+    <script>
+        $(document).ready(function() {
+            $('.fancybox').fancybox();
+        });
+    </script>
  <%artexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",eu.user.id,eu.exhibition.id])%>
   <div>
+   <p>
     <%for artwork in artexhibition%>
-   <div style="float:left">  
-    <img src="/uploaded_files/production/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>">
-     
-   <a onclick='sendselectrequest(<%=artwork.id%>);return false;' href='#'>select</a> | 
-   <a onclick='sendunselectrequest(<%=artwork.id%>);return false;'  href='#'>Unselect</a><br/>
-     <span id="changemystatebefore<%=artwork.id%>">
-     </span>   
-   </div>
-     <%end%>
+  
+    
+		
+
+		<a class="fancybox" href="/uploaded_files/development/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="/uploaded_files/development/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>" alt="" /></a>
+	
+  
+     <%end%></p>
     </div>
 
 <script>
