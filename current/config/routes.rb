@@ -194,7 +194,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/replay_message_to_unknown",:controller=>"admin/mail",:action=>"replay_message_to_unknown"
   
   
-  map.connect "/edit_inplace/:id",:controller=>"admin/artworks",:action=>"edit_inplace"
+  map.connect "/edit_inplace",:controller=>"admin/artworks",:action=>"edit_inplace"
   map.connect "/admin/artworks_competitions/artworks_competitions_winner_message/:id/message/:message",:controller=>"admin/artworks_competitions",:action=>"artworks_competitions_winner_message"
   map.connect "/admin/artworks_competitions/artworks_competitions_winner_message/:id/message/",:controller=>"admin/artworks_competitions",:action=>"artworks_competitions_winner_message"
   
