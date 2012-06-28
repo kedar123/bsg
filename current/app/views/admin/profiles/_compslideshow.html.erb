@@ -4,6 +4,10 @@
 <%for art in artcomp%>
 <div >
   <img src="/uploaded_files/competition/artwork/<%=art.id%>/thumb/<%=art.avatar_file_name%>"/>
+  
+  <p><a class="group4"  href="/uploaded_files/competition/artwork/<%=art.id%>/thumb/<%=art.avatar_file_name%>" title="<%=art.avatar_file_name%>">title<%=art.id%></a></p>
+ 
+  
   </div>
  <%=link_to_remote "Edit Image",:url=>"/edit_comp_image_edit_com?art_comp=#{art.id}",:update => 'modal_space',:method=>:get%>
     
