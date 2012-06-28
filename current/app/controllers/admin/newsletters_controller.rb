@@ -85,6 +85,11 @@ class Admin::NewslettersController < ApplicationController
   end
   
   def send_news_letter
+   if params[:newsletter].blank?
+     flash[:notice] = "Please Select At Least One News Letter"
+     redirect_to "/admin/profiles/filter?category_ids=#{params[:categoryid]}"
+
+   else  
     params[:categoryid].split(",").each do |cid|
        prfilecategory = ProfilesCategory.find(:all,:conditions=>["category_id = ?",cid])
         prfilecategory.each do |prct|
@@ -98,7 +103,10 @@ class Admin::NewslettersController < ApplicationController
     send_news_letter_category_wise
     flash[:notice] = "Email Sent To Users"
     redirect_to "/admin/profiles"
+    
+   end 
   end
+  
   def send_news_letter_category_wise
        nlm = Newsletteremail.find(:all,:conditions=>["emailsend is null"])
        for nl in nlm

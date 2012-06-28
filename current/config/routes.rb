@@ -49,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/create_subscribe_competition_front_edit",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
   map.connect "/edit_comp_image_edit_com" ,:controller=>"competitions",:action=>"edit_comp_image_edit_com"
   map.connect "/add_the_artwork_for_comp",:controller=>"competitions",:action=>"add_the_artwork_for_comp"
+  map.connect "/add_the_artwork_for_compp",:controller=>"competitions",:action=>"add_the_artwork_for_compp"
 
 
   map.connect "/competitions/upload_exhibition_artwork/:id",:controller=>"competitions",:action=>"upload_exhibition_artwork"
@@ -104,6 +105,11 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/paypal_return_invoice",:controller=>"admin/invoices",:action=>"paypal_return_invoice"
   
   map.connect "/paypal_cancel_invoice",:controller=>"admin/invoices",:action=>"paypal_cancel_invoice"
+  
+  map.connect "/show_invoices_by_condition/:id",:controller=>"admin/invoices",:action=>"show_invoices_by_condition"
+
+  
+  
   
   map.connect "/competitions/add_exhibition_artwork",:controller=>"competitions",:action=>"add_exhibition_artwork"
   map.connect "/add_exhibition_artwork",:controller=>"competitions",:action=>"add_exhibition_artwork"
@@ -207,6 +213,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/admin/profiles/compose_mail/:id",:controller=>"admin/profiles",:action=>"compose_mail"
   map.connect "/admin/profiles/create_sent_mail",:controller=>"admin/profiles",:action=>"create_sent_mail"
   map.connect "/admin/profiles/show_columns/:id",:controller=>"admin/profiles",:action=>"show_columns"
+  map.connect "/admin/profiles/filter",:controller=>"admin/profiles",:action=>"filter"
+  
   map.connect "/change_profile/:id",:controller=>"admin/profiles",:action=>"change_profile"
   map.connect "/compose_email_to_selected_people" ,:controller=>"admin/profiles",:action=>"compose_email_to_selected_people"
   map.connect "/show_message_sent/:id",:controller=>"admin/profiles",:action=>"show_message_sent"

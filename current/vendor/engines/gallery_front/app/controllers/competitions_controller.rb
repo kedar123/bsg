@@ -787,7 +787,10 @@ end
     render  :partial=>"add_the_artwork_back_admin",:locals=>{:competition_id => params[:competition_id],:order_id=>params[:order_id],:messageforimageuploaded=>"messageforimageuploaded",:i=>i,:total_entry=>params[:total_entry]}
   end
 
-
+  def add_the_artwork_for_compp
+    render  :partial=>"add_the_artwork_back_adminn",:layout=>false
+    
+  end 
 
   def  add_the_artwork_to_competition
     

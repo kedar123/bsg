@@ -13,6 +13,20 @@ class Admin::InvoicesController < Admin::ApplicationController
       format.xml  { render :xml => @current_objects }
     end
   end
+  
+  def show_invoices_by_condition
+   if params[:id] == "all"
+       @current_objects = Invoice.find(:all)
+   elsif  params[:id] == "CompetitionsUser"
+       @current_objects = Invoice.find(:all,:conditions=>["purchasable_type = ? ","CompetitionsUser"])
+   elsif  params[:id] == "ExhibitionsUser"
+       @current_objects = Invoice.find(:all,:conditions=>["purchasable_type = ? ","ExhibitionsUser"])
+   end
+   render :update do |page|
+     page['invoices'].replace_html :partial=>"invoice",:locals=>{:current_objects=>@current_objects}
+   end
+  end
+  
 
   def pay_for_invoice
     @credit_card = CreditCard.new	

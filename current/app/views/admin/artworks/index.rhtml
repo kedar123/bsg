@@ -1,10 +1,34 @@
 
 
+
 <script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
 
 
 
 	<div class="itemShowRightBlockinvoice">
+
+<style>
+.sevenH {
+    width: 934px;
+}
+artworks #2 (line 319)
+.sevenH {
+    width: 900px;
+}
+ 
+.contentList {
+    border: 1px solid #CCCCCC;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    clear: both;
+    min-height: 200px;
+    overflow: visible;
+    padding: 10px 9px;
+}
+</style>
+<div class="itemShowRightBlockinvoice">
+
+
 	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoHinv">
 			Actions
 		</div><div class="blockCornerRight"></div>
@@ -57,7 +81,7 @@
         <%=artwork.user.profile.full_name if artwork.user%>
       </td>        
       <td>
-         <img src="/uploaded_files/development/artwork/<%=artwork.id%>/medium/<%=artwork.image_file_name%>" width="48" height="48">
+         <img src="/uploaded_files/production/artwork/<%=artwork.id%>/medium/<%=artwork.image_file_name%>" width="48" height="48">
       </td>
        
       <td>

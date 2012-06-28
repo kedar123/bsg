@@ -79,7 +79,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                  if deposit_required.blank?  
                    table [["#{invoice_competition_title}","#{invoice_date}", "#{finish_date}","$#{invoice_full_amount}"],
                         ],
-                      :position => :left,
+                      :position => 10,
                       :style => :bold,
                       :headers => ['Description', 'Start Date', 'End Date', 'Price'],
                       :column_widths => { 0 => 400, 1 => 120, 2 => 120, 3 => 50},
@@ -90,7 +90,7 @@ def create_pdf(invoice_id="",invoice_number="",invoice_date="",invoice_full_addr
                  else
                    table [["#{invoice_competition_title}","#{invoice_date}", "#{finish_date}","$#{invoice_full_amount}"],
                         ["","", "Deposit Required  $#{deposit_required}",""],],
-                      :position => :left,
+                      :position => 10,
                       :style => :bold,
                       :headers => ['Description', 'Start Date', 'End Date', 'Price'],
                       :column_widths => { 0 => 330, 1 => 120, 2 => 120, 3 => 50},
