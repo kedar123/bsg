@@ -40,7 +40,7 @@ class Admin::ProfilesController < Admin::ApplicationController
    # end
     
     
-    
+   #Name updation is to be worked out. 
     
     if params[:element_id] == "email_address"   
        profile.update_attribute('email_address',params[:update_value])

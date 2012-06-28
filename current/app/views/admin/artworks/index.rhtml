@@ -1,3 +1,9 @@
+
+
+<script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
+
+
+
 	<div class="itemShowRightBlockinvoice">
 	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoHinv">
 			Actions
@@ -89,20 +95,21 @@
           <%end%>
           <%soldcount = soldcount.to_i-1%>
        </td>
-        <td>
+        <td><p id="artist_comm">
          <%="artist comm"%>
+         </p>
        </td>
-        <td>
-         <%="acpaid"%>
+        <td><span id="acpaid">
+         <%="acpaid"%></span>
        </td>
-        <td>
-         <%="salesp"%>
+        <td><p id="salesp">
+         <%="salesp"%></p>
         </td>
-        <td>
-         <%="salespc"%>
+        <td><p id="salespc">
+         <%="salespc"%></p>
        </td>
-        <td>
-         <%="salespcpaid"%>
+        <td><span id="salespcpaid">
+         <%="salespcpaid"%></span>
        </td>
        
 
@@ -197,7 +204,44 @@
 <script>
   $(document).ready(function()
     {
-      $("#invoices").tablesorter();
+      //$("#invoices").tablesorter();
     }
 );
+
+ $(document).ready(function()
+ {
+	$("#artist_comm").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: './edit_inplace/'
+	});
+	
+	$("#acpaid").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: "./edit_inplace",
+		field_type: "select",
+		select_options: "Unpaid, Paid:paid"
+	});
+	
+	$("#salesp").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		  url: "./edit_inplace",
+		field_type: "select",
+		select_options: "Tom:Tom, Dick:Dick, Harry:Harry"
+	});
+	
+	$("#salespc").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: './edit_inplace/'
+	});
+	
+	$("#salespcpaid").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: "./edit_inplace",
+		field_type: "select",
+		select_options: "Unpaid, Paid:paid"
+	});
+		
+ });
 </script>
