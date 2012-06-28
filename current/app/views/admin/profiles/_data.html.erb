@@ -131,15 +131,21 @@
 
 
     <div id="fragment-1"  >
+  
       <%=render :partial=>"user_information"%>
       
     </div>
 
 
-
+ <script>
+			$(document).ready(function(){
+			 	$(".group4").colorbox({rel:'group4', slideshow:true});
+   			});
+		</script>
 
     <div id="fragment-2"  >
-      
+           
+                
       <% if !(exhibitions_users=@current_object.user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')).empty? %>
         <% exhibitions_users.each do |eu| %>
 
@@ -231,8 +237,8 @@
 window.open("http://<%=request.host_with_port%>/add_the_artwork_for_compp","mywindow","menubar=0,resizable=1,width=350,height=250");
 } 
                          </script>
-   Click<a href="#" onclick="javascript: openwindow()">  to Slide Show
-       
+   Click<a href="#" onclick="javascript: openwindow()">  to Slide Show</a>
+   
 
 <%#=link_to_remote "Upload Image",:url=>"/competitions/upload_exhibition_image/#{eu.exhibition.id}?user_id=#{eu.user_id}",:update => 'modal_space',:method=>:get%>        
 
