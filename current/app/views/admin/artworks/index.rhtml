@@ -125,9 +125,18 @@ artworks #2 (line 319)
           <%end%>
           <%soldcount = soldcount.to_i-1%>
        </td>
-        <td><p id="artist_comm">
+        <td width="20px";>
+        <style>
+        #artist_comm{
+        width:10px;
+        }
+        </style>
+        <p id="artist_comm">
          <%="artist comm"%>
          </p>
+         
+
+         
        </td>
         <td><span id="acpaid">
          <%="acpaid"%></span>
@@ -245,6 +254,11 @@ artworks #2 (line 319)
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
 		 url: '/edit_inplace'
 	});
+	
+		
+		
+		
+		
 	
 	$("#acpaid").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
