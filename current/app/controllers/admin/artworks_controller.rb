@@ -27,7 +27,7 @@ class Admin::ArtworksController < ApplicationController
        artworks.artworks_competitions.update_attribute('artists_comm',params[:update_value])
        
        
-    end
+     end
        
      
   
