@@ -264,8 +264,20 @@ $.extend(InlineEditor.prototype, {
 		if ("select" === this.settings.field_type)
 			editor = this.createSelectEditor();
 		else if ("text" === this.settings.field_type)
-			editor = $('<input type="text" ' + this.inputNameAndClass() 
+                    {
+                        if (this.settings.text_size == '20px')
+                            {
+                                editor = $('<input type="text" style="width:30px"' + this.inputNameAndClass() 
 				+ ' size="' + this.settings.text_size  + '" />');
+
+                            }
+                            else
+                            {
+                                 editor = $('<input type="text" ' + this.inputNameAndClass() 
+				+ ' size="' + this.settings.text_size  + '" />');
+
+                            }
+                     }
 		else if ("textarea" === this.settings.field_type)
 			editor = $('<textarea ' + this.inputNameAndClass() 
 				+ ' rows="' + this.settings.textarea_rows + '" '

@@ -70,7 +70,11 @@
 <%else%>
    
 <div  class="inputfont">
- <form action="/upload_the_artwork_to_competition"  method="post"  enctype = "multipart/form-data" name="req_name" id="add_the_artwork_to_competition<%=title_message_array[i]%>" target="upload_frame" >  
+
+ 
+
+      <form action="/upload_the_artwork_to_competition" method="post"  onsubmit="return check_file()" enctype = "multipart/form-data" onsubmit="" id="add_the_artwork_to_competition<%=title_message_array[i]%>" target="upload_frame" >  
+
               <%=hidden_field_tag "order_id",order_id%>  
               <%=hidden_field_tag "user_id",params[:user_id]%>  
         
@@ -112,7 +116,9 @@
                         <div class="changecolorgray">    
                         	 Image 
                     	 </div>
-                      	 <input  name="competitions_user[workimage]" id="artwork_image<%=i%>" type="file" size="26" style="float:left"  onchange="validate_file_format('competitions_user[workimage]','jpg,gif')"/>
+
+                      	 <input  name="competitions_user[workimage]" id="artwork_image_check_file" type="file" size="26" style="float:left"/>
+
                        <div style="float:left;margin-left:30px;">  
                          <%= submit_tag 'Upload'%>
                        </div> 
@@ -141,6 +147,17 @@ timerRight="";
   document.getElementById(id).scrollLeft+=scrollStep;
   }
  scrollDivRight('container');
+ 
+  function check_file(){
+     if (document.getElementById('artwork_image_check_file').value == ""){
+       alert("Please Select Image");
+       return false; 
+     }
+     else{
+       return true;
+     }
+  }
+ 
 </script>  
 
 <script>

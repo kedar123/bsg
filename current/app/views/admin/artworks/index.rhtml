@@ -1,4 +1,12 @@
 
+  <%    editionnamearray = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']%>
+<%    editionnumberarray = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']%>
+<% size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
+<% medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
+<%  price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
+<%   sold_array = [ 'fsold','ssold','tsold','fosold','fisold','sisold','sesold','eisold','nsold','tesold']%>
+<%  title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']%>
+<%  image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	%>
 
 
 <script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
@@ -11,7 +19,7 @@
 .sevenH {
     width: 934px;
 }
-artworks #2 (line 319)
+artworks #2  
 .sevenH {
     width: 900px;
 }
@@ -131,24 +139,24 @@ artworks #2 (line 319)
         width:10px;
         }
         </style>
-        <p id="artist_comm">
+        <p id="artist_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="artist comm"%>
          </p>
          
 
          
        </td>
-        <td><span id="acpaid">
-         <%="acpaid"%></span>
+        <td><p id="acpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
+         <%="acpaid"%></p>
        </td>
-        <td><p id="salesp">
+        <td><p id="salesp_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="salesp"%></p>
         </td>
-        <td><p id="salespc">
+        <td><p id="salespc_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="salespc"%></p>
        </td>
-        <td><span id="salespcpaid">
-         <%="salespcpaid"%></span>
+        <td><p id="salespcpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
+         <%="salespcpaid"%></p>
        </td>
        
 
@@ -157,7 +165,16 @@ artworks #2 (line 319)
       </tr>
       <%end%>
     <%end%>
-     <%for artwork in @all_comp_art_work%> 
+
+
+  <%for artwork in @all_comp_art_work%> 
+       
+      
+    
+    <%(editionname = artwork.competitions_user.send(editionnamearray[image_array.index artwork.image_name].to_sym)) if artwork.competitions_user %>
+    <%(editionnumb = artwork.competitions_user.send(editionnumberarray[image_array.index artwork.image_name].to_sym)) if artwork.competitions_user%>
+    <%totaledition = editionnumb.to_i - editionname.to_i%>
+      <%for tn in 0..totaledition%>
        <tr>
           <td> 
               <%=artwork.competitions_user.user.profile.full_name if artwork.competitions_user%>
@@ -175,13 +192,6 @@ artworks #2 (line 319)
               <%="Competition"%> 
           </td>
           <td> 
-               <% size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
-               <% medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
-               <%  price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
-               <%   sold_array = [ 'fsold','ssold','tsold','fosold','fisold','sisold','sesold','eisold','nsold','tesold']%>
-  
-               <%  title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']%>
-               <%  image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']	%>
                <%= artwork.competitions_user.send title_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user%> 
           </td>
           <td> 
@@ -197,30 +207,40 @@ artworks #2 (line 319)
         0    </td>    <td> 
        0     </td>
               <td>
-               <%if (artwork.competitions_user.send sold_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user)%> 
+               <%if(artwork.competitions_user.send sold_array[image_array.index artwork.image_name].to_sym if artwork.competitions_user)%> 
                  sold
                <%else%>
                    not sold
                <%end%> 
               </td>  
                <td>
-         <%="artist comm"%>
+                   <p id="artist_<%=artwork.id.to_s%>_<%=tn.to_s%>">
+                      <%="artist comm"%>
+                   </p>   
        </td>
         <td>
-         <%="acpaid"%>
+         <p id="acpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
+           <%="acpaid"%>
+         </p>        
        </td>
         <td>
+          <p id="salesp_<%=artwork.id.to_s%>_<%=tn.to_s%>">
          <%="salesp"%>
+          </p>         
         </td>
         <td>
+          <p id="salespc_<%=artwork.id.to_s%>_<%=tn.to_s%>">
          <%="salespc"%>
+          </p>
        </td>
         <td>
-         <%="salespcpaid"%>
+         <p id="salespcpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
+             <%="salespcpaid"%>
+         </p> 
        </td>
        </tr> 
       <%end%>
-      
+      <%end%>
       
   </tbody>
   <tfoot>
@@ -249,43 +269,81 @@ artworks #2 (line 319)
 
  $(document).ready(function()
  {
-	$("#artist_comm").editInPlace({
+    <%@current_objects.each do |artwork|%>
+          <%totaledition = artwork.edition_number.to_i - artwork.edition_name.to_i%>
+          <%soldcount = artwork.sold_number%>
+          <%for tn in 0..totaledition%>
+	$("#artist_art_<%=artwork.id.to_s%>_<%= tn.to_s%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace',
+                 text_size: '20px'
+	});
+ 	$("#acpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: "/edit_inplace",
+		field_type: "select",
+		select_options: "Unpaid, Paid:paid"
+	});
+ 	$("#salesp_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		  url: "/edit_inplace",
+		field_type: "select",
+		select_options: "Tom:Tom, Dick:Dick, Harry:Harry"
+	});
+ 	$("#salespc_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
 		 url: '/edit_inplace'
 	});
-	
-		
-		
-		
-		
-	
-	$("#acpaid").editInPlace({
+ 	$("#salespcpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
-		 url: "./edit_inplace",
+		 url: "/edit_inplace",
 		field_type: "select",
 		select_options: "Unpaid, Paid:paid"
 	});
-	
-	$("#salesp").editInPlace({
+      <%end%>
+      <%end%>  
+         <%for artwork in @all_comp_art_work%> 
+       
+      
+    
+    <%(editionname = artwork.competitions_user.send(editionnamearray[image_array.index artwork.image_name].to_sym)) if artwork.competitions_user %>
+    <%(editionnumb = artwork.competitions_user.send(editionnumberarray[image_array.index artwork.image_name].to_sym)) if artwork.competitions_user%>
+    <%totaledition = editionnumb.to_i - editionname.to_i%>
+      <%for tn in 0..totaledition%>
+ ///////////////////////
+           	$("#artist_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
-		  url: "./edit_inplace",
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace',
+                 text_size: '20px'
+	});
+ 	$("#acpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: "/edit_inplace",
+		field_type: "select",
+		select_options: "Unpaid, Paid:paid"
+	});
+ 	$("#salesp_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		  url: "/edit_inplace",
 		field_type: "select",
 		select_options: "Tom:Tom, Dick:Dick, Harry:Harry"
 	});
-	
-	$("#salespc").editInPlace({
+ 	$("#salespc_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: './edit_inplace/'
+		 url: '/edit_inplace'
 	});
-	
-	$("#salespcpaid").editInPlace({
+ 	$("#salespcpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
-		 url: "./edit_inplace",
+		 url: "/edit_inplace",
 		field_type: "select",
 		select_options: "Unpaid, Paid:paid"
-	});
-		
+	});        
+        <%end%>
+          <%end%>
+        
  });
 </script>
