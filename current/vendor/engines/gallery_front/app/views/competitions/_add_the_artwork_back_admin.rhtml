@@ -70,7 +70,7 @@
 <%else%>
    
 <div  class="inputfont">
-      <form action="/upload_the_artwork_to_competition" method="post"  enctype = "multipart/form-data" onsubmit="" id="add_the_artwork_to_competition<%=title_message_array[i]%>" target="upload_frame" >  
+ <form action="/upload_the_artwork_to_competition"  method="post"  enctype = "multipart/form-data" name="req_name" id="add_the_artwork_to_competition<%=title_message_array[i]%>" target="upload_frame" >  
               <%=hidden_field_tag "order_id",order_id%>  
               <%=hidden_field_tag "user_id",params[:user_id]%>  
         
@@ -112,7 +112,7 @@
                         <div class="changecolorgray">    
                         	 Image 
                     	 </div>
-                      	 <input  name="competitions_user[workimage]" id="artwork_image<%=i%>" type="file" size="26" style="float:left"/>
+                      	 <input  name="competitions_user[workimage]" id="artwork_image<%=i%>" type="file" size="26" style="float:left"  onchange="validate_file_format('competitions_user[workimage]','jpg,gif')"/>
                        <div style="float:left;margin-left:30px;">  
                          <%= submit_tag 'Upload'%>
                        </div> 
@@ -142,4 +142,37 @@ timerRight="";
   }
  scrollDivRight('container');
 </script>  
+
+<script>
+function validate_file_format(field_name, allowed_ext){
+    obj1=document.req_name;
+    //var temp_field= 'obj1.'+field_name+'.value';
+     
+    //field_value=eval(temp_field);
+    field_value = document.getElementById("artwork_image<%=i%>").value();
+    alert(field_value);
+    if(field_value!=""){
+        var file_ext= (field_value.substring((field_value.lastIndexOf('.')+1)).toLowerCase());
+        ext=allowed_ext.split(',');
+        var allow=0;
+        for ( var i=0; i < ext.length; i++) {
+                if(ext[i]==file_ext){
+                    allow=1;
+                }
+        }
+        if(!allow){
+            alert('Invalid File format. Please upload file in '+allowed_ext+' format');        
+            return false;
+        }
+    }
+    return false;
+} 
+
+</script>
+
+
+
+
+
+
 <%end%>
