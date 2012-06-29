@@ -154,9 +154,11 @@ class Admin::ProfilesController < Admin::ApplicationController
     p id_list
     p "the total listtttt"
     p id_list.join(',')
-  
-    p 
-    @all_comp_art_work = ArtworksCompetition.find(:all,:conditions=>["competitions_users_id in (#{id_list.join(',')})"])
+    @all_comp_art_work = []
+     
+    if !id_list.join(',').blank?
+       @all_comp_art_work = ArtworksCompetition.find(:all,:conditions=>["competitions_users_id in (#{id_list.join(',')})"])
+    end 
     p @all_comp_art_work.length
    
     #@messages.flatten!
