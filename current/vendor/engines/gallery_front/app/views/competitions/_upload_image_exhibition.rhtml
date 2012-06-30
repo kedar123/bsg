@@ -17,9 +17,12 @@
 <div  class="inputfont">
           <%if !user_id.blank?%>
   
-<form target="upload_frame" method="post" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>"   id="add_the_artwork_to_competition">
+<form target="upload_frame" method="post" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>" onsubmit="return check_file()"  id="add_the_artwork_to_competition">
 <%else%>
-<form target="upload_frame" method="post" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>" onsubmit="return  Checkfiles_simple(<%=exhibition_id%>)" id="add_the_artwork_to_competition">
+<form target="upload_frame" method="post" onsubmit="return check_file()" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>"  id="add_the_artwork_to_competition">
+
+
+ 
   
   <%end%>
           <%=hidden_field_tag "exhibition_id",exhibition_id%>
@@ -85,5 +88,35 @@
 </form>
 </div>
 <iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>
+
+
+<script>
+scrollStep=500;
+timerLeft="";
+timerRight="";
+  function scrollDivRight(id){
+  document.getElementById(id).scrollLeft+=scrollStep;
+  }
+ scrollDivRight('container');
+ 
+  function check_file(){
+     if (document.getElementById('artwork_image_check_file').value == ""){
+       alert("Please Select Image");
+       return false; 
+     }
+     else{
+       return true;
+     }
+  }
+ 
+</script>  
+
+
+
+
+
+
+
+
 
 <%end%>
