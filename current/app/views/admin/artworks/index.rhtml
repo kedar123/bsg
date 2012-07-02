@@ -105,7 +105,7 @@ artworks #2
          <%=artwork.exhibition.timing.ending_date if artwork.exhibition%>
       </td>
       <td>
-         Exhibition
+         Exhibitionllll
       </td>
       <td>
          <%=artwork.title%>
@@ -140,7 +140,7 @@ artworks #2
         }
         </style>
         <p id="artist_art_comm_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%=artwork.artists_commission%>
+         <%=artwork.artists_commission.to_i%>
          </p>         
         </td>
         <td><p id="acpaid_art_paid_<%=artwork.id.to_s %>_<%= tn.to_s%>">
@@ -152,10 +152,15 @@ artworks #2
          </p> 
        </td>
         <td><p id="salesp_art_salesp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%=artwork.sales_person%></p>
+            <%if artwork.sales_person.blank?%>
+                Select Person
+            <%else%>
+            <%=artwork.sales_person%>
+            <%end%>
+          </p>
         </td>
         <td><p id="salespc_art_salespc_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%=artwork.sales_person_commission%></p>
+         <%=artwork.sales_person_commission.to_i%></p>
        </td>
         <td><p id="salespcpaid_art_salpcp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <% if(artwork.sales_person_commission_paid == true)%>
@@ -219,27 +224,39 @@ artworks #2
               </td>  
                <td>
                    <p id="artist_comp_comm<%=artwork.id.to_s%>_<%=tn.to_s%>">
-                      <%="artist comm"%>
+                      <%=artwork.artists_comm.to_i%>
                    </p>   
        </td>
         <td>
          <p id="acpaid_comp_acpaid<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
-           <%="acpaid"%>
+           <%if artwork.artists_comm_paid == true%>
+            paid
+           <%else%>
+           Unpaid
+           <%end%>
          </p>        
        </td>
         <td>
           <p id="salesp_comp_salesp<%=artwork.id.to_s%>_<%=tn.to_s%>">
-         <%="salesp"%>
+         <%if artwork.sales_prsn.blank?%>
+            Select Person
+            <%else%>
+            <%=artwork.sales_prsn%>
+            <%end%>
           </p>         
         </td>
         <td>
           <p id="salespc_comp_salespc<%=artwork.id.to_s%>_<%=tn.to_s%>">
-         <%="salespc"%>
+         <%=artwork.sales_person_comm.to_i%>
           </p>
        </td>
         <td>
          <p id="salespcpaid_comp_salpcp<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
-             <%="salespcpaid"%>
+              <%if artwork.sales_person_comm_paid == true%>
+            paid
+           <%else%>
+           Unpaid
+           <%end%>
          </p> 
        </td>
        </tr> 

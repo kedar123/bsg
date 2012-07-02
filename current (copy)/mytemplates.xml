@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Templates imagesBasePath="/images/templates/">
+  <Template title="My Template 1" image="template1.gif">
+    <Description>Artist Template</Description>
+    <Html>
+      <![CDATA[
+
+      ]]>
+    </Html>
+  </Template>
+  <Template title="My Template 2">
+    <Html>
+      <![CDATA[
+        <b>Artist Template Second</b>
+      ]]>
+    </Html>
+  </Template>
+</Templates>
+

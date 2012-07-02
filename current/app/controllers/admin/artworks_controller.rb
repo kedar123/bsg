@@ -28,7 +28,7 @@ class Admin::ArtworksController < ApplicationController
         p str[3]
         p str[4]
        artwork = Artwork.find(str[3])
-       #artcomp = Artwork_Competitions.find(str[3])
+ 
       
      if str[1]== "art" 
          if str[2]=="comm"    
@@ -36,6 +36,7 @@ class Admin::ArtworksController < ApplicationController
          end
          
          if str[2]=="paid" and params[:update_value]=="paid"
+           p "i am updating the artist commission"
             artwork.update_attribute('artists_commission_paid',1)
          end 
          
@@ -52,6 +53,7 @@ class Admin::ArtworksController < ApplicationController
          end
          
          if str[2]=="salpcp" and params[:update_value]=="paid"
+           p "i am updating the sales person commission"
             artwork.update_attribute('sales_person_commission_paid',1)
          end
          
@@ -59,7 +61,10 @@ class Admin::ArtworksController < ApplicationController
             artwork.update_attribute('sales_person_commission_paid',0)
          end
      end
+ 
+ 
 =begin    
+ 
       if str[1]== "comp" 
          if str[2]=="comm"    
             artcomp.update_attribute('artists_comm',params[:update_value])
@@ -81,11 +86,14 @@ class Admin::ArtworksController < ApplicationController
          if str[2]=="salpcp" and params[:update_value]=="paid"
             artcomp.update_attribute('sales_person_comm_paid',1)
             else
-            artwork.update_attribute('sales_person_commission_paid',0)
+            artcomp.update_attribute('sales_person_commission_paid',0)
          end
      end
-               
-=end      
+ 
+=end               
+      
+ 
+         
   end
     
 end

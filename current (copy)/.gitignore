@@ -1,0 +1,17 @@
+log/*.log
+tmp/*
+tmp/**/*
+doc/api
+doc/app
+db/*.sqlite3
+public/pdf_invoice/*
+public/pdf_invoice/*.pdf
+public/uploaded_files/*
+public/unpaid_invoice/*
+public/system/*
+public/uploaded_files/development/artwork/*
+nbproject/*
+*.swp
+*~
+.DS_Store
+

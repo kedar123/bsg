@@ -3,6 +3,7 @@ class VisitorsController < ApplicationController
 	layout 'front'
 
 	def home_page
+    
 		@pramoting_stuff = PromotingStuff.find(:all,:limit=>3,:order=>"created_at desc")
 		@front_image = Frontendpic.find(:all,:conditions =>[" selectpic = ? ",1],:order=>"created_at desc")
     p "checking images on front page 44444444444$$$$$$$$$$$$$$$$$"
@@ -25,9 +26,26 @@ class VisitorsController < ApplicationController
               @edit_ex_img[eul.exhibition.id] = "true"
             end  
        end
-       @groupshowusers = Usergroupshow.find(:all,:conditions=>[" user_id = ? ",current_user.id])
-   end
+      end
+     render :layout=>"front2"
   end
+  
+  
+  def show_exh_images
+     @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",current_user.id,params[:id]])
+     render :update do |page|
+       page['detailsofexh'+params[:id]].replace_html(:partial=>"show_exh_img",:locals=>{:show_exh_images=>@artworkexhibition})
+     end
+  end
+
+  def add_exh_artwork
+     render :update do |page|
+       page['detailsofexh'+params[:id]].replace_html(:partial=>"up_exh_img",:locals=>{:exhibition_id=>params[:id]})
+     end
+    
+  end   
+  
+  
 	def new
 		@current_object = User.new
 		@current_object.build_profile if @current_object.profile.nil?

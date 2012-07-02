@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* CSS Document */
+<!-- 
+body { 
+margin:0px;
+ }
+#PageDiv
+{
+	position:relative; 
+	min-height:100%; 
+	margin:auto; 
+	width:960px;
+	margin:0px auto 0px auto;
+	overflow:hidden;
+}
+#header
+{
+	width:100%;
+	height:125px;
+	border-bottom:solid;
+	border-width:1px;
+	border-color:#CCCCCC;
+	margin:0px 0px 0px 0px ;
+	overflow:hidden;
+	
+	}
+.logo
+{
+	background:url('/images/item2a.gif');
+	width:124px;
+	height:68px;
+	float:left;
+	overflow:hidden;
+	margin:50px 0px 0px 20px ;
+	
+}
+#nav{width:816px;height:50px;float:left;margin:75px 0px 0px 0px}
+#nav ul{list-style-type:none;width:760px;margin: 19PX 0PX 0PX 297PX;}
+#nav ul li{float:left;margin-right:10px}
+#nav ul li a{display:block;padding:5px;text-decoration:none;color:#373737;font-size:13px;;font-weight:bold; font-family:"Trebuchet MS"}
+#nav ul li a:hover{display:block;padding:5px;text-decoration:none;color:#FFF;font-size:13px;;font-weight:bold;background-color:#484747}
+
+#contaner
+{
+	background:url('/images/item11aa.gif');
+	background-repeat:repeat;
+	width:743px;
+	margin:50px 0px 0px 109px;
+	height:auto;
+	overflow:hidden;
+}
+#item4{
+background:url('/images/item4.gif');
+ width:743px; 
+ height:41px; 
+ }
+ .left {
+ width:350px;
+ height:auto;
+ margin:20px 10px 0px 15px ;
+ float:left;
+ overflow:hidden; 
+ }
+ .right {
+ width:350px;
+ height:auto;
+ margin:20px 15px 0px 0px ;
+ float:left;
+ overflow:hidden; 
+ }
+  input
+ {
+ 	background:#FFFFFF;
+	height:29px;
+	border: 1px solid #CCCCCC;
+	border-radius:5px 5px 5px 5px;
+	padding:0px 10px 0px 10px ;
+	margin:0px 0px 10px 0px ;
+        -moz-box-shadow: 3px 3px 4px #b5b4b4;
+        -webkit-box-shadow: 3px 3px 4px #b5b4b4;
+        box-shadow: 3px 3px 4px #b5b4b4;
+ 
+ }
+
+ .input
+ {
+ 	background:#FFFFFF;
+	width:338px;
+	height:29px;
+	border: 1px solid #CCCCCC;
+	border-radius:5px 5px 5px 5px;
+	padding:0px 0px 0px 10px ;
+	margin:0px 0px 10px 0px ;
+ }
+ .text-1
+ {
+ 	font-family:"Trebuchet MS";
+	font-size:14px;
+	font-weight:normal;
+	padding:10px 0px 10px 10px ;
+	text-align:justify;
+ }
+ #footer
+{
+	width:100%;
+	height:125px;
+	border-top:solid;
+	border-width:1px;
+	border-color:#CCCCCC;
+	margin:0px 0px 0px 0px ;
+	overflow:hidden;
+	
+	}
+	.footer-text
+ {
+ 	font-family:"Trebuchet MS";
+	font-size:10px;
+	font-weight:normal;
+	padding:10px 0px 10px 10px ;
+	text-align:center;
+ }

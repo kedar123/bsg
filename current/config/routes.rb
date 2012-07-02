@@ -479,6 +479,10 @@ ActionController::Routing::Routes.draw do |map|
 	map.connect '/artists/:filter/:id', :controller => :artists, :action => 'show'
 	map.connect '/artists/:filter/:id/exhibs/:exhib_id', :controller => :artists, :action => 'show'
 
+  map.connect '/show_exh_images/:id',:controller => "visitors", :action => 'show_exh_images'
+  map.connect '/add_exh_artwork/:id',:controller => "visitors", :action => 'add_exh_artwork'
+  
+  
 	map.connect '/genres', :controller => :artists, :action => 'genres'
 	map.connect '/genres/:genre_id', :controller => :artists, :action => 'genres'
 	map.connect '/genres/:genre_id/artists/:id', :controller => :artists, :action => 'genres'

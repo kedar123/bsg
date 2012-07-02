@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628144141) do
+ActiveRecord::Schema.define(:version => 20120628145917) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -100,11 +100,6 @@ ActiveRecord::Schema.define(:version => 20120628144141) do
     t.string   "artists_sales_person"
     t.integer  "sales_person_commission"
     t.boolean  "sales_person_commission_paid"
-    t.integer  "artists_comm"
-    t.boolean  "artists_comm_paid"
-    t.string   "artists_sales_prsn"
-    t.integer  "sales_person_comm"
-    t.boolean  "sales_person_comm_paid"
   end
 
   add_index "artworks", ["user_id"], :name => "index_artworks_on_user_id"
@@ -130,6 +125,11 @@ ActiveRecord::Schema.define(:version => 20120628144141) do
     t.string   "prize_detail"
     t.boolean  "paid"
     t.string   "message"
+    t.integer  "artists_comm"
+    t.boolean  "artists_comm_paid"
+    t.string   "artists_sales_prsn"
+    t.integer  "sales_person_comm"
+    t.boolean  "sales_person_comm_paid"
   end
 
   add_index "artworks_competitions", ["artwork_id"], :name => "index_artworks_competitions_on_artwork_id"

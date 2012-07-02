@@ -1,0 +1,38 @@
+<form target="upload_frame" method="post" onsubmit="return check_file()" enctype="multipart/form-data" action="/competitions/upload_exhibition_artwork/<%=exhibition_id%>"  id="add_the_artwork_to_competition">
+  <%=hidden_field_tag "exhibition_id",exhibition_id%>
+  <div class="changecolorgray">
+  </div>
+  <div class="inputspace">
+    <input type="text"  id="artwork_title<%=exhibition_id%>"  name="artwork[title]" style="width:375px;" placeholder="Title" > </div>
+  <div class="inputspace">
+    <input type="text" ajax="true" id="artwork_medium<%=exhibition_id%>" itemclass="Artwork" name="artwork[medium]" style="width:375px;" placeholder="Medium">
+  
+    <br/>
+    <font style="color:#444444">
+    <input type="text" id="artwork_width<%=exhibition_id%>" name="artwork[width]" style="width: 113px;" placeholder="width (cm)"> x <input type="text" id="artwork_height<%=exhibition_id%>" name="artwork[height]" style="width: 113px;" placeholder="height (cm)" > x <input type="text" id="artwork_depth<%=exhibition_id%>" name="artwork[depth]" style="width: 113px;" placeholder="depth (cm) - if 3d work"> 
+
+
+ <br/>
+    <input type="text"  id="artwork_price<%=exhibition_id%>"  name="artwork[price]"   style="width: 113px;" placeholder="Price"></div>
+
+
+  <input type="text" id="artwork_edition_name<%=exhibition_id%>" name="artwork[edition_name]" style="width: 105px;" placeholder="Edition From"> of <input type="text" id="artwork_edition_number<%=exhibition_id%>" name="artwork[edition_number]" style="width: 113px;" placeholder="Edition Number" >
+  </font>
+
+
+  <input type="radio"  name="artwork[is_purchasable]" value=1 checked="checked"  style="display:none" >
+  <div class="changecolorgray">
+
+  </div>
+  <input type="file" class="file" id="artwork_image<%=exhibition_id%>" name="artwork[image]" size="22" style="float:left" placeholder="Image">
+  <div class="changecolorgray" style="float:left;margin-left:2px;">
+     <%=submit_tag "Upload"%>
+  </div>
+  <div style="display: none;padding-left:2px;" id="show_ajax_request<%=exhibition_id%>">
+    <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
+  </div>
+</form>
+ 
+<iframe id='upload_frame' name="upload_frame" style="width:1px;height:1px;display:none"></iframe>
+
+  
