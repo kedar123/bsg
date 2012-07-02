@@ -36,6 +36,7 @@ class VisitorsController < ApplicationController
        flash[:notice] = "Need To Login To Buy Atrwork"
     end
 		session[:compredirecid] = params[:id]
+    
 	end
 	
 	def login
@@ -51,7 +52,7 @@ class VisitorsController < ApplicationController
    if params[:comp]
       session[:comp] = params[:comp].to_s.split("-")
    end
-   
+   render :layout=>"front2"
  	end  
 
 #  def create
