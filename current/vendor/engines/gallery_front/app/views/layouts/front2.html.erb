@@ -21,69 +21,8 @@
 		</div>
  	</div>
 </div>
-<div id="PageDiv">
-	<div id="contaner">
-            <% if @current_user.nil? %>
-        <% form_for 'session', :url => admin_session_path, :html => { :method => :post,:class=>"login_form" } do |f| %>
-         <%if params[:msg] == "buy artwork"%>
-              <%="Need To Login To Buy An Artwork"%>
-         <%end%>
-     
-    	<div id="item4">
-        	<img src="/images/item6.gif" border="0" width="105" height="34" alt="Login" style="position:relative; left:16px; top:6px;">
-		</div>
-    	<div class="left">
-    		<input class="input" name="email" id="email" type="text" placeholder="Email">
-         </div>
-         
-            	<div class="right">
-    		<input class="input" name="password" id="password" type="text" placeholder="Password">
-	</div>
-            <div style="margin-left:0px; float:right" ><input name="submit" type="submit" value="submit" style="background:#0000FF; color:#FFFFFF"></div>
-                
-        <%end%><%end%>   
-         <div style="height:10px; clear:both"></div>
-        	<div class="text-1">Or Register below</div>
-        	<div style="height:10px; clear:both"></div>
-                <form>
-                 <div class="left">
-       
-        	<input class="input" name="" type="text" placeholder="First Name">
-        	<input class="input" name="" type="text" placeholder="Street Address">
-        	<input class="input" name="" type="text" placeholder="Post Code">
-        	<input class="input" name="" type="text" placeholder="Phone">
-        	<input class="input" name="" type="text" placeholder="Web Site ">
-        	<input class="input" name="" type="text" placeholder="ABN Number ">
-        	<input class="input" name="" type="text" placeholder="Category">
-    	        </div>
-                <div class="right">
-    		<input class="input" name="" type="text" placeholder="last Name">
-            <input class="input" name="" type="text" placeholder="Suburb">
-            <input class="input" name="" type="text" placeholder="State">
-        	<input class="input" name="" type="text" placeholder="Email ( This Will Be Your Login)">
-        	<input name="" type="text" placeholder="Bank AC No " style="width:125px;">&nbsp;&nbsp;<input name="" type="text" placeholder="BSB No " style="width:125px;">
-            <!--<div class="input"><input  name="" type="radio" value="">Are You Already Regist valueered</div>-->
-	
-	</div>
-            <div style="margin-left:0px; float:right" ><input name="submit" type="submit" value="submit" style="background:#0000FF; color:#FFFFFF"></div>
-                
-                </form>
-       </div>
-        
-        <!--	<div style="height:10px; clear:both"></div>
-        	<div class="text-1">&nbsp;</div>
-        	<div style="height:10px; clear:both"></div>
-        	<input class="input" name="" type="text" placeholder="last Name">
-            <input class="input" name="" type="text" placeholder="Suburb">
-            <input class="input" name="" type="text" placeholder="State">
-        	<input class="input" name="" type="text" placeholder="Email ( This Will Be Your Login)">
-        	<input name="" type="text" placeholder="Bank AC No " style="width:125px;">&nbsp;&nbsp;<input name="" type="text" placeholder="BSB No " style="width:125px;">
-            <!--<div class="input"><input  name="" type="radio" value="">Are You Already Regist valueered</div>-->
-	
-        	
-    	</div>		
-	  
-</div>
+  <%= yield %>	
+ 
 <div id="footer">
 	<div class="footer-text">BRUNSWICK STREET GALLERY | 322 BRUNSWICK STREET, FITZROY, 3065 | 0419 390 478 | mark@bsgart.com.au</div>
 </div>
