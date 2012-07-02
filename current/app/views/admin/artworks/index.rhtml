@@ -139,23 +139,23 @@ artworks #2
         width:10px;
         }
         </style>
-        <p id="artist_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
+        <p id="artist_art_comm_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="artist comm"%>
          </p>
          
 
          
        </td>
-        <td><p id="acpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
+        <td><p id="acpaid_art_paid_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="acpaid"%></p>
        </td>
-        <td><p id="salesp_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
+        <td><p id="salesp_art_salesp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="salesp"%></p>
         </td>
-        <td><p id="salespc_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
+        <td><p id="salespc_art_salespc_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="salespc"%></p>
        </td>
-        <td><p id="salespcpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>">
+        <td><p id="salespcpaid_art_salpcp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
          <%="salespcpaid"%></p>
        </td>
        
@@ -214,27 +214,27 @@ artworks #2
                <%end%> 
               </td>  
                <td>
-                   <p id="artist_<%=artwork.id.to_s%>_<%=tn.to_s%>">
+                   <p id="artist_comp_comm<%=artwork.id.to_s%>_<%=tn.to_s%>">
                       <%="artist comm"%>
                    </p>   
        </td>
         <td>
-         <p id="acpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
+         <p id="acpaid_comp_acpaid<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
            <%="acpaid"%>
          </p>        
        </td>
         <td>
-          <p id="salesp_<%=artwork.id.to_s%>_<%=tn.to_s%>">
+          <p id="salesp_comp_salesp<%=artwork.id.to_s%>_<%=tn.to_s%>">
          <%="salesp"%>
           </p>         
         </td>
         <td>
-          <p id="salespc_<%=artwork.id.to_s%>_<%=tn.to_s%>">
+          <p id="salespc_comp_salespc<%=artwork.id.to_s%>_<%=tn.to_s%>">
          <%="salespc"%>
           </p>
        </td>
         <td>
-         <p id="salespcpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
+         <p id="salespcpaid_comp_salpcp<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
              <%="salespcpaid"%>
          </p> 
        </td>
@@ -273,30 +273,30 @@ artworks #2
           <%totaledition = artwork.edition_number.to_i - artwork.edition_name.to_i%>
           <%soldcount = artwork.sold_number%>
           <%for tn in 0..totaledition%>
-	$("#artist_art_<%=artwork.id.to_s%>_<%= tn.to_s%>").editInPlace({
+	$("#artist_art_comm_<%=artwork.id.to_s%>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
 		 url: '/edit_inplace',
                  text_size: '20px'
 	});
- 	$("#acpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+ 	$("#acpaid_art_paid_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
 		select_options: "Unpaid, Paid:paid"
 	});
- 	$("#salesp_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+ 	$("#salesp_art_salesp_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		  url: "/edit_inplace",
 		field_type: "select",
 		select_options: "Tom:Tom, Dick:Dick, Harry:Harry"
 	});
- 	$("#salespc_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+ 	$("#salespc_art_salespc_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
 		 url: '/edit_inplace'
 	});
- 	$("#salespcpaid_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+ 	$("#salespcpaid_art_salpcp_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
@@ -313,30 +313,30 @@ artworks #2
     <%totaledition = editionnumb.to_i - editionname.to_i%>
       <%for tn in 0..totaledition%>
  ///////////////////////
-           	$("#artist_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
+           	$("#artist_comm_comp<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
 		 url: '/edit_inplace',
                  text_size: '20px'
 	});
- 	$("#acpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
+ 	$("#acpaid_comp_acpaid<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
 		select_options: "Unpaid, Paid:paid"
 	});
- 	$("#salesp_art_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
+ 	$("#salesp_comp_salesp<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		  url: "/edit_inplace",
 		field_type: "select",
 		select_options: "Tom:Tom, Dick:Dick, Harry:Harry"
 	});
- 	$("#salespc_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
+ 	$("#salespc_comp_salespc<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
 		 url: '/edit_inplace'
 	});
- 	$("#salespcpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
+ 	$("#salespcpaid_comp_salpcp<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",

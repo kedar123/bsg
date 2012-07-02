@@ -18,20 +18,71 @@ class Admin::ArtworksController < ApplicationController
     puts params[:update_value]
     puts " Saving Data.......................................................>>>>>>>"
     
-    artworks=Artworks.find(params[:id])
-    p artworks
-    
-    
-     if params[:element_id] == "artist_comm"   
-       artworks.update_attribute('artists_commission',params[:update_value])
-       artworks.artworks_competitions.update_attribute('artists_comm',params[:update_value])
-       
-       
+    #artworks=Artwork.find(:all)
+    #p artworks
+        
+        str =  params[:element_id].split("_")
+        p str[0]
+        p str[1]
+        p str[2]
+        p str[3]
+        p str[4]
+       artwork = Artwork.find(str[3])
+       artcomp = Artwork_Competitions.find(str[3])
+      
+     if str[1]== "art" 
+         if str[2]=="comm"    
+            artwork.update_attribute('artists_commission',params[:update_value])
+         end
+         
+         if str[2]=="paid" and params[:update_value]=="paid"
+            artwork.update_attribute('artists_commission_paid',1)
+            else
+            artwork.update_attribute('artists_commission_paid',0)
+         end
+         
+         
+         if str[2]=="salesp"
+            artwork.update_attribute('sales_person',params[:update_value])
+         end
+         
+         if str[2]=="salespc"
+            artwork.update_attribute('sales_person_commission',params[:update_value])  
+         end
+         
+         if str[2]=="salpcp" and params[:update_value]=="paid"
+            artwork.update_attribute('sales_person_commission_paid',1)
+            else
+            artwork.update_attribute('sales_person_commission_paid',0)
+         end
      end
-       
      
-  
+      if str[1]== "comp" 
+         if str[2]=="comm"    
+            artcomp.update_attribute('artists_comm',params[:update_value])
+         end
+         if str[2]=="paid" and params[:update_value]=="paid"
+            artcomp.update_attribute('artists_comm_paid',1)
+            else
+            artcomp.update_attribute('artists_commission_paid',0)
+         end
+         
+         if str[2]=="salesp"
+            artcomp.update_attribute('sales_prsn',params[:update_value])
+         end
+         
+         if str[2]=="salespc"
+            artcomp.update_attribute('sales_person_comm',params[:update_value])  
+         end
+         
+         if str[2]=="salpcp" and params[:update_value]=="paid"
+            artcomp.update_attribute('sales_person_comm_paid',1)
+            else
+            artwork.update_attribute('sales_person_commission_paid',0)
+         end
+     end
+               
+      
   end
-  
-  
+    
 end
