@@ -140,26 +140,30 @@ artworks #2
         }
         </style>
         <p id="artist_art_comm_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%="artist comm"%>
-         </p>
-         
-
-         
-       </td>
+         <%=artwork.artists_commission%>
+         </p>         
+        </td>
         <td><p id="acpaid_art_paid_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%="acpaid"%></p>
+         <% if(artwork.artists_commission_paid == true)%>
+         <%= "paid"%>
+         <% else%>
+         <%= "unpaid"%>
+         <%end%>
+         </p> 
        </td>
         <td><p id="salesp_art_salesp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%="salesp"%></p>
+         <%=artwork.sales_person%></p>
         </td>
         <td><p id="salespc_art_salespc_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%="salespc"%></p>
+         <%=artwork.sales_person_commission%></p>
        </td>
         <td><p id="salespcpaid_art_salpcp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%="salespcpaid"%></p>
+         <% if(artwork.sales_person_commission_paid == true)%>
+         <%= "paid"%>
+         <% else%>
+         <%= "unpaid"%>
+         <%end%></p>
        </td>
-       
-
        
       
       </tr>
