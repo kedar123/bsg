@@ -1,8 +1,97 @@
+ 
+ <script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
+ 
+ 
  <script>
 	$(function() {
 		$( "#tabs" ).tabs();
 	});
 	</script>
+
+
+<script>
+  $(document).ready(function()
+    {
+     // $("#invoicess").tablesorter();
+    }
+);
+  $(document).ready(function(){
+	
+	// All examples use the commit to function interface for ease of demonstration.
+	// If you want to try it against a server, just comment the callback: and 
+	// uncomment the url: lines.
+	
+	// The most basic form of using the inPlaceEditor
+	
+	$("#first_name").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#last_name").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	
+	$("#email_address").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#phone_number").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#website").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#address").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#suburb").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#zip_code").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#country_state").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	$("#country").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+		 
+	});
+	
+	
+	
+	
+	
+ });
+</script>
+
+
 
 
 
