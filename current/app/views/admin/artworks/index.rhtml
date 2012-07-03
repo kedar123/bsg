@@ -59,7 +59,7 @@ artworks #2
 <% blank_main_div(:title =>"Invoices list", :hsize => 'sevenH') do %>
           
 <table  id="artworks"  >
-  <thead style="font-size: 5px;">
+  <thead style="font-size: 10px;">
   <tr>
     <th>Artist Name</th>
     <th>Image</th>
@@ -89,6 +89,8 @@ artworks #2
       <%totaledition = artwork.edition_number.to_i - artwork.edition_name.to_i%>
       <%soldcount = artwork.sold_number%>
      <%for tn in 0..totaledition%>
+     <%commission = Commission.find(:first,:conditions=>["artwork_id = ? and edition_no = ?",artwork.id.to_s,tn.to_s]) %>
+     
     <tr>
       
       <td>
@@ -140,11 +142,15 @@ artworks #2
         }
         </style>
         <p id="artist_art_comm_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%=artwork.artists_commission.to_i%>
+         <%if  commission%>
+         <%=commission.art_comm.to_i %>
+         <%else%>
+           0
+         <%end%>
          </p>         
         </td>
         <td><p id="acpaid_art_paid_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <% if(artwork.artists_commission_paid == true)%>
+         <% if  commission and  (  commission.art_comm_paid == true) %>
          <%= "paid"%>
          <% else%>
          <%= "unpaid"%>
@@ -152,18 +158,28 @@ artworks #2
          </p> 
        </td>
         <td><p id="salesp_art_salesp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-            <%if artwork.sales_person.blank?%>
-                Select Person
+            
+            
+            <%if  commission%>
+            <%=commission.id%>
+            <%=commission.sales_person%> 
             <%else%>
-            <%=artwork.sales_person%>
+              Select Person
             <%end%>
+            
+            
+            
           </p>
         </td>
         <td><p id="salespc_art_salespc_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <%=artwork.sales_person_commission.to_i%></p>
+         <%if  commission%>
+         <%=commission.sales_person_comm.to_i if commission%></p>
+        <%else%>
+         0
+         <%end%>
        </td>
         <td><p id="salespcpaid_art_salpcp_<%=artwork.id.to_s %>_<%= tn.to_s%>">
-         <% if(artwork.sales_person_commission_paid == true)%>
+         <% if  commission and (commission.sales_person_comm_paid == true)%>
          <%= "paid"%>
          <% else%>
          <%= "unpaid"%>
@@ -184,6 +200,9 @@ artworks #2
     <%(editionnumb = artwork.competitions_user.send(editionnumberarray[image_array.index artwork.image_name].to_sym)) if artwork.competitions_user%>
     <%totaledition = editionnumb.to_i - editionname.to_i%>
       <%for tn in 0..totaledition%>
+     <%commission = Commission.find(:first,:conditions=>["artwork_id = ? and edition_no = ?",artwork.id.to_s,tn.to_s]) %>
+      
+      
        <tr>
           <td> 
               <%=artwork.competitions_user.user.profile.full_name if artwork.competitions_user%>
@@ -224,7 +243,11 @@ artworks #2
               </td>  
                <td>
                    <p id="artist_comp_comm_<%=artwork.id.to_s%>_<%=tn.to_s%>">
-                      <%=artwork.artists_comm.to_i%>
+                   <%if commission%>
+                      <%=commission.art_comm.to_i if commission%>
+                      <%else%>
+                      0
+                      <%end%>
                    </p>   
        </td>
         <td>
@@ -238,21 +261,26 @@ artworks #2
        </td>
         <td>
           <p id="salesp_comp_salesp_<%=artwork.id.to_s%>_<%=tn.to_s%>">
-         <%if artwork.sales_prsn.blank?%>
-            Select Person
+         <%if   commission  and commission.sales_person.blank?%>
+            <%=commission.sales_person if commission%> 
             <%else%>
-            <%=artwork.sales_prsn%>
+              Select Person
             <%end%>
           </p>         
         </td>
         <td>
           <p id="salespc_comp_salespc_<%=artwork.id.to_s%>_<%=tn.to_s%>">
-         <%=artwork.sales_person_comm.to_i%>
+          <%if commission%>
+           <%=commission.sales_person_comm.to_i if commission%>
+        
+          <%else%>
+          0
+         <%end%>
           </p>
        </td>
         <td>
          <p id="salespcpaid_comp_salpcp_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
-              <%if artwork.sales_person_comm_paid == true%>
+              <%if  commission and  commission.sales_person_comm_paid == true%>
             paid
            <%else%>
            Unpaid
@@ -294,6 +322,8 @@ artworks #2
           <%totaledition = artwork.edition_number.to_i - artwork.edition_name.to_i%>
           <%soldcount = artwork.sold_number%>
           <%for tn in 0..totaledition%>
+          
+          
 	$("#artist_art_comm_<%=artwork.id.to_s%>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
