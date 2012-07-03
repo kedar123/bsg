@@ -223,12 +223,12 @@ artworks #2
                <%end%> 
               </td>  
                <td>
-                   <p id="artist_comp_comm<%=artwork.id.to_s%>_<%=tn.to_s%>">
+                   <p id="artist_comp_comm_<%=artwork.id.to_s%>_<%=tn.to_s%>">
                       <%=artwork.artists_comm.to_i%>
                    </p>   
        </td>
         <td>
-         <p id="acpaid_comp_acpaid<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
+         <p id="acpaid_comp_acpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
            <%if artwork.artists_comm_paid == true%>
             paid
            <%else%>
@@ -237,7 +237,7 @@ artworks #2
          </p>        
        </td>
         <td>
-          <p id="salesp_comp_salesp<%=artwork.id.to_s%>_<%=tn.to_s%>">
+          <p id="salesp_comp_salesp_<%=artwork.id.to_s%>_<%=tn.to_s%>">
          <%if artwork.sales_prsn.blank?%>
             Select Person
             <%else%>
@@ -246,12 +246,12 @@ artworks #2
           </p>         
         </td>
         <td>
-          <p id="salespc_comp_salespc<%=artwork.id.to_s%>_<%=tn.to_s%>">
+          <p id="salespc_comp_salespc_<%=artwork.id.to_s%>_<%=tn.to_s%>">
          <%=artwork.sales_person_comm.to_i%>
           </p>
        </td>
         <td>
-         <p id="salespcpaid_comp_salpcp<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
+         <p id="salespcpaid_comp_salpcp_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
               <%if artwork.sales_person_comm_paid == true%>
             paid
            <%else%>
