@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628145917) do
+ActiveRecord::Schema.define(:version => 20120703100940) do
 
   create_table "acts_as_xapian_jobs", :force => true do |t|
     t.string  "model",    :null => false
@@ -97,9 +97,14 @@ ActiveRecord::Schema.define(:version => 20120628145917) do
     t.integer  "sold_number"
     t.integer  "artists_commission"
     t.boolean  "artists_commission_paid"
-    t.string   "artists_sales_person"
+    t.string   "sales_person"
     t.integer  "sales_person_commission"
     t.boolean  "sales_person_commission_paid"
+    t.integer  "artists_comm"
+    t.boolean  "artists_comm_paid"
+    t.string   "artists_sales_prsn"
+    t.integer  "sales_person_comm"
+    t.boolean  "sales_person_comm_paid"
   end
 
   add_index "artworks", ["user_id"], :name => "index_artworks_on_user_id"
@@ -127,7 +132,7 @@ ActiveRecord::Schema.define(:version => 20120628145917) do
     t.string   "message"
     t.integer  "artists_comm"
     t.boolean  "artists_comm_paid"
-    t.string   "artists_sales_prsn"
+    t.string   "sales_prsn"
     t.integer  "sales_person_comm"
     t.boolean  "sales_person_comm_paid"
   end
@@ -269,6 +274,19 @@ ActiveRecord::Schema.define(:version => 20120628145917) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "commissions", :force => true do |t|
+    t.integer  "art_comm"
+    t.boolean  "art_comm_paid"
+    t.string   "sales_person"
+    t.integer  "sales_person_comm"
+    t.boolean  "sales_person_comm_paid"
+    t.integer  "artwork_id"
+    t.integer  "artworks_competitions_id"
+    t.integer  "addition_no"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "competitions", :force => true do |t|
     t.integer  "user_id"
