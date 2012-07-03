@@ -364,13 +364,13 @@ artworks #2
     <%totaledition = editionnumb.to_i - editionname.to_i%>
       <%for tn in 0..totaledition%>
  ///////////////////////
-           	$("#artist_comm_comp_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
+        $("#artist_comp_comm_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
 		 url: '/edit_inplace',
                  text_size: '20px'
 	});
- 	$("#acpaid_comp_acpaid_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
+ 	$("#acpaid_comp_paid_<%=artwork.id.to_s%>_<%=tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
