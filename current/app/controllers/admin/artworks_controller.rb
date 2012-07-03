@@ -78,14 +78,14 @@ class Admin::ArtworksController < ApplicationController
  
       if str[1]== "comp" 
         com = Commission.find(:first,:conditions=>["artworks_competition_id = ? and edition_no = ?",str[3],str[4]]) 
-       
+ 
        if com.blank?
-        p "first time i will be here"
+         
        com = Commission.new(:artworks_competition_id=>str[3],:edition_no=>str[4])
-       p com.save
-       p "ssssssssss"
+       com.save
+       
        end
-       p com
+        
          if str[2]=="comm"    
             com.update_attribute('art_comm',params[:update_value])
            
@@ -94,12 +94,20 @@ class Admin::ArtworksController < ApplicationController
          if str[2]=="paid" and params[:update_value]=="paid"
            
             com.update_attribute('art_comm_paid',1)
-         end 
+ 
+          end
+         if str[2]=="paid" and params[:update_value]=="Unpaid"
+            com.update_attribute('art_commission_paid',0)
+         end
+         p "i am here in com2"
+        
+ 
          
          if str[2]=="paid" and params[:update_value]=="Unpaid"
             com.update_attribute('art_comm_paid',0)
          end
          
+ 
          if str[2]=="salesp"
             com.update_attribute('sales_person',params[:update_value])
          end
@@ -109,10 +117,10 @@ class Admin::ArtworksController < ApplicationController
          end
          
          if str[2]=="salpcp" and params[:update_value]=="paid"
-           p "i am updating the sales person commission"
+ 
             com.update_attribute('sales_person_commission_paid',1)
          end
-         
+ 
          if str[2]=="salpcp" and params[:update_value]=="Unpaid"
             com.update_attribute('sales_person_commission_paid',0)
          end
