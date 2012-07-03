@@ -17,3 +17,104 @@ ActionController::RoutingError (No route matches "/admin/workspaces/3/competitio
   
 
 Rendering rescues/layout (not_found)
+
+
+Processing Admin::ArtworksController#index (for 127.0.0.1 at 2012-07-03 12:44:31) [GET]
+Rendering template within layouts/gallery_promoting
+Rendering admin/artworks/index
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/pragmatic/newbsgdownload/bsgfromgithub272012/bsg/current/app/helpers/application_helper.rb:62)
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/pragmatic/newbsgdownload/bsgfromgithub272012/bsg/current/app/helpers/application_helper.rb:63)
+DEPRECATION WARNING: The binding argument of #concat is no longer needed.  Please remove it from your views and helpers. (called from blank_main_div at /home/pragmatic/newbsgdownload/bsgfromgithub272012/bsg/current/app/helpers/application_helper.rb:64)
+Completed in 1267ms (View: 553, DB: 763) | 200 OK [http://localhost/admin/artworks]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/1/medium/images16.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/2/medium/images17.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/3/medium/images18.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/4/medium/images19.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/5/medium/editinfo.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/6/medium/invoice.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/7/medium/comp.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/8/medium/editinfo.png" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/9/medium/biography.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2012-07-03 12:44:33) [GET]
+
+ActionController::RoutingError (No route matches "/uploaded_files/production/artwork/10/medium/biography.jpeg" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing Admin::ArtworksController#edit_inplace (for 127.0.0.1 at 2012-07-03 12:44:40) [POST]
+  Parameters: {"original_html"=>"0", "original_value"=>"0", "update_value"=>"10", "element_id"=>"salespc_art_salespc_2_0"}
+[paperclip] Saving attachments.
+Completed in 224ms (View: 1, DB: 215) | 200 OK [http://localhost/edit_inplace]
+
+
+Processing Admin::ArtworksController#edit_inplace (for 127.0.0.1 at 2012-07-03 12:44:47) [POST]
+  Parameters: {"original_html"=>"210", "original_value"=>"210", "update_value"=>"110", "element_id"=>"salespc_art_salespc_1_0"}
+[paperclip] Saving attachments.
+Completed in 234ms (View: 162, DB: 65) | 200 OK [http://localhost/edit_inplace]

@@ -15,6 +15,7 @@
      // $("#invoicess").tablesorter();
     }
 );
+  <%if logged_in?%>
   $(document).ready(function(){
 	
 	// All examples use the commit to function interface for ease of demonstration.
@@ -84,7 +85,7 @@
 		 
 	});
 	
-	
+	<%end%>
 	
 	
 	

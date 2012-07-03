@@ -7,6 +7,38 @@ DEFAULTS: &DEFAULTS
   host: localhost
   username: root
   password: root
+  # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+                                                                                                                          #socket:
+                                                                                                  ## JRuby doesn't support socket:
+                                                                                                   #socket:
+                                                                          ## JRuby doesn't support # JRuby doesn't support socket:
+                                                                                                   #socket:
+                                                                           ## JRuby doesn't support socket:
+                                                                            #socket:
+                                                  ## JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+                                                                                                   #socket:
+                                                                           ## JRuby doesn't support socket:
+                                                                            #socket:
+                                                   ## JRuby doesn't support # JRuby doesn't support socket:
+                                                                            #socket:
+                                                    ## JRuby doesn't support socket:
+                                                     #socket:
+                          ## JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+                                                                                                   #socket:
+                                                                           ## JRuby doesn't support socket:
+                                                                            #socket:
+                                                   ## JRuby doesn't support # JRuby doesn't support socket:
+                                                                            #socket:
+                                                    ## JRuby doesn't support socket:
+                                                     #socket:
+                           ## JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+                                                                            #socket:
+                                                    ## JRuby doesn't support socket:
+                                                     #socket:
+                            ## JRuby doesn't support # JRuby doesn't support socket:
+                                                     #socket:
+                             ## JRuby doesn't support socket:
+                              #socket:
   # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
                                                                                                   #socket:
                                                                           ## JRuby doesn't support socket:
@@ -23,24 +55,25 @@ DEFAULTS: &DEFAULTS
                                                     #socket:
                             ## JRuby doesn't support socket:
                              #socket:
-  # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
-                                                                          #socket:
-                                                  ## JRuby doesn't support socket:
-                                                   #socket:
-                          ## JRuby doesn't support # JRuby doesn't support socket:
-                                                   #socket:
-                           ## JRuby doesn't support socket:
-                            #socket:
   #host: 127.0.0.1
-  ## JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
-                                                   #socket:
-                           ## JRuby doesn't support socket:
-                            #socket:
-   ## JRuby doesn't support # JRuby doesn't support socket:
-                            #socket:
+  ## JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+                                                                           #socket:
+                                                   ## JRuby doesn't support socket:
+                                                    #socket:
+                           ## JRuby doesn't support # JRuby doesn't support socket:
+                                                    #socket:
+                            ## JRuby doesn't support socket:
+                             #socket:
+   ## JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+                                                    #socket:
+                            ## JRuby doesn't support socket:
+                             #socket:
    # host: 127.0.0.1
-    ## JRuby doesn't support socket:
-     #socket: /var/run/mysqld/mysqld.sock
+    ## JRuby doesn't support # JRuby doesn't support socket:
+                             #socket:
+     ## JRuby doesn't support socket:
+     # host: 127.0.0.1
+      #socket: /var/run/mysqld/mysqld.sock
 
 development:
   database: gallery_development
@@ -51,7 +84,7 @@ test:
   <<: *DEFAULTS
 
 production:
-  database: gallery
+  database: gallery_development
   <<: *DEFAULTS
 
 
