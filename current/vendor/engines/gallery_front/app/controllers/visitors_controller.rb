@@ -38,6 +38,12 @@ class VisitorsController < ApplicationController
   end
   
   
+  
+  
+  
+  
+  
+  
   def show_exh_images
      @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",current_user.id,params[:id]])
      render :update do |page|

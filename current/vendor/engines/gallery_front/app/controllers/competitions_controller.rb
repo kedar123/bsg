@@ -1973,7 +1973,7 @@ end
 
 
   def upload_exhibition_artwork
-    
+    p "aaaaaaaaaaaaaaaaaaaaaa"
     artwork = ExhiArtwork.new()
     artwork.title=params[:artwork]["title"]
     if params[:user_id]
@@ -1994,7 +1994,7 @@ end
     artwork.is_purchasable = params[:artwork]["is_purchasable"]
     artwork.exhibition_id = params["exhibition_id"]
     if  artwork.save
-      
+      p "this is saveeeeeeeeeeeeeeee"
      if params[:user_id]
        wcp = Workspace.find(:first, :conditions => { :creator_id => params[:user_id]}).id
      else
@@ -2002,19 +2002,40 @@ end
      end  
        itw=ItemsWorkspace.new(:workspace_id=>wcp,:itemable_type=>"Artwork",:itemable_id=>artwork.id)
       itw.save
+          @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",current_user.id,params["exhibition_id"]])
+
       responds_to_parent do
         render :update do |page|
+          
          if params[:user_id] 
             page.redirect_to "/admin/profiles/#{params[:user_id]}"
             
          else  
-            page.alert('not uploaded')
-          page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:user_id=>nil,:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
-          page["description_competition_ex_py"].show
+             
+          #page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:user_id=>nil,:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
+          #page["description_competition_ex_py"].show
+               page['detailsofexh'+params[:id]].replace_html(:partial=>"visitors/show_exh_img",:locals=>{:show_exh_images=>@artworkexhibition})
+ 
          end 
         end
-      end          		     
+      end  
+      
+      
+      
+       
+      
+      
+      
+      
+      
+      
+      
     else
+      p "this are errors"
+       artwork.errors.each do |er|
+        p er
+        p "some errors"
+      end
       responds_to_parent do
         render :update do |page|
            if params[:user_id] 

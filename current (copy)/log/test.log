@@ -1,0 +1,1174 @@
+# Logfile created on Fri Dec 02 18:49:36 +0530 2011  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.3ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:54:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:158:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:265:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:224:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:136:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.8/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.8/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.8/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.8/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.8/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:147:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:147:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:55:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:55:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.12/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.12/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.4ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner.rb:61:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner.rb:45:in `autorun'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:3
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.3ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.6ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+Unable to load feed_item, underlying cause no such file to load -- feed_item 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/views/home/index.html.erb_spec.rb:9
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/views/home/index.html.erb_spec.rb:3
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+Unable to load feed_source, underlying cause no such file to load -- feed_source 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/views/home/index.html.erb_spec.rb:9
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/views/home/index.html.erb_spec.rb:3
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+  [4;35;1mSQL (32.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#show (for 0.0.0.0 at 2011-12-02 20:55:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"1002", "controller"=>"admin/images"}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#show (for 0.0.0.0 at 2011-12-02 20:55:22) [GET]
+  Parameters: {"action"=>"show", "id"=>"1004", "controller"=>"admin/images"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#destroy (for 0.0.0.0 at 2011-12-02 20:55:22) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1006", "controller"=>"admin/images"}
+Redirected to http://test.host/admin/content/images
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/admin/images/1006]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#destroy (for 0.0.0.0 at 2011-12-02 20:55:22) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1008", "controller"=>"admin/images"}
+Redirected to http://test.host/admin/content/images
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/admin/images/1008]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:55:22) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1010", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:55:22) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1012", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:55:22) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1014", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+Redirected to http://test.host/admin/images/1014
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1014?&image%5Bassociated_workspaces%5D%5B%5D=1&image%5Bdescription%5D=world&image%5Bimage%5D=%23%3CFile%3A0xb598e6d4%3E&image%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:55:22) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1016", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+Redirected to http://test.host/admin/images/1016
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1016?&image%5Bassociated_workspaces%5D%5B%5D=1&image%5Bdescription%5D=world&image%5Bimage%5D=%23%3CFile%3A0xb58d2308%3E&image%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:55:22) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1018", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+Redirected to http://test.host/admin/images/1018
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1018?&image%5Bassociated_workspaces%5D%5B%5D=1&image%5Bdescription%5D=world&image%5Bimage%5D=%23%3CFile%3A0xb584050c%3E&image%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#edit (for 0.0.0.0 at 2011-12-02 20:55:22) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"admin/images"}
+  [4;36;1mKeyword Load (0.4ms)[0m   [0;1mSELECT * FROM `keywords` [0m
+  [4;35;1mSQL (29.8ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:55:22) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:55:22) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:55:22) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:55:22) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:55:22) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#new (for 0.0.0.0 at 2011-12-02 20:55:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/images"}
+  [4;35;1mKeyword Load (0.1ms)[0m   [0mSELECT * FROM `keywords` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#show (for 0.0.0.0 at 2011-12-02 20:55:23) [GET]
+  Parameters: {"action"=>"show", "id"=>"1034", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#show (for 0.0.0.0 at 2011-12-02 20:55:23) [GET]
+  Parameters: {"action"=>"show", "id"=>"1036", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#destroy (for 0.0.0.0 at 2011-12-02 20:55:23) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1038", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/content/articles
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/admin/articles/1038]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#destroy (for 0.0.0.0 at 2011-12-02 20:55:23) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1040", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/content/articles
+Completed in 1ms (DB: 0) | 302 Found [http://test.host/admin/articles/1040]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:55:23) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1042", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:55:23) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1044", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:55:23) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1046", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/articles/1046
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1046?&article%5Bassociated_workspaces%5D%5B%5D=1&article%5Bbody%5D=good+job+on+rspec&article%5Bdescription%5D=world&article%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:55:23) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1048", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/articles/1048
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1048?&article%5Bassociated_workspaces%5D%5B%5D=1&article%5Bbody%5D=good+job+on+rspec&article%5Bdescription%5D=world&article%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:55:23) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1050", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/articles/1050
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1050?&article%5Bassociated_workspaces%5D%5B%5D=1&article%5Bbody%5D=good+job+on+rspec&article%5Bdescription%5D=world&article%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#edit (for 0.0.0.0 at 2011-12-02 20:55:23) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"admin/articles"}
+  [4;36;1mKeyword Load (0.1ms)[0m   [0;1mSELECT * FROM `keywords` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:55:23) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:55:23) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:55:23) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:55:23) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:55:23) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#new (for 0.0.0.0 at 2011-12-02 20:55:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/articles"}
+  [4;35;1mKeyword Load (0.2ms)[0m   [0mSELECT * FROM `keywords` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mArticleFile Columns (47.6ms)[0m   [0;1mSHOW FIELDS FROM `article_files`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItemsWebsite Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `items_websites`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItemsFolder Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `items_folders`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsersContainer Load (40.6ms)[0m   [0mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` = 21 AND `users_containers`.`containerable_id` = 1 AND `users_containers`.`containerable_type` = 'Workspace') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsersContainer Load (0.3ms)[0m   [0;1mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;35;1mUsersContainer Load (0.1ms)[0m   [0mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;36;1mUsersContainer Load (0.1ms)[0m   [0;1mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;35;1mUsersContainer Load (0.1ms)[0m   [0mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsersContainer Load (0.4ms)[0m   [0;1mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` = 1 AND `users_containers`.`containerable_id` = 1 AND `users_containers`.`containerable_type` = 'Workspace') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPermission Load (27.9ms)[0m   [0mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` = BINARY 'webworld_show') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPermission Load (0.3ms)[0m   [0;1mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mPermission Load (0.1ms)[0m   [0mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPermission Load (0.4ms)[0m   [0;1mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` = BINARY 'workspace_show') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPerson Load (0.5ms)[0m   [0mSELECT * FROM `people` WHERE (`people`.`id` = 1) [0m
+  [4;36;1mPerson Load (0.2ms)[0m   [0;1mSELECT `people`.id FROM `people` WHERE (`people`.`user_id` = 1 AND `people`.`email` = 'luc@yahoo.com') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPerson Load (0.2ms)[0m   [0mSELECT * FROM `people` WHERE (`people`.`id` = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'killer') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Load (0.2ms)[0m   [0mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'co_admin') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mGrouping Columns (15.8ms)[0m   [0;1mSHOW FIELDS FROM `groupings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsernamefortest Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `usernamefortests`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUsernamefortest Create (0.3ms)[0m   [0mINSERT INTO `usernamefortests` (`created_at`, `updated_at`) VALUES('2011-12-02 15:25:35', '2011-12-02 15:25:35')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (41.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsletteremail Load (0.2ms)[0m   [0;1mSELECT * FROM `newsletteremails` WHERE (emailsend is null) LIMIT 1[0m
+Unable to load permissions_role, underlying cause no such file to load -- permissions_role 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/user_spec.rb:50
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/user_spec.rb:47
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/rcov-0.9.9/bin/rcov:516:in `load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/rcov-0.9.9/bin/rcov:516
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/bin/rcov:19:in `load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/bin/rcov:19
+Unable to load feed_item, underlying cause no such file to load -- feed_item 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/views/home/index.html.erb_spec.rb:9
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/views/home/index.html.erb_spec.rb:3
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/rcov-0.9.9/bin/rcov:516:in `load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/rcov-0.9.9/bin/rcov:516
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/bin/rcov:19:in `load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/bin/rcov:19
+Unable to load feed_source, underlying cause no such file to load -- feed_source 
+
+ /home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `gem_original_require'
+/home/pragmatic/.rvm/rubies/ruby-1.8.7-p352/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:36:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:184:in `require'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:291:in `require_or_load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:250:in `depend_on'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:162:in `require_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `each'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activerecord-2.3.11/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/views/home/index.html.erb_spec.rb:9
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_methods.rb:55:in `describe'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/dsl/main.rb:28:in `describe'
+./spec/views/home/index.html.erb_spec.rb:3
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load_without_new_constant_marking'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/activesupport-2.3.11/lib/active_support/dependencies.rb:173:in `load'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `each'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/options.rb:107:in `run_examples'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/lib/spec/runner/command_line.rb:9:in `run'
+/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/vendor/plugins/rspec/bin/spec:4
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/rcov-0.9.9/bin/rcov:516:in `load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/gems/rcov-0.9.9/bin/rcov:516
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/bin/rcov:19:in `load'
+/home/pragmatic/.rvm/gems/ruby-1.8.7-p352@videogalleryy/bin/rcov:19
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#show (for 0.0.0.0 at 2011-12-02 20:56:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"1002", "controller"=>"admin/images"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#show (for 0.0.0.0 at 2011-12-02 20:56:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"1004", "controller"=>"admin/images"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#destroy (for 0.0.0.0 at 2011-12-02 20:56:57) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1006", "controller"=>"admin/images"}
+Redirected to http://test.host/admin/content/images
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1006]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#destroy (for 0.0.0.0 at 2011-12-02 20:56:57) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1008", "controller"=>"admin/images"}
+Redirected to http://test.host/admin/content/images
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1008]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:56:57) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1010", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:56:57) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1012", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:56:57) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1014", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+Redirected to http://test.host/admin/images/1014
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1014?&image%5Bassociated_workspaces%5D%5B%5D=1&image%5Bdescription%5D=world&image%5Bimage%5D=%23%3CFile%3A0xb513b2fc%3E&image%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:56:57) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1016", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+Redirected to http://test.host/admin/images/1016
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1016?&image%5Bassociated_workspaces%5D%5B%5D=1&image%5Bdescription%5D=world&image%5Bimage%5D=%23%3CFile%3A0xb511fbd8%3E&image%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#update (for 0.0.0.0 at 2011-12-02 20:56:57) [PUT]
+  Parameters: {"action"=>"update", "id"=>"1018", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+Redirected to http://test.host/admin/images/1018
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/images/1018?&image%5Bassociated_workspaces%5D%5B%5D=1&image%5Bdescription%5D=world&image%5Bimage%5D=%23%3CFile%3A0xb51024fc%3E&image%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ImagesController#edit (for 0.0.0.0 at 2011-12-02 20:56:57) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"admin/images"}
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:56:57) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:56:57) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/empty_file.txt>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:56:57) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:56:57) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#create (for 0.0.0.0 at 2011-12-02 20:56:57) [POST]
+  Parameters: {"action"=>"create", "controller"=>"admin/images", "image"=>{"associated_workspaces"=>["1"], "title"=>"hello", "description"=>"world", "keywords_field"=>[], "image"=>#<File:/home/pragmatic/newbsgdownload/bsgfromgithub/bsg/current/spec/attachments/image.png>}}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ImagesController#new (for 0.0.0.0 at 2011-12-02 20:56:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/images"}
+  [4;35;1mKeyword Load (0.7ms)[0m   [0mSELECT * FROM `keywords` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#show (for 0.0.0.0 at 2011-12-02 20:56:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"1034", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#show (for 0.0.0.0 at 2011-12-02 20:56:58) [GET]
+  Parameters: {"action"=>"show", "id"=>"1036", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#destroy (for 0.0.0.0 at 2011-12-02 20:56:58) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1038", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/content/articles
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1038]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#destroy (for 0.0.0.0 at 2011-12-02 20:56:58) [DELETE]
+  Parameters: {"action"=>"destroy", "id"=>"1040", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/content/articles
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1040]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:56:58) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1042", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:56:58) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1044", "controller"=>"admin/articles"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:56:58) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1046", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/articles/1046
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1046?&article%5Bassociated_workspaces%5D%5B%5D=1&article%5Bbody%5D=good+job+on+rspec&article%5Bdescription%5D=world&article%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:56:58) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1048", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/articles/1048
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1048?&article%5Bassociated_workspaces%5D%5B%5D=1&article%5Bbody%5D=good+job+on+rspec&article%5Bdescription%5D=world&article%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#update (for 0.0.0.0 at 2011-12-02 20:56:58) [PUT]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"update", "id"=>"1050", "controller"=>"admin/articles"}
+Redirected to http://test.host/admin/articles/1050
+Completed in 2ms (DB: 0) | 302 Found [http://test.host/admin/articles/1050?&article%5Bassociated_workspaces%5D%5B%5D=1&article%5Bbody%5D=good+job+on+rspec&article%5Bdescription%5D=world&article%5Btitle%5D=hello]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing Admin::ArticlesController#edit (for 0.0.0.0 at 2011-12-02 20:56:58) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"admin/articles"}
+  [4;36;1mKeyword Load (0.2ms)[0m   [0;1mSELECT * FROM `keywords` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:56:58) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:56:58) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:56:58) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:56:58) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#create (for 0.0.0.0 at 2011-12-02 20:56:58) [POST]
+  Parameters: {"article"=>{"associated_workspaces"=>["1"], "body"=>"good job on rspec", "title"=>"hello", "description"=>"world", "keywords_field"=>[]}, "action"=>"create", "controller"=>"admin/articles"}
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing Admin::ArticlesController#new (for 0.0.0.0 at 2011-12-02 20:56:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"admin/articles"}
+  [4;35;1mKeyword Load (0.1ms)[0m   [0mSELECT * FROM `keywords` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mArticleFile Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `article_files`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItemsWebsite Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `items_websites`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mItemsFolder Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `items_folders`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsersContainer Load (0.6ms)[0m   [0mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` = 21 AND `users_containers`.`containerable_id` = 1 AND `users_containers`.`containerable_type` = 'Workspace') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsersContainer Load (0.3ms)[0m   [0;1mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;35;1mUsersContainer Load (0.1ms)[0m   [0mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;36;1mUsersContainer Load (0.1ms)[0m   [0;1mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;35;1mUsersContainer Load (0.1ms)[0m   [0mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` IS NULL AND `users_containers`.`containerable_id` IS NULL AND `users_containers`.`containerable_type` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUsersContainer Load (0.4ms)[0m   [0;1mSELECT `users_containers`.id FROM `users_containers` WHERE (`users_containers`.`user_id` = 1 AND `users_containers`.`containerable_id` = 1 AND `users_containers`.`containerable_type` = 'Workspace') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPermission Load (0.4ms)[0m   [0mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` = BINARY 'webworld_show') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPermission Load (0.3ms)[0m   [0;1mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mPermission Load (0.2ms)[0m   [0mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPermission Load (0.4ms)[0m   [0;1mSELECT `permissions`.id FROM `permissions` WHERE (`permissions`.`name` = BINARY 'workspace_show') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPerson Load (0.3ms)[0m   [0mSELECT * FROM `people` WHERE (`people`.`id` = 1) [0m
+  [4;36;1mPerson Load (0.2ms)[0m   [0;1mSELECT `people`.id FROM `people` WHERE (`people`.`email` = 'luc@yahoo.com' AND `people`.`user_id` = 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPerson Load (0.2ms)[0m   [0mSELECT * FROM `people` WHERE (`people`.`id` = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mRole Load (0.5ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'killer') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mRole Load (0.1ms)[0m   [0;1mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mRole Load (0.3ms)[0m   [0mSELECT `roles`.id FROM `roles` WHERE (`roles`.`name` = BINARY 'co_admin') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mGrouping Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `groupings`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUsernamefortest Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `usernamefortests`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mUsernamefortest Create (0.2ms)[0m   [0mINSERT INTO `usernamefortests` (`created_at`, `updated_at`) VALUES('2011-12-02 15:27:13', '2011-12-02 15:27:13')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (34.9ms)[0m   [0mROLLBACK[0m
