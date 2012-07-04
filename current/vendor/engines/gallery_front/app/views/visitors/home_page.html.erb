@@ -131,7 +131,12 @@
                         <%=link_to_remote "ADD WORKS", :url=>"/add_exh_artwork/#{eu.exhibition.id}",:update => ''%>
                      
                        
-                       &nbsp;&nbsp;|&nbsp;&nbsp;PAY&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#"> INVOICE</a></p>
+                       &nbsp;&nbsp;|&nbsp;&nbsp;
+                       <%#the pay link here should bring here payment partial in the div of %>
+                         
+<%=link_to_remote "PAY", :url=>"/admin/profiles/exhibition_payment_front/#{eu.id}",:update => '', :method => :get%>
+         
+                       &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#"> INVOICE</a></p>
                      <div id="detailsofexh<%=eu.exhibition.id%>">
                      </div>  
                      
