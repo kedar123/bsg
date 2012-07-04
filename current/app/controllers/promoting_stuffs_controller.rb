@@ -19,6 +19,8 @@ class PromotingStuffsController < ApplicationController
 	
 	def edit
 		@promotingstuff = PromotingStuff.find(params[:id])
+		p @current_user 
+		p "xxxxxxxxxxxxxxxxyyyyyyyyyyyyyyyyyyxxxxxxxxxxxxxx"
 	end	
 	def update
 		

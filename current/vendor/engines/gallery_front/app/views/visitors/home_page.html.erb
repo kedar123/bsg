@@ -166,47 +166,71 @@
 <div id="PageDiv1">
 	<form><div id="container-2">
     	<div id="item4">
-        	
+        
     	<div class="left1">
-    		<img src="images/img1.jpeg">
+    	
+    	
+    		<img src="/system/front_end_pics/<%=@front_image[2].id%>/large/<%=@front_image[2].front_end_pics_file_name%>" width="251" height="229">
 		<div class="heading1">
 		<div class="desc">
-		SMALL WORKS
+		<!--SMALL WORKS-->
+		
+		<%=@pramoting_stuff[2].title%> 
 		</div>
 		</div>
 		
 		<div class="style65">
-		$10,000 Prize and Competition
+		<%=@pramoting_stuff[2].details%> 
+		<!--$10,000 Prize and Competition-->
 		</div>
 		
+		<div class="style63">
+	<!--	Calling for entries -->
+	        <%=@pramoting_stuff[2].description%>
+		</div>
 		
     	</div>
     	<div class="middle1">
-    		<img src="images/img2.jpeg">
+    	<img src="/system/front_end_pics/<%=@front_image[1].id%>/large/<%=@front_image[1].front_end_pics_file_name%>"
+    	width="251" height="229">
+    		
+    		
 		<div class="heading1">
 		<div class="desc">
-		PAPER DOLLS
+		<%=@pramoting_stuff[1].title%>
+	<!--	PAPER DOLLS-->
 		</div>
 		</div>
 		
 		<div class="style65">
-		Calling for entries 
+	<!--	Calling for entries -->
+	        <%=@pramoting_stuff[1].details%>
+		</div>
+		<div class="style63">
+	<!--	Calling for entries -->
+	        <%=@pramoting_stuff[1].description%>
 		</div>
 		
     	</div>
        
        <div class="right1">
-    		<img src="images/img3.jpeg">
+    	<img src="/system/front_end_pics/<%=@front_image[0].id%>/large/<%=@front_image[0].front_end_pics_file_name%>"
+    	width="251" height="229">
 		<div class="heading1">
 		<div class="desc">
-		1to10
+		<%=@pramoting_stuff[0].title%>
+	<!--	1to10 -->
 		</div>
 		</div>
 		
 		<div class="style65">
-		10 Photographers
+		<%=@pramoting_stuff[0].details%>
+        <!--	10 Photographers -->
 		</div>
-		
+		<div class="style63">
+	<!--	Calling for entries -->
+	        <%=@pramoting_stuff[0].description%>
+		</div>
     	</div>
        
 
