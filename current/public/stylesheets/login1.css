@@ -6,7 +6,7 @@ margin:0px;
  }
 #PageDiv
 {
-  margin: 0 auto;
+    margin: 0 auto 0 200px;
     min-height: 100%;
     overflow: visible;
     position: relative;
@@ -23,6 +23,9 @@ margin:0px;
 	overflow:hidden;
 	
 	}
+
+	
+	
 .logo
 {
 	background:url('/images/item2a.gif');
@@ -33,7 +36,7 @@ margin:0px;
 	margin:50px 0px 0px 20px ;
 	
 }
-#nav{width:816px;height:50px;float:left;margin:75px 0px 0px 0px}
+#nav{width:816px;height:50px;float:left;margin:75px 0px 0px -20px}
 #nav ul{list-style-type:none;width:760px;margin: 19PX 0PX 0PX 297PX;}
 #nav ul li{float:left;margin-right:10px}
 #nav ul li a{display:block;padding:3px;text-decoration:none;color:#373737;font-size:13px;;font-weight:bold; font-family:"Trebuchet MS"}
@@ -125,7 +128,7 @@ background:url('/images/item4.gif');
 	min-height:100%; 
 	margin:auto; 
 	width:960px;
-	margin:0px auto 0px auto;
+	margin:0px auto 0px 204px;
 	overflow:hidden;
 }
 #container-2
@@ -140,6 +143,12 @@ background:url('/images/item4.gif');
 background:url('/images/item4.gif');
  width:743px; 
  height:41px; 
+ }
+ 
+ #item4{
+
+ width:900px; 
+ height:auto; 
  }
  .left1 {
     float: left;
@@ -164,4 +173,14 @@ background:url('/images/item4.gif');
     width: 251px;
  }
  
+ .heading1{
+	margin-top:20px;
+}
+
+.style65{
+    font-family: Trebuchet MS,Arial,Helvetica,sans-serif;
+    font-size: medium;
+	margin-top: 10px;
+}
+
 
