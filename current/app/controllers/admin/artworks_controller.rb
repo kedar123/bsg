@@ -1,8 +1,8 @@
 class Admin::ArtworksController < ApplicationController
   
   def index
-    @current_objects = Artwork.find(:all,:limit=>10)
-    @all_comp_art_work = ArtworksCompetition.find(:all,:limit=>10)
+    @current_objects = Artwork.find(:all,:limit=>20)
+    @all_comp_art_work = ArtworksCompetition.find(:all,:limit=>20)
     render  :layout=> "gallery_promoting"
   end
   
@@ -51,7 +51,7 @@ class Admin::ArtworksController < ApplicationController
             com.update_attribute('art_comm_paid',1)
          end 
          
-         if str[2]=="paid" and params[:update_value]=="Unpaid"
+         if str[2]=="paid" and params[:update_value]=="unpaid"
             com.update_attribute('art_comm_paid',0)
          end
          
@@ -65,11 +65,11 @@ class Admin::ArtworksController < ApplicationController
          
          if str[2]=="salpcp" and params[:update_value]=="paid"
            p "i am updating the sales person commission"
-            com.update_attribute('sales_person_commission_paid',1)
+            com.update_attribute('sales_person_comm_paid',1)
          end
          
-         if str[2]=="salpcp" and params[:update_value]=="Unpaid"
-            com.update_attribute('sales_person_commission_paid',0)
+         if str[2]=="salpcp" and params[:update_value]=="unpaid"
+            com.update_attribute('sales_person_comm_paid',0)
          end
      end
  
@@ -86,7 +86,7 @@ class Admin::ArtworksController < ApplicationController
        
        end
         
-         if str[2]=="comm"    
+         if str[2] == "comm"    
             com.update_attribute('art_comm',params[:update_value])
            
          end
@@ -96,14 +96,14 @@ class Admin::ArtworksController < ApplicationController
             com.update_attribute('art_comm_paid',1)
  
           end
-         if str[2]=="paid" and params[:update_value]=="Unpaid"
-            com.update_attribute('art_commission_paid',0)
+         if str[2]=="paid" and params[:update_value]=="unpaid"
+            com.update_attribute('art_comm_paid',0)
          end
          p "i am here in com2"
         
  
          
-         if str[2]=="paid" and params[:update_value]=="Unpaid"
+         if str[2]=="paid" and params[:update_value]=="unpaid"
             com.update_attribute('art_comm_paid',0)
          end
          
@@ -118,11 +118,11 @@ class Admin::ArtworksController < ApplicationController
          
          if str[2]=="salpcp" and params[:update_value]=="paid"
  
-            com.update_attribute('sales_person_commission_paid',1)
+            com.update_attribute('sales_person_comm_paid',1)
          end
  
-         if str[2]=="salpcp" and params[:update_value]=="Unpaid"
-            com.update_attribute('sales_person_commission_paid',0)
+         if str[2]=="salpcp" and params[:update_value]=="unpaid"
+            com.update_attribute('sales_person_comm_paid',0)
          end
      end             
          

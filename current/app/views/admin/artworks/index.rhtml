@@ -97,7 +97,7 @@ artworks #2
         <%=artwork.user.profile.full_name if artwork.user%>
       </td>        
       <td>
-         <img src="/uploaded_files/production/artwork/<%=artwork.id%>/medium/<%=artwork.image_file_name%>" width="48" height="48">
+         <img src="/uploaded_files/production/artwork/<%=artwork.id%>/thumb/<%=artwork.image_file_name%>" width="48" height="48">
       </td>
        
       <td>
@@ -161,7 +161,6 @@ artworks #2
             
             
             <%if  commission%>
-            <%=commission.id%>
             <%=commission.sales_person%> 
             <%else%>
               Select Person
@@ -208,7 +207,7 @@ artworks #2
               <%=artwork.competitions_user.user.profile.full_name if artwork.competitions_user%>
           </td>
           <td> 
-          <img src="/uploaded_files/competition/artwork/<%=artwork.id%>/thumb/<%=artwork.avatar_file_name%>" />
+          <img src="/uploaded_files/competition/artwork/<%=artwork.id%>/thumb/<%=artwork.avatar_file_name%>" alt="image_file"/>
           </td>
           <td> 
               <%=artwork.competition.created_at%> 
@@ -252,10 +251,10 @@ artworks #2
        </td>
         <td>
          <p id="acpaid_comp_paid_<%=artwork.id.to_s%>_<%=tn.to_s%>"> 
-           <%if artwork.artists_comm_paid == true%>
+          <% if  commission and  (  commission.art_comm_paid == true) %>         
             paid
            <%else%>
-           Unpaid
+           unpaid
            <%end%>
          </p>        
        </td>
@@ -283,7 +282,7 @@ artworks #2
               <%if  commission and  commission.sales_person_comm_paid == true%>
             paid
            <%else%>
-           Unpaid
+           unpaid
            <%end%>
          </p> 
        </td>
@@ -334,7 +333,7 @@ artworks #2
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
-		select_options: "Unpaid, Paid:paid"
+		select_options: "unpaid:unpaid, Paid:paid"
 	});
  	$("#salesp_art_salesp_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
@@ -351,7 +350,7 @@ artworks #2
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
-		select_options: "Unpaid, Paid:paid"
+		select_options: "unpaid, paid:paid"
 	});
       <%end%>
       <%end%>  
@@ -374,7 +373,7 @@ artworks #2
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
-		select_options: "Unpaid, Paid:paid"
+		select_options: "unpaid:unpaid, paid:paid"
 	});
  	$("#salesp_comp_salesp_<%=artwork.id.to_s %>_<%= tn.to_s%>").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
@@ -391,7 +390,7 @@ artworks #2
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: "/edit_inplace",
 		field_type: "select",
-		select_options: "Unpaid, Paid:paid"
+		select_options: "unpaid:unpaid, paid:paid"
 	});        
         <%end%>
           <%end%>

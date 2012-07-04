@@ -1,6 +1,13 @@
 class VisitorsController < ApplicationController
 
-	layout 'front'
+	layout 'front3'
+	
+	
+	
+	def login2
+	
+	end
+	
 
 	def home_page
                 
