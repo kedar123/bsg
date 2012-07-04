@@ -24,7 +24,14 @@ margin:0px;
 	
 	}
 
-	
+.desc
+{
+     font-style:strong;
+     font-family:Arial;
+     font-weight:bold;
+     font-size:32px;
+     color:#4bb0eb;
+}	
 	
 .logo
 {
