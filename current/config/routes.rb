@@ -464,8 +464,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :contacts, :only => [:new, :create]
 
 	#### GALLERY FRONT
-	#map.root :controller => "visitors", :action => 'home_page'
-	map.root :controller => "visitors", :action => 'login2'
+	map.root :controller => "visitors", :action => 'home_page'
+	#map.root :controller => "visitors", :action => 'login2'
 	
 	['past', 'current', 'future', 'next' ].each do |e|
 		map.connect "/#{e}", :controller => :exhibitions, :action => e

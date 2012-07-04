@@ -95,7 +95,7 @@
 
 
 
-
+<%if logged_in?%>
 <div class="demo" style="width:80%;padding-left:10%">
 
 <div id="tabs">
@@ -156,3 +156,48 @@
 <p>Click tabs to swap between content that is broken into logical sections.</p>
 </div><!-- End demo-description -->
 
+
+<%else%>
+<div id="PageDiv1">
+	<form><div id="container-2">
+    	<div id="item41">
+        	
+    	<div class="left1">
+    		<img src="images/img1.jpeg">
+		<div class="heading1">
+		<img src="images/item4e.gif">
+		</div>
+		
+		<div class="style651">
+		$10,000 Prize and Competition
+		</div>
+		
+    	</div>
+    	<div class="middle1">
+    		<img src="images/img2.jpeg">
+		<div class="heading1">
+		<img src="images/item4b1.gif">
+		</div>
+		
+		<div class="style651">
+		Calling for entries 
+		</div>
+		
+    	</div>
+       
+       <div class="right1">
+    		<img src="images/img3.jpeg">
+		<div class="heading1">
+		<img src="images/item4ba.gif">
+		</div>
+		
+		<div class="style651">
+		10 Photographers
+		
+		</div>
+    	</div>
+       
+
+	</div>
+</div></form></div>
+<%end%>

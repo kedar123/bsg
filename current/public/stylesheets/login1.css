@@ -6,12 +6,11 @@ margin:0px;
  }
 #PageDiv
 {
-	position:relative; 
-	min-height:100%; 
-	margin:auto; 
-	width:960px;
-	margin:0px auto 0px auto;
-	overflow:hidden;
+  margin: 0 auto;
+    min-height: 100%;
+    overflow: visible;
+    position: relative;
+    width: 1204px;
 }
 #header
 {
@@ -37,7 +36,7 @@ margin:0px;
 #nav{width:816px;height:50px;float:left;margin:75px 0px 0px 0px}
 #nav ul{list-style-type:none;width:760px;margin: 19PX 0PX 0PX 297PX;}
 #nav ul li{float:left;margin-right:10px}
-#nav ul li a{display:block;padding:5px;text-decoration:none;color:#373737;font-size:13px;;font-weight:bold; font-family:"Trebuchet MS"}
+#nav ul li a{display:block;padding:3px;text-decoration:none;color:#373737;font-size:13px;;font-weight:bold; font-family:"Trebuchet MS"}
 #nav ul li a:hover{display:block;padding:5px;text-decoration:none;color:#FFF;font-size:13px;;font-weight:bold;background-color:#484747}
 
 #contaner
@@ -119,3 +118,50 @@ background:url('/images/item4.gif');
 	padding:10px 0px 10px 10px ;
 	text-align:center;
  }
+/*the copy for else part of home page when user click on home link and user logs out then this will come*/
+#PageDiv1
+{
+	style="position:relative; 
+	min-height:100%; 
+	margin:auto; 
+	width:960px;
+	margin:0px auto 0px auto;
+	overflow:hidden;
+}
+#container-2
+{
+    
+    height: auto;
+    margin: 50px 0 0 16px;
+    overflow: hidden;
+    width: 900px;
+}
+#item41{
+background:url('/images/item4.gif');
+ width:743px; 
+ height:41px; 
+ }
+ .left1 {
+    float: left;
+    height: auto;
+    margin: 0 44px 0 1px;
+    overflow: hidden;
+    width: 251px;
+ }
+ .middle1{
+    float: left;
+    height: auto;
+    margin: 0 10px 0 27px;
+    overflow: hidden;
+    width: 253px;
+ }
+ 
+ .right1{
+    float: left;
+    height: auto;
+    margin: 0 0 0 62px;
+    overflow: hidden;
+    width: 251px;
+ }
+ 
+
