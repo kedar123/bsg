@@ -133,6 +133,7 @@
 
 
     <div id="fragment-1"  >
+    
   
       <%=render :partial=>"user_information"%>
       
@@ -649,11 +650,19 @@ window.open("http://<%=request.host_with_port%>/add_the_artwork_for_compp","mywi
 	
 	// The most basic form of using the inPlaceEditor
 	
-	$("#full_name").editInPlace({
+	$("#first_name").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: '/change_profile/'+document.getElementById('exh_display_list').value
 		 
 	});
+	
+	$("#last_name").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	
 	
 	$("#email_address").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
