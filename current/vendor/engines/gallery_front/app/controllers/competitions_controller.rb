@@ -91,6 +91,16 @@ class CompetitionsController < ApplicationController
   
   
   end
+  
+  def show_competition
+     competition = Competition.find(params[:id])
+      render :update do |page|
+         
+        page['container'].replace_html(:partial=>"show_competition",:locals=>{:competition=>competition})
+      end
+  end
+  
+  
 	def create_subscribe_competition
 		@competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:competion_id])
    
@@ -350,14 +360,18 @@ class CompetitionsController < ApplicationController
     if params[:useridc].blank?
     
     render :update do |page|
-      page["enterintocompetitionfront"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
-      page["enterintocompetition"].show
-      page["list_show"].hide
-      page["buylist"].hide
+      
+     # page["enterintocompetitionfront"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
+     # page["enterintocompetition"].show
+     # page["list_show"].hide
+     # page["buylist"].hide
+       page["container"].replace_html :partial=>"show_comppayment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}     
+     
     end
    else
         render :update do |page|
-      page["fragment-3"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
+          
+       page["fragment-3"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
         end
     end
    
