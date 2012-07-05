@@ -1,21 +1,14 @@
  
  
  
- <script>
-	$(function() {
-		$( "#tabs" ).tabs();
-	});
-	</script>
+ 
 
 
 <script>
-  $(document).ready(function()
-    {
-     // $("#invoicess").tablesorter();
-    }
-);
+ 
 
   $(document).ready(function(){
+    $( "#tabs" ).tabs();
 	  <%if logged_in?%>
 	// All examples use the commit to function interface for ease of demonstration.
 	// If you want to try it against a server, just comment the callback: and 
@@ -82,7 +75,7 @@
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: '/change_profile/'+"<%=current_user.profile.id%>"
 		 
-	});
+       });
 	
 	<%end%>
 	
@@ -156,9 +149,34 @@
                 
                 	</div>
 	<div id="tabs-3">
-		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-	</div>
+          
+	                               
+         <%for compuser in @competitionuserenteredlist%>
+                <div>
+                     <%=compuser.competition.title%>
+                     <%if !compuser.blank?%>
+                     
+                          Click <%=link_to_remote "Here", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=compuser.id"
+                                %>  To Edit your entry
+                        <br/>    
+                 
+                        Click<%=link_to_remote " Here", :update => "",:url => "/edit_images_frontbrowse/#{compuser.competition.id}?order_id=compuser.id}"
+                             %>  to browse all works
+                       <br/>
+                       Click<%=link_to_remote " Here", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>  to enter more artworks
+                       <br/>
+                      <%end%>
+                     </div>
+                 <div id="show_competition<%=compuser.id%>">
+             
+                       
+                </div>
+         <%end%> 
+        
+        
+        
+        </div>
 </div>
 
 </div><!-- End demo -->
