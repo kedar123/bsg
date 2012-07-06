@@ -137,6 +137,7 @@ background:url('/images/item4.gif');
 	width:960px;
 	margin:0px auto 0px 204px;
 	overflow:hidden;
+        float:left;
 }
 #container-2
 {

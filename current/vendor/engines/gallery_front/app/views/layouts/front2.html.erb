@@ -4,63 +4,76 @@
 <title>login</title>
  
 <link type="text/css" href="/stylesheets/login1.css" rel="stylesheet" />
+<link type="text/css" href="/stylesheets/drop.css" rel="stylesheet" />
 
 <link type="text/css" href="/stylesheets/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
 <script type="text/javascript" src="/javascripts/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/javascripts/jquery-ui-1.8.21.custom.min.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
-
+<script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
  
 
 <script type="text/javascript">
-			$(function(){
- 		// Tabs
-				$('#tabs').tabs();
+            $(function(){
+         // Tabs
+                $('#tabs').tabs();
 
  
-			});
+            });
 </script>
-		
+        
 
 
 
 </head>
 <body>
 <div id="header">
-	<div id="PageDiv">
-    	<div class="logo"></div>
-        	<div id="nav">
-				<ul>
-					<li><a href="">HOME</a></li>
-					<li><a href="">EXHIBITIONS</a></li>
-					<li><a href="">ART</a></li>
+    <div id="PageDiv">
+        <div class="logo"></div>            
+        </div>
+     </div>
+  <div class="shadow">
+            <nav> 
+            <ul>
+            <li><a href="#">Home</a></li>
+             
+            <li><a href="#">Exhihibition</a>
+                <ul>
+                    <li><a href="#">Another One</a></li>
+                    <li><a href="#">Another Two</a></li>
+                    <li><a href="#">Another Three</a></li>
+                    <li><a href="#">Another Four</a></li>
+                                 </ul> 
+                        </li>
+                          <li><a href="">ART</a></li>
                                         <li><a href="#" onclick="$('#competitionlist').slideToggle(500);">COMPETITIONS</a></li>
                                           
                                         
                                         
-					<li><a href="">THINGS</a></li>
-                    <li><a href="">MY PAGE</a></li>
+                    <li><a href="">THINGS</a></li>
+                    
                      <li><%= current_user ? " #{@current_user.profile.full_name}" : '' %></li>
                      <li> <%if !current_user %> 
-                                                    <%if  params[:action].to_s == 'login'%>	
+                                                    <%if  params[:action].to_s == 'login'%>    
                                                            <a href="/login" ><font color=white>Login</font></a>
                                                     <%else%>
                                                            <a href="/login"><b><font color=grey>Login</font></b></a>
                                                     <%end%>
-		                            <%else%>
-			                             <a href="/logout/<%=current_user.id%>"><font color=grey>Logout</font></a>
-		                            <%end%>
-                    </li>                                 
-				</ul>
-			</div>
-        
-		</div>
- 	</div>
-  <%= yield %>	
+                                    <%else%>
+                                         <a href="/logout/<%=current_user.id%>"><font color=grey>Logout</font></a>
+                                    <%end%>
+                    </li>
+                    
+                        
+            </ul>
+        </nav>
+        <div class="sh_bottom"></div> <!-- Used for the drop shadow -->
+    </div>
+  <%= yield %>    
   
 
 <div id="footer">
-	<div class="footer-text">BRUNSWICK STREET GALLERY | 322 BRUNSWICK STREET, FITZROY, 3065 | 0419 390 478 | mark@bsgart.com.au</div>
+    <div class="footer-text">BRUNSWICK STREET GALLERY | 322 BRUNSWICK STREET, FITZROY, 3065 | 0419 390 478 | mark@bsgart.com.au</div>
 </div>
 </body>
 </html>
