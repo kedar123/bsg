@@ -9,7 +9,19 @@ body {
 	background: #2B2D2C url('/images/backback.png');
 }
 
-
+input
+ {
+ 	background:#FFFFFF;
+	height:29px;
+	border: 1px solid #CCCCCC;
+	border-radius:5px 5px 5px 5px;
+	padding:0px 10px 0px 10px ;
+	margin:0px 0px 10px 0px ;
+        -moz-box-shadow: 3px 3px 4px #b5b4b4;
+        -webkit-box-shadow: 3px 3px 4px #b5b4b4;
+        box-shadow: 3px 3px 4px #b5b4b4;
+ 
+ }
 
 
 .spacet {
@@ -52,7 +64,11 @@ a:hover {color: #333;text-decoration: underline;}
 
 img {border:none;}
 
-th, th a{color:#F79646;text-align:left;}
+th, th a{color:#F79646;text-align:left;
+    font-size: 13px;
+    font-weight: normal;
+    padding-right: 40px;
+    text-align: left;}
 th a:hover{background-color:transparent !important; color:#F79646 !important; text-transform:none !important;}
 
 h1 {
@@ -186,6 +202,7 @@ Inherited frombutton.submitButton
 }
 .ajax_hint_message p{
 	margin-top:0;
+	
 }
 
 .inputspace{
@@ -231,6 +248,11 @@ Inherited frombutton.submitButton
 	margin-top:13px;
 	color:#fff;
 	overflow:hidden;
+	
+        font-size: 13px;
+        font-weight: normal;
+        padding-right: 40px;
+        text-align: left;
 }
 
 #container { 
@@ -709,6 +731,10 @@ ul#tabs li.selected{
 }
 .itemInListActions {float:left;}
 
+.ico {
+    padding: 5px 5px 0 0;
+}
+
 .itemInListActions a:hover, .blockBody a:hover, .workspaceActions a:hover, .superadmin a:hover, .itemShowRightBlock a:hover{
 	background-color:#F79646;
 	color:#fff;
@@ -1022,7 +1048,19 @@ a.filter{
 .workspaceWithRole{ list-style:none; padding-left:25px;padding-top:10px;}
 .roleList{margin-top:50px;}
 .userDetails{padding-top:0px;}
-.userDetails p{overflow:hidden;}
+.userDetails p{
+overflow:hidden;
+background:#FFFFFF;
+	height:29px;
+	border: 1px solid #CCCCCC;
+	border-radius:5px 5px 5px 5px;
+	padding:0px 10px 0px 10px ;
+	margin:0px 0px 10px 0px ;
+        -moz-box-shadow: 3px 3px 4px #b5b4b4;
+        -webkit-box-shadow: 3px 3px 4px #b5b4b4;
+        box-shadow: 3px 3px 4px #b5b4b4;
+        width:315px;
+}
 
 /*		Comments		*/
 		

@@ -1,20 +1,144 @@
-  
-<% blank_main_div(:title =>"Contacts list (#{@num} results)", :hsize => 'sevenH') do %>
-  <%if params[:action] == 'filter'%>
-<div id="makemeuprightcorner" style="padding-left:800px;margin-top:-25px;position:absolute;color:black;">
-  <a href="#" onclick="document.forms['submitnewsletter'].submit();" >News Letter</a>
-  
-   &nbsp;&nbsp;<%=link_to_remote "Compose Email",:url=>"/compose_email_to_selected_people?cat_id=#{params[:category_ids]}",:update => 'modal_space',:method=>:get%>
-  </div>
-  <%end%>
+ 
 
+<%image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']%>
+<%size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']%>
+<%title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']%>
+<%medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']%>
+<%price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']%>
+<%imgname=[]%>       
+<%sizename=[]%>
+<%titlename=[]%>
+<%mediumname=[]%>
+<%pricename=[]%> 
+ 
+<script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
+
+        <link rel="stylesheet" href="/stylesheets/jquery.fancybox.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="javascript"> 
+  
+  function showhidesentinbox(divid){
+    if (divid == "inbox")
+    {
+      document.getElementById("sent").style.display = "none";
+      document.getElementById("inbox").style.display = "block";
+    }
+    if (divid == "sent")
+    {
+      document.getElementById("inbox").style.display = "none";
+      document.getElementById("sent").style.display = "block";
+    }  
+  }
+  
+  
+  function ntoggle() {
+    var ele = document.getElementById("noticeToggle");
+    var text = document.getElementById("displayText");
+    if(ele.style.display == "block") {
+      ele.style.display = "none";
+    }
+    else {
+      ele.style.display = "block";
+    }
+  }
+  function comptoggle(comid) {
+    var ele = document.getElementById("comp"+comid);
+
+    if(ele.style.display == "block") {
+      ele.style.display = "none";
+    }
+    else {
+      ele.style.display = "block";
+    }
+  }
+  
+  function exhitoggle(exhiid){
+    var ele = document.getElementById("exhi"+exhiid);
+    if(ele.style.display == "block") {
+      ele.style.display = "none";
+    }
+    else {
+      ele.style.display = "block";
+    }
+  }
+  
+</script>
+
+
+<div id="tabass">
+  <ul>
+    <li><a href="#fragment-1"><span>Contacts</span></a></li>    
+    <li><a href="#fragment-2"><span>Exhibition</span></a></li>
+    <li><a href="#fragment-3"><span>Competition</span></a></li>
+    <li><a href="#fragment-4"><span>Artworks</span></a></li>
+    <li><a href="#fragment-5"><span>Invoice</span></a></li>
+    <li><a href="#fragment-6"><span>Mail</span></a></li>
+
+<span id="current_symbol" style="padding-left:25px;"> 
+
+<img class = "ico" width="20" height="20" border="0" style="float:middle" usemap="#map49" alt="N" src="/images/item2ad.gif">
+<img class = "ico" width="20" height="20" border="0" style="float:middle" usemap="#map49" alt="N" src="/images/item2d.gif">
+<%#=link_to_remote  image_tag("/images/item2ad.gif",  :width =>"20", :height =>"20", :border =>"0"  ), :update => "",
+   # :url => { :controller=> "admin/profiles",:action => "edit", :id => @current_object.user.id },:method=>:get
+        
+%>
+<%#=link_to_remote  image_tag("/images/item2d.gif", :height => '20', :width => '20', :title=>"Compose Mail"), :update => "",
+   # :url => { :controller=> "admin/profiles",:action => "compose_mail", :id => @current_object.user.id },:method=>:get
+    
+
+</span>
+  
+<span id="current_exhibition" style="padding-left:50px;">  
+         <%#if current_user.login=="admin" || current_user.login=="superadmin"%>
+
+            
+<%#=link_to_remote  image_tag("/images/exh.jpeg", :height => '15', :width => '15',:title=>"Add To New Exhibition"),  
+   # :url => new_admin_workspace_exhibition_path(profile_workspace.id) , :method=>:get
+%>
+ 
+<%#=link_to_remote  image_tag("/images/exhcreat.jpeg", :height => '15', :width => '15',:title=>"Add To Existing Exhibition"),  
+   # :url => "/admin/exhibitions/all_exh_list" , :method=>:get
+%>
+
+
+         <%#end%>
+       
+
+</span>
+<span id="current_competition" style="padding-left:100px;"> 
+
+
+<%#=link_to_remote  image_tag("/images/comp.jpeg", :height => '15', :width => '15',:title=>"Add To Competition"),  
+    #:url => "/show_all_competition" , :method=>:get
+%>
+
+<%#=link_to_remote  image_tag("/images/button.png", :height => '15', :width => '15'),  
+    #:url => "/show_list_of_comp_exh" , :method=>:get
+%>
+
+ 
+
+</span>
+
+
+
+  </ul>
+  <div style="font-size:10px;">
+
+
+    
+
+
+    <div id="fragment-1"  >
+    
   <table id="profiles">
     <thead>
         <tr>
           <th>First name</th>
           <th>Last name</th>
           <th>Email</th>
-          <th>&nbsp  State</th>
+          <th>Phone</th>
           
         </tr>
     </thead>
@@ -25,12 +149,12 @@
               <td><%=link_to profile.first_name , admin_profile_path(profile.id)%></td>
               <td><%=link_to profile.last_name , admin_profile_path(profile.id)%></td>
               <td><%=link_to profile.email_address, admin_profile_path(profile.id) %></td>
-              <td><%=h profile.country_state %></td>
+              <td><%=h profile.phone_number %></td>
              <%else%>
               <td><%=link_to profile.first_name , '' %></td>
               <td><%=link_to profile.last_name , ''%></td>
               <td><%=link_to profile.email_address, '' %></td>
-              <td><%=h profile.country_state %></td>
+              <td><%=h profile.phone_number %></td>
             <%end%>
 
 
@@ -62,41 +186,14 @@
                           </form>
                         </div>
             
-<% end %>
+<%# end %>
 
                
                
               
               
-<%if params[:action] != 'filter'%>
-<div class="rightBlocks">
-	<div class="itemShowRightBlock">
-	    <div class="blockCornerLeft"></div><div class="blockElementHeader twoH">
-			Actions
-		</div><div class="blockCornerRight"></div>
-	    <div class="blockElementBody">
-	        <%= link_to I18n.t('user.new.add_user'), new_admin_user_path %><br /><br />
-			Filter the list with text <br />
-			<input id="filter223" /><br /><br />
-                        Filter the list by categories <br />
-                        <div id="filterthecategory">
-                        <%#= link_to 'All', admin_profiles_path %>
-                        <%# Category.all.each do |cat| %>
-                          <%#= link_to cat.name, admin_profiles_path(:category => cat.id) %>
-                        <%# end %>
-                        <% form_for 'filter', :url => filter_admin_profiles_path, :html => { :method =>:post } do |f| %>
-                          <%= select_tag "category_ids[]", options_from_collection_for_select(Category.all, 'id', 'name', :selected => @filters), :multiple => true, :size => 6,:class=>"collectionlist" %>
-                          <%= f.submit 'filter', :class => "submitfilter" %>
-                        <% end %>
-                        </div>
-          
-             </div>
-                
-                
-	</div>
-</div>
-<%end%>
 
+</div></div>
 
 <script>
   $(document).ready(function()
@@ -124,4 +221,165 @@
 
     }
 );
+</script></span>
+
+      
+      
+    </div>
+
+
+ <script>
+			$(document).ready(function(){
+			 	$(".group4").colorbox({rel:'group4', slideshow:true});
+   			});
+		</script>
+
+    <div id="fragment-2"  >
+           
+                
+      
+    </div>
+    <div id="fragment-3"  >
+      <div style="float:right;">
+       
+        
+
+    </div>
+
+
+
+    <div id="fragment-4"  >
+   
+    </div>
+
+
+
+    <div id="fragment-5" >
+      
+    </div>
+
+
+
+    <div id="fragment-6" >
+      
+    </div><%#fragment 6%>
+
+
+
+    <div id="fragment-7" >
+
+      
+    </div>
+
+    <div id="fragment-8" >
+
+    
+     
+
+</div>
+
+<%#*<script>%>
+<%#*$(document).ready(function() {%>
+<%#*$("#emails").;%>
+<%#*});%>
+<%#*</script>%>
+
+
+<script>
+  $(document).ready(function()
+    {
+     // $("#invoicess").tablesorter();
+    }
+);
+  $(document).ready(function(){
+	
+	// All examples use the commit to function interface for ease of demonstration.
+	// If you want to try it against a server, just comment the callback: and 
+	// uncomment the url: lines.
+	
+	// The most basic form of using the inPlaceEditor
+	
+	$("#first_name").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#last_name").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	
+	
+	$("#email_address").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#phone_number").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#website").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#address").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#suburb").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#zip_code").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#country_state").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	$("#country").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 url: '/change_profile/'+document.getElementById('exh_display_list').value
+		 
+	});
+	
+	
+	
+	
+	
+ });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
