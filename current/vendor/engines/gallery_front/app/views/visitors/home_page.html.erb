@@ -152,19 +152,19 @@
           
 	                               
          <%for compuser in @competitionuserenteredlist%>
-                <div>
+                <div style="clear:both">
                      <%=compuser.competition.title%>
                      <%if !compuser.blank?%>
                      
-                          Click <%=link_to_remote "Here", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=compuser.id"
-                                %>  To Edit your entry
+                         <%=link_to_remote "DETAIL", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=#{compuser.id}"
+                                %>  
                         <br/>    
                  
-                        Click<%=link_to_remote " Here", :update => "",:url => "/edit_images_frontbrowse/#{compuser.competition.id}?order_id=compuser.id}"
-                             %>  to browse all works
+                     <!--   <%=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>   -->
                        <br/>
-                       Click<%=link_to_remote " Here", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
-                             %>  to enter more artworks
+                        <%=link_to_remote "Add", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>   
                        <br/>
                       <%end%>
                      </div>

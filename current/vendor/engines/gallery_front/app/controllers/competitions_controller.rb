@@ -1141,7 +1141,7 @@ end
 
       p "sending the emaillll"
       email= UserMailer.create_send_invoice(invoice,@current_user)
-      UserMailer.deliver(email)
+      #UserMailer.deliver(email)
 
     rescue
     end
@@ -1171,7 +1171,7 @@ end
        # page["enterintocompetition"].show
        # page["list_show"].hide
        # page["buylist"].hide
-          
+       page["show_competition"+@order.id.to_s].replace_html :partial=>"edit_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
       end
      else
          render :partial=>"edit_compitition_paymentp",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
@@ -1290,6 +1290,19 @@ end
   end  
 =end
 
+  
+  
+  #this method is for updating the value
+  def edit_inplace_comp
+    p params
+    p "paramsssss"
+    render :nothing=>true
+  end
+  
+  
+  
+  
+  
   #here just get the details of that artwork 
  def edit_comp_image_edit_com
    p params
@@ -1403,31 +1416,40 @@ end
       if ((@competitions_user.total_entry == nil) or (@competitions_user.total_entry == 0))
         page.alert("Please Pay For One Entry")
       else
-        for updateimage in @image_array
-          if @image_array[counttodisplayviwform] == updateimage
-            page["add_the_artwork"+((@image_array.index  updateimage)  ).to_s].replace_html  :partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +  1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>true,:messageforimageuploaded=>nil}
-          else
-            page["add_the_artwork"+((@image_array.index updateimage) ).to_s].replace_html 	:partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +   1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>false,:messageforimageuploaded=>nil}
-          end
-          page["enterartworkcompetition"].show
-          page["enterintocompetition"].hide
-          page["buylist"].hide
-          page["list_show"].show
-          page["add_the_artwork"+((@image_array.index updateimage) ).to_s].show
-          page["iteam_image"+((@image_array.index updateimage) ).to_s].show
-          i=i+1
-          break if @competitions_user.total_entry.to_i == i
-        end
+        page['show_competition'+@competitions_user.id.to_s].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
+#        for updateimage in @image_array
+#          if @image_array[counttodisplayviwform] == updateimage
+#            page["add_the_artwork"+((@image_array.index  updateimage)  ).to_s].replace_html  :partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +  1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>true,:messageforimageuploaded=>nil}
+#          else
+#            page["add_the_artwork"+((@image_array.index updateimage) ).to_s].replace_html 	:partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +   1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>false,:messageforimageuploaded=>nil}
+#          end
+          #page["enterartworkcompetition"].show
+          #page["enterintocompetition"].hide
+          #page["buylist"].hide
+          #page["list_show"].show
+          #page["add_the_artwork"+((@image_array.index updateimage) ).to_s].show
+          #page["iteam_image"+((@image_array.index updateimage) ).to_s].show
+          #i=i+1
+#          break if @competitions_user.total_entry.to_i == i
+#        end
         #currently im hiding here the biography and thanku notes if they are shown but this need to be tested. and need to create some extra  add_the_artwork div
         #after the flow is approved for salving the error
-        page["iteam_image"+(@competitions_user.total_entry.to_i).to_s].hide
-        page["iteam_image"+(@competitions_user.total_entry.to_i+1).to_s].hide
+        #page["iteam_image"+(@competitions_user.total_entry.to_i).to_s].hide
+        #page["iteam_image"+(@competitions_user.total_entry.to_i+1).to_s].hide
         #page.alert(alertmessage)
       end
 
     end
   end
 
+ 
+ #this method i am writting for edit a particular image in front end for competition
+ def edit_particular_image
+      
+ end
+ 
+ 
+ 
    
   #This is for browsing images....
   

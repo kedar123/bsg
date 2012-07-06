@@ -51,6 +51,8 @@ ActionController::Routing::Routes.draw do |map|
   
   
   map.connect "/create_subscribe_competition_front_edit",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
+  map.connect "/create_subscribe_competition_front_edit/:id",:controller=>"competitions",:action=>"create_subscribe_competition_front_edit"
+
   map.connect "/edit_comp_image_edit_com" ,:controller=>"competitions",:action=>"edit_comp_image_edit_com"
   map.connect "/add_the_artwork_for_comp",:controller=>"competitions",:action=>"add_the_artwork_for_comp"
   map.connect "/add_the_artwork_for_compp",:controller=>"competitions",:action=>"add_the_artwork_for_compp"
@@ -139,9 +141,14 @@ ActionController::Routing::Routes.draw do |map|
    
   map.connect "/competitions/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
   map.connect "/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
-   map.connect "/competitions/edit_images_frontbrowse",:controller=>"competitions",:action=>"edit_images_frontbrowse"
-  map.connect "/edit_images_frontbrowse",:controller=>"competitions",:action=>"edit_images_frontbrowse"
+  map.connect "/edit_images_front/:id",:controller=>"competitions",:action=>"edit_images_front"
+  
+  map.connect "/competitions/edit_particular_image",:controller=>"competitions",:action=>"edit_particular_image"
+  map.connect "/competitions/edit_images_frontbrowse",:controller=>"competitions",:action=>"edit_images_frontbrowse"
 
+  map.connect "/competitions/edit_images_frontbrowse/:id",:controller=>"competitions",:action=>"edit_images_frontbrowse"
+  
+  
   map.connect "/competitions/add_the_artwork_link",:controller=>"competitions",:action=>"add_the_artwork_link"
   map.connect "/add_the_artwork_link",:controller=>"competitions",:action=>"add_the_artwork_link"
   map.connect "/competitions/delete_old_competitionuserdata",:controller=>"competitions",:action=>"delete_old_competitionuserdata"
@@ -199,6 +206,9 @@ ActionController::Routing::Routes.draw do |map|
   
   
   map.connect "/edit_inplace",:controller=>"admin/artworks",:action=>"edit_inplace"
+  
+  map.connect "/edit_inplace_comp",:controller=>"competitions",:action=>"edit_inplace_comp"
+
   map.connect "/admin/artworks_competitions/artworks_competitions_winner_message/:id/message/:message",:controller=>"admin/artworks_competitions",:action=>"artworks_competitions_winner_message"
   map.connect "/admin/artworks_competitions/artworks_competitions_winner_message/:id/message/",:controller=>"admin/artworks_competitions",:action=>"artworks_competitions_winner_message"
   
