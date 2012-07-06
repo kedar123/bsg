@@ -88,10 +88,10 @@
 <div id="container">
 
 <%if logged_in?%>
-<div class="demo" style="width:80%;padding-left:10%">
+<div class="demo" style="width:80%;padding-left:10%;padding-top:2%">
 
 <div id="tabs">
-    <div style="background-color: black; margin-left: 526px;margin-top: -47px;position: absolute;width: 150px;display:none;color:white;" id="competitionlist">
+    <div style="background-color: black;color: white;display: none;font-size: 10px;margin-left: 658px;margin-top: -31px;position: absolute;width: 109px;" id="competitionlist" >
             <%for comp in @competitions%>
                                         <div> 
                                           <%=link_to_remote comp.title, :url=>"/show_competition/#{comp.id}",:update => '', :html => { :style  => "color:white" }%>
