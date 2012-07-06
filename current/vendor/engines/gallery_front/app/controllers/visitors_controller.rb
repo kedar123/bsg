@@ -13,8 +13,8 @@ class VisitorsController < ApplicationController
                 
 		@pramoting_stuff = PromotingStuff.find(:all,:limit=>3,:order=>"created_at desc")
 		
-		
-		
+		@competitions = Competition.all.sort {|x,y| x.title <=> y.title }
+             
 		@front_image = Frontendpic.find(:all,:conditions =>[" selectpic = ? ",1],:order=>"created_at desc", :limit=>3)
     p "checking images on front page 44444444444$$$$$$$$$$$$$$$$$"
     p @front_image
@@ -39,6 +39,12 @@ class VisitorsController < ApplicationController
       end
      render :layout=>"front2"
   end
+  
+  
+  
+  
+  
+  
   
   
   def show_exh_images
@@ -68,6 +74,8 @@ class VisitorsController < ApplicationController
 	end
 	
 	def login
+    	@competitions = Competition.all.sort {|x,y| x.title <=> y.title }
+	
     #self.current_user = User.find_by_email("kedar.pathak@pragtech.co.in")
     #p "im logged in"
     #p logged_in?  

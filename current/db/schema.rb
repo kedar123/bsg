@@ -100,11 +100,6 @@ ActiveRecord::Schema.define(:version => 20120704065936) do
     t.string   "sales_person"
     t.integer  "sales_person_commission"
     t.boolean  "sales_person_commission_paid"
-    t.integer  "artists_comm"
-    t.boolean  "artists_comm_paid"
-    t.string   "artists_sales_prsn"
-    t.integer  "sales_person_comm"
-    t.boolean  "sales_person_comm_paid"
   end
 
   add_index "artworks", ["user_id"], :name => "index_artworks_on_user_id"

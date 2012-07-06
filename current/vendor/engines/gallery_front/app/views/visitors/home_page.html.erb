@@ -1,23 +1,15 @@
  
- <script type="text/javascript" src="/javascripts/jquery.editinplace.js"></script>
  
  
- <script>
-	$(function() {
-		$( "#tabs" ).tabs();
-	});
-	</script>
+ 
 
 
 <script>
-  $(document).ready(function()
-    {
-     // $("#invoicess").tablesorter();
-    }
-);
-  <%if logged_in?%>
+ 
+
   $(document).ready(function(){
-	
+    $( "#tabs" ).tabs();
+	  <%if logged_in?%>
 	// All examples use the commit to function interface for ease of demonstration.
 	// If you want to try it against a server, just comment the callback: and 
 	// uncomment the url: lines.
@@ -83,7 +75,7 @@
 		//callback: function(unused, enteredText) { return enteredText; },
 		 url: '/change_profile/'+"<%=current_user.profile.id%>"
 		 
-	});
+       });
 	
 	<%end%>
 	
@@ -93,12 +85,22 @@
 </script>
 
 
-
+<div id="container">
 
 <%if logged_in?%>
 <div class="demo" style="width:80%;padding-left:10%">
 
 <div id="tabs">
+    <div style="background-color: black; margin-left: 526px;margin-top: -47px;position: absolute;width: 150px;display:none;color:white;" id="competitionlist">
+            <%for comp in @competitions%>
+                                        <div> 
+                                          <%=link_to_remote comp.title, :url=>"/show_competition/#{comp.id}",:update => '', :html => { :style  => "color:white" }%>
+                 
+                                        
+                                        </div>
+                                         
+            <%end%>                              
+          </div>
 	<ul>
 		<li><a href="#tabs-1">Details</a></li>
 		<li><a href="#tabs-2">Exhibitions</a></li>
@@ -108,8 +110,7 @@
                 
 	</ul>
 	<div id="tabs-1">
-		<p class="exhtitle" style="color:#F6921E">Proin elit arcu, rutrum commodo, vehicula tempus lectus.</p>
- 
+		 
                <%=render :partial=>"user_details"%>
  
                 
@@ -131,7 +132,12 @@
                         <%=link_to_remote "ADD WORKS", :url=>"/add_exh_artwork/#{eu.exhibition.id}",:update => ''%>
                      
                        
-                       &nbsp;&nbsp;|&nbsp;&nbsp;PAY&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#"> INVOICE</a></p>
+                       &nbsp;&nbsp;|&nbsp;&nbsp;
+                       <%#the pay link here should bring here payment partial in the div of %>
+                         
+<%=link_to_remote "PAY", :url=>"/admin/profiles/exhibition_payment_front/#{eu.id}",:update => '', :method => :get%>
+         
+                       &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#"> INVOICE</a></p>
                      <div id="detailsofexh<%=eu.exhibition.id%>">
                      </div>  
                      
@@ -143,9 +149,34 @@
                 
                 	</div>
 	<div id="tabs-3">
-		<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-		<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-	</div>
+          
+	                               
+         <%for compuser in @competitionuserenteredlist%>
+                <div>
+                     <%=compuser.competition.title%>
+                     <%if !compuser.blank?%>
+                     
+                          Click <%=link_to_remote "Here", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=compuser.id"
+                                %>  To Edit your entry
+                        <br/>    
+                 
+                        Click<%=link_to_remote " Here", :update => "",:url => "/edit_images_frontbrowse/#{compuser.competition.id}?order_id=compuser.id}"
+                             %>  to browse all works
+                       <br/>
+                       Click<%=link_to_remote " Here", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>  to enter more artworks
+                       <br/>
+                      <%end%>
+                     </div>
+                 <div id="show_competition<%=compuser.id%>">
+             
+                       
+                </div>
+         <%end%> 
+        
+        
+        
+        </div>
 </div>
 
 </div><!-- End demo -->
@@ -161,30 +192,33 @@
 <div id="PageDiv1">
 	<form><div id="container-2">
     	<div id="item4">
-        
+        <%if @front_image[2]%>
     	<div class="left1">
     	
     	
-    		<img src="/system/front_end_pics/<%=@front_image[2].id%>/large/<%=@front_image[2].front_end_pics_file_name%>" width="251" height="229">
+    		<img src="/system/front_end_pics/<%=@front_image[2].id  %>/large/<%=@front_image[2].front_end_pics_file_name%>" width="251" height="229">
 		<div class="heading1">
 		<div class="desc">
 		<!--SMALL WORKS-->
 		
-		<%=@pramoting_stuff[2].title%> 
+		<%=@pramoting_stuff[2].title if @pramoting_stuff[2]%> 
 		</div>
 		</div>
 		
 		<div class="style65">
-		<%=@pramoting_stuff[2].details%> 
+		<%=@pramoting_stuff[2].details if @pramoting_stuff[2] %> 
 		<!--$10,000 Prize and Competition-->
 		</div>
 		
 		<div class="style63">
 	<!--	Calling for entries -->
-	        <%=@pramoting_stuff[2].description%>
+	        <%=@pramoting_stuff[2].description if @pramoting_stuff[2]%>
 		</div>
 		
     	</div>
+          <%end%>
+          <%if @front_image[1]%>
+    	
     	<div class="middle1">
     	<img src="/system/front_end_pics/<%=@front_image[1].id%>/large/<%=@front_image[1].front_end_pics_file_name%>"
     	width="251" height="229">
@@ -192,43 +226,46 @@
     		
 		<div class="heading1">
 		<div class="desc">
-		<%=@pramoting_stuff[1].title%>
+		<%=@pramoting_stuff[1].title if @pramoting_stuff[1]%>
 	<!--	PAPER DOLLS-->
 		</div>
 		</div>
 		
 		<div class="style65">
 	<!--	Calling for entries -->
-	        <%=@pramoting_stuff[1].details%>
+	        <%=@pramoting_stuff[1].details if @pramoting_stuff[1]%>
 		</div>
 		<div class="style63">
 	<!--	Calling for entries -->
-	        <%=@pramoting_stuff[1].description%>
+	        <%=@pramoting_stuff[1].description if @pramoting_stuff[1]%>
 		</div>
 		
     	</div>
-       
+       <%end%>
+           <%if @front_image[0]%>
+    	
        <div class="right1">
     	<img src="/system/front_end_pics/<%=@front_image[0].id%>/large/<%=@front_image[0].front_end_pics_file_name%>"
     	width="251" height="229">
 		<div class="heading1">
 		<div class="desc">
-		<%=@pramoting_stuff[0].title%>
+		<%=@pramoting_stuff[0].title if @pramoting_stuff[0]%>
 	<!--	1to10 -->
 		</div>
 		</div>
 		
 		<div class="style65">
-		<%=@pramoting_stuff[0].details%>
+		<%=@pramoting_stuff[0].details if @pramoting_stuff[0]%>
         <!--	10 Photographers -->
 		</div>
 		<div class="style63">
 	<!--	Calling for entries -->
-	        <%=@pramoting_stuff[0].description%>
+	        <%=@pramoting_stuff[0].description if @pramoting_stuff[0]%>
 		</div>
     	</div>
-       
+       <%end%>
 
 	</div>
 </div></form></div>
 <%end%>
+</div>

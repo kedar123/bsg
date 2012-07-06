@@ -1,0 +1,13 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<%= competition.title %>
+<br/>
+<%= competition.description %>
+<br/>
+                  
+
+     Click  <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front", :id => competition.id}
+                                %> To Enter the Competition

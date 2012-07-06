@@ -7,6 +7,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :emaillabels
   map.connect "/show_user_type"	,:controller=>"show_user_type",:action=>"index"
   map.connect "/admin/competitions/create_subscribe_competition"	,:controller=>"competitions",:action=>"create_subscribe_competition"
+  map.connect "/show_competition/:id"	,:controller=>"competitions",:action=>"show_competition"
+
+
+
   map.connect "/add_user_to_groupshow/:id"	,:controller=>"groupshows",:action=>"add_user_to_groupshow"
   map.connect "/addusergroupshow/:id"	,:controller=>"groupshows",:action=>"addusergroupshow"
   map.connect "/shoppingcart/add_to_cart/:id",:controller=>"shoppingcart",:action=>"add_to_cart"

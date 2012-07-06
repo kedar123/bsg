@@ -1,0 +1,22 @@
+
+<%for artex in show_exh_images%>
+    <div id="multiline" style="clear:both"> 
+    <p class="detaexhimg" style="float:left;margin-right: 30px;">
+                             <img src="/uploaded_files/development/artwork/<%=artex.id%>/thumb/<%=artex.image_file_name%>" />
+                           </p>
+                           <p id="titlec" class="detaexhtitle" style="float:left;margin-right: 30px;width:30px;"><%=artex.title%></p> 
+                           <p id="titlec" class="detaexhtitle" style="float:left;margin-right: 30px;width:80px;"><%=artex.medium%></p> 
+                           <p id="titlec" class="detaexhtitle" style="float:left;margin-right: 30px;width:50px;"><%=artex.height%>x<%=artex.width%>x<%=artex.depth%></p>
+                           <p id="titlec" class="detaexhtitle" style="float:left;margin-right: 30px;width:80px;"><%=artex.edition_name%> of <%=artex.edition_number%></p> 
+                           <p id="titlec" class="detaexhtitle" style="float:left;margin-right: 30px;width:30px;"><%=artex.price%></p>
+    </div>                       
+ <%end%>                      
+
+<script>
+    $("#titlec").editInPlace({
+                  //callback: function(unused, enteredText) { return enteredText; },
+                   url: "/edit_inplace",
+                  field_type: "select",
+                  select_options: "Unpaid, Paid:paid"
+          });
+</script>

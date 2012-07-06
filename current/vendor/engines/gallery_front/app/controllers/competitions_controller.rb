@@ -91,6 +91,16 @@ class CompetitionsController < ApplicationController
   
   
   end
+  
+  def show_competition
+     competition = Competition.find(params[:id])
+      render :update do |page|
+         
+        page['container'].replace_html(:partial=>"show_competition",:locals=>{:competition=>competition})
+      end
+  end
+  
+  
 	def create_subscribe_competition
 		@competitionuser = CompetitionsUser.find_by_user_id_and_competition_id(current_user.id,params[:competion_id])
    
@@ -350,14 +360,18 @@ class CompetitionsController < ApplicationController
     if params[:useridc].blank?
     
     render :update do |page|
-      page["enterintocompetitionfront"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
-      page["enterintocompetition"].show
-      page["list_show"].hide
-      page["buylist"].hide
+      
+     # page["enterintocompetitionfront"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
+     # page["enterintocompetition"].show
+     # page["list_show"].hide
+     # page["buylist"].hide
+       page["container"].replace_html :partial=>"show_comppayment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}     
+     
     end
    else
         render :update do |page|
-      page["fragment-3"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
+          
+       page["fragment-3"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
         end
     end
    
@@ -519,7 +533,7 @@ class CompetitionsController < ApplicationController
             #@current_object.make_paypal_payment((more_amount * 100),params) 
           end
         else
-        p "aaaaaaaaaaaaaaaaaaa"
+        p "aaaaaaaaaaaaaaaaaaa5366666666666666666"
           render :update do |page|
             page["modal_space_answer"].replace_html  :text=>"You Did not changed the entry field or if  you decremented it then send email to admin  "                                     
             page["show_ajax_request"].hide
@@ -734,18 +748,21 @@ p "aaaaaaaaaaaaqqqqqqqqq"
     render :update do |page|
        if @order.total_entry.to_i > i  
         if params[:user_id].blank?
-          
+          #its because the front end has been changed so nowi need to show all the competition list like exhibitions
+          #then after each competition there is a links for each competition. under each competition there are links for 
+          #add the artwork,edit the artworks,pay extra payment
         p "yes user id is blank"
         # page.alert("Thank you for entering the 2011 Small Works Prize. An invoice has been emailed to you");
         page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i}
-        page["enterintocompetition"].hide
-        page["pleaseaccepttermsandcondition"].hide
-        page["pleaseaccepttccheckbox"].hide
-        page["show_ajax_request"].hide
-        page["list_show"].show
+        page["tabs-3"].replace_html(:partial=>"add_the_artwork",:locals=>{:competition_id => @order.competition_id,:order_id=>@order.id,:messageforimageuploaded=>messageforimageuploaded,:i=>i,:total_entry=>@order.total_entry.to_i})
+        #page["enterintocompetition"].hide
+        #page["pleaseaccepttermsandcondition"].hide
+        #page["pleaseaccepttccheckbox"].hide
+        #page["show_ajax_request"].hide
+        #page["list_show"].show
         
-        page["add_the_artwork0"].show
-        page["iteam_image0"].show
+        #page["add_the_artwork0"].show
+        #page["iteam_image0"].show
         
         #page["add_the_artwork#{i}"].show
         #page["add_the_artwork#{i}"].focus
@@ -755,14 +772,17 @@ p "aaaaaaaaaaaaqqqqqqqqq"
         # page["iteam_image#{j}"].hide
         #end
         else
+          p "aqaqaqsqsqqaqaqaqss"
           if @order.instance_of? CompetitionsUser  
                     #page['fragment-3'].replace_html(:partial=>"admin/profiles/complist")
                     page.redirect_to "/admin/profiles/#{params[:user_id]}" 
+                    page.alert()
              #render :partial=>"admin/profiles/complist"
              p "i am gggggggggggggggggggggggggg"
            end
          end 
       else  
+        p "qaaaaaaaaaaaaaaaaaaqaqaqaqaqaqaqann"
         page.alert("Your Limit Is Over")
         page["messageforimageuploaded"].replace_html "Your Limit Is Over Can Not Save The Image"
       end  
@@ -915,22 +935,24 @@ end
 
           if params[:user_id].blank?
             p "asssssssssssssssss"
-		       page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
+		      ## page["add_the_artwork0"].replace_html :partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id}
            #page["enterintocompetition"].hide
            #page["add_the_artwork#{i}"].hide
 		       #page["click_to_browse_images"].replace_html :partial=>"click_to_browse_images" ,:locals=>{:competition_id=>order.competition_id,:order_id=>order.id}
 		       # page["click_to_browse_images"].show
-           page["list_show"].show
+         ##  page["list_show"].show
            #page["add_the_artwork_to_competition_biography"].hide
-           page["iteam_image0"].show
-           page["add_the_artwork0"].show
-           page["show_ajax_request0"].hide
+         ##  page["iteam_image0"].show
+         ##  page["add_the_artwork0"].show
+         ##  page["show_ajax_request0"].hide
+         page["tabs-3"].replace_html(:partial=>"add_the_artwork",:locals=>{:competition_id => params[:competition_id],:order_id=>order.id,:messageforimageuploaded=>"Your #{title_message_array[i]} Is Saved",:i=>i+1,:total_entry=>order.total_entry.to_i,:com_id=>order.competition.id})
+ 
           else
             p "im from elseeeeeeee"
               page.redirect_to "/admin/profiles/#{params[:user_id]}"
           end   
         else
-          page["show_ajax_request#{i-1}"].hide
+         # page["show_ajax_request#{i-1}"].hide
           page.alert("Your Limit Is Over.Click Browse Image For Updating The Image");
           page["messageforimageuploaded"].replace_html "Artwork Can Not Be Save "
         end
@@ -944,14 +966,15 @@ end
     current_user.profile.save
     order = CompetitionsUser.find(params[:order_id])
     render :update do |page|
-      page["add_the_artwork0"].replace_html order.competition.notes
-      page["pleaseaccepttermsandcondition"].hide
-      page["pleaseaccepttccheckbox"].hide
-      page["show_ajax_request"].hide
-      page["list_show"].show
-      page["iteam_image0"].show
-      page["add_the_artwork0"].show
-      page["show_ajax_request0"].hide
+   #   page["add_the_artwork0"].replace_html order.competition.notes
+   #   page["pleaseaccepttermsandcondition"].hide
+   #   page["pleaseaccepttccheckbox"].hide
+   #   page["show_ajax_request"].hide
+   #   page["list_show"].show
+   #   page["iteam_image0"].show
+   #   page["add_the_artwork0"].show
+   #   page["show_ajax_request0"].hide
+       page["tabs-3"].replace_html order.competition.notes
     end
   end
    
@@ -1144,10 +1167,11 @@ end
     if request.xhr?
      if params[:user_id].blank?
        render :update do |page|
-        page["enterintocompetitionfront"].replace_html :partial=>"edit_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
-        page["enterintocompetition"].show
-        page["list_show"].hide
-        page["buylist"].hide
+       # page["enterintocompetitionfront"].replace_html :partial=>"edit_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
+       # page["enterintocompetition"].show
+       # page["list_show"].hide
+       # page["buylist"].hide
+          
       end
      else
          render :partial=>"edit_compitition_paymentp",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
@@ -1973,7 +1997,7 @@ end
 
 
   def upload_exhibition_artwork
-    
+    p "aaaaaaaaaaaaaaaaaaaaaa"
     artwork = ExhiArtwork.new()
     artwork.title=params[:artwork]["title"]
     if params[:user_id]
@@ -1994,7 +2018,7 @@ end
     artwork.is_purchasable = params[:artwork]["is_purchasable"]
     artwork.exhibition_id = params["exhibition_id"]
     if  artwork.save
-      
+      p "this is saveeeeeeeeeeeeeeee"
      if params[:user_id]
        wcp = Workspace.find(:first, :conditions => { :creator_id => params[:user_id]}).id
      else
@@ -2002,19 +2026,40 @@ end
      end  
        itw=ItemsWorkspace.new(:workspace_id=>wcp,:itemable_type=>"Artwork",:itemable_id=>artwork.id)
       itw.save
+          @artworkexhibition = Artwork.find(:all,:conditions=>["user_id = ? and exhibition_id = ?",current_user.id,params["exhibition_id"]])
+
       responds_to_parent do
         render :update do |page|
+          
          if params[:user_id] 
             page.redirect_to "/admin/profiles/#{params[:user_id]}"
             
          else  
-            page.alert('not uploaded')
-          page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:user_id=>nil,:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
-          page["description_competition_ex_py"].show
+             
+          #page["enterintocompetitionfront"].replace_html :partial=>"upload_image_exhibition",:locals=>  {:user_id=>nil,:exhibition_id=>params["exhibition_id"],:messageforimageuploaded=>"Your Artwork Is Uploaded"}
+          #page["description_competition_ex_py"].show
+               page['detailsofexh'+params[:id]].replace_html(:partial=>"visitors/show_exh_img",:locals=>{:show_exh_images=>@artworkexhibition})
+ 
          end 
         end
-      end          		     
+      end  
+      
+      
+      
+       
+      
+      
+      
+      
+      
+      
+      
     else
+      p "this are errors"
+       artwork.errors.each do |er|
+        p er
+        p "some errors"
+      end
       responds_to_parent do
         render :update do |page|
            if params[:user_id] 

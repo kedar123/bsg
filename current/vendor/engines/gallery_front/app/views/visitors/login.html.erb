@@ -7,6 +7,20 @@
 
 <div id="PageDiv">
 	<div id="contaner">
+          
+          <div style="background-color: black; margin-left: 526px;margin-top: -47px;position: absolute;width: 150px;display:none;color:white;" id="competitionlist">
+            <%for comp in @competitions%>
+                                        <div> 
+                                          <%=link_to_remote comp.title, :url=>"/show_competition/#{comp.id}",:update => '', :html => { :style  => "color:white" }%>
+                 
+                                        
+                                        </div>
+                                         
+            <%end%>                              
+          </div>
+          
+          
+ 
             <% if @current_user.nil? %>
         <% form_for 'session', :url => admin_session_path, :html => { :method => :post,:class=>"login_form" } do |f| %>
          <%if params[:msg] == "buy artwork"%>
