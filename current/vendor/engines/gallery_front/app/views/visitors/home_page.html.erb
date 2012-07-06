@@ -190,6 +190,16 @@
 
 <%else%>
 <div id="PageDiv1">
+    <div style="background-color: black;color: white;display: none;font-size: 10px;margin-left: 594px;margin-top: -1px;position: absolute;width: 109px;" id="competitionlist" >
+            <%for comp in @competitions%>
+                                        <div> 
+                                          <%=link_to_remote comp.title, :url=>"/show_competition/#{comp.id}",:update => '', :html => { :style  => "color:white" }%>
+                 
+                                        
+                                        </div>
+                                         
+            <%end%>                              
+          </div>
 	<form><div id="container-2">
     	<div id="item4">
         <%if @front_image[2]%>
