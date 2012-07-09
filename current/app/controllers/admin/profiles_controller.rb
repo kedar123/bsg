@@ -92,6 +92,8 @@ class Admin::ProfilesController < Admin::ApplicationController
   # GET /profiles
   # GET /profiles.xml
   def index
+     @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",3])
+  
       if  current_user.login == "admin" || current_user.login == "superadmin"
 		    @current_objects = Profile.superadmin_filtered.all(:order => 'first_name asc')
 		    @num = @current_objects.size
@@ -138,6 +140,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   # GET /profiles/1
   # GET /profiles/1.xml
  def show
+     
    if  current_user.login == "admin" || current_user.login == "superadmin"  
     
     @current_object = Profile.find(params[:id])

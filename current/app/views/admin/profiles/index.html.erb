@@ -193,7 +193,48 @@
               
               
 
-</div></div>
+</div>
+  
+   <div id="fragment-2"  >
+     dsxsdxsdx
+     </div>
+   <div id="fragment-3"  >
+                                    
+         <%for compuser in @competitionuserenteredlist%>
+                <div style="clear:both">
+                     <%=compuser.competition.title%>
+                     <%if !compuser.blank?%>
+                     
+                         <%=link_to_remote "DETAIL", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=#{compuser.id}"
+                                %>  
+                        <br/>    
+                 
+                     <!--   <%=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>   -->
+                       <br/>
+                        <%=link_to_remote "Add", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>   
+                       <br/>
+                      <%end%>
+                     </div>
+                 <div id="show_competition<%=compuser.id%>">
+             
+                       
+                </div>
+         <%end%> 
+    
+     
+     
+   </div>
+   <div id="fragment-4"  >
+     wwwwwwwwwazazaz
+     </div>
+   <div id="fragment-5"  >
+     wwwwwwwwwsaxsx
+     </div>
+    
+  
+  </div>
 
 <script>
   $(document).ready(function()
@@ -234,49 +275,20 @@
    			});
 		</script>
 
-    <div id="fragment-2"  >
-           
-                
-      
-    </div>
-    <div id="fragment-3"  >
-      <div style="float:right;">
-       
-        
-
-    </div>
-
-
-
-    <div id="fragment-4"  >
+    
    
-    </div>
 
 
-
-    <div id="fragment-5" >
-      
-    </div>
-
-
-
-    <div id="fragment-6" >
-      
-    </div><%#fragment 6%>
-
-
-
-    <div id="fragment-7" >
-
-      
-    </div>
-
-    <div id="fragment-8" >
 
     
-     
 
-</div>
+
+
+ 
+
+
+
+ 
 
 <%#*<script>%>
 <%#*$(document).ready(function() {%>
