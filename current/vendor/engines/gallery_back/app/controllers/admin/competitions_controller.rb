@@ -210,17 +210,26 @@ class Admin::CompetitionsController < Admin::ApplicationController
 	   before :create do
       
              begin
+               
+             @current_object.title="s"
              @current_object.submission_deadline = Date.civil(params[:competition][:submission_deadline].split("-")[0].to_i,params[:competition][:submission_deadline].split("-")[1].to_i,params[:competition][:submission_deadline].split("-")[2].to_i)
 	          rescue
 	          end
 	   end
       after :create do
+        p "sssssssssssssssssssssssssssssssssqqqqqqqqqaaaaaaaaaddddddzzzzz"
               params.to_hash.each do |key,value|
-                   if key.include? "header"
+                   if key.include? "compdheaderf"
+                      valueid = key[key.length-1,key.length-2]
+                      p valueid
+                      p key
+                      p value
+                     
                       columnnameandheader = Columnnameandheader.new
-                      columnnameandheader.column_name = key.split("header")[1]        
+                      #columnnameandheader.column_name = key.split("header")[1]        
                       columnnameandheader.column_header = value
-                      columnnameandheader.idoffieldwithtablename = (@current_object.id.to_s+"competition")
+                      columnnameandheader.column_value = params["compdheadervalue"+valueid.to_s]
+                       columnnameandheader.idoffieldwithtablename = (@current_object.id.to_s+"competition")
                       columnnameandheader.save
                    end 
                end      
@@ -388,9 +397,44 @@ after :update do
       end    
   end
 
+ def new
+      @current_object = Competition.new
+        columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",@current_object.id.to_s+"competition"])
+	     @oldlabelvalue={}
+	     columnnameandheader.each do |x|   
+	       @oldlabelvalue[x.column_name] = x.column_header
+	     end
+  			@places = Gallery.all
+			@current_object.build_timing if @current_object.timing.nil?
+			@judges = User.find(:all, :conditions => "system_role_id=2 OR system_role_id=#{Role.find_by_name('judge').id}")
+			@current_object.competitions_subscriptions.build if @current_object.competitions_subscriptions.empty?
 
+ 
+     if request.xhr?
+          render :update do |page|
+          page['fragment-3'].replace_html(:partial=>'form')
+          end
+     end
+ 
+ 
+ end
 
-
+  
+ def add_comp_dynamic_field
+      if request.xhr?
+        
+          render :update do |page|
+              
+             page.insert_html :before, 'adddynamiccompetitionfield', :partial => 'dynamic_field'
+             page['adddynamiccompetitionfieldnewvalue'].replace_html(:partial=>'dynamic_hidden_field')
+              
+       end
+     end
+ end
+ 
+ 
+ 
+ 
 	private
 
 	def get_artworks_lists

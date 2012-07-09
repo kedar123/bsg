@@ -77,7 +77,12 @@
 
 <span id="current_symbol" style="padding-left:25px;"> 
 
-<img class = "ico" width="20" height="20" border="0" style="float:middle" usemap="#map49" alt="N" src="/images/item2ad.gif">
+   <%=link_to_remote image_tag("/images/item2ad.gif",:width=>"15",:height=>"15",:alt=>"Not Found"), :update => "",:url =>"/admin/competitions/new",:method=>"get"
+   %>
+    
+<img class = "ico" width="20" height="20" border="0" style="float:middle" usemap="#map49" alt="N" src="/images/item2ad.gif"/>
+
+
 <img class = "ico" width="20" height="20" border="0" style="float:middle" usemap="#map49" alt="N" src="/images/item2d.gif">
 <%#=link_to_remote  image_tag("/images/item2ad.gif",  :width =>"20", :height =>"20", :border =>"0"  ), :update => "",
    # :url => { :controller=> "admin/profiles",:action => "edit", :id => @current_object.user.id },:method=>:get
