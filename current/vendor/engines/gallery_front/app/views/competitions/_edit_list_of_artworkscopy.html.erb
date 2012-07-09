@@ -1,0 +1,95 @@
+<%for updateimage in allartworks %>
+  <span style="clear:both;float:left;margin-right: 60px;width:60px;">
+   <%=link_to_remote image_tag("/system/gallery/#{updateimage[3]}",:width=>"45",:height=>"45",:alt=>"Not Found"), :update => "",:url =>"/competitions/edit_particular_image#{updateimage[7]}?order_id=#{competition_user.id}"
+   %>
+   </span>
+  <span id="update_image_title_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[0]%> </span>
+  <span id="update_image_medium_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[1]%> </span>
+  <span  style="float:left;margin-right: 60px;width:80px;">
+   <span id="update_image_size_0_<%=competition_user.id%>_<%=updateimage[7]%>"><%=updateimage[2].split('x')[0] if updateimage[2]%></span>
+   x
+   <span id="update_image_size_1_<%=competition_user.id%>_<%=updateimage[7]%>"><%=updateimage[2].split('x')[1] if updateimage[2]%></span>
+   x
+   <span id="update_image_size_2_<%=competition_user.id%>_<%=updateimage[7]%>"><%=updateimage[2].split('x')[2] if updateimage[2]%></span> 
+   </span>
+  <span id="update_image_editionname_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[5]%> Of</span>
+  <span id="update_image_editionnumber_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[6]%> </span>
+  <span id="update_image_price_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[4]%> </span>
+ <br/>
+<%end%>
+ <script>
+   
+
+ $(document).ready(function()
+ {        
+	 
+  
+
+<%for updateimage in allartworks %>
+  	 $("#update_image_title_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px'
+	}); 
+  	 $("#update_image_medium_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px'
+	}); 
+  
+   	 $("#update_image_size_0_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px',
+                 default_text: ''
+	}); 
+  
+   	 $("#update_image_size_1_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px',
+                 default_text: ''
+	}); 
+  
+  	 $("#update_image_size_2_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px',
+                 default_text: ''
+	}); 
+  
+  	 $("#update_image_editionname_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px'
+	}); 
+  
+  
+  	 $("#update_image_editionnumber_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px'
+	}); 
+  
+  	 $("#update_image_price_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
+		//callback: function(unused, enteredText) { return enteredText; },
+		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
+		 url: '/edit_inplace_comp',
+                 text_size: '20px'
+	}); 
+  
+       
+<%end%>
+
+
+
+        
+ });
+</script>
