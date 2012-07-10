@@ -113,7 +113,7 @@
               	<select name="competitions_user[total_entry]" id="field-5da43579005846d" onChange="change_entry_fee_value();" style="width:65px;height:25px;margin-right:20px;text-align: center" >
 				        				<option value="0">0</option>
 				    				     <%i=1%>
-				      					    <%competition.entry_fees.each do |x|%>
+				      					    <%entry_fees.each do |x|%>
                   					      <%if i == order.total_entry.to_i%>
 							                  	<option value="<%=i%>" selected="selected"><%=i%></option>
 							                  		<%else%>
@@ -129,8 +129,8 @@
                         <select id ="change_entry_fee" style="width:65px;height:25px;margin-right:25px;text-align: center" disabled="disabled">
                           <option value="0">0</option>  
                            <%totalvalue = 0%>
-                              <%competition.entry_fees.each  do |x|%>
-                                  <%totalvalue = totalvalue + x.split('$')[1].to_i%>
+                              <%entry_fees.each  do |x|%>
+                                  <%totalvalue = totalvalue + x.to_i%>
                                   <option value="<%=totalvalue%>">$<%=totalvalue%></option>
                               <%end%>			
                          </select>  

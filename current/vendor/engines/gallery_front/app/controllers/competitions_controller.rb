@@ -355,6 +355,17 @@ class CompetitionsController < ApplicationController
     if @credit_card.blank?
       @credit_card = CreditCard.new	
     end
+      @entry_fees = []
+    @entry_fees << @competition.firstentry if !@competition.firstentry.blank?
+    @entry_fees << @competition.secondentry if !@competition.secondentry.blank?
+    @entry_fees << @competition.thirdentry if !@competition.thirdentry.blank?
+    @entry_fees << @competition.fourthentry if !@competition.fourthentry.blank?
+    @entry_fees << @competition.fifthentry if !@competition.fifthentry.blank?
+    @entry_fees << @competition.sixthentry if !@competition.sixthentry.blank?
+    @entry_fees << @competition.sevenentry if !@competition.sevenentry.blank?
+    @entry_fees << @competition.eightentry if !@competition.eightentry.blank?
+    @entry_fees << @competition.nineentry if !@competition.nineentry.blank?
+    @entry_fees << @competition.tenentry if !@competition.tenentry.blank?
     session[:purchasable] = @competitionuser
   
     if params[:useridc].blank?
@@ -371,7 +382,7 @@ class CompetitionsController < ApplicationController
    else
         render :update do |page|
           
-       page["fragment-3"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id}
+       page["fragment-3"].replace_html :partial=>"enter_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:order_id=>@competitionuser.id,:entry_fees=>@entry_fees}
         end
     end
    
