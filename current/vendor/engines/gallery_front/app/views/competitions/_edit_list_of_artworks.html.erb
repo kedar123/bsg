@@ -1,95 +1,164 @@
-<%for updateimage in allartworks %>
-  <span style="clear:both;float:left;margin-right: 60px;width:60px;">
-   <%=link_to_remote image_tag("/system/gallery/#{updateimage[3]}",:width=>"45",:height=>"45",:alt=>"Not Found"), :update => "",:url =>"/competitions/edit_particular_image#{updateimage[7]}?order_id=#{competition_user.id}"
+<%#for updateimage in allartworks %>
+
+ <!--
+  <span style="float:left;margin-right: 60px;width:60px;">
+   <%#=link_to_remote image_tag("/system/gallery/#{updateimage[3]}",:width=>"45",:height=>"45",:alt=>"Not Found"), :update => "",:url =>"/competitions/edit_particular_image#{updateimage[7]}?order_id=#{competition_user.id}"
    %>
-   </span>
-  <span id="update_image_title_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[0]%> </span>
-  <span id="update_image_medium_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[1]%> </span>
-  <span  style="float:left;margin-right: 60px;width:80px;">
-   <span id="update_image_size_0_<%=competition_user.id%>_<%=updateimage[7]%>"><%=updateimage[2].split('x')[0] if updateimage[2]%></span>
-   x
-   <span id="update_image_size_1_<%=competition_user.id%>_<%=updateimage[7]%>"><%=updateimage[2].split('x')[1] if updateimage[2]%></span>
-   x
-   <span id="update_image_size_2_<%=competition_user.id%>_<%=updateimage[7]%>"><%=updateimage[2].split('x')[2] if updateimage[2]%></span> 
-   </span>
-  <span id="update_image_editionname_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[5]%> Of</span>
-  <span id="update_image_editionnumber_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[6]%> </span>
-  <span id="update_image_price_<%=competition_user.id%>_<%=updateimage[7]%>" style="float:left;margin-right: 60px;width:60px;"><%=updateimage[4]%> </span>
- <br/>
-<%end%>
- <script>
-   
+   </span> -->
+ 
 
- $(document).ready(function()
- {        
-	 
+<%#end%>
   
+ 
+  
+
+   <div id ="left"  class="compimg" style="float:left">
+    	
+    	
+    	<a href="#" onclick="Backer()" ><img src="/system/gallery/1images1.jpeg" width="265" height="262" border="0" name="leftimg"></a>
+		
+    	</div>                  
+    	<div id ="middle"  style="float:left">
+    	<a href="#" onclick=""><img src="/system/gallery/1images2.jpeg" width="265" height="262"  border="0" name="middleimg"></a>
+		
+    	</div> 
+       <div id ="right" class="compimg" style="float:left">
+         
+         <a href="#" onclick="Nexter()" ><img src="/system/gallery/1images3.jpeg" width="265" height="262"  alt="" border="0" name="rightimg"></a>
+	</div> 
+       
+ 
+
+ 
+ 
+<script> 
+  
+  alert ("I am in slideshow");
+  
+      
+currentIndx=0;
+MyImages=new Array();
 
 <%for updateimage in allartworks %>
-  	 $("#update_image_title_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px'
-	}); 
-  	 $("#update_image_medium_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px'
-	}); 
-  
-   	 $("#update_image_size_0_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px',
-                 default_text: ''
-	}); 
-  
-   	 $("#update_image_size_1_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px',
-                 default_text: ''
-	}); 
-  
-  	 $("#update_image_size_2_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px',
-                 default_text: ''
-	}); 
-  
-  	 $("#update_image_editionname_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px'
-	}); 
-  
-  
-  	 $("#update_image_editionnumber_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px'
-	}); 
-  
-  	 $("#update_image_price_<%=competition_user.id%>_<%=updateimage[7]%>").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 //url: '/edit_inplace/'+document.getElementById('exh_display_list').value
-		 url: '/edit_inplace_comp',
-                 text_size: '20px'
-	}); 
-  
-       
+
+    <%#=link_to_remote image_tag("/system/gallery/#{updateimage[3]}",:width=>"45",:height=>"45",:alt=>"Not Found"), :update => "",:url =>"/competitions/edit_particular_image#{updateimage[7]}?order_id=#{competition_user.id}"
+   %>
+   
+MyImages.push(<%="/system/gallery/#{updateimage[3]}"%>)
 <%end%>
+   
+imagesPreloaded = new Array(4)
+
+for (var i = 0; i < MyImages.length ; i++)
+
+{
+
+imagesPreloaded[i] = new Image(120,120)
+
+imagesPreloaded[i].src=MyImages[i]
+
+}
+
+function writeImageNumber()
+{
+oSpan=document.getElementById("sp1");
+oSpan.innerHTML="Image "+eval(currentIndx+1)+" of "+MyImages.length;
+
+}
+
+function Nexter(){
+if (currentIndx<imagesPreloaded.length-1){
+currentIndx=currentIndx+1;
+
+document.leftimg.src = document.middleimg.src
+document.middleimg.src = document.rightimg.src
+document.rightimg.src = imagesPreloaded[currentIndx+1].src
+
+
+//alert("imagesPreloaded[currentIndx].src");
+
+}
+else {
+ currentIndx=0
+document.rightimg.src = document.leftimg.src
+document.middleimg.src = document.rightimg.src
+document.leftimg.src = imagesPreloaded[currentIndx].src
+
+}
+writeImageNumber();
+}
+function Backer(){
+if (currentIndx>0){
+currentIndx=currentIndx-1;
+document.rightimg.src = document.middleimg.src
+document.middleimg.src = document.leftimg.src
+document.leftimg.src =  imagesPreloaded[currentIndx].src
+
+}
+else {
+ currentIndx=5
+ document.rightimg.src = document.middleimg.src
+ document.middleimg.src= document.leftimg.src
+ document.leftimg.src = imagesPreloaded[currentIndx].src
 
 
 
-        
- });
+
+}
+writeImageNumber();
+}
+
+
+function setCurrentIndex()
+{
+currentIndx=0;
+document.theImage.src=MyImages[0];
+document.form1.text1.value=Messages[0];
+writeImageNumber();
+}
+
 </script>
+
+
+<!-- ####################### start of form for image slide show ####################### 
+
+
+
+<table BORDER="3" style="float:left">
+
+<tr>
+
+<td><img SRC="/system/gallery/1images5.jpeg" NAME="theImage" HEIGHT="120" WIDTH="120"></td>
+
+</tr>
+
+<tr>
+
+
+
+<td><input type="button" value="&lt;&lt; Previous" name="previous" onClick="Backer()"></td>
+
+
+
+<td><input type="button" value="Next &gt;&gt;" name="next" onClick="Nexter()">&nbsp;<span id="sp1"></span></td>
+
+</tr>
+
+<tr>
+
+<td><div align="right"><p>Automatic:</td>
+
+
+
+<td><input type="checkbox" name="automatic" value="ON" onClick="automaticly()"> </td>
+
+</tr>
+
+</table>
+
+ <!--####################### end of form for image slide show ####################### -->
+
+
+
+
+

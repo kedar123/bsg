@@ -1296,7 +1296,38 @@ end
   def edit_inplace_comp
     p params
     p "paramsssss"
-    render :nothing=>true
+    
+    
+    render :text=>params[:update_value]
+    
+    puts params[:update_value]
+    puts " Saving Data.......................................................>>>>>>>"
+    
+    
+    str = params[:element_id].split("_")
+    
+    p str[0]
+    p str[1]
+    p str[2]
+    p str[3]
+    p str[4]
+    
+    id=str[3]
+    comp = CompetitionsUser.find(id)
+    
+    p comp.fworktitle
+    
+     if str[2] == "title"   
+       comp.update_attribute('fworktitle',params[:update_value])
+     end
+     
+    if str[2] == "medium"   
+       comp.update_attribute('fworkmedium',params[:update_value])
+     end
+     
+    
+           
+        
   end
   
   
@@ -1347,7 +1378,10 @@ end
     @competitions_user = CompetitionsUser.find(params[:order_id])
     @image_array = []
     i=0;
-
+    
+   
+   @pic = CompetitionsUser.find(:all, :limit=>5)
+   
     alertmessage = ""
 
     # if @competition.state == "open"
