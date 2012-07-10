@@ -207,22 +207,23 @@
            <%if @competitionuserenteredlist%>                         
          <%for compuser in @competitionuserenteredlist%>
                 <div style="clear:both">
-                     <%=compuser.competition.title%>
+                     <%=compuser.competition.title if compuser.competition%>
                      <%if !compuser.blank?%>
-                     
+                           <%if compuser.competition%>
                          <%=link_to_remote "DETAIL", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=#{compuser.id}"
-                                %>  
+                                 %>  
                         <br/>    
                  
-                     <!--   <%=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
+                     <!--   <%#=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
                              %>   -->
                        <br/>
                         <%=link_to_remote "Add", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
-                             %>   
+                              %>   
+                           <%end%>
                        <br/>
                       <%end%>
                      </div>
-                 <div id="show_competition<%=compuser.id%>">
+                 <div id="show_competition<%=compuser.id if compuser%>">
              
                        
                 </div>

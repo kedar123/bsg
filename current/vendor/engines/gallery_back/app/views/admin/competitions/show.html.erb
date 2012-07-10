@@ -925,14 +925,133 @@
 				 <%=@total_price%>
                  </td>
 	  </tr>
-        <!-- <tr>					  
+         <tr>					  
                 <td>
 	 	  <b>Gallery  </b> 
                 </td>
                  <td>     
 				 <%=@current_object.timing.places_id if @current_object.timing%>
                  </td>
-	 </tr>-->
+	 </tr>
+         
+         <%if !@current_object.firstentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>First Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.firstentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.secondentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Second Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.secondentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.thirdentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Third Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.thirdentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.fourthentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Fourth Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.fourthentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.fifthentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Fifth Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.fifthentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.sixthentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Sixth Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.sixthentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.sevenentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Seven Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.sevenentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.eightentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Eight Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.eightentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.nineentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Nine Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.nineentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+         <%if !@current_object.tenentry.blank?%>
+              <tr>					  
+                <td>
+	 	  <b>Ten Entry  </b> 
+                </td>
+                 <td>     
+				 <%=@current_object.tenentry %>
+                 </td>
+	 </tr> 
+         <%end%>
+         
+        
+         
+        
+         
+         
+         
+         
+         
         <%for coluh in @columnheaders%>
           <tr>					  
                 <td>

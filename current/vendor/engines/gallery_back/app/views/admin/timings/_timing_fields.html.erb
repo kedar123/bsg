@@ -11,9 +11,9 @@
 
 <% else %>
 
-  <%= form.text_field :starting_date, :label => 'Starting date', :id => 'datepicker_start', :ajax => false %>
-  <%#= f.date_select :starting_date %>
-  <%= form.text_field :ending_date, :label => 'Ending date', :id => 'datepicker_end', :ajax => false %>
+  Start Date<%= form.text_field :starting_date, :label => 'Starting date', :id => 'datepicker_start', :ajax => false %>
+  <%#= f.date_select :starting_date %><br/>
+ End Date <%= form.text_field :ending_date, :label => 'Ending date', :id => 'datepicker_end', :ajax => false %>
   <%#= f.date_select :ending_date %>
 
 <% end %>
@@ -29,8 +29,8 @@
   <label>Galleries</label>
   <%#= f.select :place_id, @places.collect{ |e| [e.title, e.id] }, :label => 'Place :' %>
   <%#= @places.map{ |e| f.checkbox :gallery } %>
-  <div class="formElement">
-
+  <div class="formElement" >
+<br/><br/><br/><br/><br/>Places
   <% places_list.each do |p| %>
     <%#= check_box_tag @current_object.class.to_s.downcase+'[timing_attributes][gallery_ids][]', p.id, @current_object.timing.galleries.include?(p) %> <%#= p.title %>
 <%=check_box_tag @current_object.class.to_s.downcase+'[timing_attributes][gallery_ids][]', p.id, @current_object.timing.galleries.include?(p),:style=>"width:30px;" %> <%= p.id %> 
@@ -39,7 +39,7 @@
   <% end %>
   </div>
 <% end %>
-
+<br/>
 <%#= form.text_field :note, :label => 'Note' %>
-<%= form.text_area :note, :label => 'Note',:style=>"width:435px;height:65px;" %>
+Notes <%= form.text_area :note, :label => 'Note',:style=>"width:435px;height:65px;" %>
 

@@ -35,6 +35,14 @@
  
     
 
+<label>Exhibition Runs </label><br />
+  <div style="margin-left:22px;">
+  <% f.fields_for :timing do |ff| %>
+    
+    
+    <%= add_timing_fields(:form => ff, :places_list => @places, :period_used => false, :one_day => false, :time_used => false,:period_id=>@oldtimingperiodid) %>
+  <% end %>
+  </div>
 
 
    <table>  
@@ -44,13 +52,64 @@
           
         </td>    
         <td valign="bottom">
-          <label style="width:400px;">
-            This Field Should Not Contain Empty Line.Used For Fees At Front End.And Format Is As Follows
-            <br/> 1 works $50 <br/> 2 works $60
-          </label>  
+        
+             First Entry
+  
             
-            <%= f.text_area :entry_fees, :label => '',:style=>"width:430px;"  %>
+            <%= f.text_field :firstentry, :label => '',:style=>"width:30px;"%>
+ 
+          
+         
+             Second Entry
+          
+            
+            <%= f.text_field :secondentry, :label => '',:style=>"width:30px;"%>
+      
+        
+          
+             Third Entry
+         
+            
+            <%= f.text_field :thirdentry, :label => '',:style=>"width:30px;"%>
+       
+        
+       
+             Fourth Entry
+       
+            
+            <%= f.text_field :fourthentry, :label => '',:style=>"width:30px;"%>
+         
+             Fifth Entry
+         
+            
+            <%= f.text_field :fifthentry, :label => '',:style=>"width:30px;"%>
+        
+             Sixth Entry
+  
+            
+            <%= f.text_field :sixthentry, :label => '',:style=>"width:30px;"%>
+         
+             Seven Entry
+          
+            
+            <%= f.text_field :sevenentry, :label => '',:style=>"width:30px;"%>
+       
+             Eight Entry
+        
+            
+            <%= f.text_field :eightentry, :label => '',:style=>"width:30px;"%>
+         
+             Nine Entry
+          
+            
+            <%= f.text_field :nineentry, :label => '',:style=>"width:30px;"%>
+         
+             Ten Entry
+       
+            
+            <%= f.text_field :tenentry, :label => '',:style=>"width:30px;"%>
          </td>
+         
     </tr>
     </table>
 
