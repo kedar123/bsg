@@ -343,6 +343,7 @@ Inherited frombutton.submitButton
 	list-style:none;
 	float:left;
 	overflow:hidden;
+        width:1000px;
 }
 #powerfullSearch{float:right;margin-right:20px;margin-top:10px;height:30px;overflow:hidden;}
 #powerfullSearch form{margin:0;}
