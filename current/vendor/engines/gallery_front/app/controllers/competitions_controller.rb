@@ -776,7 +776,7 @@ p "aaaaaaaaaaaaqqqqqqqqq"
           if @order.instance_of? CompetitionsUser  
                     #page['fragment-3'].replace_html(:partial=>"admin/profiles/complist")
                     page.redirect_to "/admin/profiles/#{params[:user_id]}" 
-                    page.alert()
+                    page.alert('alert')
              #render :partial=>"admin/profiles/complist"
              p "i am gggggggggggggggggggggggggg"
            end
@@ -1164,6 +1164,18 @@ end
     end		
     @competition = Competition.find(params[:id])
     @order = CompetitionsUser.find(params[:order_id])
+    @entry_fees = []
+    @entry_fees << @competition.firstentry if !@competition.firstentry.blank?
+    @entry_fees << @competition.secondentry if !@competition.secondentry.blank?
+    @entry_fees << @competition.thirdentry if !@competition.thirdentry.blank?
+    @entry_fees << @competition.fourthentry if !@competition.fourthentry.blank?
+    @entry_fees << @competition.fifthentry if !@competition.fifthentry.blank?
+    @entry_fees << @competition.sixthentry if !@competition.sixthentry.blank?
+    @entry_fees << @competition.sevenentry if !@competition.sevenentry.blank?
+    @entry_fees << @competition.eightentry if !@competition.eightentry.blank?
+    @entry_fees << @competition.nineentry if !@competition.nineentry.blank?
+    @entry_fees << @competition.tenentry if !@competition.tenentry.blank?
+
     if request.xhr?
      if params[:user_id].blank?
        render :update do |page|

@@ -175,8 +175,20 @@ class CompetitionsUser < ActiveRecord::Base
 	    compeition = Competition.find(competition_id)
         j=1
         amount=0
-	    competition.entry_fees.each do |x|
-           amount = amount + x.split("works")[1].split(/\r/)[0].split("$")[1].to_i
+     entry_fees = []
+    entry_fees << competition.firstentry if !competition.firstentry.blank?
+    entry_fees << competition.secondentry if !competition.secondentry.blank?
+    entry_fees << competition.thirdentry if !competition.thirdentry.blank?
+    entry_fees << competition.fourthentry if !competition.fourthentry.blank?
+    entry_fees << competition.fifthentry if !competition.fifthentry.blank?
+    entry_fees << competition.sixthentry if !competition.sixthentry.blank?
+    entry_fees << competition.sevenentry if !competition.sevenentry.blank?
+    entry_fees << competition.eightentry if !competition.eightentry.blank?
+    entry_fees << competition.nineentry if !competition.nineentry.blank?
+    entry_fees << competition.tenentry if !competition.tenentry.blank?    
+    
+	    entry_fees.each do |x|
+           amount = amount + x.to_i
            if j ==  self.total_entry.to_i
              break;
              return amount;
@@ -191,14 +203,29 @@ class CompetitionsUser < ActiveRecord::Base
 	    compeition = Competition.find(competition_id)
         j=1
         amount=0
-	    competition.entry_fees.each do |x|
-           amount = amount + x.split("works")[1].split(/\r/)[0].split("$")[1].to_i
+        
+    entry_fees = []
+    entry_fees << competition.firstentry if !competition.firstentry.blank?
+    entry_fees << competition.secondentry if !competition.secondentry.blank?
+    entry_fees << competition.thirdentry if !competition.thirdentry.blank?
+    entry_fees << competition.fourthentry if !competition.fourthentry.blank?
+    entry_fees << competition.fifthentry if !competition.fifthentry.blank?
+    entry_fees << competition.sixthentry if !competition.sixthentry.blank?
+    entry_fees << competition.sevenentry if !competition.sevenentry.blank?
+    entry_fees << competition.eightentry if !competition.eightentry.blank?
+    entry_fees << competition.nineentry if !competition.nineentry.blank?
+    entry_fees << competition.tenentry if !competition.tenentry.blank?
+    if !entry_fees.blank?
+	   entry_fees.each do |x|
+           amount = amount + x.to_i
            if j ==  total_entry
              break;
              return amount;
            end
            j=j+1
 	    end
+    end      
+    
 	    return amount 
 	end
 	
