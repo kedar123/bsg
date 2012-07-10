@@ -878,72 +878,9 @@
 <%else%>
 <%#else of @my_subscription.blank? %>
 	<% item_show( :title => 'Competition',  :object => @current_object ) do %>
-       <%=render :partial=>"show_slide_show",:locals=>{:firstslide=>@firstslide}%>
+       <%#=render :partial=>"show_slide_show",:locals=>{:firstslide=>@firstslide}%>
           <table>
-            <tr>
-              <td>
-                <b> Start Date </b> 
-              </td>
-              <td>  
-                <%if !@current_object.timing.blank?%>
-                      <%= @current_object.timing.starting_date.strftime("%d %b %y") %>
-                <%end%>
-              </td>
-            </tr> 
-
-
-          <tr>
-              <td>
-                <b> End Date </b> 
-              </td>
-              <td>
-                <%if !@current_object.timing.blank?%>
-                      <%= @current_object.timing.ending_date.strftime("%d %b %y") %>
-                <%end%>
-              </td>
-          </tr>
-         <tr>
-           <td>
-                      <b> Deadline for submission </b> 
-           </td>
-           <td>
-             <%if !@current_object.submission_deadline.blank?%>
-                        <%= @current_object.submission_deadline %>
-                    <%end%>
-           </td>
-        </tr>
-        
-           <%prize_array = []%>
-              <%if  @current_object.prizes_detail%>
-		  <% @current_object.prizes_detail.each do |st| %>
-			<%prize_array << st%>
-		  <%end%>
-	      <%end%>		
-	   
-	   <%if  @current_object.prizes_detail%>
-                    <tr>					  
-                      <td valign="top">   <b>Prize Details </b> </td>
-                    <td>  
-	         <% prize_array.each do |st| %>
-                        <%=st%>
-                        </br>
-                   <%end%>
-                    </td> 
-                  </tr>  
-	          <%end%>		
-	  <tr>					  
-                      <td>  <b>Judges </b>
-                      </td>
-                       <td> 
-	                   <%=@current_object.cjudges %></td>
-           </tr>
-           <tr>
-             <td>
-             <b>Commission </b> </td>
-             <td>
-                <%= @current_object.commission  %>
-             </td>
-           </tr>
+ 
             <tr>					  
                <td>
 				  <b>Artists </b> </td>
@@ -987,15 +924,29 @@
                  <td>     
 				 <%=@total_price%>
                  </td>
-	 </tr>
-         <tr>					  
+	  </tr>
+        <!-- <tr>					  
                 <td>
 	 	  <b>Gallery  </b> 
                 </td>
                  <td>     
-				 <%=@current_object.timing.places_id%>
+				 <%=@current_object.timing.places_id if @current_object.timing%>
                  </td>
-	 </tr>
+	 </tr>-->
+        <%for coluh in @columnheaders%>
+          <tr>					  
+                <td>
+	 	  <b><%=coluh.column_header%>  </b> 
+                </td>
+                 <td>     
+				 <%=coluh.column_value%>
+                 </td>
+	  </tr>
+        
+        <%end%>
+        
+        
+        
           </table> 
 
 
@@ -1013,7 +964,7 @@
 
 
               <% if @current_user.has_system_role('admin') || @current_user.has_system_role('judge') || @current_object.state.include?('results_publish') || @current_user.login =="superadmin" ||@current_object.state.include?('final_published') %>
-                    <%if !@current_object.state.include?('open')%>
+                    <%if @current_object.state and  !@current_object.state.include?('open')%>
 					<b>Artworks List</b><br />
 						  <%if @artworks_competitions.first %>
 							      <div class="artworkcomp">

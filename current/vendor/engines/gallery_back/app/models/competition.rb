@@ -18,24 +18,34 @@ class Competition < ActiveRecord::Base
 
 	#has_one :timing, :as => :objectable
 	#accepts_nested_attributes_for :timing, :reject_if => lambda { |a| a[:starting_date].blank? }, :allow_destroy => true
- validates_presence_of :timing ,:message=>"Please Enter Exhibition Date"
+ #validates_presence_of :timing ,:message=>"Please Enter Exhibition Date"
 	#validates_presence_of :submission_deadline
- validates_format_of :prizes_total_amount, :with => /\A[0-9]*\Z/i
+ #validates_format_of :prizes_total_amount, :with => /\A[0-9]*\Z/i
   
- validates_presence_of :entry_fees
- validates_presence_of :submission_deadline
- validates_presence_of :no_of_entry
- validate :entry_fee_format
-
-def entry_fee_format
+ #validates_presence_of :entry_fees
+ #validates_presence_of :submission_deadline
+ #validates_presence_of :no_of_entry
+ #validate :entry_fee_format
+ #validates_presence_of :resultmsg
+ #validates_presence_of :publishfinalmsg
+ #validates_presence_of :openstatemsg
  
+ 
+def entry_fee_format
+          if self.entry_fees.blank?
+            errors.add_to_base("Entry Fee Validation Failed")
+          else
+          
           self.entry_fees.each do |x|
             
             if  !(x.split("works")[1] != nil and    x.split("works")[1].split(/\r/)[0].split("$")[1].to_i > 0  and x.split("works")[1].split(/\r/)[0].split("$")[1].to_i != 0)
                 errors.add_to_base("Entry Fee Validation Failed") 
             else
             end 
-         end   
+            
+         end 
+         end
+           
 end
 
   after_save :send_results_notification
