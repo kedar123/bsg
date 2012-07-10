@@ -38,12 +38,10 @@ module ActsAsItem
 				# Relation 1-N with 'users' table
         belongs_to :user
         # Validation of the presence of these fields
-         self.model_name
-         if self.model_name == "Competition"
-         else
+       
              validates_presence_of	:title, :user
       
-         end
+        
         # Valdation of the fact that the item is associated to one or more workspaces throught items table
         validates_presence_of :workspace_ids, :message => I18n.t('item.common_word.select_at_least_one_workspace') #"Sélectionner au moins un espace de travail"
         

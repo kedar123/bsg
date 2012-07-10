@@ -26,9 +26,9 @@ class Competition < ActiveRecord::Base
  #validates_presence_of :submission_deadline
  #validates_presence_of :no_of_entry
  #validate :entry_fee_format
- #validates_presence_of :resultmsg
- #validates_presence_of :publishfinalmsg
- #validates_presence_of :openstatemsg
+ validates_presence_of :resultmsg
+ validates_presence_of :publishfinalmsg
+ validates_presence_of :openstatemsg
  
  
 def entry_fee_format
