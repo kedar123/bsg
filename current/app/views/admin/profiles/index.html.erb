@@ -204,7 +204,7 @@
      dsxsdxsdx
      </div>
    <div id="fragment-3"  >
-                                    
+           <%if @competitionuserenteredlist%>                         
          <%for compuser in @competitionuserenteredlist%>
                 <div style="clear:both">
                      <%=compuser.competition.title%>
@@ -227,8 +227,8 @@
                        
                 </div>
          <%end%> 
-    
-     
+         <%end%>
+      
      
    </div>
    <div id="fragment-4"  >
@@ -281,25 +281,7 @@
 		</script>
 
     
-   
-
-
-
     
-
-
-
- 
-
-
-
- 
-
-<%#*<script>%>
-<%#*$(document).ready(function() {%>
-<%#*$("#emails").;%>
-<%#*});%>
-<%#*</script>%>
 
 
 <script>

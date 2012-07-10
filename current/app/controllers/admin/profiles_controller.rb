@@ -92,20 +92,23 @@ class Admin::ProfilesController < Admin::ApplicationController
   # GET /profiles
   # GET /profiles.xml
   def index
+   
      @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",3])
   
       if  current_user.login == "admin" || current_user.login == "superadmin"
 		    @current_objects = Profile.superadmin_filtered.all(:order => 'first_name asc')
+        logger.info "sssssssssssssss"
+        logger.info @current_objects
 		    @num = @current_objects.size
         respond_to do |format|
-          format.html # index.html.erb
+          format.html  # index.html.erb
           format.xml  { render :xml => @current_objects }
         end
      else
         flash[:notice] = "Please Login As Admin to View All The Users List"
         redirect_to "/admin"
      end   
-        
+       
   end
 
 	def filter

@@ -211,7 +211,7 @@ class Admin::CompetitionsController < Admin::ApplicationController
       
              begin
                
-             @current_object.title="s"
+            # @current_object.title="s"
              @current_object.submission_deadline = Date.civil(params[:competition][:submission_deadline].split("-")[0].to_i,params[:competition][:submission_deadline].split("-")[1].to_i,params[:competition][:submission_deadline].split("-")[2].to_i)
 	          rescue
 	          end
@@ -321,6 +321,8 @@ after :update do
 			end
 			get_artworks_lists
 			@my_subscription = CompetitionsUser.find(:first,  :conditions => { :user_id => @current_user.id, :competition_id => @current_object.id })
+  
+      @columnheaders = Columnnameandheader.find(:all,  :conditions => { :idoffieldwithtablename => @current_object.id.to_s+'competition' })
 		end
 		
 	end
