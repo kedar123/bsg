@@ -92,7 +92,7 @@ class Admin::ProfilesController < Admin::ApplicationController
   # GET /profiles
   # GET /profiles.xml
   def index
-     @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",3])
+     @competitionuserenteredlist = CompetitionsUser.find(:all)
   
       if  current_user.login == "admin" || current_user.login == "superadmin"
 		    @current_objects = Profile.superadmin_filtered.all(:order => 'first_name asc')

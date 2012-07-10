@@ -22,6 +22,14 @@ input
         box-shadow: 3px 3px 4px #b5b4b4;
  
  }
+ 
+ 
+ compimg
+{
+opacity:0.4;
+filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+ 
 
 
 .spacet {
