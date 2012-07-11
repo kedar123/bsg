@@ -5,7 +5,7 @@
         });
     </script>
           <%  artcomp = ArtworksCompetition.find(:all,:conditions=>["competition_id = ? and competitions_users_id = ?",cu.competition_id,cu.id]) %>
- <p>
+ <p style="width:800px;height:100px">
 <%for art in artcomp%>
  
  
