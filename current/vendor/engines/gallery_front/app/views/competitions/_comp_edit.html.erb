@@ -1,0 +1,204 @@
+<style>
+  #competition_state{
+    margin-left:20px;
+  }
+  </style>
+<div style="color:black;padding-left:45px;">
+     <%i=0%> 
+     <%for error in @competition.errors%>
+        <%="<b>"+error[0].to_s + "</b> " + error[1].to_s.to_s + "  " %>
+          <%i=i+1%>
+          <%if i==3%>  
+            </br>
+            <%i=0%>
+            
+           <%end%> 
+     <%end%>
+</div>
+  <script>
+    function more_link(){
+        
+      document.getElementById('competitiondynamicfields').value = parseInt(document.getElementById('competitiondynamicfields').value) + 1
+      document.getElementById('adddynamiccompetitionfield').innerHTML=document.getElementById('adddynamiccompetitionfield').innerHTML+"<input type='text' name='compdheaderf"+document.getElementById('competitiondynamicfields').value+"' style='width:200px;'>";
+      document.getElementById('adddynamiccompetitionfield').innerHTML=document.getElementById('adddynamiccompetitionfield').innerHTML+"<input type='text' name='compdheadervalue"+document.getElementById('competitiondynamicfields').value+"' style='width:200px;'><br/>";
+   
+ 
+
+    
+    }
+    </script>
+  <%=  link_to_function("+", 'more_link();')%>  
+  <%#=link_to_function "+", :update => "",:url =>"/add_comp_dynamic_field",:method=>"get",:before=>"document.getElementById('competitiondynamicfields').value = parseInt(document.getElementById('competitiondynamicfields').value) + 1" ,:with => "'id=' + document.getElementById('competitiondynamicfields').value"
+   %>
+<% form_for  [:admin,@competition]  do |f| -%>
+
+ 
+    
+
+<label>Exhibition Runs </label><br />
+  <div style="margin-left:22px;">
+  <% f.fields_for :timing do |ff| %>
+    
+    
+    <%= add_timing_fields(:form => ff, :places_list => @places, :period_used => false, :one_day => false, :time_used => false,:period_id=>@oldtimingperiodid) %>
+  <% end %>
+  </div>
+
+
+   <table>  
+    <tr align="left">
+        <td valign="top">
+     Entry Fee Format
+          
+        </td>    
+        <td valign="bottom">
+        
+             First Entry
+  
+            
+            <%= f.text_field :firstentry, :label => '',:style=>"width:30px;"%>
+ 
+          
+         
+             Second Entry
+          
+            
+            <%= f.text_field :secondentry, :label => '',:style=>"width:30px;"%>
+      
+        
+          
+             Third Entry
+         
+            
+            <%= f.text_field :thirdentry, :label => '',:style=>"width:30px;"%>
+       
+        
+       
+             Fourth Entry
+       
+            
+            <%= f.text_field :fourthentry, :label => '',:style=>"width:30px;"%>
+         
+             Fifth Entry
+         
+            
+            <%= f.text_field :fifthentry, :label => '',:style=>"width:30px;"%>
+        
+             Sixth Entry
+  
+            
+            <%= f.text_field :sixthentry, :label => '',:style=>"width:30px;"%>
+         
+             Seven Entry
+          
+            
+            <%= f.text_field :sevenentry, :label => '',:style=>"width:30px;"%>
+       
+             Eight Entry
+        
+            
+            <%= f.text_field :eightentry, :label => '',:style=>"width:30px;"%>
+         
+             Nine Entry
+          
+            
+            <%= f.text_field :nineentry, :label => '',:style=>"width:30px;"%>
+         
+             Ten Entry
+       
+            
+            <%= f.text_field :tenentry, :label => '',:style=>"width:30px;"%>
+         </td>
+         
+    </tr>
+    </table>
+
+<table> 
+    <tr align="left">
+<div style="margin-top: 28px;">
+     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+       Title
+      </td> 
+</div>   
+     <td valign="top">
+            <%= f.text_field :title, :label => '',:style=>"width:430px;",:value=>"#{@competition.title}" %>
+      </td>
+    </tr>  
+</table>
+<table> 
+    <tr align="left">
+<div style="margin-top: 28px;">
+     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+       Open State Message
+      </td> 
+</div>   
+     <td valign="top">
+            <%= f.text_field :openstatemsg, :label => '',:style=>"width:430px;",:value=>"#{@competition.openstatemsg}" %>
+      </td>
+    </tr>  
+</table>
+
+<table> 
+    <tr align="left">
+<div style="margin-top: 28px;">
+     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+       Publish Final Artwork
+      </td> 
+</div>   
+     <td valign="top">
+            <%= f.text_field :publishfinalmsg, :label => '',:style=>"width:430px;",:value=>"#{@competition.publishfinalmsg}" %>
+      </td>
+    </tr>  
+</table>
+
+<table>
+    <tr align="left">
+<div style="margin-top: 28px;">
+     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+      Publish Result Message
+      </td>
+</div>
+     <td valign="top">
+            <%= f.text_field :resultmsg, :label => '',:style=>"width:430px;",:value=>"#{@competition.resultmsg}" %>
+      </td>
+    </tr>
+</table>
+
+<div id="adddynamiccompetitionfield">
+   
+</div>
+<div id="adddynamiccompetitionfieldnewvalue">
+
+<%=  hidden_field_tag "competitiondynamicfields" ,0%>
+</div> 
+ 
+<%=submit_tag%>
+<% end -%>
+
+
+<script>
+  
+   function show_date_option(){
+
+	$(function() {
+		$( "#competition_submission_deadline" ).datepicker({
+			showOn: "button",
+			buttonImage: "/images/calendar.gif",
+			buttonImageOnly: true,
+            dateFormat: 'yy-mm-dd' 
+		});
+	});
+	
+	}
+        $(function() {
+		$( "#competition_submission_deadline" ).datepicker({
+			showOn: "button",
+			buttonImage: "/images/calendar.gif",
+			buttonImageOnly: true,
+            dateFormat: 'yy-mm-dd' 
+		});
+	});
+</script>
+
+	
+	

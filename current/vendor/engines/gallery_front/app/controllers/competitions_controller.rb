@@ -1390,6 +1390,22 @@ end
 
 
  def edit_images_front
+   
+   ######################### this is for comp edit part
+    @competition = Competition.find(params[:id])
+   
+        columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",params[:id].to_s+"competition"])
+	     @oldlabelvalue={}
+	     columnnameandheader.each do |x|   
+	       @oldlabelvalue[x.column_name] = x.column_header
+	     end
+       
+			@places = Gallery.all
+ 			@judges = User.find(:all, :conditions => "system_role_id=2 OR system_role_id=#{Role.find_by_name('judge').id}")
+      
+			@competition.competitions_subscriptions.build if @competition.competitions_subscriptions.empty?
+
+   ######################3
     image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
     medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
@@ -1397,7 +1413,6 @@ end
     price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
     editionnamearray = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
     editionnumberarray = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
-    @competition = Competition.find(params[:id])
     @competitions_user = CompetitionsUser.find(params[:order_id])
     @image_array = []
     i=0;
