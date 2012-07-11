@@ -10,43 +10,20 @@
 <%#end%>
   
  
-  
+ 
+ 
+ 
+ <script>
 
-   <div id ="left"  class="compimg" style="float:left">
-    	
-    	
-    	<a href="#" onclick="Backer()" ><img src="/system/gallery/1images1.jpeg" width="265" height="262" border="0" name="leftimg"></a>
-		
-    	</div>                  
-    	<div id ="middle"  style="float:left">
-    	<a href="#" onclick=""><img src="/system/gallery/1images2.jpeg" width="265" height="262"  border="0" name="middleimg"></a>
-		
-    	</div> 
-       <div id ="right" class="compimg" style="float:left">
-         
-         <a href="#" onclick="Nexter()" ><img src="/system/gallery/1images3.jpeg" width="265" height="262"  alt="" border="0" name="rightimg"></a>
-	</div> 
-       
- 
-
- 
- 
-<script> 
-  
-  alert ("I am in slideshow");
-  
-      
 currentIndx=0;
+
 MyImages=new Array();
-
 <%for updateimage in allartworks %>
-
-    <%#=link_to_remote image_tag("/system/gallery/#{updateimage[3]}",:width=>"45",:height=>"45",:alt=>"Not Found"), :update => "",:url =>"/competitions/edit_particular_image#{updateimage[7]}?order_id=#{competition_user.id}"
-   %>
-   
-MyImages.push(<%="/system/gallery/#{updateimage[3]}"%>)
-<%end%>
-   
+MyImages.push("/system/gallery/<%=updateimage[3]%>");
+  
+  <%end%>
+ 
+ 
 imagesPreloaded = new Array(4)
 
 for (var i = 0; i < MyImages.length ; i++)
@@ -59,30 +36,34 @@ imagesPreloaded[i].src=MyImages[i]
 
 }
 
+/*###### function to write image number in sequence, eg 1 of 4*/
 function writeImageNumber()
 {
-oSpan=document.getElementById("sp1");
+/*oSpan=document.getElementById("sp1");
 oSpan.innerHTML="Image "+eval(currentIndx+1)+" of "+MyImages.length;
-
+n*/
 }
 
+/* ####################### we create the functions to go forward and go back ####################### */
 function Nexter(){
-if (currentIndx<imagesPreloaded.length-1){
-currentIndx=currentIndx+1;
+if (currentIndx<imagesPreloaded.length-3){
 
-document.leftimg.src = document.middleimg.src
-document.middleimg.src = document.rightimg.src
-document.rightimg.src = imagesPreloaded[currentIndx+1].src
+++currentIndx; 
 
 
-//alert("imagesPreloaded[currentIndx].src");
+
+document.leftimg.src=document.middleimg.src
+document.middleimg.src=document.rightimg.src
+document.rightimg.src=imagesPreloaded[currentIndx+2].src
+
 
 }
 else {
+
  currentIndx=0
-document.rightimg.src = document.leftimg.src
-document.middleimg.src = document.rightimg.src
-document.leftimg.src = imagesPreloaded[currentIndx].src
+document.leftimg.src=imagesPreloaded[currentIndx].src
+document.middleimg.src=imagesPreloaded[currentIndx+1].src
+document.rightimg.src=imagesPreloaded[currentIndx+2].src
 
 }
 writeImageNumber();
@@ -90,25 +71,21 @@ writeImageNumber();
 function Backer(){
 if (currentIndx>0){
 currentIndx=currentIndx-1;
-document.rightimg.src = document.middleimg.src
-document.middleimg.src = document.leftimg.src
-document.leftimg.src =  imagesPreloaded[currentIndx].src
-
+document.theImage.src=imagesPreloaded[currentIndx].src
+document.form1.text1.value=Messages[currentIndx];
 }
 else {
- currentIndx=5
- document.rightimg.src = document.middleimg.src
- document.middleimg.src= document.leftimg.src
- document.leftimg.src = imagesPreloaded[currentIndx].src
-
-
-
-
+ currentIndx=3
+document.theImage.src=imagesPreloaded[currentIndx].src
+document.form1.text1.value=Messages[currentIndx];
 }
 writeImageNumber();
 }
 
 
+
+
+/*###### function to reload the images and text when refresh is pressed ##### */
 function setCurrentIndex()
 {
 currentIndx=0;
@@ -120,45 +97,34 @@ writeImageNumber();
 </script>
 
 
-<!-- ####################### start of form for image slide show ####################### 
 
 
+<!-- ####################### start of form for image slide show ####################### -->
 
-<table BORDER="3" style="float:left">
-
-<tr>
-
-<td><img SRC="/system/gallery/1images5.jpeg" NAME="theImage" HEIGHT="120" WIDTH="120"></td>
-
-</tr>
-
-<tr>
-
-
-
-<td><input type="button" value="&lt;&lt; Previous" name="previous" onClick="Backer()"></td>
-
-
-
-<td><input type="button" value="Next &gt;&gt;" name="next" onClick="Nexter()">&nbsp;<span id="sp1"></span></td>
-
-</tr>
-
-<tr>
-
-<td><div align="right"><p>Automatic:</td>
-
-
-
-<td><input type="checkbox" name="automatic" value="ON" onClick="automaticly()"> </td>
-
-</tr>
-
-</table>
-
- <!--####################### end of form for image slide show ####################### -->
+    <div id ="left" class="compimg" style="float:left">  	
+    <a href="#" onclick="Backer()" ><img src="/system/gallery/<%=allartworks[0][3]%>" width="265" height="262" border="0" name="leftimg"></a>
+    </div>
+                      
+    <div id ="middle"  style="float:left">
+    <a href="#" onclick=""><img src="/system/gallery/<%=allartworks[1][3]%>" width="265" height="262"  border="0" name="middleimg"></a>
+    </div>
+    
+    <div id ="right" class="compimg" style="float:left"> 
+ <a href="#" onclick="Nexter()" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg"></a>
+    </div> 
 
 
 
 
 
+
+
+
+
+
+<!-- ####################### end of form for image slide show ####################### -->
+ 
+ 
+ 
+ 
+  
