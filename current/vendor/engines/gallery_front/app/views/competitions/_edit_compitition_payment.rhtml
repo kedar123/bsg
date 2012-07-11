@@ -86,9 +86,9 @@
         <% form_for 'payment',  :url => "create_the_payment",  :builder => BlankFormBuilder,  :html => { :method => :post } do |f| %>
                <input type="hidden" id="mychangevalue0" value="0">
     			     <%i=1%>
-      		   	 <%competition.entry_fees.each  do |x|%>
+      		   	 <%entry_fees.each  do |x|%>
                             
-                            <input type="hidden" id="mychangevalue<%=i%>" value="<%=x.split('$')[1].to_i%>"/>
+                            <input type="hidden" id="mychangevalue<%=i%>" value="<%=x.to_i%>"/>
         							  <%i=i+1%>
       				 <%end%>			
                <div class="changecolorgray">
@@ -129,7 +129,7 @@
                           <option value="0">0</option>  
                            <%totalvalue = 0%>
                               <%entry_fees.each  do |x|%>
-                                  <%totalvalue = totalvalue + x.split('$')[1].to_i%>
+                                  <%totalvalue = totalvalue + x.to_i%>
                                   <option value="<%=totalvalue%>">$<%=totalvalue%></option>
                               <%end%>			
          </select>  
