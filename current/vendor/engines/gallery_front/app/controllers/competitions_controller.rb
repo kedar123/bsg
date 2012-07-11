@@ -1194,7 +1194,7 @@ end
        # page["enterintocompetition"].show
        # page["list_show"].hide
        # page["buylist"].hide
-       page["show_competition"+@order.id.to_s].replace_html :partial=>"edit_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
+       page["show_competition"+@order.id.to_s].replace_html :partial=>"edit_compitition_payment",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition,:entry_fees=>@entry_fees}
       end
      else
          render :partial=>"edit_compitition_paymentp",:locals=>  {:order=>@order,:credit_card=>@credit_card,:competition=>@competition}
