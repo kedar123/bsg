@@ -109,15 +109,18 @@ document.rightimg.alt=imagesPreloaded[currentIndx+2].src
 }
 writeImageNumber();
 }
- 
-
-
-function Backer(){
+ function Backer(){
 if (currentIndx>0){
 --currentIndx; 
 document.rightimg.src=document.middleimg.src
 document.middleimg.src=document.leftimg.src
 document.leftimg.src=imagesPreloaded[currentIndx].src
+
+document.getElementById('imageform'+(currentIndx-1)).style.display='block';     
+document.getElementById('imageform'+(currentIndx+1)).style.display='none';     
+document.getElementById('imageform'+(currentIndx)).style.display='none';  
+
+
 }
 else {
   
@@ -151,7 +154,7 @@ writeImageNumber();
 <!-- ####################### start of form for image slide show ####################### -->
 
     <div id ="left" class="compimg" style="float:left">  	
-    <a href="#" onclick="Backer()" ><img src="/system/gallery/<%=allartworks[0][3]%>" width="265" height="262" border="0" name="leftimg" alt="No Image"></a>
+    <a href="javascript:void(0)" onclick="return Backer(); return false;" ><img src="/system/gallery/<%=allartworks[0][3]%>" width="265" height="262" border="0" name="leftimg" alt="No Image"></a>
     </div>
                       
  
@@ -161,7 +164,7 @@ writeImageNumber();
     </div>
     
     <div id ="right" class="compimg" style="float:left"> 
- <a href="#" onclick="Nexter()" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
+ <a href="javascript:void(0)" onclick="return Nexter(); return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
     </div> 
  
 <!-- ####################### end of form for image slide show ####################### -->
