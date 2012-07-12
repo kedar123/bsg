@@ -22,12 +22,10 @@
       document.getElementById('competitiondynamicfields').value = parseInt(document.getElementById('competitiondynamicfields').value) + 1
       document.getElementById('adddynamiccompetitionfield').innerHTML=document.getElementById('adddynamiccompetitionfield').innerHTML+"<input type='text' name='compdheaderf"+document.getElementById('competitiondynamicfields').value+"' style='width:200px;'>";
       document.getElementById('adddynamiccompetitionfield').innerHTML=document.getElementById('adddynamiccompetitionfield').innerHTML+"<input type='text' name='compdheadervalue"+document.getElementById('competitiondynamicfields').value+"' style='width:200px;'><br/>";
-   
- 
-
-    
+       
     }
     </script>
+    
   <%=  link_to_function("+", 'more_link();')%>  
   <%#=link_to_function "+", :update => "",:url =>"/add_comp_dynamic_field",:method=>"get",:before=>"document.getElementById('competitiondynamicfields').value = parseInt(document.getElementById('competitiondynamicfields').value) + 1" ,:with => "'id=' + document.getElementById('competitiondynamicfields').value"
    %>
@@ -36,134 +34,140 @@
  
     
 
-<label>Exhibition Runs </label><br />
-  <div style="margin-left:22px;">
-  <% f.fields_for :timing do |ff| %>
+<label>Exhibition Runs </label><br /><table><tr><td>
+  
+  <% f.fields_for :timing do |ff| %></td>
     
-    
+  <td>
     <%= add_timing_fields(:form => ff, :places_list => @places, :period_used => false, :one_day => false, :time_used => false,:period_id=>@oldtimingperiodid) %>
   <% end %>
-  </div>
+  </td>
+  </tr>
 
-
-   <table>  
+ 
     <tr align="left">
         <td valign="top">
-     Entry Fee Format
-          
-        </td>    
+     Entry Fee Format</td>
+    
         <td valign="bottom">
         
              First Entry
   
             
-            <%= f.text_field :firstentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :firstentry, :label => '',:style=>"width:30px;height:23px;"%>
  
           
          
              Second Entry
           
             
-            <%= f.text_field :secondentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :secondentry, :label => '',:style=>"width:30px;height:23px;"%>
       
         
           
              Third Entry
          
             
-            <%= f.text_field :thirdentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :thirdentry, :label => '',:style=>"width:30px;height:23px;"%>
        
         
        
              Fourth Entry
        
             
-            <%= f.text_field :fourthentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :fourthentry, :label => '',:style=>"width:30px;height:23px;"%>
          
              Fifth Entry
          
             
-            <%= f.text_field :fifthentry, :label => '',:style=>"width:30px;"%>
-        
+            <%= f.text_field :fifthentry, :label => '',:style=>"width:30px;height:23px;"%>
+         <br/>  
              Sixth Entry
-  
+              
             
-            <%= f.text_field :sixthentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :sixthentry, :label => '',:style=>"width:30px;height:23px;"%>
          
              Seven Entry
           
             
-            <%= f.text_field :sevenentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :sevenentry, :label => '',:style=>"width:30px;height:23px;"%>
        
              Eight Entry
         
             
-            <%= f.text_field :eightentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :eightentry, :label => '',:style=>"width:30px; height:23px;"%>
          
              Nine Entry
           
             
-            <%= f.text_field :nineentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :nineentry, :label => '',:style=>"width:30px;height:23px;"%>
          
              Ten Entry
        
             
-            <%= f.text_field :tenentry, :label => '',:style=>"width:30px;"%>
+            <%= f.text_field :tenentry, :label => '',:style=>"width:30px;height:23px;"%>
          </td>
          
-    </tr>
-    </table>
+      </tr>
+    
+          
+        
+    <tr align="left">
 
-<table> 
-    <tr align="left">
-<div style="margin-top: 28px;">
-     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
-       Title
-      </td> 
-</div>   
-     <td valign="top">
-            <%= f.text_field :title, :label => '',:style=>"width:430px;",:value=>"#{@competition.title}" %>
+     <td valign="top" style="float:left;margin-top:11px;margin-left:110px;width:150px;margin-left:10px">
+       Title      
+      </td></td> <td valign="top">
+            <%= f.text_field :title, :label => '',:style=>"width:430px;height:23px;",:value=>"#{@competition.title}" %>
       </td>
-    </tr>  
-</table>
-<table> 
-    <tr align="left">
-<div style="margin-top: 28px;">
-     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+    </tr>
+  
+
+<tr align="left">
+
+     <td valign="top" style="float:left;margin-top:11px;margin-left:110px;width:150px;margin-left:10px">
        Open State Message
       </td> 
-</div>   
-     <td valign="top">
-            <%= f.text_field :openstatemsg, :label => '',:style=>"width:430px;",:value=>"#{@competition.openstatemsg}" %>
+      <td valign="top">
+            <%= f.text_field :openstatemsg, :label => '',:style=>"width:430px;height:23px;",:value=>"#{@competition.openstatemsg}" %>
       </td>
-    </tr>  
-</table>
+      
+      
+ </tr>  
+    
+<tr align="left">
 
-<table> 
-    <tr align="left">
-<div style="margin-top: 28px;">
-     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
+     <td valign="top" style="float:left;margin-top:11px;margin-left:110px;width:150px;margin-left:10px">
        Publish Final Artwork
-      </td> 
-</div>   
-     <td valign="top">
-            <%= f.text_field :publishfinalmsg, :label => '',:style=>"width:430px;",:value=>"#{@competition.publishfinalmsg}" %>
+      </td><td valign="top">
+            <%= f.text_field :publishfinalmsg, :label => '',:style=>"width:430px;height:23px;",:value=>"#{@competition.publishfinalmsg}" %>
       </td>
-    </tr>  
+ </tr>
+
+
+<tr align="left">
+
+     <td valign="top" style="float:left;margin-top:11px;margin-left:110px;width:150px;margin-left:10px">
+      Publish Result Message
+      </td><td valign="top">
+            <%= f.text_field :resultmsg, :label => '',:style=>"width:430px;height:23px;",:value=>"#{@competition.resultmsg}" %>
+      </td>
+</tr>
+
+
 </table>
 
-<table>
-    <tr align="left">
-<div style="margin-top: 28px;">
-     <td valign="top" style="float:left;margin-top:28px;margin-left:110px;width:150px;margin-left:10px">
-      Publish Result Message
-      </td>
-</div>
-     <td valign="top">
-            <%= f.text_field :resultmsg, :label => '',:style=>"width:430px;",:value=>"#{@competition.resultmsg}" %>
-      </td>
-    </tr>
-</table>
+
+
+
+
+  
+    <table>
+        
+    </table>
+  
+        
+
+
 
 <div id="adddynamiccompetitionfield">
    

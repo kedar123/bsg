@@ -1601,6 +1601,7 @@ end
     for compu in @competitions_users
     for eachimage in image_array
       #first i will append the title
+      if compu
       if  !compu.send(eachimage.to_sym).blank?
         image_arrayi=[]
         image_arrayi << compu.send(title_array[i].to_sym)
@@ -1620,6 +1621,10 @@ end
         counttodisplayviwform = counttodisplayviwform + 1
       else
         image_arrayi=[]
+        p "what is nil"
+        p compu
+        p i
+        p title_array[i]
         image_arrayi << compu.send(title_array[i].to_sym)
         image_arrayi << compu.send(medium_array[i].to_sym)
         image_arrayi << compu.send(size_array[i].to_sym)
@@ -1632,8 +1637,10 @@ end
         
         @image_array << image_arrayi
       end
-      i=i+1
+      end
+     
     end
+     i=i+1
     end
     i=0
 

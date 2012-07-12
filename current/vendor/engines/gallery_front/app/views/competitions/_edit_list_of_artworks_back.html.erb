@@ -10,6 +10,27 @@
 <%#end%>
   <%if current_user.login == 'admin'%>
  
+ <!-- ####################### start of form for image slide show ####################### -->
+<%if !allartworks.blank?%>
+    <div id ="left" class="compimg" style="float:left">  	
+    <a href="javascript:void(0)" onclick="return Backer(); return false;" ><img src="/system/gallery/<%=allartworks[0][3]%>" width="265" height="262" border="0" name="leftimg" alt="No Image"></a>
+    </div>
+                      
+ 
+    <div id ="middle"  style="float:left">
+    <a href="#" onclick=""><img src="/system/gallery/<%=allartworks[1][3]%>" width="265" height="262"  border="0" name="middleimg" alt="No Image"></a>
+ 
+    </div>
+    
+    <div id ="right" class="compimg" style="float:left"> 
+ <a href="javascript:void(0)" onclick="return Nexter(); return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
+    </div> 
+ <%end%>
+<!-- ####################### end of form for image slide show ####################### -->
+ 
+ 
+ 
+ 
       <%if competition.state == "results_publish"%>
                 <p>
                   <%=link_to "winner", "/admin/competitions/send_mail_to_artist/#{competition.id}?msg=winner", :popup => ['dialog name','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes'] %>
@@ -152,29 +173,13 @@ writeImageNumber();
 
 
 
-<!-- ####################### start of form for image slide show ####################### -->
-<%if !allartworks.blank?%>
-    <div id ="left" class="compimg" style="float:left">  	
-    <a href="javascript:void(0)" onclick="return Backer(); return false;" ><img src="/system/gallery/<%=allartworks[0][3]%>" width="265" height="262" border="0" name="leftimg" alt="No Image"></a>
-    </div>
-                      
- 
-    <div id ="middle"  style="float:left">
-    <a href="#" onclick=""><img src="/system/gallery/<%=allartworks[1][3]%>" width="265" height="262"  border="0" name="middleimg" alt="No Image"></a>
- 
-    </div>
-    
-    <div id ="right" class="compimg" style="float:left"> 
- <a href="javascript:void(0)" onclick="return Nexter(); return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
-    </div> 
-<%end%> 
-<!-- ####################### end of form for image slide show ####################### -->
+
  
  <div id="keepallformshere">
    <%count=0%>
    <%for updateimage in allartworks %>
     <div id="imageform<%=count%>" style="display:none">
-       <%=render :partial=>"form_for_art",:locals=>{:updateimagearray=>updateimage}%>
+       <%=render :partial=>"form_for_art",:locals=>{:updateimagearray=>updateimage,:competition=>competition.id}%>
      </div>
       <%count=count+1%>
    <%end%>
