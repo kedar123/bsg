@@ -28,7 +28,15 @@
  <%end%>
 <!-- ####################### end of form for image slide show ####################### -->
  
- 
+  <div id="keepallformshere">
+   <%count=0%>
+   <%for updateimage in allartworks %>
+    <div id="imageform<%=count%>" style="display:none">
+       <%=render :partial=>"form_for_art",:locals=>{:updateimagearray=>updateimage,:competition=>competition.id}%>
+     </div>
+      <%count=count+1%>
+   <%end%>
+ </div>
  
  
       <%if competition.state == "results_publish"%>
@@ -175,15 +183,7 @@ writeImageNumber();
 
 
  
- <div id="keepallformshere">
-   <%count=0%>
-   <%for updateimage in allartworks %>
-    <div id="imageform<%=count%>" style="display:none">
-       <%=render :partial=>"form_for_art",:locals=>{:updateimagearray=>updateimage,:competition=>competition.id}%>
-     </div>
-      <%count=count+1%>
-   <%end%>
- </div>
+
  
  
    <%end%>
