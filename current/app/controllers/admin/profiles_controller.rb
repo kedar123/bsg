@@ -93,8 +93,8 @@ class Admin::ProfilesController < Admin::ApplicationController
   # GET /profiles.xml
   def index
  
-     @competitionuserenteredlist = CompetitionsUser.find(:all)
- 
+     #@competitionuserenteredlist = CompetitionsUser.find(:all)
+     @competitions = Competition.find(:all)
  
   
       if  current_user.login == "admin" || current_user.login == "superadmin"

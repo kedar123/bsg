@@ -142,6 +142,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/competitions/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
   map.connect "/edit_images_front",:controller=>"competitions",:action=>"edit_images_front"
   map.connect "/edit_images_front/:id",:controller=>"competitions",:action=>"edit_images_front"
+  map.connect "/edit_images_back",:controller=>"competitions",:action=>"edit_images_back"
+  map.connect "/edit_images_back/:id",:controller=>"competitions",:action=>"edit_images_back"
+  
   
   map.connect "/competitions/edit_particular_image",:controller=>"competitions",:action=>"edit_particular_image"
   map.connect "/competitions/edit_images_frontbrowse",:controller=>"competitions",:action=>"edit_images_frontbrowse"

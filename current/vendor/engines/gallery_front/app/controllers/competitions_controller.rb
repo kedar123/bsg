@@ -1532,6 +1532,147 @@ end
   end
 
  
+ #here i need to change two things first this partial will show all the images related to this competition.
+#and edit the details of a particular competition so the partial will have two variables one is for competition
+#for this i am copying above function for the purpose of this function is called at backend and front end also with different values
+
+  def edit_images_back
+   
+   ######################### this is for comp edit part
+    @competition = Competition.find(params[:id])
+   
+        columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",params[:id].to_s+"competition"])
+	     @oldlabelvalue={}
+	     columnnameandheader.each do |x|   
+	       @oldlabelvalue[x.column_name] = x.column_header
+	     end
+       
+			@places = Gallery.all
+ 			@judges = User.find(:all, :conditions => "system_role_id=2 OR system_role_id=#{Role.find_by_name('judge').id}")
+      
+			@competition.competitions_subscriptions.build if @competition.competitions_subscriptions.empty?
+
+   ######################3
+    image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+    title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
+    medium_array = ['fworkmedium','sworkmedium','tworkmedium','foworkmedium','fiworkmedium','siworkmedium','seworkmedium','eworkmedium','nworkmedium','teworkmedium']
+    size_array = ['fworksize','sworksize','tworksize','foworksize','fiworksize','siworksize','seworksize','eworksize','nworksize','teworksize']
+    price_array = ['fworkprice','sworkprice','tworkprice','foworkprice','fiworkprice','siworkprice','seworkprice','eworkprice','nworkprice','teworkprice']
+    editionnamearray = ['fworkedname','sworkedname','tworkedname','foworkedname','fiworkedname','siworkedname','seworkedname','eiworkedname','niworkedname','teworkedname']
+    editionnumberarray = ['fworkednumber','sworkednumber','tworkednumber','foworkednumber','fiworkednumber','siworkednumber','seworkednumber','eiworkednumber','niworkednumber','teworkednumber']
+    @competitions_users = CompetitionsUser.find(:all,:conditions=>["competition_id = ?",@competition.id])
+    @image_array = []
+    i=0;
+    
+   
+   @pic = CompetitionsUser.find(:all, :limit=>5)
+   
+    alertmessage = ""
+
+    # if @competition.state == "open"
+    # alertmessage = @competition.openstatemsg
+
+
+    #alertmessage = ""
+
+    if @competition.state == "open"
+      alertmessage = @competition.openstatemsg
+
+      if alertmessage.blank?
+        alertmessage = "Works entered will be published Before #{@competition.timing.starting_date}"
+      end
+    end
+
+    # if @competition.state == "final_published"
+    #alertmessage = @competition.publishfinalmsg
+
+    if @competition.state == "final_published"
+      alertmessage = @competition.publishfinalmsg
+
+      if alertmessage.blank?
+        alertmessage = "Finalists will be published on the website Before #{@competition.timing.starting_date}"
+      end
+    end
+
+
+
+    add_art_cnt = 0
+    counttodisplayviwform=0
+    for compu in @competitions_users
+    for eachimage in image_array
+      #first i will append the title
+      if  !compu.send(eachimage.to_sym).blank?
+        image_arrayi=[]
+        image_arrayi << compu.send(title_array[i].to_sym)
+        image_arrayi << compu.send(medium_array[i].to_sym)
+        image_arrayi << compu.send(size_array[i].to_sym)
+        image_arrayi << compu.send(eachimage.to_sym)
+        #if !@competitions_user.send(eachimage.to_sym).blank?
+        #    add_art_cnt = add_art_cnt +1
+        #end
+        image_arrayi << compu.send(price_array[i].to_sym)
+        image_arrayi << compu.send(editionnamearray[i].to_sym)
+        image_arrayi << compu.send(editionnumberarray[i].to_sym)
+        image_arrayi << title_array[i]
+        image_arrayi << compu.id
+
+        @image_array << image_arrayi
+        counttodisplayviwform = counttodisplayviwform + 1
+      else
+        image_arrayi=[]
+        image_arrayi << compu.send(title_array[i].to_sym)
+        image_arrayi << compu.send(medium_array[i].to_sym)
+        image_arrayi << compu.send(size_array[i].to_sym)
+        image_arrayi << compu.send(eachimage.to_sym)
+        image_arrayi << compu.send(price_array[i].to_sym)
+        image_arrayi << compu.send(editionnamearray[i].to_sym)
+        image_arrayi << compu.send(editionnumberarray[i].to_sym)
+        image_arrayi << title_array[i]
+        image_arrayi << compu.id
+        
+        @image_array << image_arrayi
+      end
+      i=i+1
+    end
+    end
+    i=0
+
+    render :update do |page|
+      if (false)
+        page.alert("Please Pay For One Entry")
+      else
+      #  page['show_competition'+@competitions_user.id.to_s].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
+     
+         page['fragment-3'].replace_html(:partial=>"edit_list_of_artworks_back",:locals=>{:allartworks=>@image_array,:competition=>@competition})
+       
+       
+#        for updateimage in @image_array
+#          if @image_array[counttodisplayviwform] == updateimage
+#            page["add_the_artwork"+((@image_array.index  updateimage)  ).to_s].replace_html  :partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +  1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>true,:messageforimageuploaded=>nil}
+#          else
+#            page["add_the_artwork"+((@image_array.index updateimage) ).to_s].replace_html 	:partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +   1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>false,:messageforimageuploaded=>nil}
+#          end
+          #page["enterartworkcompetition"].show
+          #page["enterintocompetition"].hide
+          #page["buylist"].hide
+          #page["list_show"].show
+          #page["add_the_artwork"+((@image_array.index updateimage) ).to_s].show
+          #page["iteam_image"+((@image_array.index updateimage) ).to_s].show
+          #i=i+1
+#          break if @competitions_user.total_entry.to_i == i
+#        end
+        #currently im hiding here the biography and thanku notes if they are shown but this need to be tested. and need to create some extra  add_the_artwork div
+        #after the flow is approved for salving the error
+        #page["iteam_image"+(@competitions_user.total_entry.to_i).to_s].hide
+        #page["iteam_image"+(@competitions_user.total_entry.to_i+1).to_s].hide
+        #page.alert(alertmessage)
+      end
+
+    end
+  end
+
+ 
+ 
  #this method i am writting for edit a particular image in front end for competition
  def edit_particular_image
       

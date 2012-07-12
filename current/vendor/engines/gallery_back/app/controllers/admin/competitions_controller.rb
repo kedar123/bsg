@@ -234,16 +234,15 @@ class Admin::CompetitionsController < Admin::ApplicationController
                    end 
                end      
       end  
-after :update do
+
+    after :update do
 
               Columnnameandheader.delete_all(["idoffieldwithtablename = ?",@current_object.id.to_s+"competition"])
- p "sssssssssssssssssssssssssssssssssqqqqqqqqqaaaaaaaaaddddddzzzzz"
+ 
               params.to_hash.each do |key,value|
                    if key.include? "compdheaderf"
                       valueid = key[key.length-1,key.length-2]
-                      p valueid
-                      p key
-                      p value
+ 
                      
                       columnnameandheader = Columnnameandheader.new
                       #columnnameandheader.column_name = key.split("header")[1]        
