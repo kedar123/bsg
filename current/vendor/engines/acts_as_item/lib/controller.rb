@@ -161,7 +161,15 @@ module ActsAsItem
             p format.type
     						format.html { 
     						#if params[:exhibition_id].blank?
+                p "wswswswswsws"
+                
+                if @current_object.class.to_s == "Competition"
+                  redirect_to "/admin/profiles"
+                else
     						params[:continue] ? redirect_to(new_item_path(@current_object.class.to_s)) : redirect_to(item_path(@current_object)) 
+                p "azzazazaaz"  
+                end
+              
     						#else
     						#flash[:notice] = "Your Artwork Is Added Now Please Select It To The Exhibition Later "
     						
