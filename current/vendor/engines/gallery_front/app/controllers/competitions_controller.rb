@@ -1501,7 +1501,11 @@ end
       if ((@competitions_user.total_entry == nil) or (@competitions_user.total_entry == 0))
         page.alert("Please Pay For One Entry")
       else
-        page['show_competition'+@competitions_user.id.to_s].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
+      #  page['show_competition'+@competitions_user.id.to_s].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
+     
+         page['fragment-3'].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
+       
+       
 #        for updateimage in @image_array
 #          if @image_array[counttodisplayviwform] == updateimage
 #            page["add_the_artwork"+((@image_array.index  updateimage)  ).to_s].replace_html  :partial=>"edit_the_artwork",:locals=>{:competition_id => @competition.id,:artwork_count=>((@image_array.index  updateimage) +  1),:updateimagearray=>updateimage,:competitionuser=>@competitions_user.id,:add_artwork_link_show=>true,:messageforimageuploaded=>nil}
