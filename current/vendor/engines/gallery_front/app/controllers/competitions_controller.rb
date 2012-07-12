@@ -1,5 +1,5 @@
 class CompetitionsController < ApplicationController
-	layout "front"
+	layout "front2"
   require "prawn"
   require "fastercsv" 
   require "rubygems"
@@ -38,66 +38,79 @@ class CompetitionsController < ApplicationController
     @oldlabelvalue={}
     if columnnameandheader
       columnnameandheader.each do |x|   
-        @oldlabelvalue[x.column_name] = x.column_header
+        @oldlabelvalue[x.column_header] = x.column_value
       end
     end   
     
     
-		if @competition
-			# TODO publish rules ...
-			if @competition.state == 'final_published'
-        @winnerlist = []
-        competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
-        @competitionuser  = []
-        competitionuser.each do |ac| 
-          ac.artworks_competitions.each do |x|  
-            
-            if x.state == "selected"
-              @competitionuser  << x.competitions_user
-            end
-            if x.state == "winner"
-              @winnerlist  << x
-            end
-          end 
-        end
-        #@artworks = @competition.artworks_competitions.all(:include => [:artwork], :order => "mark DESC").map{ |e| e.artwork }
-			elsif @competition.state == 'results_publish'
-				#@artworks = @competition.artworks_competitions.all(:include => [:artwork], :conditions => { :state => 'selected' }).map{ |e| e.artwork }
-        competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
-              
-        @competitionuser  = []
-        @winnerlist = []
-        competitionuser.each do |ac| 
-          ac.artworks_competitions.each do |x|  
-            if x.state == "winner"
-              @winnerlist  << x
-            end
-            if x.state == "selected"
-              @competitionuser  << x.competitions_user
-            end
-          end 
-        end
-            
-			else
-				#@artworks = @competition.artworks
-        @competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? ",@competition.id])
-			end
-		end
+#		if @competition
+#			# TODO publish rules ...
+#			if @competition.state == 'final_published'
+#        @winnerlist = []
+#        competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
+#        @competitionuser  = []
+#        competitionuser.each do |ac| 
+#          ac.artworks_competitions.each do |x|  
+#            
+#            if x.state == "selected"
+#              @competitionuser  << x.competitions_user
+#            end
+#            if x.state == "winner"
+#              @winnerlist  << x
+#            end
+#          end 
+#        end
+#        #@artworks = @competition.artworks_competitions.all(:include => [:artwork], :order => "mark DESC").map{ |e| e.artwork }
+#			elsif @competition.state == 'results_publish'
+#				#@artworks = @competition.artworks_competitions.all(:include => [:artwork], :conditions => { :state => 'selected' }).map{ |e| e.artwork }
+#        competitionuser = CompetitionsUser.find(:all,:include=>["artworks_competitions"],:conditions=>["competition_id = ?   ",@competition.id])
+#              
+#        @competitionuser  = []
+#        @winnerlist = []
+#        competitionuser.each do |ac| 
+#          ac.artworks_competitions.each do |x|  
+#            if x.state == "winner"
+#              @winnerlist  << x
+#            end
+#            if x.state == "selected"
+#              @competitionuser  << x.competitions_user
+#            end
+#          end 
+#        end
+#            
+#			else
+#				#@artworks = @competition.artworks
+#        @competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? ",@competition.id])
+#			end
+#		end
   	if  logged_in? 
 			@competitionuser = CompetitionsUser.find(:all,:conditions=>["competition_id = ? and user_id     = ?",@competition.id,current_user.id]) if @competition
     end  
-    @competitionuser.uniq! if @competitionuser
+    #@competitionuser.uniq! if @competitionuser
  
-  
+     if logged_in?
+      @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",current_user.id])
+      @exhibitionuserlist = current_user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')
+     end
   
   end
   
+
+# here i need to check that if user already in the competition then display a tab else whatever is shown is right  
   def show_competition
      competition = Competition.find(params[:id])
-      render :update do |page|
+     competitionuser = CompetitionsUser.find(:first,:conditions=>["user_id = ?  and competition_id = ? ",current_user.id,competition.id])
+     p competitionuser
+     p "yes this is comp userrr"
+      if logged_in?
+      @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",current_user.id])
+      @exhibitionuserlist = current_user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')
+     end
+     render :update do |page|
          
-        page['container'].replace_html(:partial=>"show_competition",:locals=>{:competition=>competition})
-      end
+        page['container'].replace_html(:partial=>"show_competition",:locals=>{:competition=>competition,:competitionuser=>competitionuser})
+
+    end
   end
   
   

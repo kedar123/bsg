@@ -181,7 +181,7 @@
                             <%if @newsletter%>
                               <select size="6" name="newsletter"  id="category_ids_" >
                                 <%for newsletter in @newsletter%>
-                                <option  value="<%=newsletter.id%>"><%=newsletter.title%></option>
+                                <option  value="<%=newsletter.id%>"><%=newsletter.title if newsletter%></option>
                                 <%end%>
                               </select>
                             <%=hidden_field_tag "categoryid",@filters * ","%>

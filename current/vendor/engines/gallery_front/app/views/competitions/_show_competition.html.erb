@@ -2,7 +2,7 @@
 # To change this template, choose Tools | Templates
 # and open the template in the editor.
 %>
-
+<%if competitionuser.blank?%>
 <%= competition.title %>
 <br/>
 <%= competition.description %>
@@ -11,3 +11,16 @@
 
      Click  <%=link_to_remote "Here", :update => "",:url => { :action => "create_subscribe_competition_front", :id => competition.id}
                                 %> To Enter the Competition
+<%else%>
+      
+                                
+                                
+    <%=render :partial=>"user_tab",:locals=>{:competitionuserenteredlist=>@competitionuserenteredlist,:exhibitionuserlist=>@exhibitionuserlist}%>
+ 
+<%end%>
+                                
+<script>
+   $(document).ready(function(){
+    $( "#tabs" ).tabs();
+  });
+</script>    

@@ -1,0 +1,95 @@
+<div class="demo" style="width:80%;padding-left:10%;padding-top:2%">
+
+<div id="tabs">
+   
+	<ul>
+		<li><a href="#tabs-1">Details</a></li>
+		<li><a href="#tabs-2">Exhibitions</a></li>
+		<li ><a href="#tabs-3" id="competitionclick">Competitions</a></li>
+                <li><a href="#tabs-3">Invoices</a></li>
+                
+                
+	</ul>
+	<div id="tabs-1">
+		 
+               <%=render :partial=>"visitors/user_details"%>
+ 
+                
+	</div>
+	<div id="tabs-2">
+           <%if !exhibitionuserlist.blank?%>
+             <%for eu in exhibitionuserlist%>
+                <%if eu.state != "created"%>
+                      <%=eu.exhibition.title%> 
+                <%end%>
+                     <p class="exhdetlink" style="font-size: 12px;">
+                        
+                        <%=link_to_remote "DETAILS", :url=>"/show_exh_images/#{eu.exhibition.id}",:update => ''%>
+                 
+                       
+                       &nbsp;&nbsp;|&nbsp;&nbsp;
+                       
+                        
+                        <%=link_to_remote "ADD WORKS", :url=>"/add_exh_artwork/#{eu.exhibition.id}",:update => ''%>
+                     
+                       
+                       &nbsp;&nbsp;|&nbsp;&nbsp;
+                       <%#the pay link here should bring here payment partial in the div of %>
+                         
+<%=link_to_remote "PAY", :url=>"/admin/profiles/exhibition_payment_front/#{eu.id}",:update => '', :method => :get%>
+         
+                       &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#"> INVOICE</a></p>
+                     <div id="detailsofexh<%=eu.exhibition.id%>">
+                     </div>  
+                     
+                     
+                  <hr style="clear:both"/>
+             <%end%>     
+           <%end%>     
+                
+                
+                	</div>
+	<div id="tabs-3">
+          
+	                               
+         <%for compuser in competitionuserenteredlist%>
+                <div style="clear:both">
+                     <%=compuser.competition.title%>
+                     <%if !compuser.blank?%>
+                     
+                         <%=link_to_remote "DETAIL", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=#{compuser.id}"
+                                %>  
+                        <br/>    
+                 
+                     <!--   <%=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>   -->
+                       <br/>
+                        <%=link_to_remote "Add", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             %>   
+                       <br/>
+                      <%end%>
+                     </div>
+                 <div id="show_competition<%=compuser.id%>">
+             
+                       
+                </div>
+         <%end%> 
+        
+        
+        
+        </div>
+</div>
+
+</div><!-- End demo -->
+
+
+
+<div style="display: none;" class="demo-description">
+<p>Click tabs to swap between content that is broken into logical sections.</p>
+</div><!-- End demo-description -->
+
+<script>
+  document.getElementById("competitionclick").click();
+
+
+  </script>

@@ -46,16 +46,14 @@
                                  </ul> 
                         </li>
                           <li><a href="">ART</a></li>
-                                        <li><a href="#" >COMPETITIONS</a>
+                                        <li><a href="/competitions" >COMPETITIONS</a>
                                         
                                          <ul style="height:400px;z-index: 20;margin-left: 350px;background-color: black;width:100px">
                       <%for comp in @competitions%>
                                          
-                                        <li> 
-                                          <%=link_to_remote comp.id, :url=>"/show_competition/#{comp.id}",:update => '', :html => { :style  => "color:white" }%>
-                 
-                                        
-                                        </li>
+                                           <p>
+                                           <%=link_to_remote comp.title, :url=>"/show_competition/#{comp.id}",:update => '', :html => { :style  => "color:white" }%>
+                                           </p>
                                          
             <%end%> 
                     

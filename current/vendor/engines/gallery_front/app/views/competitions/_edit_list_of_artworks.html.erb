@@ -8,7 +8,7 @@
  
 
 <%#end%>
-  
+  <%if current_user.login == 'admin'%>
  
       <%if competition_user.competition.state == "results_publish"%>
                 <p>
@@ -46,6 +46,7 @@
 
  
  <%=  render :partial=>"comp_edit" %>
+             
  <script>
 
 currentIndx=0;
@@ -180,4 +181,5 @@ writeImageNumber();
  </div>
  
  
-  
+   <%end%>
+<%########################all the above code is for adminnnnnnnnnnnnnnnnnnn%>
