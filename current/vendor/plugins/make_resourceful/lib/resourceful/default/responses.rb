@@ -83,7 +83,9 @@ module Resourceful
           response_for(:update) do |format|
             format.html do
               set_default_flash :notice, "Sauvegarde réussie !"
+              p "lastly redirect from here"
               set_default_redirect object_path
+              p "not get printed"
             end
             format.js
           end
