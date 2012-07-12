@@ -145,12 +145,12 @@
         <% fields_for credit_card do |ff| %>
           <%= ff.hidden_field :user_id, :value => @current_user.id %>
       <%#= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
-          <div class="changecolorgray">
+ <!--         <div class="changecolorgray">
             <span >First Name</span> <span style="margin-left:131px;">Last Name</span>
           </div>   
-          <%= ff.text_field :first_name, :label => 'First name' ,:style=>"width:165px;height:16px;float:left"%>
-          <%= ff.text_field :last_name, :label => 'Last name' ,:style=>"width:254px;height:16px;margin-left:12px;"%>
-          <div class="changecolorgray" >
+          <%#= ff.text_field :first_name, :label => 'First name' ,:style=>"width:165px;height:16px;float:left"%>
+          <%#= ff.text_field :last_name, :label => 'Last name' ,:style=>"width:254px;height:16px;margin-left:12px;"%>
+          <div class="changecolorgray" >-->
             Card Number
           </div>
           <%= ff.text_field :number0, :label => 'Number',:value=>"4",:style=>"width:15px;height:16px;text-align:center" ,:onblur=>"checkcreditcardno('credit_card_number0')"%>
