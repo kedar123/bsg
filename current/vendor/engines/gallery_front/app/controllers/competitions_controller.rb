@@ -102,10 +102,19 @@ class CompetitionsController < ApplicationController
      competitionuser = CompetitionsUser.find(:first,:conditions=>["user_id = ?  and competition_id = ? ",current_user.id,competition.id])
      p competitionuser
      p "yes this is comp userrr"
-      if logged_in?
+     if logged_in?
       @competitionuserenteredlist = CompetitionsUser.find(:all,:conditions=>["user_id = ?   ",current_user.id])
       @exhibitionuserlist = current_user.exhibitions_users.all(:include => [:exhibition], :order => 'created_at DESC')
      end
+     columnnameandheader = Columnnameandheader.find(:all,:conditions=>["idoffieldwithtablename = ?",competition.id.to_s+"competition"])  if competition
+    @oldlabelvalue={}
+    if columnnameandheader
+      columnnameandheader.each do |x|   
+        @oldlabelvalue[x.column_header] = x.column_value
+      end
+    end   
+     
+    
      render :update do |page|
          
         page['container'].replace_html(:partial=>"show_competition",:locals=>{:competition=>competition,:competitionuser=>competitionuser})

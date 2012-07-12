@@ -3,9 +3,21 @@
 # and open the template in the editor.
 %>
 <%if competitionuser.blank?%>
-<%= competition.title %>
-<br/>
+<p style="color:blue;font-size:50px;clear:both;text-align: left;margin-left:300px;">
+    <%= competition.title %>
+</p>
 <%= competition.description %>
+
+<%@oldlabelvalue.each do |key,value|%>
+<p style="clear:both;font-size:13px;text-align: left;margin-left:300px;width:250px;border-right: 1px solid #000 ;">
+
+   <span><b> <%= key %></b></span>
+   <span style="margin-left:10px;font-size:10px">  <%= value %> </span>
+   
+   
+</p>
+
+<%end%>
 <br/>
                   
 
