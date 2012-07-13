@@ -147,24 +147,32 @@ if (currentIndx>0){
 document.rightimg.src = document.middleimg.src
 document.middleimg.src = document.leftimg.src
 document.leftimg.src = imagesPreloaded[currentIndx].src
-alert(currentIndx);
-alert(currentIndx-1);
-
-document.getElementById('imageform'+(currentIndx+1)).style.display='block';     
+ 
+ document.getElementById('imageform'+(currentIndx+1)).style.display='block';     
 document.getElementById('imageform'+(currentIndx-currentIndx)).style.display='none';     
-document.getElementById('imageform'+(currentIndx-1)).style.display='none';  
+ 
+document.getElementById('imageform'+(currentIndx)).style.display='none'; 
 
+ 
+  if((MyImages.length - currentIndx)>2){ 
+   document.getElementById('imageform'+(currentIndx+2)).style.display='none'; 
+  }
+  if((MyImages.length - currentIndx)>3){ 
+  
+   document.getElementById('imageform'+(currentIndx+3)).style.display='none'; 
+  }
+ 
 
 }
 else {
-  
-  currentIndx = MyImages.length-1 
-  alert(currentIndx)
-  alert('s')
-  document.rightimg.src = document.middleimg.src
+   currentIndx = MyImages.length-1 
+    document.rightimg.src = document.middleimg.src
   document.middleimg.src = document.leftimg.src
   document.leftimg.src = imagesPreloaded[currentIndx].src
   document.getElementById('imageform'+(currentIndx-(currentIndx))).style.display='block';     
+  //document.getElementById('imageform'+(currentIndx-(currentIndx+1))).style.display='none';     
+  //document.getElementById('imageform'+(currentIndx-(currentIndx+2))).style.display='none';     
+  document.getElementById('imageform'+(currentIndx-(currentIndx-1))).style.display='none';     
   
 
 }
