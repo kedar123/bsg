@@ -4,6 +4,7 @@
 .changecolorgray{
   color: #444444;
   line-height: 25px;
+  font-size:14px;
 }
 
 </style>
@@ -131,10 +132,10 @@
                               <%entry_fees.each  do |x|%>
                                   <%totalvalue = totalvalue + x.to_i%>
                                   <option value="<%=totalvalue%>">$<%=totalvalue%></option>
-                              <%end%>			
-         </select>  
+                              <%end%>
+         </select>  <br><br>
 	      		    <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"",:onchange=>"changetheline()"%>
-                <div id="changethelineinfo" style="height:20px;">
+                <div id="changethelineinfo" style="height:20px; width:100px;">
                 </div>  
                 
                 <script>
@@ -143,7 +144,7 @@
             <div id="credit_card_fields" style="display: block" >
                       <% fields_for credit_card do |ff| %>
                               <%= ff.hidden_field :user_id, :value => @current_user.id %>
-                              <%= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
+                              <%#= ff.select :type_of_card, [['VISA', 'visa'], ['Master Card', 'master_card']], :label => 'Type' %>
                               <div class="changecolorgray">
                              <!--     <span >First Name</span> <span style="margin-left:131px;">Last Name</span>
                                </div>   
