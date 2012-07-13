@@ -1511,8 +1511,9 @@ end
         page.alert("Please Pay For One Entry")
       else
       #  page['show_competition'+@competitions_user.id.to_s].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
-     
-         page['fragment-3'].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
+         p "i am herererrerererere"
+         p @competition.id.to_s
+         page["show_competition"+params[:order_id].to_s].replace_html(:partial=>"edit_list_of_artworks",:locals=>{:allartworks=>@image_array,:competition_user=>@competitions_user})
        
        
 #        for updateimage in @image_array
