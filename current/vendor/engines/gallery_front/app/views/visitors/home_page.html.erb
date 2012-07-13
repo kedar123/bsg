@@ -1,4 +1,15 @@
- 
+<style>
+  #compusr a{
+    font-size: 13px;
+    font-family:Tahoma,Arial;
+    color:grey;
+  }
+  .ps{
+    font-size: 20px;
+    margin-bottom: 2px;
+    text-transform:uppercase;
+  }
+</style>
  
  
  
@@ -152,18 +163,18 @@
           
 	                               
          <%for compuser in @competitionuserenteredlist%>
-                <div style="clear:both; float:left;color:coral;">
-                     <%=compuser.competition.title%>
+                <div id="compusr" class="ps" style="clear:both; float:left;color:coral;">
+                  <%=compuser.competition.title%><br>
                      <%if !compuser.blank?%>
                      
-                         <%=link_to_remote "DETAIL", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=#{compuser.id}"
+                         <%=link_to_remote "DETAILS", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=#{compuser.id}"
                                 %>  
-                        <br/>    
-                 
+                                          
                      <!--   <%=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
                              %>   -->
-                       <br/>
-                        <%=link_to_remote "Add", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
+                             <span style="color:black;font-size: 13px;">|</span>
+                       
+                        <%=link_to_remote "ADD", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
                              %>   
                        <br/>
                       <%end%>
