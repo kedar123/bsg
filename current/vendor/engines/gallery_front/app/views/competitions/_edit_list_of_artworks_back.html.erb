@@ -23,18 +23,20 @@
     </div>
     
     <div id ="right" class="compimg" style="float:left"> 
- <a href="javascript:void(0)" onclick="return Nexter(); return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
+ <a href="javascript:void(0)"  return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
     </div> 
  <%end%>
 <!-- ####################### end of form for image slide show ####################### -->
  
   <div id="keepallformshere">
+     
    <%count=0%>
    <%for updateimage in allartworks %>
     <div id="imageform<%=count%>" style="display:none">
        <%=render :partial=>"form_for_art",:locals=>{:updateimagearray=>updateimage,:competition=>competition.id}%>
      </div>
-      <%count=count+1%>
+    <%count=count+1%>
+      
    <%end%>
  </div>
  
@@ -110,7 +112,7 @@ n*/
 /* ####################### we create the functions to go forward and go back ####################### */
 function Nexter(){
 if (currentIndx<imagesPreloaded.length-3){
-
+/*
 ++currentIndx; 
 
  
@@ -126,7 +128,7 @@ document.rightimg.alt=imagesPreloaded[currentIndx+2].src
 document.getElementById('imageform'+(currentIndx-1)).style.display='block';     
 document.getElementById('imageform'+(currentIndx-2)).style.display='none';     
 document.getElementById('imageform'+(currentIndx)).style.display='none';     
-  
+  */
 }
 else {
  
@@ -142,22 +144,27 @@ writeImageNumber();
  function Backer(){
 if (currentIndx>0){
 --currentIndx; 
-document.rightimg.src=document.middleimg.src
-document.middleimg.src=document.leftimg.src
-document.leftimg.src=imagesPreloaded[currentIndx].src
+document.rightimg.src = document.middleimg.src
+document.middleimg.src = document.leftimg.src
+document.leftimg.src = imagesPreloaded[currentIndx].src
+alert(currentIndx);
+alert(currentIndx-1);
 
-document.getElementById('imageform'+(currentIndx-1)).style.display='block';     
-document.getElementById('imageform'+(currentIndx+1)).style.display='none';     
-document.getElementById('imageform'+(currentIndx)).style.display='none';  
+document.getElementById('imageform'+(currentIndx+1)).style.display='block';     
+document.getElementById('imageform'+(currentIndx-currentIndx)).style.display='none';     
+document.getElementById('imageform'+(currentIndx-1)).style.display='none';  
 
 
 }
 else {
   
   currentIndx = MyImages.length-1 
+  alert(currentIndx)
+  alert('s')
   document.rightimg.src = document.middleimg.src
   document.middleimg.src = document.leftimg.src
   document.leftimg.src = imagesPreloaded[currentIndx].src
+  document.getElementById('imageform'+(currentIndx-(currentIndx))).style.display='block';     
   
 
 }

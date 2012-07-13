@@ -1,4 +1,5 @@
-    <form action="edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit="return  Checkfiles_simple('<%=updateimagearray[7]%>',true)"  id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>" >  
+<%if updateimagearray%>    
+<form action="edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit="return  Checkfiles_simple('<%=updateimagearray[7]%>',true)"  id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>" >  
 
 
       <div class="changecolorgray">   
@@ -65,3 +66,4 @@
 
   </div>
 </form>
+<%end%>

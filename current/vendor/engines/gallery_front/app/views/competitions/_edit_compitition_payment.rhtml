@@ -53,7 +53,7 @@
                    {
                       document.getElementById("changethelineinfo").innerHTML = "";
                    }
- show_div();
+// show_div();
            }
 
 						function change_entry_fee_value()
@@ -179,7 +179,7 @@
                                     </div>
             </div>
                                               <div style="clear:both;float:left;padding-top:20px;">
-                                                  <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
+                                                  <%=  submit_to_remote 'da_btn', "Proceeddd",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
                                                <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
                                                       <img alt="loading" src="/images/ajax-spinner.gif" height=20>
                                             </div> 

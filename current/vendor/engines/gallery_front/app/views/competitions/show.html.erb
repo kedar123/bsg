@@ -4,13 +4,17 @@
    <% if @competition %>
       <div id="description_competition">
         <div id="content" style="padding: 20px 5px 20px 20px">
-            <h2><%= @competition.title %></h2>
-            
+          <p style="color:blue;font-size:50px;clear:both;text-align: left;margin-left:300px;">
+            <%= @competition.title %>
+          </p>
+          <p style="clear:both;font-size:13px;text-align: left;margin-left:300px;width:250px;border-right: 1px solid #000 ;">
+
             <%@oldlabelvalue.each do |key,value|%>
-            <%=key%>------<%=value%>
+            <span><b><%=key%></b></span>
+             <span style="margin-left:10px;font-size:10px"><%=value%></span>
             </br>
             <%end%>
-            
+           </span> 
         
        <%if logged_in?%>     
        <%else%>     

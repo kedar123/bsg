@@ -1647,11 +1647,11 @@ end
         @image_array << image_arrayi
       end
       end
-     
-    end
      i=i+1
     end
-    i=0
+     i=0
+    end
+    
 
     render :update do |page|
       if (false)
