@@ -242,7 +242,12 @@ class Admin::ProfilesController < Admin::ApplicationController
       
   end
   
-  
+  def back_to_comp_list
+      @competitions = Competition.find(:all)
+       render :update do |page|
+            page['fragment-3'].replace_html(:partial=>'back_to_comp_list')
+        end 
+  end
   
   def create_sent_mail
     @message = current_user.sent_messages.build(params[:message])

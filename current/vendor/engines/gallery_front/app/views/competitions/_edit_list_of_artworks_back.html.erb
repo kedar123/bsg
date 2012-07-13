@@ -6,7 +6,9 @@
    %>
    </span> -->
  
-
+<%=link_to_remote "Back", :update => "",
+    :url =>  "/admin/profiles/back_to_comp_list" 
+      %>
 <%#end%>
   <%if current_user.login == 'admin'%>
  

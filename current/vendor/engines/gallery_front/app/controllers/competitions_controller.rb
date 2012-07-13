@@ -1690,6 +1690,8 @@ end
 
  
  
+  
+ 
  #this method i am writting for edit a particular image in front end for competition
  def edit_particular_image
       
