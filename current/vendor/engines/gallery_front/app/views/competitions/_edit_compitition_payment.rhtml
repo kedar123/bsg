@@ -5,9 +5,17 @@
   color: #444444;
   line-height: 25px;
   font-size:14px;
+  float:left;
+  
 }
 
+#subbutton input{
+                                         clear:both;float:right;background-color:#0066ff;color:white;font-family:Trebuchet MS,Arial,Helvetica,sans-serif;
+                                       }
+
 </style>
+
+
 <script type="text/javascript">
 
   function show_div(){
@@ -111,7 +119,7 @@
                      <%#end%>		  
 	            </div>--> 
 	            
-   	<select name="competitions_user[total_entry]" id="field-5da43579005846d" onChange="change_entry_fee_value();" style="width:65px;height:25px;margin-right:20px;text-align: center;margin-top:10px;">
+   	<select name="competitions_user[total_entry]" id="field-5da43579005846d" onChange="change_entry_fee_value();" style="width:65px;height:25px;margin-right:0px;text-align: center;margin-top:10px;  margin-top: 65px;text-align: center;width: 159px;background-color: white;">
       								<option value="0">0</option>
         								     <%i=1%>
            									 <%entry_fees.each do |x|%>
@@ -126,7 +134,7 @@
 	      			<div style="float:left">
 	                	<input type="hidden" id="order_id" name="order_id" value="<%=order.id%>"/>		
 	          	</div>
-          <select id ="change_entry_fee" style="width:65px;height:25px;margin-right:25px;text-align: center" disabled="disabled">
+          <select id ="change_entry_fee" style="width:159px;height:25px;margin-right:-279px;text-align: center;" disabled="disabled">
                           <option value="0">0</option>  
                            <%totalvalue = 0%>
                               <%entry_fees.each  do |x|%>
@@ -134,10 +142,10 @@
                                   <option value="<%=totalvalue%>">$<%=totalvalue%></option>
                               <%end%>
          </select>  <br><br>
-	      		    <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"",:onchange=>"changetheline()"%>
-                <div id="changethelineinfo" style="height:20px; width:100px;">
+	      		    <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"background-color: white;width: 703px;",:onchange=>"changetheline()"%>
+                <div id="changethelineinfo" style="height:20px; width:500px;">
                 </div>  
-                
+            <!--    <input type="text" style="border-radius: 0 0 0 0;height: 23px;width: 681px;"> -->
                 <script>
 	      	document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>;
 	      </script>
@@ -150,40 +158,60 @@
                                </div>   
                                 <%#= ff.text_field :first_name, :label => 'First name' ,:style=>"width:165px;height:16px;float:left"%>
                                 <%#= ff.text_field :last_name, :label => 'Last name' ,:style=>"width:254px;height:16px;margin-left:12px;"%>-->
+                                
                                 <div class="changecolorgray" >
                                      Card Number
+                                </div><br>
+                                
+                                
+                                 <div style="margin-left: -17px;width: 730px;margin-bottom:10px;">
+    
+                                 <%= ff.text_field :number0, :label => 'Number',:value=>"4",:style=>"width:13px;height:16px;text-align:center" ,:onblur=>"checkcreditcardno('credit_card_number0')"%>
+                                 <%= ff.text_field :number1, :label => 'Number',:value=>"9",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number1')"%>
+                                 <%= ff.text_field :number2, :label => 'Number',:value=>"8",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number2')"%>
+                                 <%= ff.text_field :number3, :label => 'Number',:value=>"7",:style=>"width:13px;height:16px;margin-right:20px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number3')"%>
+                                 <%= ff.text_field :number4, :label => 'Number',:value=>"6",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number4')"%>
+                                 <%= ff.text_field :number5, :label => 'Number',:value=>"5",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number5')"%>
+                                 <%= ff.text_field :number6, :label => 'Number',:value=>"4",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number6')"%>
+                                 <%= ff.text_field :number7, :label => 'Number',:value=>"3",:style=>"width:13px;height:16px;margin-right:20px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number7')"%>
+                                 <%= ff.text_field :number8, :label => 'Number',:value=>"2",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number8')"%>
+                                 <%= ff.text_field :number9, :label => 'Number',:value=>"1",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number9')"%>
+                                 <%= ff.text_field :number10, :label => 'Number',:value=>"0",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number10')"%>
+                                 <%= ff.text_field :number11, :label => 'Number',:value=>"9",:style=>"width:13px;height:16px;margin-right:20px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number11')"%>
+                                 <%= ff.text_field :number12, :label => 'Number',:value=>"8",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number12')"%>
+                                 <%= ff.text_field :number13, :label => 'Number',:value=>"7",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number13')"%>
+                                 <%= ff.text_field :number14, :label => 'Number',:value=>"6",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number14')"%>
+                                 <%= ff.text_field :number15, :label => 'Number',:value=>"9",:style=>"width:13px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number15')"%>
                                    </div>
-                                        <%= ff.text_field :number0, :label => 'Number',:value=>"4",:style=>"width:15px;height:16px;text-align:center" ,:onblur=>"checkcreditcardno('credit_card_number0')"%>
-                                 <%= ff.text_field :number1, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number1')"%>
-                                 <%= ff.text_field :number2, :label => 'Number',:value=>"8",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number2')"%>
-                                 <%= ff.text_field :number3, :label => 'Number',:value=>"7",:style=>"width:15px;height:16px;margin-right:20px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number3')"%>
-                                 <%= ff.text_field :number4, :label => 'Number',:value=>"6",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number4')"%>
-                                 <%= ff.text_field :number5, :label => 'Number',:value=>"5",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number5')"%>
-                                 <%= ff.text_field :number6, :label => 'Number',:value=>"4",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number6')"%>
-                                 <%= ff.text_field :number7, :label => 'Number',:value=>"3",:style=>"width:15px;height:16px;margin-right:20px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number7')"%>
-                                 <%= ff.text_field :number8, :label => 'Number',:value=>"2",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number8')"%>
-                                 <%= ff.text_field :number9, :label => 'Number',:value=>"1",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number9')"%>
-                                 <%= ff.text_field :number10, :label => 'Number',:value=>"0",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number10')"%>
-                                 <%= ff.text_field :number11, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;margin-right:20px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number11')"%>
-                                 <%= ff.text_field :number12, :label => 'Number',:value=>"8",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number12')"%>
-                                 <%= ff.text_field :number13, :label => 'Number',:value=>"7",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number13')"%>
-                                 <%= ff.text_field :number14, :label => 'Number',:value=>"6",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number14')"%>
-                                 <%= ff.text_field :number15, :label => 'Number',:value=>"9",:style=>"width:15px;height:16px;text-align:center",:onblur=>"checkcreditcardno('credit_card_number15')"%>
-                                   <div class="changecolorgray">       
-                                      <span> Expiry Date</span><span style="margin-left:124px;">Verification code (3 digits)</span>
+                                    <div class="changecolorgray">       
+                                      Expiry Date</div>
+                                    <div style="float:left;margin-left:13px; margin-bottom:30px;><%= ff.date_select :expiring_date, {:order => [:month, :year], :label => 'Expiring date' ,:default => { :year => 2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"text-align: center; background-color:white;"%>
+                                     </div>
+                                     <div style="float:left;margin-left:26px;">
+                                     Verification code (3 digits)
                                     </div> 
-                                    <div>  
-                                    <%= ff.date_select :expiring_date, {:order => [:year, :month], :label => 'Expiring date' ,:default => { :year => 2013,:month=>05 },:start_year=>1995,:end_year=>2015},:style=>"text-align: center"%>
+                                      
+                                    <span style="clear: both;height: 16px;text-align: center;width: 50px;">
+                                    <%= ff.text_field :verification_value, :label => 'Verification code (3 digits)' ,:value=>"123" ,:style=>"width:50px;height:16px;text-align:center;clear:both;margin-left: -120px;margin-top: 5px;"%>
+                                    </span>
+                                           </div><br>
+                                   <div>
+                                     
+                                     
+                                     <span id ="subbutton" style="">
+                                     <%=  submit_to_remote 'da_btn', "Next",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%></span>
+                                    <span style="font-size:10.5px;float:left; text-align: justify;width:85%;font-family:Trebuchet MS,Arial,Helvetica,sans-serif;line-height: 18px;">
+                                    If paying by direct debit please deposit the amount into our account BSG,CBA,BSB 063 212<br>
+                                    Account No 1017 2051 with your name on the transaction.If paying by cheque or cash please send<br>
+                                    it to BSG, 322 Brunswick St, Fitzroy. 3065 or bring it in person to the gallery by due date.
+                                    </span>
+                                     
                                     
-                                    <%= ff.text_field :verification_value, :label => 'Verification code (3 digits)' ,:value=>"123" ,:style=>"width:50px;height:16px;text-align:center;clear:both"%>
-                                    </div>
-            </div>
-                                              <div style="clear:both;float:left;padding-top:20px;">
-                                                  <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
-                                               <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
+                                     <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
                                                       <img alt="loading" src="/images/ajax-spinner.gif" height=20>
-                                            </div> 
-                                              </div>  
+                                     </div> 
+                                     
+                                   </div>
                                             
                                           </div><%#blank div ends%>
                                                
