@@ -4,7 +4,7 @@
 .changecolorgray{
   color: #444444;
   line-height: 25px;
-  font-size:10px;
+  font-size: 10px;
   float:left;
   
 }
@@ -38,16 +38,16 @@
                    
                    if  (cmbv == "cash")
                    {
-                      document.getElementById("changethelineinfo").innerHTML = "You will need to come into the gallery at 322 Brunswick St, Fitzroy to make your payment";
+                      document.getElementById("changethelineinfo").innerHTML = "Please send payment to BSG, 322 Brunswick St, Fitzroy. 3065 or bring it in person to the gallery by due date.";
                      
                    }
                    if(cmbv == "cheque")
                    {
-                      document.getElementById("changethelineinfo").innerHTML = "Make out to BSG and send to 322 Brunswick St, Fitzroy 3065";
+                      document.getElementById("changethelineinfo").innerHTML = " Please send your payment to BSG, 322 Brunswick St, Fitzroy. 3065 or bring it in person to the gallery by due date.";
                    }
                    if(cmbv == "direct deposit")
                    {
-                      document.getElementById("changethelineinfo").innerHTML = "Bank Account, Brunswick Street Gallery, CBA, bsb 063212, AC 1017 2051 with your name on the transaction";
+                      document.getElementById("changethelineinfo").innerHTML = " Please deposit the amount into our account BSG,CBA,BSB 063 212 Account No 1017 2051 with your name on the transaction.";
                    }
                    if(cmbv == "visa")
                    {
@@ -103,11 +103,11 @@
       				 <%end%>			
                <div class="changecolorgray">
                         
-                 
+                 <br><br>
                       <%if order.total_entry != '0' and order.total_entry != nil%>
-                        <h3 style="color:#000000">
+                 <h4 style="color:#000000; float:right;">
                           You Have Already Paid $<span id="rupees_paid"></span> For <%=order.total_entry %>&nbsp;&nbsp;Entries
-                        </h3>
+                        </h4>
                       <%end%>
           		        <script>
                       			document.getElementById("rupees_paid").innerHTML= change_the_required_field_value(<%=order.total_entry%>);
@@ -120,7 +120,7 @@
                      <%#end%>		  
 	            </div>--> 
 	            
-   	<select name="competitions_user[total_entry]" id="field-5da43579005846d" onChange="change_entry_fee_value();" style="width:65px;height:25px;margin-right:0px;text-align: center;margin-top:10px;  margin-top: 65px;text-align: center;width: 159px;background-color: white;">
+   	<select name="competitions_user[total_entry]" id="field-5da43579005846d" onChange="change_entry_fee_value();" style="width:65px;height:21px;margin-right:0px;font-size:15px;text-align: center;margin-top:10px;  margin-top: 65px;text-align: center;width: 159px;background-color: white;">
       								<option value="0">0</option>
         								     <%i=1%>
            									 <%entry_fees.each do |x|%>
@@ -135,7 +135,7 @@
 	      			<div style="float:left">
 	                	<input type="hidden" id="order_id" name="order_id" value="<%=order.id%>"/>		
 	          	</div>
-          <select id ="change_entry_fee" style="width:159px;height:25px;margin-right:-279px;text-align: center;" disabled="disabled">
+          <select id ="change_entry_fee" style="width:159px;font-size:15px;height:21px;margin-right:-60px;text-align: center;" disabled="disabled">
                           <option value="0">0</option>  
                            <%totalvalue = 0%>
                               <%entry_fees.each  do |x|%>
@@ -143,9 +143,8 @@
                                   <option value="<%=totalvalue%>">$<%=totalvalue%></option>
                               <%end%>
          </select>  <br><br>
-	      		    <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"background-color: white;width: 703px;",:onchange=>"changetheline()"%>
-                <div id="changethelineinfo" style="height:20px; width:500px;">
-                </div>  
+	      		    <%= select 'invoicing_info', 'payment_medium', [['Visa', 'visa'],['Master Card','master card'],['Paypal','paypal'],['Cash','cash'],['Cheque','cheque'],['Direct Deposit','direct deposit'] ], {},:style=>"background-color: white;font-size:15px;width: 703px;margin-top: -12px;",:onchange=>"changetheline()"%>
+                
             <!--    <input type="text" style="border-radius: 0 0 0 0;height: 23px;width: 681px;"> -->
                 <script>
 	      	document.getElementById("change_entry_fee").selectedIndex=<%=order.total_entry%>;
@@ -199,14 +198,8 @@
                                    <div>
                                      
                                      
-                                     <span id ="subbutton" style="">
-                                     <%=  submit_to_remote 'da_btn', "Next",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%></span>
-                                    <span style="font-size:10.5px;float:left; text-align: justify;width:85%;font-family:Trebuchet MS,Arial,Helvetica,sans-serif;line-height: 18px;">
-                                    If paying by direct debit please deposit the amount into our account BSG,CBA,BSB 063 212<br>
-                                    Account No 1017 2051 with your name on the transaction.If paying by cheque or cash please send<br>
-                                    it to BSG, 322 Brunswick St, Fitzroy. 3065 or bring it in person to the gallery by due date.
-                                    </span>
-                                     
+                                     <span id="changethelineinfo" style="font-size:10.5px;float:left; text-align: justify;width:69%;height:40px;font-family:Trebuchet MS,Arial,Helvetica,sans-serif;line-height: 18px;">
+                </span>  
                                     
 
                                      <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
@@ -214,8 +207,8 @@
                                     <%= ff.text_field :verification_value, :label => 'Verification code (3 digits)' ,:value=>"123" ,:style=>"width:50px;height:16px;text-align:center;clear:both"%>
                                     </div>
             </div>
-                                              <div style="clear:both;float:left;padding-top:20px;">
-                                                  <%=  submit_to_remote 'da_btn', "Proceeddd",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
+                                              <div id ="subbutton">
+                                                  <%=  submit_to_remote 'da_btn', "Proceed",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
                                                <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
 
                                                       <img alt="loading" src="/images/ajax-spinner.gif" height=20>
