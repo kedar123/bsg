@@ -47,5 +47,31 @@ class Admin::CompetitionsUsersController < Admin::ApplicationController
 			render :partial => 'admin/competitions_users/artworks_wizard', :layout => false
 		end
 	end
+  
+  def change_artwork_drop_or_send_value
+      competitions_user = CompetitionsUser.find(params[:cu])
+      competitions_user.drop_of_work = params[:id]
+      competitions_user.save
+      render :nothing=>true
+  end
+  
+  
+  #first find a ajax request which open a pop up. while showing a invoices of exhibition
+  def show_popup_image_upload
+    #:id/:imgtitle
+      order = CompetitionsUser.find(params[:id])
+       image_array = ['fworkimage','sworkimage','tworkimage','foworkimage','fiworkimage','siworkimage','seworkimage','eworkimage','nworkimage','teworkimage']
+       title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
+
+      art_comp = ArtworksCompetition.find(:first,:conditions=>["image_name = ? and competitions_users_id = ?",image_array[title_array.index(params[:imgtitle].to_s)],params[:id]] )
+         p art_comp
+         p "ssssssss"
+         
+     render :update do |page| 
+       page['modal_space'].replace_html(:partial=>'admin/competitions_users/update_image',:locals=>{:image_url=>art_comp.avatar_file_name,:competitionuserid=>order.id,:artcompid=>art_comp.id,:image_name=>art_comp.image_name})
+     end
+    
+  end
+  
 
 end

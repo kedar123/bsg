@@ -30,7 +30,7 @@
   <%#= f.select :place_id, @places.collect{ |e| [e.title, e.id] }, :label => 'Place :' %>
   <%#= @places.map{ |e| f.checkbox :gallery } %>
   <div class="formElement" >
-<br/><br/><br/>Places
+ Places
   <% places_list.each do |p| %>
     <%#= check_box_tag @current_object.class.to_s.downcase+'[timing_attributes][gallery_ids][]', p.id, @current_object.timing.galleries.include?(p) %> <%#= p.title %>
     <%if @current_object%>

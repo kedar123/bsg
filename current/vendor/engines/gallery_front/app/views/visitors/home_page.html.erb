@@ -17,6 +17,14 @@
 
 <script>
  
+function sendselectedoptiontocu(selectedid){
+  var si = document.getElementById('selectdrop'+selectedid).selectedIndex;
+  //alert(document.getElementById('selectdrop'+selectedid).options[si].value);
+    
+  //showhidediv(selectedid)
+  jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+  return false;
+}
 
   $(document).ready(function(){
     $( "#tabs" ).tabs();
@@ -169,13 +177,27 @@
                      
                          <%=link_to_remote "DETAILS", :update => "",:url =>"/edit_images_front/#{compuser.competition.id}?order_id=#{compuser.id}"
                                 %>  
-                                          
-                     <!--   <%=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
+                  
+                  
+                  <!--   <%=link_to_remote " Details", :update => "",:url => "/competitions/edit_images_frontbrowse/#{compuser.competition.id}?order_id=#{compuser.id}"
                              %>   -->
                              <span style="color:black;font-size: 13px;">|</span>
                        
                         <%=link_to_remote "ADD", :update => "",:url => "/create_subscribe_competition_front_edit/#{compuser.competition.id}?order_id=#{compuser.id}"
                              %>   
+                             <span style="color:black;font-size: 13px;">|</span>
+                            
+                                                 <%if compuser.drop_of_work == 'i will drop of works to the gallery'%>
+                         <%=select_tag "dropofwork", "<option value='drop work'>drop  work</option><option value='i will drop of works to the gallery' selected='selected'>i will drop of works to the gallery</option><option value='Please Send My Works By Austin Post'>Please Send My Works By Austin Post</option>",:style=>"width:auto;height:15px;clear:both;font-size:7px;",:onchange=>"sendselectedoptiontocu(#{compuser.id});return false;",:id=>"selectdrop#{compuser.id}"%> 
+                           
+                         <%elsif compuser.drop_of_work == 'Please Send My Works By Austin Post'%>
+                         <%=select_tag "dropofwork", "<option value='drop work'>drop  work</option><option value='i will drop of works to the gallery'>i will drop of works to the gallery</option><option value='Please Send My Works By Austin Post' selected='selected'>Please Send My Works By Austin Post</option>",:style=>"width:auto;height:15px;clear:both;font-size:7px;",:onchange=>"sendselectedoptiontocu(#{compuser.id});return false;",:id=>"selectdrop#{compuser.id}"%> 
+                         <%else%>
+                         <%=select_tag "dropofwork", "<option value='drop work'>drop  work</option><option value='i will drop of works to the gallery'>i will drop of works to the gallery</option><option value='Please Send My Works By Austin Post' >Please Send My Works By Austin Post</option>",:style=>"width:auto;height:15px;clear:both;font-size:7px;",:onchange=>"sendselectedoptiontocu(#{compuser.id});return false;",:id=>"selectdrop#{compuser.id}"%> 
+                             
+                             <%end%>
+     
+                             
                        <br/>
                       <%end%>
                      </div>
