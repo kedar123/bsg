@@ -1,7 +1,7 @@
 <% blank_main_div(:title => 'Payment process', :hsize => 'sixH', :modal => true) do %>
   
 
-<div id="editartwork<%=image_name %>" >
+
  
   <div class="inputfont">
 
@@ -31,14 +31,14 @@
 
       <br/>
       <div style="clear:both;float:left;padding-right:5px;padding-top:5px;">
-        
+        <div id="editartwork<%=image_name %>" >
         <img src="/uploaded_files/competition/artwork/<%=artcompid%>/thumb/<%=image_url%>" width="90px" height="90px" />   
-        
+        </div>       
       </div>
      
 
   </div>
 </form>
-</div>
+
 <iframe id="'upload_frame<%=image_name %>"   name="upload_frame<%=image_name %>" style="width:1px;height:1px;display:none"></iframe>
 <%end%>

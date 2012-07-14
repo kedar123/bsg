@@ -1027,18 +1027,24 @@ end
     
     order = CompetitionsUser.find(params[:competitionuserid])
     i=0
+    
     title_array = ['fworktitle','sworktitle','tworktitle','foworktitle','fiworktitle','siworktitle','seworktitle','eworktitle','nworktitle','teworktitle']
+  
+    if  params[:titleforupdate].to_s.include? "image"
+    i = image_array.index params[:titleforupdate]
+    else
     i = title_array.index params[:titleforupdate]
+    end
     p params[:competitions_user]["worktitle"]
     p "saaaaaaaaaaaaaa"
     p i
-    order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"])
-    order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"]) 
-    order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"]) 
-    order.send(editionnamearray[i].to_sym,params[:competitions_user]["editionname"]) 
-    order.send(editionnumberarray[i].to_sym,params[:competitions_user]["editionnumber"]) 
-    totalsize = params[:competitions_user]["worksize1"].to_s+"x"+params[:competitions_user]["worksize2"].to_s+"x"+params[:competitions_user]["worksize3"].to_s
-    order.send(size_array_send[i],totalsize)
+    order.send(title_array_send[i].to_sym,params[:competitions_user]["worktitle"]) if params[:competitions_user]["worktitle"]
+    order.send(medium_array_send[i].to_sym,params[:competitions_user]["workmedium"])  if params[:competitions_user]["workmedium"]
+    order.send(price_array_send[i].to_sym,params[:competitions_user]["workprice"])  if params[:competitions_user]["workprice"]
+    order.send(editionnamearray[i].to_sym,params[:competitions_user]["editionname"])  if params[:competitions_user]["editionname"]
+    order.send(editionnumberarray[i].to_sym,params[:competitions_user]["editionnumber"]) if params[:competitions_user]["editionnumber"]
+    totalsize = params[:competitions_user]["worksize1"].to_s+"x"+params[:competitions_user]["worksize2"].to_s+"x"+params[:competitions_user]["worksize3"].to_s   if params[:competitions_user]["worksize1"]
+    order.send(size_array_send[i],totalsize) if params[:competitions_user]["worksize1"]
     order.save_image(params[:competitions_user],i)
     order.submit_artwork(params[:competitions_user],i)
     order.save
@@ -1057,14 +1063,20 @@ end
           
            page.redirect_to "/admin/profiles/#{params[:user_id]}"
         else
-          page["editartwork"+params[:titleforupdate]].replace_html :partial=>"editcompartwork",:locals=>{:competitionuser => params[:competitionuserid],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Changed",:updateimagearray=>updateimagearray}
+            if  params[:titleforupdate].to_s.include? "image"
+                   
+               #page["editartwork"+params[:titleforupdate]].replace_html "<img src='/system/gallery/#{order.send(image_array[i])}' width='90px' height='90px' />"
+               page.redirect_to "/"
+   
+            else
+               page["editartwork"+params[:titleforupdate]].replace_html :partial=>"editcompartwork",:locals=>{:competitionuser => params[:competitionuserid],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Changed",:updateimagearray=>updateimagearray}
         
-        end        
+            end        
         
-      end  
+        end  
     end  
   end  
-   
+  end
    
 
   #############################################this is im copying is basically for the methods called in payment create method and which is i copied at above
