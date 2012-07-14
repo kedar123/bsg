@@ -14,6 +14,7 @@
  
  <!-- ####################### start of form for image slide show ####################### -->
 <%if !allartworks.blank?%>
+ <!--<div style="width:798px;height:262px;">-->
     <div id ="left" class="compimg" style="float:left">  	
     <a href="javascript:void(0)" onclick="return Backer(); return false;" ><img src="/system/gallery/<%=allartworks[0][3]%>" width="265" height="262" border="0" name="leftimg" alt="No Image"></a>
     </div>
@@ -25,8 +26,11 @@
     </div>
     
     <div id ="right" class="compimg" style="float:left"> 
- <a href="javascript:void(0)"  onclick="return Nexter(); return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
+
+    <img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image">
+       
     </div> 
+
  <%end%>
 <!-- ####################### end of form for image slide show ####################### -->
  

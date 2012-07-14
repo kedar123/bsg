@@ -107,7 +107,7 @@ function sendselectedoptiontocu(selectedid){
 <div id="container">
 
 <%if logged_in?%>
-<div class="demo" style="width:80%;padding-left:10%;padding-top:2%">
+<div class="demo" style="width:56%;padding-left:22%;padding-top:2%">
 
 <div id="tabs">
     <div style="background-color: black;color: white;display: none;font-size: 10px;margin-left: 658px;margin-top: -31px;position: absolute;width: 109px;" id="competitionlist" >
@@ -171,7 +171,7 @@ function sendselectedoptiontocu(selectedid){
           
 	                               
          <%for compuser in @competitionuserenteredlist%>
-                <div id="compusr" class="ps" style="clear:both; float:left;color:coral;">
+                <div id="compusr" class="ps" style="clear:both; float:left;color:coral; font-family:Trebuchet MS,Arial,Helvetica,sans-serif;">
                   <%=compuser.competition.title%><br>
                      <%if !compuser.blank?%>
                      
