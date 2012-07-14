@@ -25,7 +25,7 @@
     </div>
     
     <div id ="right" class="compimg" style="float:left"> 
- <a href="javascript:void(0)"  return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
+ <a href="javascript:void(0)"  onclick="return Nexter(); return false;" ><img src="/system/gallery/<%=allartworks[2][3]%>" width="265" height="262"  alt="" border="0"name="rightimg" alt="No Image"></a>
     </div> 
  <%end%>
 <!-- ####################### end of form for image slide show ####################### -->
@@ -110,45 +110,95 @@ function writeImageNumber()
 oSpan.innerHTML="Image "+eval(currentIndx+1)+" of "+MyImages.length;
 n*/
 }
-
+var back = 'no';
 /* ####################### we create the functions to go forward and go back ####################### */
 function Nexter(){
-if (currentIndx<imagesPreloaded.length-3){
-/*
+  
+
+if ((currentIndx+3)<imagesPreloaded.length){
+ 
 ++currentIndx; 
 
  
 document.leftimg.src=document.middleimg.src
  
 document.middleimg.src=document.rightimg.src
-
-
-document.rightimg.src=imagesPreloaded[currentIndx+2].src
-document.rightimg.alt=imagesPreloaded[currentIndx+2].src
+ 
+ 
+ if(back == 'no'){
+document.rightimg.src = imagesPreloaded[currentIndx+2].src;
+ }
+ else{
+document.rightimg.src = imagesPreloaded[currentIndx].src;
+   
+ }
+  
+ 
+ 
+   
+ 
  
 
-document.getElementById('imageform'+(currentIndx-1)).style.display='block';     
-document.getElementById('imageform'+(currentIndx-2)).style.display='none';     
-document.getElementById('imageform'+(currentIndx)).style.display='none';     
-  */
+//document.rightimg.src=imagesPreloaded[currentIndx+2].src
+//document.rightimg.alt=imagesPreloaded[currentIndx+2].src
+ 
+
+//document.getElementById('imageform'+(currentIndx-1)).style.display='block';     
+//document.getElementById('imageform'+(currentIndx-2)).style.display='none';     
+//document.getElementById('imageform'+(currentIndx)).style.display='none';     
+   
 }
 else {
+  
  
- currentIndx=0
-document.leftimg.src=imagesPreloaded[currentIndx].src
-document.middleimg.src=imagesPreloaded[currentIndx+1].src
-document.rightimg.src=imagesPreloaded[currentIndx+2].src
-document.rightimg.alt=imagesPreloaded[currentIndx+2].src
+ 
+ 
+ 
+  
+ 
+ back='yes'
+
+ 
+  
+currentIndx=0
+
+document.leftimg.src=document.middleimg.src
+document.middleimg.src=document.rightimg.src
+document.rightimg.src=imagesPreloaded[currentIndx].src
+  
+ 
+ 
 
 }
 writeImageNumber();
 }
  function Backer(){
+  
+ 
+
+ 
+  
 if (currentIndx>0){
+  
+ 
+   
+
 --currentIndx; 
+ 
+if(back == 'no')
+  {
 document.rightimg.src = document.middleimg.src
 document.middleimg.src = document.leftimg.src
 document.leftimg.src = imagesPreloaded[currentIndx].src
+  }
+  else{
+document.rightimg.src = document.middleimg.src
+document.middleimg.src = document.leftimg.src
+document.leftimg.src = imagesPreloaded[currentIndx+8].src
+back='no'     
+  }
+ 
+ 
  
  document.getElementById('imageform'+(currentIndx+1)).style.display='block';     
 document.getElementById('imageform'+(currentIndx-currentIndx)).style.display='none';     
@@ -167,6 +217,7 @@ document.getElementById('imageform'+(currentIndx)).style.display='none';
 
 }
 else {
+ 
    currentIndx = MyImages.length-1 
     document.rightimg.src = document.middleimg.src
   document.middleimg.src = document.leftimg.src
