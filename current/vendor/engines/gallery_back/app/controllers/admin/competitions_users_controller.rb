@@ -68,7 +68,14 @@ class Admin::CompetitionsUsersController < Admin::ApplicationController
          p "ssssssss"
          
      render :update do |page| 
-       page['modal_space'].replace_html(:partial=>'admin/competitions_users/update_image',:locals=>{:image_url=>art_comp.avatar_file_name,:competitionuserid=>order.id,:artcompid=>art_comp.id,:image_name=>art_comp.image_name})
+       if art_comp
+         page['modal_space'].replace_html(:partial=>'admin/competitions_users/update_image',:locals=>{:image_url=>art_comp.avatar_file_name,:competitionuserid=>order.id,:artcompid=>art_comp.id,:image_name=>art_comp.image_name})
+       
+       else
+         page['modal_space'].replace_html(:partial=>'admin/competitions_users/update_image',:locals=>{:image_url=>'',:competitionuserid=>order.id,:artcompid=>'',:image_name=>image_array[title_array.index(params[:imgtitle].to_s)]})
+       
+       end     
+       
      end
     
   end

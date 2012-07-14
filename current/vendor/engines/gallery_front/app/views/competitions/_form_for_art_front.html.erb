@@ -16,7 +16,7 @@
 <%if updateimagearray%>    
 <form action="edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit="return  Checkfiles_simple('<%=updateimagearray[7]%>',true)"  id="add_the_artwork_to_competition<%=updateimagearray[7]%>"  target="upload_frame<%=updateimagearray[7]%>" >  
       <div style="clear:both" id="show_ajax_request<%=updateimagearray[7]%>">
-       <span >   <img src="/system/gallery/<%=updateimagearray[3]%>" width="45px" height="45px" onclick="sendpopuprequest('<%=updateimagearray[8]%>','<%=updateimagearray[7]%>');"/>   </span>
+       <span >   <img src="/system/gallery/<%=updateimagearray[3]%>" alt ="no image"width="45px" height="45px" onclick="sendpopuprequest('<%=updateimagearray[8]%>','<%=updateimagearray[7]%>');"/>   </span>
       <span style="margin-left:10px">      <input  name="competitions_user[worktitle]" id="artwork_title<%=updateimagearray[7]%>" style="width:35px; height: 14px;" value="<%=updateimagearray[0]%>" type="text"  />
       </span>
    <span style="margin-left:10px">          <input  name="competitions_user[workmedium]" id="artwork_medium<%=updateimagearray[7]%>"  value="<%=updateimagearray[1]%>" type="text" style="width:35px;height: 14px;">
