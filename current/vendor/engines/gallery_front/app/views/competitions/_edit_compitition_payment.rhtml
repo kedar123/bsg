@@ -4,14 +4,15 @@
 .changecolorgray{
   color: #444444;
   line-height: 25px;
-  font-size:14px;
+  font-size:10px;
   float:left;
   
 }
 
 #subbutton input{
-                                         clear:both;float:right;background-color:#0066ff;color:white;font-family:Trebuchet MS,Arial,Helvetica,sans-serif;
-                                       }
+  clear:both;float:right;background-color:#0066ff;
+  color:white;font-family:Trebuchet MS,Arial,Helvetica,sans-serif;
+ }
 
 </style>
 
@@ -38,8 +39,7 @@
                    if  (cmbv == "cash")
                    {
                       document.getElementById("changethelineinfo").innerHTML = "You will need to come into the gallery at 322 Brunswick St, Fitzroy to make your payment";
-                     <span id ="subbutton" style="">
-                                     <%=  submit_to_remote 'da_btn', "Next",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%></span>
+                     
                    }
                    if(cmbv == "cheque")
                    {
