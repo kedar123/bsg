@@ -38,7 +38,8 @@
                    if  (cmbv == "cash")
                    {
                       document.getElementById("changethelineinfo").innerHTML = "You will need to come into the gallery at 322 Brunswick St, Fitzroy to make your payment";
-                     
+                     <span id ="subbutton" style="">
+                                     <%=  submit_to_remote 'da_btn', "Next",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%></span>
                    }
                    if(cmbv == "cheque")
                    {
