@@ -103,9 +103,9 @@
       				 <%end%>			
                <div class="changecolorgray">
                         
-                 <br><br>
+                 
                       <%if order.total_entry != '0' and order.total_entry != nil%>
-                 <h4 style="color:#000000; float:right;">
+                 <h4 style="color:#000000; float:right;margin-top: 28px;margin-left: 10px;">
                           You Have Already Paid $<span id="rupees_paid"></span> For <%=order.total_entry %>&nbsp;&nbsp;Entries
                         </h4>
                       <%end%>
@@ -120,7 +120,7 @@
                      <%#end%>		  
 	            </div>--> 
 	            
-   	<select name="competitions_user[total_entry]" id="field-5da43579005846d" onChange="change_entry_fee_value();" style="width:65px;height:21px;margin-right:0px;font-size:15px;text-align: center;margin-top:10px;  margin-top: 65px;text-align: center;width: 159px;background-color: white;">
+   	<select name="competitions_user[total_entry]" id="field-5da43579005846d" onChange="change_entry_fee_value();" style="width:65px;height:21px;margin-right:0px;margin-left: -188px;font-size:15px;text-align: center;margin-top:95px;text-align: center;width: 159px;background-color: white;">
       								<option value="0">0</option>
         								     <%i=1%>
            									 <%entry_fees.each do |x|%>
@@ -135,7 +135,7 @@
 	      			<div style="float:left">
 	                	<input type="hidden" id="order_id" name="order_id" value="<%=order.id%>"/>		
 	          	</div>
-          <select id ="change_entry_fee" style="width:159px;font-size:15px;height:21px;margin-right:-60px;text-align: center;" disabled="disabled">
+          <select id ="change_entry_fee" style="width:159px;font-size:15px;height:21px;margin-right:-60px;text-align: center;margin-right: -49px;" disabled="disabled">
                           <option value="0">0</option>  
                            <%totalvalue = 0%>
                               <%entry_fees.each  do |x|%>
