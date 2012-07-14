@@ -1,0 +1,13 @@
+  <%if @competitions%>                         
+         <%for comp in @competitions%>
+                <div style="clear:both">
+                     <%=comp.title if comp%>
+                          <%=link_to_remote "DETAIL", :update => "",:url =>"/edit_images_back/#{comp.id}"
+                                 %>  
+                        <br/>
+          <%end%>
+                     </div>
+                 <div id="show_competition<%=comp.id if comp%>">
+                 </div>
+   
+         <%end%>

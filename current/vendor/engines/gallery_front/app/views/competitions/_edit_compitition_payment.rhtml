@@ -62,7 +62,7 @@
                    {
                       document.getElementById("changethelineinfo").innerHTML = "";
                    }
- show_div();
+// show_div();
            }
 
 						function change_entry_fee_value()
@@ -208,7 +208,16 @@
                                     </span>
                                      
                                     
+
                                      <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
+
+                                    <%= ff.text_field :verification_value, :label => 'Verification code (3 digits)' ,:value=>"123" ,:style=>"width:50px;height:16px;text-align:center;clear:both"%>
+                                    </div>
+            </div>
+                                              <div style="clear:both;float:left;padding-top:20px;">
+                                                  <%=  submit_to_remote 'da_btn', "Proceeddd",{ :url => "create_the_payment", :update =>'',:complete=>"document.getElementById  ('show_ajax_request').style.display='none'" ,:before=>"document.getElementById  ('show_ajax_request').style.display='block';"}%>
+                                               <div id="show_ajax_request" style="display:none;height:25px;width:20px;float:right;margin-left: 10px;">
+
                                                       <img alt="loading" src="/images/ajax-spinner.gif" height=20>
                                      </div> 
                                      
