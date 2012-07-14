@@ -293,7 +293,9 @@ ActionController::Routing::Routes.draw do |map|
     
     map.resources :front_end_pics  , :path_prefix => 'admin'
     map.connect "/front_end_pics",:controller=>"front_end_pics",:action=>"index"
-    
+    map.connect "/admin/competitions_users/:id/change_artwork_drop_or_send_value/:id/:cu",:controller=>"admin/competitions_users",:action=>"change_artwork_drop_or_send_value"  
+    map.connect "/admin/competitions_users/show_popup_image_upload/:id/:imgtitle",:controller=>"admin/competitions_users",:action=>"show_popup_image_upload"  
+
     map.connect "/admin/drawings/update/:id",:controller=>"drawings",:action=>"update"
     map.resources :drawings  , :path_prefix => 'admin'
     map.connect "/drawings",:controller=>"drawings",:action=>"index",:id=>"front"
@@ -466,6 +468,10 @@ ActionController::Routing::Routes.draw do |map|
 		admin.resources :competitions_subscriptions, :only => :none, :collection => { :validate => :post, :select => :get, :subscribe => :post , :enter => :get, :submit=> :post}
 		#admin.resources :competitions_subscriptions, :only => :none, :collection => { :validate => :post, :select => :get, :subscribe => :post }
 		admin.resources :competitions_users, :only => :none, :member => { :update_state => :get, :submit_artworks => :post, :artworks_wizard => :get }
+		admin.resources :competitions_users, :only => :none, :member => { :change_artwork_drop_or_send_value => :get }
+
+    
+
 		admin.resources :artworks_competitions, :only => :none, :member => { :update_state => :get, :group_selection => :get  }, :collection => { :set_marks => :post  }
     
     # Search related routes
