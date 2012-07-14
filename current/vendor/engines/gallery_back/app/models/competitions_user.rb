@@ -132,6 +132,9 @@ class CompetitionsUser < ActiveRecord::Base
 		if  !competitions_user["workimage"].blank?
 				self.save
 				dataname=self.id.to_s+competitions_user["workimage"].original_filename
+        p dataname
+        p "this is nill"
+        p i
 				name=dataname.split(".")[1]
 				isitimage=name =~ /jpg|jpeg|gif|png|JPG|JPEG|GIF|PNG|tiff|tif/
 					if  isitimage
