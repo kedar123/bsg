@@ -1,0 +1,44 @@
+<% blank_main_div(:title => 'Payment process', :hsize => 'sixH', :modal => true) do %>
+  
+
+<div id="editartwork<%=image_name %>" >
+ 
+  <div class="inputfont">
+
+ 
+
+    <form action="/edit_upload_the_artwork_to_competition"  method="post"  enctype="multipart/form-data" onsubmit=""  id="add_the_artwork_to_competition<%=image_name %>"  target="upload_frame<%=image_name %>" >  
+
+  
+    
+
+      <div class="changecolorgray">         
+	 Image
+      </div>
+      <input  name="competitions_user[workimage]" id="artwork_image<%=image_name %>" type="file" style="height: 28px;float:left"/>
+      <%=hidden_field_tag "competitionuserid",competitionuserid%>
+      <%=hidden_field_tag "titleforupdate",image_name   %>
+ 
+     
+       
+
+      <div style="float:left;padding-left:2px;">
+        <%= submit_tag 'Upload'%>
+      </div>  
+      <div style="display: none;padding-top:0px;" id="show_ajax_request<%=image_name %>">
+        <img height="20" src="/images/ajax-spinner.gif" alt="loading">
+      </div>
+
+      <br/>
+      <div style="clear:both;float:left;padding-right:5px;padding-top:5px;">
+        
+        <img src="/uploaded_files/competition/artwork/<%=artcompid%>/thumb/<%=image_url%>" width="90px" height="90px" />   
+        
+      </div>
+     
+
+  </div>
+</form>
+</div>
+<iframe id="'upload_frame<%=image_name %>"   name="upload_frame<%=image_name %>" style="width:1px;height:1px;display:none"></iframe>
+<%end%>

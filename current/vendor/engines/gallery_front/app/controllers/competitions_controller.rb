@@ -1488,6 +1488,7 @@ end
         image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
         image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
         image_arrayi << title_array[i]
+        image_arrayi << @competitions_user.id
         @image_array << image_arrayi
         counttodisplayviwform = counttodisplayviwform + 1
       else
@@ -1500,6 +1501,7 @@ end
         image_arrayi << @competitions_user.send(editionnamearray[i].to_sym)
         image_arrayi << @competitions_user.send(editionnumberarray[i].to_sym)
         image_arrayi << title_array[i]
+        image_arrayi << @competitions_user.id
         @image_array << image_arrayi
       end
       i=i+1
