@@ -464,8 +464,9 @@ class CompetitionsController < ApplicationController
 
       end   
       
-
+      
       credit_card.expiring_date = Date.civil(params[:credit_card]["expiring_date(1i)"].to_i,params[:credit_card]["expiring_date(2i)"].to_i,params[:credit_card]["expiring_date(3i)"].to_i).strftime("%y-%m-%d")       
+
       credit_card.first_name = params[:credit_card][:first_name]
       credit_card.last_name = params[:credit_card][:last_name]
       credit_card.verification_value = params[:credit_card][:verification_value]
@@ -1060,15 +1061,16 @@ end
     responds_to_parent do
       render :update do |page|
         if params[:user_id]
-          
+          p "swswswswswswswswswswswswsws"
            page.redirect_to "/admin/profiles/#{params[:user_id]}"
         else
             if  params[:titleforupdate].to_s.include? "image"
                    
                #page["editartwork"+params[:titleforupdate]].replace_html "<img src='/system/gallery/#{order.send(image_array[i])}' width='90px' height='90px' />"
                page.redirect_to "/"
-   
+               p "axaxaxaxaxaxaxax"
             else
+              p "swswswswswswsjhbjhbjhj"
                page["editartwork"+params[:titleforupdate]].replace_html :partial=>"editcompartwork",:locals=>{:competitionuser => params[:competitionuserid],:order_id=>order.id,:messageforimageuploaded=>"Your Artwork Is Changed",:updateimagearray=>updateimagearray}
         
             end        

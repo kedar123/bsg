@@ -27,7 +27,7 @@ function sendselectedoptiontocu(selectedid){
 }
 
   $(document).ready(function(){
-    $( "#tabs" ).tabs();
+    $("#tabs").tabs();
 	  <%if logged_in?%>
 	// All examples use the commit to function interface for ease of demonstration.
 	// If you want to try it against a server, just comment the callback: and 
@@ -35,65 +35,155 @@ function sendselectedoptiontocu(selectedid){
 	
 	// The most basic form of using the inPlaceEditor
 	
-	$("#first_name").editInPlace({
+	/*$("#first_name").editInPlace({
 		//callback: function(unused, enteredText) { return enteredText; },
+                 
 		 url: '/change_profile/'+"<%=current_user.profile.id%>"
+                  
 		 
 	});
+        */
+        	// Using a callback function to update 2 divs
+	$("#first_name").editInPlace({
+		callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}
+	});
+        
+        
 	
 	$("#last_name").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+		callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
 	});
 	
 	
 	$("#email_address").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+		callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
 	});
 	
 	$("#phone_number").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
-	});
+	callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}	});
 	
 	$("#website").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+	callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
 	});
 	
 	$("#address").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+		callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
 	});
 	
 	$("#suburb").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+	callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
 	});
 	
 	$("#zip_code").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+		callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
 	});
 	
 	$("#country_state").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+		callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
 	});
 	
 	$("#country").editInPlace({
-		//callback: function(unused, enteredText) { return enteredText; },
-		 url: '/change_profile/'+"<%=current_user.profile.id%>"
-		 
+	callback: function(original_element, html, original){
+			$("#show_ajax_request_user_details").show();//html("The original html was: " + original);
+                        jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, 
+                          success:function(request){jQuery('#').html(request);}, type:'get', 
+   url:'/change_profile?element_id='+original_element+'&&update_value='+html+'&&id='+'<%=current_user.profile.id%>'}); return false;
+ 
+			//$("#updateDiv2").html("The updated text is: " + html);
+                       //jQuery.ajax({data:'', error:function(request){jQuery('#error').html(request.responseText);}, success:function(request){jQuery('#').html(request);}, type:'get', url:'/admin/competitions_users/'+selectedid+'/change_artwork_drop_or_send_value/'+document.getElementById('selectdrop'+selectedid).options[si].value+'/'+selectedid}); return false;
+                         
+			//return(html);
+		}		 
        });
 	
 	<%end%>
@@ -119,7 +209,7 @@ function sendselectedoptiontocu(selectedid){
                                         </div>
                                          
             <%end%>                              
-          </div>
+    </div>
 	<ul>
 		<li><a href="#tabs-1">Details</a></li>
 		<li><a href="#tabs-2">Exhibitions</a></li>
@@ -312,3 +402,7 @@ function sendselectedoptiontocu(selectedid){
 </div></form></div>
 <%end%>
 </div>
+
+<div style="display: none;padding-top:2px;float:left;margin-left:11px;" id="show_ajax_request_home">
+   <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
+</div> 

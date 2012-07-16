@@ -8,7 +8,7 @@
   <b>First name </b>
 </td>
 <td valign="top">
-   <p id ="first_name">          
+   <p id ="first_name" >          
   <%=h current_user.profile.first_name if current_user%>
   </p>
 </td>
@@ -143,3 +143,6 @@
 </tr>
 
 </table>
+                       <div style="display: none;padding-top:2px;float:left;margin-left:11px;" id="show_ajax_request_user_details">
+                                   <img height="20" src="/images/ajax-spinner.gif" alt="loading"/>
+                       </div> 

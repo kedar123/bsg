@@ -23,7 +23,7 @@ class Admin::ProfilesController < Admin::ApplicationController
     p params
     p "this are my params"
        
-    render :text=>params[:update_value]
+   # render :text=>params[:update_value]
     
     puts params[:update_value]
     puts " Saving Data.......................................................>>>>>>>"
@@ -83,6 +83,11 @@ class Admin::ProfilesController < Admin::ApplicationController
                       profile.update_attribute('country',params[:update_value])    
                   end
                 
+     render :update do |page|
+       page[params[:element_id]].replace_html(params[:update_value])
+       page['show_ajax_request_user_details'].hide()
+     end
+
   end
   
   
