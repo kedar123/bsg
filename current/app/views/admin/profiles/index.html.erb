@@ -77,6 +77,12 @@
 
 <span id="current_symbol" style="padding-left:25px;"> 
 
+            
+<%=link_to_remote  image_tag("/images/exh.jpeg", :height => '15', :width => '15',:title=>"Add To New Exhibition"),  
+    :url => new_admin_exhibition_path() , :method=>:get
+%>
+  
+  
    <%=link_to_remote image_tag("/images/item2ad.gif",:width=>"15",:height=>"15",:alt=>"Not Found"), :update => "",:url =>"/admin/competitions/new",:method=>"get"
    %>
     
@@ -401,3 +407,6 @@ this i am copying but not sure why may be this requires at front end
      
    </div>
 -->
+
+<div id="updatepopup">
+  </div>

@@ -68,7 +68,7 @@
   <ul>
     <!--  <li><a href="#fragment-1"><span>Artworks</span></a></li>  -->
 
-    <li><a href="#fragment-1" ><span><%=@current_object.user.profile.first_name.to_s + " " + @current_object.user.profile.last_name.to_s%></span></a></li>
+    <li><a href="#fragment-1"><span><%=@current_object.user.profile.first_name.to_s + " " + @current_object.user.profile.last_name.to_s%></span></a></li>
     <li><a href="#fragment-2"><span>Exhibition</span></a></li>
     <li><a href="#fragment-3"><span>Competition</span></a></li>
     <li><a href="#fragment-4"><span>Artworks</span></a></li>
@@ -719,3 +719,5 @@ window.open("http://<%=request.host_with_port%>/add_the_artwork_for_compp","mywi
  });
 </script>
 
+<div id="updatepopup">
+  </div>
